@@ -8,7 +8,7 @@ on:
 
 jobs:
   ubuntu:
-    name: Ubuntu
+    name: Build base sysytem
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Source
@@ -16,8 +16,12 @@ jobs:
     - name: Update repository
       run: sudo apt-get update -y
     - name: Install the basic dev packages
-      run: sudo apt-get install -y equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++ libncurses5 libncurses5-dev make zlib1g-dev unzip traceroute
+      run: sudo apt-get install -y equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++ libncurses5 libncurses5-dev make zlib1g-dev unzip traceroute tree
     - name: Set config
       run: cp system/PRECONF ./.config
     - name: Build System
       run: make
+    - name: Done Build
+      run: |
+        ls output
+        tree output
