@@ -1,5 +1,5 @@
 config BR2_PACKAGE_MESA3D_HEADERS
-	bool
+	bool "mh"
 	help
 	  Mesa 3D, an open-source implementation of the OpenGL
 	  specification.
