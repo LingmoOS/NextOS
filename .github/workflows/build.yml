@@ -16,9 +16,9 @@ jobs:
     - name: Update repository
       run: sudo apt-get update -y
     - name: Install the basic dev packages
-      run: sudo apt-get install -y equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++ libncurses5 libncurses5-dev make zlib1g-dev unzip traceroute tree
+      run: sudo apt-get install -y cmake equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++ libncurses5 libncurses5-dev make zlib1g-dev unzip traceroute tree
     - name: Set config
-      run: cp system/PRECONF ./.config
+      run: cp system/mini_config ./.config
     - name: Build System
       run: make
     - name: Done Build
