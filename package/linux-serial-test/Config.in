@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LINUX_SERIAL_TEST
+config LINGMO_PACKAGE_LINUX_SERIAL_TEST
 	bool "linux-serial-test"
 	help
 	  Serial port test utility.

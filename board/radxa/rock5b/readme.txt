@@ -77,7 +77,7 @@ version 11:
 1. Set GCC version 11, by adding the following line to
 configs/rock5b_defconfig:
 
-BR2_GCC_VERSION_11_X=y
+LINGMO_GCC_VERSION_11_X=y
 
 2. Re-enable custom WiFi drivers by removing the following line from
 board/radxa/rock5b/linux.fragment:

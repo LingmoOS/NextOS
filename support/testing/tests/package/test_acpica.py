@@ -6,10 +6,10 @@ import infra.basetest
 class TestAcpica(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_PACKAGE_ACPICA=y
-        BR2_ROOTFS_OVERLAY="{}"
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_ACPICA=y
+        LINGMO_ROOTFS_OVERLAY="{}"
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """.format(
            # overlay to add an ASL source file
            infra.filepath("tests/package/test_acpica/rootfs-overlay"))

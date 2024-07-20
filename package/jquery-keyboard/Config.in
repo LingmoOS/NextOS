@@ -1,6 +1,6 @@
-config BR2_PACKAGE_JQUERY_KEYBOARD
+config LINGMO_PACKAGE_JQUERY_KEYBOARD
 	bool "jquery-keyboard"
-	select BR2_PACKAGE_JQUERY_UI
+	select LINGMO_PACKAGE_JQUERY_UI
 	help
 	  Virtual Keyboard using jQuery UI
 

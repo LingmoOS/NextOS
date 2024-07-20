@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_CRAYONS
+config LINGMO_PACKAGE_PYTHON_CRAYONS
 	bool "python-crayons"
 	help
 	  This module is really simple, it gives you

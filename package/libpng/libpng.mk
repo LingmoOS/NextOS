@@ -17,13 +17,13 @@ HOST_LIBPNG_DEPENDENCIES = host-pkgconf host-zlib
 LIBPNG_CONFIG_SCRIPTS = libpng$(LIBPNG_SERIES)-config libpng-config
 LIBPNG_CONF_OPTS = --disable-tools
 
-ifeq ($(BR2_ARM_CPU_HAS_NEON)$(BR2_aarch64),y)
+ifeq ($(LINGMO_ARM_CPU_HAS_NEON)$(LINGMO_aarch64),y)
 LIBPNG_CONF_OPTS += --enable-arm-neon
 else
 LIBPNG_CONF_OPTS += --disable-arm-neon
 endif
 
-ifeq ($(BR2_X86_CPU_HAS_SSE2),y)
+ifeq ($(LINGMO_X86_CPU_HAS_SSE2),y)
 LIBPNG_CONF_OPTS += --enable-intel-sse
 else
 LIBPNG_CONF_OPTS += --disable-intel-sse

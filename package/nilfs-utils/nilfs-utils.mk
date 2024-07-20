@@ -16,7 +16,7 @@ NILFS_UTILS_DEPENDENCIES = util-linux
 # We're patching sbin/cleanerd/Makefile.am
 NILFS_UTILS_AUTORECONF = YES
 
-ifeq ($(BR2_PACKAGE_LIBSELINUX),y)
+ifeq ($(LINGMO_PACKAGE_LIBSELINUX),y)
 NILFS_UTILS_CONF_OPTS += --with-selinux
 NILFS_UTILS_DEPENDENCIES += libselinux
 else

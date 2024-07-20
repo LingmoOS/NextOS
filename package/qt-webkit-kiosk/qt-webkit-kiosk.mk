@@ -20,7 +20,7 @@ define QT_WEBKIT_KIOSK_INSTALL_TARGET_CMDS
 	$(TARGET_MAKE_ENV) $(MAKE) -C $(@D) \
 		INSTALL_ROOT=$(TARGET_DIR) \
 		install_config \
-		$(if $(BR2_PACKAGE_QT_WEBKIT_KIOSK_SOUNDS),install_sound)
+		$(if $(LINGMO_PACKAGE_QT_WEBKIT_KIOSK_SOUNDS),install_sound)
 endef
 
 $(eval $(qmake-package))

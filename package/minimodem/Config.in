@@ -1,8 +1,8 @@
-config BR2_PACKAGE_MINIMODEM
+config LINGMO_PACKAGE_MINIMODEM
 	bool "minimodem"
-	select BR2_PACKAGE_FFTW
-	select BR2_PACKAGE_FFTW_SINGLE
-	select BR2_PACKAGE_LIBSNDFILE if !BR2_PACKAGE_ALSA_LIB_PCM && !BR2_PACKAGE_PULSEAUDIO
+	select LINGMO_PACKAGE_FFTW
+	select LINGMO_PACKAGE_FFTW_SINGLE
+	select LINGMO_PACKAGE_LIBSNDFILE if !LINGMO_PACKAGE_ALSA_LIB_PCM && !LINGMO_PACKAGE_PULSEAUDIO
 	help
 	  Minimodem is a command-line program which decodes (or
 	  generates) audio modem tones at any specified baud rate,

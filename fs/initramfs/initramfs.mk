@@ -26,7 +26,7 @@ rootfs-initramfs-show-depends:
 
 .PHONY: rootfs-initramfs rootfs-initramfs-show-depends
 
-ifeq ($(BR2_TARGET_ROOTFS_INITRAMFS),y)
+ifeq ($(LINGMO_TARGET_ROOTFS_INITRAMFS),y)
 TARGETS_ROOTFS += rootfs-initramfs
 endif
 

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_FALCON
+config LINGMO_PACKAGE_PYTHON_FALCON
 	bool "python-falcon"
 	help
 	  An unladen web framework for building APIs and app

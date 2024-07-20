@@ -15,47 +15,47 @@ FREERDP_INSTALL_STAGING = YES
 
 FREERDP_CONF_OPTS = -DWITH_MANPAGES=OFF -Wno-dev -DWITH_GSTREAMER_0_10=OFF
 
-ifeq ($(BR2_PACKAGE_FREERDP_GSTREAMER1),y)
+ifeq ($(LINGMO_PACKAGE_FREERDP_GSTREAMER1),y)
 FREERDP_CONF_OPTS += -DWITH_GSTREAMER_1_0=ON
 FREERDP_DEPENDENCIES += gstreamer1 gst1-plugins-base
 else
 FREERDP_CONF_OPTS += -DWITH_GSTREAMER_1_0=OFF
 endif
 
-ifeq ($(BR2_PACKAGE_CUPS),y)
+ifeq ($(LINGMO_PACKAGE_CUPS),y)
 FREERDP_CONF_OPTS += -DWITH_CUPS=ON
 FREERDP_DEPENDENCIES += cups
 else
 FREERDP_CONF_OPTS += -DWITH_CUPS=OFF
 endif
 
-ifeq ($(BR2_PACKAGE_FFMPEG),y)
+ifeq ($(LINGMO_PACKAGE_FFMPEG),y)
 FREERDP_CONF_OPTS += -DWITH_FFMPEG=ON
 FREERDP_DEPENDENCIES += ffmpeg
 else
 FREERDP_CONF_OPTS += -DWITH_FFMPEG=OFF
 endif
 
-ifeq ($(BR2_PACKAGE_ALSA_LIB_MIXER),y)
+ifeq ($(LINGMO_PACKAGE_ALSA_LIB_MIXER),y)
 FREERDP_CONF_OPTS += -DWITH_ALSA=ON
 FREERDP_DEPENDENCIES += alsa-lib
 else
 FREERDP_CONF_OPTS += -DWITH_ALSA=OFF
 endif
 
-ifeq ($(BR2_PACKAGE_LIBEXECINFO),y)
+ifeq ($(LINGMO_PACKAGE_LIBEXECINFO),y)
 FREERDP_CONF_OPTS += -DCMAKE_EXE_LINKER_FLAGS=-lexecinfo
 FREERDP_DEPENDENCIES += libexecinfo
 endif
 
-ifeq ($(BR2_PACKAGE_LIBUSB),y)
+ifeq ($(LINGMO_PACKAGE_LIBUSB),y)
 FREERDP_CONF_OPTS += -DCHANNEL_URBDRC=ON
 FREERDP_DEPENDENCIES += libusb
 else
 FREERDP_CONF_OPTS += -DCHANNEL_URBDRC=OFF
 endif
 
-ifeq ($(BR2_PACKAGE_PULSEAUDIO),y)
+ifeq ($(LINGMO_PACKAGE_PULSEAUDIO),y)
 FREERDP_CONF_OPTS += -DWITH_PULSE=ON
 FREERDP_DEPENDENCIES += pulseaudio
 else
@@ -63,26 +63,26 @@ FREERDP_CONF_OPTS += -DWITH_PULSE=OFF
 endif
 
 # For the systemd journal
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 FREERDP_CONF_OPTS += -DWITH_LIBSYSTEMD=ON
 FREERDP_DEPENDENCIES += systemd
 else
 FREERDP_CONF_OPTS += -DWITH_LIBSYSTEMD=OFF
 endif
 
-ifeq ($(BR2_ARM_CPU_HAS_NEON),y)
+ifeq ($(LINGMO_ARM_CPU_HAS_NEON),y)
 FREERDP_CONF_OPTS += -DWITH_NEON=ON
 else
 FREERDP_CONF_OPTS += -DWITH_NEON=OFF
 endif
 
-ifeq ($(BR2_X86_CPU_HAS_SSE2),y)
+ifeq ($(LINGMO_X86_CPU_HAS_SSE2),y)
 FREERDP_CONF_OPTS += -DWITH_SSE2=ON
 else
 FREERDP_CONF_OPTS += -DWITH_SSE2=OFF
 endif
 
-ifeq ($(BR2_arm)$(BR2_armeb),y)
+ifeq ($(LINGMO_arm)$(LINGMO_armeb),y)
 FREERDP_CONF_OPTS += -DARM_FP_ABI=$(GCC_TARGET_FLOAT_ABI)
 endif
 
@@ -94,11 +94,11 @@ endif
 FREERDP_CONF_OPTS += -DWITH_SERVER_INTERFACE=ON
 FREERDP_CONF_OPTS += -DWITH_CLIENT_INTERFACE=ON
 
-ifeq ($(BR2_PACKAGE_FREERDP_SERVER),y)
+ifeq ($(LINGMO_PACKAGE_FREERDP_SERVER),y)
 FREERDP_CONF_OPTS += -DWITH_SERVER=ON
 endif
 
-ifneq ($(BR2_PACKAGE_FREERDP_CLIENT_X11)$(BR2_PACKAGE_FREERDP_CLIENT_WL),)
+ifneq ($(LINGMO_PACKAGE_FREERDP_CLIENT_X11)$(LINGMO_PACKAGE_FREERDP_CLIENT_WL),)
 FREERDP_CONF_OPTS += -DWITH_CLIENT=ON
 endif
 
@@ -124,7 +124,7 @@ endif
 # Xorg is enabled but neither the server nor the X client are, then
 # there's nothing that guarantees those two libs are enabled. So we
 # really must check for them.
-ifeq ($(BR2_PACKAGE_XLIB_LIBX11)$(BR2_PACKAGE_XLIB_LIBXEXT),yy)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBX11)$(LINGMO_PACKAGE_XLIB_LIBXEXT),yy)
 FREERDP_DEPENDENCIES += xlib_libX11 xlib_libXext
 FREERDP_CONF_OPTS += -DWITH_X11=ON
 else
@@ -134,77 +134,77 @@ endif
 # The following libs are either optional or mandatory only for either
 # the server or the client. A mandatory library for either one is
 # selected from Kconfig, so we can make it conditional here
-ifeq ($(BR2_PACKAGE_XLIB_LIBXCURSOR),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXCURSOR),y)
 FREERDP_CONF_OPTS += -DWITH_XCURSOR=ON
 FREERDP_DEPENDENCIES += xlib_libXcursor
 else
 FREERDP_CONF_OPTS += -DWITH_XCURSOR=OFF
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXDAMAGE),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXDAMAGE),y)
 FREERDP_CONF_OPTS += -DWITH_XDAMAGE=ON
 FREERDP_DEPENDENCIES += xlib_libXdamage
 else
 FREERDP_CONF_OPTS += -DWITH_XDAMAGE=OFF
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXFIXES),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXFIXES),y)
 FREERDP_CONF_OPTS += -DWITH_XFIXES=ON
 FREERDP_DEPENDENCIES += xlib_libXfixes
 else
 FREERDP_CONF_OPTS += -DWITH_XFIXES=OFF
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXI),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXI),y)
 FREERDP_CONF_OPTS += -DWITH_XI=ON
 FREERDP_DEPENDENCIES += xlib_libXi
 else
 FREERDP_CONF_OPTS += -DWITH_XI=OFF
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXINERAMA),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXINERAMA),y)
 FREERDP_CONF_OPTS += -DWITH_XINERAMA=ON
 FREERDP_DEPENDENCIES += xlib_libXinerama
 else
 FREERDP_CONF_OPTS += -DWITH_XINERAMA=OFF
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXKBFILE),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXKBFILE),y)
 FREERDP_CONF_OPTS += -DWITH_XKBFILE=ON
 FREERDP_DEPENDENCIES += xlib_libxkbfile
 else
 FREERDP_CONF_OPTS += -DWITH_XKBFILE=OFF
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXRANDR),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXRANDR),y)
 FREERDP_CONF_OPTS += -DWITH_XRANDR=ON
 FREERDP_DEPENDENCIES += xlib_libXrandr
 else
 FREERDP_CONF_OPTS += -DWITH_XRANDR=OFF
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXRENDER),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXRENDER),y)
 FREERDP_CONF_OPTS += -DWITH_XRENDER=ON
 FREERDP_DEPENDENCIES += xlib_libXrender
 else
 FREERDP_CONF_OPTS += -DWITH_XRENDER=OFF
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXTST),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXTST),y)
 FREERDP_CONF_OPTS += -DWITH_XTEST=ON
 FREERDP_DEPENDENCIES += xlib_libXtst
 else
 FREERDP_CONF_OPTS += -DWITH_XTEST=OFF
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXV),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXV),y)
 FREERDP_CONF_OPTS += -DWITH_XV=ON
 FREERDP_DEPENDENCIES += xlib_libXv
 else
 FREERDP_CONF_OPTS += -DWITH_XV=OFF
 endif
 
-ifeq ($(BR2_PACKAGE_FREERDP_CLIENT_WL),y)
+ifeq ($(LINGMO_PACKAGE_FREERDP_CLIENT_WL),y)
 FREERDP_DEPENDENCIES += wayland libxkbcommon
 FREERDP_CONF_OPTS += \
 	-DWITH_WAYLAND=ON \
@@ -218,7 +218,7 @@ endif
 
 # Shadow server is always installed, no matter what, so we manually
 # remove it if the user does not want the server.
-ifeq ($(BR2_PACKAGE_FREERDP_SERVER),)
+ifeq ($(LINGMO_PACKAGE_FREERDP_SERVER),)
 define FREERDP_RM_SHADOW_SERVER
 	rm -f $(TARGET_DIR)/usr/bin/freerdp-shadow
 endef
@@ -228,7 +228,7 @@ endif # ! server
 # X client is always built as soon as a client is enabled and the
 # necessary libs are enabled (e.g. because of the server), so manually
 # remove it if the user does not want it.
-ifeq ($(BR2_PACKAGE_FREERDP_CLIENT_X11),)
+ifeq ($(LINGMO_PACKAGE_FREERDP_CLIENT_X11),)
 define FREERDP_RM_CLIENT_X11
 	rm -f $(TARGET_DIR)/usr/bin/xfreerdp
 	rm -f $(TARGET_DIR)/usr/lib/libxfreerdp-client*
@@ -242,7 +242,7 @@ endif # ! X client
 
 # Wayland client is always built as soon as wayland is enabled, so
 # manually remove it if the user does not want it.
-ifeq ($(BR2_PACKAGE_FREERDP_CLIENT_WL),)
+ifeq ($(LINGMO_PACKAGE_FREERDP_CLIENT_WL),)
 define FREERDP_RM_CLIENT_WL
 	rm -f $(TARGET_DIR)/usr/bin/wlfreerdp
 endef

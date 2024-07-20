@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUA_MARKDOWN
+config LINGMO_PACKAGE_LUA_MARKDOWN
 	bool "lua-markdown"
 	help
 	  A pure-lua implementation of the Markdown text-to-html

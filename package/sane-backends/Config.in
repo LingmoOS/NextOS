@@ -1,7 +1,7 @@
-config BR2_PACKAGE_SANE_BACKENDS
+config LINGMO_PACKAGE_SANE_BACKENDS
 	bool "sane-backends"
-	depends on BR2_USE_MMU # fork()
-	depends on !BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU # fork()
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  SANE - Scanner Access Now Easy
 
@@ -12,5 +12,5 @@ config BR2_PACKAGE_SANE_BACKENDS
 	  dbus and libglib2), and netsnmp.
 
 comment "sane-backends needs a toolchain w/ dynamic library"
-	depends on BR2_USE_MMU
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_STATIC_LIBS

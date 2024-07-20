@@ -3,8 +3,8 @@
 
 myname=${0##*/}
 
-# If no prefix forced, use the default BR2_
-BR2_PREFIX="${BR2_PREFIX-BR2_}"
+# If no prefix forced, use the default LINGMO_
+LINGMO_PREFIX="${LINGMO_PREFIX-LINGMO_}"
 
 usage() {
 	cat >&2 <<EOL
@@ -31,7 +31,7 @@ commands:
 options:
 	--file config-file   .config file to change (default .config)
 	--keep-case|-k       Keep next symbols' case (dont' upper-case it)
-	--package|-p         Operate on package (set prefix to BR2_PACKAGE_)
+	--package|-p         Operate on package (set prefix to LINGMO_PACKAGE_)
 
 $myname doesn't check the validity of the .config file. This is done at next
 make time.
@@ -39,8 +39,8 @@ make time.
 By default, $myname will upper-case the given symbol. Use --keep-case to keep
 the case of all following symbols unchanged.
 
-$myname uses 'BR2_' as the default symbol prefix. Set the environment
-variable BR2_PREFIX to the prefix to use. Eg.: BR2_PREFIX="FOO_" $myname ...
+$myname uses 'LINGMO_' as the default symbol prefix. Set the environment
+variable LINGMO_PREFIX to the prefix to use. Eg.: LINGMO_PREFIX="FOO_" $myname ...
 EOL
 	exit 1
 }
@@ -54,8 +54,8 @@ checkarg() {
 		ARG="$(echo "$ARG" | tr a-z- A-Z_)"
 	fi
 	case "$ARG" in
-	${BR2_PREFIX}*)
-		ARG="${ARG/${BR2_PREFIX}/}"
+	${LINGMO_PREFIX}*)
+		ARG="${ARG/${LINGMO_PREFIX}/}"
 		;;
 	esac
 }
@@ -133,7 +133,7 @@ while [ "$1" != "" ] ; do
 		continue
 		;;
 	--package|-p)
-		BR2_PREFIX="BR2_PACKAGE_"
+		LINGMO_PREFIX="LINGMO_PACKAGE_"
 		continue
 		;;
 	--*-after|-E|-D|-M)
@@ -150,33 +150,33 @@ while [ "$1" != "" ] ; do
 	esac
 	case "$CMD" in
 	--enable|-e)
-		set_var "${BR2_PREFIX}$ARG" "${BR2_PREFIX}$ARG=y"
+		set_var "${LINGMO_PREFIX}$ARG" "${LINGMO_PREFIX}$ARG=y"
 		;;
 
 	--disable|-d)
-		set_var "${BR2_PREFIX}$ARG" "# ${BR2_PREFIX}$ARG is not set"
+		set_var "${LINGMO_PREFIX}$ARG" "# ${LINGMO_PREFIX}$ARG is not set"
 		;;
 
 	--set-str)
 		# sed swallows one level of escaping, so we need double-escaping
-		set_var "${BR2_PREFIX}$ARG" "${BR2_PREFIX}$ARG=\"${1//\"/\\\\\"}\""
+		set_var "${LINGMO_PREFIX}$ARG" "${LINGMO_PREFIX}$ARG=\"${1//\"/\\\\\"}\""
 		shift
 		;;
 
 	--set-val)
-		set_var "${BR2_PREFIX}$ARG" "${BR2_PREFIX}$ARG=$1"
+		set_var "${LINGMO_PREFIX}$ARG" "${LINGMO_PREFIX}$ARG=$1"
 		shift
 		;;
 	--undefine|-u)
-		undef_var "${BR2_PREFIX}$ARG"
+		undef_var "${LINGMO_PREFIX}$ARG"
 		;;
 
 	--state|-s)
-		if grep -q "# ${BR2_PREFIX}$ARG is not set" $FN ; then
+		if grep -q "# ${LINGMO_PREFIX}$ARG is not set" $FN ; then
 			echo n
 		else
-			if V="$(grep "^${BR2_PREFIX}$ARG=" $FN)"; then
-				V="${V/#${BR2_PREFIX}$ARG=/}"
+			if V="$(grep "^${LINGMO_PREFIX}$ARG=" $FN)"; then
+				V="${V/#${LINGMO_PREFIX}$ARG=/}"
 				V="${V/#\"/}"
 				V="${V/%\"/}"
 				V="${V//\\\"/\"}"
@@ -188,11 +188,11 @@ while [ "$1" != "" ] ; do
 		;;
 
 	--enable-after|-E)
-		set_var "${BR2_PREFIX}$B" "${BR2_PREFIX}$B=y" "${BR2_PREFIX}$A"
+		set_var "${LINGMO_PREFIX}$B" "${LINGMO_PREFIX}$B=y" "${LINGMO_PREFIX}$A"
 		;;
 
 	--disable-after|-D)
-		set_var "${BR2_PREFIX}$B" "# ${BR2_PREFIX}$B is not set" "${BR2_PREFIX}$A"
+		set_var "${LINGMO_PREFIX}$B" "# ${LINGMO_PREFIX}$B is not set" "${LINGMO_PREFIX}$A"
 		;;
 
 	*)

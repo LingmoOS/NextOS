@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBDEFLATE
+config LINGMO_PACKAGE_LIBDEFLATE
 	bool "libdeflate"
 	help
 	  Libdeflate is a heavily optimized library for DEFLATE/zlib/

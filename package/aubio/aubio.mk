@@ -26,7 +26,7 @@ AUBIO_NEEDS_EXTERNAL_WAF = YES
 # build machine.
 AUBIO_WAF_OPTS = --notests
 
-ifeq ($(BR2_PACKAGE_LIBSNDFILE),y)
+ifeq ($(LINGMO_PACKAGE_LIBSNDFILE),y)
 AUBIO_DEPENDENCIES += libsndfile
 AUBIO_CONF_OPTS += --enable-sndfile
 else
@@ -34,14 +34,14 @@ AUBIO_CONF_OPTS += --disable-sndfile
 endif
 
 # Could not compile aubio in double precision mode with libsamplerate
-ifeq ($(BR2_PACKAGE_LIBSAMPLERATE):$(BR2_PACKAGE_FFTW_DOUBLE),y:)
+ifeq ($(LINGMO_PACKAGE_LIBSAMPLERATE):$(LINGMO_PACKAGE_FFTW_DOUBLE),y:)
 AUBIO_DEPENDENCIES += libsamplerate
 AUBIO_CONF_OPTS += --enable-samplerate
 else
 AUBIO_CONF_OPTS += --disable-samplerate
 endif
 
-ifeq ($(BR2_PACKAGE_JACK2),y)
+ifeq ($(LINGMO_PACKAGE_JACK2),y)
 AUBIO_DEPENDENCIES += jack2
 AUBIO_CONF_OPTS += --enable-jack
 else
@@ -49,17 +49,17 @@ AUBIO_CONF_OPTS += --disable-jack
 endif
 
 # fftw3 require double otherwise it will look for fftw3f
-ifeq ($(BR2_PACKAGE_FFTW_DOUBLE),y)
+ifeq ($(LINGMO_PACKAGE_FFTW_DOUBLE),y)
 AUBIO_CONF_OPTS += --enable-fftw3 --enable-double
 AUBIO_DEPENDENCIES += fftw-double
-else ifeq ($(BR2_PACKAGE_FFTW_SINGLE),y)
+else ifeq ($(LINGMO_PACKAGE_FFTW_SINGLE),y)
 AUBIO_CONF_OPTS += --enable-fftw3f --disable-double
 AUBIO_DEPENDENCIES += fftw-single
 else
 AUBIO_CONF_OPTS += --disable-fftw3
 endif
 
-ifeq ($(BR2_PACKAGE_FFMPEG_AVRESAMPLE),y)
+ifeq ($(LINGMO_PACKAGE_FFMPEG_AVRESAMPLE),y)
 AUBIO_DEPENDENCIES += ffmpeg
 AUBIO_CONF_OPTS += --enable-avcodec
 else

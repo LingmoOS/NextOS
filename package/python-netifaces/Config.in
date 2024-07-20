@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_NETIFACES
+config LINGMO_PACKAGE_PYTHON_NETIFACES
 	bool "python-netifaces"
 	help
 	  Portable access to network interfaces from Python.

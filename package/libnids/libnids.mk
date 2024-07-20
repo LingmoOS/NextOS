@@ -18,7 +18,7 @@ LIBNIDS_AUTORECONF = YES
 # not an installation patch like in our context.
 # We use with-libnet=yes to skip the unusual paths tests.
 # But 'LNETLIB' gets left out, so we need to define it ourselves.
-ifeq ($(BR2_PACKAGE_LIBNET),y)
+ifeq ($(LINGMO_PACKAGE_LIBNET),y)
 LIBNIDS_DEPENDENCIES += libnet
 LIBNIDS_CONF_OPTS += --enable-libnet --with-libnet=yes LNETLIB=-lnet
 else
@@ -29,7 +29,7 @@ endif
 # The test in configure.in is flawed: passing --enable-libglib would also
 # disable it. Only when neither is passed will the autodetection test be
 # executed.
-ifeq ($(BR2_PACKAGE_LIBGLIB2),y)
+ifeq ($(LINGMO_PACKAGE_LIBGLIB2),y)
 LIBNIDS_DEPENDENCIES += libglib2
 else
 LIBNIDS_CONF_OPTS += --disable-libglib

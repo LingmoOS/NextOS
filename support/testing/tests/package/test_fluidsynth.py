@@ -10,24 +10,24 @@ class TestFluidsynth(infra.basetest.BRTest):
     # loaded in memory).
     config = \
         """
-        BR2_aarch64=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
-        BR2_LINUX_KERNEL=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE="5.15.86"
-        BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
-        BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/qemu/aarch64-virt/linux.config"
-        BR2_LINUX_KERNEL_NEEDS_HOST_OPENSSL=y
-        BR2_PACKAGE_AUBIO=y
-        BR2_PACKAGE_FLUIDSYNTH=y
-        BR2_PACKAGE_FLUIDSYNTH_LIBSNDFILE=y
-        BR2_PACKAGE_FLUID_SOUNDFONT=y
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_PYTHON_MIDIUTIL=y
-        BR2_ROOTFS_OVERLAY="{}"
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_aarch64=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
+        LINGMO_LINUX_KERNEL=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION_VALUE="5.15.86"
+        LINGMO_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
+        LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/qemu/aarch64-virt/linux.config"
+        LINGMO_LINUX_KERNEL_NEEDS_HOST_OPENSSL=y
+        LINGMO_PACKAGE_AUBIO=y
+        LINGMO_PACKAGE_FLUIDSYNTH=y
+        LINGMO_PACKAGE_FLUIDSYNTH_LIBSNDFILE=y
+        LINGMO_PACKAGE_FLUID_SOUNDFONT=y
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON_MIDIUTIL=y
+        LINGMO_ROOTFS_OVERLAY="{}"
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """.format(
            # overlay to add helper test scripts
            infra.filepath("tests/package/test_fluidsynth/rootfs-overlay"))

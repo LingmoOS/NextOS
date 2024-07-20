@@ -15,20 +15,20 @@ LIBGLFW_CONF_OPTS += \
 	-DGLFW_BUILD_TESTS=OFF \
 	-DGLFW_BUILD_DOCS=OFF
 
-ifeq ($(BR2_PACKAGE_XORG7),y)
+ifeq ($(LINGMO_PACKAGE_XORG7),y)
 LIBGLFW_DEPENDENCIES += xlib_libXcursor xlib_libXext \
 	xlib_libXi xlib_libXinerama xlib_libXrandr
 endif
 
-ifeq ($(BR2_PACKAGE_HAS_LIBGL),y)
+ifeq ($(LINGMO_PACKAGE_HAS_LIBGL),y)
 LIBGLFW_DEPENDENCIES += libgl
 endif
 
-ifeq ($(BR2_PACKAGE_HAS_LIBGLES),y)
+ifeq ($(LINGMO_PACKAGE_HAS_LIBGLES),y)
 LIBGLFW_DEPENDENCIES += libgles
 endif
 
-ifeq ($(BR2_PACKAGE_WAYLAND),y)
+ifeq ($(LINGMO_PACKAGE_WAYLAND),y)
 LIBGLFW_DEPENDENCIES += libxkbcommon wayland wayland-protocols
 # Override pkg-config pkgdatadir variable, it needs the prefix
 LIBGLFW_CONF_OPTS += \
@@ -36,7 +36,7 @@ LIBGLFW_CONF_OPTS += \
 	-DWAYLAND_PROTOCOLS_BASE=$(STAGING_DIR)/usr/share/wayland-protocols
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXXF86VM),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXXF86VM),y)
 LIBGLFW_DEPENDENCIES += xlib_libXxf86vm
 endif
 

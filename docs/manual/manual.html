@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>The Buildroot user manual</title><link rel="stylesheet" type="text/css" href="docbook-xsl.css" /><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot" /></head><body><div xml:lang="en" class="book" lang="en"><div class="titlepage"><div><div><h1 class="title"><a id="idm1"></a>The Buildroot user manual</h1></div></div><hr /></div><div class="toc"><p><strong>Table of Contents</strong></p><dl class="toc"><dt><span class="preface"><a href="#idm4"></a></span></dt><dt><span class="part"><a href="#_getting_started">I. Getting started</a></span></dt><dd><dl><dt><span class="chapter"><a href="#_about_buildroot">1. About Buildroot</a></span></dt><dt><span class="chapter"><a href="#requirement">2. System requirements</a></span></dt><dd><dl><dt><span class="section"><a href="#requirement-mandatory">2.1. Mandatory packages</a></span></dt><dt><span class="section"><a href="#requirement-optional">2.2. Optional packages</a></span></dt></dl></dd><dt><span class="chapter"><a href="#getting-buildroot">3. Getting Buildroot</a></span></dt><dt><span class="chapter"><a href="#_buildroot_quick_start">4. Buildroot quick start</a></span></dt><dt><span class="chapter"><a href="#community-resources">5. Community resources</a></span></dt></dl></dd><dt><span class="part"><a href="#_user_guide">II. User guide</a></span></dt><dd><dl><dt><span class="chapter"><a href="#configure">6. Buildroot configuration</a></span></dt><dd><dl><dt><span class="section"><a href="#_cross_compilation_toolchain">6.1. Cross-compilation toolchain</a></span></dt><dt><span class="section"><a href="#_dev_management">6.2. /dev management</a></span></dt><dt><span class="section"><a href="#init-system">6.3. init system</a></span></dt></dl></dd><dt><span class="chapter"><a href="#_configuration_of_other_components">7. Configuration of other components</a></span></dt><dt><span class="chapter"><a href="#_general_buildroot_usage">8. General Buildroot usage</a></span></dt><dd><dl><dt><span class="section"><a href="#make-tips">8.1. <span class="emphasis"><em>make</em></span> tips</a></span></dt><dt><span class="section"><a href="#full-rebuild">8.2. Understanding when a full rebuild is necessary</a></span></dt><dt><span class="section"><a href="#rebuild-pkg">8.3. Understanding how to rebuild packages</a></span></dt><dt><span class="section"><a href="#_offline_builds">8.4. Offline builds</a></span></dt><dt><span class="section"><a href="#_building_out_of_tree">8.5. Building out-of-tree</a></span></dt><dt><span class="section"><a href="#env-vars">8.6. Environment variables</a></span></dt><dt><span class="section"><a href="#_dealing_efficiently_with_filesystem_images">8.7. Dealing efficiently with filesystem images</a></span></dt><dt><span class="section"><a href="#_details_about_packages">8.8. Details about packages</a></span></dt><dt><span class="section"><a href="#_graphing_the_dependencies_between_packages">8.9. Graphing the dependencies between packages</a></span></dt><dt><span class="section"><a href="#_graphing_the_build_duration">8.10. Graphing the build duration</a></span></dt><dt><span class="section"><a href="#graph-size">8.11. Graphing the filesystem size contribution of packages</a></span></dt><dt><span class="section"><a href="#top-level-parallel-build">8.12. Top-level parallel build</a></span></dt><dt><span class="section"><a href="#_advanced_usage">8.13. Advanced usage</a></span></dt></dl></dd><dt><span class="chapter"><a href="#customize">9. Project-specific customization</a></span></dt><dd><dl><dt><span class="section"><a href="#customize-dir-structure">9.1. Recommended directory structure</a></span></dt><dt><span class="section"><a href="#outside-br-custom">9.2. Keeping customizations outside of Buildroot</a></span></dt><dt><span class="section"><a href="#customize-store-buildroot-config">9.3. Storing the Buildroot configuration</a></span></dt><dt><span class="section"><a href="#customize-store-package-config">9.4. Storing the configuration of other components</a></span></dt><dt><span class="section"><a href="#rootfs-custom">9.5. Customizing the generated target filesystem</a></span></dt><dt><span class="section"><a href="#customize-users">9.6. Adding custom user accounts</a></span></dt><dt><span class="section"><a href="#_customization_emphasis_after_emphasis_the_images_have_been_created">9.7. Customization <span class="emphasis"><em>after</em></span> the images have been created</a></span></dt><dt><span class="section"><a href="#_adding_project_specific_patches_and_hashes">9.8. Adding project-specific patches and hashes</a></span></dt><dt><span class="section"><a href="#customize-packages">9.9. Adding project-specific packages</a></span></dt><dt><span class="section"><a href="#_quick_guide_to_storing_your_project_specific_customizations">9.10. Quick guide to storing your project-specific customizations</a></span></dt></dl></dd><dt><span class="chapter"><a href="#integration">10. Integration topics</a></span></dt><dd><dl><dt><span class="section"><a href="#integration-systemd">10.1. Systemd</a></span></dt><dt><span class="section"><a href="#selinux">10.2. Using SELinux in Buildroot</a></span></dt></dl></dd><dt><span class="chapter"><a href="#_frequently_asked_questions_amp_troubleshooting">11. Frequently Asked Questions &amp; Troubleshooting</a></span></dt><dd><dl><dt><span class="section"><a href="#faq-boot-hang-after-starting">11.1. The boot hangs after <span class="emphasis"><em>Starting network…</em></span></a></span></dt><dt><span class="section"><a href="#faq-no-compiler-on-target">11.2. Why is there no compiler on the target?</a></span></dt><dt><span class="section"><a href="#faq-no-dev-files-on-target">11.3. Why are there no development files on the target?</a></span></dt><dt><span class="section"><a href="#faq-no-doc-on-target">11.4. Why is there no documentation on the target?</a></span></dt><dt><span class="section"><a href="#faq-why-not-visible-package">11.5. Why are some packages not visible in the Buildroot config menu?</a></span></dt><dt><span class="section"><a href="#faq-why-not-use-target-as-chroot">11.6. Why not use the target directory as a chroot directory?</a></span></dt><dt><span class="section"><a href="#faq-no-binary-packages">11.7. Why doesn’t Buildroot generate binary packages (.deb, .ipkg…)?</a></span></dt><dt><span class="section"><a href="#faq-speeding-up-build">11.8. How to speed-up the build process?</a></span></dt><dt><span class="section"><a href="#faq-2038">11.9. How does Buildroot support Y2038?</a></span></dt></dl></dd><dt><span class="chapter"><a href="#_known_issues">12. Known issues</a></span></dt><dt><span class="chapter"><a href="#legal-info">13. Legal notice and licensing</a></span></dt><dd><dl><dt><span class="section"><a href="#_complying_with_open_source_licenses">13.1. Complying with open source licenses</a></span></dt><dt><span class="section"><a href="#legal-info-buildroot">13.2. Complying with the Buildroot license</a></span></dt></dl></dd><dt><span class="chapter"><a href="#_beyond_buildroot">14. Beyond Buildroot</a></span></dt><dd><dl><dt><span class="section"><a href="#_boot_the_generated_images">14.1. Boot the generated images</a></span></dt><dt><span class="section"><a href="#_chroot">14.2. Chroot</a></span></dt></dl></dd></dl></dd><dt><span class="part"><a href="#_developer_guide">III. Developer guide</a></span></dt><dd><dl><dt><span class="chapter"><a href="#_how_buildroot_works">15. How Buildroot works</a></span></dt><dt><span class="chapter"><a href="#_coding_style">16. Coding style</a></span></dt><dd><dl><dt><span class="section"><a href="#writing-rules-config-in">16.1. <code class="literal">Config.in</code> file</a></span></dt><dt><span class="section"><a href="#writing-rules-mk">16.2. The <code class="literal">.mk</code> file</a></span></dt><dt><span class="section"><a href="#writing-genimage-cfg">16.3. The <code class="literal">genimage.cfg</code> file</a></span></dt><dt><span class="section"><a href="#_the_documentation">16.4. The documentation</a></span></dt><dt><span class="section"><a href="#_support_scripts">16.5. Support scripts</a></span></dt></dl></dd><dt><span class="chapter"><a href="#adding-board-support">17. Adding support for a particular board</a></span></dt><dt><span class="chapter"><a href="#adding-packages">18. Adding new packages to Buildroot</a></span></dt><dd><dl><dt><span class="section"><a href="#_package_directory">18.1. Package directory</a></span></dt><dt><span class="section"><a href="#_config_files">18.2. Config files</a></span></dt><dt><span class="section"><a href="#_the_literal_mk_literal_file">18.3. The <code class="literal">.mk</code> file</a></span></dt><dt><span class="section"><a href="#adding-packages-hash">18.4. The <code class="literal">.hash</code> file</a></span></dt><dt><span class="section"><a href="#adding-packages-start-script">18.5. The <code class="literal">SNNfoo</code> start script</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_packages_with_specific_build_systems">18.6. Infrastructure for packages with specific build systems</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_autotools_based_packages">18.7. Infrastructure for autotools-based packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_cmake_based_packages">18.8. Infrastructure for CMake-based packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_python_packages">18.9. Infrastructure for Python packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_luarocks_based_packages">18.10. Infrastructure for LuaRocks-based packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_perl_cpan_packages">18.11. Infrastructure for Perl/CPAN packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_virtual_packages">18.12. Infrastructure for virtual packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_packages_using_kconfig_for_configuration_files">18.13. Infrastructure for packages using kconfig for configuration files</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_rebar_based_packages">18.14. Infrastructure for rebar-based packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_waf_based_packages">18.15. Infrastructure for Waf-based packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_meson_based_packages">18.16. Infrastructure for Meson-based packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_cargo_based_packages">18.17. Infrastructure for Cargo-based packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_go_packages">18.18. Infrastructure for Go packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_qmake_based_packages">18.19. Infrastructure for QMake-based packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_packages_building_kernel_modules">18.20. Infrastructure for packages building kernel modules</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_asciidoc_documents">18.21. Infrastructure for asciidoc documents</a></span></dt><dt><span class="section"><a href="#linux-kernel-specific-infra">18.22. Infrastructure specific to the Linux kernel package</a></span></dt><dt><span class="section"><a href="#hooks">18.23. Hooks available in the various build steps</a></span></dt><dt><span class="section"><a href="#_gettext_integration_and_interaction_with_packages">18.24. Gettext integration and interaction with packages</a></span></dt><dt><span class="section"><a href="#_tips_and_tricks">18.25. Tips and tricks</a></span></dt><dt><span class="section"><a href="#_conclusion">18.26. Conclusion</a></span></dt></dl></dd><dt><span class="chapter"><a href="#patch-policy">19. Patching a package</a></span></dt><dd><dl><dt><span class="section"><a href="#_providing_patches">19.1. Providing patches</a></span></dt><dt><span class="section"><a href="#patch-apply-order">19.2. How patches are applied</a></span></dt><dt><span class="section"><a href="#_format_and_licensing_of_the_package_patches">19.3. Format and licensing of the package patches</a></span></dt><dt><span class="section"><a href="#_additional_patch_documentation">19.4. Additional patch documentation</a></span></dt></dl></dd><dt><span class="chapter"><a href="#download-infra">20. Download infrastructure</a></span></dt><dt><span class="chapter"><a href="#debugging-buildroot">21. Debugging Buildroot</a></span></dt><dt><span class="chapter"><a href="#_contributing_to_buildroot">22. Contributing to Buildroot</a></span></dt><dd><dl><dt><span class="section"><a href="#_reproducing_analyzing_and_fixing_bugs">22.1. Reproducing, analyzing and fixing bugs</a></span></dt><dt><span class="section"><a href="#_analyzing_and_fixing_autobuild_failures">22.2. Analyzing and fixing autobuild failures</a></span></dt><dt><span class="section"><a href="#_reviewing_and_testing_patches">22.3. Reviewing and testing patches</a></span></dt><dt><span class="section"><a href="#_work_on_items_from_the_todo_list">22.4. Work on items from the TODO list</a></span></dt><dt><span class="section"><a href="#submitting-patches">22.5. Submitting patches</a></span></dt><dt><span class="section"><a href="#reporting-bugs">22.6. Reporting issues/bugs or getting help</a></span></dt><dt><span class="section"><a href="#_using_the_runtime_tests_framework">22.7. Using the runtime tests framework</a></span></dt></dl></dd><dt><span class="chapter"><a href="#DEVELOPERS">23. DEVELOPERS file and get-developers</a></span></dt><dt><span class="chapter"><a href="#RELENG">24. Release Engineering</a></span></dt><dd><dl><dt><span class="section"><a href="#_releases">24.1. Releases</a></span></dt><dt><span class="section"><a href="#_development">24.2. Development</a></span></dt></dl></dd></dl></dd><dt><span class="part"><a href="#_appendix">IV. Appendix</a></span></dt><dd><dl><dt><span class="chapter"><a href="#makedev-syntax">25. Makedev syntax documentation</a></span></dt><dt><span class="chapter"><a href="#makeuser-syntax">26. Makeusers syntax documentation</a></span></dt><dd><dl><dt><span class="section"><a href="#_caveat_with_automatic_uids_and_gids">26.1. Caveat with automatic UIDs and GIDs</a></span></dt></dl></dd><dt><span class="chapter"><a href="#migrating-from-ol-versions">27. Migrating from older Buildroot versions</a></span></dt><dd><dl><dt><span class="section"><a href="#migrating-approach">27.1. General approach</a></span></dt><dt><span class="section"><a href="#br2-external-converting">27.2. Migrating to 2016.11</a></span></dt><dt><span class="section"><a href="#migrating-host-usr">27.3. Migrating to 2017.08</a></span></dt><dt><span class="section"><a href="#migrating-svn-externals">27.4. Migrating to 2023.11</a></span></dt></dl></dd></dl></dd></dl></div><div class="list-of-examples"><p><strong>List of Examples</strong></p><dl><dt>18.1. <a href="#idm3376">Config script: <span class="emphasis"><em>divine</em></span> package</a></dt><dt>18.2. <a href="#idm3383">Config script: <span class="emphasis"><em>imagemagick</em></span> package:</a></dt></dl></div><div class="preface"><div class="titlepage"><div><div><h1 class="title"><a id="idm4"></a></h1></div></div></div><p>Buildroot ${BR2_VERSION%%-git*} manual generated on 2024-07-13
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>The Buildroot user manual</title><link rel="stylesheet" type="text/css" href="docbook-xsl.css" /><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot" /></head><body><div xml:lang="en" class="book" lang="en"><div class="titlepage"><div><div><h1 class="title"><a id="idm1"></a>The Buildroot user manual</h1></div></div><hr /></div><div class="toc"><p><strong>Table of Contents</strong></p><dl class="toc"><dt><span class="preface"><a href="#idm4"></a></span></dt><dt><span class="part"><a href="#_getting_started">I. Getting started</a></span></dt><dd><dl><dt><span class="chapter"><a href="#_about_buildroot">1. About Buildroot</a></span></dt><dt><span class="chapter"><a href="#requirement">2. System requirements</a></span></dt><dd><dl><dt><span class="section"><a href="#requirement-mandatory">2.1. Mandatory packages</a></span></dt><dt><span class="section"><a href="#requirement-optional">2.2. Optional packages</a></span></dt></dl></dd><dt><span class="chapter"><a href="#getting-buildroot">3. Getting Buildroot</a></span></dt><dt><span class="chapter"><a href="#_buildroot_quick_start">4. Buildroot quick start</a></span></dt><dt><span class="chapter"><a href="#community-resources">5. Community resources</a></span></dt></dl></dd><dt><span class="part"><a href="#_user_guide">II. User guide</a></span></dt><dd><dl><dt><span class="chapter"><a href="#configure">6. Buildroot configuration</a></span></dt><dd><dl><dt><span class="section"><a href="#_cross_compilation_toolchain">6.1. Cross-compilation toolchain</a></span></dt><dt><span class="section"><a href="#_dev_management">6.2. /dev management</a></span></dt><dt><span class="section"><a href="#init-system">6.3. init system</a></span></dt></dl></dd><dt><span class="chapter"><a href="#_configuration_of_other_components">7. Configuration of other components</a></span></dt><dt><span class="chapter"><a href="#_general_buildroot_usage">8. General Buildroot usage</a></span></dt><dd><dl><dt><span class="section"><a href="#make-tips">8.1. <span class="emphasis"><em>make</em></span> tips</a></span></dt><dt><span class="section"><a href="#full-rebuild">8.2. Understanding when a full rebuild is necessary</a></span></dt><dt><span class="section"><a href="#rebuild-pkg">8.3. Understanding how to rebuild packages</a></span></dt><dt><span class="section"><a href="#_offline_builds">8.4. Offline builds</a></span></dt><dt><span class="section"><a href="#_building_out_of_tree">8.5. Building out-of-tree</a></span></dt><dt><span class="section"><a href="#env-vars">8.6. Environment variables</a></span></dt><dt><span class="section"><a href="#_dealing_efficiently_with_filesystem_images">8.7. Dealing efficiently with filesystem images</a></span></dt><dt><span class="section"><a href="#_details_about_packages">8.8. Details about packages</a></span></dt><dt><span class="section"><a href="#_graphing_the_dependencies_between_packages">8.9. Graphing the dependencies between packages</a></span></dt><dt><span class="section"><a href="#_graphing_the_build_duration">8.10. Graphing the build duration</a></span></dt><dt><span class="section"><a href="#graph-size">8.11. Graphing the filesystem size contribution of packages</a></span></dt><dt><span class="section"><a href="#top-level-parallel-build">8.12. Top-level parallel build</a></span></dt><dt><span class="section"><a href="#_advanced_usage">8.13. Advanced usage</a></span></dt></dl></dd><dt><span class="chapter"><a href="#customize">9. Project-specific customization</a></span></dt><dd><dl><dt><span class="section"><a href="#customize-dir-structure">9.1. Recommended directory structure</a></span></dt><dt><span class="section"><a href="#outside-br-custom">9.2. Keeping customizations outside of Buildroot</a></span></dt><dt><span class="section"><a href="#customize-store-buildroot-config">9.3. Storing the Buildroot configuration</a></span></dt><dt><span class="section"><a href="#customize-store-package-config">9.4. Storing the configuration of other components</a></span></dt><dt><span class="section"><a href="#rootfs-custom">9.5. Customizing the generated target filesystem</a></span></dt><dt><span class="section"><a href="#customize-users">9.6. Adding custom user accounts</a></span></dt><dt><span class="section"><a href="#_customization_emphasis_after_emphasis_the_images_have_been_created">9.7. Customization <span class="emphasis"><em>after</em></span> the images have been created</a></span></dt><dt><span class="section"><a href="#_adding_project_specific_patches_and_hashes">9.8. Adding project-specific patches and hashes</a></span></dt><dt><span class="section"><a href="#customize-packages">9.9. Adding project-specific packages</a></span></dt><dt><span class="section"><a href="#_quick_guide_to_storing_your_project_specific_customizations">9.10. Quick guide to storing your project-specific customizations</a></span></dt></dl></dd><dt><span class="chapter"><a href="#integration">10. Integration topics</a></span></dt><dd><dl><dt><span class="section"><a href="#integration-systemd">10.1. Systemd</a></span></dt><dt><span class="section"><a href="#selinux">10.2. Using SELinux in Buildroot</a></span></dt></dl></dd><dt><span class="chapter"><a href="#_frequently_asked_questions_amp_troubleshooting">11. Frequently Asked Questions &amp; Troubleshooting</a></span></dt><dd><dl><dt><span class="section"><a href="#faq-boot-hang-after-starting">11.1. The boot hangs after <span class="emphasis"><em>Starting network…</em></span></a></span></dt><dt><span class="section"><a href="#faq-no-compiler-on-target">11.2. Why is there no compiler on the target?</a></span></dt><dt><span class="section"><a href="#faq-no-dev-files-on-target">11.3. Why are there no development files on the target?</a></span></dt><dt><span class="section"><a href="#faq-no-doc-on-target">11.4. Why is there no documentation on the target?</a></span></dt><dt><span class="section"><a href="#faq-why-not-visible-package">11.5. Why are some packages not visible in the Buildroot config menu?</a></span></dt><dt><span class="section"><a href="#faq-why-not-use-target-as-chroot">11.6. Why not use the target directory as a chroot directory?</a></span></dt><dt><span class="section"><a href="#faq-no-binary-packages">11.7. Why doesn’t Buildroot generate binary packages (.deb, .ipkg…)?</a></span></dt><dt><span class="section"><a href="#faq-speeding-up-build">11.8. How to speed-up the build process?</a></span></dt><dt><span class="section"><a href="#faq-2038">11.9. How does Buildroot support Y2038?</a></span></dt></dl></dd><dt><span class="chapter"><a href="#_known_issues">12. Known issues</a></span></dt><dt><span class="chapter"><a href="#legal-info">13. Legal notice and licensing</a></span></dt><dd><dl><dt><span class="section"><a href="#_complying_with_open_source_licenses">13.1. Complying with open source licenses</a></span></dt><dt><span class="section"><a href="#legal-info-buildroot">13.2. Complying with the Buildroot license</a></span></dt></dl></dd><dt><span class="chapter"><a href="#_beyond_buildroot">14. Beyond Buildroot</a></span></dt><dd><dl><dt><span class="section"><a href="#_boot_the_generated_images">14.1. Boot the generated images</a></span></dt><dt><span class="section"><a href="#_chroot">14.2. Chroot</a></span></dt></dl></dd></dl></dd><dt><span class="part"><a href="#_developer_guide">III. Developer guide</a></span></dt><dd><dl><dt><span class="chapter"><a href="#_how_buildroot_works">15. How Buildroot works</a></span></dt><dt><span class="chapter"><a href="#_coding_style">16. Coding style</a></span></dt><dd><dl><dt><span class="section"><a href="#writing-rules-config-in">16.1. <code class="literal">Config.in</code> file</a></span></dt><dt><span class="section"><a href="#writing-rules-mk">16.2. The <code class="literal">.mk</code> file</a></span></dt><dt><span class="section"><a href="#writing-genimage-cfg">16.3. The <code class="literal">genimage.cfg</code> file</a></span></dt><dt><span class="section"><a href="#_the_documentation">16.4. The documentation</a></span></dt><dt><span class="section"><a href="#_support_scripts">16.5. Support scripts</a></span></dt></dl></dd><dt><span class="chapter"><a href="#adding-board-support">17. Adding support for a particular board</a></span></dt><dt><span class="chapter"><a href="#adding-packages">18. Adding new packages to Buildroot</a></span></dt><dd><dl><dt><span class="section"><a href="#_package_directory">18.1. Package directory</a></span></dt><dt><span class="section"><a href="#_config_files">18.2. Config files</a></span></dt><dt><span class="section"><a href="#_the_literal_mk_literal_file">18.3. The <code class="literal">.mk</code> file</a></span></dt><dt><span class="section"><a href="#adding-packages-hash">18.4. The <code class="literal">.hash</code> file</a></span></dt><dt><span class="section"><a href="#adding-packages-start-script">18.5. The <code class="literal">SNNfoo</code> start script</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_packages_with_specific_build_systems">18.6. Infrastructure for packages with specific build systems</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_autotools_based_packages">18.7. Infrastructure for autotools-based packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_cmake_based_packages">18.8. Infrastructure for CMake-based packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_python_packages">18.9. Infrastructure for Python packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_luarocks_based_packages">18.10. Infrastructure for LuaRocks-based packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_perl_cpan_packages">18.11. Infrastructure for Perl/CPAN packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_virtual_packages">18.12. Infrastructure for virtual packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_packages_using_kconfig_for_configuration_files">18.13. Infrastructure for packages using kconfig for configuration files</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_rebar_based_packages">18.14. Infrastructure for rebar-based packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_waf_based_packages">18.15. Infrastructure for Waf-based packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_meson_based_packages">18.16. Infrastructure for Meson-based packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_cargo_based_packages">18.17. Infrastructure for Cargo-based packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_go_packages">18.18. Infrastructure for Go packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_qmake_based_packages">18.19. Infrastructure for QMake-based packages</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_packages_building_kernel_modules">18.20. Infrastructure for packages building kernel modules</a></span></dt><dt><span class="section"><a href="#_infrastructure_for_asciidoc_documents">18.21. Infrastructure for asciidoc documents</a></span></dt><dt><span class="section"><a href="#linux-kernel-specific-infra">18.22. Infrastructure specific to the Linux kernel package</a></span></dt><dt><span class="section"><a href="#hooks">18.23. Hooks available in the various build steps</a></span></dt><dt><span class="section"><a href="#_gettext_integration_and_interaction_with_packages">18.24. Gettext integration and interaction with packages</a></span></dt><dt><span class="section"><a href="#_tips_and_tricks">18.25. Tips and tricks</a></span></dt><dt><span class="section"><a href="#_conclusion">18.26. Conclusion</a></span></dt></dl></dd><dt><span class="chapter"><a href="#patch-policy">19. Patching a package</a></span></dt><dd><dl><dt><span class="section"><a href="#_providing_patches">19.1. Providing patches</a></span></dt><dt><span class="section"><a href="#patch-apply-order">19.2. How patches are applied</a></span></dt><dt><span class="section"><a href="#_format_and_licensing_of_the_package_patches">19.3. Format and licensing of the package patches</a></span></dt><dt><span class="section"><a href="#_additional_patch_documentation">19.4. Additional patch documentation</a></span></dt></dl></dd><dt><span class="chapter"><a href="#download-infra">20. Download infrastructure</a></span></dt><dt><span class="chapter"><a href="#debugging-buildroot">21. Debugging Buildroot</a></span></dt><dt><span class="chapter"><a href="#_contributing_to_buildroot">22. Contributing to Buildroot</a></span></dt><dd><dl><dt><span class="section"><a href="#_reproducing_analyzing_and_fixing_bugs">22.1. Reproducing, analyzing and fixing bugs</a></span></dt><dt><span class="section"><a href="#_analyzing_and_fixing_autobuild_failures">22.2. Analyzing and fixing autobuild failures</a></span></dt><dt><span class="section"><a href="#_reviewing_and_testing_patches">22.3. Reviewing and testing patches</a></span></dt><dt><span class="section"><a href="#_work_on_items_from_the_todo_list">22.4. Work on items from the TODO list</a></span></dt><dt><span class="section"><a href="#submitting-patches">22.5. Submitting patches</a></span></dt><dt><span class="section"><a href="#reporting-bugs">22.6. Reporting issues/bugs or getting help</a></span></dt><dt><span class="section"><a href="#_using_the_runtime_tests_framework">22.7. Using the runtime tests framework</a></span></dt></dl></dd><dt><span class="chapter"><a href="#DEVELOPERS">23. DEVELOPERS file and get-developers</a></span></dt><dt><span class="chapter"><a href="#RELENG">24. Release Engineering</a></span></dt><dd><dl><dt><span class="section"><a href="#_releases">24.1. Releases</a></span></dt><dt><span class="section"><a href="#_development">24.2. Development</a></span></dt></dl></dd></dl></dd><dt><span class="part"><a href="#_appendix">IV. Appendix</a></span></dt><dd><dl><dt><span class="chapter"><a href="#makedev-syntax">25. Makedev syntax documentation</a></span></dt><dt><span class="chapter"><a href="#makeuser-syntax">26. Makeusers syntax documentation</a></span></dt><dd><dl><dt><span class="section"><a href="#_caveat_with_automatic_uids_and_gids">26.1. Caveat with automatic UIDs and GIDs</a></span></dt></dl></dd><dt><span class="chapter"><a href="#migrating-from-ol-versions">27. Migrating from older Buildroot versions</a></span></dt><dd><dl><dt><span class="section"><a href="#migrating-approach">27.1. General approach</a></span></dt><dt><span class="section"><a href="#br2-external-converting">27.2. Migrating to 2016.11</a></span></dt><dt><span class="section"><a href="#migrating-host-usr">27.3. Migrating to 2017.08</a></span></dt><dt><span class="section"><a href="#migrating-svn-externals">27.4. Migrating to 2023.11</a></span></dt></dl></dd></dl></dd></dl></div><div class="list-of-examples"><p><strong>List of Examples</strong></p><dl><dt>18.1. <a href="#idm3376">Config script: <span class="emphasis"><em>divine</em></span> package</a></dt><dt>18.2. <a href="#idm3383">Config script: <span class="emphasis"><em>imagemagick</em></span> package:</a></dt></dl></div><div class="preface"><div class="titlepage"><div><div><h1 class="title"><a id="idm4"></a></h1></div></div></div><p>Buildroot ${LINGMO_VERSION%%-git*} manual generated on 2024-07-13
 12:30:47 UTC from git revision e0a2687421</p><p>The Buildroot manual is written by the Buildroot developers.
 It is licensed under the GNU General Public License, version 2. Refer to the
 <a class="ulink" href="http://git.buildroot.org/buildroot/tree/COPYING?id=e0a2687421a4f93e65aa00a30bcb0b4817f7a195" target="_top">COPYING</a>
@@ -455,7 +455,7 @@ Set <span class="strong"><strong>Toolchain URL</strong></span> to <code class="l
 that transparently passes the appropriate options (according to the
 configuration) to the external toolchain programs. In case you need to
 debug this wrapper to check exactly what arguments are passed, you can
-set the environment variable <code class="literal">BR2_DEBUG_WRAPPER</code> to either one of:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+set the environment variable <code class="literal">LINGMO_DEBUG_WRAPPER</code> to either one of:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 <code class="literal">0</code>, empty or not set: no debug
 </li><li class="listitem">
 <code class="literal">1</code>: trace all arguments on a single line
@@ -479,14 +479,14 @@ The first solution is <span class="strong"><strong>Static using device table</st
    Buildroot source code. This file is processed when Buildroot
    generates the final root filesystem image, and the <span class="emphasis"><em>device files</em></span>
    are therefore not visible in the <code class="literal">output/target</code> directory. The
-   <code class="literal">BR2_ROOTFS_STATIC_DEVICE_TABLE</code> option allows to change the
+   <code class="literal">LINGMO_ROOTFS_STATIC_DEVICE_TABLE</code> option allows to change the
    default device table used by Buildroot, or to add an additional
    device table, so that additional <span class="emphasis"><em>device files</em></span> are created by
    Buildroot during the build. So, if you use this method, and a
    <span class="emphasis"><em>device file</em></span> is missing in your system, you can for example create
    a <code class="literal">board/&lt;yourcompany&gt;/&lt;yourproject&gt;/device_table_dev.txt</code> file
    that contains the description of your additional <span class="emphasis"><em>device files</em></span>,
-   and then you can set <code class="literal">BR2_ROOTFS_STATIC_DEVICE_TABLE</code> to
+   and then you can set <code class="literal">LINGMO_ROOTFS_STATIC_DEVICE_TABLE</code> to
    <code class="literal">system/device_table_dev.txt
    board/&lt;yourcompany&gt;/&lt;yourproject&gt;/device_table_dev.txt</code>. For more
    details about the format of the device table file, see
@@ -550,7 +550,7 @@ graphical applications, other network servers, etc.).</p><p>Buildroot allows to 
 can be chosen from <code class="literal">System configuration</code>, <code class="literal">Init system</code>:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 The first solution is <span class="strong"><strong>BusyBox</strong></span>. Amongst many programs, BusyBox has
    an implementation of a basic <code class="literal">init</code> program, which is sufficient
-   for most embedded systems. Enabling the <code class="literal">BR2_INIT_BUSYBOX</code> will
+   for most embedded systems. Enabling the <code class="literal">LINGMO_INIT_BUSYBOX</code> will
    ensure BusyBox will build and install its <code class="literal">init</code> program. This is
    the default solution in Buildroot. The BusyBox <code class="literal">init</code> program will
    read the <code class="literal">/etc/inittab</code> file at boot to know what to do. The syntax
@@ -595,7 +595,7 @@ corresponding package.</p><div class="variablelist"><dl class="variablelist"><dt
 BusyBox
 </span></dt><dd><p class="simpara">If you already have a BusyBox configuration file, you can directly
 specify this file in the Buildroot configuration, using
-<code class="literal">BR2_PACKAGE_BUSYBOX_CONFIG</code>. Otherwise, Buildroot will start from a
+<code class="literal">LINGMO_PACKAGE_BUSYBOX_CONFIG</code>. Otherwise, Buildroot will start from a
 default BusyBox configuration file.</p><p class="simpara">To make subsequent changes to the configuration, use <code class="literal">make
 busybox-menuconfig</code> to open the BusyBox configuration editor.</p><p class="simpara">It is also possible to specify a BusyBox configuration file through an
 environment variable, although this is not recommended. Refer to
@@ -603,28 +603,28 @@ environment variable, although this is not recommended. Refer to
 uClibc
 </span></dt><dd>Configuration of uClibc is done in the same way as for BusyBox. The
 configuration variable to specify an existing configuration file is
-<code class="literal">BR2_UCLIBC_CONFIG</code>. The command to make subsequent changes is <code class="literal">make
+<code class="literal">LINGMO_UCLIBC_CONFIG</code>. The command to make subsequent changes is <code class="literal">make
 uclibc-menuconfig</code>.</dd><dt><span class="term">
 Linux kernel
 </span></dt><dd><p class="simpara">If you already have a kernel configuration file, you can directly
 specify this file in the Buildroot configuration, using
-<code class="literal">BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG</code>.</p><p class="simpara">If you do not yet have a kernel configuration file, you can either start
+<code class="literal">LINGMO_LINUX_KERNEL_USE_CUSTOM_CONFIG</code>.</p><p class="simpara">If you do not yet have a kernel configuration file, you can either start
 by specifying a defconfig in the Buildroot configuration, using
-<code class="literal">BR2_LINUX_KERNEL_USE_DEFCONFIG</code>, or start by creating an empty file and
+<code class="literal">LINGMO_LINUX_KERNEL_USE_DEFCONFIG</code>, or start by creating an empty file and
 specifying it as custom configuration file, using
-<code class="literal">BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG</code>.</p><p class="simpara">To make subsequent changes to the configuration, use <code class="literal">make
+<code class="literal">LINGMO_LINUX_KERNEL_USE_CUSTOM_CONFIG</code>.</p><p class="simpara">To make subsequent changes to the configuration, use <code class="literal">make
 linux-menuconfig</code> to open the Linux configuration editor.</p></dd><dt><span class="term">
 Barebox
 </span></dt><dd>Configuration of Barebox is done in the same way as for the Linux
 kernel. The corresponding configuration variables are
-<code class="literal">BR2_TARGET_BAREBOX_USE_CUSTOM_CONFIG</code> and
-<code class="literal">BR2_TARGET_BAREBOX_USE_DEFCONFIG</code>. To open the configuration editor,
+<code class="literal">LINGMO_TARGET_BAREBOX_USE_CUSTOM_CONFIG</code> and
+<code class="literal">LINGMO_TARGET_BAREBOX_USE_DEFCONFIG</code>. To open the configuration editor,
 use <code class="literal">make barebox-menuconfig</code>.</dd><dt><span class="term">
 U-Boot
 </span></dt><dd>Configuration of U-Boot (version 2015.04 or newer) is done in the same
 way as for the Linux kernel. The corresponding configuration variables
-are <code class="literal">BR2_TARGET_UBOOT_USE_CUSTOM_CONFIG</code> and
-<code class="literal">BR2_TARGET_UBOOT_USE_DEFCONFIG</code>. To open the configuration editor,
+are <code class="literal">LINGMO_TARGET_UBOOT_USE_CUSTOM_CONFIG</code> and
+<code class="literal">LINGMO_TARGET_UBOOT_USE_DEFCONFIG</code>. To open the configuration editor,
 use <code class="literal">make uboot-menuconfig</code>.</dd></dl></div></div><div class="chapter"><div class="titlepage"><div><div><h2 class="title"><a id="_general_buildroot_usage"></a>Chapter 8. General Buildroot usage</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="make-tips"></a>8.1. <span class="emphasis"><em>make</em></span> tips</h2></div></div></div><p>This is a collection of tips that help you make the most of Buildroot.</p><p><strong>Display all commands executed by make: </strong>
 </p><pre class="screen"> $ make V=1 &lt;target&gt;</pre><p>
 </p><p><strong>Display the list of boards with a defconfig: </strong>
@@ -820,11 +820,11 @@ to <code class="literal">make</code> or set in the environment:</p><div class="i
   is the recommended way of setting it.
  
 </li><li class="listitem">
-<code class="literal">BR2_CCACHE_DIR</code> to override the directory where
+<code class="literal">LINGMO_CCACHE_DIR</code> to override the directory where
   Buildroot stores the cached files when using ccache.
  
 </li><li class="listitem">
-<code class="literal">BR2_DL_DIR</code> to override the directory in which
+<code class="literal">LINGMO_DL_DIR</code> to override the directory in which
   Buildroot stores/retrieves downloaded files.
  
   Note that the Buildroot download directory can also be set from the
@@ -832,19 +832,19 @@ to <code class="literal">make</code> or set in the environment:</p><div class="i
   <a class="xref" href="#download-location" title="8.13.4. Location of downloaded packages">Section 8.13.4, “Location of downloaded packages”</a> for more details on how you can set the download
   directory.
 </li><li class="listitem">
-<code class="literal">BR2_GRAPH_ALT</code>, if set and non-empty, to use an alternate color-scheme in
+<code class="literal">LINGMO_GRAPH_ALT</code>, if set and non-empty, to use an alternate color-scheme in
   build-time graphs
 </li><li class="listitem">
-<code class="literal">BR2_GRAPH_OUT</code> to set the filetype of generated graphs, either <code class="literal">pdf</code> (the
+<code class="literal">LINGMO_GRAPH_OUT</code> to set the filetype of generated graphs, either <code class="literal">pdf</code> (the
   default), or <code class="literal">png</code>.
 </li><li class="listitem">
-<code class="literal">BR2_GRAPH_DEPS_OPTS</code> to pass extra options to the dependency graph; see
+<code class="literal">LINGMO_GRAPH_DEPS_OPTS</code> to pass extra options to the dependency graph; see
   <a class="xref" href="#graph-depends">Section 8.9, “Graphing the dependencies between packages”</a> for the accepted options
 </li><li class="listitem">
-<code class="literal">BR2_GRAPH_DOT_OPTS</code> is passed verbatim as options to the <code class="literal">dot</code> utility to
+<code class="literal">LINGMO_GRAPH_DOT_OPTS</code> is passed verbatim as options to the <code class="literal">dot</code> utility to
   draw the dependency graph.
 </li><li class="listitem">
-<code class="literal">BR2_GRAPH_SIZE_OPTS</code> to pass extra options to the size graph; see
+<code class="literal">LINGMO_GRAPH_SIZE_OPTS</code> to pass extra options to the size graph; see
   <a class="xref" href="#graph-size" title="8.11. Graphing the filesystem size contribution of packages">Section 8.11, “Graphing the filesystem size contribution of packages”</a> for the acepted options
 </li></ul></div><p>An example that uses config files located in the toplevel directory and
 in your $HOME:</p><pre class="screen"> $ make UCLIBC_CONFIG_FILE=uClibc.config BUSYBOX_CONFIG_FILE=$HOME/bb.config</pre><p>If you want to use a compiler other than the default <code class="literal">gcc</code>
@@ -898,11 +898,11 @@ dependency graph just for a given package:</p><pre class="screen">make &lt;pkg&g
 from the <span class="emphasis"><em>Graphviz</em></span> project, which you must have installed on your
 system to use this feature. In most distributions, it is available as
 the <code class="literal">graphviz</code> package.</p><p>By default, the dependency graphs are generated in the PDF
-format. However, by passing the <code class="literal">BR2_GRAPH_OUT</code> environment variable, you
+format. However, by passing the <code class="literal">LINGMO_GRAPH_OUT</code> environment variable, you
 can switch to other output formats, such as PNG, PostScript or
 SVG. All formats supported by the <code class="literal">-T</code> option of the <code class="literal">dot</code> tool are
-supported.</p><pre class="screen">BR2_GRAPH_OUT=svg make graph-depends</pre><p>The <code class="literal">graph-depends</code> behaviour can be controlled by setting options in the
-<code class="literal">BR2_GRAPH_DEPS_OPTS</code> environment variable. The accepted options are:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+supported.</p><pre class="screen">LINGMO_GRAPH_OUT=svg make graph-depends</pre><p>The <code class="literal">graph-depends</code> behaviour can be controlled by setting options in the
+<code class="literal">LINGMO_GRAPH_DEPS_OPTS</code> environment variable. The accepted options are:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 <code class="literal">--depth N</code>, <code class="literal">-d N</code>, to limit the dependency depth to <code class="literal">N</code> levels. The
   default, <code class="literal">0</code>, means no limit.
 </li><li class="listitem">
@@ -921,7 +921,7 @@ supported.</p><pre class="screen">BR2_GRAPH_OUT=svg make graph-depends</pre><p>T
 <code class="literal">--colors R,T,H</code>, the comma-separated list of colors to draw the
   root package (<code class="literal">R</code>), the target packages (<code class="literal">T</code>) and the host packages
   (<code class="literal">H</code>). Defaults to: <code class="literal">lightblue,grey,gainsboro</code>
-</li></ul></div><pre class="screen">BR2_GRAPH_DEPS_OPTS='-d 3 --no-transitive --colors=red,green,blue' make graph-depends</pre></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_graphing_the_build_duration"></a>8.10. Graphing the build duration</h2></div></div></div><p><a id="graph-duration"></a>When the build of a system takes a long time, it is sometimes useful
+</li></ul></div><pre class="screen">LINGMO_GRAPH_DEPS_OPTS='-d 3 --no-transitive --colors=red,green,blue' make graph-depends</pre></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_graphing_the_build_duration"></a>8.10. Graphing the build duration</h2></div></div></div><p><a id="graph-duration"></a>When the build of a system takes a long time, it is sometimes useful
 to be able to understand which packages are the longest to build, to
 see if anything can be done to speed up the build. In order to help
 such build time analysis, Buildroot collects the build time of each
@@ -944,8 +944,8 @@ libraries to be installed (<code class="literal">python-matplotlib</code> and <c
 most distributions), and also the <code class="literal">argparse</code> module if you’re using a
 Python version older than 2.7 (<code class="literal">python-argparse</code> on most
 distributions).</p><p>By default, the output format for the graph is PDF, but a different
-format can be selected using the <code class="literal">BR2_GRAPH_OUT</code> environment variable. The
-only other format supported is PNG:</p><pre class="screen">BR2_GRAPH_OUT=png make graph-build</pre></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="graph-size"></a>8.11. Graphing the filesystem size contribution of packages</h2></div></div></div><p>When your target system grows, it is sometimes useful to understand
+format can be selected using the <code class="literal">LINGMO_GRAPH_OUT</code> environment variable. The
+only other format supported is PNG:</p><pre class="screen">LINGMO_GRAPH_OUT=png make graph-build</pre></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="graph-size"></a>8.11. Graphing the filesystem size contribution of packages</h2></div></div></div><p>When your target system grows, it is sometimes useful to understand
 how much each Buildroot package is contributing to the overall root
 filesystem size. To help with such an analysis, Buildroot collects
 data about files installed by each package and using this data,
@@ -963,9 +963,9 @@ the different packages.</p><p>To generate these data after a build, run:</p><pre
 </li></ul></div><p>This <code class="literal">graph-size</code> target requires the Python Matplotlib library to be
 installed (<code class="literal">python-matplotlib</code> on most distributions), and also the
 <code class="literal">argparse</code> module if you’re using a Python version older than 2.7
-(<code class="literal">python-argparse</code> on most distributions).</p><p>Just like for the duration graph, a <code class="literal">BR2_GRAPH_OUT</code> environment variable
+(<code class="literal">python-argparse</code> on most distributions).</p><p>Just like for the duration graph, a <code class="literal">LINGMO_GRAPH_OUT</code> environment variable
 is supported to adjust the output file format. See <a class="xref" href="#graph-depends">Section 8.9, “Graphing the dependencies between packages”</a>
-for details about this environment variable.</p><p>Additionally, one may set the environment variable <code class="literal">BR2_GRAPH_SIZE_OPTS</code>
+for details about this environment variable.</p><p>Additionally, one may set the environment variable <code class="literal">LINGMO_GRAPH_SIZE_OPTS</code>
 to further control the generated graph. Accepted options are:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 <code class="literal">--size-limit X</code>, <code class="literal">-l X</code>, will group all packages which individual
   contribution is below <code class="literal">X</code> percent, to a single entry labelled <span class="emphasis"><em>Others</em></span>
@@ -989,18 +989,18 @@ break even in some non-unusual situations. Use at your own risk.</p><p>Buildroot
 package basis: each package is built by Buildroot using <code class="literal">make -jN</code> (or
 the equivalent invocation for non-make-based build systems). The level
 of parallelism is by default number of CPUs + 1, but it can be
-adjusted using the <code class="literal">BR2_JLEVEL</code> configuration option.</p><p>Until 2020.02, Buildroot was however building packages in a serial
+adjusted using the <code class="literal">LINGMO_JLEVEL</code> configuration option.</p><p>Until 2020.02, Buildroot was however building packages in a serial
 fashion: each package was built one after the other, without
 parallelization of the build between packages. As of 2020.02,
 Buildroot has experimental support for <span class="strong"><strong>top-level parallel build</strong></span>,
 which allows some signicant build time savings by building packages
 that have no dependency relationship in parallel. This feature is
 however marked as experimental and is known not to work in some cases.</p><p>In order to use top-level parallel build, one must:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
-Enable the option <code class="literal">BR2_PER_PACKAGE_DIRECTORIES</code> in the Buildroot
+Enable the option <code class="literal">LINGMO_PER_PACKAGE_DIRECTORIES</code> in the Buildroot
 configuration
 </li><li class="listitem">
 Use <code class="literal">make -jN</code> when starting the Buildroot build
-</li></ol></div><p>Internally, the <code class="literal">BR2_PER_PACKAGE_DIRECTORIES</code> will enable a mechanism
+</li></ol></div><p>Internally, the <code class="literal">LINGMO_PER_PACKAGE_DIRECTORIES</code> will enable a mechanism
 called <span class="strong"><strong>per-package directories</strong></span>, which will have the following
 effects:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 Instead of a global <span class="emphasis"><em>target</em></span> directory and a global <span class="emphasis"><em>host</em></span> directory
@@ -1026,7 +1026,7 @@ use <code class="literal">ARCH-linux-gcc</code>, <code class="literal">ARCH-linu
 files of all selected packages, as an SDK, by running the command
 <code class="literal">make sdk</code>. This generates a tarball of the content of the host directory
 <code class="literal">output/host/</code>, named <code class="literal">&lt;TARGET-TUPLE&gt;_sdk-buildroot.tar.gz</code> (which can be
-overriden by setting the environment variable <code class="literal">BR2_SDK_PREFIX</code>) and
+overriden by setting the environment variable <code class="literal">LINGMO_SDK_PREFIX</code>) and
 located in the output directory <code class="literal">output/images/</code>.</p><p>This tarball can then be distributed to application developers, when
 they want to develop their applications that are not (yet) packaged as
 a Buildroot package.</p><p>Upon extracting the SDK tarball, the user must run the script
@@ -1036,7 +1036,7 @@ the tarball (e.g. because you will just be moving the <code class="literal">host
 or will be generating the tarball on your own), Buildroot also allows
 you to just prepare the SDK with <code class="literal">make prepare-sdk</code> without actually
 generating a tarball.</p><p>For your convenience, by selecting the option
-<code class="literal">BR2_PACKAGE_HOST_ENVIRONMENT_SETUP</code>, you can get a
+<code class="literal">LINGMO_PACKAGE_HOST_ENVIRONMENT_SETUP</code>, you can get a
 <code class="literal">environment-setup</code> script installed in <code class="literal">output/host/</code> and therefore
 in your SDK.  This script can be sourced with
 <code class="literal">. your/sdk/path/environment-setup</code> to export a number of environment
@@ -1051,12 +1051,12 @@ native compilation.</p></div><div class="section"><div class="titlepage"><div><d
 build machine and communicates with <code class="literal">gdbserver</code> on the target to
 control the execution of the program.</p><p>To achieve this:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 If you are using an <span class="emphasis"><em>internal toolchain</em></span> (built by Buildroot), you
-  must enable <code class="literal">BR2_PACKAGE_HOST_GDB</code>, <code class="literal">BR2_PACKAGE_GDB</code> and
-  <code class="literal">BR2_PACKAGE_GDB_SERVER</code>. This ensures that both the cross gdb and
+  must enable <code class="literal">LINGMO_PACKAGE_HOST_GDB</code>, <code class="literal">LINGMO_PACKAGE_GDB</code> and
+  <code class="literal">LINGMO_PACKAGE_GDB_SERVER</code>. This ensures that both the cross gdb and
   gdbserver get built, and that gdbserver gets installed to your target.
 </li><li class="listitem">
 If you are using an <span class="emphasis"><em>external toolchain</em></span>, you should enable
-  <code class="literal">BR2_TOOLCHAIN_EXTERNAL_GDB_SERVER_COPY</code>, which will copy the
+  <code class="literal">LINGMO_TOOLCHAIN_EXTERNAL_GDB_SERVER_COPY</code>, which will copy the
   gdbserver included with the external toolchain to the target. If your
   external toolchain does not have a cross gdb or gdbserver, it is also
   possible to let Buildroot build them, by enabling the same options as
@@ -1075,7 +1075,7 @@ and same arguments) by using the pre-existing object files. When doing
 almost identical builds from scratch a number of times, it can nicely
 speed up the build process.</p><p><code class="literal">ccache</code> support is integrated in Buildroot. You just have to enable
 <code class="literal">Enable compiler cache</code> in <code class="literal">Build options</code>. This will automatically
-build <code class="literal">ccache</code> and use it for every host and target compilation.</p><p>The cache is located in the directory defined by the <code class="literal">BR2_CCACHE_DIR</code>
+build <code class="literal">ccache</code> and use it for every host and target compilation.</p><p>The cache is located in the directory defined by the <code class="literal">LINGMO_CCACHE_DIR</code>
 configuration option, which defaults to
 <code class="literal">$HOME/.buildroot-ccache</code>. This default location is outside of
 Buildroot output directory so that it can be shared by separate
@@ -1091,33 +1091,33 @@ If a compiler option is different, the cached object file will not be
 used. Many compiler options, however, contain an absolute path to the
 staging directory. Because of this, building in a different output
 directory would lead to many cache misses.</p><p>To avoid this issue, buildroot has the <code class="literal">Use relative paths</code> option
-(<code class="literal">BR2_CCACHE_USE_BASEDIR</code>). This will rewrite all absolute paths that
+(<code class="literal">LINGMO_CCACHE_USE_BASEDIR</code>). This will rewrite all absolute paths that
 point inside the output directory into relative paths. Thus, changing
 the output directory no longer leads to cache misses.</p><p>A disadvantage of the relative paths is that they also end up to be
 relative paths in the object file. Therefore, for example, the debugger
 will no longer find the file, unless you cd to the output directory
 first.</p><p>See <a class="ulink" href="https://ccache.samba.org/manual.html#_compiling_in_different_directories" target="_top">the
 ccache manual’s section on "Compiling in different directories"</a> for
-more details about this rewriting of absolute paths.</p><p>When <code class="literal">ccache</code> is enabled in Buildroot using the <code class="literal">BR2_CCACHE=y</code> option:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+more details about this rewriting of absolute paths.</p><p>When <code class="literal">ccache</code> is enabled in Buildroot using the <code class="literal">LINGMO_CCACHE=y</code> option:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 <code class="literal">ccache</code> is used during the Buildroot build itself
 </li><li class="listitem">
 <code class="literal">ccache</code> is not used when building outside of Buildroot, for example
   when directly calling the cross-compiler or using the SDK
-</li></ul></div><p>One can override this behavior using the <code class="literal">BR2_USE_CCACHE</code> environment
+</li></ul></div><p>One can override this behavior using the <code class="literal">LINGMO_USE_CCACHE</code> environment
 variable: when set to <code class="literal">1</code>, usage of ccache is enabled (default during
 the Buildroot build), when unset or set to a value different from <code class="literal">1</code>,
 usage of ccache is disabled.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="download-location"></a>8.13.4. Location of downloaded packages</h3></div></div></div><p>The various tarballs that are downloaded by Buildroot are all stored
-in <code class="literal">BR2_DL_DIR</code>, which by default is the <code class="literal">dl</code> directory. If you want
+in <code class="literal">LINGMO_DL_DIR</code>, which by default is the <code class="literal">dl</code> directory. If you want
 to keep a complete version of Buildroot which is known to be working
 with the associated tarballs, you can make a copy of this directory.
 This will allow you to regenerate the toolchain and the target
 filesystem with exactly the same versions.</p><p>If you maintain several Buildroot trees, it might be better to have a
 shared download location. This can be achieved by pointing the
-<code class="literal">BR2_DL_DIR</code> environment variable to a directory. If this is
-set, then the value of <code class="literal">BR2_DL_DIR</code> in the Buildroot configuration is
-overridden. The following line should be added to <code class="literal">&lt;~/.bashrc&gt;</code>.</p><pre class="screen"> export BR2_DL_DIR=&lt;shared download location&gt;</pre><p>The download location can also be set in the <code class="literal">.config</code> file, with the
-<code class="literal">BR2_DL_DIR</code> option. Unlike most options in the .config file, this value
-is overridden by the <code class="literal">BR2_DL_DIR</code> environment variable.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="pkg-build-steps"></a>8.13.5. Package-specific <span class="emphasis"><em>make</em></span> targets</h3></div></div></div><p>Running <code class="literal">make &lt;package&gt;</code> builds and installs that particular package
+<code class="literal">LINGMO_DL_DIR</code> environment variable to a directory. If this is
+set, then the value of <code class="literal">LINGMO_DL_DIR</code> in the Buildroot configuration is
+overridden. The following line should be added to <code class="literal">&lt;~/.bashrc&gt;</code>.</p><pre class="screen"> export LINGMO_DL_DIR=&lt;shared download location&gt;</pre><p>The download location can also be set in the <code class="literal">.config</code> file, with the
+<code class="literal">LINGMO_DL_DIR</code> option. Unlike most options in the .config file, this value
+is overridden by the <code class="literal">LINGMO_DL_DIR</code> environment variable.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="pkg-build-steps"></a>8.13.5. Package-specific <span class="emphasis"><em>make</em></span> targets</h3></div></div></div><p>Running <code class="literal">make &lt;package&gt;</code> builds and installs that particular package
 and its dependencies.</p><p>For packages relying on the Buildroot infrastructure, there are
 numerous special make targets that can be called independently like
 this:</p><pre class="screen">make &lt;package&gt;-&lt;target&gt;</pre><p>The package build targets are (in the order they are executed):</p><div class="informaltable"><table class="informaltable" cellpadding="4px" style="border-collapse: collapse;border-top: 3px solid #527bbd; border-bottom: 3px solid #527bbd; border-left: 3px solid #527bbd; border-right: 3px solid #527bbd; " width="90%"><colgroup><col class="col_1" /><col class="col_2" /></colgroup><thead><tr><th style="border-right: 1px solid #527bbd; border-bottom: 1px solid #527bbd; " align="center" valign="top"> command/target    </th><th style="border-bottom: 1px solid #527bbd; " align="left" valign="top"> Description</th></tr></thead><tbody><tr><td style="border-right: 1px solid #527bbd; border-bottom: 1px solid #527bbd; " align="center" valign="top"><p><code class="literal">source</code></p></td><td style="border-bottom: 1px solid #527bbd; " align="left" valign="top"><p>Fetch the source (download the tarball, clone
@@ -1161,7 +1161,7 @@ clean</code>.</p><p>Therefore, Buildroot provides a specific mechanism for this 
 the <code class="literal">&lt;pkg&gt;_OVERRIDE_SRCDIR</code> mechanism. Buildroot reads an <span class="emphasis"><em>override</em></span>
 file, which allows the user to tell Buildroot the location of the
 source for certain packages.</p><p>The default location of the override file is <code class="literal">$(CONFIG_DIR)/local.mk</code>,
-as defined by the <code class="literal">BR2_PACKAGE_OVERRIDE_FILE</code> configuration option.
+as defined by the <code class="literal">LINGMO_PACKAGE_OVERRIDE_FILE</code> configuration option.
 <code class="literal">$(CONFIG_DIR)</code> is the location of the Buildroot <code class="literal">.config</code> file, so
 <code class="literal">local.mk</code> by default lives side-by-side with the <code class="literal">.config</code> file,
 which means:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
@@ -1171,7 +1171,7 @@ In the top-level Buildroot source directory for in-tree builds
 In the out-of-tree directory for out-of-tree builds (i.e., when
   <code class="literal">O=</code> is used)
 </li></ul></div><p>If a different location than these defaults is required, it can be
-specified through the <code class="literal">BR2_PACKAGE_OVERRIDE_FILE</code> configuration
+specified through the <code class="literal">LINGMO_PACKAGE_OVERRIDE_FILE</code> configuration
 option.</p><p>In this <span class="emphasis"><em>override</em></span> file, Buildroot expects to find lines of the form:</p><pre class="screen">&lt;pkg1&gt;_OVERRIDE_SRCDIR = /path/to/pkg1/sources
 &lt;pkg2&gt;_OVERRIDE_SRCDIR = /path/to/pkg2/sources</pre><p>For example:</p><pre class="screen">LINUX_OVERRIDE_SRCDIR = /home/bob/linux/
 BUSYBOX_OVERRIDE_SRCDIR = /home/bob/busybox/</pre><p>When Buildroot finds that for a given package, an
@@ -1214,27 +1214,27 @@ configuring other components, like the Linux kernel and BusyBox
 customizing the generated target filesystem
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
 adding or overwriting files on the target filesystem (using
-     <code class="literal">BR2_ROOTFS_OVERLAY</code>)
+     <code class="literal">LINGMO_ROOTFS_OVERLAY</code>)
 </li><li class="listitem">
 modifying or deleting files on the target filesystem (using
-     <code class="literal">BR2_ROOTFS_POST_BUILD_SCRIPT</code>)
+     <code class="literal">LINGMO_ROOTFS_POST_BUILD_SCRIPT</code>)
 </li><li class="listitem">
 running arbitrary commands prior to generating the filesystem image
-     (using <code class="literal">BR2_ROOTFS_POST_BUILD_SCRIPT</code>)
+     (using <code class="literal">LINGMO_ROOTFS_POST_BUILD_SCRIPT</code>)
 </li><li class="listitem">
 setting file permissions and ownership (using
-     <code class="literal">BR2_ROOTFS_DEVICE_TABLE</code>)
+     <code class="literal">LINGMO_ROOTFS_DEVICE_TABLE</code>)
 </li><li class="listitem">
 adding custom devices nodes (using
-     <code class="literal">BR2_ROOTFS_STATIC_DEVICE_TABLE</code>)
+     <code class="literal">LINGMO_ROOTFS_STATIC_DEVICE_TABLE</code>)
 </li></ul></div></li><li class="listitem">
-adding custom user accounts (using <code class="literal">BR2_ROOTFS_USERS_TABLES</code>)
+adding custom user accounts (using <code class="literal">LINGMO_ROOTFS_USERS_TABLES</code>)
 </li><li class="listitem">
 running arbitrary commands after generating the filesystem image
-  (using <code class="literal">BR2_ROOTFS_POST_IMAGE_SCRIPT</code>)
+  (using <code class="literal">LINGMO_ROOTFS_POST_IMAGE_SCRIPT</code>)
 </li><li class="listitem">
 adding project-specific patches to some packages (using
-  <code class="literal">BR2_GLOBAL_PATCH_DIR</code>)
+  <code class="literal">LINGMO_GLOBAL_PATCH_DIR</code>)
 </li><li class="listitem">
 adding project-specific packages
 </li></ul></div><p>An important note regarding such <span class="emphasis"><em>project-specific</em></span> customizations:
@@ -1319,8 +1319,8 @@ layers <span class="emphasis"><em>common</em></span> and <span class="emphasis">
             +-- rootfs_overlay/
             |   +-- ...
             +-- patches/
-                +-- ...</pre><p>For example, if the user has the <code class="literal">BR2_GLOBAL_PATCH_DIR</code> configuration
-option set as:</p><pre class="screen">BR2_GLOBAL_PATCH_DIR="board/&lt;company&gt;/common/patches board/&lt;company&gt;/fooboard/patches"</pre><p>then first the patches from the <span class="emphasis"><em>common</em></span> layer would be applied,
+                +-- ...</pre><p>For example, if the user has the <code class="literal">LINGMO_GLOBAL_PATCH_DIR</code> configuration
+option set as:</p><pre class="screen">LINGMO_GLOBAL_PATCH_DIR="board/&lt;company&gt;/common/patches board/&lt;company&gt;/fooboard/patches"</pre><p>then first the patches from the <span class="emphasis"><em>common</em></span> layer would be applied,
 followed by the patches from the <span class="emphasis"><em>fooboard</em></span> layer.</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="outside-br-custom"></a>9.2. Keeping customizations outside of Buildroot</h2></div></div></div><p>As already briefly mentioned in <a class="xref" href="#customize-dir-structure" title="9.1. Recommended directory structure">Section 9.1, “Recommended directory structure”</a>, you can
 place project-specific customizations in two locations:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 directly within the Buildroot tree, typically maintaining them using
@@ -1335,19 +1335,19 @@ outside of the Buildroot tree, using the <span class="emphasis"><em>br2-external
    the br2-external mechanism and what to provide in a br2-external
    tree.
 </li></ul></div><p>One can tell Buildroot to use one or more br2-external trees by setting
-the <code class="literal">BR2_EXTERNAL</code> make variable set to the path(s) of the br2-external
+the <code class="literal">LINGMO_EXTERNAL</code> make variable set to the path(s) of the br2-external
 tree(s) to use. It can be passed to any Buildroot <code class="literal">make</code> invocation. It
 is automatically saved in the hidden <code class="literal">.br2-external.mk</code> file in the output
-directory. Thanks to this, there is no need to pass <code class="literal">BR2_EXTERNAL</code> at
+directory. Thanks to this, there is no need to pass <code class="literal">LINGMO_EXTERNAL</code> at
 every <code class="literal">make</code> invocation. It can however be changed at any time by
 passing a new value, and can be removed by passing an empty value.</p><p><strong>Note. </strong>The path to a br2-external tree can be either absolute or relative.
 If it is passed as a relative path, it is important to note that it is
 interpreted relative to the main Buildroot source directory, <span class="strong"><strong>not</strong></span> to
 the Buildroot output directory.</p><p><strong>Note: </strong>If using an br2-external tree from before Buildroot 2016.11, you need to
 convert it before you can use it with Buildroot 2016.11 onward. See
-<a class="xref" href="#br2-external-converting" title="27.2. Migrating to 2016.11">Section 27.2, “Migrating to 2016.11”</a> for help on doing so.</p><p>Some examples:</p><pre class="screen">buildroot/ $ make BR2_EXTERNAL=/path/to/foo menuconfig</pre><p>From now on, definitions from the <code class="literal">/path/to/foo</code> br2-external tree
+<a class="xref" href="#br2-external-converting" title="27.2. Migrating to 2016.11">Section 27.2, “Migrating to 2016.11”</a> for help on doing so.</p><p>Some examples:</p><pre class="screen">buildroot/ $ make LINGMO_EXTERNAL=/path/to/foo menuconfig</pre><p>From now on, definitions from the <code class="literal">/path/to/foo</code> br2-external tree
 will be used:</p><pre class="screen">buildroot/ $ make
-buildroot/ $ make legal-info</pre><p>We can switch to another br2-external tree at any time:</p><pre class="screen">buildroot/ $ make BR2_EXTERNAL=/where/we/have/bar xconfig</pre><p>We can also use multiple br2-external trees:</p><pre class="screen">buildroot/ $ make BR2_EXTERNAL=/path/to/foo:/where/we/have/bar menuconfig</pre><p>Or disable the usage of any br2-external tree:</p><pre class="screen">buildroot/ $ make BR2_EXTERNAL= xconfig</pre><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_layout_of_a_br2_external_tree"></a>9.2.1. Layout of a br2-external tree</h3></div></div></div><p>A br2-external tree must contain at least those three files, described
+buildroot/ $ make legal-info</pre><p>We can switch to another br2-external tree at any time:</p><pre class="screen">buildroot/ $ make LINGMO_EXTERNAL=/where/we/have/bar xconfig</pre><p>We can also use multiple br2-external trees:</p><pre class="screen">buildroot/ $ make LINGMO_EXTERNAL=/path/to/foo:/where/we/have/bar menuconfig</pre><p>Or disable the usage of any br2-external tree:</p><pre class="screen">buildroot/ $ make LINGMO_EXTERNAL= xconfig</pre><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_layout_of_a_br2_external_tree"></a>9.2.1. Layout of a br2-external tree</h3></div></div></div><p>A br2-external tree must contain at least those three files, described
 in the following chapters:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 <code class="literal">external.desc</code>
 </li><li class="listitem">
@@ -1365,7 +1365,7 @@ recognised:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-st
 <code class="literal">name</code>, mandatory, defines the name for that br2-external tree. That
    name must only use ASCII characters in the set <code class="literal">[A-Za-z0-9_]</code>; any
    other character is forbidden. Buildroot sets the variable
-   <code class="literal">BR2_EXTERNAL_$(NAME)_PATH</code> to the absolute path of the br2-external
+   <code class="literal">LINGMO_EXTERNAL_$(NAME)_PATH</code> to the absolute path of the br2-external
    tree, so that you can use it to refer to your br2-external tree. This
    variable is available both in Kconfig, so you can use it to source your
    Kconfig files (see below) and in the Makefile, so that you can use it
@@ -1384,14 +1384,14 @@ recognised:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-st
    and is used when displaying information about a br2-external tree (e.g.
    above the list of defconfig files, or as the prompt in the menuconfig);
    as such, it should relatively brief (40 chars is probably a good upper
-   limit). The description is available in the <code class="literal">BR2_EXTERNAL_$(NAME)_DESC</code>
+   limit). The description is available in the <code class="literal">LINGMO_EXTERNAL_$(NAME)_DESC</code>
    variable.
-</li></ul></div><p>Examples of names and the corresponding <code class="literal">BR2_EXTERNAL_$(NAME)_PATH</code>
+</li></ul></div><p>Examples of names and the corresponding <code class="literal">LINGMO_EXTERNAL_$(NAME)_PATH</code>
 variables:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
-<code class="literal">FOO</code> → <code class="literal">BR2_EXTERNAL_FOO_PATH</code>
+<code class="literal">FOO</code> → <code class="literal">LINGMO_EXTERNAL_FOO_PATH</code>
 </li><li class="listitem">
-<code class="literal">BAR_42</code> → <code class="literal">BR2_EXTERNAL_BAR_42_PATH</code>
-</li></ul></div><p>In the following examples, it is assumed the name to be set to <code class="literal">BAR_42</code>.</p><p><strong>Note: </strong>Both <code class="literal">BR2_EXTERNAL_$(NAME)_PATH</code> and <code class="literal">BR2_EXTERNAL_$(NAME)_DESC</code> are
+<code class="literal">BAR_42</code> → <code class="literal">LINGMO_EXTERNAL_BAR_42_PATH</code>
+</li></ul></div><p>In the following examples, it is assumed the name to be set to <code class="literal">BAR_42</code>.</p><p><strong>Note: </strong>Both <code class="literal">LINGMO_EXTERNAL_$(NAME)_PATH</code> and <code class="literal">LINGMO_EXTERNAL_$(NAME)_DESC</code> are
   available in the Kconfig files and the Makefiles. They are also
   exported in the environment so are available in post-build, post-image
   and in-fakeroot scripts.</p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="_the_literal_config_in_literal_and_literal_external_mk_literal_files"></a>The <code class="literal">Config.in</code> and <code class="literal">external.mk</code> files</h4></div></div></div><p>Those files (which may each be empty) can be used to define package
@@ -1400,9 +1400,9 @@ in Buildroot itself) or other custom configuration options or make logic.</p><p>
 tree to make it appear in the top-level configuration menu, and includes
 the <code class="literal">external.mk</code> from each br2-external tree with the rest of the
 makefile logic.</p><p>The main usage of this is to store package recipes. The recommended way
-to do this is to write a <code class="literal">Config.in</code> file that looks like:</p><pre class="screen">source "$BR2_EXTERNAL_BAR_42_PATH/package/package1/Config.in"
-source "$BR2_EXTERNAL_BAR_42_PATH/package/package2/Config.in"</pre><p>Then, have an <code class="literal">external.mk</code> file that looks like:</p><pre class="screen">include $(sort $(wildcard $(BR2_EXTERNAL_BAR_42_PATH)/package/*/*.mk))</pre><p>And then in <code class="literal">$(BR2_EXTERNAL_BAR_42_PATH)/package/package1</code> and
-<code class="literal">$(BR2_EXTERNAL_BAR_42_PATH)/package/package2</code> create normal
+to do this is to write a <code class="literal">Config.in</code> file that looks like:</p><pre class="screen">source "$LINGMO_EXTERNAL_BAR_42_PATH/package/package1/Config.in"
+source "$LINGMO_EXTERNAL_BAR_42_PATH/package/package2/Config.in"</pre><p>Then, have an <code class="literal">external.mk</code> file that looks like:</p><pre class="screen">include $(sort $(wildcard $(LINGMO_EXTERNAL_BAR_42_PATH)/package/*/*.mk))</pre><p>And then in <code class="literal">$(LINGMO_EXTERNAL_BAR_42_PATH)/package/package1</code> and
+<code class="literal">$(LINGMO_EXTERNAL_BAR_42_PATH)/package/package2</code> create normal
 Buildroot package recipes, as explained in <a class="xref" href="#adding-packages" title="Chapter 18. Adding new packages to Buildroot">Chapter 18, <em>Adding new packages to Buildroot</em></a>.
 If you prefer, you can also group the packages in subdirectories
 called &lt;boardname&gt; and adapt the above paths accordingly.</p><p>You can also define custom configuration options in <code class="literal">Config.in</code> and
@@ -1434,12 +1434,12 @@ a set of files that define those alternatives:</p><div class="itemizedlist"><ul 
 </li></ul></div></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="_free_form_content"></a>Free-form content</h4></div></div></div><p>One can store all the board-specific configuration files there, such
 as the kernel configuration, the root filesystem overlay, or any other
 configuration file for which Buildroot allows to set the location (by
-using the <code class="literal">BR2_EXTERNAL_$(NAME)_PATH</code> variable). For example, you
+using the <code class="literal">LINGMO_EXTERNAL_$(NAME)_PATH</code> variable). For example, you
 could set the paths to a global patch directory, to a rootfs overlay
 and to the kernel configuration file as follows (e.g. by running
-<code class="literal">make menuconfig</code> and filling in these options):</p><pre class="screen">BR2_GLOBAL_PATCH_DIR=$(BR2_EXTERNAL_BAR_42_PATH)/patches/
-BR2_ROOTFS_OVERLAY=$(BR2_EXTERNAL_BAR_42_PATH)/board/&lt;boardname&gt;/overlay/
-BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE=$(BR2_EXTERNAL_BAR_42_PATH)/board/&lt;boardname&gt;/kernel.config</pre></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="_additional_linux_kernel_extensions"></a>Additional Linux kernel extensions</h4></div></div></div><p>Additional Linux kernel extensions (see <a class="xref" href="#linux-kernel-ext" title="18.22.2. linux-kernel-extensions">Section 18.22.2, “linux-kernel-extensions”</a>) can
+<code class="literal">make menuconfig</code> and filling in these options):</p><pre class="screen">LINGMO_GLOBAL_PATCH_DIR=$(LINGMO_EXTERNAL_BAR_42_PATH)/patches/
+LINGMO_ROOTFS_OVERLAY=$(LINGMO_EXTERNAL_BAR_42_PATH)/board/&lt;boardname&gt;/overlay/
+LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE=$(LINGMO_EXTERNAL_BAR_42_PATH)/board/&lt;boardname&gt;/kernel.config</pre></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="_additional_linux_kernel_extensions"></a>Additional Linux kernel extensions</h4></div></div></div><p>Additional Linux kernel extensions (see <a class="xref" href="#linux-kernel-ext" title="18.22.2. linux-kernel-extensions">Section 18.22.2, “linux-kernel-extensions”</a>) can
 be added by storing them in the <code class="literal">linux/</code> directory at the root of a
 br2-external tree.</p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="_example_layout"></a>Example layout</h4></div></div></div><p>Here is an example layout using all features of br2-external (the sample
 content is shown for the file above it, when it is relevant to explain
@@ -1451,10 +1451,10 @@ illustration, of course):</p><pre class="screen">/path/to/br2-ext-tree/
   |     `----
   |
   |- Config.in
-  |     |source "$BR2_EXTERNAL_BAR_42_PATH/toolchain/toolchain-external-mine/Config.in.options"
-  |     |source "$BR2_EXTERNAL_BAR_42_PATH/package/pkg-1/Config.in"
-  |     |source "$BR2_EXTERNAL_BAR_42_PATH/package/pkg-2/Config.in"
-  |     |source "$BR2_EXTERNAL_BAR_42_PATH/package/my-jpeg/Config.in"
+  |     |source "$LINGMO_EXTERNAL_BAR_42_PATH/toolchain/toolchain-external-mine/Config.in.options"
+  |     |source "$LINGMO_EXTERNAL_BAR_42_PATH/package/pkg-1/Config.in"
+  |     |source "$LINGMO_EXTERNAL_BAR_42_PATH/package/pkg-2/Config.in"
+  |     |source "$LINGMO_EXTERNAL_BAR_42_PATH/package/my-jpeg/Config.in"
   |     |
   |     |config BAR_42_FLASH_ADDR
   |     |    hex "my-board flash address"
@@ -1462,17 +1462,17 @@ illustration, of course):</p><pre class="screen">/path/to/br2-ext-tree/
   |     `----
   |
   |- external.mk
-  |     |include $(sort $(wildcard $(BR2_EXTERNAL_BAR_42_PATH)/package/*/*.mk))
-  |     |include $(sort $(wildcard $(BR2_EXTERNAL_BAR_42_PATH)/toolchain/*/*.mk))
+  |     |include $(sort $(wildcard $(LINGMO_EXTERNAL_BAR_42_PATH)/package/*/*.mk))
+  |     |include $(sort $(wildcard $(LINGMO_EXTERNAL_BAR_42_PATH)/toolchain/*/*.mk))
   |     |
   |     |flash-my-board:
-  |     |    $(BR2_EXTERNAL_BAR_42_PATH)/board/my-board/flash-image \
+  |     |    $(LINGMO_EXTERNAL_BAR_42_PATH)/board/my-board/flash-image \
   |     |        --image $(BINARIES_DIR)/image.bin \
   |     |        --address $(BAR_42_FLASH_ADDR)
   |     `----
   |
   |- package/pkg-1/Config.in
-  |     |config BR2_PACKAGE_PKG_1
+  |     |config LINGMO_PACKAGE_PKG_1
   |     |    bool "pkg-1"
   |     |    help
   |     |      Some help about pkg-1
@@ -1497,12 +1497,12 @@ illustration, of course):</p><pre class="screen">/path/to/br2-ext-tree/
   |- package/pkg-2/pkg-2.mk
   |
   |- provides/jpeg.in
-  |     |config BR2_PACKAGE_MY_JPEG
+  |     |config LINGMO_PACKAGE_MY_JPEG
   |     |    bool "my-jpeg"
   |     `----
   |- package/my-jpeg/Config.in
-  |     |config BR2_PACKAGE_PROVIDES_JPEG
-  |     |    default "my-jpeg" if BR2_PACKAGE_MY_JPEG
+  |     |config LINGMO_PACKAGE_PROVIDES_JPEG
+  |     |    default "my-jpeg" if LINGMO_PACKAGE_MY_JPEG
   |     `----
   |- package/my-jpeg/my-jpeg.mk
   |     |# This is a normal package .mk file
@@ -1513,24 +1513,24 @@ illustration, of course):</p><pre class="screen">/path/to/br2-ext-tree/
   |     `----
   |
   |- provides/init.in
-  |     |config BR2_INIT_MINE
+  |     |config LINGMO_INIT_MINE
   |     |    bool "my custom init"
-  |     |    select BR2_PACKAGE_MY_INIT
-  |     |    select BR2_PACKAGE_SKELETON_INIT_MINE if BR2_ROOTFS_SKELETON_DEFAULT
+  |     |    select LINGMO_PACKAGE_MY_INIT
+  |     |    select LINGMO_PACKAGE_SKELETON_INIT_MINE if LINGMO_ROOTFS_SKELETON_DEFAULT
   |     `----
   |
   |- provides/skeleton.in
-  |     |config BR2_ROOTFS_SKELETON_MINE
+  |     |config LINGMO_ROOTFS_SKELETON_MINE
   |     |    bool "my custom skeleton"
-  |     |    select BR2_PACKAGE_SKELETON_MINE
+  |     |    select LINGMO_PACKAGE_SKELETON_MINE
   |     `----
   |- package/skeleton-mine/Config.in
-  |     |config BR2_PACKAGE_SKELETON_MINE
+  |     |config LINGMO_PACKAGE_SKELETON_MINE
   |     |    bool
-  |     |    select BR2_PACKAGE_HAS_SKELETON
+  |     |    select LINGMO_PACKAGE_HAS_SKELETON
   |     |
-  |     |config BR2_PACKAGE_PROVIDES_SKELETON
-  |     |    default "skeleton-mine" if BR2_PACKAGE_SKELETON_MINE
+  |     |config LINGMO_PACKAGE_PROVIDES_SKELETON
+  |     |    default "skeleton-mine" if LINGMO_PACKAGE_SKELETON_MINE
   |     `----
   |- package/skeleton-mine/skeleton-mine.mk
   |     |SKELETON_MINE_ADD_TOOLCHAIN_DEPENDENCY = NO
@@ -1541,16 +1541,16 @@ illustration, of course):</p><pre class="screen">/path/to/br2-ext-tree/
   |     `----
   |
   |- provides/toolchains.in
-  |     |config BR2_TOOLCHAIN_EXTERNAL_MINE
+  |     |config LINGMO_TOOLCHAIN_EXTERNAL_MINE
   |     |    bool "my custom toolchain"
-  |     |    depends on BR2_some_arch
-  |     |    select BR2_INSTALL_LIBSTDCPP
+  |     |    depends on LINGMO_some_arch
+  |     |    select LINGMO_INSTALL_LIBSTDCPP
   |     `----
   |- toolchain/toolchain-external-mine/Config.in.options
-  |     |if BR2_TOOLCHAIN_EXTERNAL_MINE
-  |     |config BR2_TOOLCHAIN_EXTERNAL_PREFIX
+  |     |if LINGMO_TOOLCHAIN_EXTERNAL_MINE
+  |     |config LINGMO_TOOLCHAIN_EXTERNAL_PREFIX
   |     |    default "arch-mine-linux-gnu"
-  |     |config BR2_PACKAGE_PROVIDES_TOOLCHAIN_EXTERNAL
+  |     |config LINGMO_PACKAGE_PROVIDES_TOOLCHAIN_EXTERNAL
   |     |    default "toolchain-external-mine"
   |     |endif
   |     `----
@@ -1561,7 +1561,7 @@ illustration, of course):</p><pre class="screen">/path/to/br2-ext-tree/
   |     `----
   |
   |- linux/Config.ext.in
-  |     |config BR2_LINUX_KERNEL_EXT_EXAMPLE_DRIVER
+  |     |config LINGMO_LINUX_KERNEL_EXT_EXAMPLE_DRIVER
   |     |    bool "example-external-driver"
   |     |    help
   |     |      Example external driver
@@ -1569,10 +1569,10 @@ illustration, of course):</p><pre class="screen">/path/to/br2-ext-tree/
   |- linux/linux-ext-example-driver.mk
   |
   |- configs/my-board_defconfig
-  |     |BR2_GLOBAL_PATCH_DIR="$(BR2_EXTERNAL_BAR_42_PATH)/patches/"
-  |     |BR2_ROOTFS_OVERLAY="$(BR2_EXTERNAL_BAR_42_PATH)/board/my-board/overlay/"
-  |     |BR2_ROOTFS_POST_IMAGE_SCRIPT="$(BR2_EXTERNAL_BAR_42_PATH)/board/my-board/post-image.sh"
-  |     |BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE="$(BR2_EXTERNAL_BAR_42_PATH)/board/my-board/kernel.config"
+  |     |LINGMO_GLOBAL_PATCH_DIR="$(LINGMO_EXTERNAL_BAR_42_PATH)/patches/"
+  |     |LINGMO_ROOTFS_OVERLAY="$(LINGMO_EXTERNAL_BAR_42_PATH)/board/my-board/overlay/"
+  |     |LINGMO_ROOTFS_POST_IMAGE_SCRIPT="$(LINGMO_EXTERNAL_BAR_42_PATH)/board/my-board/post-image.sh"
+  |     |LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE="$(LINGMO_EXTERNAL_BAR_42_PATH)/board/my-board/kernel.config"
   |     `----
   |
   |- patches/linux/0001-some-change.patch
@@ -1627,68 +1627,68 @@ in the <code class="literal">External options</code> menu.</p></div></div></div>
  <code class="literal">make savedefconfig</code>.</p><p>This strips the Buildroot configuration down by removing configuration
 options that are at their default value. The result is stored in a file
 called <code class="literal">defconfig</code>. If you want to save it in another place, change the
-<code class="literal">BR2_DEFCONFIG</code> option in the Buildroot configuration itself, or call
-make with <code class="literal">make savedefconfig BR2_DEFCONFIG=&lt;path-to-defconfig&gt;</code>.</p><p>The recommended place to store this defconfig is
+<code class="literal">LINGMO_DEFCONFIG</code> option in the Buildroot configuration itself, or call
+make with <code class="literal">make savedefconfig LINGMO_DEFCONFIG=&lt;path-to-defconfig&gt;</code>.</p><p>The recommended place to store this defconfig is
 <code class="literal">configs/&lt;boardname&gt;_defconfig</code>. If you follow this recommendation, the
 configuration will be listed in <code class="literal">make list-defconfigs</code> and can be set
 again by running <code class="literal">make &lt;boardname&gt;_defconfig</code>.</p><p>Alternatively, you can copy the file to any other place and rebuild with
-<code class="literal">make defconfig BR2_DEFCONFIG=&lt;path-to-defconfig-file&gt;</code>.</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="customize-store-package-config"></a>9.4. Storing the configuration of other components</h2></div></div></div><p>The configuration files for BusyBox, the Linux kernel, Barebox, U-Boot
+<code class="literal">make defconfig LINGMO_DEFCONFIG=&lt;path-to-defconfig-file&gt;</code>.</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="customize-store-package-config"></a>9.4. Storing the configuration of other components</h2></div></div></div><p>The configuration files for BusyBox, the Linux kernel, Barebox, U-Boot
 and uClibc should be stored as well if changed. For each of these
 components, a Buildroot configuration option exists to point to an input
-configuration file, e.g. <code class="literal">BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE</code>. To store
+configuration file, e.g. <code class="literal">LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE</code>. To store
 their configuration, set these configuration options to a path where you
 want to save the configuration files, and then use the helper targets
 described below to actually store the configuration.</p><p>As explained in <a class="xref" href="#customize-dir-structure" title="9.1. Recommended directory structure">Section 9.1, “Recommended directory structure”</a>, the recommended path to
 store these configuration files is
 <code class="literal">board/&lt;company&gt;/&lt;boardname&gt;/foo.config</code>.</p><p>Make sure that you create a configuration file <span class="emphasis"><em>before</em></span> changing
-the <code class="literal">BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE</code> etc. options. Otherwise,
+the <code class="literal">LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE</code> etc. options. Otherwise,
 Buildroot will try to access this config file, which doesn’t exist
 yet, and will fail. You can create the configuration file by running
 <code class="literal">make linux-menuconfig</code> etc.</p><p>Buildroot provides a few helper targets to make the saving of
 configuration files easier.</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 <code class="literal">make linux-update-defconfig</code> saves the linux configuration to the
-  path specified by <code class="literal">BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE</code>. It
+  path specified by <code class="literal">LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE</code>. It
   simplifies the config file by removing default values. However,
   this only works with kernels starting from 2.6.33. For earlier
   kernels, use <code class="literal">make linux-update-config</code>.
 </li><li class="listitem">
 <code class="literal">make busybox-update-config</code> saves the busybox configuration to the
-  path specified by <code class="literal">BR2_PACKAGE_BUSYBOX_CONFIG</code>.
+  path specified by <code class="literal">LINGMO_PACKAGE_BUSYBOX_CONFIG</code>.
 </li><li class="listitem">
 <code class="literal">make uclibc-update-config</code> saves the uClibc configuration to the
-  path specified by <code class="literal">BR2_UCLIBC_CONFIG</code>.
+  path specified by <code class="literal">LINGMO_UCLIBC_CONFIG</code>.
 </li><li class="listitem">
 <code class="literal">make barebox-update-defconfig</code> saves the barebox configuration to the
-  path specified by <code class="literal">BR2_TARGET_BAREBOX_CUSTOM_CONFIG_FILE</code>.
+  path specified by <code class="literal">LINGMO_TARGET_BAREBOX_CUSTOM_CONFIG_FILE</code>.
 </li><li class="listitem">
 <code class="literal">make uboot-update-defconfig</code> saves the U-Boot configuration to the
-  path specified by <code class="literal">BR2_TARGET_UBOOT_CUSTOM_CONFIG_FILE</code>.
+  path specified by <code class="literal">LINGMO_TARGET_UBOOT_CUSTOM_CONFIG_FILE</code>.
 </li><li class="listitem">
 For at91bootstrap3, no helper exists so you have to copy the config
-  file manually to <code class="literal">BR2_TARGET_AT91BOOTSTRAP3_CUSTOM_CONFIG_FILE</code>.
+  file manually to <code class="literal">LINGMO_TARGET_AT91BOOTSTRAP3_CUSTOM_CONFIG_FILE</code>.
 </li></ul></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="rootfs-custom"></a>9.5. Customizing the generated target filesystem</h2></div></div></div><p>Besides changing the configuration through <code class="literal">make *config</code>,
 there are a few other ways to customize the resulting target filesystem.</p><p>The two recommended methods, which can co-exist, are root filesystem
 overlay(s) and post build script(s).</p><div class="variablelist"><dl class="variablelist"><dt><span class="term">
-Root filesystem overlays (<code class="literal">BR2_ROOTFS_OVERLAY</code>)
+Root filesystem overlays (<code class="literal">LINGMO_ROOTFS_OVERLAY</code>)
 </span></dt><dd><p class="simpara">A filesystem overlay is a tree of files that is copied directly
   over the target filesystem after it has been built. To enable this
-  feature, set config option <code class="literal">BR2_ROOTFS_OVERLAY</code> (in the <code class="literal">System
+  feature, set config option <code class="literal">LINGMO_ROOTFS_OVERLAY</code> (in the <code class="literal">System
   configuration</code> menu) to the root of the overlay. You can even specify
   multiple overlays, space-separated. If you specify a relative path,
   it will be relative to the root of the Buildroot tree. Hidden
   directories of version control systems, like <code class="literal">.git</code>, <code class="literal">.svn</code>, <code class="literal">.hg</code>,
   etc., files called <code class="literal">.empty</code> and files ending in <code class="literal">~</code> are excluded from
-  the copy.</p><p class="simpara">When <code class="literal">BR2_ROOTFS_MERGED_USR</code> is enabled, then the overlay must not
+  the copy.</p><p class="simpara">When <code class="literal">LINGMO_ROOTFS_MERGED_USR</code> is enabled, then the overlay must not
   contain the <span class="emphasis"><em>/bin</em></span>, <span class="emphasis"><em>/lib</em></span> or <span class="emphasis"><em>/sbin</em></span> directories, as Buildroot will
   create them as symbolic links to the relevant folders in <span class="emphasis"><em>/usr</em></span>.  In
   such a situation, should the overlay have any programs or libraries,
   they should be placed in <span class="emphasis"><em>/usr/bin</em></span>, <span class="emphasis"><em>/usr/sbin</em></span> and <span class="emphasis"><em>/usr/lib</em></span>.</p><p class="simpara">As shown in <a class="xref" href="#customize-dir-structure" title="9.1. Recommended directory structure">Section 9.1, “Recommended directory structure”</a>, the recommended path for
   this overlay is <code class="literal">board/&lt;company&gt;/&lt;boardname&gt;/rootfs-overlay</code>.</p></dd><dt><span class="term">
-Post-build scripts (<code class="literal">BR2_ROOTFS_POST_BUILD_SCRIPT</code>)
+Post-build scripts (<code class="literal">LINGMO_ROOTFS_POST_BUILD_SCRIPT</code>)
 </span></dt><dd><p class="simpara">Post-build scripts are shell scripts called <span class="emphasis"><em>after</em></span> Buildroot builds
   all the selected software, but <span class="emphasis"><em>before</em></span> the rootfs images are
   assembled. To enable this feature, specify a space-separated list of
-  post-build scripts in config option <code class="literal">BR2_ROOTFS_POST_BUILD_SCRIPT</code> (in
+  post-build scripts in config option <code class="literal">LINGMO_ROOTFS_POST_BUILD_SCRIPT</code> (in
   the <code class="literal">System configuration</code> menu). If you specify a relative path, it
   will be relative to the root of the Buildroot tree.</p><p class="simpara">Using post-build scripts, you can remove or modify any file in your
   target filesystem. You should, however, use this feature with care.
@@ -1698,11 +1698,11 @@ Post-build scripts (<code class="literal">BR2_ROOTFS_POST_BUILD_SCRIPT</code>)
   this script is <code class="literal">board/&lt;company&gt;/&lt;boardname&gt;/post_build.sh</code>.</p><p class="simpara">The post-build scripts are run with the main Buildroot tree as current
   working directory. The path to the target filesystem is passed as the
   first argument to each script. If the config option
-  <code class="literal">BR2_ROOTFS_POST_SCRIPT_ARGS</code> is not empty, these arguments will be
+  <code class="literal">LINGMO_ROOTFS_POST_SCRIPT_ARGS</code> is not empty, these arguments will be
   passed to the script too. All the scripts will be passed the exact
   same set of arguments, it is not possible to pass different sets of
   arguments to each script.</p><p class="simpara">In addition, you may also use these environment variables:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
-<code class="literal">BR2_CONFIG</code>: the path to the Buildroot .config file
+<code class="literal">LINGMO_CONFIG</code>: the path to the Buildroot .config file
 </li><li class="listitem">
 <code class="literal">CONFIG_DIR</code>: the directory containing the .config file, and
     therefore the top-level Buildroot Makefile to use (which is
@@ -1731,7 +1731,7 @@ Direct modification of the target filesystem
   command</em></span>. Once you have validated your changes, you should make sure
   that they will persist after a <code class="literal">make clean</code>, using a root filesystem
   overlay or a post-build script.</p></dd><dt><span class="term">
-Custom target skeleton (<code class="literal">BR2_ROOTFS_SKELETON_CUSTOM</code>)
+Custom target skeleton (<code class="literal">LINGMO_ROOTFS_SKELETON_CUSTOM</code>)
 </span></dt><dd><p class="simpara">The root filesystem image is created from a target skeleton, on top of
   which all packages install their files. The skeleton is copied to the
   target directory <code class="literal">output/target</code> before any package is built and
@@ -1741,12 +1741,12 @@ Custom target skeleton (<code class="literal">BR2_ROOTFS_SKELETON_CUSTOM</code>)
   post-build script to adapt it. However, if the default skeleton is
   entirely different than what you need, using a custom skeleton may be
   more suitable.</p><p class="simpara">To enable this feature, enable config option
-  <code class="literal">BR2_ROOTFS_SKELETON_CUSTOM</code> and set <code class="literal">BR2_ROOTFS_SKELETON_CUSTOM_PATH</code>
+  <code class="literal">LINGMO_ROOTFS_SKELETON_CUSTOM</code> and set <code class="literal">LINGMO_ROOTFS_SKELETON_CUSTOM_PATH</code>
   to the path of your custom skeleton. Both options are available in the
   <code class="literal">System configuration</code> menu. If you specify a relative path, it will
   be relative to the root of the Buildroot tree.</p><p class="simpara">Custom skeletons don’t need to contain the <span class="emphasis"><em>/bin</em></span>, <span class="emphasis"><em>/lib</em></span> or <span class="emphasis"><em>/sbin</em></span>
   directories, since they are created automatically during the build.
-  When <code class="literal">BR2_ROOTFS_MERGED_USR</code> is enabled, then the custom skeleton must
+  When <code class="literal">LINGMO_ROOTFS_MERGED_USR</code> is enabled, then the custom skeleton must
   not contain the <span class="emphasis"><em>/bin</em></span>, <span class="emphasis"><em>/lib</em></span> or <span class="emphasis"><em>/sbin</em></span> directories, as Buildroot
   will create them as symbolic links to the relevant folders in <span class="emphasis"><em>/usr</em></span>.
   In such a situation, should the skeleton have any programs or
@@ -1754,7 +1754,7 @@ Custom target skeleton (<code class="literal">BR2_ROOTFS_SKELETON_CUSTOM</code>)
   <span class="emphasis"><em>/usr/lib</em></span>.</p><p class="simpara">This method is not recommended because it duplicates the entire
   skeleton, which prevents taking advantage of the fixes or improvements
   brought to the default skeleton in later Buildroot releases.</p></dd><dt><span class="term">
-Post-fakeroot scripts (<code class="literal">BR2_ROOTFS_POST_FAKEROOT_SCRIPT</code>)
+Post-fakeroot scripts (<code class="literal">LINGMO_ROOTFS_POST_FAKEROOT_SCRIPT</code>)
 </span></dt><dd><p class="simpara">When aggregating the final images, some parts of the process requires
   root rights: creating device nodes in <code class="literal">/dev</code>, setting permissions or
   ownership to files and directories… To avoid requiring actual root
@@ -1774,12 +1774,12 @@ or device nodes. For example, certain files may need to be owned by
 root. Since the post-build scripts are not run as root, you cannot do
 such changes from there unless you use an explicit fakeroot from the
 post-build script.</p><p>Instead, Buildroot provides support for so-called <span class="emphasis"><em>permission tables</em></span>.
-To use this feature, set config option <code class="literal">BR2_ROOTFS_DEVICE_TABLE</code> to a
+To use this feature, set config option <code class="literal">LINGMO_ROOTFS_DEVICE_TABLE</code> to a
 space-separated list of permission tables, regular text files following
 the <a class="link" href="#makedev-syntax" title="Chapter 25. Makedev syntax documentation">makedev syntax</a>.</p><p>If you are using a static device table (i.e. not using <code class="literal">devtmpfs</code>,
 <code class="literal">mdev</code>, or <code class="literal">(e)udev</code>) then you can add device nodes using the same
 syntax, in so-called <span class="emphasis"><em>device tables</em></span>. To use this feature, set config
-option <code class="literal">BR2_ROOTFS_STATIC_DEVICE_TABLE</code> to a space-separated list of
+option <code class="literal">LINGMO_ROOTFS_STATIC_DEVICE_TABLE</code> to a space-separated list of
 device tables.</p><p>As shown in <a class="xref" href="#customize-dir-structure" title="9.1. Recommended directory structure">Section 9.1, “Recommended directory structure”</a>, the recommended location for
 such files is <code class="literal">board/&lt;company&gt;/&lt;boardname&gt;/</code>.</p><p>It should be noted that if the specific permissions or device nodes are
 related to a specific application, you should set variables
@@ -1787,7 +1787,7 @@ related to a specific application, you should set variables
 (see <a class="xref" href="#generic-package-reference" title="18.6.2. generic-package reference">Section 18.6.2, “<code class="literal">generic-package</code> reference”</a>).</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="customize-users"></a>9.6. Adding custom user accounts</h2></div></div></div><p>Sometimes it is needed to add specific users in the target system.
 To cover this requirement, Buildroot provides support for so-called
 <span class="emphasis"><em>users tables</em></span>. To use this feature, set config option
-<code class="literal">BR2_ROOTFS_USERS_TABLES</code> to a space-separated list of users tables,
+<code class="literal">LINGMO_ROOTFS_USERS_TABLES</code> to a space-separated list of users tables,
 regular text files following the <a class="link" href="#makeuser-syntax" title="Chapter 26. Makeusers syntax documentation">makeusers syntax</a>.</p><p>As shown in <a class="xref" href="#customize-dir-structure" title="9.1. Recommended directory structure">Section 9.1, “Recommended directory structure”</a>, the recommended location for
 such files is <code class="literal">board/&lt;company&gt;/&lt;boardname&gt;/</code>.</p><p>It should be noted that if the custom users are related to a specific
 application, you should set variable <code class="literal">FOO_USERS</code> in the package’s <code class="literal">.mk</code>
@@ -1798,16 +1798,16 @@ have been created.</p><p>Post-image scripts can for example be used to automatic
 root filesystem tarball in a location exported by your NFS server, or
 to create a special firmware image that bundles your root filesystem and
 kernel image, or any other custom action required for your project.</p><p>To enable this feature, specify a space-separated list of post-image
-scripts in config option <code class="literal">BR2_ROOTFS_POST_IMAGE_SCRIPT</code> (in the <code class="literal">System
+scripts in config option <code class="literal">LINGMO_ROOTFS_POST_IMAGE_SCRIPT</code> (in the <code class="literal">System
 configuration</code> menu). If you specify a relative path, it will be
 relative to the root of the Buildroot tree.</p><p>Just like post-build scripts, post-image scripts are run with the main
 Buildroot tree as current working directory. The path to the <code class="literal">images</code>
 output directory is passed as the first argument to each script. If the
-config option <code class="literal">BR2_ROOTFS_POST_SCRIPT_ARGS</code> is not empty, these
+config option <code class="literal">LINGMO_ROOTFS_POST_SCRIPT_ARGS</code> is not empty, these
 arguments will be passed to the script too. All the scripts will be
 passed the exact same set of arguments, it is not possible to pass
 different sets of arguments to each script.</p><p>Again just like for the post-build scripts, the scripts have access to
-the environment variables <code class="literal">BR2_CONFIG</code>, <code class="literal">HOST_DIR</code>, <code class="literal">STAGING_DIR</code>,
+the environment variables <code class="literal">LINGMO_CONFIG</code>, <code class="literal">HOST_DIR</code>, <code class="literal">STAGING_DIR</code>,
 <code class="literal">TARGET_DIR</code>, <code class="literal">BUILD_DIR</code>, <code class="literal">BINARIES_DIR</code>, <code class="literal">CONFIG_DIR</code> and
 <code class="literal">BASE_DIR</code>.</p><p>The post-image scripts will be executed as the user that executes
 Buildroot, which should normally <span class="emphasis"><em>not</em></span> be the root user. Therefore, any
@@ -1816,13 +1816,13 @@ special handling (usage of fakeroot or sudo), which is left to the
 script developer.</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_adding_project_specific_patches_and_hashes"></a>9.8. Adding project-specific patches and hashes</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="customize-patches"></a>9.8.1. Providing extra patches</h3></div></div></div><p>It is sometimes useful to apply <span class="emphasis"><em>extra</em></span> patches to packages - on top of
 those provided in Buildroot. This might be used to support custom
 features in a project, for example, or when working on a new
-architecture.</p><p>The <code class="literal">BR2_GLOBAL_PATCH_DIR</code> configuration option can be used to specify
+architecture.</p><p>The <code class="literal">LINGMO_GLOBAL_PATCH_DIR</code> configuration option can be used to specify
 a space separated list of one or more directories containing package
 patches.</p><p>For a specific version <code class="literal">&lt;packageversion&gt;</code> of a specific package
-<code class="literal">&lt;packagename&gt;</code>, patches are applied from <code class="literal">BR2_GLOBAL_PATCH_DIR</code> as
+<code class="literal">&lt;packagename&gt;</code>, patches are applied from <code class="literal">LINGMO_GLOBAL_PATCH_DIR</code> as
 follows:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
 For every directory - <code class="literal">&lt;global-patch-dir&gt;</code> - that exists in
-  <code class="literal">BR2_GLOBAL_PATCH_DIR</code>, a <code class="literal">&lt;package-patch-dir&gt;</code> will be determined as
+  <code class="literal">LINGMO_GLOBAL_PATCH_DIR</code>, a <code class="literal">&lt;package-patch-dir&gt;</code> will be determined as
   follows:
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 <code class="literal">&lt;global-patch-dir&gt;/&lt;packagename&gt;/&lt;packageversion&gt;/</code> if the
@@ -1843,17 +1843,17 @@ Otherwise, patch files matching <code class="literal">*.patch</code> are applied
   <code class="literal">&lt;number&gt;-&lt;description&gt;.patch</code>, where <code class="literal">&lt;number&gt;</code> refers to the
   <span class="emphasis"><em>apply order</em></span>.
 </li></ul></div></li></ol></div><p>For information about how patches are applied for a package, see
-<a class="xref" href="#patch-apply-order" title="19.2. How patches are applied">Section 19.2, “How patches are applied”</a></p><p>The <code class="literal">BR2_GLOBAL_PATCH_DIR</code> option is the preferred method for
+<a class="xref" href="#patch-apply-order" title="19.2. How patches are applied">Section 19.2, “How patches are applied”</a></p><p>The <code class="literal">LINGMO_GLOBAL_PATCH_DIR</code> option is the preferred method for
 specifying a custom patch directory for packages. It can be used to
 specify a patch directory for any package in buildroot. It should also
 be used in place of the custom patch directory options that are
 available for packages such as U-Boot and Barebox. By doing this, it
 will allow a user to manage their patches from one top-level
-directory.</p><p>The exception to <code class="literal">BR2_GLOBAL_PATCH_DIR</code> being the preferred method for
-specifying custom patches is <code class="literal">BR2_LINUX_KERNEL_PATCH</code>.
-<code class="literal">BR2_LINUX_KERNEL_PATCH</code> should be used to specify kernel patches that
-are available at a URL. <span class="strong"><strong>Note:</strong></span> <code class="literal">BR2_LINUX_KERNEL_PATCH</code> specifies kernel
-patches that are applied after patches available in <code class="literal">BR2_GLOBAL_PATCH_DIR</code>,
+directory.</p><p>The exception to <code class="literal">LINGMO_GLOBAL_PATCH_DIR</code> being the preferred method for
+specifying custom patches is <code class="literal">LINGMO_LINUX_KERNEL_PATCH</code>.
+<code class="literal">LINGMO_LINUX_KERNEL_PATCH</code> should be used to specify kernel patches that
+are available at a URL. <span class="strong"><strong>Note:</strong></span> <code class="literal">LINGMO_LINUX_KERNEL_PATCH</code> specifies kernel
+patches that are applied after patches available in <code class="literal">LINGMO_GLOBAL_PATCH_DIR</code>,
 as it is done from a post-patch hook of the Linux package.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="customize-hashes"></a>9.8.2. Providing extra hashes</h3></div></div></div><p>Buildroot bundles a <a class="link" href="#adding-packages-hash" title="18.4. The .hash file">list of hashes</a> against
 which it checks the integrity of the downloaded archives, or of those
 it generates locally from VCS checkouts. However, it can only do so
@@ -1863,7 +1863,7 @@ or a VCS repository location and changeset), Buildroot can’t carry
 hashes for those.</p><p>For users concerned with the integrity of such downloads, it is possible
 to provide a list of hashes that Buildroot can use to check arbitrary
 downloaded files. Those extra hashes are looked up similarly to the
-extra patches (above); for each directory in <code class="literal">BR2_GLOBAL_PATCH_DIR</code>,
+extra patches (above); for each directory in <code class="literal">LINGMO_GLOBAL_PATCH_DIR</code>,
 the first file to exist is used to check a package download:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 <code class="literal">&lt;global-patch-dir&gt;/&lt;packagename&gt;/&lt;packageversion&gt;/&lt;packagename&gt;.hash</code>
 </li><li class="listitem">
@@ -1912,17 +1912,17 @@ your project can be skipped.</p><div class="orderedlist"><ol class="orderedlist"
 Set the following options to <code class="literal">board/&lt;manufacturer&gt;/&lt;boardname&gt;/&lt;package&gt;.config</code>
    (as far as they are relevant):
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
-<code class="literal">BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE</code>
+<code class="literal">LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE</code>
 </li><li class="listitem">
-<code class="literal">BR2_PACKAGE_BUSYBOX_CONFIG</code>
+<code class="literal">LINGMO_PACKAGE_BUSYBOX_CONFIG</code>
 </li><li class="listitem">
-<code class="literal">BR2_UCLIBC_CONFIG</code>
+<code class="literal">LINGMO_UCLIBC_CONFIG</code>
 </li><li class="listitem">
-<code class="literal">BR2_TARGET_AT91BOOTSTRAP3_CUSTOM_CONFIG_FILE</code>
+<code class="literal">LINGMO_TARGET_AT91BOOTSTRAP3_CUSTOM_CONFIG_FILE</code>
 </li><li class="listitem">
-<code class="literal">BR2_TARGET_BAREBOX_CUSTOM_CONFIG_FILE</code>
+<code class="literal">LINGMO_TARGET_BAREBOX_CUSTOM_CONFIG_FILE</code>
 </li><li class="listitem">
-<code class="literal">BR2_TARGET_UBOOT_CUSTOM_CONFIG_FILE</code>
+<code class="literal">LINGMO_TARGET_UBOOT_CUSTOM_CONFIG_FILE</code>
 </li></ul></div></li><li class="listitem"><p class="simpara">
 Write the configuration files:
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
@@ -1942,33 +1942,33 @@ Write the configuration files:
 Create <code class="literal">board/&lt;manufacturer&gt;/&lt;boardname&gt;/rootfs-overlay/</code> and fill it
    with additional files you need on your rootfs, e.g.
    <code class="literal">board/&lt;manufacturer&gt;/&lt;boardname&gt;/rootfs-overlay/etc/inittab</code>.
-   Set <code class="literal">BR2_ROOTFS_OVERLAY</code>
+   Set <code class="literal">LINGMO_ROOTFS_OVERLAY</code>
    to <code class="literal">board/&lt;manufacturer&gt;/&lt;boardname&gt;/rootfs-overlay</code>.
 </li><li class="listitem">
 Create a post-build script
    <code class="literal">board/&lt;manufacturer&gt;/&lt;boardname&gt;/post_build.sh</code>. Set
-   <code class="literal">BR2_ROOTFS_POST_BUILD_SCRIPT</code> to
+   <code class="literal">LINGMO_ROOTFS_POST_BUILD_SCRIPT</code> to
    <code class="literal">board/&lt;manufacturer&gt;/&lt;boardname&gt;/post_build.sh</code>
 </li><li class="listitem">
 If additional setuid permissions have to be set or device nodes have
    to be created, create <code class="literal">board/&lt;manufacturer&gt;/&lt;boardname&gt;/device_table.txt</code>
-   and add that path to <code class="literal">BR2_ROOTFS_DEVICE_TABLE</code>.
+   and add that path to <code class="literal">LINGMO_ROOTFS_DEVICE_TABLE</code>.
 </li><li class="listitem">
 If additional user accounts have to be created, create
    <code class="literal">board/&lt;manufacturer&gt;/&lt;boardname&gt;/users_table.txt</code> and add that path
-   to <code class="literal">BR2_ROOTFS_USERS_TABLES</code>.
+   to <code class="literal">LINGMO_ROOTFS_USERS_TABLES</code>.
 </li><li class="listitem">
-To add custom patches to certain packages, set <code class="literal">BR2_GLOBAL_PATCH_DIR</code>
+To add custom patches to certain packages, set <code class="literal">LINGMO_GLOBAL_PATCH_DIR</code>
    to <code class="literal">board/&lt;manufacturer&gt;/&lt;boardname&gt;/patches/</code> and add your patches
    for each package in a subdirectory named after the package. Each
    patch should be called <code class="literal">&lt;packagename&gt;-&lt;num&gt;-&lt;description&gt;.patch</code>.
 </li><li class="listitem">
 Specifically for the Linux kernel, there also exists the option
-   <code class="literal">BR2_LINUX_KERNEL_PATCH</code> with as main advantage that it can also
+   <code class="literal">LINGMO_LINUX_KERNEL_PATCH</code> with as main advantage that it can also
    download patches from a URL. If you do not need this,
-   <code class="literal">BR2_GLOBAL_PATCH_DIR</code> is preferred. U-Boot, Barebox, at91bootstrap
+   <code class="literal">LINGMO_GLOBAL_PATCH_DIR</code> is preferred. U-Boot, Barebox, at91bootstrap
    and at91bootstrap3 also have separate options, but these do not
-   provide any advantage over <code class="literal">BR2_GLOBAL_PATCH_DIR</code> and will likely be
+   provide any advantage over <code class="literal">LINGMO_GLOBAL_PATCH_DIR</code> and will likely be
    removed in the future.
 </li><li class="listitem">
 If you need to add project-specific packages, create
@@ -1987,7 +1987,7 @@ level. Buildroot is highly configurable, almost everything discussed
 here can be changed or overridden by <a class="link" href="#rootfs-custom" title="9.5. Customizing the generated target filesystem">rootfs overlay
 or custom skeleton</a> configuration.</p><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="integration-systemd"></a>10.1. Systemd</h2></div></div></div><p>This chapter describes the decisions taken in Buildroot’s integration of
 systemd, and how various use cases can be implemented.</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_dbus_daemon"></a>10.1.1. DBus daemon</h3></div></div></div><p>Systemd requires a DBus daemon. There are two options for it: traditional dbus
-(<code class="literal">BR2_PACKAGE_DBUS</code>) and bus1 dbus-broker (<code class="literal">BR2_PACKAGE_DBUS_BROKER</code>). At
+(<code class="literal">LINGMO_PACKAGE_DBUS</code>) and bus1 dbus-broker (<code class="literal">LINGMO_PACKAGE_DBUS_BROKER</code>). At
 least one of them must be chosen. If both are included in the configuration,
 dbus-broker will be used as system bus, but the traditional dbus-daemon is
 still installed as well and can be used as session bus. Also its tools (e.g.
@@ -2011,16 +2011,16 @@ for users or processes to access specific functions of resources
 <span class="emphasis"><em>Enforcing</em></span>: the policy is applied, and non-authorized actions are
   denied
 </li></ul></div><p>In Buildroot the mode of operation is controlled by the
-<code class="literal">BR2_PACKAGE_REFPOLICY_POLICY_STATE_*</code> configuration options. The
+<code class="literal">LINGMO_PACKAGE_REFPOLICY_POLICY_STATE_*</code> configuration options. The
 Linux kernel also has various configuration options that affect how
 <code class="literal">SELinux</code> is enabled (see <code class="literal">security/selinux/Kconfig</code> in the Linux
 kernel sources).</p><p>By default in Buildroot the <code class="literal">SELinux</code> policy is provided by the
 upstream <a class="ulink" href="https://github.com/SELinuxProject/refpolicy" target="_top">refpolicy</a>
-project, enabled with <code class="literal">BR2_PACKAGE_REFPOLICY</code>.</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="enabling-selinux"></a>10.2.1. Enabling SELinux support</h3></div></div></div><p>To have proper support for <code class="literal">SELinux</code> in a Buildroot generated system,
+project, enabled with <code class="literal">LINGMO_PACKAGE_REFPOLICY</code>.</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="enabling-selinux"></a>10.2.1. Enabling SELinux support</h3></div></div></div><p>To have proper support for <code class="literal">SELinux</code> in a Buildroot generated system,
 the following configuration options must be enabled:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
-<code class="literal">BR2_PACKAGE_LIBSELINUX</code>
+<code class="literal">LINGMO_PACKAGE_LIBSELINUX</code>
 </li><li class="listitem">
-<code class="literal">BR2_PACKAGE_REFPOLICY</code>
+<code class="literal">LINGMO_PACKAGE_REFPOLICY</code>
 </li></ul></div><p>In addition, your filesystem image format must support extended
 attributes.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="selinux-policy-tweaking"></a>10.2.2. SELinux policy tweaking</h3></div></div></div><p>The <code class="literal">SELinux refpolicy</code> contains modules that can be enabled or
 disabled when being built. Each module provide a number of <code class="literal">SELinux</code>
@@ -2033,10 +2033,10 @@ Packages can provide additional <code class="literal">SELinux</code> modules by 
   and .te files) in <code class="literal">package/&lt;packagename&gt;/selinux/</code>.
 </li><li class="listitem">
 Extra <code class="literal">SELinux</code> modules can be added in directories pointed by the
-  <code class="literal">BR2_REFPOLICY_EXTRA_MODULES_DIRS</code> configuration option.
+  <code class="literal">LINGMO_REFPOLICY_EXTRA_MODULES_DIRS</code> configuration option.
 </li><li class="listitem">
 Additional modules in the <code class="literal">refpolicy</code> can be enabled if listed in the
-  <code class="literal">BR2_REFPOLICY_EXTRA_MODULES_DEPENDENCIES</code> configuration option.
+  <code class="literal">LINGMO_REFPOLICY_EXTRA_MODULES_DEPENDENCIES</code> configuration option.
 </li></ul></div><p>Buildroot also allows to completely override the <code class="literal">refpolicy</code>. This
 allows to provide a full custom policy designed specifically for a
 given system. When going this way, all of the above mechanisms are
@@ -2045,11 +2045,11 @@ the available modules within the custom policy are enabled and built
 into the final binary policy. The custom policy must be a fork of the
 official <a class="ulink" href="https://github.com/SELinuxProject/refpolicy" target="_top">refpolicy</a>.</p><p>In order to fully override the <code class="literal">refpolicy</code> the following configuration
 variables have to be set:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
-<code class="literal">BR2_PACKAGE_REFPOLICY_CUSTOM_GIT</code>
+<code class="literal">LINGMO_PACKAGE_REFPOLICY_CUSTOM_GIT</code>
 </li><li class="listitem">
-<code class="literal">BR2_PACKAGE_REFPOLICY_CUSTOM_REPO_URL</code>
+<code class="literal">LINGMO_PACKAGE_REFPOLICY_CUSTOM_REPO_URL</code>
 </li><li class="listitem">
-<code class="literal">BR2_PACKAGE_REFPOLICY_CUSTOM_REPO_VERSION</code>
+<code class="literal">LINGMO_PACKAGE_REFPOLICY_CUSTOM_REPO_VERSION</code>
 </li></ul></div></div></div></div><div class="chapter"><div class="titlepage"><div><div><h2 class="title"><a id="_frequently_asked_questions_amp_troubleshooting"></a>Chapter 11. Frequently Asked Questions &amp; Troubleshooting</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="faq-boot-hang-after-starting"></a>11.1. The boot hangs after <span class="emphasis"><em>Starting network…</em></span></h2></div></div></div><p>If the boot process seems to hang after the following messages
 (messages not necessarily exactly similar, depending on the list of
 packages selected):</p><pre class="screen">Freeing init memory: 3972K
@@ -2247,16 +2247,16 @@ With <span class="emphasis"><em>musl</em></span>, 64-bit <code class="literal">t
     Y2038 compatible.
 </li><li class="listitem">
 With <span class="emphasis"><em>glibc</em></span>, 64-bit <code class="literal">time_t</code> on 32-bit architectures is enabled
-    by the Buildroot option <code class="literal">BR2_TIME_BITS_64</code>. With this option
+    by the Buildroot option <code class="literal">LINGMO_TIME_BITS_64</code>. With this option
     enabled, systems using <span class="emphasis"><em>glibc</em></span> on 32-bit platforms are Y2038
     compatible.
 </li></ul></div></li></ul></div><p>Note that the above only comments about the capabilities of the C
 library. Individual user-space libraries or applications, even when
 built in a Y2038-compatible setup, can exhibit incorrect behavior if
 they do not make correct use of the time APIs and types.</p></div></div><div class="chapter"><div class="titlepage"><div><div><h2 class="title"><a id="_known_issues"></a>Chapter 12. Known issues</h2></div></div></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
-It is not possible to pass extra linker options via <code class="literal">BR2_TARGET_LDFLAGS</code>
+It is not possible to pass extra linker options via <code class="literal">LINGMO_TARGET_LDFLAGS</code>
   if such options contain a <code class="literal">$</code> sign. For example, the following is known
-  to break: <code class="literal">BR2_TARGET_LDFLAGS="-Wl,-rpath='$ORIGIN/../lib'"</code>
+  to break: <code class="literal">LINGMO_TARGET_LDFLAGS="-Wl,-rpath='$ORIGIN/../lib'"</code>
 </li><li class="listitem">
 The <code class="literal">libffi</code> package is not supported on the SuperH 2 and ARMv7-M
   architectures.
@@ -2430,10 +2430,10 @@ file,
 </li><li class="listitem">
 or entirely rework it in order to make it comply with these rules.
 </li></ul></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="writing-rules-config-in"></a>16.1. <code class="literal">Config.in</code> file</h2></div></div></div><p><code class="literal">Config.in</code> files contain entries for almost anything configurable in
-Buildroot.</p><p>An entry has the following pattern:</p><pre class="screen">config BR2_PACKAGE_LIBFOO
+Buildroot.</p><p>An entry has the following pattern:</p><pre class="screen">config LINGMO_PACKAGE_LIBFOO
         bool "libfoo"
-        depends on BR2_PACKAGE_LIBBAZ
-        select BR2_PACKAGE_LIBBAR
+        depends on LINGMO_PACKAGE_LIBBAZ
+        select LINGMO_PACKAGE_LIBBAR
         help
           This is a comment that explains what libfoo is. The help text
           should be wrapped.
@@ -2471,18 +2471,18 @@ so <span class="emphasis"><em>make</em></span> recognizes them as commands.</p><
 Optional dependency:
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem"><p class="simpara">
 Prefer multi-line syntax.
-</p><p class="simpara">YES:</p><pre class="screen">ifeq ($(BR2_PACKAGE_PYTHON3),y)
+</p><p class="simpara">YES:</p><pre class="screen">ifeq ($(LINGMO_PACKAGE_PYTHON3),y)
 LIBFOO_CONF_OPTS += --with-python-support
 LIBFOO_DEPENDENCIES += python3
 else
 LIBFOO_CONF_OPTS += --without-python-support
-endif</pre><p class="simpara">NO:</p><pre class="screen">LIBFOO_CONF_OPTS += --with$(if $(BR2_PACKAGE_PYTHON3),,out)-python-support
-LIBFOO_DEPENDENCIES += $(if $(BR2_PACKAGE_PYTHON3),python3,)</pre></li><li class="listitem">
+endif</pre><p class="simpara">NO:</p><pre class="screen">LIBFOO_CONF_OPTS += --with$(if $(LINGMO_PACKAGE_PYTHON3),,out)-python-support
+LIBFOO_DEPENDENCIES += $(if $(LINGMO_PACKAGE_PYTHON3),python3,)</pre></li><li class="listitem">
 Keep configure options and dependencies close together.
 </li></ul></div></li><li class="listitem"><p class="simpara">
 Optional hooks: keep hook definition and assignment together in one
   if block.
-</p><p class="simpara">YES:</p><pre class="screen">ifneq ($(BR2_LIBFOO_INSTALL_DATA),y)
+</p><p class="simpara">YES:</p><pre class="screen">ifneq ($(LINGMO_LIBFOO_INSTALL_DATA),y)
 define LIBFOO_REMOVE_DATA
         $(RM) -r $(TARGET_DIR)/usr/share/libfoo/data
 endef
@@ -2491,7 +2491,7 @@ endif</pre><p class="simpara">NO:</p><pre class="screen">define LIBFOO_REMOVE_DA
         $(RM) -r $(TARGET_DIR)/usr/share/libfoo/data
 endef
 
-ifneq ($(BR2_LIBFOO_INSTALL_DATA),y)
+ifneq ($(LINGMO_LIBFOO_INSTALL_DATA),y)
 LIBFOO_POST_INSTALL_TARGET_HOOKS += LIBFOO_REMOVE_DATA
 endif</pre></li></ul></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="writing-genimage-cfg"></a>16.3. The <code class="literal">genimage.cfg</code> file</h2></div></div></div><p><code class="literal">genimage.cfg</code> files contain the output image layout that genimage utility
 uses to create final .img file.</p><p>An example follows:</p><pre class="screen">image efi-part.vfat {
@@ -2582,8 +2582,8 @@ separate it into sections, with a comment before each section. Typical
 sections are <span class="emphasis"><em>Architecture</em></span>, <span class="emphasis"><em>Toolchain options</em></span> (typically just linux
 headers version), <span class="emphasis"><em>Firmware</em></span>, <span class="emphasis"><em>Bootloader</em></span>, <span class="emphasis"><em>Kernel</em></span>, and <span class="emphasis"><em>Filesystem</em></span>.</p><p>Always use fixed versions or commit hashes for the different
 components, not the "latest" version. For example, set
-<code class="literal">BR2_LINUX_KERNEL_CUSTOM_VERSION=y</code> and
-<code class="literal">BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE</code> to the kernel version you tested
+<code class="literal">LINGMO_LINUX_KERNEL_CUSTOM_VERSION=y</code> and
+<code class="literal">LINGMO_LINUX_KERNEL_CUSTOM_VERSION_VALUE</code> to the kernel version you tested
 with.</p><p>It is recommended to use as much as possible upstream versions of the
 Linux kernel and bootloaders, and to use as much as possible default
 kernel and bootloader configurations. If they are incorrect for your
@@ -2618,7 +2618,7 @@ create a Config file in your package directory. There are two types:
 <code class="literal">Config.in</code> and <code class="literal">Config.in.host</code>.</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_literal_config_in_literal_file"></a>18.2.1. <code class="literal">Config.in</code> file</h3></div></div></div><p>For packages used on the target, create a file named <code class="literal">Config.in</code>. This
 file will contain the option descriptions related to our <code class="literal">libfoo</code> software
 that will be used and displayed in the configuration tool. It should basically
-contain:</p><pre class="screen">config BR2_PACKAGE_LIBFOO
+contain:</p><pre class="screen">config LINGMO_PACKAGE_LIBFOO
         bool "libfoo"
         help
           This is a comment that explains what libfoo is. The help text
@@ -2644,7 +2644,7 @@ Any dependencies on other packages in <code class="literal">depends on</code> fo
 Any dependency of the <code class="literal">select</code> form
 </li><li class="listitem">
 The help keyword and help text.
-</li></ol></div><p>You can add other sub-options into a <code class="literal">if BR2_PACKAGE_LIBFOO…endif</code>
+</li></ol></div><p>You can add other sub-options into a <code class="literal">if LINGMO_PACKAGE_LIBFOO…endif</code>
 statement to configure particular things in your software. You can look at
 examples in other packages. The syntax of the <code class="literal">Config.in</code> file is the same
 as the one for the kernel Kconfig file. The documentation for this syntax is
@@ -2662,7 +2662,7 @@ The host package is only required to satisfy build-time
 The host package should be explicitly selectable by the user from
   the configuration menu. In this case, create a <code class="literal">Config.in.host</code> file
   for that host package:
-</p><pre class="screen">config BR2_PACKAGE_HOST_FOO
+</p><pre class="screen">config LINGMO_PACKAGE_HOST_FOO
         bool "host foo"
         help
           This is a comment that explains what foo for the host is.
@@ -2676,7 +2676,7 @@ Use a <code class="literal">select</code> type of dependency for dependencies on
   libraries. These dependencies are generally not obvious and it
   therefore make sense to have the kconfig system ensure that the
   dependencies are selected. For example, the <span class="emphasis"><em>libgtk2</em></span> package uses
-  <code class="literal">select BR2_PACKAGE_LIBGLIB2</code> to make sure this library is also
+  <code class="literal">select LINGMO_PACKAGE_LIBGLIB2</code> to make sure this library is also
   enabled.
   The <code class="literal">select</code> keyword expresses the dependency with a backward
   semantic.
@@ -2691,13 +2691,13 @@ Use a <code class="literal">depends on</code> type of dependency when the user r
 </li></ul></div><p><strong>Note. </strong>The current problem with the <span class="emphasis"><em>kconfig</em></span> language is that these two
 dependency semantics are not internally linked. Therefore, it may be
 possible to select a package, whom one of its dependencies/requirement
-is not met.</p><p>An example illustrates both the usage of <code class="literal">select</code> and <code class="literal">depends on</code>.</p><pre class="screen">config BR2_PACKAGE_RRDTOOL
+is not met.</p><p>An example illustrates both the usage of <code class="literal">select</code> and <code class="literal">depends on</code>.</p><pre class="screen">config LINGMO_PACKAGE_RRDTOOL
         bool "rrdtool"
-        depends on BR2_USE_WCHAR
-        select BR2_PACKAGE_FREETYPE
-        select BR2_PACKAGE_LIBART
-        select BR2_PACKAGE_LIBPNG
-        select BR2_PACKAGE_ZLIB
+        depends on LINGMO_USE_WCHAR
+        select LINGMO_PACKAGE_FREETYPE
+        select LINGMO_PACKAGE_LIBART
+        select LINGMO_PACKAGE_LIBPNG
+        select LINGMO_PACKAGE_ZLIB
         help
           RRDtool is the OpenSource industry standard, high performance
           data logging and graphing system for time series data.
@@ -2705,25 +2705,25 @@ is not met.</p><p>An example illustrates both the usage of <code class="literal"
           http://oss.oetiker.ch/rrdtool/
 
 comment "rrdtool needs a toolchain w/ wchar"
-        depends on !BR2_USE_WCHAR</pre><p>Note that these two dependency types are only transitive with the
-dependencies of the same kind.</p><p>This means, in the following example:</p><pre class="screen">config BR2_PACKAGE_A
+        depends on !LINGMO_USE_WCHAR</pre><p>Note that these two dependency types are only transitive with the
+dependencies of the same kind.</p><p>This means, in the following example:</p><pre class="screen">config LINGMO_PACKAGE_A
         bool "Package A"
 
-config BR2_PACKAGE_B
+config LINGMO_PACKAGE_B
         bool "Package B"
-        depends on BR2_PACKAGE_A
+        depends on LINGMO_PACKAGE_A
 
-config BR2_PACKAGE_C
+config LINGMO_PACKAGE_C
         bool "Package C"
-        depends on BR2_PACKAGE_B
+        depends on LINGMO_PACKAGE_B
 
-config BR2_PACKAGE_D
+config LINGMO_PACKAGE_D
         bool "Package D"
-        select BR2_PACKAGE_B
+        select LINGMO_PACKAGE_B
 
-config BR2_PACKAGE_E
+config LINGMO_PACKAGE_E
         bool "Package E"
-        select BR2_PACKAGE_D</pre><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+        select LINGMO_PACKAGE_D</pre><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 Selecting <code class="literal">Package C</code> will be visible if <code class="literal">Package B</code> has been
   selected, which in turn is only visible if <code class="literal">Package A</code> has been
   selected.
@@ -2735,15 +2735,15 @@ Selecting <code class="literal">Package E</code> will select <code class="litera
 Since <code class="literal">Package B</code> is selected but <code class="literal">Package A</code> is not, this violates
   the dependency of <code class="literal">Package B</code> on <code class="literal">Package A</code>. Therefore, in such a
   situation, the transitive dependency has to be added explicitly:
-</li></ul></div><pre class="screen">config BR2_PACKAGE_D
+</li></ul></div><pre class="screen">config LINGMO_PACKAGE_D
         bool "Package D"
-        depends on BR2_PACKAGE_A
-        select BR2_PACKAGE_B
+        depends on LINGMO_PACKAGE_A
+        select LINGMO_PACKAGE_B
 
-config BR2_PACKAGE_E
+config LINGMO_PACKAGE_E
         bool "Package E"
-        depends on BR2_PACKAGE_A
-        select BR2_PACKAGE_D</pre><p>Overall, for package library dependencies, <code class="literal">select</code> should be
+        depends on LINGMO_PACKAGE_A
+        select LINGMO_PACKAGE_D</pre><p>Overall, for package library dependencies, <code class="literal">select</code> should be
 preferred.</p><p>Note that such dependencies will ensure that the dependency option
 is also enabled, but not necessarily built before your package. To do
 so, the dependency also needs to be expressed in the <code class="literal">.mk</code> file of the
@@ -2774,13 +2774,13 @@ options, the corresponding config symbols to depend on, and the text to
 use in the comment.</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p class="simpara">
 Target architecture
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
-Dependency symbol: <code class="literal">BR2_powerpc</code>, <code class="literal">BR2_mips</code>, … (see <code class="literal">arch/Config.in</code>)
+Dependency symbol: <code class="literal">LINGMO_powerpc</code>, <code class="literal">LINGMO_mips</code>, … (see <code class="literal">arch/Config.in</code>)
 </li><li class="listitem">
 Comment string: no comment to be added
 </li></ul></div></li><li class="listitem"><p class="simpara">
 MMU support
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
-Dependency symbol: <code class="literal">BR2_USE_MMU</code>
+Dependency symbol: <code class="literal">LINGMO_USE_MMU</code>
 </li><li class="listitem">
 Comment string: no comment to be added
 </li></ul></div></li><li class="listitem"><p class="simpara">
@@ -2789,22 +2789,22 @@ Gcc <code class="literal"><span class="emphasis"><em>_sync</em></span>*</code> b
   bytes. Since different architectures support atomic operations on
   different sizes, one dependency symbol is available for each size:
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
-Dependency symbol: <code class="literal">BR2_TOOLCHAIN_HAS_SYNC_1</code> for 1 byte,
-   <code class="literal">BR2_TOOLCHAIN_HAS_SYNC_2</code> for 2 bytes,
-   <code class="literal">BR2_TOOLCHAIN_HAS_SYNC_4</code> for 4 bytes, <code class="literal">BR2_TOOLCHAIN_HAS_SYNC_8</code>
+Dependency symbol: <code class="literal">LINGMO_TOOLCHAIN_HAS_SYNC_1</code> for 1 byte,
+   <code class="literal">LINGMO_TOOLCHAIN_HAS_SYNC_2</code> for 2 bytes,
+   <code class="literal">LINGMO_TOOLCHAIN_HAS_SYNC_4</code> for 4 bytes, <code class="literal">LINGMO_TOOLCHAIN_HAS_SYNC_8</code>
    for 8 bytes.
 </li><li class="listitem">
 Comment string: no comment to be added
 </li></ul></div></li><li class="listitem"><p class="simpara">
 Gcc <code class="literal"><span class="emphasis"><em>_atomic</em></span>*</code> built-ins used for atomic operations.
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
-Dependency symbol: <code class="literal">BR2_TOOLCHAIN_HAS_ATOMIC</code>.
+Dependency symbol: <code class="literal">LINGMO_TOOLCHAIN_HAS_ATOMIC</code>.
 </li><li class="listitem">
 Comment string: no comment to be added
 </li></ul></div></li><li class="listitem"><p class="simpara">
 Kernel headers
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
-Dependency symbol: <code class="literal">BR2_TOOLCHAIN_HEADERS_AT_LEAST_X_Y</code>, (replace
+Dependency symbol: <code class="literal">LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_X_Y</code>, (replace
    <code class="literal">X_Y</code> with the proper version, see <code class="literal">toolchain/Config.in</code>)
 </li><li class="listitem">
 Comment string: <code class="literal">headers &gt;= X.Y</code> and/or <code class="literal">headers &lt;= X.Y</code> (replace
@@ -2812,7 +2812,7 @@ Comment string: <code class="literal">headers &gt;= X.Y</code> and/or <code clas
 </li></ul></div></li><li class="listitem"><p class="simpara">
 GCC version
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
-Dependency symbol: <code class="literal">BR2_TOOLCHAIN_GCC_AT_LEAST_X_Y</code>, (replace
+Dependency symbol: <code class="literal">LINGMO_TOOLCHAIN_GCC_AT_LEAST_X_Y</code>, (replace
    <code class="literal">X_Y</code> with the proper version, see <code class="literal">toolchain/Config.in</code>)
 </li><li class="listitem">
 Comment string: <code class="literal">gcc &gt;= X.Y</code> and/or <code class="literal">gcc &lt;= X.Y</code> (replace
@@ -2820,7 +2820,7 @@ Comment string: <code class="literal">gcc &gt;= X.Y</code> and/or <code class="l
 </li></ul></div></li><li class="listitem"><p class="simpara">
 Host GCC version
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
-Dependency symbol: <code class="literal">BR2_HOST_GCC_AT_LEAST_X_Y</code>, (replace
+Dependency symbol: <code class="literal">LINGMO_HOST_GCC_AT_LEAST_X_Y</code>, (replace
    <code class="literal">X_Y</code> with the proper version, see <code class="literal">Config.in</code>)
 </li><li class="listitem">
 Comment string: no comment to be added
@@ -2830,8 +2830,8 @@ Note that it is usually not the package itself that has a minimum
 </li></ul></div></li><li class="listitem"><p class="simpara">
 C library
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
-Dependency symbol: <code class="literal">BR2_TOOLCHAIN_USES_GLIBC</code>,
-   <code class="literal">BR2_TOOLCHAIN_USES_MUSL</code>, <code class="literal">BR2_TOOLCHAIN_USES_UCLIBC</code>
+Dependency symbol: <code class="literal">LINGMO_TOOLCHAIN_USES_GLIBC</code>,
+   <code class="literal">LINGMO_TOOLCHAIN_USES_MUSL</code>, <code class="literal">LINGMO_TOOLCHAIN_USES_UCLIBC</code>
 </li><li class="listitem">
 Comment string: for the C library, a slightly different comment text
    is used: <code class="literal">foo needs a glibc toolchain</code>, or <code class="literal">foo needs a glibc
@@ -2839,50 +2839,50 @@ Comment string: for the C library, a slightly different comment text
 </li></ul></div></li><li class="listitem"><p class="simpara">
 C++ support
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
-Dependency symbol: <code class="literal">BR2_INSTALL_LIBSTDCPP</code>
+Dependency symbol: <code class="literal">LINGMO_INSTALL_LIBSTDCPP</code>
 </li><li class="listitem">
 Comment string: <code class="literal">C++</code>
 </li></ul></div></li><li class="listitem"><p class="simpara">
 D support
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
-Dependency symbol: <code class="literal">BR2_TOOLCHAIN_HAS_DLANG</code>
+Dependency symbol: <code class="literal">LINGMO_TOOLCHAIN_HAS_DLANG</code>
 </li><li class="listitem">
 Comment string: <code class="literal">Dlang</code>
 </li></ul></div></li><li class="listitem"><p class="simpara">
 Fortran support
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
-Dependency symbol: <code class="literal">BR2_TOOLCHAIN_HAS_FORTRAN</code>
+Dependency symbol: <code class="literal">LINGMO_TOOLCHAIN_HAS_FORTRAN</code>
 </li><li class="listitem">
 Comment string: <code class="literal">fortran</code>
 </li></ul></div></li><li class="listitem"><p class="simpara">
 thread support
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
-Dependency symbol: <code class="literal">BR2_TOOLCHAIN_HAS_THREADS</code>
+Dependency symbol: <code class="literal">LINGMO_TOOLCHAIN_HAS_THREADS</code>
 </li><li class="listitem">
-Comment string: <code class="literal">threads</code> (unless <code class="literal">BR2_TOOLCHAIN_HAS_THREADS_NPTL</code>
+Comment string: <code class="literal">threads</code> (unless <code class="literal">LINGMO_TOOLCHAIN_HAS_THREADS_NPTL</code>
    is also needed, in which case, specifying only <code class="literal">NPTL</code> is sufficient)
 </li></ul></div></li><li class="listitem"><p class="simpara">
 NPTL thread support
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
-Dependency symbol: <code class="literal">BR2_TOOLCHAIN_HAS_THREADS_NPTL</code>
+Dependency symbol: <code class="literal">LINGMO_TOOLCHAIN_HAS_THREADS_NPTL</code>
 </li><li class="listitem">
 Comment string: <code class="literal">NPTL</code>
 </li></ul></div></li><li class="listitem"><p class="simpara">
 RPC support
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
-Dependency symbol: <code class="literal">BR2_TOOLCHAIN_HAS_NATIVE_RPC</code>
+Dependency symbol: <code class="literal">LINGMO_TOOLCHAIN_HAS_NATIVE_RPC</code>
 </li><li class="listitem">
 Comment string: <code class="literal">RPC</code>
 </li></ul></div></li><li class="listitem"><p class="simpara">
 wchar support
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
-Dependency symbol: <code class="literal">BR2_USE_WCHAR</code>
+Dependency symbol: <code class="literal">LINGMO_USE_WCHAR</code>
 </li><li class="listitem">
 Comment string: <code class="literal">wchar</code>
 </li></ul></div></li><li class="listitem"><p class="simpara">
 dynamic library
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
-Dependency symbol: <code class="literal">!BR2_STATIC_LIBS</code>
+Dependency symbol: <code class="literal">!LINGMO_STATIC_LIBS</code>
 </li><li class="listitem">
 Comment string: <code class="literal">dynamic library</code>
 </li></ul></div></li></ul></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_dependencies_on_a_linux_kernel_built_by_buildroot"></a>18.2.5. Dependencies on a Linux kernel built by buildroot</h3></div></div></div><p>Some packages need a Linux kernel to be built by buildroot. These are
@@ -2890,7 +2890,7 @@ typically kernel modules or firmware. A comment should be added in the
 Config.in file to express this dependency, similar to dependencies on
 toolchain options. The general format is:</p><pre class="screen">foo needs a Linux kernel to be built</pre><p>If there is a dependency on both toolchain options and the Linux
 kernel, use this format:</p><pre class="screen">foo needs a toolchain w/ featA, featB, featC and a Linux kernel to be built</pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_dependencies_on_udev_dev_management"></a>18.2.6. Dependencies on udev /dev management</h3></div></div></div><p>If a package needs udev /dev management, it should depend on symbol
-<code class="literal">BR2_PACKAGE_HAS_UDEV</code>, and the following comment should be added:</p><pre class="screen">foo needs udev /dev management</pre><p>If there is a dependency on both toolchain options and udev /dev
+<code class="literal">LINGMO_PACKAGE_HAS_UDEV</code>, and the following comment should be added:</p><pre class="screen">foo needs udev /dev management</pre><p>If there is a dependency on both toolchain options and udev /dev
 management, use this format:</p><pre class="screen">foo needs udev /dev management and a toolchain w/ featA, featB, featC</pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_dependencies_on_features_provided_by_virtual_packages"></a>18.2.7. Dependencies on features provided by virtual packages</h3></div></div></div><p>Some features can be provided by more than one package, such as the
 openGL libraries.</p><p>See <a class="xref" href="#virtual-package-tutorial">Section 18.12, “Infrastructure for virtual packages”</a> for more on the virtual packages.</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_the_literal_mk_literal_file"></a>18.3. The <code class="literal">.mk</code> file</h2></div></div></div><p><a id="adding-packages-mk"></a>Finally, here’s the hardest part. Create a file named <code class="literal">libfoo.mk</code>. It
 describes how the package should be downloaded, configured, built,
@@ -3734,7 +3734,7 @@ cases, typical packages will therefore only use a few of them.</p><div class="it
 </li><li class="listitem">
 <code class="literal">LIBFOO_MAKE</code>, to specify an alternate <code class="literal">make</code>
   command. This is typically useful when parallel make is enabled in
-  the configuration (using <code class="literal">BR2_JLEVEL</code>) but that this
+  the configuration (using <code class="literal">LINGMO_JLEVEL</code>) but that this
   feature should be disabled for the given package, for one reason or
   another. By default, set to <code class="literal">$(MAKE)</code>. If parallel building
   is not supported by the package, then it should be set to
@@ -3863,11 +3863,11 @@ typical packages will therefore only use a few of them.</p><div class="itemizedl
   necessary to set them in the package’s <code class="literal">*.mk</code> file unless you want
   to override them:
 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
-<code class="literal">CMAKE_BUILD_TYPE</code> is driven by <code class="literal">BR2_ENABLE_RUNTIME_DEBUG</code>;
+<code class="literal">CMAKE_BUILD_TYPE</code> is driven by <code class="literal">LINGMO_ENABLE_RUNTIME_DEBUG</code>;
 </li><li class="listitem">
 <code class="literal">CMAKE_INSTALL_PREFIX</code>;
 </li><li class="listitem">
-<code class="literal">BUILD_SHARED_LIBS</code> is driven by <code class="literal">BR2_STATIC_LIBS</code>;
+<code class="literal">BUILD_SHARED_LIBS</code> is driven by <code class="literal">LINGMO_STATIC_LIBS</code>;
 </li><li class="listitem">
 <code class="literal">BUILD_DOC</code>, <code class="literal">BUILD_DOCS</code> are disabled;
 </li><li class="listitem">
@@ -3885,7 +3885,7 @@ typical packages will therefore only use a few of them.</p><div class="itemizedl
 </li><li class="listitem">
 <code class="literal">LIBFOO_MAKE</code>, to specify an alternate <code class="literal">make</code> command. This is
   typically useful when parallel make is enabled in the configuration
-  (using <code class="literal">BR2_JLEVEL</code>) but that this feature should be disabled for
+  (using <code class="literal">LINGMO_JLEVEL</code>) but that this feature should be disabled for
   the given package, for one reason or another. By default, set to
   <code class="literal">$(MAKE)</code>. If parallel building is not supported by the package,
   then it should be set to <code class="literal">LIBFOO_MAKE=$(MAKE1)</code>.
@@ -4042,7 +4042,7 @@ folder if they exist on <a class="ulink" href="https://pypi.python.org" target="
 Keep in mind that the items inside a menu should be in alphabetical order.</p><p>Please keep in mind that you’ll most likely have to manually check the
 package for any mistakes as there are things that cannot be guessed by
 the generator (e.g.  dependencies on any of the python core modules
-such as BR2_PACKAGE_PYTHON_ZLIB).  Also, please take note that the
+such as LINGMO_PACKAGE_PYTHON_ZLIB).  Also, please take note that the
 license and license files are guessed and must be checked. You also
 need to manually add the package to the <code class="literal">package/Config.in</code> file.</p><p>If your Buildroot package is not in the official Buildroot tree but in
 a br2-external tree, use the -o flag as follows:</p><pre class="screen">utils/scanpypi foo bar -o other_package_dir</pre><p>This will generate packages <code class="literal">python-foo</code> and <code class="literal">python-bar</code> in the
@@ -4053,10 +4053,10 @@ be identified by the appearance of a <code class="literal">cffi</code> dependenc
 <code class="literal">install_requires</code> field of their <code class="literal">setup.py</code> file.</p><p>Such a package should:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 add <code class="literal">python-cffi</code> as a runtime dependency in order to install the
 compiled C library wrapper on the target. This is achieved by adding
-<code class="literal">select BR2_PACKAGE_PYTHON_CFFI</code> to the package <code class="literal">Config.in</code>.
-</li></ul></div><pre class="screen">config BR2_PACKAGE_PYTHON_FOO
+<code class="literal">select LINGMO_PACKAGE_PYTHON_CFFI</code> to the package <code class="literal">Config.in</code>.
+</li></ul></div><pre class="screen">config LINGMO_PACKAGE_PYTHON_FOO
         bool "python-foo"
-        select BR2_PACKAGE_PYTHON_CFFI # runtime</pre><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+        select LINGMO_PACKAGE_PYTHON_CFFI # runtime</pre><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 add <code class="literal">host-python-cffi</code> as a build-time dependency in order to
 cross-compile the C wrapper. This is achieved by adding
 <code class="literal">host-python-cffi</code> to the <code class="literal">PYTHON_FOO_DEPENDENCIES</code> variable.
@@ -4117,8 +4117,8 @@ the generic infrastructure also exist in the LuaRocks infrastructure:
 <code class="literal">LUA_FOO_VERSION</code>, <code class="literal">LUA_FOO_SOURCE</code>, <code class="literal">LUA_FOO_SITE</code>,
 <code class="literal">LUA_FOO_DEPENDENCIES</code>, <code class="literal">LUA_FOO_LICENSE</code>, <code class="literal">LUA_FOO_LICENSE_FILES</code>.</p><p>Two of them are populated by the LuaRocks infrastructure (for the
 <code class="literal">download</code> step). If your package is not hosted on the LuaRocks mirror
-<code class="literal">$(BR2_LUAROCKS_MIRROR)</code>, you can override them:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
-<code class="literal">LUA_FOO_SITE</code>, which defaults to <code class="literal">$(BR2_LUAROCKS_MIRROR)</code>
+<code class="literal">$(LINGMO_LUAROCKS_MIRROR)</code>, you can override them:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+<code class="literal">LUA_FOO_SITE</code>, which defaults to <code class="literal">$(LINGMO_LUAROCKS_MIRROR)</code>
 </li><li class="listitem">
 <code class="literal">LUA_FOO_SOURCE</code>, which defaults to
   <code class="literal">$(lowercase LUA_FOO_NAME_UPSTREAM)-$(LUA_FOO_VERSION).src.rock</code>
@@ -4144,7 +4144,7 @@ with an example :</p><pre class="screen">01: ###################################
 06:
 07: PERL_FOO_BAR_VERSION = 0.02
 08: PERL_FOO_BAR_SOURCE = Foo-Bar-$(PERL_FOO_BAR_VERSION).tar.gz
-09: PERL_FOO_BAR_SITE = $(BR2_CPAN_MIRROR)/authors/id/M/MO/MONGER
+09: PERL_FOO_BAR_SITE = $(LINGMO_CPAN_MIRROR)/authors/id/M/MO/MONGER
 10: PERL_FOO_BAR_DEPENDENCIES = perl-strictures
 11: PERL_FOO_BAR_LICENSE = Artistic or GPL-1.0+
 12: PERL_FOO_BAR_LICENSE_FILES = LICENSE
@@ -4226,13 +4226,13 @@ the provider used in the rootfs.</p><p>For example, <span class="emphasis"><em>O
 The implementation of this API is different for the <span class="emphasis"><em>Allwinner Tech Sunxi</em></span> and
 the <span class="emphasis"><em>Texas Instruments OMAP35xx</em></span> platforms. So <code class="literal">libgles</code> will be a virtual
 package and <code class="literal">sunxi-mali-utgard</code> and <code class="literal">ti-gfx</code> will be the providers.</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_literal_virtual_package_literal_tutorial"></a>18.12.1. <code class="literal">virtual-package</code> tutorial</h3></div></div></div><p>In the following example, we will explain how to add a new virtual package
-(<span class="emphasis"><em>something-virtual</em></span>) and a provider for it (<span class="emphasis"><em>some-provider</em></span>).</p><p>First, let’s create the virtual package.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_virtual_package_8217_s_literal_config_in_literal_file"></a>18.12.2. Virtual package’s <code class="literal">Config.in</code> file</h3></div></div></div><p>The <code class="literal">Config.in</code> file of virtual package <span class="emphasis"><em>something-virtual</em></span> should contain:</p><pre class="screen">01: config BR2_PACKAGE_HAS_SOMETHING_VIRTUAL
+(<span class="emphasis"><em>something-virtual</em></span>) and a provider for it (<span class="emphasis"><em>some-provider</em></span>).</p><p>First, let’s create the virtual package.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_virtual_package_8217_s_literal_config_in_literal_file"></a>18.12.2. Virtual package’s <code class="literal">Config.in</code> file</h3></div></div></div><p>The <code class="literal">Config.in</code> file of virtual package <span class="emphasis"><em>something-virtual</em></span> should contain:</p><pre class="screen">01: config LINGMO_PACKAGE_HAS_SOMETHING_VIRTUAL
 02:     bool
 03:
-04: config BR2_PACKAGE_PROVIDES_SOMETHING_VIRTUAL
-05:     depends on BR2_PACKAGE_HAS_SOMETHING_VIRTUAL
-06:     string</pre><p>In this file, we declare two options, <code class="literal">BR2_PACKAGE_HAS_SOMETHING_VIRTUAL</code> and
-<code class="literal">BR2_PACKAGE_PROVIDES_SOMETHING_VIRTUAL</code>, whose values will be used by the
+04: config LINGMO_PACKAGE_PROVIDES_SOMETHING_VIRTUAL
+05:     depends on LINGMO_PACKAGE_HAS_SOMETHING_VIRTUAL
+06:     string</pre><p>In this file, we declare two options, <code class="literal">LINGMO_PACKAGE_HAS_SOMETHING_VIRTUAL</code> and
+<code class="literal">LINGMO_PACKAGE_PROVIDES_SOMETHING_VIRTUAL</code>, whose values will be used by the
 providers.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_virtual_package_8217_s_literal_mk_literal_file"></a>18.12.3. Virtual package’s <code class="literal">.mk</code> file</h3></div></div></div><p>The <code class="literal">.mk</code> for the virtual package should just evaluate the <code class="literal">virtual-package</code> macro:</p><pre class="screen">01: ################################################################################
 02: #
 03: # something-virtual
@@ -4242,45 +4242,45 @@ providers.</p></div><div class="section"><div class="titlepage"><div><div><h3 cl
 07: $(eval $(virtual-package))</pre><p>The ability to have target and host packages is also available, with the
 <code class="literal">host-virtual-package</code> macro.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_provider_8217_s_literal_config_in_literal_file"></a>18.12.4. Provider’s <code class="literal">Config.in</code> file</h3></div></div></div><p>When adding a package as a provider, only the <code class="literal">Config.in</code> file requires some
 modifications.</p><p>The <code class="literal">Config.in</code> file of the package <span class="emphasis"><em>some-provider</em></span>, which provides the
-functionalities of <span class="emphasis"><em>something-virtual</em></span>, should contain:</p><pre class="screen">01: config BR2_PACKAGE_SOME_PROVIDER
+functionalities of <span class="emphasis"><em>something-virtual</em></span>, should contain:</p><pre class="screen">01: config LINGMO_PACKAGE_SOME_PROVIDER
 02:     bool "some-provider"
-03:     select BR2_PACKAGE_HAS_SOMETHING_VIRTUAL
+03:     select LINGMO_PACKAGE_HAS_SOMETHING_VIRTUAL
 04:     help
 05:       This is a comment that explains what some-provider is.
 06:
 07:       http://foosoftware.org/some-provider/
 08:
-09: if BR2_PACKAGE_SOME_PROVIDER
-10: config BR2_PACKAGE_PROVIDES_SOMETHING_VIRTUAL
+09: if LINGMO_PACKAGE_SOME_PROVIDER
+10: config LINGMO_PACKAGE_PROVIDES_SOMETHING_VIRTUAL
 11:     default "some-provider"
-12: endif</pre><p>On line 3, we select <code class="literal">BR2_PACKAGE_HAS_SOMETHING_VIRTUAL</code>, and on line 11, we
-set the value of <code class="literal">BR2_PACKAGE_PROVIDES_SOMETHING_VIRTUAL</code> to the name of the
+12: endif</pre><p>On line 3, we select <code class="literal">LINGMO_PACKAGE_HAS_SOMETHING_VIRTUAL</code>, and on line 11, we
+set the value of <code class="literal">LINGMO_PACKAGE_PROVIDES_SOMETHING_VIRTUAL</code> to the name of the
 provider, but only if it is selected.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_provider_8217_s_literal_mk_literal_file"></a>18.12.5. Provider’s <code class="literal">.mk</code> file</h3></div></div></div><p>The <code class="literal">.mk</code> file should also declare an additional variable
 <code class="literal">SOME_PROVIDER_PROVIDES</code> to contain the names of all the virtual
 packages it is an implementation of:</p><pre class="screen">01: SOME_PROVIDER_PROVIDES = something-virtual</pre><p>Of course, do not forget to add the proper build and runtime dependencies for
 this package!</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_notes_on_depending_on_a_virtual_package"></a>18.12.6. Notes on depending on a virtual package</h3></div></div></div><p>When adding a package that requires a certain <code class="literal">FEATURE</code> provided by a virtual
-package, you have to use <code class="literal">depends on BR2_PACKAGE_HAS_FEATURE</code>, like so:</p><pre class="screen">config BR2_PACKAGE_HAS_FEATURE
+package, you have to use <code class="literal">depends on LINGMO_PACKAGE_HAS_FEATURE</code>, like so:</p><pre class="screen">config LINGMO_PACKAGE_HAS_FEATURE
     bool
 
-config BR2_PACKAGE_FOO
+config LINGMO_PACKAGE_FOO
     bool "foo"
-    depends on BR2_PACKAGE_HAS_FEATURE</pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_notes_on_depending_on_a_specific_provider"></a>18.12.7. Notes on depending on a specific provider</h3></div></div></div><p>If your package really requires a specific provider, then you’ll have to
+    depends on LINGMO_PACKAGE_HAS_FEATURE</pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_notes_on_depending_on_a_specific_provider"></a>18.12.7. Notes on depending on a specific provider</h3></div></div></div><p>If your package really requires a specific provider, then you’ll have to
 make your package <code class="literal">depends on</code> this provider; you can <span class="emphasis"><em>not</em></span> <code class="literal">select</code> a
-provider.</p><p>Let’s take an example with two providers for a <code class="literal">FEATURE</code>:</p><pre class="screen">config BR2_PACKAGE_HAS_FEATURE
+provider.</p><p>Let’s take an example with two providers for a <code class="literal">FEATURE</code>:</p><pre class="screen">config LINGMO_PACKAGE_HAS_FEATURE
     bool
 
-config BR2_PACKAGE_FOO
+config LINGMO_PACKAGE_FOO
     bool "foo"
-    select BR2_PACKAGE_HAS_FEATURE
+    select LINGMO_PACKAGE_HAS_FEATURE
 
-config BR2_PACKAGE_BAR
+config LINGMO_PACKAGE_BAR
     bool "bar"
-    select BR2_PACKAGE_HAS_FEATURE</pre><p>And you are adding a package that needs <code class="literal">FEATURE</code> as provided by <code class="literal">foo</code>,
-but not as provided by <code class="literal">bar</code>.</p><p>If you were to use <code class="literal">select BR2_PACKAGE_FOO</code>, then the user would still
-be able to select <code class="literal">BR2_PACKAGE_BAR</code> in the menuconfig. This would create
+    select LINGMO_PACKAGE_HAS_FEATURE</pre><p>And you are adding a package that needs <code class="literal">FEATURE</code> as provided by <code class="literal">foo</code>,
+but not as provided by <code class="literal">bar</code>.</p><p>If you were to use <code class="literal">select LINGMO_PACKAGE_FOO</code>, then the user would still
+be able to select <code class="literal">LINGMO_PACKAGE_BAR</code> in the menuconfig. This would create
 a configuration inconsistency, whereby two providers of the same <code class="literal">FEATURE</code>
 would be enabled at once, one explicitly set by the user, the other
-implicitly by your <code class="literal">select</code>.</p><p>Instead, you have to use <code class="literal">depends on BR2_PACKAGE_FOO</code>, which avoids any
+implicitly by your <code class="literal">select</code>.</p><p>Instead, you have to use <code class="literal">depends on LINGMO_PACKAGE_FOO</code>, which avoids any
 implicit configuration inconsistency.</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_infrastructure_for_packages_using_kconfig_for_configuration_files"></a>18.13. Infrastructure for packages using kconfig for configuration files</h2></div></div></div><p>A popular way for a software package to handle user-specified
 configuration is <code class="literal">kconfig</code>. Among others, it is used by the Linux
 kernel, Busybox, and Buildroot itself. The presence of a .config file
@@ -4492,7 +4492,7 @@ build operations.</p><p>Let’s see how to write a <code class="literal">.mk</co
 13:
 14: FOO_DEPENDENCIES = host-pkgconf bar
 15:
-16: ifeq ($(BR2_PACKAGE_BAZ),y)
+16: ifeq ($(LINGMO_PACKAGE_BAZ),y)
 17: FOO_CONF_OPTS += -Dbaz=true
 18: FOO_DEPENDENCIES += baz
 19: else
@@ -4570,10 +4570,10 @@ will therefore only use a few of them.</p><div class="itemizedlist"><ul class="i
 </li></ul></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_infrastructure_for_cargo_based_packages"></a>18.17. Infrastructure for Cargo-based packages</h2></div></div></div><p>Cargo is the package manager for the Rust programming language. It allows the
 user to build programs or libraries written in Rust, but it also downloads and
 manages their dependencies, to ensure repeatable builds. Cargo packages are
-called "crates".</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="cargo-package-tutorial"></a>18.17.1. <code class="literal">cargo-package</code> tutorial</h3></div></div></div><p>The <code class="literal">Config.in</code> file of Cargo-based package <span class="emphasis"><em>foo</em></span> should contain:</p><pre class="screen">01: config BR2_PACKAGE_FOO
+called "crates".</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="cargo-package-tutorial"></a>18.17.1. <code class="literal">cargo-package</code> tutorial</h3></div></div></div><p>The <code class="literal">Config.in</code> file of Cargo-based package <span class="emphasis"><em>foo</em></span> should contain:</p><pre class="screen">01: config LINGMO_PACKAGE_FOO
 02:     bool "foo"
-03:     depends on BR2_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
-04:     select BR2_PACKAGE_HOST_RUSTC
+03:     depends on LINGMO_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
+04:     select LINGMO_PACKAGE_HOST_RUSTC
 05:     help
 06:       This is a comment that explains what foo is.
 07:
@@ -4643,16 +4643,16 @@ fetched from Github, since a large number of Go packages are hosted on
 Github.</p><p>On line 9 and 10, we give licensing details about the package.</p><p>Finally, on line 12, we invoke the <code class="literal">golang-package</code> macro that
 generates all the Makefile rules that actually allow the package to be
 built.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="golang-package-reference"></a>18.18.2. <code class="literal">golang-package</code> reference</h3></div></div></div><p>In their <code class="literal">Config.in</code> file, packages using the <code class="literal">golang-package</code>
-infrastructure should depend on <code class="literal">BR2_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS</code>
+infrastructure should depend on <code class="literal">LINGMO_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS</code>
 because Buildroot will automatically add a dependency on <code class="literal">host-go</code>
 to such packages.
 If you need CGO support in your package, you must add a dependency on
-<code class="literal">BR2_PACKAGE_HOST_GO_TARGET_CGO_LINKING_SUPPORTS</code>.</p><p>The main macro of the Go package infrastructure is
+<code class="literal">LINGMO_PACKAGE_HOST_GO_TARGET_CGO_LINKING_SUPPORTS</code>.</p><p>The main macro of the Go package infrastructure is
 <code class="literal">golang-package</code>. It is similar to the <code class="literal">generic-package</code> macro. The
 ability to build host packages is also available, with the
 <code class="literal">host-golang-package</code> macro.
 Host packages built by <code class="literal">host-golang-package</code> macro should depend on
-BR2_PACKAGE_HOST_GO_HOST_ARCH_SUPPORTS.</p><p>Just like the generic infrastructure, the Go infrastructure works
+LINGMO_PACKAGE_HOST_GO_HOST_ARCH_SUPPORTS.</p><p>Just like the generic infrastructure, the Go infrastructure works
 by defining a number of variables before calling the <code class="literal">golang-package</code>.</p><p>All the package metadata information variables that exist in the
 <a class="link" href="#generic-package-reference" title="18.6.2. generic-package reference">generic package infrastructure</a> also
 exist in the Go infrastructure: <code class="literal">FOO_VERSION</code>, <code class="literal">FOO_SOURCE</code>,
@@ -4803,7 +4803,7 @@ not sufficient; another package infrastructure <span class="strong"><strong>must
 13: FOO_MODULE_SUBDIRS = driver/base
 14: FOO_MODULE_MAKE_OPTS = KVERSION=$(LINUX_VERSION_PROBED)
 15:
-16: ifeq ($(BR2_PACKAGE_LIBBAR),y)
+16: ifeq ($(LINGMO_PACKAGE_LIBBAR),y)
 17: FOO_DEPENDENCIES += libbar
 18: FOO_CONF_OPTS += --enable-bar
 19: FOO_MODULE_SUBDIRS += driver/bar
@@ -4968,13 +4968,13 @@ runs on the target.</p><p>Let’s look at an example of a Linux tool. For a new 
 <code class="literal">foo</code>, create a new menu entry in the existing
 <code class="literal">package/linux-tools/Config.in</code>.  This file will contain the option
 descriptions related to each kernel tool that will be used and
-displayed in the configuration tool. It would basically look like:</p><pre class="screen">01: config BR2_PACKAGE_LINUX_TOOLS_FOO
+displayed in the configuration tool. It would basically look like:</p><pre class="screen">01: config LINGMO_PACKAGE_LINUX_TOOLS_FOO
 02:     bool "foo"
-03:     select BR2_PACKAGE_LINUX_TOOLS
+03:     select LINGMO_PACKAGE_LINUX_TOOLS
 04:     help
 05:       This is a comment that explains what foo kernel tool is.
 06:
-07:       http://foosoftware.org/foo/</pre><p>The name of the option starts with the prefix <code class="literal">BR2_PACKAGE_LINUX_TOOLS_</code>,
+07:       http://foosoftware.org/foo/</pre><p>The name of the option starts with the prefix <code class="literal">LINGMO_PACKAGE_LINUX_TOOLS_</code>,
 followed by the uppercase name of the tool (like is done for packages).</p><p><strong>Note. </strong>Unlike other packages, the <code class="literal">linux-tools</code> package options appear in the
 <code class="literal">linux</code> kernel menu, under the <code class="literal">Linux Kernel Tools</code> sub-menu, not under
 the <code class="literal">Target packages</code> main menu.</p><p>Then for each linux tool, add a new <code class="literal">.mk.in</code> file named
@@ -5026,7 +5026,7 @@ sources archive, checking the hash, defining the licence informations
 and building user space tools if any.</p><p>Then create the <span class="emphasis"><em>Linux extension</em></span> proper: create a new menu entry in
 the existing <code class="literal">linux/Config.ext.in</code>. This file contains the option
 descriptions related to each kernel extension that will be used and
-displayed in the configuration tool. It would basically look like:</p><pre class="screen">01: config BR2_LINUX_KERNEL_EXT_FOO
+displayed in the configuration tool. It would basically look like:</p><pre class="screen">01: config LINGMO_LINUX_KERNEL_EXT_FOO
 02:     bool "foo"
 03:     help
 04:       This is a comment that explains what foo kernel extension is.
@@ -5137,7 +5137,7 @@ is necessary, it can be provided by the <code class="literal">libintl</code> lib
 <code class="literal">gettext</code> package.</p><p>Due to this, and in order to make sure that Native Language Support is
 properly handled, packages in Buildroot that can use NLS support
 should:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
-Ensure NLS support is enabled when <code class="literal">BR2_SYSTEM_ENABLE_NLS=y</code>. This
+Ensure NLS support is enabled when <code class="literal">LINGMO_SYSTEM_ENABLE_NLS=y</code>. This
    is done automatically for <span class="emphasis"><em>autotools</em></span> packages and therefore should
    only be done for packages using other package infrastructures.
 </li><li class="listitem">
@@ -5165,7 +5165,7 @@ If needed, add <code class="literal">$(TARGET_NLS_LIBS)</code> to the linker fla
 such as the <code class="literal">gettext</code> program itself, which allows to retrieve
 translated strings, from the command line. In such a case, the package
 should:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
-use <code class="literal">select BR2_PACKAGE_GETTEXT</code> in their <code class="literal">Config.in</code> file,
+use <code class="literal">select LINGMO_PACKAGE_GETTEXT</code> in their <code class="literal">Config.in</code> file,
   indicating in a comment above that it’s a runtime dependency only.
 </li><li class="listitem">
 not add any <code class="literal">gettext</code> dependency in the <code class="literal">DEPENDENCIES</code> variable of
@@ -5186,8 +5186,8 @@ the <span class="emphasis"><em>make</em></span> target name is the <span class="
   <code class="literal">foo-bar_boo</code>);
 </li><li class="listitem">
 the config entry is the upper case <span class="emphasis"><em>package name</em></span> with <code class="literal">.</code> and <code class="literal">-</code>
-  characters substituted with <code class="literal">_</code>, prefixed with <code class="literal">BR2_PACKAGE_</code> (e.g.:
-  <code class="literal">BR2_PACKAGE_FOO_BAR_BOO</code>);
+  characters substituted with <code class="literal">_</code>, prefixed with <code class="literal">LINGMO_PACKAGE_</code> (e.g.:
+  <code class="literal">LINGMO_PACKAGE_FOO_BAR_BOO</code>);
 </li><li class="listitem">
 the <code class="literal">*.mk</code> file variable prefix is the upper case <span class="emphasis"><em>package name</em></span>
   with <code class="literal">.</code> and <code class="literal">-</code> characters substituted with <code class="literal">_</code> (e.g.:
@@ -5211,12 +5211,12 @@ in the same conditions.</p><p>First, create a config snippet that contains all t
 needed to enable your package, but without any architecture or toolchain
 option. For example, let’s create a config snippet that just enables
 <code class="literal">libcurl</code>, without any TLS backend:</p><pre class="screen">$ cat libcurl.config
-BR2_PACKAGE_LIBCURL=y</pre><p>If your package needs more configuration options, you can add them to the
+LINGMO_PACKAGE_LIBCURL=y</pre><p>If your package needs more configuration options, you can add them to the
 config snippet. For example, here’s how you would test <code class="literal">libcurl</code> with
 <code class="literal">openssl</code> as a TLS backend and the <code class="literal">curl</code> program:</p><pre class="screen">$ cat libcurl.config
-BR2_PACKAGE_LIBCURL=y
-BR2_PACKAGE_LIBCURL_CURL=y
-BR2_PACKAGE_OPENSSL=y</pre><p>Then run the <code class="literal">test-pkg</code> script, by telling it what config snippet to use
+LINGMO_PACKAGE_LIBCURL=y
+LINGMO_PACKAGE_LIBCURL_CURL=y
+LINGMO_PACKAGE_OPENSSL=y</pre><p>Then run the <code class="literal">test-pkg</code> script, by telling it what config snippet to use
 and what package to test:</p><pre class="screen">$ ./utils/test-pkg -c libcurl.config -p libcurl</pre><p>By default, <code class="literal">test-pkg</code> will build your package against a subset of the
 toolchains used by the autobuilders, which has been selected by the
 Buildroot developers as being the most useful and representative
@@ -5241,7 +5241,7 @@ result (excerpt, results are fake):</p><pre class="screen">$ ./utils/test-pkg -c
 <code class="literal">SKIPPED</code>: one or more configuration options listed in the config
   snippet were not present in the final configuration. This is due to
   options having dependencies not satisfied by the toolchain, such as
-  for example a package that <code class="literal">depends on BR2_USE_MMU</code> with a noMMU
+  for example a package that <code class="literal">depends on LINGMO_USE_MMU</code> with a noMMU
   toolchain. The missing options are reported in <code class="literal">missing.config</code> in
   the output build directory (<code class="literal">~/br-test-pkg/TOOLCHAIN_NAME/</code> by
   default).
@@ -5346,7 +5346,7 @@ Previously, a <code class="literal">series</code> file, as used by <code class="
   the package directory. In that case, the <code class="literal">series</code> file defines the patch
   application order. This is deprecated, and will be removed in the future.
   <span class="emphasis"><em>Do not use a series file.</em></span>
-</li></ul></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_global_patch_directory"></a>19.1.3. Global patch directory</h3></div></div></div><p>The <code class="literal">BR2_GLOBAL_PATCH_DIR</code> configuration file option can be
+</li></ul></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_global_patch_directory"></a>19.1.3. Global patch directory</h3></div></div></div><p>The <code class="literal">LINGMO_GLOBAL_PATCH_DIR</code> configuration file option can be
 used to specify a space separated list of one or more directories
 containing global package patches. See <a class="xref" href="#customize-patches" title="9.8.1. Providing extra patches">Section 9.8.1, “Providing extra patches”</a> for
 details.</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="patch-apply-order"></a>19.2. How patches are applied</h2></div></div></div><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
@@ -5371,7 +5371,7 @@ Otherwise, patch files matching <code class="literal">*.patch</code> are applied
   <code class="literal">&lt;number&gt;-&lt;description&gt;.patch</code>, where <code class="literal">&lt;number&gt;</code> refers to the
   <span class="emphasis"><em>apply order</em></span>.
 </li></ul></div></li><li class="listitem">
-If <code class="literal">BR2_GLOBAL_PATCH_DIR</code> is defined, the directories will be
+If <code class="literal">LINGMO_GLOBAL_PATCH_DIR</code> is defined, the directories will be
   enumerated in the order they are specified. The patches are applied
   as described in the previous step.
 </li><li class="listitem">
@@ -5410,7 +5410,7 @@ upstream and provide a link to that submission when possible:</p><pre class="scr
 include comments about why the patch is being used despite the upstream status.</p><p>Note: in any of the above scenarios, it is also sensible to add a few words
 about any changes to the patch that may have been necessary.</p><p>If a patch does not apply upstream then this should be noted with a comment:</p><pre class="screen">Upstream: N/A &lt;additional information about why patch is Buildroot specific&gt;</pre><p>Adding this documentation helps streamline the patch review process during
 package version updates.</p></div></div><div class="chapter"><div class="titlepage"><div><div><h2 class="title"><a id="download-infra"></a>Chapter 20. Download infrastructure</h2></div></div></div><p>TODO</p></div><div class="chapter"><div class="titlepage"><div><div><h2 class="title"><a id="debugging-buildroot"></a>Chapter 21. Debugging Buildroot</h2></div></div></div><p>It is possible to instrument the steps <code class="literal">Buildroot</code> does when building
-packages. Define the variable <code class="literal">BR2_INSTRUMENTATION_SCRIPTS</code> to contain
+packages. Define the variable <code class="literal">LINGMO_INSTRUMENTATION_SCRIPTS</code> to contain
 the path of one or more scripts (or other executables), in a
 space-separated list, you want called before and after each step. The
 scripts are called in sequence, with three parameters:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
@@ -5419,7 +5419,7 @@ scripts are called in sequence, with three parameters:</p><div class="itemizedli
 the name of the step about to be started, or which just ended;
 </li><li class="listitem">
 the name of the package.
-</li></ul></div><p>For example :</p><pre class="screen">make BR2_INSTRUMENTATION_SCRIPTS="/path/to/my/script1 /path/to/my/script2"</pre><p>The list of steps is:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+</li></ul></div><p>For example :</p><pre class="screen">make LINGMO_INSTRUMENTATION_SCRIPTS="/path/to/my/script1 /path/to/my/script2"</pre><p>The list of steps is:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 <code class="literal">extract</code>
 </li><li class="listitem">
 <code class="literal">patch</code>
@@ -5436,7 +5436,7 @@ the name of the package.
 </li><li class="listitem">
 <code class="literal">install-image</code>, when a target-package installs files in <code class="literal">$(BINARIES_DIR)</code>
 </li></ul></div><p>The script has access to the following variables:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
-<code class="literal">BR2_CONFIG</code>: the path to the Buildroot .config file
+<code class="literal">LINGMO_CONFIG</code>: the path to the Buildroot .config file
 </li><li class="listitem">
 <code class="literal">HOST_DIR</code>, <code class="literal">STAGING_DIR</code>, <code class="literal">TARGET_DIR</code>: see
     <a class="xref" href="#generic-package-reference" title="18.6.2. generic-package reference">Section 18.6.2, “<code class="literal">generic-package</code> reference”</a>
@@ -6006,7 +6006,7 @@ you can write (to set UID to <code class="literal">foo</code> and GID to <code c
 and the corresponding 15 files for the partitions, you will need for
 <code class="literal">/dev/hda</code>:</p><pre class="screen">/dev/hda b 640 root root 3 0 0 0 -</pre><p>and then for device files corresponding to the partitions of
 <code class="literal">/dev/hda</code>, <code class="literal">/dev/hdaX</code>, <code class="literal">X</code> ranging from 1 to 15:</p><pre class="screen">/dev/hda b 640 root root 3 1 1 1 15</pre><p>Extended attributes are supported if
-<code class="literal">BR2_ROOTFS_DEVICE_TABLE_SUPPORTS_EXTENDED_ATTRIBUTES</code> is enabled.
+<code class="literal">LINGMO_ROOTFS_DEVICE_TABLE_SUPPORTS_EXTENDED_ATTRIBUTES</code> is enabled.
 This is done by adding a line starting with <code class="literal">|xattr</code> after
 the line describing the file. Right now, only capability
 is supported as extended attribute.</p><div class="informaltable"><table class="informaltable" cellpadding="4px" style="border-collapse: collapse;border-top: 3px solid #527bbd; border-bottom: 3px solid #527bbd; border-left: 3px solid #527bbd; border-right: 3px solid #527bbd; "><colgroup><col class="col_1" /><col class="col_2" /></colgroup><tbody><tr><td style="border-right: 1px solid #527bbd; " align="left" valign="top"><p>|xattr</p></td><td style="" align="left" valign="top"><p>capability</p></td></tr></tbody></table></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
@@ -6156,9 +6156,9 @@ First, create a new file named <code class="literal">external.desc</code>, at th
    br2-external tree:
 </p><pre class="screen">$ echo 'name: NAME_OF_YOUR_TREE' &gt;external.desc</pre><p><strong>Note. </strong>Be careful when choosing a name: It has to be unique and be made
 with only ASCII characters from the set <code class="literal">[A-Za-z0-9_]</code>.</p></li><li class="listitem"><p class="simpara">
-Then, change every occurence of <code class="literal">BR2_EXTERNAL</code> in your br2-external
+Then, change every occurence of <code class="literal">LINGMO_EXTERNAL</code> in your br2-external
    tree with the new variable:
-</p><pre class="screen">$ find . -type f | xargs sed -i 's/BR2_EXTERNAL/BR2_EXTERNAL_NAME_OF_YOUR_TREE_PATH/g'</pre></li></ul></div><p>Now, your br2-external tree can be used with Buildroot 2016.11 onward.</p><p><strong>Note: </strong>This change makes your br2-external tree incompatible with Buildroot
+</p><pre class="screen">$ find . -type f | xargs sed -i 's/LINGMO_EXTERNAL/LINGMO_EXTERNAL_NAME_OF_YOUR_TREE_PATH/g'</pre></li></ul></div><p>Now, your br2-external tree can be used with Buildroot 2016.11 onward.</p><p><strong>Note: </strong>This change makes your br2-external tree incompatible with Buildroot
 before 2016.11.</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="migrating-host-usr"></a>27.3. Migrating to 2017.08</h2></div></div></div><p>Before Buildroot 2017.08, host packages were installed in <code class="literal">$(HOST_DIR)/usr</code>
 (with e.g. the autotools' <code class="literal">--prefix=$(HOST_DIR)/usr</code>). With Buildroot
 2017.08, they are now installed directly in <code class="literal">$(HOST_DIR)</code>.</p><p>Whenever a package installs an executable that is linked with a library

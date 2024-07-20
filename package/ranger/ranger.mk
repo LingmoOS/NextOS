@@ -19,7 +19,7 @@ define RANGER_DO_NOT_GENERATE_BYTECODE_AT_RUNTIME
 	$(SED) 's%/usr/bin/python -O%/usr/bin/python%g' $(@D)/ranger.py
 endef
 
-ifeq ($(BR2_PACKAGE_PYTHON3_PYC_ONLY),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3_PYC_ONLY),y)
 RANGER_POST_PATCH_HOOKS += RANGER_DO_NOT_GENERATE_BYTECODE_AT_RUNTIME
 endif
 

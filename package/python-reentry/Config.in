@@ -1,8 +1,8 @@
-config BR2_PACKAGE_PYTHON_REENTRY
+config LINGMO_PACKAGE_PYTHON_REENTRY
 	bool "python-reentry"
-	select BR2_PACKAGE_PYTHON_SETUPTOOLS # runtime
-	select BR2_PACKAGE_PYTHON_CLICK # runtime
-	select BR2_PACKAGE_PYTHON_SIX # runtime
+	select LINGMO_PACKAGE_PYTHON_SETUPTOOLS # runtime
+	select LINGMO_PACKAGE_PYTHON_CLICK # runtime
+	select LINGMO_PACKAGE_PYTHON_SIX # runtime
 	help
 	  A plugin manager based on setuptools entry points mechanism.
 

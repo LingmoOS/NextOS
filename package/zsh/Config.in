@@ -1,7 +1,7 @@
-config BR2_PACKAGE_ZSH
+config LINGMO_PACKAGE_ZSH
 	bool "zsh"
-	depends on BR2_USE_MMU # fork()
-	select BR2_PACKAGE_NCURSES
+	depends on LINGMO_USE_MMU # fork()
+	select LINGMO_PACKAGE_NCURSES
 	help
 	  zsh is a shell designed for interactive use, although it is
 	  also a powerful scripting language. Many of the useful

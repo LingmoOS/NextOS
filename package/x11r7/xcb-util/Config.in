@@ -1,6 +1,6 @@
-config BR2_PACKAGE_XCB_UTIL
+config LINGMO_PACKAGE_XCB_UTIL
 	bool "xcb-util"
-	depends on BR2_PACKAGE_LIBXCB
+	depends on LINGMO_PACKAGE_LIBXCB
 	help
 	  Libraries which sit on top of libxcb, the core X protocol
 	  library, and some of the extension libraries.

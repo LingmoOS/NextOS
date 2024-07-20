@@ -18,7 +18,7 @@ LTTNG_TOOLS_CONF_OPTS = \
 	--disable-tests \
 	--with-lttng-system-rundir=/run/lttng
 
-ifeq ($(BR2_PACKAGE_LTTNG_LIBUST),y)
+ifeq ($(LINGMO_PACKAGE_LTTNG_LIBUST),y)
 LTTNG_TOOLS_CONF_OPTS += --with-lttng-ust
 LTTNG_TOOLS_DEPENDENCIES += lttng-libust
 else

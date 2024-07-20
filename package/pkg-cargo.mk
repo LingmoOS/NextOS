@@ -72,31 +72,31 @@ PKG_CARGO_ENV += \
 	CARGO_PROFILE_RELEASE_SPLIT_DEBUGINFO="off"
 
 # Set the optimization level with the release default as fallback.
-ifeq ($(BR2_OPTIMIZE_0),y)
+ifeq ($(LINGMO_OPTIMIZE_0),y)
 PKG_CARGO_ENV += \
 	CARGO_PROFILE_DEV_OPT_LEVEL="0" \
 	CARGO_PROFILE_RELEASE_OPT_LEVEL="0"
-else ifeq ($(BR2_OPTIMIZE_1),y)
+else ifeq ($(LINGMO_OPTIMIZE_1),y)
 PKG_CARGO_ENV += \
 	CARGO_PROFILE_DEV_OPT_LEVEL="1" \
 	CARGO_PROFILE_RELEASE_OPT_LEVEL="1"
-else ifeq ($(BR2_OPTIMIZE_2),y)
+else ifeq ($(LINGMO_OPTIMIZE_2),y)
 PKG_CARGO_ENV += \
 	CARGO_PROFILE_DEV_OPT_LEVEL="2" \
 	CARGO_PROFILE_RELEASE_OPT_LEVEL="2"
-else ifeq ($(BR2_OPTIMIZE_3),y)
+else ifeq ($(LINGMO_OPTIMIZE_3),y)
 PKG_CARGO_ENV += \
 	CARGO_PROFILE_DEV_OPT_LEVEL="3" \
 	CARGO_PROFILE_RELEASE_OPT_LEVEL="3"
-else ifeq ($(BR2_OPTIMIZE_G),y)
+else ifeq ($(LINGMO_OPTIMIZE_G),y)
 PKG_CARGO_ENV += \
 	CARGO_PROFILE_DEV_OPT_LEVEL="0" \
 	CARGO_PROFILE_RELEASE_OPT_LEVEL="0"
-else ifeq ($(BR2_OPTIMIZE_S),y)
+else ifeq ($(LINGMO_OPTIMIZE_S),y)
 PKG_CARGO_ENV += \
 	CARGO_PROFILE_DEV_OPT_LEVEL="s" \
 	CARGO_PROFILE_RELEASE_OPT_LEVEL="s"
-else ifeq ($(BR2_OPTIMIZE_FAST),y)
+else ifeq ($(LINGMO_OPTIMIZE_FAST),y)
 PKG_CARGO_ENV += \
 	CARGO_PROFILE_DEV_OPT_LEVEL="3" \
 	CARGO_PROFILE_RELEASE_OPT_LEVEL="3"
@@ -106,7 +106,7 @@ PKG_CARGO_ENV += \
 	CARGO_PROFILE_RELEASE_OPT_LEVEL="3"
 endif
 
-ifeq ($(BR2_ENABLE_LTO),y)
+ifeq ($(LINGMO_ENABLE_LTO),y)
 PKG_CARGO_ENV += \
 	CARGO_PROFILE_DEV_LTO="true" \
 	CARGO_PROFILE_RELEASE_LTO="true"
@@ -117,8 +117,8 @@ PKG_CARGO_ENV += \
 endif
 
 
-ifeq ($(BR2_ENABLE_DEBUG),y)
-ifeq ($(BR2_DEBUG_3),y)
+ifeq ($(LINGMO_ENABLE_DEBUG),y)
+ifeq ($(LINGMO_DEBUG_3),y)
 # full debug info
 PKG_CARGO_ENV += \
 	CARGO_PROFILE_DEV_DEBUG="2" \
@@ -139,7 +139,7 @@ endif
 # Enabling debug-assertions enables the runtime debug_assert! macro.
 #
 # Enabling overflow-checks enables runtime panic on integer overflow.
-ifeq ($(BR2_ENABLE_RUNTIME_DEBUG),y)
+ifeq ($(LINGMO_ENABLE_RUNTIME_DEBUG),y)
 PKG_CARGO_ENV += \
 	CARGO_PROFILE_DEV_DEBUG_ASSERTIONS="true" \
 	CARGO_PROFILE_RELEASE_DEBUG_ASSERTIONS="true" \
@@ -241,7 +241,7 @@ define $(2)_BUILD_CMDS
 		$$($(2)_CARGO_ENV) \
 		cargo build \
 			--offline \
-			$$(if $$(BR2_ENABLE_DEBUG),,--release) \
+			$$(if $$(LINGMO_ENABLE_DEBUG),,--release) \
 			--manifest-path Cargo.toml \
 			--locked \
 			$$($(2)_CARGO_BUILD_OPTS)

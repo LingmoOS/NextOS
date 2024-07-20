@@ -23,8 +23,8 @@ OPENSSH_CONF_ENV = \
 OPENSSH_CPE_ID_VENDOR = openbsd
 OPENSSH_CONF_OPTS = \
 	--sysconfdir=/etc/ssh \
-	--with-default-path=$(BR2_SYSTEM_DEFAULT_PATH) \
-	$(if $(BR2_PACKAGE_OPENSSH_SANDBOX),--with-sandbox,--without-sandbox) \
+	--with-default-path=$(LINGMO_SYSTEM_DEFAULT_PATH) \
+	$(if $(LINGMO_PACKAGE_OPENSSH_SANDBOX),--with-sandbox,--without-sandbox) \
 	--disable-lastlog \
 	--disable-utmp \
 	--disable-utmpx \
@@ -38,31 +38,31 @@ define OPENSSH_PERMISSIONS
 	/var/empty d 755 root root - - - - -
 endef
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_110934),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_110934),y)
 OPENSSH_CONF_OPTS += --without-hardening
 endif
 
-ifeq ($(BR2_TOOLCHAIN_SUPPORTS_PIE),)
+ifeq ($(LINGMO_TOOLCHAIN_SUPPORTS_PIE),)
 OPENSSH_CONF_OPTS += --without-pie
 endif
 
 OPENSSH_DEPENDENCIES = host-pkgconf zlib openssl
 
-ifeq ($(BR2_PACKAGE_CRYPTODEV_LINUX),y)
+ifeq ($(LINGMO_PACKAGE_CRYPTODEV_LINUX),y)
 OPENSSH_DEPENDENCIES += cryptodev-linux
 OPENSSH_CONF_OPTS += --with-ssl-engine
 else
 OPENSSH_CONF_OPTS += --without-ssl-engine
 endif
 
-ifeq ($(BR2_PACKAGE_AUDIT),y)
+ifeq ($(LINGMO_PACKAGE_AUDIT),y)
 OPENSSH_DEPENDENCIES += audit
 OPENSSH_CONF_OPTS += --with-audit=linux
 else
 OPENSSH_CONF_OPTS += --without-audit
 endif
 
-ifeq ($(BR2_PACKAGE_LINUX_PAM),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_PAM),y)
 define OPENSSH_INSTALL_PAM_CONF
 	$(INSTALL) -D -m 644 $(@D)/contrib/sshd.pam.generic $(TARGET_DIR)/etc/pam.d/sshd
 	$(SED) '\%password   required     /lib/security/pam_cracklib.so%d' $(TARGET_DIR)/etc/pam.d/sshd
@@ -76,14 +76,14 @@ else
 OPENSSH_CONF_OPTS += --without-pam
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSELINUX),y)
+ifeq ($(LINGMO_PACKAGE_LIBSELINUX),y)
 OPENSSH_DEPENDENCIES += libselinux
 OPENSSH_CONF_OPTS += --with-selinux
 else
 OPENSSH_CONF_OPTS += --without-selinux
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD_SYSUSERS),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD_SYSUSERS),y)
 define OPENSSH_INSTALL_SYSTEMD_SYSUSERS
 	$(INSTALL) -m 0644 -D package/openssh/sshd-sysusers.conf \
 		$(TARGET_DIR)/usr/lib/sysusers.d/sshd.conf
@@ -98,7 +98,7 @@ endif
 # The programs will be installed based on the config options selected.
 OPENSSH_INSTALL_TARGET_OPTS = DESTDIR=$(TARGET_DIR) install-sysconf
 
-ifeq ($(BR2_PACKAGE_OPENSSH_CLIENT),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSH_CLIENT),y)
 define OPENSSH_INSTALL_CLIENT_PROGRAMS
 	$(INSTALL) -D -m 0755 $(@D)/ssh $(TARGET_DIR)/usr/bin/ssh
 	$(INSTALL) -D -m 0755 $(@D)/scp $(TARGET_DIR)/usr/bin/scp
@@ -112,7 +112,7 @@ endef
 OPENSSH_POST_INSTALL_TARGET_HOOKS += OPENSSH_INSTALL_CLIENT_PROGRAMS
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSH_SERVER),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSH_SERVER),y)
 define OPENSSH_INSTALL_SERVER_PROGRAMS
 	$(INSTALL) -D -m 0755 $(@D)/sshd $(TARGET_DIR)/usr/sbin/sshd
 	$(INSTALL) -D -m 0755 $(@D)/sftp-server $(TARGET_DIR)/usr/libexec/sftp-server
@@ -131,7 +131,7 @@ define OPENSSH_INSTALL_INIT_SYSV
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSH_KEY_UTILS),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSH_KEY_UTILS),y)
 define OPENSSH_INSTALL_KEY_UTILS
 	$(INSTALL) -D -m 0755 $(@D)/ssh-keygen $(TARGET_DIR)/usr/bin/ssh-keygen
 	$(INSTALL) -D -m 0755 $(@D)/ssh-keyscan $(TARGET_DIR)/usr/bin/ssh-keyscan

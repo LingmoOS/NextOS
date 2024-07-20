@@ -23,25 +23,25 @@ FOOT_CONF_OPTS = \
 	-Ddocs=disabled \
 	-Dtests=false
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 FOOT_DEPENDENCIES += systemd
 endif
 
-ifeq ($(BR2_PACKAGE_LIBUTEMPTER),y)
+ifeq ($(LINGMO_PACKAGE_LIBUTEMPTER),y)
 FOOT_DEPENDENCIES += libutempter
 FOOT_CONF_OPTS += -Dutmp-backend='libutempter'
 else
 FOOT_CONF_OPTS += -Dutmp-backend='none'
 endif
 
-ifeq ($(BR2_PACKAGE_FOOT_GRAPHEME_CLUSTERING),y)
+ifeq ($(LINGMO_PACKAGE_FOOT_GRAPHEME_CLUSTERING),y)
 FOOT_DEPENDENCIES += utf8proc
 FOOT_CONF_OPTS += -Dgrapheme-clustering=enabled
 else
 FOOT_CONF_OPTS += -Dgrapheme-clustering=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_FOOT_THEMES),y)
+ifeq ($(LINGMO_PACKAGE_FOOT_THEMES),y)
 FOOT_CONF_OPTS += -Dthemes=true
 else
 FOOT_CONF_OPTS += -Dthemes=false

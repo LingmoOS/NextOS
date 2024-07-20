@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-# When updating the version, please also update BR2_HOST_CMAKE_AT_LEAST_X_Y
+# When updating the version, please also update LINGMO_HOST_CMAKE_AT_LEAST_X_Y
 CMAKE_VERSION_MAJOR = 3.28
 CMAKE_VERSION = $(CMAKE_VERSION_MAJOR).3
 CMAKE_SITE = https://cmake.org/files/v$(CMAKE_VERSION_MAJOR)

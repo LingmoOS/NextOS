@@ -1,25 +1,25 @@
 comment "zfs needs a Linux kernel to be built"
-	depends on !BR2_LINUX_KERNEL
+	depends on !LINGMO_LINUX_KERNEL
 
 comment "zfs needs udev /dev management"
-	depends on BR2_LINUX_KERNEL
-	depends on !BR2_PACKAGE_HAS_UDEV
+	depends on LINGMO_LINUX_KERNEL
+	depends on !LINGMO_PACKAGE_HAS_UDEV
 
-config BR2_PACKAGE_ZFS
+config LINGMO_PACKAGE_ZFS
 	bool "zfs"
-	depends on BR2_LINUX_KERNEL
-	depends on BR2_PACKAGE_HAS_UDEV
-	depends on BR2_USE_MMU  # util-linux (libblkid)
-	depends on BR2_TOOLCHAIN_HAS_THREADS  # libtirpc
-	select BR2_LINUX_NEEDS_MODULES
-	select BR2_PACKAGE_UTIL_LINUX
-	select BR2_PACKAGE_UTIL_LINUX_LIBBLKID
-	select BR2_PACKAGE_UTIL_LINUX_LIBUUID
-	select BR2_PACKAGE_LIBTIRPC if !BR2_TOOLCHAIN_HAS_NATIVE_RPC
-	select BR2_PACKAGE_LIBAIO
-	select BR2_PACKAGE_OPENSSL
-	select BR2_PACKAGE_ZLIB
-	select BR2_PACKAGE_LIBCURL
+	depends on LINGMO_LINUX_KERNEL
+	depends on LINGMO_PACKAGE_HAS_UDEV
+	depends on LINGMO_USE_MMU  # util-linux (libblkid)
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS  # libtirpc
+	select LINGMO_LINUX_NEEDS_MODULES
+	select LINGMO_PACKAGE_UTIL_LINUX
+	select LINGMO_PACKAGE_UTIL_LINUX_LIBBLKID
+	select LINGMO_PACKAGE_UTIL_LINUX_LIBUUID
+	select LINGMO_PACKAGE_LIBTIRPC if !LINGMO_TOOLCHAIN_HAS_NATIVE_RPC
+	select LINGMO_PACKAGE_LIBAIO
+	select LINGMO_PACKAGE_OPENSSL
+	select LINGMO_PACKAGE_ZLIB
+	select LINGMO_PACKAGE_LIBCURL
 	help
 	  OpenZFS on Linux and FreeBSD
 

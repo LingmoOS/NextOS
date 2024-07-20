@@ -1,15 +1,15 @@
-config BR2_PACKAGE_JACK1
+config LINGMO_PACKAGE_JACK1
 	bool "jack1"
-	depends on BR2_USE_MMU # fork()
-	depends on BR2_TOOLCHAIN_HAS_THREADS # alsa-lib
-	depends on !BR2_STATIC_LIBS
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4
-	depends on !BR2_PACKAGE_JACK2
-	select BR2_PACKAGE_ALSA_LIB
-	select BR2_PACKAGE_ALSA_LIB_HWDEP
-	select BR2_PACKAGE_ALSA_LIB_RAWMIDI
-	select BR2_PACKAGE_ALSA_LIB_SEQ
-	select BR2_PACKAGE_BERKELEYDB
+	depends on LINGMO_USE_MMU # fork()
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # alsa-lib
+	depends on !LINGMO_STATIC_LIBS
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4
+	depends on !LINGMO_PACKAGE_JACK2
+	select LINGMO_PACKAGE_ALSA_LIB
+	select LINGMO_PACKAGE_ALSA_LIB_HWDEP
+	select LINGMO_PACKAGE_ALSA_LIB_RAWMIDI
+	select LINGMO_PACKAGE_ALSA_LIB_SEQ
+	select LINGMO_PACKAGE_BERKELEYDB
 	help
 	  JACK Audio Connection Kit (JACK 1 implementation).
 
@@ -20,12 +20,12 @@ config BR2_PACKAGE_JACK1
 
 	  http://jackaudio.org/
 
-	  Another implementation (BR2_PACKAGE_JACK2) is also available,
+	  Another implementation (LINGMO_PACKAGE_JACK2) is also available,
 	  please consult the documentation to choose the right one:
 
 	  https://github.com/jackaudio/jackaudio.github.com/wiki/Differences-between-jack1-and-jack2
 
 comment "jack1 needs a toolchain w/ threads, dynamic library"
-	depends on BR2_USE_MMU
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS

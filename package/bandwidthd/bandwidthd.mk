@@ -18,14 +18,14 @@ BANDWIDTHD_AUTORECONF = YES
 
 BANDWIDTHD_CONF_OPTS += --with-pcap-config=$(STAGING_DIR)/usr/bin/pcap-config
 
-ifeq ($(BR2_PACKAGE_BANDWIDTHD_POSTGRESQL),y)
+ifeq ($(LINGMO_PACKAGE_BANDWIDTHD_POSTGRESQL),y)
 BANDWIDTHD_DEPENDENCIES += postgresql
 BANDWIDTHD_CONF_OPTS += --with-postgresql-logging=true
 else
 BANDWIDTHD_CONF_OPTS += --with-postgresql-logging=false
 endif
 
-ifeq ($(BR2_PACKAGE_BANDWIDTHD_SQLITE3),y)
+ifeq ($(LINGMO_PACKAGE_BANDWIDTHD_SQLITE3),y)
 BANDWIDTHD_DEPENDENCIES += sqlite
 BANDWIDTHD_CONF_OPTS += --with-sqlite-storage=true
 else

@@ -11,10 +11,10 @@ NGINX_LICENSE_FILES = LICENSE
 NGINX_CPE_ID_VENDOR = f5
 NGINX_DEPENDENCIES = \
 	host-pkgconf \
-	$(if $(BR2_PACKAGE_LIBXCRYPT),libxcrypt)
+	$(if $(LINGMO_PACKAGE_LIBXCRYPT),libxcrypt)
 
 NGINX_CONF_OPTS = \
-	--crossbuild=Linux::$(BR2_ARCH) \
+	--crossbuild=Linux::$(LINGMO_ARCH) \
 	--with-cc="$(TARGET_CC)" \
 	--with-cpp="$(TARGET_CC)" \
 	--with-ld-opt="$(TARGET_LDFLAGS)"
@@ -49,7 +49,7 @@ NGINX_CONF_ENV += \
 
 # prefix: nginx root configuration location
 NGINX_CONF_OPTS += \
-	--force-endianness=$(call qstrip,$(call LOWERCASE,$(BR2_ENDIAN))) \
+	--force-endianness=$(call qstrip,$(call LOWERCASE,$(LINGMO_ENDIAN))) \
 	--prefix=/usr \
 	--conf-path=/etc/nginx/nginx.conf \
 	--sbin-path=/usr/sbin/nginx \
@@ -66,21 +66,21 @@ NGINX_CONF_OPTS += \
 	--http-uwsgi-temp-path=/var/cache/nginx/uwsgi
 
 NGINX_CONF_OPTS += \
-	$(if $(BR2_PACKAGE_NGINX_FILE_AIO),--with-file-aio) \
-	$(if $(BR2_PACKAGE_NGINX_THREADS),--with-threads)
+	$(if $(LINGMO_PACKAGE_NGINX_FILE_AIO),--with-file-aio) \
+	$(if $(LINGMO_PACKAGE_NGINX_THREADS),--with-threads)
 
-ifeq ($(BR2_PACKAGE_LIBATOMIC_OPS),y)
+ifeq ($(LINGMO_PACKAGE_LIBATOMIC_OPS),y)
 NGINX_DEPENDENCIES += libatomic_ops
 NGINX_CONF_OPTS += --with-libatomic
 NGINX_CONF_ENV += ngx_force_have_libatomic=yes
-ifeq ($(BR2_sparc_v8)$(BR2_sparc_leon3),y)
+ifeq ($(LINGMO_sparc_v8)$(LINGMO_sparc_leon3),y)
 NGINX_CFLAGS += "-DAO_NO_SPARC_V9"
 endif
 else
 NGINX_CONF_ENV += ngx_force_have_libatomic=no
 endif
 
-ifeq ($(BR2_PACKAGE_PCRE2),y)
+ifeq ($(LINGMO_PACKAGE_PCRE2),y)
 NGINX_DEPENDENCIES += pcre2
 NGINX_CONF_OPTS += --with-pcre
 else
@@ -101,194 +101,194 @@ endif
 
 # misc. modules
 NGINX_CONF_OPTS += \
-	$(if $(BR2_PACKAGE_NGINX_SELECT_MODULE),--with-select_module,--without-select_module) \
-	$(if $(BR2_PACKAGE_NGINX_POLL_MODULE),--with-poll_module,--without-poll_module)
+	$(if $(LINGMO_PACKAGE_NGINX_SELECT_MODULE),--with-select_module,--without-select_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_POLL_MODULE),--with-poll_module,--without-poll_module)
 
-ifneq ($(BR2_PACKAGE_NGINX_ADD_MODULES),)
+ifneq ($(LINGMO_PACKAGE_NGINX_ADD_MODULES),)
 NGINX_CONF_OPTS += \
-	$(addprefix --add-module=,$(call qstrip,$(BR2_PACKAGE_NGINX_ADD_MODULES)))
+	$(addprefix --add-module=,$(call qstrip,$(LINGMO_PACKAGE_NGINX_ADD_MODULES)))
 endif
 
 # http server modules
-ifeq ($(BR2_PACKAGE_NGINX_HTTP),y)
-ifeq ($(BR2_PACKAGE_NGINX_HTTP_CACHE),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_HTTP),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_HTTP_CACHE),y)
 NGINX_DEPENDENCIES += openssl
 else
 NGINX_CONF_OPTS += --without-http-cache
 endif
 
-ifeq ($(BR2_PACKAGE_NGINX_HTTP_V2_MODULE),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_HTTP_V2_MODULE),y)
 NGINX_DEPENDENCIES += zlib
 NGINX_CONF_OPTS += --with-http_v2_module
 endif
 
-ifeq ($(BR2_PACKAGE_NGINX_HTTP_SSL_MODULE),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_HTTP_SSL_MODULE),y)
 NGINX_DEPENDENCIES += openssl
 NGINX_CONF_OPTS += --with-http_ssl_module
 endif
 
-ifeq ($(BR2_PACKAGE_NGINX_HTTP_XSLT_MODULE),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_HTTP_XSLT_MODULE),y)
 NGINX_DEPENDENCIES += libxml2 libxslt
 NGINX_CONF_OPTS += --with-http_xslt_module
 endif
 
-ifeq ($(BR2_PACKAGE_NGINX_HTTP_IMAGE_FILTER_MODULE),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_HTTP_IMAGE_FILTER_MODULE),y)
 NGINX_DEPENDENCIES += gd jpeg libpng
 NGINX_CONF_OPTS += --with-http_image_filter_module
 endif
 
-ifeq ($(BR2_PACKAGE_NGINX_HTTP_GEOIP_MODULE),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_HTTP_GEOIP_MODULE),y)
 NGINX_DEPENDENCIES += geoip
 NGINX_CONF_OPTS += --with-http_geoip_module
 endif
 
-ifeq ($(BR2_PACKAGE_NGINX_HTTP_GUNZIP_MODULE),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_HTTP_GUNZIP_MODULE),y)
 NGINX_DEPENDENCIES += zlib
 NGINX_CONF_OPTS += --with-http_gunzip_module
 endif
 
-ifeq ($(BR2_PACKAGE_NGINX_HTTP_GZIP_STATIC_MODULE),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_HTTP_GZIP_STATIC_MODULE),y)
 NGINX_DEPENDENCIES += zlib
 NGINX_CONF_OPTS += --with-http_gzip_static_module
 endif
 
-ifeq ($(BR2_PACKAGE_NGINX_HTTP_SECURE_LINK_MODULE),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_HTTP_SECURE_LINK_MODULE),y)
 NGINX_DEPENDENCIES += openssl
 NGINX_CONF_OPTS += --with-http_secure_link_module
 endif
 
-ifeq ($(BR2_PACKAGE_NGINX_HTTP_GZIP_MODULE),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_HTTP_GZIP_MODULE),y)
 NGINX_DEPENDENCIES += zlib
 else
 NGINX_CONF_OPTS += --without-http_gzip_module
 endif
 
-ifeq ($(BR2_PACKAGE_NGINX_HTTP_REWRITE_MODULE),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_HTTP_REWRITE_MODULE),y)
 NGINX_DEPENDENCIES += pcre2
 else
 NGINX_CONF_OPTS += --without-http_rewrite_module
 endif
 
 NGINX_CONF_OPTS += \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_REALIP_MODULE),--with-http_realip_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_ADDITION_MODULE),--with-http_addition_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_SUB_MODULE),--with-http_sub_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_DAV_MODULE),--with-http_dav_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_FLV_MODULE),--with-http_flv_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_MP4_MODULE),--with-http_mp4_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_AUTH_REQUEST_MODULE),--with-http_auth_request_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_RANDOM_INDEX_MODULE),--with-http_random_index_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_DEGRADATION_MODULE),--with-http_degradation_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_SLICE_MODULE),--with-http_slice_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_STUB_STATUS_MODULE),--with-http_stub_status_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_CHARSET_MODULE),,--without-http_charset_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_SSI_MODULE),,--without-http_ssi_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_USERID_MODULE),,--without-http_userid_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_ACCESS_MODULE),,--without-http_access_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_AUTH_BASIC_MODULE),,--without-http_auth_basic_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_AUTOINDEX_MODULE),,--without-http_autoindex_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_GEO_MODULE),,--without-http_geo_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_MAP_MODULE),,--without-http_map_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_SPLIT_CLIENTS_MODULE),,--without-http_split_clients_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_REFERER_MODULE),,--without-http_referer_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_PROXY_MODULE),,--without-http_proxy_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_FASTCGI_MODULE),,--without-http_fastcgi_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_UWSGI_MODULE),,--without-http_uwsgi_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_SCGI_MODULE),,--without-http_scgi_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_MEMCACHED_MODULE),,--without-http_memcached_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_LIMIT_CONN_MODULE),,--without-http_limit_conn_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_LIMIT_REQ_MODULE),,--without-http_limit_req_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_EMPTY_GIF_MODULE),,--without-http_empty_gif_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_BROWSER_MODULE),,--without-http_browser_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_UPSTREAM_IP_HASH_MODULE),,--without-http_upstream_ip_hash_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_UPSTREAM_LEAST_CONN_MODULE),,--without-http_upstream_least_conn_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_UPSTREAM_RANDOM_MODULE),,--without-http_upstream_random_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_UPSTREAM_KEEPALIVE_MODULE),,--without-http_upstream_keepalive_module) \
-	$(if $(BR2_PACKAGE_NGINX_HTTP_UPSTREAM_ZONE_MODULE),,--without-http_upstream_zone_module)
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_REALIP_MODULE),--with-http_realip_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_ADDITION_MODULE),--with-http_addition_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_SUB_MODULE),--with-http_sub_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_DAV_MODULE),--with-http_dav_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_FLV_MODULE),--with-http_flv_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_MP4_MODULE),--with-http_mp4_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_AUTH_REQUEST_MODULE),--with-http_auth_request_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_RANDOM_INDEX_MODULE),--with-http_random_index_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_DEGRADATION_MODULE),--with-http_degradation_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_SLICE_MODULE),--with-http_slice_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_STUB_STATUS_MODULE),--with-http_stub_status_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_CHARSET_MODULE),,--without-http_charset_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_SSI_MODULE),,--without-http_ssi_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_USERID_MODULE),,--without-http_userid_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_ACCESS_MODULE),,--without-http_access_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_AUTH_BASIC_MODULE),,--without-http_auth_basic_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_AUTOINDEX_MODULE),,--without-http_autoindex_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_GEO_MODULE),,--without-http_geo_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_MAP_MODULE),,--without-http_map_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_SPLIT_CLIENTS_MODULE),,--without-http_split_clients_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_REFERER_MODULE),,--without-http_referer_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_PROXY_MODULE),,--without-http_proxy_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_FASTCGI_MODULE),,--without-http_fastcgi_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_UWSGI_MODULE),,--without-http_uwsgi_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_SCGI_MODULE),,--without-http_scgi_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_MEMCACHED_MODULE),,--without-http_memcached_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_LIMIT_CONN_MODULE),,--without-http_limit_conn_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_LIMIT_REQ_MODULE),,--without-http_limit_req_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_EMPTY_GIF_MODULE),,--without-http_empty_gif_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_BROWSER_MODULE),,--without-http_browser_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_UPSTREAM_IP_HASH_MODULE),,--without-http_upstream_ip_hash_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_UPSTREAM_LEAST_CONN_MODULE),,--without-http_upstream_least_conn_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_UPSTREAM_RANDOM_MODULE),,--without-http_upstream_random_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_UPSTREAM_KEEPALIVE_MODULE),,--without-http_upstream_keepalive_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_HTTP_UPSTREAM_ZONE_MODULE),,--without-http_upstream_zone_module)
 
-else # !BR2_PACKAGE_NGINX_HTTP
+else # !LINGMO_PACKAGE_NGINX_HTTP
 NGINX_CONF_OPTS += --without-http
-endif # BR2_PACKAGE_NGINX_HTTP
+endif # LINGMO_PACKAGE_NGINX_HTTP
 
 # mail modules
-ifeq ($(BR2_PACKAGE_NGINX_MAIL),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_MAIL),y)
 NGINX_CONF_OPTS += --with-mail
 
-ifeq ($(BR2_PACKAGE_NGINX_MAIL_SSL_MODULE),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_MAIL_SSL_MODULE),y)
 NGINX_DEPENDENCIES += openssl
 NGINX_CONF_OPTS += --with-mail_ssl_module
 endif
 
 NGINX_CONF_OPTS += \
-	$(if $(BR2_PACKAGE_NGINX_MAIL_POP3_MODULE),,--without-mail_pop3_module) \
-	$(if $(BR2_PACKAGE_NGINX_MAIL_IMAP_MODULE),,--without-mail_imap_module) \
-	$(if $(BR2_PACKAGE_NGINX_MAIL_SMTP_MODULE),,--without-mail_smtp_module)
+	$(if $(LINGMO_PACKAGE_NGINX_MAIL_POP3_MODULE),,--without-mail_pop3_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_MAIL_IMAP_MODULE),,--without-mail_imap_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_MAIL_SMTP_MODULE),,--without-mail_smtp_module)
 
-endif # BR2_PACKAGE_NGINX_MAIL
+endif # LINGMO_PACKAGE_NGINX_MAIL
 
 # stream modules
-ifeq ($(BR2_PACKAGE_NGINX_STREAM),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_STREAM),y)
 NGINX_CONF_OPTS += --with-stream
 
-ifeq ($(BR2_PACKAGE_NGINX_STREAM_REALIP_MODULE),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_STREAM_REALIP_MODULE),y)
 NGINX_CONF_OPTS += --with-stream_realip_module
 endif
 
-ifeq ($(BR2_PACKAGE_NGINX_STREAM_SET_MODULE),)
+ifeq ($(LINGMO_PACKAGE_NGINX_STREAM_SET_MODULE),)
 NGINX_CONF_OPTS += --without-stream_set_module
 endif
 
-ifeq ($(BR2_PACKAGE_NGINX_STREAM_SSL_MODULE),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_STREAM_SSL_MODULE),y)
 NGINX_DEPENDENCIES += openssl
 NGINX_CONF_OPTS += --with-stream_ssl_module
 endif
 
-ifeq ($(BR2_PACKAGE_NGINX_STREAM_GEOIP_MODULE),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_STREAM_GEOIP_MODULE),y)
 NGINX_DEPENDENCIES += geoip
 NGINX_CONF_OPTS += --with-stream_geoip_module
 endif
 
-ifeq ($(BR2_PACKAGE_NGINX_STREAM_SSL_PREREAD_MODULE),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_STREAM_SSL_PREREAD_MODULE),y)
 NGINX_CONF_OPTS += --with-stream_ssl_preread_module
 endif
 
 NGINX_CONF_OPTS += \
-	$(if $(BR2_PACKAGE_NGINX_STREAM_LIMIT_CONN_MODULE),,--without-stream_limit_conn_module) \
-	$(if $(BR2_PACKAGE_NGINX_STREAM_ACCESS_MODULE),,--without-stream_access_module) \
-	$(if $(BR2_PACKAGE_NGINX_STREAM_GEO_MODULE),,--without-stream_geo_module) \
-	$(if $(BR2_PACKAGE_NGINX_STREAM_MAP_MODULE),,--without-stream_map_module) \
-	$(if $(BR2_PACKAGE_NGINX_STREAM_SPLIT_CLIENTS_MODULE),,--without-stream_split_clients_module) \
-	$(if $(BR2_PACKAGE_NGINX_STREAM_RETURN_MODULE),,--without-stream_return_module) \
-	$(if $(BR2_PACKAGE_NGINX_STREAM_UPSTREAM_HASH_MODULE),,--without-stream_upstream_hash_module) \
-	$(if $(BR2_PACKAGE_NGINX_STREAM_UPSTREAM_LEAST_CONN_MODULE),,--without-stream_upstream_least_conn_module) \
-	$(if $(BR2_PACKAGE_NGINX_STREAM_UPSTREAM_RANDOM_MODULE),,--without-stream_upstream_random_module) \
-	$(if $(BR2_PACKAGE_NGINX_STREAM_UPSTREAM_ZONE_MODULE),,--without-stream_upstream_zone_module)
+	$(if $(LINGMO_PACKAGE_NGINX_STREAM_LIMIT_CONN_MODULE),,--without-stream_limit_conn_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_STREAM_ACCESS_MODULE),,--without-stream_access_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_STREAM_GEO_MODULE),,--without-stream_geo_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_STREAM_MAP_MODULE),,--without-stream_map_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_STREAM_SPLIT_CLIENTS_MODULE),,--without-stream_split_clients_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_STREAM_RETURN_MODULE),,--without-stream_return_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_STREAM_UPSTREAM_HASH_MODULE),,--without-stream_upstream_hash_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_STREAM_UPSTREAM_LEAST_CONN_MODULE),,--without-stream_upstream_least_conn_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_STREAM_UPSTREAM_RANDOM_MODULE),,--without-stream_upstream_random_module) \
+	$(if $(LINGMO_PACKAGE_NGINX_STREAM_UPSTREAM_ZONE_MODULE),,--without-stream_upstream_zone_module)
 
-endif # BR2_PACKAGE_NGINX_STREAM
+endif # LINGMO_PACKAGE_NGINX_STREAM
 
 # external modules
-ifeq ($(BR2_PACKAGE_NGINX_UPLOAD),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_UPLOAD),y)
 NGINX_CONF_OPTS += $(addprefix --add-module=,$(NGINX_UPLOAD_DIR))
 NGINX_DEPENDENCIES += nginx-upload
 endif
 
-ifeq ($(BR2_PACKAGE_NGINX_DAV_EXT),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_DAV_EXT),y)
 NGINX_CONF_OPTS += --add-module=$(NGINX_DAV_EXT_DIR)
 NGINX_DEPENDENCIES += nginx-dav-ext
 endif
 
-ifeq ($(BR2_PACKAGE_NGINX_NAXSI),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_NAXSI),y)
 NGINX_DEPENDENCIES += nginx-naxsi
 NGINX_CONF_OPTS += --add-module=$(NGINX_NAXSI_DIR)/naxsi_src
 endif
 
-ifeq ($(BR2_PACKAGE_NGINX_MODSECURITY),y)
+ifeq ($(LINGMO_PACKAGE_NGINX_MODSECURITY),y)
 NGINX_DEPENDENCIES += nginx-modsecurity
 NGINX_CONF_OPTS += --add-module=$(NGINX_MODSECURITY_DIR)
 endif
 
 # Debug logging
-NGINX_CONF_OPTS += $(if $(BR2_PACKAGE_NGINX_DEBUG),--with-debug)
+NGINX_CONF_OPTS += $(if $(LINGMO_PACKAGE_NGINX_DEBUG),--with-debug)
 
 define NGINX_DISABLE_WERROR
 	$(SED) 's/-Werror//g' -i $(@D)/auto/cc/*

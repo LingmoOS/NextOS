@@ -1,6 +1,6 @@
-config BR2_PACKAGE_SDL_NET
+config LINGMO_PACKAGE_SDL_NET
 	bool "SDL_net"
-	depends on BR2_PACKAGE_SDL
+	depends on LINGMO_PACKAGE_SDL
 	help
 	  SDL_net is a small, low-level, cross-platform network
 	  library, that can be used with the Simple DirectMedia Layer

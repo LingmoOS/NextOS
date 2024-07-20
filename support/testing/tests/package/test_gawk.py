@@ -6,10 +6,10 @@ import infra.basetest
 class TestGawk(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_PACKAGE_BUSYBOX_SHOW_OTHERS=y
-        BR2_PACKAGE_GAWK=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS=y
+        LINGMO_PACKAGE_GAWK=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def basic_gawk_tests(self):

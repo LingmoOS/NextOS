@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_COLORZERO
+config LINGMO_PACKAGE_PYTHON_COLORZERO
 	bool "python-colorzero"
 	help
 	  A color manipulation library for Python.

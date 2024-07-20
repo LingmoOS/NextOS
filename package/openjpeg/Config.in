@@ -1,4 +1,4 @@
-config BR2_PACKAGE_OPENJPEG
+config LINGMO_PACKAGE_OPENJPEG
 	bool "openjpeg"
 	help
 	  The OpenJPEG library is an open-source JPEG 2000 codec

@@ -6,10 +6,10 @@ import infra.basetest
 class TestLibshdata(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_PACKAGE_LIBSHDATA=y
-        BR2_PACKAGE_LIBSHDATA_STRESS=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_LIBSHDATA=y
+        LINGMO_PACKAGE_LIBSHDATA_STRESS=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):

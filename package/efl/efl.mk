@@ -46,7 +46,7 @@ EFL_CONF_OPTS = \
 	-Dsdl=false \
 	-Dvnc-server=false
 
-ifeq ($(BR2_SYSTEM_ENABLE_NLS),y)
+ifeq ($(LINGMO_SYSTEM_ENABLE_NLS),y)
 EFL_CONF_OPTS += -Dnls=true
 else
 EFL_CONF_OPTS += -Dnls=false
@@ -54,97 +54,97 @@ endif
 
 EFL_BINDINGS = lua
 
-ifeq ($(BR2_PACKAGE_EFL_EOLIAN_CPP),y)
+ifeq ($(LINGMO_PACKAGE_EFL_EOLIAN_CPP),y)
 EFL_BINDINGS += cxx
 endif
 
 EFL_CONF_OPTS += -Dbindings=$(subst $(space),$(comma),$(EFL_BINDINGS))
 
-ifeq ($(BR2_PACKAGE_EFL_EEZE),y)
+ifeq ($(LINGMO_PACKAGE_EFL_EEZE),y)
 EFL_DEPENDENCIES += udev
 EFL_CONF_OPTS += -Deeze=true
 else
 EFL_CONF_OPTS += -Deeze=false
 endif
 
-ifeq ($(BR2_PACKAGE_EFL_ELPUT),y)
+ifeq ($(LINGMO_PACKAGE_EFL_ELPUT),y)
 EFL_DEPENDENCIES += libinput libxkbcommon
 EFL_CONF_OPTS += -Dinput=true
 else
 EFL_CONF_OPTS += -Dinput=false
 endif
 
-ifeq ($(BR2_PACKAGE_EFL_UTIL_LINUX_LIBMOUNT),y)
+ifeq ($(LINGMO_PACKAGE_EFL_UTIL_LINUX_LIBMOUNT),y)
 EFL_DEPENDENCIES += util-linux
 EFL_CONF_OPTS += -Dlibmount=true
 else
 EFL_CONF_OPTS += -Dlibmount=false
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 EFL_CONF_OPTS += -Dsystemd=true
 EFL_DEPENDENCIES += systemd
 else
 EFL_CONF_OPTS += -Dsystemd=false
 endif
 
-ifeq ($(BR2_PACKAGE_FONTCONFIG),y)
+ifeq ($(LINGMO_PACKAGE_FONTCONFIG),y)
 EFL_CONF_OPTS += -Dfontconfig=true
 EFL_DEPENDENCIES += fontconfig
 else
 EFL_CONF_OPTS += -Dfontconfig=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIBFRIBIDI),y)
+ifeq ($(LINGMO_PACKAGE_LIBFRIBIDI),y)
 EFL_CONF_OPTS += -Dfribidi=true
 EFL_DEPENDENCIES += libfribidi
 else
 EFL_CONF_OPTS += -Dfribidi=false
 endif
 
-ifeq ($(BR2_PACKAGE_GSTREAMER1)$(BR2_PACKAGE_GST1_PLUGINS_BASE),yy)
+ifeq ($(LINGMO_PACKAGE_GSTREAMER1)$(LINGMO_PACKAGE_GST1_PLUGINS_BASE),yy)
 EFL_CONF_OPTS += -Dgstreamer=true
 EFL_DEPENDENCIES += gstreamer1 gst1-plugins-base
 else
 EFL_CONF_OPTS += -Dgstreamer=false
 endif
 
-ifeq ($(BR2_PACKAGE_BULLET),y)
+ifeq ($(LINGMO_PACKAGE_BULLET),y)
 EFL_CONF_OPTS += -Dphysics=true
 EFL_DEPENDENCIES += bullet
 else
 EFL_CONF_OPTS += -Dphysics=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSNDFILE),y)
+ifeq ($(LINGMO_PACKAGE_LIBSNDFILE),y)
 EFL_CONF_OPTS += -Daudio=true
 EFL_DEPENDENCIES += libsndfile
 else
 EFL_CONF_OPTS += -Daudio=false
 endif
 
-ifeq ($(BR2_PACKAGE_PULSEAUDIO),y)
+ifeq ($(LINGMO_PACKAGE_PULSEAUDIO),y)
 EFL_CONF_OPTS += -Dpulseaudio=true
 EFL_DEPENDENCIES += pulseaudio
 else
 EFL_CONF_OPTS += -Dpulseaudio=false
 endif
 
-ifeq ($(BR2_PACKAGE_HARFBUZZ),y)
+ifeq ($(LINGMO_PACKAGE_HARFBUZZ),y)
 EFL_DEPENDENCIES += harfbuzz
 EFL_CONF_OPTS += -Dharfbuzz=true
 else
 EFL_CONF_OPTS += -Dharfbuzz=false
 endif
 
-ifeq ($(BR2_PACKAGE_TSLIB),y)
+ifeq ($(LINGMO_PACKAGE_TSLIB),y)
 EFL_DEPENDENCIES += tslib
 EFL_CONF_OPTS += -Dtslib=true
 else
 EFL_CONF_OPTS += -Dtslib=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGLIB2),y)
+ifeq ($(LINGMO_PACKAGE_LIBGLIB2),y)
 EFL_DEPENDENCIES += libglib2
 EFL_CONF_OPTS += -Dglib=true
 else
@@ -152,7 +152,7 @@ EFL_CONF_OPTS += -Dglib=false
 endif
 
 # Prefer openssl (the default) over gnutls.
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 EFL_DEPENDENCIES += openssl
 EFL_CONF_OPTS += -Dcrypto=openssl
 else
@@ -160,13 +160,13 @@ EFL_DEPENDENCIES += gnutls libgcrypt
 EFL_CONF_OPTS += -Dcrypto=gnutls
 endif
 
-ifeq ($(BR2_PACKAGE_EFL_FB),y)
+ifeq ($(LINGMO_PACKAGE_EFL_FB),y)
 EFL_CONF_OPTS += -Dfb=true
 else
 EFL_CONF_OPTS += -Dfb=false
 endif
 
-ifeq ($(BR2_PACKAGE_EFL_X_XLIB),y)
+ifeq ($(LINGMO_PACKAGE_EFL_X_XLIB),y)
 EFL_CONF_OPTS += -Dx11=true \
 	-Dxinput2=true \
 	-Dxinput22=true
@@ -186,25 +186,25 @@ else
 EFL_CONF_OPTS += -Dx11=false
 endif
 
-ifeq ($(BR2_PACKAGE_EFL_OPENGL),y)
+ifeq ($(LINGMO_PACKAGE_EFL_OPENGL),y)
 EFL_CONF_OPTS += -Dopengl=full
 EFL_DEPENDENCIES += libgl
 # OpenGL ES requires EGL
-else ifeq ($(BR2_PACKAGE_EFL_OPENGLES),y)
+else ifeq ($(LINGMO_PACKAGE_EFL_OPENGLES),y)
 EFL_CONF_OPTS += -Dopengl=es-egl
 EFL_DEPENDENCIES += libegl libgles
-else ifeq ($(BR2_PACKAGE_EFL_OPENGL_NONE),y)
+else ifeq ($(LINGMO_PACKAGE_EFL_OPENGL_NONE),y)
 EFL_CONF_OPTS += -Dopengl=none
 endif
 
-ifeq ($(BR2_PACKAGE_EFL_DRM),y)
+ifeq ($(LINGMO_PACKAGE_EFL_DRM),y)
 EFL_CONF_OPTS += -Ddrm=true
 EFL_DEPENDENCIES += libdrm libegl mesa3d
 else
 EFL_CONF_OPTS += -Ddrm=false
 endif
 
-ifeq ($(BR2_PACKAGE_EFL_WAYLAND),y)
+ifeq ($(LINGMO_PACKAGE_EFL_WAYLAND),y)
 EFL_DEPENDENCIES += wayland wayland-protocols
 EFL_CONF_OPTS += -Dwl=true
 else
@@ -217,25 +217,25 @@ endif
 EFL_EVAS_LOADERS_DISABLER = avif gst heif json ps
 
 # efl already depends on jpeg.
-ifeq ($(BR2_PACKAGE_EFL_JPEG),y)
+ifeq ($(LINGMO_PACKAGE_EFL_JPEG),y)
 EFL_DEPENDENCIES += openjpeg
 else
 EFL_EVAS_LOADERS_DISABLER += jp2k
 endif
 
-ifeq ($(BR2_PACKAGE_EFL_TIFF),y)
+ifeq ($(LINGMO_PACKAGE_EFL_TIFF),y)
 EFL_DEPENDENCIES += tiff
 else
 EFL_EVAS_LOADERS_DISABLER += tiff
 endif
 
-ifeq ($(BR2_PACKAGE_EFL_WEBP),y)
+ifeq ($(LINGMO_PACKAGE_EFL_WEBP),y)
 EFL_DEPENDENCIES += webp
 else
 EFL_EVAS_LOADERS_DISABLER += webp
 endif
 
-ifeq ($(BR2_PACKAGE_POPPLER),y)
+ifeq ($(LINGMO_PACKAGE_POPPLER),y)
 # poppler needs c++11
 EFL_CONF_ENV += CXXFLAGS="$(TARGET_CXXFLAGS) -std=c++11"
 EFL_DEPENDENCIES += poppler
@@ -243,13 +243,13 @@ else
 EFL_EVAS_LOADERS_DISABLER += pdf
 endif
 
-ifeq ($(BR2_PACKAGE_EFL_LIBRAW),y)
+ifeq ($(LINGMO_PACKAGE_EFL_LIBRAW),y)
 EFL_DEPENDENCIES += libraw
 else
 EFL_EVAS_LOADERS_DISABLER += raw
 endif
 
-ifeq ($(BR2_PACKAGE_EFL_SVG),y)
+ifeq ($(LINGMO_PACKAGE_EFL_SVG),y)
 EFL_DEPENDENCIES += librsvg cairo
 else
 EFL_EVAS_LOADERS_DISABLER += rsvg
@@ -257,7 +257,7 @@ endif
 
 EFL_CONF_OPTS += -Devas-loaders-disabler=$(subst $(space),$(comma),$(EFL_EVAS_LOADERS_DISABLER))
 
-ifeq ($(BR2_PACKAGE_UPOWER),)
+ifeq ($(LINGMO_PACKAGE_UPOWER),)
 # upower ecore system module is only useful if upower
 # dbus service is available.
 # It's not essential, only used to notify applications
@@ -269,7 +269,7 @@ endef
 EFL_POST_INSTALL_TARGET_HOOKS = EFL_HOOK_REMOVE_UPOWER
 endif
 
-ifeq ($(BR2_PACKAGE_LIBUNWIND),y)
+ifeq ($(LINGMO_PACKAGE_LIBUNWIND),y)
 EFL_DEPENDENCIES += libunwind
 endif
 
@@ -357,7 +357,7 @@ HOST_EFL_BINDINGS = lua
 # Enable Eolian language bindings to provide eolian_cxx tool for the
 # host which is required to build Eolian language bindings for the
 # target.
-ifeq ($(BR2_PACKAGE_EFL_EOLIAN_CPP),y)
+ifeq ($(LINGMO_PACKAGE_EFL_EOLIAN_CPP),y)
 HOST_EFL_BINDINGS += cxx
 endif
 HOST_EFL_CONF_OPTS += -Dbindings=$(subst $(space),$(comma),$(HOST_EFL_BINDINGS))

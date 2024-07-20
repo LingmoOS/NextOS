@@ -1,4 +1,4 @@
-config BR2_PACKAGE_BRIDGE_UTILS
+config LINGMO_PACKAGE_BRIDGE_UTILS
 	bool "bridge-utils"
 	help
 	  Manage ethernet bridging; a way to connect networks together

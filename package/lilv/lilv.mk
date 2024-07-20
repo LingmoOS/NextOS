@@ -17,13 +17,13 @@ LILV_CONF_OPTS += \
 	--no-bash-completion \
 	--no-coverage
 
-ifeq ($(BR2_PACKAGE_PYTHON3),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3),y)
 LILV_DEPENDENCIES += python3
 else
 LILV_CONF_OPTS += --no-bindings
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSNDFILE),y)
+ifeq ($(LINGMO_PACKAGE_LIBSNDFILE),y)
 LILV_DEPENDENCIES += libsndfile
 endif
 

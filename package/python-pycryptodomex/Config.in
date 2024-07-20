@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PYCRYPTODOMEX
+config LINGMO_PACKAGE_PYTHON_PYCRYPTODOMEX
 	bool "python-pycryptodomex"
 	help
 	  Cryptographic library for Python.

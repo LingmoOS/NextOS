@@ -5,7 +5,7 @@ class TestBrotli(TestCompressorBase):
     __test__ = True
     config = TestCompressorBase.config + \
         """
-        BR2_PACKAGE_BROTLI=y
+        LINGMO_PACKAGE_BROTLI=y
         """
     compress_cmd = "brotli"
     decompress_cmd = "brotli -d"

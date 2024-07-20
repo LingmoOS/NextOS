@@ -1,4 +1,4 @@
-config BR2_PACKAGE_JQUERY_UI
+config LINGMO_PACKAGE_JQUERY_UI
 	bool "jquery-ui"
 	help
 	  jQuery UI provides abstractions for low-level interaction and

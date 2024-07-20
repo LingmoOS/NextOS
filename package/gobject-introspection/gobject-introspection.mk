@@ -48,7 +48,7 @@ GOBJECT_INTROSPECTION_CONF_OPTS = \
 	-Dbuild_introspection_data=true \
 	-Ddoctool=disabled
 
-ifeq ($(BR2_PACKAGE_CAIRO),y)
+ifeq ($(LINGMO_PACKAGE_CAIRO),y)
 GOBJECT_INTROSPECTION_DEPENDENCIES += cairo
 GOBJECT_INTROSPECTION_CONF_OPTS += -Dcairo=enabled
 else
@@ -83,9 +83,9 @@ define GOBJECT_INTROSPECTION_INSTALL_PRE_WRAPPERS
 		$(STAGING_DIR)/usr/bin/g-ir-scanner-qemuwrapper
 	$(SED) "s%@QEMU_USER@%$(QEMU_USER)%g" \
 		$(STAGING_DIR)/usr/bin/g-ir-scanner-qemuwrapper
-	$(SED) "s%@QEMU_USERMODE_ARGS@%$(call qstrip,$(BR2_PACKAGE_HOST_QEMU_USER_MODE_ARGS))%g" \
+	$(SED) "s%@QEMU_USERMODE_ARGS@%$(call qstrip,$(LINGMO_PACKAGE_HOST_QEMU_USER_MODE_ARGS))%g" \
 		$(STAGING_DIR)/usr/bin/g-ir-scanner-qemuwrapper
-	$(SED) "s%@TOOLCHAIN_HEADERS_VERSION@%$(BR2_TOOLCHAIN_HEADERS_AT_LEAST)%g" \
+	$(SED) "s%@TOOLCHAIN_HEADERS_VERSION@%$(LINGMO_TOOLCHAIN_HEADERS_AT_LEAST)%g" \
 		$(STAGING_DIR)/usr/bin/g-ir-scanner-qemuwrapper
 
 	# Use a modules directory which does not exist so we don't load random things

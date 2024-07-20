@@ -1,7 +1,7 @@
-config BR2_PACKAGE_PYTHON_CSSSELECT2
+config LINGMO_PACKAGE_PYTHON_CSSSELECT2
 	bool "python-cssselect2"
-	select BR2_PACKAGE_PYTHON_TINYCSS2 # runtime
-	select BR2_PACKAGE_PYTHON_WEBENCODINGS # runtime
+	select LINGMO_PACKAGE_PYTHON_TINYCSS2 # runtime
+	select LINGMO_PACKAGE_PYTHON_WEBENCODINGS # runtime
 	help
 	  CSS selectors for Python ElementTree.
 

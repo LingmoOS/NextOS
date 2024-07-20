@@ -1,11 +1,11 @@
-config BR2_PACKAGE_LIBSIGROKDECODE
+config LINGMO_PACKAGE_LIBSIGROKDECODE
 	bool "libsigrokdecode"
-	depends on BR2_USE_WCHAR # libglib2/python3
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libglib2/python3
-	depends on BR2_USE_MMU # libglib2/python3
-	depends on !BR2_STATIC_LIBS # python3
-	select BR2_PACKAGE_LIBGLIB2
-	select BR2_PACKAGE_PYTHON3
+	depends on LINGMO_USE_WCHAR # libglib2/python3
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libglib2/python3
+	depends on LINGMO_USE_MMU # libglib2/python3
+	depends on !LINGMO_STATIC_LIBS # python3
+	select LINGMO_PACKAGE_LIBGLIB2
+	select LINGMO_PACKAGE_PYTHON3
 	help
 	  Libsigrokdecode is a shared library written in C, which
 	  provides (streaming) protocol decoding functionality. Say
@@ -17,5 +17,5 @@ config BR2_PACKAGE_LIBSIGROKDECODE
 	  http://sigrok.org/wiki/Libsigrokdecode
 
 comment "libsigrokdecode needs a toolchain w/ wchar, threads, dynamic library"
-	depends on BR2_USE_MMU
-	depends on !BR2_USE_WCHAR || !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_USE_WCHAR || !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS

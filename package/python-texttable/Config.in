@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_TEXTTABLE
+config LINGMO_PACKAGE_PYTHON_TEXTTABLE
 	bool "python-texttable"
 	help
 	  module for creating simple ASCII tables.

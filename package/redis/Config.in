@@ -1,10 +1,10 @@
-config BR2_PACKAGE_REDIS
+config LINGMO_PACKAGE_REDIS
 	bool "redis"
-	depends on BR2_USE_MMU # fork()
-	depends on !BR2_STATIC_LIBS # dlfcn.h
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_9 # _Atomic keyword
-	depends on BR2_TOOLCHAIN_HAS_ATOMIC
-	depends on BR2_TOOLCHAIN_HAS_THREADS_NPTL # pthread_setname_np()
+	depends on LINGMO_USE_MMU # fork()
+	depends on !LINGMO_STATIC_LIBS # dlfcn.h
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9 # _Atomic keyword
+	depends on LINGMO_TOOLCHAIN_HAS_ATOMIC
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS_NPTL # pthread_setname_np()
 	help
 	  Redis is an open source (BSD licensed), in-memory data
 	  structure store, used as a database, cache and message
@@ -16,7 +16,7 @@ config BR2_PACKAGE_REDIS
 	  http://www.redis.io
 
 comment "redis needs a toolchain w/ gcc>=4.9, dynamic library, nptl"
-	depends on BR2_USE_MMU
-	depends on BR2_TOOLCHAIN_HAS_ATOMIC
-	depends on BR2_STATIC_LIBS || !BR2_TOOLCHAIN_HAS_THREADS_NPTL \
-		|| !BR2_TOOLCHAIN_GCC_AT_LEAST_4_9
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_TOOLCHAIN_HAS_ATOMIC
+	depends on LINGMO_STATIC_LIBS || !LINGMO_TOOLCHAIN_HAS_THREADS_NPTL \
+		|| !LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9

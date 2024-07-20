@@ -13,11 +13,11 @@ IMX_PARSER_LICENSE = NXP Semiconductor Software License Agreement
 IMX_PARSER_LICENSE_FILES = EULA COPYING
 IMX_PARSER_REDISTRIBUTE = NO
 
-ifeq ($(BR2_aarch64),y)
+ifeq ($(LINGMO_aarch64),y)
 IMX_PARSER_CONF_OPTS += --enable-armv8
 endif
 
-ifeq ($(BR2_ARM_EABIHF),y)
+ifeq ($(LINGMO_ARM_EABIHF),y)
 IMX_PARSER_CONF_OPTS += --enable-fhw
 else
 IMX_PARSER_CONF_OPTS += --enable-fsw

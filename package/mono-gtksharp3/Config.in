@@ -1,6 +1,6 @@
-config BR2_PACKAGE_MONO_GTKSHARP3
+config LINGMO_PACKAGE_MONO_GTKSHARP3
 	bool "gtk# 3"
-	depends on BR2_PACKAGE_LIBGTK3
+	depends on LINGMO_PACKAGE_LIBGTK3
 	help
 	  Gtk# is a .NET language binding for the GTK+ toolkit.
 	  This package provides version 3 of the bindings.

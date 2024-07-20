@@ -35,15 +35,15 @@ define BERKELEYDB_CONFIGURE_CMDS
 		--exec-prefix=/usr \
 		--sysconfdir=/etc \
 		--with-gnu-ld \
-		$(if $(BR2_INSTALL_LIBSTDCPP),--enable-cxx,--disable-cxx) \
+		$(if $(LINGMO_INSTALL_LIBSTDCPP),--enable-cxx,--disable-cxx) \
 		--disable-java \
 		--disable-tcl \
-		$(if $(BR2_PACKAGE_BERKELEYDB_COMPAT185),--enable-compat185,--disable-compat185) \
-		$(if $(BR2_PACKAGE_BERKELEYDB_DBM),--enable-dbm,--disable-dbm) \
+		$(if $(LINGMO_PACKAGE_BERKELEYDB_COMPAT185),--enable-compat185,--disable-compat185) \
+		$(if $(LINGMO_PACKAGE_BERKELEYDB_DBM),--enable-dbm,--disable-dbm) \
 		$(SHARED_STATIC_LIBS_OPTS) \
 		--with-pic \
 		--enable-o_direct \
-		$(if $(BR2_TOOLCHAIN_HAS_THREADS),--enable-mutexsupport,--disable-mutexsupport) \
+		$(if $(LINGMO_TOOLCHAIN_HAS_THREADS),--enable-mutexsupport,--disable-mutexsupport) \
 	)
 endef
 
@@ -63,7 +63,7 @@ define HOST_BERKELEYDB_CONFIGURE_CMDS
 	)
 endef
 
-ifneq ($(BR2_PACKAGE_BERKELEYDB_TOOLS),y)
+ifneq ($(LINGMO_PACKAGE_BERKELEYDB_TOOLS),y)
 
 define BERKELEYDB_REMOVE_TOOLS
 	rm -f $(addprefix $(TARGET_DIR)/usr/bin/, $(BERKELEYDB_BINARIES))

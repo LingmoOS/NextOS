@@ -10,7 +10,7 @@ QLIBC_LICENSE = BSD-2-Clause
 QLIBC_LICENSE_FILES = LICENSE
 
 QLIBC_INSTALL_STAGING = YES
-QLIBC_DEPENDENCIES = $(if $(BR2_PACKAGE_LIBICONV),libiconv)
+QLIBC_DEPENDENCIES = $(if $(LINGMO_PACKAGE_LIBICONV),libiconv)
 
 # The configure.ac checks for these use AC_CHECK_FILE() which doesn't
 # work for cross-compilation. If someone wants to enable the support

@@ -12,7 +12,7 @@ STRACE_LICENSE_FILES = COPYING LGPL-2.1-or-later
 STRACE_CPE_ID_VALID = YES
 STRACE_CONF_OPTS = --enable-mpers=no
 
-ifeq ($(BR2_PACKAGE_LIBUNWIND),y)
+ifeq ($(LINGMO_PACKAGE_LIBUNWIND),y)
 STRACE_DEPENDENCIES += libunwind
 STRACE_CONF_OPTS += --with-libunwind
 else
@@ -20,14 +20,14 @@ STRACE_CONF_OPTS += --without-libunwind
 endif
 
 # Demangling symbols in stack trace needs libunwind and libiberty.
-ifeq ($(BR2_PACKAGE_BINUTILS)$(BR2_PACKAGE_LIBUNWIND),yy)
+ifeq ($(LINGMO_PACKAGE_BINUTILS)$(LINGMO_PACKAGE_LIBUNWIND),yy)
 STRACE_DEPENDENCIES += binutils
 STRACE_CONF_OPTS += --with-libiberty=check
 else
 STRACE_CONF_OPTS += --without-libiberty
 endif
 
-ifeq ($(BR2_PACKAGE_PERL),)
+ifeq ($(LINGMO_PACKAGE_PERL),)
 define STRACE_REMOVE_STRACE_GRAPH
 	rm -f $(TARGET_DIR)/usr/bin/strace-graph
 endef

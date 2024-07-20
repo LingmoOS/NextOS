@@ -1,7 +1,7 @@
-config BR2_PACKAGE_PDMENU
+config LINGMO_PACKAGE_PDMENU
 	bool "pdmenu"
-	depends on BR2_USE_MMU # slang
-	select BR2_PACKAGE_SLANG
+	depends on LINGMO_USE_MMU # slang
+	select LINGMO_PACKAGE_SLANG
 	help
 	  Pdmenu is a full screen menuing system for Unix. It is
 	  designed to be easy to use, and is suitable as a login shell

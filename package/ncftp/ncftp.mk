@@ -25,25 +25,25 @@ define NCFTP_RUN_AUTOCONF
 endef
 NCFTP_PRE_CONFIGURE_HOOKS += NCFTP_RUN_AUTOCONF
 
-ifeq ($(BR2_PACKAGE_NCFTP_GET),y)
+ifeq ($(LINGMO_PACKAGE_NCFTP_GET),y)
 NCFTP_TARGET_BINS += ncftpget
 endif
 
-ifeq ($(BR2_PACKAGE_NCFTP_PUT),y)
+ifeq ($(LINGMO_PACKAGE_NCFTP_PUT),y)
 NCFTP_TARGET_BINS += ncftpput
 endif
 
-ifeq ($(BR2_PACKAGE_NCFTP_LS),y)
+ifeq ($(LINGMO_PACKAGE_NCFTP_LS),y)
 NCFTP_TARGET_BINS += ncftpls
 endif
 
-ifeq ($(BR2_PACKAGE_NCFTP_BATCH),y)
+ifeq ($(LINGMO_PACKAGE_NCFTP_BATCH),y)
 NCFTP_TARGET_BINS += ncftpbatch
 NCFTP_INSTALL_NCFTP_BATCH = \
 	ln -sf /usr/bin/ncftpbatch $(TARGET_DIR)/usr/bin/ncftpspooler
 endif
 
-ifeq ($(BR2_PACKAGE_NCFTP_BOOKMARKS),y)
+ifeq ($(LINGMO_PACKAGE_NCFTP_BOOKMARKS),y)
 NCFTP_TARGET_BINS += ncftpbookmarks
 NCFTP_DEPENDENCIES += ncurses
 endif

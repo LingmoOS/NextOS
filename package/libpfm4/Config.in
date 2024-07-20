@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBPFM4
+config LINGMO_PACKAGE_LIBPFM4
 	bool "libpfm4"
-	depends on BR2_TOOLCHAIN_HAS_THREADS_NPTL
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS_NPTL
 	help
 	  A helper library to help encode Performance Events to use with
 	  Operating system kernels performance monitoring interfaces.
@@ -8,4 +8,4 @@ config BR2_PACKAGE_LIBPFM4
 	  http://perfmon2.sourceforge.net/
 
 comment "libpfm4 needs a toolchain w/ NPTL"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS_NPTL
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS_NPTL

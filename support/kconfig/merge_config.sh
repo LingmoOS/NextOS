@@ -77,7 +77,7 @@ while true; do
 		continue
 		;;
 	"-e")
-		EXTERNAL_ARG="BR2_EXTERNAL=$2"
+		EXTERNAL_ARG="LINGMO_EXTERNAL=$2"
 		shift 2
 		continue
 		;;

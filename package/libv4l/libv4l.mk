@@ -22,40 +22,40 @@ LIBV4L_CONF_ENV = ac_cv_prog_cc_c99='-std=gnu99'
 LIBV4L_LICENSE = GPL-2.0+ (utilities), LGPL-2.1+ (libraries)
 LIBV4L_LICENSE_FILES = COPYING COPYING.libv4l lib/libv4l1/libv4l1-kernelcode-license.txt
 
-ifeq ($(BR2_PACKAGE_ALSA_LIB),y)
+ifeq ($(LINGMO_PACKAGE_ALSA_LIB),y)
 LIBV4L_DEPENDENCIES += alsa-lib
 endif
 
-ifeq ($(BR2_PACKAGE_ARGP_STANDALONE),y)
+ifeq ($(LINGMO_PACKAGE_ARGP_STANDALONE),y)
 LIBV4L_DEPENDENCIES += argp-standalone $(TARGET_NLS_DEPENDENCIES)
 LIBV4L_CONF_ENV += LIBS=$(TARGET_NLS_LIBS)
 endif
 
-LIBV4L_DEPENDENCIES += $(if $(BR2_PACKAGE_LIBICONV),libiconv)
+LIBV4L_DEPENDENCIES += $(if $(LINGMO_PACKAGE_LIBICONV),libiconv)
 
-ifeq ($(BR2_PACKAGE_JPEG),y)
+ifeq ($(LINGMO_PACKAGE_JPEG),y)
 LIBV4L_DEPENDENCIES += jpeg
 LIBV4L_CONF_OPTS += --with-jpeg
 else
 LIBV4L_CONF_OPTS += --without-jpeg
 endif
 
-ifeq ($(BR2_PACKAGE_HAS_LIBGL),y)
+ifeq ($(LINGMO_PACKAGE_HAS_LIBGL),y)
 LIBV4L_DEPENDENCIES += libgl
 endif
 
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 LIBV4L_CONF_OPTS += --with-libudev --with-udevdir=/usr/lib/udev
 LIBV4L_DEPENDENCIES += udev
 else
 LIBV4L_CONF_OPTS += --without-libudev
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGLU),y)
+ifeq ($(LINGMO_PACKAGE_LIBGLU),y)
 LIBV4L_DEPENDENCIES += libglu
 endif
 
-ifeq ($(BR2_PACKAGE_LIBV4L_UTILS),y)
+ifeq ($(LINGMO_PACKAGE_LIBV4L_UTILS),y)
 LIBV4L_CONF_OPTS += --enable-v4l-utils
 LIBV4L_DEPENDENCIES += $(TARGET_NLS_DEPENDENCIES)
 
@@ -66,7 +66,7 @@ LIBV4L_CONF_ENV += CXXFLAGS="$(TARGET_CXXFLAGS) -std=gnu++11"
 # libelf and clang support
 LIBV4L_CONF_OPTS += --disable-bpf
 
-ifeq ($(BR2_PACKAGE_QT5BASE)$(BR2_PACKAGE_QT5BASE_GUI)$(BR2_PACKAGE_QT5BASE_WIDGETS),yyy)
+ifeq ($(LINGMO_PACKAGE_QT5BASE)$(LINGMO_PACKAGE_QT5BASE_GUI)$(LINGMO_PACKAGE_QT5BASE_WIDGETS),yyy)
 LIBV4L_CONF_OPTS += --enable-qv4l2
 LIBV4L_DEPENDENCIES += qt5base
 # protect against host version detection of moc-qt5/rcc-qt5/uic-qt5
@@ -81,7 +81,7 @@ else
 LIBV4L_CONF_OPTS += --disable-v4l-utils
 endif
 
-ifeq ($(BR2_PACKAGE_SDL2_IMAGE),y)
+ifeq ($(LINGMO_PACKAGE_SDL2_IMAGE),y)
 LIBV4L_DEPENDENCIES += sdl2_image
 endif
 

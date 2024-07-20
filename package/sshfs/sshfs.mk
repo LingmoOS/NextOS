@@ -12,6 +12,6 @@ SSHFS_LICENSE_FILES = COPYING
 SSHFS_DEPENDENCIES = \
 	libglib2 libfuse3 openssh \
 	$(TARGET_NLS_DEPENDENCIES) \
-	$(if $(BR2_ENABLE_LOCALE),,libiconv)
+	$(if $(LINGMO_ENABLE_LOCALE),,libiconv)
 
 $(eval $(meson-package))

@@ -1,6 +1,6 @@
-if BR2_PACKAGE_JPEG_TURBO
+if LINGMO_PACKAGE_JPEG_TURBO
 
-config BR2_PACKAGE_JPEG_TURBO_TOOLS
+config LINGMO_PACKAGE_JPEG_TURBO_TOOLS
 	bool "jpeg-turbo tools"
 	help
 	  Libjpeg-turbo can also provide some tools like cjpeg,

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_KODI_SCREENSAVER_MATRIXTRAILS
+config LINGMO_PACKAGE_KODI_SCREENSAVER_MATRIXTRAILS
 	bool "kodi-screensaver-matrixtrails"
 	help
 	  Matrix trails screensaver for Kodi

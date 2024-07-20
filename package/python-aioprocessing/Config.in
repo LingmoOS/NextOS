@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_AIOPROCESSING
+config LINGMO_PACKAGE_PYTHON_AIOPROCESSING
 	bool "python-aioprocessing"
 	help
 	  A Python 3.5+ library that integrates the multiprocessing

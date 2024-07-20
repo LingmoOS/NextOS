@@ -1,4 +1,4 @@
-config BR2_PACKAGE_TCPING
+config LINGMO_PACKAGE_TCPING
 	bool "tcping"
 	help
 	  tcping does a TCP connect to the given ip/port

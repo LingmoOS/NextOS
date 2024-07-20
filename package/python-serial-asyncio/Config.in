@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_SERIAL_ASYNCIO
+config LINGMO_PACKAGE_PYTHON_SERIAL_ASYNCIO
 	bool "python-serial-asyncio"
-	select BR2_PACKAGE_PYTHON_SERIAL
+	select LINGMO_PACKAGE_PYTHON_SERIAL
 	help
 	  asyncio extension package for pyserial.
 

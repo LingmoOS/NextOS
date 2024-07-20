@@ -1,7 +1,7 @@
-config BR2_PACKAGE_KEYUTILS
+config LINGMO_PACKAGE_KEYUTILS
 	bool "keyutils"
-	depends on BR2_USE_MMU # fork()
-	depends on !BR2_STATIC_LIBS # dlopen
+	depends on LINGMO_USE_MMU # fork()
+	depends on !LINGMO_STATIC_LIBS # dlopen
 	help
 	  These tools are used to control the key management system
 	  built into the Linux kernel.
@@ -9,5 +9,5 @@ config BR2_PACKAGE_KEYUTILS
 	  https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/
 
 comment "keyutils needs a toolchain w/ dynamic library"
-	depends on BR2_USE_MMU
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_STATIC_LIBS

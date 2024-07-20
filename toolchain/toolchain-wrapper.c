@@ -248,12 +248,12 @@ int main(int argc, char **argv)
 	int ret, i, count = 0, debug = 0, found_shared = 0;
 
 	/* Debug the wrapper to see arguments it was called with.
-	 * If environment variable BR2_DEBUG_WRAPPER is:
+	 * If environment variable LINGMO_DEBUG_WRAPPER is:
 	 * unset, empty, or 0: do not trace
 	 * set to 1          : trace all arguments on a single line
 	 * set to 2          : trace one argument per line
 	 */
-	if ((env_debug = getenv("BR2_DEBUG_WRAPPER"))) {
+	if ((env_debug = getenv("LINGMO_DEBUG_WRAPPER"))) {
 		debug = atoi(env_debug);
 	}
 	if (debug > 0) {
@@ -389,7 +389,7 @@ int main(int argc, char **argv)
 		*cur++ = "-Wno-builtin-macro-redefined";
 	}
 
-#ifdef BR2_PIC_PIE
+#ifdef LINGMO_PIC_PIE
 	/* Patterned after Fedora/Gentoo hardening approaches.
 	 * https://fedoraproject.org/wiki/Changes/Harden_All_Packages
 	 * https://wiki.gentoo.org/wiki/Hardened/Toolchain#Position_Independent_Executables_.28PIEs.29
@@ -454,10 +454,10 @@ int main(int argc, char **argv)
 	}
 	if (i == argc) {
 		/* https://wiki.gentoo.org/wiki/Hardened/Toolchain#Mark_Read-Only_Appropriate_Sections */
-#ifdef BR2_RELRO_PARTIAL
+#ifdef LINGMO_RELRO_PARTIAL
 		*cur++ = "-Wl,-z,relro";
 #endif
-#ifdef BR2_RELRO_FULL
+#ifdef LINGMO_RELRO_FULL
 		*cur++ = "-Wl,-z,now";
 		*cur++ = "-Wl,-z,relro";
 #endif
@@ -494,9 +494,9 @@ int main(int argc, char **argv)
 
 	exec_args = args;
 #ifdef BR_CCACHE
-	/* If BR2_USE_CCACHE is set and its value is 1, enable ccache
+	/* If LINGMO_USE_CCACHE is set and its value is 1, enable ccache
 	 * usage */
-	char *br_use_ccache = getenv("BR2_USE_CCACHE");
+	char *br_use_ccache = getenv("LINGMO_USE_CCACHE");
 	bool ccache_enabled = br_use_ccache && !strncmp(br_use_ccache, "1", strlen("1"));
 
 	if (ccache_enabled) {

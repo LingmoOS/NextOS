@@ -20,27 +20,27 @@ SYSLOG_NG_CONF_OPTS = --disable-manpages --localstatedir=/var/run \
 	--disable-python
 SYSLOG_NG_CFLAGS = $(TARGET_CFLAGS)
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_101915),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_101915),y)
 SYSLOG_NG_CFLAGS += -O0
 endif
 
 SYSLOG_NG_CONF_ENV = CFLAGS="$(SYSLOG_NG_CFLAGS)"
 
-ifeq ($(BR2_PACKAGE_GEOIP),y)
+ifeq ($(LINGMO_PACKAGE_GEOIP),y)
 SYSLOG_NG_DEPENDENCIES += geoip
 SYSLOG_NG_CONF_OPTS += --enable-geoip
 else
 SYSLOG_NG_CONF_OPTS += --disable-geoip
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBCAP),y)
 SYSLOG_NG_DEPENDENCIES += libcap
 SYSLOG_NG_CONF_OPTS += --enable-linux-caps
 else
 SYSLOG_NG_CONF_OPTS += --disable-linux-caps
 endif
 
-ifeq ($(BR2_PACKAGE_LIBESMTP),y)
+ifeq ($(LINGMO_PACKAGE_LIBESMTP),y)
 SYSLOG_NG_DEPENDENCIES += libesmtp
 SYSLOG_NG_CONF_OPTS += --enable-smtp
 SYSLOG_NG_CONF_OPTS += --with-libesmtp="$(STAGING_DIR)/usr"
@@ -48,18 +48,18 @@ else
 SYSLOG_NG_CONF_OPTS += --disable-smtp
 endif
 
-ifeq ($(BR2_PACKAGE_JSON_C),y)
+ifeq ($(LINGMO_PACKAGE_JSON_C),y)
 SYSLOG_NG_DEPENDENCIES += json-c
 SYSLOG_NG_CONF_OPTS += --enable-json
 else
 SYSLOG_NG_CONF_OPTS += --disable-json
 endif
 
-ifeq ($(BR2_PACKAGE_UTIL_LINUX_LIBUUID),y)
+ifeq ($(LINGMO_PACKAGE_UTIL_LINUX_LIBUUID),y)
 SYSLOG_NG_DEPENDENCIES += util-linux
 endif
 
-ifeq ($(BR2_PACKAGE_LIBNET),y)
+ifeq ($(LINGMO_PACKAGE_LIBNET),y)
 SYSLOG_NG_DEPENDENCIES += libnet
 SYSLOG_NG_CONF_OPTS += \
 	--with-libnet=$(STAGING_DIR)/usr/bin \
@@ -68,7 +68,7 @@ else
 SYSLOG_NG_CONF_OPTS += --disable-spoof-source
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCURL),y)
+ifeq ($(LINGMO_PACKAGE_LIBCURL),y)
 SYSLOG_NG_DEPENDENCIES += libcurl
 SYSLOG_NG_CONF_OPTS += --enable-http
 SYSLOG_NG_CONF_OPTS += --with-libcurl="$(STAGING_DIR)/usr"
@@ -76,14 +76,14 @@ else
 SYSLOG_NG_CONF_OPTS += --disable-http
 endif
 
-ifeq ($(BR2_PACKAGE_RABBITMQ_C),y)
+ifeq ($(LINGMO_PACKAGE_RABBITMQ_C),y)
 SYSLOG_NG_DEPENDENCIES += rabbitmq-c
 SYSLOG_NG_CONF_OPTS += --enable-amqp
 else
 SYSLOG_NG_CONF_OPTS += --disable-amqp
 endif
 
-ifeq ($(BR2_INIT_SYSTEMD),y)
+ifeq ($(LINGMO_INIT_SYSTEMD),y)
 SYSLOG_NG_DEPENDENCIES += systemd
 SYSLOG_NG_CONF_OPTS += \
 	--enable-systemd \
@@ -92,7 +92,7 @@ else
 SYSLOG_NG_CONF_OPTS += --disable-systemd
 endif
 
-ifeq ($(BR2_PACKAGE_NETSNMP),y)
+ifeq ($(LINGMO_PACKAGE_NETSNMP),y)
 SYSLOG_NG_DEPENDENCIES += netsnmp
 SYSLOG_NG_CONF_OPTS += --enable-afsnmp
 SYSLOG_NG_CONF_OPTS += --with-net-snmp="$(STAGING_DIR)/usr/bin"

@@ -16,7 +16,7 @@ PROCPS_NG_AUTORECONF = YES
 PROCPS_NG_DEPENDENCIES = ncurses host-pkgconf $(TARGET_NLS_DEPENDENCIES)
 PROCPS_NG_CONF_OPTS = LIBS=$(TARGET_NLS_LIBS)
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 PROCPS_NG_DEPENDENCIES += systemd
 PROCPS_NG_CONF_OPTS += --with-systemd
 else
@@ -32,23 +32,23 @@ PROCPS_NG_CONF_OPTS += --exec-prefix=/ \
 	--libdir=/usr/lib
 
 # Allows unicode characters to show in 'watch'
-ifeq ($(BR2_PACKAGE_NCURSES_WCHAR),y)
+ifeq ($(LINGMO_PACKAGE_NCURSES_WCHAR),y)
 PROCPS_NG_CONF_OPTS += \
 	--enable-watch8bit
 endif
 
-ifeq ($(BR2_USE_WCHAR),)
+ifeq ($(LINGMO_USE_WCHAR),)
 PROCPS_NG_CONF_OPTS += CPPFLAGS=-DOFF_XTRAWIDE
 endif
 
 # numa support requires libdl, so explicitly disable it when
-# BR2_STATIC_LIBS=y
-ifeq ($(BR2_STATIC_LIBS),y)
+# LINGMO_STATIC_LIBS=y
+ifeq ($(LINGMO_STATIC_LIBS),y)
 PROCPS_NG_CONF_OPTS += --disable-numa
 endif
 
 # w requires utmp.h
-ifeq ($(BR2_TOOLCHAIN_USES_MUSL),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_MUSL),y)
 PROCPS_NG_CONF_OPTS += --disable-w
 else
 PROCPS_NG_CONF_OPTS += --enable-w

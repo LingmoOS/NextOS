@@ -1,15 +1,15 @@
-menuconfig BR2_PACKAGE_XORG7
+menuconfig LINGMO_PACKAGE_XORG7
 	bool "X.org X Window System"
-	depends on BR2_USE_WCHAR
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on !BR2_STATIC_LIBS # dlopen in xlib_libX11
+	depends on LINGMO_USE_WCHAR
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_STATIC_LIBS # dlopen in xlib_libX11
 	help
 	  Support for X11R7 libraries, servers, drivers, and/or
 	  applications in the target.
 
 	  http://xorg.freedesktop.org
 
-if BR2_PACKAGE_XORG7
+if LINGMO_PACKAGE_XORG7
 	menu "X11R7 Servers"
 		source "package/x11r7/xserver_xorg-server/Config.in"
 		source "package/x11r7/xwayland/Config.in"
@@ -147,7 +147,7 @@ if BR2_PACKAGE_XORG7
 		source "package/x11r7/xapp_xwininfo/Config.in"
 		source "package/x11r7/xapp_xwud/Config.in"
 	endmenu
-	if BR2_PACKAGE_XSERVER_XORG_SERVER_MODULAR
+	if LINGMO_PACKAGE_XSERVER_XORG_SERVER_MODULAR
 	menu "X11R7 Drivers"
 		source "package/x11r7/xdriver_xf86-input-evdev/Config.in"
 		source "package/x11r7/xdriver_xf86-input-joystick/Config.in"
@@ -241,4 +241,4 @@ if BR2_PACKAGE_XORG7
 endif
 
 comment "X.org needs a toolchain w/ wchar, threads, dynamic library"
-	depends on !BR2_USE_WCHAR || !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on !LINGMO_USE_WCHAR || !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS

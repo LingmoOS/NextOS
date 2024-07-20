@@ -17,7 +17,7 @@ MATCHBOX_DESKTOP_DEPENDENCIES = matchbox-lib zlib
 # configure.ac/Makefile.am.
 MATCHBOX_DESKTOP_AUTORECONF = YES
 
-ifeq ($(BR2_PACKAGE_STARTUP_NOTIFICATION),y)
+ifeq ($(LINGMO_PACKAGE_STARTUP_NOTIFICATION),y)
 MATCHBOX_DESKTOP_CONF_OPTS += --enable-startup-notification
 MATCHBOX_DESKTOP_DEPENDENCIES += startup-notification
 else

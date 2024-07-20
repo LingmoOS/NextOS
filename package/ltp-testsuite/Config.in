@@ -1,35 +1,35 @@
-config BR2_PACKAGE_LTP_TESTSUITE_ARCH_SUPPORTS
+config LINGMO_PACKAGE_LTP_TESTSUITE_ARCH_SUPPORTS
 	bool
 	# Needs __sync*() built-ins for 4-byte data, except on a few
 	# architectures for which a specific implementation is
 	# provided in ltp-testsuite
-	default y if BR2_TOOLCHAIN_HAS_SYNC_4
-	default y if BR2_arc
+	default y if LINGMO_TOOLCHAIN_HAS_SYNC_4
+	default y if LINGMO_arc
 	# does not build on nios2, cachectl.h issue
-	depends on !BR2_nios2
+	depends on !LINGMO_nios2
 
-config BR2_PACKAGE_LTP_TESTSUITE
+config LINGMO_PACKAGE_LTP_TESTSUITE
 	bool "ltp-testsuite"
-	depends on BR2_USE_MMU # fork()
-	depends on BR2_TOOLCHAIN_HAS_THREADS_NPTL
-	depends on !BR2_TOOLCHAIN_USES_MUSL || BR2_TOOLCHAIN_HEADERS_AT_LEAST_5_11
-	depends on BR2_PACKAGE_LTP_TESTSUITE_ARCH_SUPPORTS
-	select BR2_PACKAGE_LIBTIRPC if !BR2_TOOLCHAIN_HAS_NATIVE_RPC
-	select BR2_PACKAGE_MUSL_FTS if !BR2_TOOLCHAIN_USES_GLIBC
+	depends on LINGMO_USE_MMU # fork()
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS_NPTL
+	depends on !LINGMO_TOOLCHAIN_USES_MUSL || LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_5_11
+	depends on LINGMO_PACKAGE_LTP_TESTSUITE_ARCH_SUPPORTS
+	select LINGMO_PACKAGE_LIBTIRPC if !LINGMO_TOOLCHAIN_HAS_NATIVE_RPC
+	select LINGMO_PACKAGE_MUSL_FTS if !LINGMO_TOOLCHAIN_USES_GLIBC
 	help
 	  The Linux Test Project provides a huge testsuite for Linux.
 
 	  http://linux-test-project.github.io
 
-if BR2_PACKAGE_LTP_TESTSUITE
+if LINGMO_PACKAGE_LTP_TESTSUITE
 
-config BR2_PACKAGE_LTP_TESTSUITE_OPEN_POSIX
+config LINGMO_PACKAGE_LTP_TESTSUITE_OPEN_POSIX
 	bool "Open POSIX testsuite"
 	default y
 	help
 	  Test suite for POSIX compliance. Included with the LTP.
 
-config BR2_PACKAGE_LTP_TESTSUITE_REALTIME
+config LINGMO_PACKAGE_LTP_TESTSUITE_REALTIME
 	bool "Realtime testsuite"
 	default y
 	help
@@ -38,6 +38,6 @@ config BR2_PACKAGE_LTP_TESTSUITE_REALTIME
 endif
 
 comment "ltp-testsuite needs a toolchain w/ NPTL"
-	depends on BR2_PACKAGE_LTP_TESTSUITE_ARCH_SUPPORTS
-	depends on BR2_USE_MMU
-	depends on !BR2_TOOLCHAIN_HAS_THREADS_NPTL
+	depends on LINGMO_PACKAGE_LTP_TESTSUITE_ARCH_SUPPORTS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS_NPTL

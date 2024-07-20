@@ -1,7 +1,7 @@
-config BR2_PACKAGE_LIBDISPLAY_INFO
+config LINGMO_PACKAGE_LIBDISPLAY_INFO
 	bool "libdisplay-info"
-	select BR2_PACKAGE_HWDATA
-	select BR2_PACKAGE_HWDATA_PNP_IDS
+	select LINGMO_PACKAGE_HWDATA
+	select LINGMO_PACKAGE_HWDATA_PNP_IDS
 	help
 	  EDID and DisplayID library.
 

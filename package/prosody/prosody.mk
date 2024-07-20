@@ -12,7 +12,7 @@ PROSODY_CPE_ID_VENDOR = prosody
 PROSODY_DEPENDENCIES = host-luainterpreter luainterpreter libidn openssl
 
 PROSODY_CFLAGS = $(TARGET_CFLAGS) -fPIC -std=c99 \
-	$(if BR2_TOOLCHAIN_USES_MUSL,-DWITHOUT_MALLINFO)
+	$(if LINGMO_TOOLCHAIN_USES_MUSL,-DWITHOUT_MALLINFO)
 
 PROSODY_CONF_OPTS = \
 	--with-lua-bin=$(HOST_DIR)/bin \
@@ -25,7 +25,7 @@ PROSODY_CONF_OPTS = \
 	--sysconfdir=/etc/prosody \
 	--prefix=/usr
 
-ifeq ($(BR2_PACKAGE_LUAJIT),y)
+ifeq ($(LINGMO_PACKAGE_LUAJIT),y)
 PROSODY_CONF_OPTS += --runwith=luajit
 endif
 

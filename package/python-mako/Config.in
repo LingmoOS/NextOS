@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_MAKO
+config LINGMO_PACKAGE_PYTHON_MAKO
 	bool "python-mako"
-	select BR2_PACKAGE_PYTHON_MARKUPSAFE # runtime
+	select LINGMO_PACKAGE_PYTHON_MARKUPSAFE # runtime
 	help
 	  Mako is a template library written in Python. It provides a
 	  familiar, non-XML syntax which compiles into Python modules
@@ -8,18 +8,18 @@ config BR2_PACKAGE_PYTHON_MAKO
 
 	  https://pypi.python.org/pypi/Mako
 
-if BR2_PACKAGE_PYTHON_MAKO
+if LINGMO_PACKAGE_PYTHON_MAKO
 
-config BR2_PACKAGE_PYTHON_MAKO_EXT_PYGMENTPLUGIN
+config LINGMO_PACKAGE_PYTHON_MAKO_EXT_PYGMENTPLUGIN
 	bool "mako extension pygmentplugin"
-	select BR2_PACKAGE_PYTHON_PYGMENTS # runtime
+	select LINGMO_PACKAGE_PYTHON_PYGMENTS # runtime
 	help
 	  Provide python-pygments support for
 	  mako.ext.pygmentplugin
 
-config BR2_PACKAGE_PYTHON_MAKO_EXT_BABELPLUGIN
+config LINGMO_PACKAGE_PYTHON_MAKO_EXT_BABELPLUGIN
 	bool "mako extension babelplugin"
-	select BR2_PACKAGE_PYTHON_BABEL # runtime
+	select LINGMO_PACKAGE_PYTHON_BABEL # runtime
 	help
 	  Provide python-babel support for
 	  mako.ext.babelplugin

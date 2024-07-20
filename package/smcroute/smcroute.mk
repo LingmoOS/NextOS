@@ -12,7 +12,7 @@ SMCROUTE_CPE_ID_VENDOR = troglobit
 
 SMCROUTE_CONF_OPTS = --enable-mrdisc
 
-ifeq ($(BR2_PACKAGE_LIBCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBCAP),y)
 SMCROUTE_DEPENDENCIES += libcap
 SMCROUTE_CONF_OPTS += --with-libcap
 else

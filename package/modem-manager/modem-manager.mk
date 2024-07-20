@@ -18,35 +18,35 @@ MODEM_MANAGER_CONF_OPTS = \
 	-Dtests=false \
 	-Dudevdir=/usr/lib/udev
 
-ifeq ($(BR2_PACKAGE_LIBGUDEV),y)
+ifeq ($(LINGMO_PACKAGE_LIBGUDEV),y)
 MODEM_MANAGER_DEPENDENCIES += libgudev
 MODEM_MANAGER_CONF_OPTS += -Dudev=true
 else
 MODEM_MANAGER_CONF_OPTS += -Dudev=false
 endif
 
-ifeq ($(BR2_PACKAGE_MODEM_MANAGER_LIBQMI),y)
+ifeq ($(LINGMO_PACKAGE_MODEM_MANAGER_LIBQMI),y)
 MODEM_MANAGER_DEPENDENCIES += libqmi
 MODEM_MANAGER_CONF_OPTS += -Dqmi=true
 else
 MODEM_MANAGER_CONF_OPTS += -Dqmi=false
 endif
 
-ifeq ($(BR2_PACKAGE_MODEM_MANAGER_LIBMBIM),y)
+ifeq ($(LINGMO_PACKAGE_MODEM_MANAGER_LIBMBIM),y)
 MODEM_MANAGER_DEPENDENCIES += libmbim
 MODEM_MANAGER_CONF_OPTS += -Dmbim=true
 else
 MODEM_MANAGER_CONF_OPTS += -Dmbim=false
 endif
 
-ifeq ($(BR2_PACKAGE_MODEM_MANAGER_LIBQRTR),y)
+ifeq ($(LINGMO_PACKAGE_MODEM_MANAGER_LIBQRTR),y)
 MODEM_MANAGER_DEPENDENCIES += libqrtr-glib
 MODEM_MANAGER_CONF_OPTS += -Dqrtr=true
 else
 MODEM_MANAGER_CONF_OPTS += -Dqrtr=false
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 MODEM_MANAGER_DEPENDENCIES += systemd
 MODEM_MANAGER_CONF_OPTS += \
 	-Dsystemd_journal=true \
@@ -59,21 +59,21 @@ MODEM_MANAGER_CONF_OPTS += \
 	-Dsystemdsystemunitdir=no
 endif
 
-ifeq ($(BR2_PACKAGE_POLKIT),y)
+ifeq ($(LINGMO_PACKAGE_POLKIT),y)
 MODEM_MANAGER_DEPENDENCIES += polkit
 MODEM_MANAGER_CONF_OPTS += -Dpolkit=strict
 else
 MODEM_MANAGER_CONF_OPTS += -Dpolkit=no
 endif
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 MODEM_MANAGER_DEPENDENCIES += gobject-introspection
 MODEM_MANAGER_CONF_OPTS += -Dintrospection=true
 else
 MODEM_MANAGER_CONF_OPTS += -Dintrospection=false
 endif
 
-ifeq ($(BR2_PACKAGE_BASH_COMPLETION),y)
+ifeq ($(LINGMO_PACKAGE_BASH_COMPLETION),y)
 MODEM_MANAGER_DEPENDENCIES += bash-completion
 MODEM_MANAGER_CONF_OPTS += -Dbash_completion=true
 else

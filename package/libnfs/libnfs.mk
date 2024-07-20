@@ -12,11 +12,11 @@ LIBNFS_LICENSE = LGPL-2.1+ (library), BSD-2-Clause (protocol, .x files), GPL-3.0
 LIBNFS_LICENSE_FILES = COPYING LICENCE-BSD.txt LICENCE-LGPL-2.1.txt LICENCE-GPL-3.txt
 LIBNFS_DEPENDENCIES = host-pkgconf
 
-ifeq ($(BR2_PACKAGE_LIBTIRPC),y)
+ifeq ($(LINGMO_PACKAGE_LIBTIRPC),y)
 LIBNFS_DEPENDENCIES += libtirpc
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS),y)
 LIBNFS_CONF_OPTS += --enable-pthread
 else
 LIBNFS_CONF_OPTS += --disable-pthread

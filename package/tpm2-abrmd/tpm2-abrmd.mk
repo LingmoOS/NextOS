@@ -13,8 +13,8 @@ TPM2_ABRMD_INSTALL_STAGING = YES
 TPM2_ABRMD_DEPENDENCIES = libglib2 tpm2-tss host-pkgconf
 TPM2_ABRMD_CONF_OPTS = \
 	--disable-defaultflags \
-	--with-systemdsystemunitdir=$(if $(BR2_INIT_SYSTEMD),/usr/lib/systemd/system,no) \
-	--with-udevrulesdir=$(if $(BR2_PACKAGE_HAS_UDEV),/usr/lib/udev/rules.d,no)
+	--with-systemdsystemunitdir=$(if $(LINGMO_INIT_SYSTEMD),/usr/lib/systemd/system,no) \
+	--with-udevrulesdir=$(if $(LINGMO_PACKAGE_HAS_UDEV),/usr/lib/udev/rules.d,no)
 
 # uses C99 code but forgets to pass -std=c99 when --disable-defaultflags is used
 TPM2_ABRMD_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) -std=c99"

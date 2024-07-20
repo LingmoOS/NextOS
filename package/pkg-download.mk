@@ -8,15 +8,15 @@
 ################################################################################
 
 # Download method commands
-export WGET := $(call qstrip,$(BR2_WGET))
-export SVN := $(call qstrip,$(BR2_SVN))
-export CVS := $(call qstrip,$(BR2_CVS))
-export BZR := $(call qstrip,$(BR2_BZR))
-export GIT := $(call qstrip,$(BR2_GIT))
-export HG := $(call qstrip,$(BR2_HG))
-export SCP := $(call qstrip,$(BR2_SCP))
-export SFTP := $(call qstrip,$(BR2_SFTP))
-export LOCALFILES := $(call qstrip,$(BR2_LOCALFILES))
+export WGET := $(call qstrip,$(LINGMO_WGET))
+export SVN := $(call qstrip,$(LINGMO_SVN))
+export CVS := $(call qstrip,$(LINGMO_CVS))
+export BZR := $(call qstrip,$(LINGMO_BZR))
+export GIT := $(call qstrip,$(LINGMO_GIT))
+export HG := $(call qstrip,$(LINGMO_HG))
+export SCP := $(call qstrip,$(LINGMO_SCP))
+export SFTP := $(call qstrip,$(LINGMO_SFTP))
+export LOCALFILES := $(call qstrip,$(LINGMO_LOCALFILES))
 
 # Version of the format of the archives we generate in the corresponding
 # download backend:
@@ -27,13 +27,13 @@ DL_WRAPPER = support/download/dl-wrapper
 
 # DL_DIR may have been set already from the environment
 ifeq ($(origin DL_DIR),undefined)
-DL_DIR ?= $(call qstrip,$(BR2_DL_DIR))
+DL_DIR ?= $(call qstrip,$(LINGMO_DL_DIR))
 ifeq ($(DL_DIR),)
 DL_DIR := $(TOPDIR)/dl
 endif
 else
-# Restore the BR2_DL_DIR that was overridden by the .config file
-BR2_DL_DIR = $(DL_DIR)
+# Restore the LINGMO_DL_DIR that was overridden by the .config file
+LINGMO_DL_DIR = $(DL_DIR)
 endif
 
 # ensure it exists and a absolute path, derefrecing symlinks
@@ -70,28 +70,28 @@ BR_NO_CHECK_HASH_FOR =
 
 ################################################################################
 # DOWNLOAD_URIS - List the candidates URIs where to get the package from:
-# 1) BR2_PRIMARY_SITE if enabled
-# 2) Download site, unless BR2_PRIMARY_SITE_ONLY is set
-# 3) BR2_BACKUP_SITE if enabled, unless BR2_PRIMARY_SITE_ONLY is set
+# 1) LINGMO_PRIMARY_SITE if enabled
+# 2) Download site, unless LINGMO_PRIMARY_SITE_ONLY is set
+# 3) LINGMO_BACKUP_SITE if enabled, unless LINGMO_PRIMARY_SITE_ONLY is set
 #
 # Argument 1 is the source location
 # Argument 2 is the upper-case package name
 #
 ################################################################################
 
-ifneq ($(call qstrip,$(BR2_PRIMARY_SITE)),)
+ifneq ($(call qstrip,$(LINGMO_PRIMARY_SITE)),)
 DOWNLOAD_URIS += \
-	$(call getschemeplusuri,$(call qstrip,$(BR2_PRIMARY_SITE)/$($(2)_DL_SUBDIR)),urlencode) \
-	$(call getschemeplusuri,$(call qstrip,$(BR2_PRIMARY_SITE)),urlencode)
+	$(call getschemeplusuri,$(call qstrip,$(LINGMO_PRIMARY_SITE)/$($(2)_DL_SUBDIR)),urlencode) \
+	$(call getschemeplusuri,$(call qstrip,$(LINGMO_PRIMARY_SITE)),urlencode)
 endif
 
-ifeq ($(BR2_PRIMARY_SITE_ONLY),)
+ifeq ($(LINGMO_PRIMARY_SITE_ONLY),)
 DOWNLOAD_URIS += \
 	$(patsubst %/,%,$(dir $(call qstrip,$(1))))
-ifneq ($(call qstrip,$(BR2_BACKUP_SITE)),)
+ifneq ($(call qstrip,$(LINGMO_BACKUP_SITE)),)
 DOWNLOAD_URIS += \
-	$(call getschemeplusuri,$(call qstrip,$(BR2_BACKUP_SITE)/$($(2)_DL_SUBDIR)),urlencode) \
-	$(call getschemeplusuri,$(call qstrip,$(BR2_BACKUP_SITE)),urlencode)
+	$(call getschemeplusuri,$(call qstrip,$(LINGMO_BACKUP_SITE)/$($(2)_DL_SUBDIR)),urlencode) \
+	$(call getschemeplusuri,$(call qstrip,$(LINGMO_BACKUP_SITE)),urlencode)
 endif
 endif
 
@@ -110,7 +110,7 @@ define DOWNLOAD
 	$(Q)$(EXTRA_ENV) \
 	$($(2)_DL_ENV) \
 	TAR="$(TAR)" \
-	BR_NO_CHECK_HASH_FOR="$(if $(BR2_DOWNLOAD_FORCE_CHECK_HASHES),,$(BR_NO_CHECK_HASH_FOR))" \
+	BR_NO_CHECK_HASH_FOR="$(if $(LINGMO_DOWNLOAD_FORCE_CHECK_HASHES),,$(BR_NO_CHECK_HASH_FOR))" \
 		flock $($(2)_DL_DIR)/.lock $(DL_WRAPPER) \
 		-c '$($(2)_DL_VERSION)' \
 		-d '$($(2)_DL_DIR)' \

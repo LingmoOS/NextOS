@@ -20,7 +20,7 @@ JQUERY_MOBILE_INSTALLED_FILES = \
 	jquery.mobile-$(JQUERY_MOBILE_VERSION).min.map \
 	jquery.mobile-$(JQUERY_MOBILE_VERSION).min.js
 
-ifeq ($(BR2_PACKAGE_JQUERY_MOBILE_FULL),y)
+ifeq ($(LINGMO_PACKAGE_JQUERY_MOBILE_FULL),y)
 JQUERY_MOBILE_INSTALLED_FILES += \
 	jquery.mobile.structure-$(JQUERY_MOBILE_VERSION).css \
 	jquery.mobile.theme-$(JQUERY_MOBILE_VERSION).css \
@@ -28,7 +28,7 @@ JQUERY_MOBILE_INSTALLED_FILES += \
 	jquery.mobile-$(JQUERY_MOBILE_VERSION).js
 endif
 
-ifeq ($(BR2_PACKAGE_JQUERY_MOBILE_DEMOS),y)
+ifeq ($(LINGMO_PACKAGE_JQUERY_MOBILE_DEMOS),y)
 define JQUERY_MOBILE_INSTALL_DEMOS
 	mkdir -p $(TARGET_DIR)/var/www/demos
 	cp -r $(@D)/demos/* $(TARGET_DIR)/var/www/demos

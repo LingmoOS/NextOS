@@ -6,22 +6,22 @@ import infra.basetest
 class TestFileCapabilities(infra.basetest.BRTest):
     config = \
         """
-        BR2_arm=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_ROOTFS_DEVICE_TABLE="system/device_table.txt {}"
-        BR2_ROOTFS_DEVICE_TABLE_SUPPORTS_EXTENDED_ATTRIBUTES=y
-        BR2_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
-        BR2_LINUX_KERNEL=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE="4.19.310"
-        BR2_LINUX_KERNEL_DEFCONFIG="vexpress"
-        BR2_LINUX_KERNEL_CONFIG_FRAGMENT_FILES="{}"
-        BR2_LINUX_KERNEL_DTS_SUPPORT=y
-        BR2_LINUX_KERNEL_INTREE_DTS_NAME="vexpress-v2p-ca9"
-        BR2_PACKAGE_LIBCAP=y
-        BR2_PACKAGE_LIBCAP_TOOLS=y
-        BR2_TARGET_ROOTFS_SQUASHFS=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_ROOTFS_DEVICE_TABLE="system/device_table.txt {}"
+        LINGMO_ROOTFS_DEVICE_TABLE_SUPPORTS_EXTENDED_ATTRIBUTES=y
+        LINGMO_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
+        LINGMO_LINUX_KERNEL=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION_VALUE="4.19.310"
+        LINGMO_LINUX_KERNEL_DEFCONFIG="vexpress"
+        LINGMO_LINUX_KERNEL_CONFIG_FRAGMENT_FILES="{}"
+        LINGMO_LINUX_KERNEL_DTS_SUPPORT=y
+        LINGMO_LINUX_KERNEL_INTREE_DTS_NAME="vexpress-v2p-ca9"
+        LINGMO_PACKAGE_LIBCAP=y
+        LINGMO_PACKAGE_LIBCAP_TOOLS=y
+        LINGMO_TARGET_ROOTFS_SQUASHFS=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """.format(infra.filepath("tests/core/device_table2.txt"),
                    infra.filepath("tests/core/squashfs-xattr-kernel.config"))
 

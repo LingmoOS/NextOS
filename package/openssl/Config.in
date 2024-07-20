@@ -1,22 +1,22 @@
-config BR2_PACKAGE_OPENSSL_FORCE_LIBOPENSSL
+config LINGMO_PACKAGE_OPENSSL_FORCE_LIBOPENSSL
 	bool
 
-config BR2_PACKAGE_OPENSSL
+config LINGMO_PACKAGE_OPENSSL
 	bool "openssl support"
-	select BR2_PACKAGE_HAS_OPENSSL
+	select LINGMO_PACKAGE_HAS_OPENSSL
 	help
 	  Select the desired ssl library provider.
 
-if BR2_PACKAGE_OPENSSL
+if LINGMO_PACKAGE_OPENSSL
 
 choice
 	prompt "ssl library"
 	help
 	  Select OpenSSL or LibreSSL.
 
-config BR2_PACKAGE_LIBOPENSSL
+config LINGMO_PACKAGE_LIBOPENSSL
 	bool "openssl"
-	select BR2_PACKAGE_ZLIB
+	select LINGMO_PACKAGE_ZLIB
 	help
 	  A collaborative effort to develop a robust, commercial-grade,
 	  fully featured, and Open Source toolkit implementing the
@@ -30,12 +30,12 @@ config BR2_PACKAGE_LIBOPENSSL
 
 source "package/libopenssl/Config.in"
 
-config BR2_PACKAGE_LIBRESSL
+config LINGMO_PACKAGE_LIBRESSL
 	bool "libressl"
-	depends on !BR2_PACKAGE_OPENSSL_FORCE_LIBOPENSSL
-	depends on BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_PACKAGE_OPENSSL_FORCE_LIBOPENSSL
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
 	# uClibc doesn't provide __register_atfork() without NPTL
-	depends on !BR2_TOOLCHAIN_USES_UCLIBC || BR2_TOOLCHAIN_HAS_THREADS_NPTL
+	depends on !LINGMO_TOOLCHAIN_USES_UCLIBC || LINGMO_TOOLCHAIN_HAS_THREADS_NPTL
 	help
 	  LibreSSL is a version of the TLS/crypto stack forked from
 	  OpenSSL in 2014, with goals of modernizing the codebase,
@@ -47,21 +47,21 @@ config BR2_PACKAGE_LIBRESSL
 source "package/libressl/Config.in"
 
 # openssl from br2-external trees, if any
-source "$BR2_BASE_DIR/.br2-external.in.openssl"
+source "$LINGMO_BASE_DIR/.br2-external.in.openssl"
 
 endchoice
 
-config BR2_PACKAGE_HAS_OPENSSL
+config LINGMO_PACKAGE_HAS_OPENSSL
 	bool
 
-config BR2_PACKAGE_PROVIDES_OPENSSL
+config LINGMO_PACKAGE_PROVIDES_OPENSSL
 	string
-	default "libopenssl" if BR2_PACKAGE_LIBOPENSSL
-	default "libressl" if BR2_PACKAGE_LIBRESSL
+	default "libopenssl" if LINGMO_PACKAGE_LIBOPENSSL
+	default "libressl" if LINGMO_PACKAGE_LIBRESSL
 
 endif
 
 # ensure libopenssl is used for the host variant
-config BR2_PACKAGE_PROVIDES_HOST_OPENSSL
+config LINGMO_PACKAGE_PROVIDES_HOST_OPENSSL
 	string
 	default "host-libopenssl"

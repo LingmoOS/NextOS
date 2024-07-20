@@ -19,33 +19,33 @@ RNG_TOOLS_CONF_OPTS = --without-pkcs11
 
 # Work around for uClibc or musl toolchains which lack argp_*()
 # functions.
-ifeq ($(BR2_PACKAGE_ARGP_STANDALONE),y)
+ifeq ($(LINGMO_PACKAGE_ARGP_STANDALONE),y)
 RNG_TOOLS_CONF_ENV += LIBS="-largp $(TARGET_NLS_LIBS)"
 RNG_TOOLS_DEPENDENCIES += argp-standalone $(TARGET_NLS_DEPENDENCIES)
 endif
 
-ifeq ($(BR2_PACKAGE_LIBRTLSDR),y)
+ifeq ($(LINGMO_PACKAGE_LIBRTLSDR),y)
 RNG_TOOLS_DEPENDENCIES += librtlsdr
 RNG_TOOLS_CONF_OPTS += --with-rtlsdr
 else
 RNG_TOOLS_CONF_OPTS += --without-rtlsdr
 endif
 
-ifeq ($(BR2_PACKAGE_RNG_TOOLS_JITTERENTROPY_LIBRARY),y)
+ifeq ($(LINGMO_PACKAGE_RNG_TOOLS_JITTERENTROPY_LIBRARY),y)
 RNG_TOOLS_DEPENDENCIES += jitterentropy-library
 RNG_TOOLS_CONF_OPTS += --enable-jitterentropy
 else
 RNG_TOOLS_CONF_OPTS += --disable-jitterentropy
 endif
 
-ifeq ($(BR2_PACKAGE_RNG_TOOLS_NISTBEACON),y)
+ifeq ($(LINGMO_PACKAGE_RNG_TOOLS_NISTBEACON),y)
 RNG_TOOLS_DEPENDENCIES += jansson libcurl libxml2
 RNG_TOOLS_CONF_OPTS += --with-nistbeacon
 else
 RNG_TOOLS_CONF_OPTS += --without-nistbeacon
 endif
 
-ifeq ($(BR2_PACKAGE_RNG_TOOLS_QRYPT),y)
+ifeq ($(LINGMO_PACKAGE_RNG_TOOLS_QRYPT),y)
 RNG_TOOLS_DEPENDENCIES += jansson libcurl
 RNG_TOOLS_CONF_OPTS += --with-qrypt
 else

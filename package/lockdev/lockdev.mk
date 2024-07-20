@@ -13,24 +13,24 @@ LOCKDEV_LICENSE = LGPL-2.1
 LOCKDEV_LICENSE_FILES = LICENSE
 LOCKDEV_INSTALL_STAGING = YES
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 LOCKDEV_BUILD_ARGS = static
 LOCKDEV_INSTALL_ARGS = install_static
-else ifeq ($(BR2_SHARED_STATIC_LIBS),y)
+else ifeq ($(LINGMO_SHARED_STATIC_LIBS),y)
 LOCKDEV_BUILD_ARGS = static shared
 LOCKDEV_INSTALL_ARGS = install_run install_static
-else # BR2_SHARED_LIBS
+else # LINGMO_SHARED_LIBS
 LOCKDEV_BUILD_ARGS = shared
 LOCKDEV_INSTALL_ARGS = install_run
 endif
 
 # Make the code believe we are using a C library compatible with
 # glibc, which for the purpose of lockdev is actually true.
-ifeq ($(BR2_TOOLCHAIN_USES_MUSL),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_MUSL),y)
 LOCKDEV_BUILD_ARGS += CFLAGS="$(TARGET_CFLAGS) -D__GNU_LIBRARY__"
 endif
 
-ifeq ($(BR2_SHARED_STATIC_LIBS)$(BR2_SHARED_LIBS),y)
+ifeq ($(LINGMO_SHARED_STATIC_LIBS)$(LINGMO_SHARED_LIBS),y)
 define LOCKDEV_CREATE_LINKS_STAGING
 	ln -sf liblockdev.$(LOCKDEV_VERSION).so $(STAGING_DIR)/usr/lib/liblockdev.so
 	ln -sf liblockdev.$(LOCKDEV_VERSION).so $(STAGING_DIR)/usr/lib/liblockdev.so.$(LOCKDEV_VERSION_MAJOR)

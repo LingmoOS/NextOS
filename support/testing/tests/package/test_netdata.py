@@ -6,9 +6,9 @@ import infra.basetest
 class TestNetdata(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_PACKAGE_NETDATA=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_NETDATA=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):

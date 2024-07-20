@@ -14,14 +14,14 @@ MC_CONF_ENV = \
 	CFLAGS="$(TARGET_CFLAGS) -std=c99" \
 	LIBS=$(TARGET_NLS_LIBS)
 
-ifeq ($(BR2_PACKAGE_GPM),y)
+ifeq ($(LINGMO_PACKAGE_GPM),y)
 MC_CONF_OPTS += --with-gpm-mouse
 MC_DEPENDENCIES += gpm
 else
 MC_CONF_OPTS += --without-gpm-mouse
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSSH2),y)
+ifeq ($(LINGMO_PACKAGE_LIBSSH2),y)
 MC_CONF_OPTS += --enable-vfs-sftp
 MC_DEPENDENCIES += libssh2
 else
@@ -31,7 +31,7 @@ endif
 # mc prefers slang, so use that if enabled, otherwise
 # fallback to using ncurses.
 # Either or both will be enabled, but we prefer slang.
-ifeq ($(BR2_PACKAGE_SLANG),y)
+ifeq ($(LINGMO_PACKAGE_SLANG),y)
 MC_DEPENDENCIES += slang
 MC_CONF_OPTS += --with-screen=slang
 else
@@ -39,7 +39,7 @@ MC_DEPENDENCIES += ncurses
 MC_CONF_OPTS += --with-screen=ncurses
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBX11),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBX11),y)
 MC_CONF_OPTS += --with-x
 MC_DEPENDENCIES += xlib_libX11
 else

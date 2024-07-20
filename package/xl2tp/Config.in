@@ -1,7 +1,7 @@
-config BR2_PACKAGE_XL2TP
+config LINGMO_PACKAGE_XL2TP
 	bool "xl2tp"
-	depends on BR2_USE_MMU # fork()
-	select BR2_PACKAGE_LIBPCAP
+	depends on LINGMO_USE_MMU # fork()
+	select LINGMO_PACKAGE_LIBPCAP
 	help
 	  Layer 2 Tunnelling Protocol (RFC2661).
 

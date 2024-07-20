@@ -37,22 +37,22 @@ LVM2_CONF_OPTS += --disable-readline
 LVM2_INSTALL_STAGING_OPTS = DESTDIR=$(STAGING_DIR)
 LVM2_INSTALL_TARGET_OPTS = DESTDIR=$(TARGET_DIR)
 
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 LVM2_CONF_OPTS += --enable-udev_rules
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSELINUX),y)
+ifeq ($(LINGMO_PACKAGE_LIBSELINUX),y)
 LVM2_CONF_OPTS += --enable-selinux
 LVM2_DEPENDENCIES += libselinux
 else
 LVM2_CONF_OPTS += --disable-selinux
 endif
 
-ifeq ($(BR2_PACKAGE_LVM2_STANDARD_INSTALL),y)
+ifeq ($(LINGMO_PACKAGE_LVM2_STANDARD_INSTALL),y)
 LVM2_DEPENDENCIES += libaio
 LVM2_INSTALL_STAGING_OPTS += install
 LVM2_INSTALL_TARGET_OPTS += install
-ifeq ($(BR2_INIT_SYSTEMD),y)
+ifeq ($(LINGMO_INIT_SYSTEMD),y)
 LVM2_INSTALL_TARGET_OPTS += install_systemd_units install_systemd_generators
 endif
 else
@@ -61,7 +61,7 @@ LVM2_INSTALL_STAGING_OPTS += install_device-mapper
 LVM2_INSTALL_TARGET_OPTS += install_device-mapper
 endif
 
-ifeq ($(BR2_TOOLCHAIN_SUPPORTS_PIE),)
+ifeq ($(LINGMO_TOOLCHAIN_SUPPORTS_PIE),)
 LVM2_CONF_ENV += ac_cv_flag_HAVE_PIE=no
 endif
 

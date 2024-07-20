@@ -1,4 +1,4 @@
-config BR2_TARGET_ROOTFS_AXFS
+config LINGMO_TARGET_ROOTFS_AXFS
 	bool "axfs root filesystem"
 	help
 	  The Advanced XIP File System is a Linux kernel filesystem

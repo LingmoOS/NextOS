@@ -20,7 +20,7 @@
 #
 ################################################################################
 
-ifeq ($(BR2_arm)$(BR2_armeb),y)
+ifeq ($(LINGMO_arm)$(LINGMO_armeb),y)
 PKG_PYTHON_ARCH = arm
 else
 PKG_PYTHON_ARCH = $(ARCH)

@@ -20,18 +20,18 @@
 #  generating the filesystem image
 #
 # In terms of configuration option, this macro assumes that the
-# BR2_TARGET_ROOTFS_$(FSTYPE) config option allows to enable/disable
+# LINGMO_TARGET_ROOTFS_$(FSTYPE) config option allows to enable/disable
 # the generation of a filesystem image of a particular type. If
-# the configuration options BR2_TARGET_ROOTFS_$(FSTYPE)_GZIP,
-# BR2_TARGET_ROOTFS_$(FSTYPE)_BZIP2 or
-# BR2_TARGET_ROOTFS_$(FSTYPE)_LZMA exist and are enabled, then the
+# the configuration options LINGMO_TARGET_ROOTFS_$(FSTYPE)_GZIP,
+# LINGMO_TARGET_ROOTFS_$(FSTYPE)_BZIP2 or
+# LINGMO_TARGET_ROOTFS_$(FSTYPE)_LZMA exist and are enabled, then the
 # macro will automatically generate a compressed filesystem image.
 
 FS_DIR = $(BUILD_DIR)/buildroot-fs
-ROOTFS_DEVICE_TABLES = $(call qstrip,$(BR2_ROOTFS_DEVICE_TABLE) \
-	$(BR2_ROOTFS_STATIC_DEVICE_TABLE))
+ROOTFS_DEVICE_TABLES = $(call qstrip,$(LINGMO_ROOTFS_DEVICE_TABLE) \
+	$(LINGMO_ROOTFS_STATIC_DEVICE_TABLE))
 
-ROOTFS_USERS_TABLES = $(call qstrip,$(BR2_ROOTFS_USERS_TABLES))
+ROOTFS_USERS_TABLES = $(call qstrip,$(LINGMO_ROOTFS_USERS_TABLES))
 
 ROOTFS_FULL_DEVICES_TABLE = $(FS_DIR)/full_devices_table.txt
 ROOTFS_FULL_USERS_TABLE = $(FS_DIR)/full_users_table.txt
@@ -40,19 +40,19 @@ ROOTFS_COMMON_NAME = rootfs-common
 ROOTFS_COMMON_TYPE = rootfs
 ROOTFS_COMMON_DEPENDENCIES = \
 	host-fakeroot host-makedevs \
-	$(BR2_TAR_HOST_DEPENDENCY) \
+	$(LINGMO_TAR_HOST_DEPENDENCY) \
 	$(if $(PACKAGES_USERS)$(ROOTFS_USERS_TABLES),host-mkpasswd)
 
-ifeq ($(BR2_REPRODUCIBLE),y)
+ifeq ($(LINGMO_REPRODUCIBLE),y)
 define ROOTFS_REPRODUCIBLE
 	find $(TARGET_DIR) -print0 | xargs -0 -r touch -hd @$(SOURCE_DATE_EPOCH)
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_REFPOLICY),y)
+ifeq ($(LINGMO_PACKAGE_REFPOLICY),y)
 define ROOTFS_SELINUX
 	$(HOST_DIR)/sbin/setfiles -m -r $(TARGET_DIR) \
-		-c $(TARGET_DIR)/etc/selinux/targeted/policy/policy.$(BR2_PACKAGE_LIBSEPOL_POLICY_VERSION) \
+		-c $(TARGET_DIR)/etc/selinux/targeted/policy/policy.$(LINGMO_PACKAGE_LIBSEPOL_POLICY_VERSION) \
 		$(TARGET_DIR)/etc/selinux/targeted/contexts/files/file_contexts \
 		$(TARGET_DIR)
 endef
@@ -86,7 +86,7 @@ endif
 ifneq ($(ROOTFS_DEVICE_TABLES),)
 	cat $(ROOTFS_DEVICE_TABLES) >> $(ROOTFS_FULL_DEVICES_TABLE)
 endif
-ifeq ($(BR2_ROOTFS_DEVICE_CREATION_STATIC),y)
+ifeq ($(LINGMO_ROOTFS_DEVICE_CREATION_STATIC),y)
 	$(call PRINTF,$(PACKAGES_DEVICES_TABLE)) >> $(ROOTFS_FULL_DEVICES_TABLE)
 endif
 
@@ -123,38 +123,38 @@ ROOTFS_$(2)_FINAL_RECURSIVE_DEPENDENCIES = $$(sort \
 	) \
 	$$(ROOTFS_$(2)_FINAL_RECURSIVE_DEPENDENCIES__X))
 
-ifeq ($$(BR2_TARGET_ROOTFS_$(2)_GZIP),y)
+ifeq ($$(LINGMO_TARGET_ROOTFS_$(2)_GZIP),y)
 ROOTFS_$(2)_COMPRESS_EXT = .gz
 ROOTFS_$(2)_COMPRESS_CMD = gzip -9 -c -n
 endif
-ifeq ($$(BR2_TARGET_ROOTFS_$(2)_BZIP2),y)
+ifeq ($$(LINGMO_TARGET_ROOTFS_$(2)_BZIP2),y)
 ROOTFS_$(2)_COMPRESS_EXT = .bz2
 ROOTFS_$(2)_COMPRESS_CMD = bzip2 -9 -c
 endif
-ifeq ($$(BR2_TARGET_ROOTFS_$(2)_LZMA),y)
+ifeq ($$(LINGMO_TARGET_ROOTFS_$(2)_LZMA),y)
 ROOTFS_$(2)_DEPENDENCIES += host-lzma
 ROOTFS_$(2)_COMPRESS_EXT = .lzma
 ROOTFS_$(2)_COMPRESS_CMD = $$(LZMA) -9 -c
 endif
-ifeq ($$(BR2_TARGET_ROOTFS_$(2)_LZ4),y)
+ifeq ($$(LINGMO_TARGET_ROOTFS_$(2)_LZ4),y)
 ROOTFS_$(2)_DEPENDENCIES += host-lz4
 ROOTFS_$(2)_COMPRESS_EXT = .lz4
 ROOTFS_$(2)_COMPRESS_CMD = lz4 -l -9 -c
 endif
-ifeq ($$(BR2_TARGET_ROOTFS_$(2)_LZO),y)
+ifeq ($$(LINGMO_TARGET_ROOTFS_$(2)_LZO),y)
 ROOTFS_$(2)_DEPENDENCIES += host-lzop
 ROOTFS_$(2)_COMPRESS_EXT = .lzo
 ROOTFS_$(2)_COMPRESS_CMD = $$(LZOP) -9 -c
 endif
-ifeq ($$(BR2_TARGET_ROOTFS_$(2)_XZ),y)
+ifeq ($$(LINGMO_TARGET_ROOTFS_$(2)_XZ),y)
 ROOTFS_$(2)_DEPENDENCIES += host-xz
 ROOTFS_$(2)_COMPRESS_EXT = .xz
 ROOTFS_$(2)_COMPRESS_CMD = xz -9 -C crc32 -c
-ifeq ($(BR2_REPRODUCIBLE),)
+ifeq ($(LINGMO_REPRODUCIBLE),)
 ROOTFS_$(2)_COMPRESS_CMD += -T $(PARALLEL_JOBS)
 endif
 endif
-ifeq ($(BR2_TARGET_ROOTFS_$(2)_ZSTD),y)
+ifeq ($(LINGMO_TARGET_ROOTFS_$(2)_ZSTD),y)
 ROOTFS_$(2)_DEPENDENCIES += host-zstd
 ROOTFS_$(2)_COMPRESS_EXT = .zst
 ROOTFS_$(2)_COMPRESS_CMD = zstd -19 -z -f -T$(PARALLEL_JOBS)
@@ -180,9 +180,9 @@ $$(BINARIES_DIR)/$$(ROOTFS_$(2)_FINAL_IMAGE_NAME): $$(ROOTFS_$(2)_DEPENDENCIES)
 	echo "$$(HOST_DIR)/bin/makedevs -d $$(ROOTFS_FULL_DEVICES_TABLE) $$(TARGET_DIR)" >> $$(FAKEROOT_SCRIPT)
 	$$(foreach hook,$$(ROOTFS_PRE_CMD_HOOKS),\
 		$$(call PRINTF,$$($$(hook))) >> $$(FAKEROOT_SCRIPT)$$(sep))
-	$$(foreach s,$$(call qstrip,$$(BR2_ROOTFS_POST_FAKEROOT_SCRIPT)),\
+	$$(foreach s,$$(call qstrip,$$(LINGMO_ROOTFS_POST_FAKEROOT_SCRIPT)),\
 		echo "echo '$$(TERM_BOLD)>>>   Executing fakeroot script $$(s)$$(TERM_RESET)'" >> $$(FAKEROOT_SCRIPT); \
-		echo $$(EXTRA_ENV) $$(s) $$(TARGET_DIR) $$(BR2_ROOTFS_POST_SCRIPT_ARGS) >> $$(FAKEROOT_SCRIPT)$$(sep))
+		echo $$(EXTRA_ENV) $$(s) $$(TARGET_DIR) $$(LINGMO_ROOTFS_POST_SCRIPT_ARGS) >> $$(FAKEROOT_SCRIPT)$$(sep))
 
 	$$(foreach hook,$$(ROOTFS_$(2)_PRE_GEN_HOOKS),\
 		$$(call PRINTF,$$($$(hook))) >> $$(FAKEROOT_SCRIPT)$$(sep))
@@ -210,7 +210,7 @@ rootfs-$(1): $$(BINARIES_DIR)/$$(ROOTFS_$(2)_FINAL_IMAGE_NAME)
 
 .PHONY: rootfs-$(1) rootfs-$(1)-show-depends rootfs-$(1)-show-info
 
-ifeq ($$(BR2_TARGET_ROOTFS_$(2)),y)
+ifeq ($$(LINGMO_TARGET_ROOTFS_$(2)),y)
 TARGETS_ROOTFS += rootfs-$(1)
 PACKAGES += $$(filter-out rootfs-%,$$(ROOTFS_$(2)_FINAL_RECURSIVE_DEPENDENCIES))
 endif

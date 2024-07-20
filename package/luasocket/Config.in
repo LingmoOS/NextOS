@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUASOCKET
+config LINGMO_PACKAGE_LUASOCKET
 	bool "luasocket"
 	help
 	  LuaSocket is the most comprehensive networking support library

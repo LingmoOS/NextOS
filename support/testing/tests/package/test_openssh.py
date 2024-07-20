@@ -7,11 +7,11 @@ class TestOpensshBase(infra.basetest.BRTest):
     passwd = "testpwd"
     opensshconfig = \
         """
-        BR2_TARGET_GENERIC_ROOT_PASSWD="{}"
-        BR2_PACKAGE_OPENSSH=y
-        BR2_PACKAGE_SSHPASS=y
-        BR2_ROOTFS_POST_BUILD_SCRIPT="{}"
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_TARGET_GENERIC_ROOT_PASSWD="{}"
+        LINGMO_PACKAGE_OPENSSH=y
+        LINGMO_PACKAGE_SSHPASS=y
+        LINGMO_ROOTFS_POST_BUILD_SCRIPT="{}"
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """.format(
             passwd,
             infra.filepath("tests/package/test_openssh/post-build.sh"))
@@ -35,11 +35,11 @@ class TestOpenSshuClibc(TestOpensshBase):
     config = \
         TestOpensshBase.opensshconfig + \
         """
-        BR2_arm=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV5_EABI_UCLIBC_STABLE=y
-        BR2_TARGET_ROOTFS_CPIO=y
+        LINGMO_arm=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV5_EABI_UCLIBC_STABLE=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
         """
 
     def test_run(self):
@@ -51,12 +51,12 @@ class TestOpenSshGlibc(TestOpensshBase):
     config = \
         TestOpensshBase.opensshconfig + \
         """
-        BR2_arm=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV5_EABI_GLIBC_BLEEDING_EDGE=y
-        BR2_PACKAGE_RNG_TOOLS=y
-        BR2_TARGET_ROOTFS_CPIO=y
+        LINGMO_arm=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV5_EABI_GLIBC_BLEEDING_EDGE=y
+        LINGMO_PACKAGE_RNG_TOOLS=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
         """
 
     def test_run(self):

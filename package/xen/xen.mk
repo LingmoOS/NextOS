@@ -33,7 +33,7 @@ XEN_MAKE_ENV = \
 	XEN_HAS_CHECKPOLICY=n \
 	$(TARGET_CONFIGURE_OPTS)
 
-ifeq ($(BR2_PACKAGE_XEN_HYPERVISOR),y)
+ifeq ($(LINGMO_PACKAGE_XEN_HYPERVISOR),y)
 XEN_MAKE_OPTS += dist-xen
 XEN_INSTALL_IMAGES = YES
 define XEN_INSTALL_IMAGES_CMDS
@@ -43,10 +43,10 @@ else
 XEN_CONF_OPTS += --disable-xen
 endif
 
-ifeq ($(BR2_PACKAGE_XEN_TOOLS),y)
+ifeq ($(LINGMO_PACKAGE_XEN_TOOLS),y)
 XEN_DEPENDENCIES += \
 	dtc libaio libglib2 ncurses openssl pixman slirp util-linux yajl
-ifeq ($(BR2_PACKAGE_ARGP_STANDALONE),y)
+ifeq ($(LINGMO_PACKAGE_ARGP_STANDALONE),y)
 XEN_DEPENDENCIES += argp-standalone
 endif
 XEN_INSTALL_TARGET_OPTS += DESTDIR=$(TARGET_DIR) install-tools

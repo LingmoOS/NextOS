@@ -12,10 +12,10 @@ AM335X_PRU_PACKAGE_DEPENDENCIES = host-am335x-pru-package
 AM335X_PRU_PACKAGE_INSTALL_STAGING = YES
 
 # The default 'all' rule builds everything, when we just need the library
-ifeq ($(BR2_ENABLE_DEBUG),y)
-AM335X_PRU_PACKAGE_MAKE_TARGET = debug $(if $(BR2_STATIC_LIBS),,sodebug)
+ifeq ($(LINGMO_ENABLE_DEBUG),y)
+AM335X_PRU_PACKAGE_MAKE_TARGET = debug $(if $(LINGMO_STATIC_LIBS),,sodebug)
 else
-AM335X_PRU_PACKAGE_MAKE_TARGET = release $(if $(BR2_STATIC_LIBS),,sorelease)
+AM335X_PRU_PACKAGE_MAKE_TARGET = release $(if $(LINGMO_STATIC_LIBS),,sorelease)
 endif
 
 define AM335X_PRU_PACKAGE_BUILD_CMDS
@@ -37,14 +37,14 @@ endef
 
 # The debug libraries are named differently than the release ones,
 # so we must provide a symlink to still be able to link with them.
-ifeq ($(BR2_ENABLE_DEBUG),y)
+ifeq ($(LINGMO_ENABLE_DEBUG),y)
 
 define AM335X_PRU_PACKAGE_LN_DEBUG_STAGING_STATIC
 	ln -sf libprussdrvd.a $(STAGING_DIR)/usr/lib/libprussdrv.a
 endef
 AM335X_PRU_PACKAGE_POST_INSTALL_STAGING_HOOKS += AM335X_PRU_PACKAGE_LN_DEBUG_STAGING_STATIC
 
-ifeq ($(BR2_STATIC_LIBS),)
+ifeq ($(LINGMO_STATIC_LIBS),)
 
 define AM335X_PRU_PACKAGE_LN_DEBUG_STAGING_SHARED
 	ln -sf libprussdrvd.so $(STAGING_DIR)/usr/lib/libprussdrv.so

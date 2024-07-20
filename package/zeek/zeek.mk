@@ -25,11 +25,11 @@ ZEEK_DEPENDENCIES = \
 	host-pkgconf \
 	host-python3 \
 	host-zeek \
-	$(if $(BR2_PACKAGE_LIBKRB5),libkrb5) \
-	$(if $(BR2_PACKAGE_LIBMAXMINDDB),libmaxminddb) \
+	$(if $(LINGMO_PACKAGE_LIBKRB5),libkrb5) \
+	$(if $(LINGMO_PACKAGE_LIBMAXMINDDB),libmaxminddb) \
 	libpcap \
 	openssl \
-	$(if $(BR2_PACKAGE_ROCKSDB),rocksdb) \
+	$(if $(LINGMO_PACKAGE_ROCKSDB),rocksdb) \
 	zlib
 HOST_ZEEK_DEPENDENCIES = \
 	host-bison \
@@ -54,14 +54,14 @@ define ZEEK_FIX_PYTHON_PATH
 endef
 ZEEK_POST_PATCH_HOOKS += ZEEK_FIX_PYTHON_PATH
 
-ifeq ($(BR2_PACKAGE_JEMALLOC),y)
+ifeq ($(LINGMO_PACKAGE_JEMALLOC),y)
 ZEEK_DEPENDENCIES += jemalloc
 ZEEK_CONF_OPTS += -DENABLE_JEMALLOC=ON
 else
 ZEEK_CONF_OPTS += -DENABLE_JEMALLOC=OFF
 endif
 
-ifeq ($(BR2_PACKAGE_ZEEK_ZEEKCTL),y)
+ifeq ($(LINGMO_PACKAGE_ZEEK_ZEEKCTL),y)
 ZEEK_DEPENDENCIES += host-swig python3
 ZEEK_CONF_OPTS += \
 	-DDISABLE_PYTHON_BINDINGS=OFF \
@@ -74,7 +74,7 @@ ZEEK_CONF_OPTS += \
 	-DINSTALL_ZEEKCTL=OFF
 endif
 
-ifneq ($(BR2_TOOLCHAIN_USES_GLIBC),y)
+ifneq ($(LINGMO_TOOLCHAIN_USES_GLIBC),y)
 ZEEK_DEPENDENCIES += musl-fts
 ZEEK_CONF_OPTS += -DCMAKE_EXE_LINKER_FLAGS=-lfts
 endif

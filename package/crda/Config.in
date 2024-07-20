@@ -1,12 +1,12 @@
-config BR2_PACKAGE_CRDA
+config LINGMO_PACKAGE_CRDA
 	bool "crda"
-	depends on BR2_PACKAGE_LIBGPG_ERROR_ARCH_SUPPORTS # libgcrypt
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libnl
-	depends on !BR2_STATIC_LIBS
-	select BR2_PACKAGE_LIBGCRYPT
-	select BR2_PACKAGE_LIBNL
+	depends on LINGMO_PACKAGE_LIBGPG_ERROR_ARCH_SUPPORTS # libgcrypt
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libnl
+	depends on !LINGMO_STATIC_LIBS
+	select LINGMO_PACKAGE_LIBGCRYPT
+	select LINGMO_PACKAGE_LIBNL
 	# regdb is a runtime dependency
-	select BR2_PACKAGE_WIRELESS_REGDB
+	select LINGMO_PACKAGE_WIRELESS_REGDB
 	help
 	  Central Regulatory Domain Agent.
 
@@ -18,4 +18,4 @@ config BR2_PACKAGE_CRDA
 	  https://wireless.wiki.kernel.org/en/developers/regulatory/crda
 
 comment "crda needs a toolchain w/ threads, dynamic library"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS

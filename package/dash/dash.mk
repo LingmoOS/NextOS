@@ -14,7 +14,7 @@ DASH_AUTORECONF = YES
 # dash does not build in parallel
 DASH_MAKE = $(MAKE1)
 
-ifeq ($(BR2_PACKAGE_LIBEDIT),y)
+ifeq ($(LINGMO_PACKAGE_LIBEDIT),y)
 DASH_DEPENDENCIES += libedit host-pkgconf
 DASH_CONF_OPTS += --with-libedit
 DASH_CONF_ENV += LIBS=`pkg-config --libs libedit`
@@ -29,7 +29,7 @@ else
 DASH_CONF_OPTS += --without-libedit
 endif
 
-ifeq ($(BR2_STATIC_LIBS),)
+ifeq ($(LINGMO_STATIC_LIBS),)
 DASH_CONF_OPTS += --disable-static
 endif
 

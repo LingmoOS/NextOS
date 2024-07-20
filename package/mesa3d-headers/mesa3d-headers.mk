@@ -6,7 +6,7 @@
 
 # mesa3d-headers is inherently incompatible with mesa3d, so error out
 # if both are enabled.
-ifeq ($(BR_BUILDING)$(BR2_PACKAGE_MESA3D)$(BR2_PACKAGE_MESA3D_HEADERS),yyy)
+ifeq ($(BR_BUILDING)$(LINGMO_PACKAGE_MESA3D)$(LINGMO_PACKAGE_MESA3D_HEADERS),yyy)
 $(error mesa3d-headers enabled, but mesa3d enabled too)
 endif
 
@@ -27,11 +27,11 @@ MESA3D_HEADERS_INSTALL_TARGET = NO
 
 MESA3D_HEADERS_DIRS = KHR
 
-ifeq ($(BR2_PACKAGE_HAS_LIBGL),y)
+ifeq ($(LINGMO_PACKAGE_HAS_LIBGL),y)
 
 MESA3D_HEADERS_DIRS += GL
 
-ifeq ($(BR2_PACKAGE_XORG7),y)
+ifeq ($(LINGMO_PACKAGE_XORG7),y)
 
 # Not using $(SED) because we do not want to work in-place, and $(SED)
 # contains -i.
@@ -52,15 +52,15 @@ endif # Xorg
 
 endif # OpenGL
 
-ifeq ($(BR2_PACKAGE_HAS_LIBEGL),y)
+ifeq ($(LINGMO_PACKAGE_HAS_LIBEGL),y)
 MESA3D_HEADERS_DIRS += EGL
 endif
 
-ifeq ($(BR2_PACKAGE_HAS_LIBGLES),y)
+ifeq ($(LINGMO_PACKAGE_HAS_LIBGLES),y)
 MESA3D_HEADERS_DIRS += GLES GLES2
 endif
 
-ifeq ($(BR2_PACKAGE_HAS_LIBOPENCL),y)
+ifeq ($(LINGMO_PACKAGE_HAS_LIBOPENCL),y)
 MESA3D_HEADERS_DIRS += CL
 endif
 

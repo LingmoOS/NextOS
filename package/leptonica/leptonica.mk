@@ -14,49 +14,49 @@ LEPTONICA_DEPENDENCIES = host-pkgconf
 
 LEPTONICA_CONF_OPTS += --disable-programs
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_101737),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_101737),y)
 LEPTONICA_CONF_OPTS += CFLAGS="$(TARGET_CFLAGS) -O0"
 endif
 
-ifeq ($(BR2_PACKAGE_GIFLIB),y)
+ifeq ($(LINGMO_PACKAGE_GIFLIB),y)
 LEPTONICA_DEPENDENCIES += giflib
 LEPTONICA_CONF_OPTS += --with-giflib
 else
 LEPTONICA_CONF_OPTS += --without-giflib
 endif
 
-ifeq ($(BR2_PACKAGE_JPEG),y)
+ifeq ($(LINGMO_PACKAGE_JPEG),y)
 LEPTONICA_DEPENDENCIES += jpeg
 LEPTONICA_CONF_OPTS += --with-jpeg
 else
 LEPTONICA_CONF_OPTS += --without-jpeg
 endif
 
-ifeq ($(BR2_PACKAGE_LIBPNG),y)
+ifeq ($(LINGMO_PACKAGE_LIBPNG),y)
 LEPTONICA_DEPENDENCIES += libpng
 LEPTONICA_CONF_OPTS += --with-libpng
 else
 LEPTONICA_CONF_OPTS += --without-libpng
 endif
 
-ifeq ($(BR2_PACKAGE_OPENJPEG),y)
+ifeq ($(LINGMO_PACKAGE_OPENJPEG),y)
 LEPTONICA_DEPENDENCIES += openjpeg
 LEPTONICA_CONF_OPTS += --with-libopenjpeg
 else
 LEPTONICA_CONF_OPTS += --without-libopenjpeg
 endif
 
-ifeq ($(BR2_PACKAGE_TIFF),y)
+ifeq ($(LINGMO_PACKAGE_TIFF),y)
 LEPTONICA_DEPENDENCIES += tiff
 LEPTONICA_CONF_OPTS += --with-libtiff
 else
 LEPTONICA_CONF_OPTS += --without-libtiff
 endif
 
-ifeq ($(BR2_PACKAGE_WEBP),y)
+ifeq ($(LINGMO_PACKAGE_WEBP),y)
 LEPTONICA_DEPENDENCIES += webp
 LEPTONICA_CONF_OPTS += --with-libwebp
-ifeq ($(BR2_PACKAGE_WEBP_DEMUX)$(BR2_PACKAGE_WEBP_MUX),yy)
+ifeq ($(LINGMO_PACKAGE_WEBP_DEMUX)$(LINGMO_PACKAGE_WEBP_MUX),yy)
 LEPTONICA_CONF_OPTS += --with-libwebpmux
 else
 LEPTONICA_CONF_OPTS += --without-libwebpmux
@@ -67,7 +67,7 @@ LEPTONICA_CONF_OPTS += \
 	--without-libwebpmux
 endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 LEPTONICA_DEPENDENCIES += zlib
 LEPTONICA_CONF_OPTS += --with-zlib
 else

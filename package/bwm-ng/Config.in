@@ -1,4 +1,4 @@
-config BR2_PACKAGE_BWM_NG
+config LINGMO_PACKAGE_BWM_NG
 	bool "bwm-ng"
 	help
 	  Bandwidth Monitor NG is a small and console-based live

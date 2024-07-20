@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBTELNET
+config LINGMO_PACKAGE_LIBTELNET
 	bool "libtelnet"
 	help
 	  libtelnet provides safe and correct handling of the core

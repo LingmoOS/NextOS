@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-BR_LIBC = $(call qstrip,$(BR2_TOOLCHAIN_BUILDROOT_LIBC))
+BR_LIBC = $(call qstrip,$(LINGMO_TOOLCHAIN_BUILDROOT_LIBC))
 
 # Triggering the build of the gcc-final will automatically do the
 # build of binutils, uClibc, kernel headers and all the intermediate

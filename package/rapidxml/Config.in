@@ -1,4 +1,4 @@
-config BR2_PACKAGE_RAPIDXML
+config LINGMO_PACKAGE_RAPIDXML
 	bool "rapidxml"
 	help
 	  RapidXml is an attempt to create the fastest XML parser

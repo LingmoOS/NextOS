@@ -12,7 +12,7 @@ DUMA_LICENSE_FILES = COPYING-GPL COPYING-LGPL
 DUMA_INSTALL_STAGING = YES
 
 DUMA_OPTIONS = \
-	$(if $(BR2_PACKAGE_DUMA_NO_LEAKDETECTION),-DDUMA_LIB_NO_LEAKDETECTION)
+	$(if $(LINGMO_PACKAGE_DUMA_NO_LEAKDETECTION),-DDUMA_LIB_NO_LEAKDETECTION)
 
 # The dependency of some source files in duma_config.h, which is generated at
 # build time, is not specified in the Makefile. Force non-parallel build.

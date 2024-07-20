@@ -14,13 +14,13 @@ OPENLDAP_SELINUX_MODULES = ldap
 OPENLDAP_INSTALL_STAGING = YES
 OPENLDAP_DEPENDENCIES = host-pkgconf
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 OPENLDAP_TLS = openssl
 OPENLDAP_DEPENDENCIES += openssl
-else ifeq ($(BR2_PACKAGE_GNUTLS),y)
+else ifeq ($(LINGMO_PACKAGE_GNUTLS),y)
 OPENLDAP_TLS = gnutls
 OPENLDAP_DEPENDENCIES += gnutls
-else ifeq ($(BR2_PACKAGE_LIBNSS),y)
+else ifeq ($(LINGMO_PACKAGE_LIBNSS),y)
 OPENLDAP_TLS = moznss
 OPENLDAP_DEPENDENCIES += libnss
 OPENLDAP_CPPFLAGS = \
@@ -30,11 +30,11 @@ else
 OPENLDAP_TLS = no
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 OPENLDAP_MP = bignum
 OPENLDAP_DEPENDENCIES += openssl
 OPENLDAP_CONF_ENV = LIBS="`$(PKG_CONFIG_HOST_BINARY) --libs libssl libcrypto`"
-else ifeq ($(BR2_PACKAGE_GMP),y)
+else ifeq ($(LINGMO_PACKAGE_GMP),y)
 OPENLDAP_MP = gmp
 OPENLDAP_DEPENDENCIES += gmp
 else
@@ -49,7 +49,7 @@ OPENLDAP_CONF_OPTS += \
 	--disable-slapd \
 	--with-yielding-select \
 	--sysconfdir=/etc \
-	--enable-dynamic=$(if $(BR2_STATIC_LIBS),no,yes) \
+	--enable-dynamic=$(if $(LINGMO_STATIC_LIBS),no,yes) \
 	--with-tls=$(OPENLDAP_TLS) \
 	--with-mp=$(OPENLDAP_MP) \
 	CPPFLAGS="$(TARGET_CPPFLAGS) $(OPENLDAP_CPPFLAGS)"
@@ -59,7 +59,7 @@ OPENLDAP_CONF_OPTS += \
 # executable it is supposed to install, resulting in an error.
 OPENLDAP_MAKE_ENV = STRIP="$(TARGET_STRIP)"
 
-ifeq ($(BR2_PACKAGE_OPENLDAP_CLIENTS),)
+ifeq ($(LINGMO_PACKAGE_OPENLDAP_CLIENTS),)
 OPENLDAP_CLIENTS = \
 	ldapurl ldapexop ldapcompare ldapwhoami \
 	ldappasswd ldapmodrdn ldapdelete ldapmodify \

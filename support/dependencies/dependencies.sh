@@ -204,7 +204,7 @@ if [ "${PATCH_MAJOR}" -lt 2 ] || [ "${PATCH_MAJOR}" -eq 2 -a "${PATCH_MINOR}" -l
 	exit 1;
 fi
 
-if grep -q ^BR2_NEEDS_HOST_UTF8_LOCALE=y $BR2_CONFIG ; then
+if grep -q ^LINGMO_NEEDS_HOST_UTF8_LOCALE=y $LINGMO_CONFIG ; then
 	if ! which locale > /dev/null ; then
 		echo
 		echo "You need locale support on your build machine to build a toolchain supporting locales"
@@ -217,7 +217,7 @@ if grep -q ^BR2_NEEDS_HOST_UTF8_LOCALE=y $BR2_CONFIG ; then
 	fi
 fi
 
-if grep -q ^BR2_NEEDS_HOST_JAVA=y $BR2_CONFIG ; then
+if grep -q ^LINGMO_NEEDS_HOST_JAVA=y $LINGMO_CONFIG ; then
 	check_prog_host "java"
 	JAVA_GCJ=$(java -version 2>&1 | grep gcj)
 	if [ ! -z "$JAVA_GCJ" ] ; then
@@ -228,7 +228,7 @@ if grep -q ^BR2_NEEDS_HOST_JAVA=y $BR2_CONFIG ; then
 	fi
 fi
 
-if grep -q ^BR2_HOSTARCH_NEEDS_IA32_LIBS=y $BR2_CONFIG ; then
+if grep -q ^LINGMO_HOSTARCH_NEEDS_IA32_LIBS=y $LINGMO_CONFIG ; then
 	if test ! -f /lib/ld-linux.so.2 ; then
 		echo
 		echo "Your Buildroot configuration uses pre-built tools for the x86 architecture,"
@@ -246,7 +246,7 @@ if grep -q ^BR2_HOSTARCH_NEEDS_IA32_LIBS=y $BR2_CONFIG ; then
 	fi
 fi
 
-if grep -q ^BR2_HOSTARCH_NEEDS_IA32_COMPILER=y $BR2_CONFIG ; then
+if grep -q ^LINGMO_HOSTARCH_NEEDS_IA32_COMPILER=y $LINGMO_CONFIG ; then
 	if ! echo "int main(void) {}" | gcc -m32 -x c - -o /dev/null 2>/dev/null; then
 		echo
 		echo "Your Buildroot configuration needs a compiler capable of building 32 bits binaries."
@@ -264,7 +264,7 @@ if grep -q ^BR2_HOSTARCH_NEEDS_IA32_COMPILER=y $BR2_CONFIG ; then
 	fi
 fi
 
-if grep -q ^BR2_NEEDS_HOST_GCC_PLUGIN_SUPPORT=y $BR2_CONFIG ; then
+if grep -q ^LINGMO_NEEDS_HOST_GCC_PLUGIN_SUPPORT=y $LINGMO_CONFIG ; then
 	if ! echo "#include <gcc-plugin.h>" | $HOSTCXX_NOCCACHE -I$($HOSTCXX_NOCCACHE -print-file-name=plugin)/include -x c++ -c - -o /dev/null ; then
 		echo
 		echo "Your Buildroot configuration needs a host compiler capable of building gcc plugins."
@@ -282,39 +282,39 @@ required_perl_modules="$required_perl_modules Thread::Queue" # Used by host-auto
 required_perl_modules="$required_perl_modules FindBin" # Used by (host-)libopenssl
 required_perl_modules="$required_perl_modules IPC::Cmd" # Used by (host-)libopenssl
 
-if grep -q ^BR2_PACKAGE_LIBOPENSSL=y $BR2_CONFIG && grep -q ^BR2_s390x=y $BR2_CONFIG ; then
+if grep -q ^LINGMO_PACKAGE_LIBOPENSSL=y $LINGMO_CONFIG && grep -q ^LINGMO_s390x=y $LINGMO_CONFIG ; then
     required_perl_modules="$required_perl_modules bigint"
 fi
 
-if grep -q ^BR2_PACKAGE_MOSH=y $BR2_CONFIG ; then
+if grep -q ^LINGMO_PACKAGE_MOSH=y $LINGMO_CONFIG ; then
     required_perl_modules="$required_perl_modules diagnostics"
 fi
 
-if grep -q ^BR2_PACKAGE_MPV=y $BR2_CONFIG ; then
+if grep -q ^LINGMO_PACKAGE_MPV=y $LINGMO_CONFIG ; then
     required_perl_modules="$required_perl_modules Math::BigInt"
     required_perl_modules="$required_perl_modules Math::BigRat"
 fi
 
-if grep -q ^BR2_PACKAGE_NETSURF=y $BR2_CONFIG ; then
+if grep -q ^LINGMO_PACKAGE_NETSURF=y $LINGMO_CONFIG ; then
     required_perl_modules="$required_perl_modules Digest::MD5"
 fi
 
-if grep -q ^BR2_PACKAGE_WHOIS=y $BR2_CONFIG ; then
+if grep -q ^LINGMO_PACKAGE_WHOIS=y $LINGMO_CONFIG ; then
     required_perl_modules="$required_perl_modules autodie"
 fi
 
-if grep -q -E '^BR2_PACKAGE_(WEBKITGTK|WPEWEBKIT)=y' $BR2_CONFIG ; then
+if grep -q -E '^LINGMO_PACKAGE_(WEBKITGTK|WPEWEBKIT)=y' $LINGMO_CONFIG ; then
     required_perl_modules="${required_perl_modules} JSON::PP"
 fi
 
-if grep -q -E '^BR2_(PACKAGE_ACE|TARGET_SYSLINUX)=y' $BR2_CONFIG ; then
+if grep -q -E '^LINGMO_(PACKAGE_ACE|TARGET_SYSLINUX)=y' $LINGMO_CONFIG ; then
     required_perl_modules="$required_perl_modules FileHandle"
 fi
 
 # This variable will keep the modules that are missing in your system.
 missing_perl_modules=""
 
-if grep -q ^BR2_PACKAGE_LIBXCRYPT=y $BR2_CONFIG ; then
+if grep -q ^LINGMO_PACKAGE_LIBXCRYPT=y $LINGMO_CONFIG ; then
 	# open cannot be used with require
 	if ! perl -e "use open ':std'" > /dev/null 2>&1 ; then
 		missing_perl_modules="$missing_perl_modules open"

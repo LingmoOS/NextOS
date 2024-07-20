@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_MODBUS_TK
+config LINGMO_PACKAGE_PYTHON_MODBUS_TK
 	bool "python-modbus-tk"
-	select BR2_PACKAGE_PYTHON_SERIAL # runtime
+	select LINGMO_PACKAGE_PYTHON_SERIAL # runtime
 	help
 	  Implementation of modbus protocol in python.
 

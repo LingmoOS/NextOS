@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_CHEETAH
+config LINGMO_PACKAGE_PYTHON_CHEETAH
 	bool "python-cheetah"
 	help
 	  Cheetah is an open source template engine and code

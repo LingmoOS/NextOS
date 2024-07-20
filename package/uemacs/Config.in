@@ -1,6 +1,6 @@
-config BR2_PACKAGE_UEMACS
+config LINGMO_PACKAGE_UEMACS
 	bool "uemacs"
-	select BR2_PACKAGE_NCURSES
+	select LINGMO_PACKAGE_NCURSES
 	help
 	  A small emacs.
 

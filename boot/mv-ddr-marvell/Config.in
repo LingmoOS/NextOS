@@ -1,6 +1,6 @@
-config BR2_TARGET_MV_DDR_MARVELL
+config LINGMO_TARGET_MV_DDR_MARVELL
 	bool "mv-ddr-marvell"
-	depends on BR2_aarch64
+	depends on LINGMO_aarch64
 	help
 	  Marvell keeps algorithms for DDR training in a separate
 	  repository. This code is not built separately, it is needed

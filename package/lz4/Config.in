@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LZ4
+config LINGMO_PACKAGE_LZ4
 	bool "lz4"
 	help
 	  LZ4 is a very fast lossless compression algorithm, providing
@@ -9,9 +9,9 @@ config BR2_PACKAGE_LZ4
 
 	  http://www.lz4.org/
 
-if BR2_PACKAGE_LZ4
+if LINGMO_PACKAGE_LZ4
 
-config BR2_PACKAGE_LZ4_PROGS
+config LINGMO_PACKAGE_LZ4_PROGS
 	bool "install programs"
 	help
 	  lz4, lz4c, unlz4 and lz4cat binaries

@@ -1,6 +1,6 @@
-if BR2_TOOLCHAIN_BARE_METAL_BUILDROOT
+if LINGMO_TOOLCHAIN_BARE_METAL_BUILDROOT
 
-config BR2_TOOLCHAIN_BARE_METAL_BUILDROOT_ARCH
+config LINGMO_TOOLCHAIN_BARE_METAL_BUILDROOT_ARCH
 	string "architecture tuple"
 	help
 	  This option allows to define the architecture tuple for the
@@ -8,4 +8,4 @@ config BR2_TOOLCHAIN_BARE_METAL_BUILDROOT_ARCH
 
 source "package/newlib-bare-metal/Config.in"
 
-endif # BR2_TOOLCHAIN_BARE_METAL_BUILDROOT
+endif # LINGMO_TOOLCHAIN_BARE_METAL_BUILDROOT

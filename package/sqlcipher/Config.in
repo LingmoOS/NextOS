@@ -1,8 +1,8 @@
-config BR2_PACKAGE_SQLCIPHER
+config LINGMO_PACKAGE_SQLCIPHER
 	bool "sqlcipher"
-	depends on !BR2_PACKAGE_SQLITE
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	select BR2_PACKAGE_OPENSSL
+	depends on !LINGMO_PACKAGE_SQLITE
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	select LINGMO_PACKAGE_OPENSSL
 	help
 	  SQLCipher is an SQLite extension that provides 256 bits AES
 	  encryption of database files. Note that it is a fork of
@@ -10,17 +10,17 @@ config BR2_PACKAGE_SQLCIPHER
 
 	  http://sqlcipher.net
 
-if BR2_PACKAGE_SQLCIPHER
+if LINGMO_PACKAGE_SQLCIPHER
 
-config BR2_PACKAGE_SQLCIPHER_READLINE
+config LINGMO_PACKAGE_SQLCIPHER_READLINE
 	bool "Command-line editing"
-	select BR2_PACKAGE_NCURSES
-	select BR2_PACKAGE_READLINE
+	select LINGMO_PACKAGE_NCURSES
+	select LINGMO_PACKAGE_READLINE
 	help
 	  Enable command-line editing. This requires ncurses and
 	  readline.
 
-config BR2_PACKAGE_SQLCIPHER_STAT3
+config LINGMO_PACKAGE_SQLCIPHER_STAT3
 	bool "Additional query optimizations (stat3)"
 	help
 	  Adds additional logic to the ANALYZE command and to the
@@ -30,8 +30,8 @@ config BR2_PACKAGE_SQLCIPHER_STAT3
 endif
 
 comment "sqlcipher conflicts with sqlite"
-	depends on BR2_PACKAGE_SQLITE
+	depends on LINGMO_PACKAGE_SQLITE
 
 comment "sqlcipher needs a toolchain w/ threads"
-	depends on !BR2_PACKAGE_SQLITE
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_PACKAGE_SQLITE
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS

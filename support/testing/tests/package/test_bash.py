@@ -6,14 +6,14 @@ import infra.basetest
 class TestBash(infra.basetest.BRTest):
     config = \
         """
-        BR2_arm=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_ENABLE_LOCALE_WHITELIST=""
-        BR2_PACKAGE_BUSYBOX_SHOW_OTHERS=y
-        BR2_PACKAGE_BASH=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_ENABLE_LOCALE_WHITELIST=""
+        LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS=y
+        LINGMO_PACKAGE_BASH=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):

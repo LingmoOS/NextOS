@@ -1,7 +1,7 @@
-config BR2_PACKAGE_LIBTALLOC
+config LINGMO_PACKAGE_LIBTALLOC
 	bool "libtalloc"
-	depends on BR2_USE_MMU
-	depends on !BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  talloc is a hierarchical, reference counted memory pool
 	  system with destructors. It is the core memory allocator
@@ -10,5 +10,5 @@ config BR2_PACKAGE_LIBTALLOC
 	  https://talloc.samba.org/talloc/doc/html/index.html
 
 comment "libtalloc needs a toolchain w/ dynamic library"
-	depends on BR2_USE_MMU
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_STATIC_LIBS

@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBSSH2
+config LINGMO_PACKAGE_LIBSSH2
 	bool "libssh2"
-	select BR2_PACKAGE_OPENSSL if !(BR2_PACKAGE_MBEDTLS || BR2_PACKAGE_LIBGCRYPT)
+	select LINGMO_PACKAGE_OPENSSL if !(LINGMO_PACKAGE_MBEDTLS || LINGMO_PACKAGE_LIBGCRYPT)
 	help
 	  libssh2 is a client-side C library implementing the SSH2
 	  protocol as defined by Internet Drafts: SECSH-TRANS(22),
@@ -9,25 +9,25 @@ config BR2_PACKAGE_LIBSSH2
 
 	  http://www.libssh2.org/
 
-if BR2_PACKAGE_LIBSSH2
+if LINGMO_PACKAGE_LIBSSH2
 
 choice
 	prompt "Crypto Backend"
 	help
 	  Select crypto library to be used in libssh2.
 
-config BR2_PACKAGE_LIBSSH2_MBEDTLS
+config LINGMO_PACKAGE_LIBSSH2_MBEDTLS
 	bool "mbedtls"
-	depends on BR2_PACKAGE_MBEDTLS
+	depends on LINGMO_PACKAGE_MBEDTLS
 
-config BR2_PACKAGE_LIBSSH2_LIBGCRYPT
+config LINGMO_PACKAGE_LIBSSH2_LIBGCRYPT
 	bool "gcrypt"
-	depends on BR2_PACKAGE_LIBGCRYPT
+	depends on LINGMO_PACKAGE_LIBGCRYPT
 
-config BR2_PACKAGE_LIBSSH2_OPENSSL
+config LINGMO_PACKAGE_LIBSSH2_OPENSSL
 	bool "openssl"
-	depends on BR2_PACKAGE_OPENSSL
-	select BR2_PACKAGE_LIBOPENSSL_ENABLE_RMD160 if BR2_PACKAGE_LIBOPENSSL
+	depends on LINGMO_PACKAGE_OPENSSL
+	select LINGMO_PACKAGE_LIBOPENSSL_ENABLE_RMD160 if LINGMO_PACKAGE_LIBOPENSSL
 
 endchoice
 endif

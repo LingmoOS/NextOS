@@ -33,42 +33,42 @@ HOST_GO_COMMON_ENV = \
 	GOBIN= \
 	CGO_ENABLED=$(HOST_GO_CGO_ENABLED)
 
-ifeq ($(BR2_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS),y)
+ifeq ($(LINGMO_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS),y)
 
-ifeq ($(BR2_arm),y)
+ifeq ($(LINGMO_arm),y)
 GO_GOARCH = arm
-ifeq ($(BR2_ARM_CPU_ARMV5),y)
+ifeq ($(LINGMO_ARM_CPU_ARMV5),y)
 GO_GOARM = 5
-else ifeq ($(BR2_ARM_CPU_ARMV6),y)
+else ifeq ($(LINGMO_ARM_CPU_ARMV6),y)
 GO_GOARM = 6
-else ifeq ($(BR2_ARM_CPU_ARMV7A),y)
+else ifeq ($(LINGMO_ARM_CPU_ARMV7A),y)
 GO_GOARM = 7
-else ifeq ($(BR2_ARM_CPU_ARMV8A),y)
+else ifeq ($(LINGMO_ARM_CPU_ARMV8A),y)
 # Go doesn't support 32-bit GOARM=8 (https://github.com/golang/go/issues/29373)
 # but can still benefit from armv7 optimisations
 GO_GOARM = 7
 endif
-else ifeq ($(BR2_aarch64),y)
+else ifeq ($(LINGMO_aarch64),y)
 GO_GOARCH = arm64
-else ifeq ($(BR2_i386),y)
+else ifeq ($(LINGMO_i386),y)
 GO_GOARCH = 386
 # i386: use softfloat if no SSE2: https://golang.org/doc/go1.16#386
-ifneq ($(BR2_X86_CPU_HAS_SSE2),y)
+ifneq ($(LINGMO_X86_CPU_HAS_SSE2),y)
 GO_GO386 = softfloat
 endif
-else ifeq ($(BR2_x86_64),y)
+else ifeq ($(LINGMO_x86_64),y)
 GO_GOARCH = amd64
-else ifeq ($(BR2_powerpc64),y)
+else ifeq ($(LINGMO_powerpc64),y)
 GO_GOARCH = ppc64
-else ifeq ($(BR2_powerpc64le),y)
+else ifeq ($(LINGMO_powerpc64le),y)
 GO_GOARCH = ppc64le
-else ifeq ($(BR2_mips64),y)
+else ifeq ($(LINGMO_mips64),y)
 GO_GOARCH = mips64
-else ifeq ($(BR2_mips64el),y)
+else ifeq ($(LINGMO_mips64el),y)
 GO_GOARCH = mips64le
-else ifeq ($(BR2_riscv),y)
+else ifeq ($(LINGMO_riscv),y)
 GO_GOARCH = riscv64
-else ifeq ($(BR2_s390x),y)
+else ifeq ($(LINGMO_s390x),y)
 GO_GOARCH = s390x
 endif
 
@@ -85,11 +85,11 @@ HOST_GO_TARGET_ENV = \
 	CGO_LDFLAGS="$(TARGET_LDFLAGS)" \
 	GOTOOLDIR="$(HOST_GO_TOOLDIR)"
 
-# The go compiler's cgo support uses threads.  If BR2_TOOLCHAIN_HAS_THREADS is
+# The go compiler's cgo support uses threads.  If LINGMO_TOOLCHAIN_HAS_THREADS is
 # set, build in cgo support for any go programs that may need it.  Note that
 # any target package needing cgo support must include
-# 'depends on BR2_TOOLCHAIN_HAS_THREADS' in its config file.
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),y)
+# 'depends on LINGMO_TOOLCHAIN_HAS_THREADS' in its config file.
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS),y)
 HOST_GO_DEPENDENCIES += toolchain
 HOST_GO_CGO_ENABLED = 1
 else
@@ -105,11 +105,11 @@ HOST_GO_CROSS_ENV = \
 	$(if $(GO_GOARM),GOARM=$(GO_GOARM)) \
 	GO_ASSUME_CROSSCOMPILING=1
 
-else # !BR2_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS
+else # !LINGMO_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS
 # host-go can still be used to build packages for the host. No need to set all
 # the arch stuff since we will not be cross-compiling.
 HOST_GO_CGO_ENABLED = 1
-endif # BR2_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS
+endif # LINGMO_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS
 
 # For the convenience of host golang packages
 HOST_GO_HOST_ENV = \

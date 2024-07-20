@@ -6,13 +6,13 @@ import infra.basetest
 class TestLuvi(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
-        BR2_PACKAGE_LUAJIT=y
-        BR2_PACKAGE_LUVI=y
-        BR2_PACKAGE_OPENSSL=y
-        BR2_PACKAGE_PCRE=y
-        BR2_PACKAGE_ZLIB=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_LUAJIT=y
+        LINGMO_PACKAGE_LUVI=y
+        LINGMO_PACKAGE_OPENSSL=y
+        LINGMO_PACKAGE_PCRE=y
+        LINGMO_PACKAGE_ZLIB=y
         """
 
     def login(self):

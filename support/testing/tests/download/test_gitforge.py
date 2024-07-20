@@ -7,7 +7,7 @@ import infra
 class GitforgeTestBase(infra.basetest.BRConfigTest):
     config = \
         """
-        BR2_BACKUP_SITE=""
+        LINGMO_BACKUP_SITE=""
         """
 
     def setUp(self):
@@ -25,7 +25,7 @@ class GitforgeTestBase(infra.basetest.BRConfigTest):
         # enforce we test the download
         if os.path.exists(dl_dir):
             shutil.rmtree(dl_dir)
-        env = {"BR2_DL_DIR": dl_dir}
+        env = {"LINGMO_DL_DIR": dl_dir}
         self.b.build(["{}-dirclean".format(package),
                       "{}-legal-info".format(package)],
                      env)

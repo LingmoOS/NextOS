@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_BOTTLE
+config LINGMO_PACKAGE_PYTHON_BOTTLE
 	bool "python-bottle"
 	help
 	  Bottle is a fast, simple and lightweight WSGI micro

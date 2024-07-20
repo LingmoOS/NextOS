@@ -12,7 +12,7 @@ LIBMPEG2_INSTALL_STAGING = YES
 LIBMPEG2_AUTORECONF = YES
 LIBMPEG2_CONF_OPTS = --without-x --disable-directx
 
-ifeq ($(BR2_PACKAGE_SDL),y)
+ifeq ($(LINGMO_PACKAGE_SDL),y)
 LIBMPEG2_CONF_ENV += ac_cv_prog_SDLCONFIG=$(STAGING_DIR)/usr/bin/sdl-config
 LIBMPEG2_CONF_OPTS += --enable-sdl
 LIBMPEG2_DEPENDENCIES += sdl
@@ -20,7 +20,7 @@ else
 LIBMPEG2_CONF_OPTS += --disable-sdl
 endif
 
-ifneq ($(BR2_PACKAGE_LIBMPEG2_BINS),y)
+ifneq ($(LINGMO_PACKAGE_LIBMPEG2_BINS),y)
 define LIBMPEG2_REMOVE_BINS
 	rm -f $(addprefix $(TARGET_DIR)/usr/bin/,\
 		mpeg2dec corrupt_mpeg2 extract_mpeg2)

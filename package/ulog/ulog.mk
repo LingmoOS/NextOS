@@ -15,14 +15,14 @@ define ULOG_BUILD_CMDS
 	$(ALCHEMY_TARGET_ENV) $(ALCHEMY_MAKE) libulog
 endef
 
-ifeq ($(BR2_SHARED_LIBS),)
+ifeq ($(LINGMO_SHARED_LIBS),)
 define ULOG_INSTALL_STATIC_LIBS
 	$(INSTALL) -D -m 644 $(@D)/alchemy-out/staging/usr/lib/libulog.a \
 		$(STAGING_DIR)/usr/lib/libulog.a
 endef
 endif
 
-ifeq ($(BR2_STATIC_LIBS),)
+ifeq ($(LINGMO_STATIC_LIBS),)
 # $(1): destination directory: target or staging
 define ULOG_INSTALL_SHARED_LIBS
 	mkdir -p $(1)/usr/lib/

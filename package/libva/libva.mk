@@ -17,10 +17,10 @@ LIBVA_CONF_OPTS = \
 	-Ddisable_drm=false \
 	-Ddriverdir="/usr/lib/va"
 
-ifeq ($(BR2_PACKAGE_XORG7),y)
+ifeq ($(LINGMO_PACKAGE_XORG7),y)
 LIBVA_DEPENDENCIES += xlib_libX11 xlib_libXext xlib_libXfixes
 LIBVA_CONF_OPTS += -Dwith_x11=yes
-ifeq ($(BR2_PACKAGE_HAS_LIBGL),y)
+ifeq ($(LINGMO_PACKAGE_HAS_LIBGL),y)
 LIBVA_DEPENDENCIES += libgl
 LIBVA_CONF_OPTS += -Dwith_glx=yes
 endif
@@ -28,7 +28,7 @@ else
 LIBVA_CONF_OPTS += -Dwith_glx=no -Dwith_x11=no
 endif
 
-ifeq ($(BR2_PACKAGE_WAYLAND),y)
+ifeq ($(LINGMO_PACKAGE_WAYLAND),y)
 LIBVA_DEPENDENCIES += wayland
 LIBVA_CONF_OPTS += -Dwith_wayland=yes
 else

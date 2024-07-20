@@ -1,6 +1,6 @@
-config BR2_PACKAGE_SNAPPY
+config LINGMO_PACKAGE_SNAPPY
 	bool "snappy"
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	help
 	  Snappy is a compression/decompression library. It does not
 	  aim for maximum compression, or compatibility with any other
@@ -10,4 +10,4 @@ config BR2_PACKAGE_SNAPPY
 	  http://google.github.io/snappy/
 
 comment "snappy needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP

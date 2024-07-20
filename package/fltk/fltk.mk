@@ -22,39 +22,39 @@ FLTK_CONFIG_SCRIPTS = fltk-config
 FLTK_LICENSE = LGPL-2.0 with exceptions
 FLTK_LICENSE_FILES = COPYING
 
-ifeq ($(BR2_PACKAGE_CAIRO),y)
+ifeq ($(LINGMO_PACKAGE_CAIRO),y)
 FLTK_CONF_OPTS += --enable-cairo
 FLTK_DEPENDENCIES += cairo
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXCURSOR),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXCURSOR),y)
 FLTK_DEPENDENCIES += xlib_libXcursor
 FLTK_CONF_OPTS += --enable-xcursor
 else
 FLTK_CONF_OPTS += --disable-xcursor
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXFIXES),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXFIXES),y)
 FLTK_DEPENDENCIES += xlib_libXfixes
 FLTK_CONF_OPTS += --enable-xfixes
 else
 FLTK_CONF_OPTS += --disable-xfixes
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXFT),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXFT),y)
 FLTK_CONF_ENV += ac_cv_path_FTCONFIG=$(STAGING_DIR)/usr/bin/freetype-config
 FLTK_DEPENDENCIES += xlib_libXft
 else
 FLTK_CONF_OPTS += --disable-xft
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXINERAMA),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXINERAMA),y)
 FLTK_DEPENDENCIES += xlib_libXinerama
 else
 FLTK_CONF_OPTS += --disable-xinerama
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXRENDER),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXRENDER),y)
 FLTK_DEPENDENCIES += xlib_libXrender
 FLTK_CONF_OPTS += --enable-xrender
 else

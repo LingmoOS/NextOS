@@ -1,10 +1,10 @@
-config BR2_PACKAGE_OPEN_LLDP
+config LINGMO_PACKAGE_OPEN_LLDP
 	bool "open-lldp"
-	depends on !BR2_STATIC_LIBS # dlfcn.h
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libnl
-	select BR2_PACKAGE_LIBCONFIG
-	select BR2_PACKAGE_LIBNL
-	select BR2_PACKAGE_READLINE
+	depends on !LINGMO_STATIC_LIBS # dlfcn.h
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libnl
+	select LINGMO_PACKAGE_LIBCONFIG
+	select LINGMO_PACKAGE_LIBNL
+	select LINGMO_PACKAGE_READLINE
 	help
 	  This package contains the Linux user space daemon and
 	  configuration tool for Intel LLDP Agent with Enhanced Ethernet
@@ -13,4 +13,4 @@ config BR2_PACKAGE_OPEN_LLDP
 	  https://github.com/intel/openlldp/
 
 comment "open-lldp needs a toolchain w/ dynamic library, threads"
-	depends on BR2_STATIC_LIBS || !BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_STATIC_LIBS || !LINGMO_TOOLCHAIN_HAS_THREADS

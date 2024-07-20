@@ -1,7 +1,7 @@
-config BR2_PACKAGE_NCFTP
+config LINGMO_PACKAGE_NCFTP
 	bool "ncftp"
 	# fork()
-	depends on BR2_USE_MMU
+	depends on LINGMO_USE_MMU
 	help
 	  NcFTP Client (also known as just NcFTP) is a set of FREE
 	  application programs implementing the File Transfer Protocol
@@ -9,26 +9,26 @@ config BR2_PACKAGE_NCFTP
 
 	  https://www.ncftp.com/ncftp/
 
-if BR2_PACKAGE_NCFTP
+if LINGMO_PACKAGE_NCFTP
 
-config BR2_PACKAGE_NCFTP_GET
+config LINGMO_PACKAGE_NCFTP_GET
 	bool "ncftpget"
 	default y
 
-config BR2_PACKAGE_NCFTP_PUT
+config LINGMO_PACKAGE_NCFTP_PUT
 	bool "ncftpput"
 	default y
 
-config BR2_PACKAGE_NCFTP_LS
+config LINGMO_PACKAGE_NCFTP_LS
 	bool "ncftpls"
 	default y
 
-config BR2_PACKAGE_NCFTP_BATCH
+config LINGMO_PACKAGE_NCFTP_BATCH
 	bool "ncftpbatch/ncftpspooler"
 	default y
 
-config BR2_PACKAGE_NCFTP_BOOKMARKS
+config LINGMO_PACKAGE_NCFTP_BOOKMARKS
 	bool "ncftpbookmarks"
-	select BR2_PACKAGE_NCURSES
+	select LINGMO_PACKAGE_NCURSES
 
 endif

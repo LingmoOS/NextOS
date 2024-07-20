@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_TERMINALTABLES
+config LINGMO_PACKAGE_PYTHON_TERMINALTABLES
 	bool "python-terminaltables"
 	help
 	  Generate simple tables in terminals from a nested list of

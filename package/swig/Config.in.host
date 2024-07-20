@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_SWIG
+config LINGMO_PACKAGE_HOST_SWIG
 	bool "host swig"
 	help
 	  swig is a software development tool that connects programs

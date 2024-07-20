@@ -1,4 +1,4 @@
-config BR2_PACKAGE_BZIP2
+config LINGMO_PACKAGE_BZIP2
 	bool "bzip2"
 	help
 	  Freely available, patent free, high-quality data compressor.

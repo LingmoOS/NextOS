@@ -15,19 +15,19 @@ P11_KIT_LICENSE = BSD-3-Clause
 P11_KIT_LICENSE_FILES = COPYING
 P11_KIT_CPE_ID_VALID = YES
 
-ifeq ($(BR2_PACKAGE_LIBFFI),y)
+ifeq ($(LINGMO_PACKAGE_LIBFFI),y)
 P11_KIT_DEPENDENCIES += host-pkgconf libffi
 P11_KIT_CONF_OPTS += --with-libffi
 else
 P11_KIT_CONF_OPTS += --without-libffi
 endif
 
-ifeq ($(BR2_PACKAGE_LIBTASN1),y)
+ifeq ($(LINGMO_PACKAGE_LIBTASN1),y)
 P11_KIT_DEPENDENCIES += host-pkgconf libtasn1
 P11_KIT_CONF_OPTS += \
 	--enable-trust-module \
 	--with-libtasn1
-ifeq ($(BR2_PACKAGE_CA_CERTIFICATES),y)
+ifeq ($(LINGMO_PACKAGE_CA_CERTIFICATES),y)
 P11_KIT_CONF_OPTS += --with-trust-paths=/etc/ssl/certs/ca-certificates.crt
 else
 P11_KIT_CONF_OPTS += --without-trust-paths

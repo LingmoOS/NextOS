@@ -1,4 +1,4 @@
-config BR2_PACKAGE_SAFECLIB
+config LINGMO_PACKAGE_SAFECLIB
 	bool "safeclib"
 	help
 	  safec fork with all C11 Annex K functions

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_PYTHON_SIX
+config LINGMO_PACKAGE_HOST_PYTHON_SIX
 	bool "host python-six"
 	help
 	  Six is a Python 2 and 3 compatibility library. It provides

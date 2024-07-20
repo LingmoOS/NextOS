@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_TRAITLETS
+config LINGMO_PACKAGE_PYTHON_TRAITLETS
 	bool "python-traitlets"
 	help
 	  A configuration system for Python applications.

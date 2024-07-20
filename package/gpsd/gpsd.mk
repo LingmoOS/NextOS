@@ -27,16 +27,16 @@ GPSD_SCONS_OPTS = \
 	sysroot=$(STAGING_DIR) \
 	strip=no \
 	qt=no \
-	systemd=$(if $(BR2_INIT_SYSTEMD),yes,no)
+	systemd=$(if $(LINGMO_INIT_SYSTEMD),yes,no)
 
-ifeq ($(BR2_PACKAGE_NCURSES),y)
+ifeq ($(LINGMO_PACKAGE_NCURSES),y)
 GPSD_DEPENDENCIES += ncurses
 else
 GPSD_SCONS_OPTS += ncurses=no
 endif
 
 # Build libgpsmm if we've got C++
-ifeq ($(BR2_INSTALL_LIBSTDCPP),y)
+ifeq ($(LINGMO_INSTALL_LIBSTDCPP),y)
 GPSD_LDFLAGS += -lstdc++
 GPSD_CFLAGS += -std=gnu++98
 GPSD_CXXFLAGS += -std=gnu++98
@@ -45,20 +45,20 @@ else
 GPSD_SCONS_OPTS += libgpsmm=no
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_68485),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_68485),y)
 GPSD_CFLAGS += -O0
 GPSD_CXXFLAGS += -O0
 endif
 
 # If libusb is available build it before so the package can use it
-ifeq ($(BR2_PACKAGE_LIBUSB),y)
+ifeq ($(LINGMO_PACKAGE_LIBUSB),y)
 GPSD_DEPENDENCIES += libusb
 else
 GPSD_SCONS_OPTS += usb=no
 endif
 
 # If bluetooth is available build it before so the package can use it
-ifeq ($(BR2_PACKAGE_BLUEZ5_UTILS),y)
+ifeq ($(LINGMO_PACKAGE_BLUEZ5_UTILS),y)
 GPSD_DEPENDENCIES += bluez5_utils
 else
 GPSD_SCONS_OPTS += bluez=no
@@ -66,119 +66,119 @@ endif
 
 # If pps-tools is available, build it before so the package can use it
 # (HAVE_SYS_TIMEPPS_H).
-ifeq ($(BR2_PACKAGE_PPS_TOOLS),y)
+ifeq ($(LINGMO_PACKAGE_PPS_TOOLS),y)
 GPSD_DEPENDENCIES += pps-tools
 endif
 
-ifeq ($(BR2_PACKAGE_DBUS_GLIB),y)
+ifeq ($(LINGMO_PACKAGE_DBUS_GLIB),y)
 GPSD_SCONS_OPTS += dbus_export=yes
 GPSD_DEPENDENCIES += dbus-glib
 endif
 
 # Protocol support
-ifneq ($(BR2_PACKAGE_GPSD_ASHTECH),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_ASHTECH),y)
 GPSD_SCONS_OPTS += ashtech=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_AIVDM),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_AIVDM),y)
 GPSD_SCONS_OPTS += aivdm=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_EARTHMATE),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_EARTHMATE),y)
 GPSD_SCONS_OPTS += earthmate=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_EVERMORE),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_EVERMORE),y)
 GPSD_SCONS_OPTS += evermore=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_FURY),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_FURY),y)
 GPSD_SCONS_OPTS += fury=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_FV18),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_FV18),y)
 GPSD_SCONS_OPTS += fv18=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_GARMIN),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_GARMIN),y)
 GPSD_SCONS_OPTS += garmin=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_GARMIN_SIMPLE_TXT),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_GARMIN_SIMPLE_TXT),y)
 GPSD_SCONS_OPTS += garmintxt=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_GEOSTAR),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_GEOSTAR),y)
 GPSD_SCONS_OPTS += geostar=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_GPSCLOCK),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_GPSCLOCK),y)
 GPSD_SCONS_OPTS += gpsclock=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_GREIS),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_GREIS),y)
 GPSD_SCONS_OPTS += greis=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_ISYNC),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_ISYNC),y)
 GPSD_SCONS_OPTS += isync=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_ITRAX),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_ITRAX),y)
 GPSD_SCONS_OPTS += itrax=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_NAVCOM),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_NAVCOM),y)
 GPSD_SCONS_OPTS += navcom=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_NMEA2000),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_NMEA2000),y)
 GPSD_SCONS_OPTS += nmea2000=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_OCEANSERVER),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_OCEANSERVER),y)
 GPSD_SCONS_OPTS += oceanserver=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_ONCORE),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_ONCORE),y)
 GPSD_SCONS_OPTS += oncore=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_RTCM104V2),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_RTCM104V2),y)
 GPSD_SCONS_OPTS += rtcm104v2=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_RTCM104V3),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_RTCM104V3),y)
 GPSD_SCONS_OPTS += rtcm104v3=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_SIRF),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_SIRF),y)
 GPSD_SCONS_OPTS += sirf=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_SKYTRAQ),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_SKYTRAQ),y)
 GPSD_SCONS_OPTS += skytraq=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_SUPERSTAR2),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_SUPERSTAR2),y)
 GPSD_SCONS_OPTS += superstar2=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_TRIMBLE_TSIP),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_TRIMBLE_TSIP),y)
 GPSD_SCONS_OPTS += tsip=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_TRIPMATE),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_TRIPMATE),y)
 GPSD_SCONS_OPTS += tripmate=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_TRUE_NORTH),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_TRUE_NORTH),y)
 GPSD_SCONS_OPTS += tnt=no
 endif
-ifneq ($(BR2_PACKAGE_GPSD_UBX),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_UBX),y)
 GPSD_SCONS_OPTS += ublox=no
 endif
 
 # Features
-ifeq ($(BR2_PACKAGE_GPSD_SQUELCH),y)
+ifeq ($(LINGMO_PACKAGE_GPSD_SQUELCH),y)
 GPSD_SCONS_OPTS += squelch=yes
 endif
-ifeq ($(BR2_PACKAGE_GPSD_PROFILING),y)
+ifeq ($(LINGMO_PACKAGE_GPSD_PROFILING),y)
 GPSD_SCONS_OPTS += profiling=yes
 endif
-ifneq ($(BR2_PACKAGE_GPSD_CLIENT_DEBUG),y)
+ifneq ($(LINGMO_PACKAGE_GPSD_CLIENT_DEBUG),y)
 GPSD_SCONS_OPTS += clientdebug=no
 endif
-ifeq ($(BR2_PACKAGE_GPSD_USER),y)
-GPSD_SCONS_OPTS += gpsd_user=$(BR2_PACKAGE_GPSD_USER_VALUE)
+ifeq ($(LINGMO_PACKAGE_GPSD_USER),y)
+GPSD_SCONS_OPTS += gpsd_user=$(LINGMO_PACKAGE_GPSD_USER_VALUE)
 endif
-ifeq ($(BR2_PACKAGE_GPSD_GROUP),y)
-GPSD_SCONS_OPTS += gpsd_group=$(BR2_PACKAGE_GPSD_GROUP_VALUE)
+ifeq ($(LINGMO_PACKAGE_GPSD_GROUP),y)
+GPSD_SCONS_OPTS += gpsd_group=$(LINGMO_PACKAGE_GPSD_GROUP_VALUE)
 endif
-ifeq ($(BR2_PACKAGE_GPSD_MAX_CLIENT),y)
-GPSD_SCONS_OPTS += max_clients=$(BR2_PACKAGE_GPSD_MAX_CLIENT_VALUE)
+ifeq ($(LINGMO_PACKAGE_GPSD_MAX_CLIENT),y)
+GPSD_SCONS_OPTS += max_clients=$(LINGMO_PACKAGE_GPSD_MAX_CLIENT_VALUE)
 endif
-ifeq ($(BR2_PACKAGE_GPSD_MAX_DEV),y)
-GPSD_SCONS_OPTS += max_devices=$(BR2_PACKAGE_GPSD_MAX_DEV_VALUE)
+ifeq ($(LINGMO_PACKAGE_GPSD_MAX_DEV),y)
+GPSD_SCONS_OPTS += max_devices=$(LINGMO_PACKAGE_GPSD_MAX_DEV_VALUE)
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON3),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3),y)
 GPSD_SCONS_OPTS += \
 	python=yes \
 	python_libdir="/usr/lib/python$(PYTHON3_VERSION_MAJOR)/site-packages"
@@ -205,16 +205,16 @@ define GPSD_INSTALL_TARGET_CMDS
 		DESTDIR=$(TARGET_DIR) \
 		$(SCONS) \
 		$(GPSD_SCONS_OPTS) \
-		$(if $(BR2_PACKAGE_HAS_UDEV),udev-install,install))
+		$(if $(LINGMO_PACKAGE_HAS_UDEV),udev-install,install))
 endef
 
 define GPSD_INSTALL_INIT_SYSV
 	$(INSTALL) -m 0755 -D package/gpsd/S50gpsd $(TARGET_DIR)/etc/init.d/S50gpsd
-	$(SED) 's,^DEVICES=.*,DEVICES=$(BR2_PACKAGE_GPSD_DEVICES),' $(TARGET_DIR)/etc/init.d/S50gpsd
+	$(SED) 's,^DEVICES=.*,DEVICES=$(LINGMO_PACKAGE_GPSD_DEVICES),' $(TARGET_DIR)/etc/init.d/S50gpsd
 endef
 
 # When using chrony, wait for after Buildroot's chrony.service
-ifeq ($(BR2_PACKAGE_CHRONY),y)
+ifeq ($(LINGMO_PACKAGE_CHRONY),y)
 define GPSD_INSTALL_INIT_SYSTEMD
 	$(INSTALL) -D -m 0644 $(GPSD_PKGDIR)/br-chrony.conf \
 		$(TARGET_DIR)/usr/lib/systemd/system/gpsd.service.d/br-chrony.conf
@@ -232,7 +232,7 @@ endef
 
 # After the udev rule is installed, make it writable so that this
 # package can be re-built/re-installed.
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 define GPSD_INSTALL_UDEV_RULES
 	chmod u+w $(TARGET_DIR)/lib/udev/rules.d/25-gpsd.rules
 endef

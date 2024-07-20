@@ -6,19 +6,19 @@ import infra.basetest
 class TestMsrTools(infra.basetest.BRTest):
     config = \
         """
-        BR2_x86_64=y
-        BR2_x86_corei7=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_LINUX_KERNEL=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE="5.15.55"
-        BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
-        BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/qemu/x86_64/linux.config"
-        BR2_LINUX_KERNEL_CONFIG_FRAGMENT_FILES="{}"
-        BR2_LINUX_KERNEL_NEEDS_HOST_LIBELF=y
-        BR2_PACKAGE_MSR_TOOLS=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_corei7=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_LINUX_KERNEL=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION_VALUE="5.15.55"
+        LINGMO_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
+        LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/qemu/x86_64/linux.config"
+        LINGMO_LINUX_KERNEL_CONFIG_FRAGMENT_FILES="{}"
+        LINGMO_LINUX_KERNEL_NEEDS_HOST_LIBELF=y
+        LINGMO_PACKAGE_MSR_TOOLS=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """.format(
               infra.filepath("tests/package/test_msr_tools/linux.config"))
 

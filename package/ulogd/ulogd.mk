@@ -15,14 +15,14 @@ ULOGD_LICENSE_FILES = COPYING
 ULOGD_SELINUX_MODULES = ulogd
 
 # DB backends need threads
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),y)
-ifeq ($(BR2_PACKAGE_LIBDBI),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS),y)
+ifeq ($(LINGMO_PACKAGE_LIBDBI),y)
 ULOGD_CONF_OPTS += --enable-dbi
 ULOGD_DEPENDENCIES += libdbi
 else
 ULOGD_CONF_OPTS += --disable-dbi
 endif
-ifeq ($(BR2_PACKAGE_MARIADB),y)
+ifeq ($(LINGMO_PACKAGE_MARIADB),y)
 ULOGD_CONF_OPTS += \
 	--enable-mysql \
 	--with-mysql-config=$(STAGING_DIR)/usr/bin/mysql_config
@@ -30,13 +30,13 @@ ULOGD_DEPENDENCIES += mariadb
 else
 ULOGD_CONF_OPTS += --disable-mysql
 endif
-ifeq ($(BR2_PACKAGE_POSTGRESQL),y)
+ifeq ($(LINGMO_PACKAGE_POSTGRESQL),y)
 ULOGD_CONF_OPTS += --enable-pgsql
 ULOGD_DEPENDENCIES += postgresql
 else
 ULOGD_CONF_OPTS += --disable-pgsql
 endif
-ifeq ($(BR2_PACKAGE_SQLITE),y)
+ifeq ($(LINGMO_PACKAGE_SQLITE),y)
 ULOGD_CONF_OPTS += --enable-sqlite3
 ULOGD_DEPENDENCIES += sqlite
 else
@@ -50,14 +50,14 @@ ULOGD_CONF_OPTS += \
 	--disable-sqlite3
 endif
 
-ifeq ($(BR2_PACKAGE_LIBPCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBPCAP),y)
 ULOGD_CONF_OPTS += --enable-pcap
 ULOGD_DEPENDENCIES += libpcap
 else
 ULOGD_CONF_OPTS += --disable-pcap
 endif
 
-ifeq ($(BR2_PACKAGE_JANSSON),y)
+ifeq ($(LINGMO_PACKAGE_JANSSON),y)
 ULOGD_CONF_OPTS += --enable-json
 ULOGD_DEPENDENCIES += jansson
 else

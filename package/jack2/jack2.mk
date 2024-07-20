@@ -14,33 +14,33 @@ JACK2_INSTALL_STAGING = YES
 
 JACK2_CONF_OPTS = --alsa
 
-ifeq ($(BR2_PACKAGE_LIBEXECINFO),y)
+ifeq ($(LINGMO_PACKAGE_LIBEXECINFO),y)
 JACK2_DEPENDENCIES += libexecinfo
 JACK2_CONF_ENV += LDFLAGS="$(TARGET_LDFLAGS) -lexecinfo"
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSAMPLERATE),y)
+ifeq ($(LINGMO_PACKAGE_LIBSAMPLERATE),y)
 JACK2_DEPENDENCIES += libsamplerate
 JACK2_CONF_OPTS += --samplerate=yes
 else
 JACK2_CONF_OPTS += --samplerate=no
 endif
 
-ifeq ($(BR2_PACKAGE_OPUS),y)
+ifeq ($(LINGMO_PACKAGE_OPUS),y)
 JACK2_DEPENDENCIES += opus
 JACK2_CONF_OPTS += --opus=yes
 else
 JACK2_CONF_OPTS += --opus=no
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 JACK2_DEPENDENCIES += systemd
 JACK2_CONF_OPTS += --systemd=yes
 else
 JACK2_CONF_OPTS += --systemd=no
 endif
 
-ifeq ($(BR2_PACKAGE_JACK2_LEGACY),y)
+ifeq ($(LINGMO_PACKAGE_JACK2_LEGACY),y)
 JACK2_CONF_OPTS += --classic
 else
 define JACK2_REMOVE_JACK_CONTROL
@@ -49,7 +49,7 @@ endef
 JACK2_POST_INSTALL_TARGET_HOOKS += JACK2_REMOVE_JACK_CONTROL
 endif
 
-ifeq ($(BR2_PACKAGE_JACK2_DBUS),y)
+ifeq ($(LINGMO_PACKAGE_JACK2_DBUS),y)
 JACK2_DEPENDENCIES += dbus
 JACK2_CONF_OPTS += --dbus
 endif

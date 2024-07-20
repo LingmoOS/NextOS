@@ -11,7 +11,7 @@ CAGE_LICENSE_FILES = LICENSE
 CAGE_DEPENDENCIES = host-pkgconf wlroots
 CAGE_CONF_OPTS = -Dman-pages=disabled
 
-ifeq ($(BR2_PACKAGE_WLROOTS_X11),y)
+ifeq ($(LINGMO_PACKAGE_WLROOTS_X11),y)
 CAGE_CONF_OPTS += -Dxwayland=true
 else
 CAGE_CONF_OPTS += -Dxwayland=false

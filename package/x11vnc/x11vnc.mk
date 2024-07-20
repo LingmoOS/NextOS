@@ -16,37 +16,37 @@ X11VNC_IGNORE_CVES += CVE-2020-29074
 # Source coming from github, no configure included
 X11VNC_AUTORECONF = YES
 
-ifeq ($(BR2_PACKAGE_AVAHI_DAEMON)$(BR2_PACKAGE_DBUS),yy)
+ifeq ($(LINGMO_PACKAGE_AVAHI_DAEMON)$(LINGMO_PACKAGE_DBUS),yy)
 X11VNC_DEPENDENCIES += avahi dbus
 else
 X11VNC_CONF_OPTS += --without-avahi
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 X11VNC_DEPENDENCIES += openssl
 else
 X11VNC_CONF_OPTS += --without-ssl --without-crypto
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXINERAMA),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXINERAMA),y)
 X11VNC_DEPENDENCIES += xlib_libXinerama
 else
 X11VNC_CONF_OPTS += --without-xinerama
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXRANDR),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXRANDR),y)
 X11VNC_DEPENDENCIES += xlib_libXrandr
 else
 X11VNC_CONF_OPTS += --without-xrandr
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXFIXES),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXFIXES),y)
 X11VNC_DEPENDENCIES += xlib_libXfixes
 else
 X11VNC_CONF_OPTS += --without-xfixes
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXDAMAGE),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXDAMAGE),y)
 X11VNC_DEPENDENCIES += xlib_libXdamage
 else
 X11VNC_CONF_OPTS += --without-xdamage

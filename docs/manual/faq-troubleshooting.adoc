@@ -262,7 +262,7 @@ There are multiple situations to consider:
     Y2038 compatible.
 
  ** With _glibc_, 64-bit +time_t+ on 32-bit architectures is enabled
-    by the Buildroot option +BR2_TIME_BITS_64+. With this option
+    by the Buildroot option +LINGMO_TIME_BITS_64+. With this option
     enabled, systems using _glibc_ on 32-bit platforms are Y2038
     compatible.
 

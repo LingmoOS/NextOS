@@ -1,4 +1,4 @@
-config BR2_PACKAGE_POPT
+config LINGMO_PACKAGE_POPT
 	bool "popt"
 	help
 	  Popt is a C library for parsing command line parameters.

@@ -9,7 +9,7 @@ UFTP_SITE = https://downloads.sourceforge.net/project/uftp-multicast/source-tar
 UFTP_LICENSE = GPL-3.0+
 UFTP_LICENSE_FILES = LICENSE.txt
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 UFTP_DEPENDENCIES += host-pkgconf openssl
 UFTP_MAKE_OPTS += CRYPT_LIB="`$(PKG_CONFIG_HOST_BINARY) --libs libcrypto`"
 else

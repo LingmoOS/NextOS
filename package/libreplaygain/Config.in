@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBREPLAYGAIN
+config LINGMO_PACKAGE_LIBREPLAYGAIN
 	bool "libreplaygain"
 	help
 	  Replay Gain library from Musepack

@@ -17,7 +17,7 @@ VALGRIND_INSTALL_STAGING = YES
 
 # Valgrind must be compiled with no stack protection, so forcefully
 # pass -fno-stack-protector to override what Buildroot may have in
-# TARGET_CFLAGS if BR2_SSP_* support is enabled.
+# TARGET_CFLAGS if LINGMO_SSP_* support is enabled.
 VALGRIND_CFLAGS = \
 	$(TARGET_CFLAGS) \
 	-fno-stack-protector
@@ -31,7 +31,7 @@ VALGRIND_CFLAGS = \
 # Override the CFLAGS variable (which Valgrind appends to its CFLAGS)
 # and pass the right -march option, so they take precedence over
 # Valgrind's wrongfully detected value.
-ifeq ($(BR2_mips)$(BR2_mipsel)$(BR2_mips64)$(BR2_mips64el),y)
+ifeq ($(LINGMO_mips)$(LINGMO_mipsel)$(LINGMO_mips64)$(LINGMO_mips64el),y)
 VALGRIND_CFLAGS += -march="$(GCC_TARGET_ARCH)"
 endif
 
@@ -45,12 +45,12 @@ VALGRIND_CONF_ENV += ac_cv_prog_cc_c99='-std=gnu99'
 # not. Therefore, we adjust the host tuple to specify we're on
 # ARMv7. The valgrind package is guaranteed, through Config.in, to
 # only be selected on ARMv7-A platforms.
-ifeq ($(BR2_ARM_CPU_ARMV7A),y)
+ifeq ($(LINGMO_ARM_CPU_ARMV7A),y)
 VALGRIND_CONF_OPTS += \
 	--host=$(patsubst arm-%,armv7-%,$(GNU_TARGET_NAME))
 endif
 
-ifeq ($(BR2_ENABLE_LTO),y)
+ifeq ($(LINGMO_ENABLE_LTO),y)
 VALGRIND_CONF_OPTS += --enable-lto
 else
 VALGRIND_CONF_OPTS += --disable-lto
@@ -62,7 +62,7 @@ endef
 
 VALGRIND_POST_INSTALL_TARGET_HOOKS += VALGRIND_INSTALL_UCLIBC_SUPP
 
-ifeq ($(BR2_PACKAGE_VALGRIND_MEMCHECK),)
+ifeq ($(LINGMO_PACKAGE_VALGRIND_MEMCHECK),)
 define VALGRIND_REMOVE_MEMCHECK
 	rm -f $(TARGET_DIR)/usr/libexec/valgrind/*memcheck*
 endef
@@ -70,7 +70,7 @@ endef
 VALGRIND_POST_INSTALL_TARGET_HOOKS += VALGRIND_REMOVE_MEMCHECK
 endif
 
-ifeq ($(BR2_PACKAGE_VALGRIND_CACHEGRIND),)
+ifeq ($(LINGMO_PACKAGE_VALGRIND_CACHEGRIND),)
 define VALGRIND_REMOVE_CACHEGRIND
 	rm -f $(TARGET_DIR)/usr/libexec/valgrind/*cachegrind*
 	for i in cg_annotate cg_diff cg_merge; do \
@@ -81,7 +81,7 @@ endef
 VALGRIND_POST_INSTALL_TARGET_HOOKS += VALGRIND_REMOVE_CACHEGRIND
 endif
 
-ifeq ($(BR2_PACKAGE_VALGRIND_CALLGRIND),)
+ifeq ($(LINGMO_PACKAGE_VALGRIND_CALLGRIND),)
 define VALGRIND_REMOVE_CALLGRIND
 	rm -f $(TARGET_DIR)/usr/libexec/valgrind/*callgrind*
 	for i in callgrind_annotate callgrind_control ; do \
@@ -92,7 +92,7 @@ endef
 VALGRIND_POST_INSTALL_TARGET_HOOKS += VALGRIND_REMOVE_CALLGRIND
 endif
 
-ifeq ($(BR2_PACKAGE_VALGRIND_HELGRIND),)
+ifeq ($(LINGMO_PACKAGE_VALGRIND_HELGRIND),)
 define VALGRIND_REMOVE_HELGRIND
 	rm -f $(TARGET_DIR)/usr/libexec/valgrind/*helgrind*
 endef
@@ -100,7 +100,7 @@ endef
 VALGRIND_POST_INSTALL_TARGET_HOOKS += VALGRIND_REMOVE_HELGRIND
 endif
 
-ifeq ($(BR2_PACKAGE_VALGRIND_DRD),)
+ifeq ($(LINGMO_PACKAGE_VALGRIND_DRD),)
 define VALGRIND_REMOVE_DRD
 	rm -f $(TARGET_DIR)/usr/libexec/valgrind/*drd*
 endef
@@ -108,7 +108,7 @@ endef
 VALGRIND_POST_INSTALL_TARGET_HOOKS += VALGRIND_REMOVE_DRD
 endif
 
-ifeq ($(BR2_PACKAGE_VALGRIND_MASSIF),)
+ifeq ($(LINGMO_PACKAGE_VALGRIND_MASSIF),)
 define VALGRIND_REMOVE_MASSIF
 	rm -f $(TARGET_DIR)/usr/libexec/valgrind/*massif*
 	rm -f $(TARGET_DIR)/usr/bin/ms_print
@@ -117,7 +117,7 @@ endef
 VALGRIND_POST_INSTALL_TARGET_HOOKS += VALGRIND_REMOVE_MASSIF
 endif
 
-ifeq ($(BR2_PACKAGE_VALGRIND_DHAT),)
+ifeq ($(LINGMO_PACKAGE_VALGRIND_DHAT),)
 define VALGRIND_REMOVE_DHAT
 	rm -f $(TARGET_DIR)/usr/libexec/valgrind/*dhat*
 endef
@@ -125,7 +125,7 @@ endef
 VALGRIND_POST_INSTALL_TARGET_HOOKS += VALGRIND_REMOVE_DHAT
 endif
 
-ifeq ($(BR2_PACKAGE_VALGRIND_SGCHECK),)
+ifeq ($(LINGMO_PACKAGE_VALGRIND_SGCHECK),)
 define VALGRIND_REMOVE_SGCHECK
 	rm -f $(TARGET_DIR)/usr/libexec/valgrind/*sgcheck*
 endef
@@ -133,7 +133,7 @@ endef
 VALGRIND_POST_INSTALL_TARGET_HOOKS += VALGRIND_REMOVE_SGCHECK
 endif
 
-ifeq ($(BR2_PACKAGE_VALGRIND_BBV),)
+ifeq ($(LINGMO_PACKAGE_VALGRIND_BBV),)
 define VALGRIND_REMOVE_BBV
 	rm -f $(TARGET_DIR)/usr/libexec/valgrind/*bbv*
 endef
@@ -141,7 +141,7 @@ endef
 VALGRIND_POST_INSTALL_TARGET_HOOKS += VALGRIND_REMOVE_BBV
 endif
 
-ifeq ($(BR2_PACKAGE_VALGRIND_LACKEY),)
+ifeq ($(LINGMO_PACKAGE_VALGRIND_LACKEY),)
 define VALGRIND_REMOVE_LACKEY
 	rm -f $(TARGET_DIR)/usr/libexec/valgrind/*lackey*
 endef
@@ -149,7 +149,7 @@ endef
 VALGRIND_POST_INSTALL_TARGET_HOOKS += VALGRIND_REMOVE_LACKEY
 endif
 
-ifeq ($(BR2_PACKAGE_VALGRIND_NULGRIND),)
+ifeq ($(LINGMO_PACKAGE_VALGRIND_NULGRIND),)
 define VALGRIND_REMOVE_NULGRIND
 	rm -f $(TARGET_DIR)/usr/libexec/valgrind/*none*
 endef

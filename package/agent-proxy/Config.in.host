@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_AGENT_PROXY
+config LINGMO_PACKAGE_HOST_AGENT_PROXY
 	bool "host agent-proxy"
 	help
 	  This is a simple, small proxy which was intended for use

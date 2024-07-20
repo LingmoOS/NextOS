@@ -1,4 +1,4 @@
-config BR2_PACKAGE_BRCM_PATCHRAM_PLUS
+config LINGMO_PACKAGE_BRCM_PATCHRAM_PLUS
 	bool "brcm-patchram-plus"
 	help
 	  Broadcom utility to flash Bluetooth firmwares, extended with

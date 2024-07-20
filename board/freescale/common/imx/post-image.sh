@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# dtb_list extracts the list of DTB files from BR2_LINUX_KERNEL_INTREE_DTS_NAME
+# dtb_list extracts the list of DTB files from LINGMO_LINUX_KERNEL_INTREE_DTS_NAME
 # in ${BR_CONFIG}, then prints the corresponding list of file names for the
 # genimage configuration file
 #
@@ -9,7 +9,7 @@ dtb_list()
 {
 	local DTB_LIST
 
-	DTB_LIST="$(sed -n 's/^BR2_LINUX_KERNEL_INTREE_DTS_NAME="\([\/a-z0-9 \-]*\)"$/\1/p' "${BR2_CONFIG}")"
+	DTB_LIST="$(sed -n 's/^LINGMO_LINUX_KERNEL_INTREE_DTS_NAME="\([\/a-z0-9 \-]*\)"$/\1/p' "${LINGMO_CONFIG}")"
 
 	for dt in $DTB_LIST; do
 		echo -n "\"$(basename "${dt}").dtb\", "
@@ -17,17 +17,17 @@ dtb_list()
 }
 
 #
-# linux_image extracts the Linux image format from BR2_LINUX_KERNEL_UIMAGE in
+# linux_image extracts the Linux image format from LINGMO_LINUX_KERNEL_UIMAGE in
 # ${BR_CONFIG}, then prints the corresponding file name for the genimage
 # configuration file
 #
 linux_image()
 {
-	if grep -Eq "^BR2_LINUX_KERNEL_UIMAGE=y$" "${BR2_CONFIG}"; then
+	if grep -Eq "^LINGMO_LINUX_KERNEL_UIMAGE=y$" "${LINGMO_CONFIG}"; then
 		echo "\"uImage\""
-	elif grep -Eq "^BR2_LINUX_KERNEL_IMAGE=y$" "${BR2_CONFIG}"; then
+	elif grep -Eq "^LINGMO_LINUX_KERNEL_IMAGE=y$" "${LINGMO_CONFIG}"; then
 		echo "\"Image\""
-	elif grep -Eq "^BR2_LINUX_KERNEL_IMAGEGZ=y$" "${BR2_CONFIG}"; then
+	elif grep -Eq "^LINGMO_LINUX_KERNEL_IMAGEGZ=y$" "${LINGMO_CONFIG}"; then
 		echo "\"Image.gz\""
 	else
 		echo "\"zImage\""
@@ -36,31 +36,31 @@ linux_image()
 
 genimage_type()
 {
-	if grep -Eq "^BR2_PACKAGE_FREESCALE_IMX_PLATFORM_IMX8=y$" "${BR2_CONFIG}"; then
+	if grep -Eq "^LINGMO_PACKAGE_FREESCALE_IMX_PLATFORM_IMX8=y$" "${LINGMO_CONFIG}"; then
 		echo "genimage.cfg.template_imx8"
-	elif grep -Eq "^BR2_PACKAGE_FREESCALE_IMX_PLATFORM_IMX8M=y$" "${BR2_CONFIG}"; then
+	elif grep -Eq "^LINGMO_PACKAGE_FREESCALE_IMX_PLATFORM_IMX8M=y$" "${LINGMO_CONFIG}"; then
 		echo "genimage.cfg.template_imx8"
-	elif grep -Eq "^BR2_PACKAGE_FREESCALE_IMX_PLATFORM_IMX8MM=y$" "${BR2_CONFIG}"; then
+	elif grep -Eq "^LINGMO_PACKAGE_FREESCALE_IMX_PLATFORM_IMX8MM=y$" "${LINGMO_CONFIG}"; then
 		echo "genimage.cfg.template_imx8"
-	elif grep -Eq "^BR2_PACKAGE_FREESCALE_IMX_PLATFORM_IMX8MN=y$" "${BR2_CONFIG}"; then
+	elif grep -Eq "^LINGMO_PACKAGE_FREESCALE_IMX_PLATFORM_IMX8MN=y$" "${LINGMO_CONFIG}"; then
 		echo "genimage.cfg.template_imx8"
-	elif grep -Eq "^BR2_PACKAGE_FREESCALE_IMX_PLATFORM_IMX8MP=y$" "${BR2_CONFIG}"; then
+	elif grep -Eq "^LINGMO_PACKAGE_FREESCALE_IMX_PLATFORM_IMX8MP=y$" "${LINGMO_CONFIG}"; then
 		echo "genimage.cfg.template_imx8"
-	elif grep -Eq "^BR2_PACKAGE_FREESCALE_IMX_PLATFORM_IMX8X=y$" "${BR2_CONFIG}"; then
+	elif grep -Eq "^LINGMO_PACKAGE_FREESCALE_IMX_PLATFORM_IMX8X=y$" "${LINGMO_CONFIG}"; then
 		echo "genimage.cfg.template_imx8"
-	elif grep -Eq "^BR2_PACKAGE_FREESCALE_IMX_PLATFORM_IMX8DXL=y$" "${BR2_CONFIG}"; then
+	elif grep -Eq "^LINGMO_PACKAGE_FREESCALE_IMX_PLATFORM_IMX8DXL=y$" "${LINGMO_CONFIG}"; then
 		echo "genimage.cfg.template_imx8"
-	elif grep -Eq "^BR2_PACKAGE_FREESCALE_IMX_PLATFORM_IMX91=y$" "${BR2_CONFIG}"; then
+	elif grep -Eq "^LINGMO_PACKAGE_FREESCALE_IMX_PLATFORM_IMX91=y$" "${LINGMO_CONFIG}"; then
 		echo "genimage.cfg.template_imx9"
-	elif grep -Eq "^BR2_PACKAGE_FREESCALE_IMX_PLATFORM_IMX93=y$" "${BR2_CONFIG}"; then
+	elif grep -Eq "^LINGMO_PACKAGE_FREESCALE_IMX_PLATFORM_IMX93=y$" "${LINGMO_CONFIG}"; then
 		echo "genimage.cfg.template_imx9"
-	elif grep -Eq "^BR2_LINUX_KERNEL_INSTALL_TARGET=y$" "${BR2_CONFIG}"; then
-		if grep -Eq "^BR2_TARGET_UBOOT_SPL=y$" "${BR2_CONFIG}"; then
+	elif grep -Eq "^LINGMO_LINUX_KERNEL_INSTALL_TARGET=y$" "${LINGMO_CONFIG}"; then
+		if grep -Eq "^LINGMO_TARGET_UBOOT_SPL=y$" "${LINGMO_CONFIG}"; then
 		    echo "genimage.cfg.template_no_boot_part_spl"
 		else
 		    echo "genimage.cfg.template_no_boot_part"
 		fi
-	elif grep -Eq "^BR2_TARGET_UBOOT_SPL=y$" "${BR2_CONFIG}"; then
+	elif grep -Eq "^LINGMO_TARGET_UBOOT_SPL=y$" "${LINGMO_CONFIG}"; then
 		echo "genimage.cfg.template_spl"
 	else
 		echo "genimage.cfg.template"
@@ -69,9 +69,9 @@ genimage_type()
 
 imx_offset()
 {
-	if grep -Eq "^BR2_PACKAGE_FREESCALE_IMX_PLATFORM_IMX8M=y$" "${BR2_CONFIG}"; then
+	if grep -Eq "^LINGMO_PACKAGE_FREESCALE_IMX_PLATFORM_IMX8M=y$" "${LINGMO_CONFIG}"; then
 		echo "33K"
-	elif grep -Eq "^BR2_PACKAGE_FREESCALE_IMX_PLATFORM_IMX8MM=y$" "${BR2_CONFIG}"; then
+	elif grep -Eq "^LINGMO_PACKAGE_FREESCALE_IMX_PLATFORM_IMX8MM=y$" "${LINGMO_CONFIG}"; then
 		echo "33K"
 	else
 		echo "32K"
@@ -80,13 +80,13 @@ imx_offset()
 
 uboot_image()
 {
-	if grep -Eq "^BR2_TARGET_UBOOT_FORMAT_DTB_IMX=y$" "${BR2_CONFIG}"; then
+	if grep -Eq "^LINGMO_TARGET_UBOOT_FORMAT_DTB_IMX=y$" "${LINGMO_CONFIG}"; then
 		echo "u-boot-dtb.imx"
-	elif grep -Eq "^BR2_TARGET_UBOOT_FORMAT_IMX=y$" "${BR2_CONFIG}"; then
+	elif grep -Eq "^LINGMO_TARGET_UBOOT_FORMAT_IMX=y$" "${LINGMO_CONFIG}"; then
 		echo "u-boot.imx"
-	elif grep -Eq "^BR2_TARGET_UBOOT_FORMAT_DTB_IMG=y$" "${BR2_CONFIG}"; then
+	elif grep -Eq "^LINGMO_TARGET_UBOOT_FORMAT_DTB_IMG=y$" "${LINGMO_CONFIG}"; then
 	    echo "u-boot-dtb.img"
-	elif grep -Eq "^BR2_TARGET_UBOOT_FORMAT_IMG=y$" "${BR2_CONFIG}"; then
+	elif grep -Eq "^LINGMO_TARGET_UBOOT_FORMAT_IMG=y$" "${LINGMO_CONFIG}"; then
 	    echo "u-boot.img"
 	fi
 }

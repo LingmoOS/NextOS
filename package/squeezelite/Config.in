@@ -1,49 +1,49 @@
-config BR2_PACKAGE_SQUEEZELITE
+config LINGMO_PACKAGE_SQUEEZELITE
 	bool "squeezelite"
-	depends on BR2_USE_WCHAR # flac
-	depends on BR2_TOOLCHAIN_HAS_THREADS_NPTL
-	depends on BR2_USE_MMU # mpg123
-	depends on !BR2_STATIC_LIBS # dlopen
-	select BR2_PACKAGE_ALSA_LIB
-	select BR2_PACKAGE_ALSA_LIB_MIXER
-	select BR2_PACKAGE_FLAC
-	select BR2_PACKAGE_LIBMAD
-	select BR2_PACKAGE_LIBVORBIS
-	select BR2_PACKAGE_MPG123
+	depends on LINGMO_USE_WCHAR # flac
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS_NPTL
+	depends on LINGMO_USE_MMU # mpg123
+	depends on !LINGMO_STATIC_LIBS # dlopen
+	select LINGMO_PACKAGE_ALSA_LIB
+	select LINGMO_PACKAGE_ALSA_LIB_MIXER
+	select LINGMO_PACKAGE_FLAC
+	select LINGMO_PACKAGE_LIBMAD
+	select LINGMO_PACKAGE_LIBVORBIS
+	select LINGMO_PACKAGE_MPG123
 	help
 	  Logitech Media Server client
 
 	  https://github.com/ralph-irving/squeezelite/
 
-if BR2_PACKAGE_SQUEEZELITE
+if LINGMO_PACKAGE_SQUEEZELITE
 
-config BR2_PACKAGE_SQUEEZELITE_FFMPEG
+config LINGMO_PACKAGE_SQUEEZELITE_FFMPEG
 	bool "Enable WMA and ALAC decoding"
 	default y
-	depends on BR2_PACKAGE_FFMPEG_ARCH_SUPPORTS
-	select BR2_PACKAGE_FFMPEG
+	depends on LINGMO_PACKAGE_FFMPEG_ARCH_SUPPORTS
+	select LINGMO_PACKAGE_FFMPEG
 
-config BR2_PACKAGE_SQUEEZELITE_DSD
+config LINGMO_PACKAGE_SQUEEZELITE_DSD
 	bool "Enable DSD decoding"
 
-config BR2_PACKAGE_SQUEEZELITE_LIRC
+config LINGMO_PACKAGE_SQUEEZELITE_LIRC
 	bool "Enable lirc support"
-	depends on BR2_INSTALL_LIBSTDCPP
-	select BR2_PACKAGE_LIRC_TOOLS
+	depends on LINGMO_INSTALL_LIBSTDCPP
+	select LINGMO_PACKAGE_LIRC_TOOLS
 
 comment "lirc support needs a toolchain with C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP
 
-config BR2_PACKAGE_SQUEEZELITE_RESAMPLE
+config LINGMO_PACKAGE_SQUEEZELITE_RESAMPLE
 	bool "Enable resampling support"
-	select BR2_PACKAGE_LIBSOXR
+	select LINGMO_PACKAGE_LIBSOXR
 
-config BR2_PACKAGE_SQUEEZELITE_VISEXPORT
+config LINGMO_PACKAGE_SQUEEZELITE_VISEXPORT
 	bool "Enable visualiser support"
 
 endif
 
 comment "squeezelite needs a toolchain w/ wchar, NPTL, dynamic library"
-	depends on BR2_USE_MMU
-	depends on !BR2_USE_WCHAR || !BR2_TOOLCHAIN_HAS_THREADS_NPTL \
-		|| BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_USE_WCHAR || !LINGMO_TOOLCHAIN_HAS_THREADS_NPTL \
+		|| LINGMO_STATIC_LIBS

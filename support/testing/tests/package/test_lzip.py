@@ -5,7 +5,7 @@ class TestLzip(TestCompressorBase):
     __test__ = True
     config = TestCompressorBase.config + \
         """
-        BR2_PACKAGE_LZIP=y
+        LINGMO_PACKAGE_LZIP=y
         """
     compress_cmd = "lzip"
     decompress_cmd = "lzip -d"

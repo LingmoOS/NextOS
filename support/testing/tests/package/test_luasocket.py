@@ -4,8 +4,8 @@ from tests.package.test_lua import TestLuaBase
 class TestLuaLuaSocket(TestLuaBase):
     config = TestLuaBase.config + \
         """
-        BR2_PACKAGE_LUA=y
-        BR2_PACKAGE_LUASOCKET=y
+        LINGMO_PACKAGE_LUA=y
+        LINGMO_PACKAGE_LUASOCKET=y
         """
 
     def test_run(self):
@@ -18,8 +18,8 @@ class TestLuaLuaSocket(TestLuaBase):
 class TestLuajitLuaSocket(TestLuaBase):
     config = TestLuaBase.config + \
         """
-        BR2_PACKAGE_LUAJIT=y
-        BR2_PACKAGE_LUASOCKET=y
+        LINGMO_PACKAGE_LUAJIT=y
+        LINGMO_PACKAGE_LUASOCKET=y
         """
 
     def test_run(self):

@@ -1,8 +1,8 @@
-config BR2_PACKAGE_LIBSVG_CAIRO
+config LINGMO_PACKAGE_LIBSVG_CAIRO
 	bool "libsvg-cairo"
-	select BR2_PACKAGE_CAIRO
-	select BR2_PACKAGE_CAIRO_SVG
-	select BR2_PACKAGE_LIBSVG
+	select LINGMO_PACKAGE_CAIRO
+	select LINGMO_PACKAGE_CAIRO_SVG
+	select LINGMO_PACKAGE_LIBSVG
 	help
 	  Libsvg-cairo provides the ability to render SVG content from
 	  files or buffers. All rendering is performed using the cairo

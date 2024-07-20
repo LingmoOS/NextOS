@@ -277,7 +277,7 @@ When using an external toolchain, Buildroot generates a wrapper program,
 that transparently passes the appropriate options (according to the
 configuration) to the external toolchain programs. In case you need to
 debug this wrapper to check exactly what arguments are passed, you can
-set the environment variable +BR2_DEBUG_WRAPPER+ to either one of:
+set the environment variable +LINGMO_DEBUG_WRAPPER+ to either one of:
 
 * +0+, empty or not set: no debug
 
@@ -308,14 +308,14 @@ different solutions to handle the +/dev+ directory :
    Buildroot source code. This file is processed when Buildroot
    generates the final root filesystem image, and the _device files_
    are therefore not visible in the +output/target+ directory. The
-   +BR2_ROOTFS_STATIC_DEVICE_TABLE+ option allows to change the
+   +LINGMO_ROOTFS_STATIC_DEVICE_TABLE+ option allows to change the
    default device table used by Buildroot, or to add an additional
    device table, so that additional _device files_ are created by
    Buildroot during the build. So, if you use this method, and a
    _device file_ is missing in your system, you can for example create
    a +board/<yourcompany>/<yourproject>/device_table_dev.txt+ file
    that contains the description of your additional _device files_,
-   and then you can set +BR2_ROOTFS_STATIC_DEVICE_TABLE+ to
+   and then you can set +LINGMO_ROOTFS_STATIC_DEVICE_TABLE+ to
    +system/device_table_dev.txt
    board/<yourcompany>/<yourproject>/device_table_dev.txt+. For more
    details about the format of the device table file, see
@@ -390,7 +390,7 @@ can be chosen from +System configuration+, +Init system+:
 
  * The first solution is *BusyBox*. Amongst many programs, BusyBox has
    an implementation of a basic +init+ program, which is sufficient
-   for most embedded systems. Enabling the +BR2_INIT_BUSYBOX+ will
+   for most embedded systems. Enabling the +LINGMO_INIT_BUSYBOX+ will
    ensure BusyBox will build and install its +init+ program. This is
    the default solution in Buildroot. The BusyBox +init+ program will
    read the +/etc/inittab+ file at boot to know what to do. The syntax

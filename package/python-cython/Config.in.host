@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_PYTHON_CYTHON
+config LINGMO_PACKAGE_HOST_PYTHON_CYTHON
 	bool "host python-cython"
 	help
 	  The Cython compiler for writing C extensions for the Python

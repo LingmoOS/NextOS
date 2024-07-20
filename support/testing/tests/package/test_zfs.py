@@ -7,24 +7,24 @@ class TestZfsBase(infra.basetest.BRTest):
     timeout = 60 * 3
     config = \
         """
-        BR2_x86_64=y
-        BR2_x86_corei7=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_ROOTFS_DEVICE_CREATION_DYNAMIC_EUDEV=y
-        BR2_LINUX_KERNEL=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE="5.15.35"
-        BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
-        BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/qemu/x86_64/linux.config"
-        BR2_LINUX_KERNEL_NEEDS_HOST_LIBELF=y
-        BR2_PACKAGE_ZFS=y
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_PYTHON_CFFI=y
-        BR2_PACKAGE_PYTHON_SETUPTOOLS=y
-        BR2_PACKAGE_ZLIB_NG=y
-        BR2_PACKAGE_LIBRESSL=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_corei7=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_ROOTFS_DEVICE_CREATION_DYNAMIC_EUDEV=y
+        LINGMO_LINUX_KERNEL=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION_VALUE="5.15.35"
+        LINGMO_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
+        LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/qemu/x86_64/linux.config"
+        LINGMO_LINUX_KERNEL_NEEDS_HOST_LIBELF=y
+        LINGMO_PACKAGE_ZFS=y
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON_CFFI=y
+        LINGMO_PACKAGE_PYTHON_SETUPTOOLS=y
+        LINGMO_PACKAGE_ZLIB_NG=y
+        LINGMO_PACKAGE_LIBRESSL=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def base_test_run(self):
@@ -64,7 +64,7 @@ class TestZfsBase(infra.basetest.BRTest):
 class TestZfsGlibc(TestZfsBase):
     config = TestZfsBase.config + \
         """
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_CORE_I7_GLIBC_STABLE=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_CORE_I7_GLIBC_STABLE=y
         """
 
     def test_run(self):
@@ -74,7 +74,7 @@ class TestZfsGlibc(TestZfsBase):
 class TestZfsUclibc(TestZfsBase):
     config = TestZfsBase.config + \
         """
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_CORE_I7_UCLIBC_STABLE=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_CORE_I7_UCLIBC_STABLE=y
         """
 
     def test_run(self):
@@ -84,7 +84,7 @@ class TestZfsUclibc(TestZfsBase):
 class TestZfsMusl(TestZfsBase):
     config = TestZfsBase.config + \
         """
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_MUSL_STABLE=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_MUSL_STABLE=y
         """
 
     def test_run(self):

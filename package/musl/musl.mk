@@ -28,13 +28,13 @@ MUSL_INSTALL_STAGING = YES
 
 # musl does not build with LTO, so explicitly disable it
 # when using a compiler that may have support for LTO
-ifeq ($(BR2_TOOLCHAIN_GCC_AT_LEAST_4_7),y)
+ifeq ($(LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_7),y)
 MUSL_EXTRA_CFLAGS += -fno-lto
 endif
 
 # Thumb build is broken, build in ARM mode, since all architectures
 # that support Thumb1 also support ARM.
-ifeq ($(BR2_ARM_INSTRUCTIONS_THUMB),y)
+ifeq ($(LINGMO_ARM_INSTRUCTIONS_THUMB),y)
 MUSL_EXTRA_CFLAGS += -marm
 endif
 
@@ -50,7 +50,7 @@ define MUSL_CONFIGURE_CMDS
 			--libdir=/lib \
 			--disable-gcc-wrapper \
 			--enable-static \
-			$(if $(BR2_STATIC_LIBS),--disable-shared,--enable-shared))
+			$(if $(LINGMO_STATIC_LIBS),--disable-shared,--enable-shared))
 endef
 
 define MUSL_BUILD_CMDS

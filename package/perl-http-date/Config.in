@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PERL_HTTP_DATE
+config LINGMO_PACKAGE_PERL_HTTP_DATE
 	bool "perl-http-date"
-	select BR2_PACKAGE_PERL_TIMEDATE # runtime
+	select LINGMO_PACKAGE_PERL_TIMEDATE # runtime
 	help
 	  HTTP::Date - date conversion routines.
 

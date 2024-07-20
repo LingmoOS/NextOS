@@ -12,7 +12,7 @@ DAVFS2_CPE_ID_VENDOR = werner_baumann
 
 DAVFS2_DEPENDENCIES = \
 	neon \
-	$(if $(BR2_PACKAGE_LIBICONV),libiconv) \
+	$(if $(LINGMO_PACKAGE_LIBICONV),libiconv) \
 	$(TARGET_NLS_DEPENDENCIES)
 
 DAVFS2_CONF_ENV += \

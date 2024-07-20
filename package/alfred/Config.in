@@ -1,8 +1,8 @@
-config BR2_PACKAGE_ALFRED
+config LINGMO_PACKAGE_ALFRED
 	bool "alfred"
-	depends on !BR2_STATIC_LIBS # dlopen()
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libnl
-	select BR2_PACKAGE_LIBNL
+	depends on !LINGMO_STATIC_LIBS # dlopen()
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libnl
+	select LINGMO_PACKAGE_LIBNL
 	help
 	  Alfred is a user space daemon for distributing arbitrary
 	  local information over the mesh/network in a decentralized
@@ -17,4 +17,4 @@ config BR2_PACKAGE_ALFRED
 	  https://www.open-mesh.org/projects/alfred/wiki
 
 comment "alfred needs a toolchain w/ dynamic library, threads"
-	depends on BR2_STATIC_LIBS || !BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_STATIC_LIBS || !LINGMO_TOOLCHAIN_HAS_THREADS

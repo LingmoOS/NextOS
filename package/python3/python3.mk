@@ -48,19 +48,19 @@ HOST_PYTHON3_DEPENDENCIES = \
 	host-pkgconf \
 	host-zlib
 
-ifeq ($(BR2_PACKAGE_HOST_PYTHON3_BZIP2),y)
+ifeq ($(LINGMO_PACKAGE_HOST_PYTHON3_BZIP2),y)
 HOST_PYTHON3_DEPENDENCIES += host-bzip2
 else
 HOST_PYTHON3_CONF_OPTS += --disable-bzip2
 endif
 
-ifeq ($(BR2_PACKAGE_HOST_PYTHON3_CURSES),y)
+ifeq ($(LINGMO_PACKAGE_HOST_PYTHON3_CURSES),y)
 HOST_PYTHON3_DEPENDENCIES += host-ncurses
 else
 HOST_PYTHON3_CONF_OPTS += --disable-curses
 endif
 
-ifeq ($(BR2_PACKAGE_HOST_PYTHON3_SSL),y)
+ifeq ($(LINGMO_PACKAGE_HOST_PYTHON3_SSL),y)
 HOST_PYTHON3_DEPENDENCIES += host-openssl
 else
 HOST_PYTHON3_CONF_OPTS += --disable-openssl
@@ -68,62 +68,62 @@ endif
 
 PYTHON3_INSTALL_STAGING = YES
 
-ifeq ($(BR2_PACKAGE_PYTHON3_2TO3),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3_2TO3),y)
 PYTHON3_CONF_OPTS += --enable-lib2to3
 else
 PYTHON3_CONF_OPTS += --disable-lib2to3
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON3_BERKELEYDB),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3_BERKELEYDB),y)
 PYTHON3_DEPENDENCIES += berkeleydb
 else
 PYTHON3_CONF_OPTS += --disable-berkeleydb
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON3_READLINE),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3_READLINE),y)
 PYTHON3_DEPENDENCIES += readline
 else
 PYTHON3_CONF_OPTS += --disable-readline
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON3_CURSES),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3_CURSES),y)
 PYTHON3_DEPENDENCIES += ncurses
 else
 PYTHON3_CONF_OPTS += --disable-curses
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON3_DECIMAL),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3_DECIMAL),y)
 PYTHON3_DEPENDENCIES += mpdecimal
 PYTHON3_CONF_OPTS += --with-libmpdec=system
 else
 PYTHON3_CONF_OPTS += --with-libmpdec=none
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON3_PYEXPAT),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3_PYEXPAT),y)
 PYTHON3_DEPENDENCIES += expat
 PYTHON3_CONF_OPTS += --with-expat=system
 else
 PYTHON3_CONF_OPTS += --with-expat=none
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON3_SQLITE),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3_SQLITE),y)
 PYTHON3_DEPENDENCIES += sqlite
 else
 PYTHON3_CONF_OPTS += --disable-sqlite3
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON3_SSL),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3_SSL),y)
 PYTHON3_DEPENDENCIES += openssl
 PYTHON3_CONF_OPTS += --with-openssl=$(STAGING_DIR)/usr
 else
 PYTHON3_CONF_OPTS += --disable-openssl
 endif
 
-ifneq ($(BR2_PACKAGE_PYTHON3_CODECSCJK),y)
+ifneq ($(LINGMO_PACKAGE_PYTHON3_CODECSCJK),y)
 PYTHON3_CONF_OPTS += --disable-codecs-cjk
 endif
 
-ifneq ($(BR2_PACKAGE_PYTHON3_UNICODEDATA),y)
+ifneq ($(LINGMO_PACKAGE_PYTHON3_UNICODEDATA),y)
 PYTHON3_CONF_OPTS += --disable-unicodedata
 endif
 
@@ -132,25 +132,25 @@ endif
 # default to the pure python implementation
 PYTHON3_CONF_OPTS += --disable-uuid
 
-ifeq ($(BR2_PACKAGE_PYTHON3_BZIP2),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3_BZIP2),y)
 PYTHON3_DEPENDENCIES += bzip2
 else
 PYTHON3_CONF_OPTS += --disable-bzip2
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON3_XZ),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3_XZ),y)
 PYTHON3_DEPENDENCIES += xz
 else
 PYTHON3_CONF_OPTS += --disable-xz
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON3_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3_ZLIB),y)
 PYTHON3_DEPENDENCIES += zlib
 else
 PYTHON3_CONF_OPTS += --disable-zlib
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON3_OSSAUDIODEV),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3_OSSAUDIODEV),y)
 PYTHON3_CONF_OPTS += --enable-ossaudiodev
 else
 PYTHON3_CONF_OPTS += --disable-ossaudiodev
@@ -166,7 +166,7 @@ PYTHON3_CONF_ENV += \
 	ac_cv_prog_HAS_HG=/bin/false
 
 # GCC is always compliant with IEEE754
-ifeq ($(BR2_ENDIAN),"LITTLE")
+ifeq ($(LINGMO_ENDIAN),"LITTLE")
 PYTHON3_CONF_ENV += ac_cv_little_endian_double=yes
 else
 PYTHON3_CONF_ENV += ac_cv_big_endian_double=yes
@@ -174,11 +174,11 @@ endif
 
 # uClibc is known to have a broken wcsftime() implementation, so tell
 # Python 3 to fall back to strftime() instead.
-ifeq ($(BR2_TOOLCHAIN_USES_UCLIBC),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_UCLIBC),y)
 PYTHON3_CONF_ENV += ac_cv_func_wcsftime=no
 endif
 
-ifeq ($(BR2_PACKAGE_GETTEXT_PROVIDES_LIBINTL),y)
+ifeq ($(LINGMO_PACKAGE_GETTEXT_PROVIDES_LIBINTL),y)
 PYTHON3_DEPENDENCIES += gettext
 endif
 
@@ -245,14 +245,14 @@ HOST_PYTHON3_POST_INSTALL_HOOKS += HOST_PYTHON3_INSTALL_SYMLINK
 PYTHON3_PATH = $(STAGING_DIR)/usr/lib/python$(PYTHON3_VERSION_MAJOR)/
 
 # Support for socket.AF_BLUETOOTH
-ifeq ($(BR2_PACKAGE_BLUEZ5_UTILS_HEADERS),y)
+ifeq ($(LINGMO_PACKAGE_BLUEZ5_UTILS_HEADERS),y)
 PYTHON3_DEPENDENCIES += bluez5_utils-headers
 endif
 
 $(eval $(autotools-package))
 $(eval $(host-autotools-package))
 
-ifeq ($(BR2_REPRODUCIBLE),y)
+ifeq ($(LINGMO_REPRODUCIBLE),y)
 define PYTHON3_FIX_TIME
 	find $(TARGET_DIR)/usr/lib/python$(PYTHON3_VERSION_MAJOR) -name '*.py' -print0 | \
 		xargs -0 --no-run-if-empty touch -d @$(SOURCE_DATE_EPOCH)
@@ -265,17 +265,17 @@ define PYTHON3_CREATE_PYC_FILES
 	$(HOST_DIR)/bin/python$(PYTHON3_VERSION_MAJOR) \
 		$(PYTHON3_DIR)/Lib/compileall.py \
 		$(if $(VERBOSE),,-q) \
-		$(if $(BR2_PACKAGE_PYTHON3_PYC_ONLY),-b) \
+		$(if $(LINGMO_PACKAGE_PYTHON3_PYC_ONLY),-b) \
 		-s $(TARGET_DIR) \
 		-p / \
 		$(TARGET_DIR)/usr/lib/python$(PYTHON3_VERSION_MAJOR)
 endef
 
-ifeq ($(BR2_PACKAGE_PYTHON3_PYC_ONLY)$(BR2_PACKAGE_PYTHON3_PY_PYC),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3_PYC_ONLY)$(LINGMO_PACKAGE_PYTHON3_PY_PYC),y)
 PYTHON3_TARGET_FINALIZE_HOOKS += PYTHON3_CREATE_PYC_FILES
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON3_PYC_ONLY),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3_PYC_ONLY),y)
 define PYTHON3_REMOVE_PY_FILES
 	find $(TARGET_DIR)/usr/lib/python$(PYTHON3_VERSION_MAJOR) -name '*.py' \
 		$(if $(strip $(KEEP_PYTHON_PY_FILES)),-not \( $(call finddirclauses,$(TARGET_DIR),$(KEEP_PYTHON_PY_FILES)) \) ) \
@@ -287,7 +287,7 @@ endif
 
 # Normally, *.pyc files should not have been compiled, but just in
 # case, we make sure we remove all of them.
-ifeq ($(BR2_PACKAGE_PYTHON3_PY_ONLY),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3_PY_ONLY),y)
 define PYTHON3_REMOVE_PYC_FILES
 	find $(TARGET_DIR)/usr/lib/python$(PYTHON3_VERSION_MAJOR) -name '*.pyc' -print0 | \
 		xargs -0 --no-run-if-empty rm -f

@@ -11,7 +11,7 @@ XL2TP_LICENSE = GPL-2.0
 XL2TP_LICENSE_FILES = LICENSE
 XL2TP_SELINUX_MODULES = l2tp
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 XL2TP_LDLIBS = LDLIBS="`$(STAGING_DIR)/usr/bin/pcap-config --static --additional-libs`"
 endif
 

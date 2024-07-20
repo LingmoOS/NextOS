@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBPAM_RADIUS_AUTH
+config LINGMO_PACKAGE_LIBPAM_RADIUS_AUTH
 	bool "libpam-radius-auth"
 	help
 	  This is the PAM to RADIUS authentication module. It allows

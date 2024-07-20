@@ -15,25 +15,25 @@ QUOTA_SELINUX_MODULES = quota
 QUOTA_CONF_ENV = LIBS="$(TARGET_NLS_LIBS)"
 QUOTA_CONF_OPTS = --disable-pie
 
-ifeq ($(BR2_PACKAGE_DBUS)$(BR2_PACKAGE_LIBNL),yy)
+ifeq ($(LINGMO_PACKAGE_DBUS)$(LINGMO_PACKAGE_LIBNL),yy)
 QUOTA_DEPENDENCIES += host-pkgconf dbus libnl
 QUOTA_CONF_OPTS += --enable-netlink
 else
 QUOTA_CONF_OPTS += --disable-netlink
 endif
 
-ifeq ($(BR2_PACKAGE_E2FSPROGS),y)
+ifeq ($(LINGMO_PACKAGE_E2FSPROGS),y)
 QUOTA_DEPENDENCIES += host-pkgconf e2fsprogs
 QUOTA_CONF_OPTS += --enable-ext2direct
 else
 QUOTA_CONF_OPTS += --disable-ext2direct
 endif
 
-ifeq ($(BR2_PACKAGE_LIBTIRPC),y)
+ifeq ($(LINGMO_PACKAGE_LIBTIRPC),y)
 QUOTA_DEPENDENCIES += libtirpc host-pkgconf
 endif
 
-ifeq ($(BR2_PACKAGE_OPENLDAP):$(BR2_STATIC_LIBS),y:)
+ifeq ($(LINGMO_PACKAGE_OPENLDAP):$(LINGMO_STATIC_LIBS),y:)
 QUOTA_DEPENDENCIES += openldap
 QUOTA_CONF_OPTS += --enable-ldapmail
 else

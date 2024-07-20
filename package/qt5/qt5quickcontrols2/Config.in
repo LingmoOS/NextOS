@@ -1,8 +1,8 @@
-config BR2_PACKAGE_QT5QUICKCONTROLS2
+config LINGMO_PACKAGE_QT5QUICKCONTROLS2
 	bool "qt5quickcontrols2"
-	depends on BR2_PACKAGE_QT5_JSCORE_AVAILABLE # qt5declarative/quick
-	select BR2_PACKAGE_QT5DECLARATIVE
-	select BR2_PACKAGE_QT5DECLARATIVE_QUICK
+	depends on LINGMO_PACKAGE_QT5_JSCORE_AVAILABLE # qt5declarative/quick
+	select LINGMO_PACKAGE_QT5DECLARATIVE
+	select LINGMO_PACKAGE_QT5DECLARATIVE_QUICK
 	help
 	  Qt is a cross-platform application and UI framework for
 	  developers using C++.

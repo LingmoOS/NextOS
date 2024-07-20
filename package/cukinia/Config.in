@@ -1,6 +1,6 @@
-config BR2_PACKAGE_CUKINIA
+config LINGMO_PACKAGE_CUKINIA
 	bool "cukinia"
-	depends on BR2_PACKAGE_BUSYBOX || BR2_PACKAGE_GAWK
+	depends on LINGMO_PACKAGE_BUSYBOX || LINGMO_PACKAGE_GAWK
 	help
 	  Cukinia is designed to help Linux-based embedded firmware
 	  developers run system-level validation tests on their product.
@@ -15,4 +15,4 @@ config BR2_PACKAGE_CUKINIA
 	  https://github.com/savoirfairelinux/cukinia
 
 comment "cukinia needs busybox or gawk"
-	depends on !(BR2_PACKAGE_BUSYBOX || BR2_PACKAGE_GAWK)
+	depends on !(LINGMO_PACKAGE_BUSYBOX || LINGMO_PACKAGE_GAWK)

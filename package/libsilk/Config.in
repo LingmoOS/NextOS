@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBSILK
+config LINGMO_PACKAGE_LIBSILK
 	bool "libsilk"
 	help
 	  SILK is an audio compression format and audio codec.

@@ -1,15 +1,15 @@
-config BR2_PACKAGE_SURICATA
+config LINGMO_PACKAGE_SURICATA
 	bool "suricata"
-	depends on BR2_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
-	depends on BR2_USE_MMU # fork()
-	depends on BR2_USE_WCHAR
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	select BR2_PACKAGE_HOST_RUSTC
-	select BR2_PACKAGE_JANSSON
-	select BR2_PACKAGE_LIBHTP
-	select BR2_PACKAGE_LIBPCAP
-	select BR2_PACKAGE_LIBYAML
-	select BR2_PACKAGE_PCRE
+	depends on LINGMO_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
+	depends on LINGMO_USE_MMU # fork()
+	depends on LINGMO_USE_WCHAR
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	select LINGMO_PACKAGE_HOST_RUSTC
+	select LINGMO_PACKAGE_JANSSON
+	select LINGMO_PACKAGE_LIBHTP
+	select LINGMO_PACKAGE_LIBPCAP
+	select LINGMO_PACKAGE_LIBYAML
+	select LINGMO_PACKAGE_PCRE
 	help
 	  Suricata is a free and open source, mature, fast and robust
 	  network threat detection engine.
@@ -21,6 +21,6 @@ config BR2_PACKAGE_SURICATA
 	  https://suricata-ids.org
 
 comment "suricata needs a toolchain w/ wchar, threads"
-	depends on BR2_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
-	depends on BR2_USE_MMU
-	depends on !BR2_USE_WCHAR || !BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_USE_WCHAR || !LINGMO_TOOLCHAIN_HAS_THREADS

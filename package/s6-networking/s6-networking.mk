@@ -20,13 +20,13 @@ S6_NETWORKING_CONF_OPTS = \
 	--with-lib=$(STAGING_DIR)/lib/s6 \
 	--with-lib=$(STAGING_DIR)/lib/s6-dns \
 	--with-lib=$(STAGING_DIR)/lib/skalibs \
-	$(if $(BR2_STATIC_LIBS),,--disable-allstatic) \
+	$(if $(LINGMO_STATIC_LIBS),,--disable-allstatic) \
 	$(SHARED_STATIC_LIBS_OPTS)
 
-ifeq ($(BR2_PACKAGE_LIBRESSL),y)
+ifeq ($(LINGMO_PACKAGE_LIBRESSL),y)
 S6_NETWORKING_CONF_OPTS += --enable-ssl=libressl
 S6_NETWORKING_DEPENDENCIES += libressl
-else ifeq ($(BR2_PACKAGE_BEARSSL),y)
+else ifeq ($(LINGMO_PACKAGE_BEARSSL),y)
 S6_NETWORKING_CONF_OPTS += --enable-ssl=bearssl
 S6_NETWORKING_DEPENDENCIES += bearssl
 endif

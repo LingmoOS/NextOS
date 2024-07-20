@@ -1,7 +1,7 @@
-config BR2_PACKAGE_LIBWEBSOCKETS
+config LINGMO_PACKAGE_LIBWEBSOCKETS
 	bool "libwebsockets"
-	depends on !BR2_STATIC_LIBS
-	select BR2_PACKAGE_ZLIB
+	depends on !LINGMO_STATIC_LIBS
+	select LINGMO_PACKAGE_ZLIB
 	help
 	  Libwebsockets is a lightweight pure C library built to use
 	  minimal CPU and memory resources, and provide fast throughput
@@ -9,9 +9,9 @@ config BR2_PACKAGE_LIBWEBSOCKETS
 
 	  https://libwebsockets.org/
 
-if BR2_PACKAGE_LIBWEBSOCKETS
+if LINGMO_PACKAGE_LIBWEBSOCKETS
 
-config BR2_PACKAGE_LIBWEBSOCKETS_EXT_POLL
+config LINGMO_PACKAGE_LIBWEBSOCKETS_EXT_POLL
 	bool "enable external poll loop support"
 	default y  # legacy, was previously always enabled
 	help
@@ -22,4 +22,4 @@ config BR2_PACKAGE_LIBWEBSOCKETS_EXT_POLL
 endif
 
 comment "libwebsockets needs a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_STATIC_LIBS

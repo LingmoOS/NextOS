@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_YATL
+config LINGMO_PACKAGE_PYTHON_YATL
 	bool "python-yatl"
 	help
 	  Yet Another Template Language.

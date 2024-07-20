@@ -1,6 +1,6 @@
-config BR2_PACKAGE_SPHINXBASE
+config LINGMO_PACKAGE_SPHINXBASE
 	bool "sphinxbase"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
 	help
 	  CMUSphinx toolkit is a leading speech recognition toolkit
 	  with various tools used to build speech applications. CMU
@@ -10,4 +10,4 @@ config BR2_PACKAGE_SPHINXBASE
 	  http://cmusphinx.sourceforge.net/
 
 comment "sphinxbase needs a toolchain with threads"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS

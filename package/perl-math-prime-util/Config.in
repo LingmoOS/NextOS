@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PERL_MATH_PRIME_UTIL
+config LINGMO_PACKAGE_PERL_MATH_PRIME_UTIL
 	bool "perl-math-prime-util"
-	depends on !BR2_STATIC_LIBS
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  Utilities related to prime numbers, including fast sieves and
 	  factoring.
@@ -8,4 +8,4 @@ config BR2_PACKAGE_PERL_MATH_PRIME_UTIL
 	  https://github.com/danaj/Math-Prime-Util
 
 comment "perl-math-prime-util needs a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_STATIC_LIBS

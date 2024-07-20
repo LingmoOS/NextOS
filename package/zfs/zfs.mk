@@ -24,21 +24,21 @@ ZFS_CONF_OPTS = \
 	--disable-rpath \
 	--disable-sysvinit
 
-ifeq ($(BR2_PACKAGE_LIBTIRPC),y)
+ifeq ($(LINGMO_PACKAGE_LIBTIRPC),y)
 ZFS_DEPENDENCIES += libtirpc
 ZFS_CONF_OPTS += --with-tirpc
 else
 ZFS_CONF_OPTS += --without-tirpc
 endif
 
-ifeq ($(BR2_INIT_SYSTEMD),y)
+ifeq ($(LINGMO_INIT_SYSTEMD),y)
 # Installs the optional systemd generators, units, and presets files.
 ZFS_CONF_OPTS += --enable-systemd
 else
 ZFS_CONF_OPTS += --disable-systemd
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON3),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3),y)
 ZFS_DEPENDENCIES += python3 python-setuptools host-python-cffi host-python-packaging
 ZFS_CONF_ENV += \
 	PYTHON=$(HOST_DIR)/bin/python3 \
@@ -51,7 +51,7 @@ else
 ZFS_CONF_OPTS += --disable-pyzfs --without-python
 endif
 
-ifeq ($(BR2_PACKAGE_LINUX_PAM),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_PAM),y)
 ZFS_DEPENDENCIES += linux-pam
 ZFS_CONF_OPTS += --enable-pam
 else

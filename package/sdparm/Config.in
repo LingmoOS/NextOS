@@ -1,4 +1,4 @@
-config BR2_PACKAGE_SDPARM
+config LINGMO_PACKAGE_SDPARM
 	bool "sdparm"
 	help
 	  Utility to accesses SCSI device parameters.

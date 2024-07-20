@@ -15,8 +15,8 @@ QPID_PROTON_INSTALL_STAGING = YES
 QPID_PROTON_DEPENDENCIES = \
 	host-python3 \
 	util-linux \
-	$(if $(BR2_PACKAGE_LIBUV),libuv) \
-	$(if $(BR2_PACKAGE_OPENSSL),openssl)
+	$(if $(LINGMO_PACKAGE_LIBUV),libuv) \
+	$(if $(LINGMO_PACKAGE_OPENSSL),openssl)
 
 # python and ruby language bindings are enabled when host-swig tool is present
 # in HOST_DIR.
@@ -32,7 +32,7 @@ QPID_PROTON_CONF_OPTS = \
 	-DENABLE_WARNING_ERROR=OFF \
 	-DPYTHON_EXECUTABLE=$(HOST_DIR)/bin/python3
 
-ifeq ($(BR2_PACKAGE_JSONCPP),y)
+ifeq ($(LINGMO_PACKAGE_JSONCPP),y)
 QPID_PROTON_DEPENDENCIES += jsoncpp
 QPID_PROTON_CONF_OPTS += -DENABLE_JSONCPP=ON
 else

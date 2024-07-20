@@ -29,13 +29,13 @@ POSTGRESQL_IGNORE_CVES += CVE-2017-8806
 # manually, you must unset MAKELEVEL or set it to zero"
 POSTGRESQL_MAKE_OPTS = MAKELEVEL=0
 
-ifeq ($(BR2_PACKAGE_POSTGRESQL_FULL),y)
+ifeq ($(LINGMO_PACKAGE_POSTGRESQL_FULL),y)
 POSTGRESQL_MAKE_OPTS += world
 POSTGRESQL_INSTALL_TARGET_OPTS += DESTDIR=$(TARGET_DIR) install-world
 POSTGRESQL_INSTALL_STAGING_OPTS += DESTDIR=$(STAGING_DIR) install-world
 endif
 
-ifeq ($(BR2_TOOLCHAIN_USES_UCLIBC),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_UCLIBC),y)
 # PostgreSQL does not build against uClibc with locales
 # enabled, due to an uClibc bug, see
 # http://lists.uclibc.org/pipermail/uclibc/2014-April/048326.html
@@ -43,27 +43,27 @@ ifeq ($(BR2_TOOLCHAIN_USES_UCLIBC),y)
 POSTGRESQL_CONF_ENV += pgac_cv_type_locale_t=no
 endif
 
-ifneq ($(BR2_TOOLCHAIN_HAS_THREADS_NPTL),y)
+ifneq ($(LINGMO_TOOLCHAIN_HAS_THREADS_NPTL),y)
 POSTGRESQL_CONF_OPTS += --disable-thread-safety
 endif
 
-ifeq ($(BR2_arcle)$(BR2_arceb)$(BR2_microblazeel)$(BR2_microblazebe)$(BR2_or1k)$(BR2_nios2)$(BR2_riscv)$(BR2_xtensa),y)
+ifeq ($(LINGMO_arcle)$(LINGMO_arceb)$(LINGMO_microblazeel)$(LINGMO_microblazebe)$(LINGMO_or1k)$(LINGMO_nios2)$(LINGMO_riscv)$(LINGMO_xtensa),y)
 POSTGRESQL_CONF_OPTS += --disable-spinlocks
 endif
 
-ifeq ($(BR2_PACKAGE_READLINE),y)
+ifeq ($(LINGMO_PACKAGE_READLINE),y)
 POSTGRESQL_DEPENDENCIES += readline
 else
 POSTGRESQL_CONF_OPTS += --without-readline
 endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 POSTGRESQL_DEPENDENCIES += zlib
 else
 POSTGRESQL_CONF_OPTS += --without-zlib
 endif
 
-ifeq ($(BR2_PACKAGE_TZDATA),y)
+ifeq ($(LINGMO_PACKAGE_TZDATA),y)
 POSTGRESQL_DEPENDENCIES += tzdata
 POSTGRESQL_CONF_OPTS += --with-system-tzdata=/usr/share/zoneinfo
 else
@@ -71,7 +71,7 @@ POSTGRESQL_DEPENDENCIES += host-zic
 POSTGRESQL_CONF_ENV += ZIC="$(ZIC)"
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 POSTGRESQL_DEPENDENCIES += openssl
 POSTGRESQL_CONF_OPTS += --with-openssl
 else
@@ -81,21 +81,21 @@ else
 POSTGRESQL_CONF_ENV += ac_cv_file__dev_urandom=yes
 endif
 
-ifeq ($(BR2_PACKAGE_OPENLDAP),y)
+ifeq ($(LINGMO_PACKAGE_OPENLDAP),y)
 POSTGRESQL_DEPENDENCIES += openldap
 POSTGRESQL_CONF_OPTS += --with-ldap
 else
 POSTGRESQL_CONF_OPTS += --without-ldap
 endif
 
-ifeq ($(BR2_PACKAGE_ICU),y)
+ifeq ($(LINGMO_PACKAGE_ICU),y)
 POSTGRESQL_DEPENDENCIES += icu
 POSTGRESQL_CONF_OPTS += --with-icu
 else
 POSTGRESQL_CONF_OPTS += --without-icu
 endif
 
-ifeq ($(BR2_PACKAGE_LIBXML2),y)
+ifeq ($(LINGMO_PACKAGE_LIBXML2),y)
 POSTGRESQL_DEPENDENCIES += libxml2
 POSTGRESQL_CONF_OPTS += --with-libxml
 POSTGRESQL_CONF_ENV += XML2_CONFIG=$(STAGING_DIR)/usr/bin/xml2-config
@@ -103,14 +103,14 @@ else
 POSTGRESQL_CONF_OPTS += --without-libxml
 endif
 
-ifeq ($(BR2_PACKAGE_ZSTD),y)
+ifeq ($(LINGMO_PACKAGE_ZSTD),y)
 POSTGRESQL_DEPENDENCIES += host-pkgconf zstd
 POSTGRESQL_CONF_OPTS += --with-zstd
 else
 POSTGRESQL_CONF_OPTS += --without-zstd
 endif
 
-ifeq ($(BR2_PACKAGE_LZ4),y)
+ifeq ($(LINGMO_PACKAGE_LZ4),y)
 POSTGRESQL_DEPENDENCIES += host-pkgconf lz4
 POSTGRESQL_CONF_OPTS += --with-lz4
 else
@@ -118,7 +118,7 @@ POSTGRESQL_CONF_OPTS += --without-lz4
 endif
 
 # required for postgresql.service Type=notify
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 POSTGRESQL_DEPENDENCIES += systemd
 POSTGRESQL_CONF_OPTS += --with-systemd
 else
@@ -127,7 +127,7 @@ endif
 
 POSTGRESQL_CFLAGS = $(TARGET_CFLAGS)
 
-ifneq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_43744)$(BR2_TOOLCHAIN_HAS_GCC_BUG_85180),)
+ifneq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_43744)$(LINGMO_TOOLCHAIN_HAS_GCC_BUG_85180),)
 POSTGRESQL_CFLAGS += -O0
 endif
 

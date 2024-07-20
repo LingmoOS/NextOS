@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUA_ARGPARSE
+config LINGMO_PACKAGE_LUA_ARGPARSE
 	bool "lua-argparse"
 	help
 	  A feature-rich command-line argument parser.

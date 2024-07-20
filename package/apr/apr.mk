@@ -22,7 +22,7 @@ APR_CONF_OPTS = --disable-sctp
 # the needed CFLAGS on our own (avoids '-D_REENTRANT' in case
 # not supported by toolchain and subsequent configure failure)
 APR_CFLAGS = $(TARGET_CFLAGS) -DLINUX -D_GNU_SOURCE
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS),y)
 APR_CFLAGS += -D_REENTRANT
 endif
 
@@ -51,7 +51,7 @@ APR_CONF_ENV = \
 APR_CONFIG_SCRIPTS = apr-1-config
 
 # Doesn't even try to guess when cross compiling
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS),y)
 APR_CONF_ENV += apr_cv_pthreads_lib="-lpthread"
 endif
 
@@ -61,14 +61,14 @@ APR_CONF_ENV += apr_cv_use_lfs64=yes
 # Use non-portable atomics when available. We have to override
 # ap_cv_atomic_builtins because the test used to  check for atomic
 # builtins uses AC_TRY_RUN, which doesn't work when cross-compiling.
-ifeq ($(BR2_TOOLCHAIN_HAS_SYNC_8),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_SYNC_8),y)
 APR_CONF_OPTS += --enable-nonportable-atomics
 APR_CONF_ENV += ap_cv_atomic_builtins=yes
 else
 APR_CONF_OPTS += --disable-nonportable-atomics
 endif
 
-ifeq ($(BR2_PACKAGE_UTIL_LINUX_LIBUUID),y)
+ifeq ($(LINGMO_PACKAGE_UTIL_LINUX_LIBUUID),y)
 APR_DEPENDENCIES += util-linux
 endif
 

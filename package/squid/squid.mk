@@ -12,7 +12,7 @@ SQUID_LICENSE_FILES = COPYING
 SQUID_CPE_ID_VENDOR = squid-cache
 SQUID_SELINUX_MODULES = apache squid
 SQUID_DEPENDENCIES = libcap host-libcap libtool libxml2 host-pkgconf \
-	$(if $(BR2_PACKAGE_LIBNETFILTER_CONNTRACK),libnetfilter_conntrack)
+	$(if $(LINGMO_PACKAGE_LIBNETFILTER_CONNTRACK),libnetfilter_conntrack)
 SQUID_CONF_ENV = \
 	ac_cv_epoll_works=yes \
 	ac_cv_func_setresuid=yes \
@@ -41,32 +41,32 @@ SQUID_CONF_OPTS = \
 	--with-swapdir=/var/cache/squid/ \
 	--with-default-user=squid
 
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 SQUID_CONF_ENV += LIBS=-latomic
 endif
 
-ifeq ($(BR2_PACKAGE_LIBKRB5),y)
+ifeq ($(LINGMO_PACKAGE_LIBKRB5),y)
 SQUID_CONF_OPTS += --with-mit-krb5
 SQUID_DEPENDENCIES += libkrb5
 else
 SQUID_CONF_OPTS += --without-mit-krb5
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 SQUID_CONF_OPTS += --with-openssl
 SQUID_DEPENDENCIES += openssl
 else
 SQUID_CONF_OPTS += --without-openssl
 endif
 
-ifeq ($(BR2_PACKAGE_GNUTLS),y)
+ifeq ($(LINGMO_PACKAGE_GNUTLS),y)
 SQUID_CONF_OPTS += --with-gnutls
 SQUID_DEPENDENCIES += gnutls
 else
 SQUID_CONF_OPTS += --without-gnutls
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 SQUID_CONF_OPTS += --with-systemd
 SQUID_DEPENDENCIES += systemd
 else

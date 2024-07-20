@@ -6,25 +6,25 @@ import infra.basetest
 class TestLxc(infra.basetest.BRTest):
     config = \
             """
-            BR2_arm=y
-            BR2_cortex_a9=y
-            BR2_ARM_ENABLE_VFP=y
-            BR2_TOOLCHAIN_EXTERNAL=y
-            BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-            BR2_LINUX_KERNEL=y
-            BR2_LINUX_KERNEL_CUSTOM_VERSION=y
-            BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE="5.15.38"
-            BR2_LINUX_KERNEL_DEFCONFIG="vexpress"
-            BR2_LINUX_KERNEL_DTS_SUPPORT=y
-            BR2_LINUX_KERNEL_INTREE_DTS_NAME="vexpress-v2p-ca9"
-            BR2_LINUX_KERNEL_CONFIG_FRAGMENT_FILES="{}"
-            BR2_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
-            BR2_INIT_SYSTEMD=y
-            BR2_PACKAGE_LXC=y
-            BR2_PACKAGE_TINI=y
-            BR2_PACKAGE_IPERF3=y
-            BR2_ROOTFS_OVERLAY="{}"
-            BR2_TARGET_ROOTFS_CPIO=y
+            LINGMO_arm=y
+            LINGMO_cortex_a9=y
+            LINGMO_ARM_ENABLE_VFP=y
+            LINGMO_TOOLCHAIN_EXTERNAL=y
+            LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+            LINGMO_LINUX_KERNEL=y
+            LINGMO_LINUX_KERNEL_CUSTOM_VERSION=y
+            LINGMO_LINUX_KERNEL_CUSTOM_VERSION_VALUE="5.15.38"
+            LINGMO_LINUX_KERNEL_DEFCONFIG="vexpress"
+            LINGMO_LINUX_KERNEL_DTS_SUPPORT=y
+            LINGMO_LINUX_KERNEL_INTREE_DTS_NAME="vexpress-v2p-ca9"
+            LINGMO_LINUX_KERNEL_CONFIG_FRAGMENT_FILES="{}"
+            LINGMO_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
+            LINGMO_INIT_SYSTEMD=y
+            LINGMO_PACKAGE_LXC=y
+            LINGMO_PACKAGE_TINI=y
+            LINGMO_PACKAGE_IPERF3=y
+            LINGMO_ROOTFS_OVERLAY="{}"
+            LINGMO_TARGET_ROOTFS_CPIO=y
             """.format(
               infra.filepath("tests/package/test_lxc/lxc-kernel.config"),
               infra.filepath("tests/package/test_lxc/rootfs-overlay"))

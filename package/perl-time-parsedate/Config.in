@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_TIME_PARSEDATE
+config LINGMO_PACKAGE_PERL_TIME_PARSEDATE
 	bool "perl-time-parsedate"
 	help
 	  Parse and format time values.

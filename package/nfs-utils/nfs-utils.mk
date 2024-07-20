@@ -38,21 +38,21 @@ HOST_NFS_UTILS_CONF_OPTS = \
 	--with-rpcgen=internal \
 	--with-tirpcinclude=$(HOST_DIR)/include/tirpc
 
-NFS_UTILS_TARGETS_$(BR2_PACKAGE_NFS_UTILS_RPCDEBUG) += usr/sbin/rpcdebug
-NFS_UTILS_TARGETS_$(BR2_PACKAGE_NFS_UTILS_RPC_LOCKD) += usr/sbin/rpc.lockd
-NFS_UTILS_TARGETS_$(BR2_PACKAGE_NFS_UTILS_RPC_RQUOTAD) += usr/sbin/rpc.rquotad
-NFS_UTILS_TARGETS_$(BR2_PACKAGE_NFS_UTILS_RPC_NFSD) += usr/sbin/exportfs \
+NFS_UTILS_TARGETS_$(LINGMO_PACKAGE_NFS_UTILS_RPCDEBUG) += usr/sbin/rpcdebug
+NFS_UTILS_TARGETS_$(LINGMO_PACKAGE_NFS_UTILS_RPC_LOCKD) += usr/sbin/rpc.lockd
+NFS_UTILS_TARGETS_$(LINGMO_PACKAGE_NFS_UTILS_RPC_RQUOTAD) += usr/sbin/rpc.rquotad
+NFS_UTILS_TARGETS_$(LINGMO_PACKAGE_NFS_UTILS_RPC_NFSD) += usr/sbin/exportfs \
 	usr/sbin/rpc.mountd usr/sbin/rpc.nfsd usr/lib/systemd/system/nfs-server.service \
 	usr/sbin/fsidd usr/lib/systemd/system/fsidd.service
 
-ifeq ($(BR2_PACKAGE_NFS_UTILS_NFSV4),y)
+ifeq ($(LINGMO_PACKAGE_NFS_UTILS_NFSV4),y)
 NFS_UTILS_CONF_OPTS += --enable-nfsv4 --enable-nfsv41
 NFS_UTILS_DEPENDENCIES += keyutils lvm2
 else
 NFS_UTILS_CONF_OPTS += --disable-nfsv4 --disable-nfsv41
 endif
 
-ifeq ($(BR2_PACKAGE_NFS_UTILS_GSS),y)
+ifeq ($(LINGMO_PACKAGE_NFS_UTILS_GSS),y)
 NFS_UTILS_CONF_OPTS += \
 	--enable-gss \
 	--enable-svcgss \
@@ -62,7 +62,7 @@ else
 NFS_UTILS_CONF_OPTS += --disable-gss --disable-svcgss
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBCAP),y)
 NFS_UTILS_CONF_OPTS += --enable-caps
 NFS_UTILS_DEPENDENCIES += libcap
 else
@@ -77,14 +77,14 @@ define NFS_UTILS_INSTALL_FIXUP
 endef
 NFS_UTILS_POST_INSTALL_TARGET_HOOKS += NFS_UTILS_INSTALL_FIXUP
 
-ifeq ($(BR2_INIT_SYSTEMD),y)
+ifeq ($(LINGMO_INIT_SYSTEMD),y)
 NFS_UTILS_CONF_OPTS += --with-systemd=/usr/lib/systemd/system
 NFS_UTILS_DEPENDENCIES += systemd
 else
 NFS_UTILS_CONF_OPTS += --without-systemd
 endif
 
-ifeq ($(BR2_PACKAGE_NFS_UTILS_RPC_NFSD),y)
+ifeq ($(LINGMO_PACKAGE_NFS_UTILS_RPC_NFSD),y)
 define NFS_UTILS_LINUX_CONFIG_FIXUPS
 	$(call KCONFIG_ENABLE_OPT,CONFIG_NFSD)
 endef
@@ -109,7 +109,7 @@ define NFS_UTILS_REMOVE_NFSIOSTAT
 endef
 
 # nfsiostat is interpreted python, so remove it unless it's in the target
-NFS_UTILS_POST_INSTALL_TARGET_HOOKS += $(if $(BR2_PACKAGE_PYTHON3),,NFS_UTILS_REMOVE_NFSIOSTAT)
+NFS_UTILS_POST_INSTALL_TARGET_HOOKS += $(if $(LINGMO_PACKAGE_PYTHON3),,NFS_UTILS_REMOVE_NFSIOSTAT)
 
 define HOST_NFS_UTILS_BUILD_CMDS
 	$(MAKE) -C $(@D)/tools/rpcgen

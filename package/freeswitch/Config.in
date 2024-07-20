@@ -1,29 +1,29 @@
-config BR2_PACKAGE_FREESWITCH
+config LINGMO_PACKAGE_FREESWITCH
 	bool "freeswitch"
-	depends on BR2_INSTALL_LIBSTDCPP
-	depends on !BR2_STATIC_LIBS # apr, included in freeswitch source
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_USE_MMU # apr, included in freeswitch source
-	depends on BR2_USE_WCHAR # uses wchar_t
-	select BR2_PACKAGE_FFMPEG_SWSCALE if BR2_PACKAGE_FFMPEG
-	select BR2_PACKAGE_LIBCURL
-	select BR2_PACKAGE_JPEG
+	depends on LINGMO_INSTALL_LIBSTDCPP
+	depends on !LINGMO_STATIC_LIBS # apr, included in freeswitch source
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU # apr, included in freeswitch source
+	depends on LINGMO_USE_WCHAR # uses wchar_t
+	select LINGMO_PACKAGE_FFMPEG_SWSCALE if LINGMO_PACKAGE_FFMPEG
+	select LINGMO_PACKAGE_LIBCURL
+	select LINGMO_PACKAGE_JPEG
 	# src/mod/applications/mod_cv/mod_cv.cpp includes
 	# highgui.h, imgproc.hpp & objdetect.hpp
-	select BR2_PACKAGE_OPENCV3_LIB_HIGHGUI if BR2_PACKAGE_OPENCV3
-	select BR2_PACKAGE_OPENCV3_LIB_IMGPROC if BR2_PACKAGE_OPENCV3
-	select BR2_PACKAGE_OPENCV3_LIB_OBJDETECT if BR2_PACKAGE_OPENCV3
-	select BR2_PACKAGE_OPENSSL
-	select BR2_PACKAGE_PCRE
-	select BR2_PACKAGE_SOFIA_SIP
-	select BR2_PACKAGE_SPANDSP
-	select BR2_PACKAGE_SPEEX
-	select BR2_PACKAGE_SPEEXDSP
-	select BR2_PACKAGE_SQLITE
-	select BR2_PACKAGE_TIFF
-	select BR2_PACKAGE_UTIL_LINUX
-	select BR2_PACKAGE_UTIL_LINUX_LIBUUID
-	select BR2_PACKAGE_ZLIB
+	select LINGMO_PACKAGE_OPENCV3_LIB_HIGHGUI if LINGMO_PACKAGE_OPENCV3
+	select LINGMO_PACKAGE_OPENCV3_LIB_IMGPROC if LINGMO_PACKAGE_OPENCV3
+	select LINGMO_PACKAGE_OPENCV3_LIB_OBJDETECT if LINGMO_PACKAGE_OPENCV3
+	select LINGMO_PACKAGE_OPENSSL
+	select LINGMO_PACKAGE_PCRE
+	select LINGMO_PACKAGE_SOFIA_SIP
+	select LINGMO_PACKAGE_SPANDSP
+	select LINGMO_PACKAGE_SPEEX
+	select LINGMO_PACKAGE_SPEEXDSP
+	select LINGMO_PACKAGE_SQLITE
+	select LINGMO_PACKAGE_TIFF
+	select LINGMO_PACKAGE_UTIL_LINUX
+	select LINGMO_PACKAGE_UTIL_LINUX_LIBUUID
+	select LINGMO_PACKAGE_ZLIB
 	help
 	  FreeSWITCH is a scalable open source cross-platform
 	  telephony platform designed to route and interconnect
@@ -33,6 +33,6 @@ config BR2_PACKAGE_FREESWITCH
 	  https://www.freeswitch.org
 
 comment "freeswitch needs a toolchain w/ C++, dynamic library, threads, wchar"
-	depends on BR2_USE_MMU
-	depends on !BR2_INSTALL_LIBSTDCPP || BR2_STATIC_LIBS \
-		|| !BR2_TOOLCHAIN_HAS_THREADS || !BR2_USE_WCHAR
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_INSTALL_LIBSTDCPP || LINGMO_STATIC_LIBS \
+		|| !LINGMO_TOOLCHAIN_HAS_THREADS || !LINGMO_USE_WCHAR

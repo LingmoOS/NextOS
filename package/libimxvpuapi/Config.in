@@ -1,12 +1,12 @@
 comment "libimxvpuapi needs an i.MX platform with VPU support"
-	depends on BR2_arm
-	depends on !BR2_PACKAGE_FREESCALE_IMX_HAS_VPU
+	depends on LINGMO_arm
+	depends on !LINGMO_PACKAGE_FREESCALE_IMX_HAS_VPU
 
-config BR2_PACKAGE_LIBIMXVPUAPI
+config LINGMO_PACKAGE_LIBIMXVPUAPI
 	bool "libimxvpuapi"
-	depends on BR2_arm # Only relevant for i.MX
-	depends on BR2_PACKAGE_FREESCALE_IMX_HAS_VPU
-	select BR2_PACKAGE_IMX_VPU
+	depends on LINGMO_arm # Only relevant for i.MX
+	depends on LINGMO_PACKAGE_FREESCALE_IMX_HAS_VPU
+	select LINGMO_PACKAGE_IMX_VPU
 	help
 	  This library provides an API for using the iMX6 VPU video
 	  engine. It is an alternative to Freescale's VPU

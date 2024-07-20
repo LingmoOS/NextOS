@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_CBOR2
+config LINGMO_PACKAGE_PYTHON_CBOR2
 	bool "python-cbor2"
 	help
 	  Pure Python CBOR (de)serializer with extensive tag support.

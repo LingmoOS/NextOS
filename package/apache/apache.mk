@@ -23,11 +23,11 @@ APACHE_CONF_ENV= \
 	ap_cv_void_ptr_lt_long=no \
 	PCRE_CONFIG=$(STAGING_DIR)/usr/bin/pcre2-config
 
-ifeq ($(BR2_PACKAGE_APACHE_MPM_EVENT),y)
+ifeq ($(LINGMO_PACKAGE_APACHE_MPM_EVENT),y)
 APACHE_MPM = event
-else ifeq ($(BR2_PACKAGE_APACHE_MPM_PREFORK),y)
+else ifeq ($(LINGMO_PACKAGE_APACHE_MPM_PREFORK),y)
 APACHE_MPM = prefork
-else ifeq ($(BR2_PACKAGE_APACHE_MPM_WORKER),y)
+else ifeq ($(LINGMO_PACKAGE_APACHE_MPM_WORKER),y)
 APACHE_MPM = worker
 endif
 
@@ -45,14 +45,14 @@ APACHE_CONF_OPTS = \
 	--with-mpm=$(APACHE_MPM) \
 	--disable-luajit
 
-ifeq ($(BR2_PACKAGE_BROTLI),y)
+ifeq ($(LINGMO_PACKAGE_BROTLI),y)
 APACHE_CONF_OPTS += --enable-brotli
 APACHE_DEPENDENCIES += brotli
 else
 APACHE_CONF_OPTS += --disable-brotli
 endif
 
-ifeq ($(BR2_PACKAGE_LIBXML2),y)
+ifeq ($(LINGMO_PACKAGE_LIBXML2),y)
 APACHE_DEPENDENCIES += libxml2
 # Apache wants the path to the header file, where it can find
 # <libxml/parser.h>.
@@ -66,14 +66,14 @@ APACHE_CONF_OPTS += \
 	--disable-proxy-html
 endif
 
-ifeq ($(BR2_PACKAGE_LUA),y)
+ifeq ($(LINGMO_PACKAGE_LUA),y)
 APACHE_CONF_OPTS += --enable-lua
 APACHE_DEPENDENCIES += lua
 else
 APACHE_CONF_OPTS += --disable-lua
 endif
 
-ifeq ($(BR2_PACKAGE_NGHTTP2),y)
+ifeq ($(LINGMO_PACKAGE_NGHTTP2),y)
 APACHE_CONF_OPTS += \
 	--enable-http2 \
 	--with-nghttp2=$(STAGING_DIR)/usr
@@ -82,7 +82,7 @@ else
 APACHE_CONF_OPTS += --disable-http2
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 APACHE_DEPENDENCIES += openssl
 APACHE_CONF_OPTS += \
 	--enable-ssl \
@@ -91,7 +91,7 @@ else
 APACHE_CONF_OPTS += --disable-ssl
 endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 APACHE_DEPENDENCIES += zlib
 APACHE_CONF_OPTS += \
 	--enable-deflate \

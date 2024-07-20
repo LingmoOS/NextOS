@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_AIOSQLITE
+config LINGMO_PACKAGE_PYTHON_AIOSQLITE
 	bool "python-aiosqlite"
-	select BR2_PACKAGE_PYTHON3_SQLITE # runtime
+	select LINGMO_PACKAGE_PYTHON3_SQLITE # runtime
 	help
 	  aiosqlite provides a friendly, async interface to sqlite
 	  databases.

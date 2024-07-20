@@ -12,14 +12,14 @@ OPEN_ISNS_INSTALL_STAGING = YES
 
 OPEN_ISNS_CONF_OPTS = -Dslp=disabled
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 OPEN_ISNS_DEPENDENCIES += openssl
 OPEN_ISNS_CONF_OPTS += -Dsecurity=enabled
 else
 OPEN_ISNS_CONF_OPTS += -Dsecurity=disabled
 endif
 
-ifeq ($(BR2_INIT_SYSTEMD),)
+ifeq ($(LINGMO_INIT_SYSTEMD),)
 define OPEN_ISNS_REMOVE_SYSTEMD_UNITS
 	rm $(TARGET_DIR)/usr/lib/systemd/system/isnsd.service
 	rm $(TARGET_DIR)/usr/lib/systemd/system/isnsd.socket

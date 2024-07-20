@@ -1,4 +1,4 @@
-config BR2_PACKAGE_JASPER
+config LINGMO_PACKAGE_JASPER
 	bool "jasper"
 	help
 	  JPEG-2000 decoder

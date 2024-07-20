@@ -1,6 +1,6 @@
-config BR2_PACKAGE_QT6CORE5COMPAT
+config LINGMO_PACKAGE_QT6CORE5COMPAT
 	bool "qt6core5compat"
-	select BR2_PACKAGE_QT6BASE_XML
+	select LINGMO_PACKAGE_QT6BASE_XML
 	help
 	  Qt is a cross-platform application and UI framework for
 	  developers using C++.

@@ -1,7 +1,7 @@
-config BR2_PACKAGE_LIBWEBSOCK
+config LINGMO_PACKAGE_LIBWEBSOCK
 	bool "libwebsock"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	select BR2_PACKAGE_LIBEVENT
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	select LINGMO_PACKAGE_LIBEVENT
 	help
 	  C library for easy WebSockets servers.
 
@@ -13,4 +13,4 @@ config BR2_PACKAGE_LIBWEBSOCK
 	  https://github.com/payden/libwebsock
 
 comment "libwebsock needs a toolchain w/ threads"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS

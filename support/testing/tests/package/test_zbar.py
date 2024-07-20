@@ -6,12 +6,12 @@ import infra.basetest
 class TestZbar(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_PACKAGE_IMAGEMAGICK=y
-        BR2_PACKAGE_LIBQRENCODE=y
-        BR2_PACKAGE_LIBQRENCODE_TOOLS=y
-        BR2_PACKAGE_ZBAR=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_IMAGEMAGICK=y
+        LINGMO_PACKAGE_LIBQRENCODE=y
+        LINGMO_PACKAGE_LIBQRENCODE_TOOLS=y
+        LINGMO_PACKAGE_ZBAR=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):

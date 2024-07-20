@@ -12,7 +12,7 @@ IOZONE_LICENSE = IOzone license (NO DERIVED WORKS ALLOWED)
 # http://www.iozone.org/docs/Iozone_License.txt
 
 # AIO support not available on uClibc, use the linux (non-aio) target.
-ifeq ($(BR2_TOOLCHAIN_USES_UCLIBC),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_UCLIBC),y)
 IOZONE_TARGET = linux-noaio
 else
 IOZONE_TARGET = linux

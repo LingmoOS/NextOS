@@ -1,6 +1,6 @@
-config BR2_PACKAGE_DDRESCUE
+config LINGMO_PACKAGE_DDRESCUE
 	bool "ddrescue"
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	help
 	  GNU ddrescue is a data recovery tool. It copies data from one
 	  file or block device (hard disc, cdrom, etc) to another,
@@ -9,4 +9,4 @@ config BR2_PACKAGE_DDRESCUE
 	  http://www.gnu.org/software/ddrescue/ddrescue.html
 
 comment "ddrescue needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP

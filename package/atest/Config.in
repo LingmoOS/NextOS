@@ -1,8 +1,8 @@
-config BR2_PACKAGE_ATEST
+config LINGMO_PACKAGE_ATEST
 	bool "atest"
-	depends on BR2_TOOLCHAIN_HAS_THREADS # alsa-lib
-	select BR2_PACKAGE_ALSA_LIB
-	select BR2_PACKAGE_LIBEV
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # alsa-lib
+	select LINGMO_PACKAGE_ALSA_LIB
+	select LINGMO_PACKAGE_LIBEV
 	help
 	  atest is a test software for checking ALSA Asoc drivers
 	  concerning the proper frame generation and capture.
@@ -10,4 +10,4 @@ config BR2_PACKAGE_ATEST
 	  https://github.com/amouiche/atest
 
 comment "atest needs a toolchain w/ threads"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS

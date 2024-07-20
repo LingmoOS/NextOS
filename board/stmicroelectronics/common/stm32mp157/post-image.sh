@@ -2,13 +2,13 @@
 
 #
 # atf_image extracts the ATF binary image from DTB_FILE_NAME that appears in
-# BR2_TARGET_ARM_TRUSTED_FIRMWARE_ADDITIONAL_VARIABLES in ${BR_CONFIG},
+# LINGMO_TARGET_ARM_TRUSTED_FIRMWARE_ADDITIONAL_VARIABLES in ${BR_CONFIG},
 # then prints the corresponding file name for the genimage
 # configuration file
 #
 atf_image()
 {
-	ATF_VARIABLES="$(sed -n 's/^BR2_TARGET_ARM_TRUSTED_FIRMWARE_ADDITIONAL_VARIABLES="\([^\"]*\)"$/\1/p' ${BR2_CONFIG})"
+	ATF_VARIABLES="$(sed -n 's/^LINGMO_TARGET_ARM_TRUSTED_FIRMWARE_ADDITIONAL_VARIABLES="\([^\"]*\)"$/\1/p' ${LINGMO_CONFIG})"
 	# make sure DTB_FILE_NAME is set
 	printf '%s\n' "${ATF_VARIABLES}" | grep -Eq 'DTB_FILE_NAME=[0-9A-Za-z_\-]*'
 	# extract the value

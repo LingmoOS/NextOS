@@ -86,9 +86,9 @@ the generic infrastructure also exist in the LuaRocks infrastructure:
 
 Two of them are populated by the LuaRocks infrastructure (for the
 +download+ step). If your package is not hosted on the LuaRocks mirror
-+$(BR2_LUAROCKS_MIRROR)+, you can override them:
++$(LINGMO_LUAROCKS_MIRROR)+, you can override them:
 
-* +LUA_FOO_SITE+, which defaults to +$(BR2_LUAROCKS_MIRROR)+
+* +LUA_FOO_SITE+, which defaults to +$(LINGMO_LUAROCKS_MIRROR)+
 
 * +LUA_FOO_SOURCE+, which defaults to
   +$(lowercase LUA_FOO_NAME_UPSTREAM)-$(LUA_FOO_VERSION).src.rock+

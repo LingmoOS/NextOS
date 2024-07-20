@@ -1,10 +1,10 @@
-config BR2_PACKAGE_BAT
+config LINGMO_PACKAGE_BAT
 	bool "bat"
-	depends on BR2_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
-	select BR2_PACKAGE_HOST_RUSTC
+	depends on LINGMO_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
+	select LINGMO_PACKAGE_HOST_RUSTC
 	# we need a full version of less
-	select BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
-	select BR2_PACKAGE_LESS
+	select LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS
+	select LINGMO_PACKAGE_LESS
 	help
 	  A cat(1) clone with syntax highlighting and Git integration.
 

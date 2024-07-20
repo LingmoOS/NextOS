@@ -10,14 +10,14 @@ JOE_LICENSE = GPL-2.0+
 JOE_LICENSE_FILES = COPYING
 JOE_CPE_ID_VENDOR = joseph_allen
 
-ifeq ($(BR2_PACKAGE_NCURSES),y)
+ifeq ($(LINGMO_PACKAGE_NCURSES),y)
 JOE_DEPENDENCIES += ncurses
 JOE_CONF_OPTS += --enable-curses
 else
 JOE_CONF_OPTS += --disable-curses
 endif
 
-ifneq ($(BR2_PACKAGE_JOE_FULL),y)
+ifneq ($(LINGMO_PACKAGE_JOE_FULL),y)
 define JOE_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 0755 -D $(@D)/joe/joe $(TARGET_DIR)/usr/bin/joe
 endef

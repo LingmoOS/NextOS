@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PASSLIB
+config LINGMO_PACKAGE_PYTHON_PASSLIB
 	bool "python-passlib"
 	help
 	  comprehensive password hashing framework supporting over 30

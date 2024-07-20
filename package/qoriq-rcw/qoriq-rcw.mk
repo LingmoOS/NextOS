@@ -9,10 +9,10 @@ QORIQ_RCW_SITE = $(call github,nxp-qoriq,rcw,$(QORIQ_RCW_VERSION))
 QORIQ_RCW_LICENSE = BSD-3-Clause
 QORIQ_RCW_LICENSE_FILES = LICENSE
 
-HOST_QORIQ_RCW_DEPENDENCIES = $(BR2_PYTHON3_HOST_DEPENDENCY)
+HOST_QORIQ_RCW_DEPENDENCIES = $(LINGMO_PYTHON3_HOST_DEPENDENCY)
 
-QORIQ_RCW_FILES = $(call qstrip,$(BR2_PACKAGE_HOST_QORIQ_RCW_CUSTOM_PATH))
-QORIQ_RCW_INTREE = $(call qstrip,$(BR2_PACKAGE_HOST_QORIQ_RCW_INTREE))
+QORIQ_RCW_FILES = $(call qstrip,$(LINGMO_PACKAGE_HOST_QORIQ_RCW_CUSTOM_PATH))
+QORIQ_RCW_INTREE = $(call qstrip,$(LINGMO_PACKAGE_HOST_QORIQ_RCW_INTREE))
 
 ifneq ($(QORIQ_RCW_FILES),)
 
@@ -23,7 +23,7 @@ QORIQ_RCW_PROJECT = $(notdir $(filter %.rcw,$(QORIQ_RCW_FILES)))
 # Error if there are no or more than one .rcw file
 ifeq ($(BR_BUILDING),y)
 ifneq ($(words $(QORIQ_RCW_PROJECT)),1)
-$(error BR2_PACKAGE_HOST_QORIQ_RCW_CUSTOM_PATH must have exactly one .rcw file)
+$(error LINGMO_PACKAGE_HOST_QORIQ_RCW_CUSTOM_PATH must have exactly one .rcw file)
 endif
 endif
 

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_ED
+config LINGMO_PACKAGE_ED
 	bool "ed"
 	help
 	  A line-oriented text editor. Used to create, display, modify,

@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_MBSTRDECODER
+config LINGMO_PACKAGE_PYTHON_MBSTRDECODER
 	bool "python-mbstrdecoder"
-	select BR2_PACKAGE_PYTHON_CHARDET # runtime
+	select LINGMO_PACKAGE_PYTHON_CHARDET # runtime
 	help
 	  multi-byte character string decoder.
 

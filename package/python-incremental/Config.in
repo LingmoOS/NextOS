@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_INCREMENTAL
+config LINGMO_PACKAGE_PYTHON_INCREMENTAL
 	bool "python-incremental"
 	help
 	  A library for versioning your Python projects.

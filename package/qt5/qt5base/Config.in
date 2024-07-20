@@ -1,9 +1,9 @@
-config BR2_PACKAGE_QT5BASE
+config LINGMO_PACKAGE_QT5BASE
 	bool "qt5base"
-	select BR2_PACKAGE_ZLIB
-	select BR2_PACKAGE_PCRE2
-	select BR2_PACKAGE_PCRE2_16
-	select BR2_PACKAGE_LIBOPENSSL_ENABLE_PSK if BR2_PACKAGE_LIBOPENSSL
+	select LINGMO_PACKAGE_ZLIB
+	select LINGMO_PACKAGE_PCRE2
+	select LINGMO_PACKAGE_PCRE2_16
+	select LINGMO_PACKAGE_LIBOPENSSL_ENABLE_PSK if LINGMO_PACKAGE_LIBOPENSSL
 	help
 	  Qt is a cross-platform application and UI framework for
 	  developers using C++.
@@ -14,9 +14,9 @@ config BR2_PACKAGE_QT5BASE
 
 	  https://qt.io
 
-if BR2_PACKAGE_QT5BASE
+if LINGMO_PACKAGE_QT5BASE
 
-config BR2_PACKAGE_QT5BASE_CUSTOM_CONF_OPTS
+config LINGMO_PACKAGE_QT5BASE_CUSTOM_CONF_OPTS
 	string "Custom configuration options"
 	help
 	  Define custom qt5 configuration options which can be used to
@@ -27,7 +27,7 @@ config BR2_PACKAGE_QT5BASE_CUSTOM_CONF_OPTS
 	  E.g. to remove the Windows Vista style option, add the option
 	  -no-feature-style_windowsvista.
 
-config BR2_PACKAGE_QT5BASE_CONFIG_FILE
+config LINGMO_PACKAGE_QT5BASE_CONFIG_FILE
 	string "Config file"
 	help
 	  Configure options allow to set which modules are being
@@ -40,73 +40,73 @@ config BR2_PACKAGE_QT5BASE_CONFIG_FILE
 	  This option allows to set the path of such a configuration
 	  file, which Buildroot will give to Qt at compile time.
 
-config BR2_PACKAGE_QT5BASE_EXAMPLES
+config LINGMO_PACKAGE_QT5BASE_EXAMPLES
 	bool "Compile and install examples (with code)"
-	select BR2_PACKAGE_QT5BASE_NETWORK
-	select BR2_PACKAGE_QT5BASE_XML
+	select LINGMO_PACKAGE_QT5BASE_NETWORK
+	select LINGMO_PACKAGE_QT5BASE_XML
 	help
 	  If unsure, say N.
 
-config BR2_PACKAGE_QT5BASE_NETWORK
+config LINGMO_PACKAGE_QT5BASE_NETWORK
 	def_bool y
 
-config BR2_PACKAGE_QT5BASE_CONCURRENT
+config LINGMO_PACKAGE_QT5BASE_CONCURRENT
 	bool "concurrent module"
 	help
 	  This options enables the Qt5Concurrent library.
 
-config BR2_PACKAGE_QT5BASE_SQL
+config LINGMO_PACKAGE_QT5BASE_SQL
 	def_bool y
 
-if BR2_PACKAGE_QT5BASE_SQL
-config BR2_PACKAGE_QT5BASE_MYSQL
+if LINGMO_PACKAGE_QT5BASE_SQL
+config LINGMO_PACKAGE_QT5BASE_MYSQL
 	bool "MySQL Plugin"
-	depends on BR2_USE_MMU # mysql
-	select BR2_PACKAGE_MARIADB
-	select BR2_PACKAGE_NCURSES
-	select BR2_PACKAGE_READLINE
+	depends on LINGMO_USE_MMU # mysql
+	select LINGMO_PACKAGE_MARIADB
+	select LINGMO_PACKAGE_NCURSES
+	select LINGMO_PACKAGE_READLINE
 	help
 	  Build MySQL plugin
 	  If unsure, say n.
 
-config BR2_PACKAGE_QT5BASE_PSQL
+config LINGMO_PACKAGE_QT5BASE_PSQL
 	bool "PostgreSQL Plugin"
-	depends on BR2_USE_MMU # postgresql
-	depends on !BR2_STATIC_LIBS
-	depends on BR2_USE_WCHAR # postgresql
-	depends on !BR2_OPTIMIZE_FAST # postgresql
-	select BR2_PACKAGE_POSTGRESQL
+	depends on LINGMO_USE_MMU # postgresql
+	depends on !LINGMO_STATIC_LIBS
+	depends on LINGMO_USE_WCHAR # postgresql
+	depends on !LINGMO_OPTIMIZE_FAST # postgresql
+	select LINGMO_PACKAGE_POSTGRESQL
 	help
 	  Build PostgreSQL plugin
 	  If unsure, say n.
 
 comment "PostgreSQL plugin needs a toolchain w/ wchar, dynamic library"
-	depends on BR2_USE_MMU
-	depends on BR2_STATIC_LIBS || !BR2_USE_WCHAR
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_STATIC_LIBS || !LINGMO_USE_WCHAR
 
 comment "PostgreSQL plugin can't be built with Optimize for fast"
-	depends on BR2_OPTIMIZE_FAST
+	depends on LINGMO_OPTIMIZE_FAST
 
 choice
 	prompt "SQLite 3 support"
-	default BR2_PACKAGE_QT5BASE_SQLITE_NONE
+	default LINGMO_PACKAGE_QT5BASE_SQLITE_NONE
 	help
 	  Select SQLite support.
 
-config BR2_PACKAGE_QT5BASE_SQLITE_NONE
+config LINGMO_PACKAGE_QT5BASE_SQLITE_NONE
 	bool "No sqlite support"
 	help
 	  Do not compile any kind of SQLite support.
 
-config BR2_PACKAGE_QT5BASE_SQLITE_QT
+config LINGMO_PACKAGE_QT5BASE_SQLITE_QT
 	bool "Qt SQLite"
 	help
 	  Use Qt bundled SQLite support.
 
-config BR2_PACKAGE_QT5BASE_SQLITE_SYSTEM
+config LINGMO_PACKAGE_QT5BASE_SQLITE_SYSTEM
 	bool "System SQLite"
-	select BR2_PACKAGE_SQLITE
-	select BR2_PACKAGE_SQLITE_ENABLE_COLUMN_METADATA
+	select LINGMO_PACKAGE_SQLITE
+	select LINGMO_PACKAGE_SQLITE_ENABLE_COLUMN_METADATA
 	help
 	  Use system SQLite.
 
@@ -114,65 +114,65 @@ endchoice
 
 endif
 
-config BR2_PACKAGE_QT5BASE_TEST
+config LINGMO_PACKAGE_QT5BASE_TEST
 	def_bool y
 
-config BR2_PACKAGE_QT5BASE_XML
+config LINGMO_PACKAGE_QT5BASE_XML
 	def_bool y
 
-config BR2_PACKAGE_QT5BASE_GUI
+config LINGMO_PACKAGE_QT5BASE_GUI
 	bool "gui module"
-	select BR2_PACKAGE_FREETYPE
+	select LINGMO_PACKAGE_FREETYPE
 	# At least one graphic backend must be enabled, so enable
 	# linuxfb if nothing is enabled.
-	select BR2_PACKAGE_QT5BASE_LINUXFB if \
-	       !BR2_PACKAGE_QT5BASE_DIRECTFB && \
-	       !BR2_PACKAGE_QT5BASE_XCB && \
-	       !BR2_PACKAGE_QT5BASE_EGLFS
+	select LINGMO_PACKAGE_QT5BASE_LINUXFB if \
+	       !LINGMO_PACKAGE_QT5BASE_DIRECTFB && \
+	       !LINGMO_PACKAGE_QT5BASE_XCB && \
+	       !LINGMO_PACKAGE_QT5BASE_EGLFS
 	help
 	  This option enables the Qt5Gui library.
 
-if BR2_PACKAGE_QT5BASE_GUI
+if LINGMO_PACKAGE_QT5BASE_GUI
 
-config BR2_PACKAGE_QT5BASE_WIDGETS
+config LINGMO_PACKAGE_QT5BASE_WIDGETS
 	bool "widgets module"
-	select BR2_PACKAGE_XLIB_LIBXEXT if BR2_PACKAGE_QT5BASE_XCB
+	select LINGMO_PACKAGE_XLIB_LIBXEXT if LINGMO_PACKAGE_QT5BASE_XCB
 	help
 	  This option enables the Qt5Widgets library.
 
 comment "OpenGL support needs an OpenGL-capable backend"
-	depends on !BR2_PACKAGE_QT5_GL_AVAILABLE
+	depends on !LINGMO_PACKAGE_QT5_GL_AVAILABLE
 
-config BR2_PACKAGE_QT5BASE_OPENGL
+config LINGMO_PACKAGE_QT5BASE_OPENGL
 	bool "OpenGL support"
-	depends on BR2_PACKAGE_QT5_GL_AVAILABLE
+	depends on LINGMO_PACKAGE_QT5_GL_AVAILABLE
 	help
 	  This option enables OpenGL support.
 
-if BR2_PACKAGE_QT5BASE_OPENGL
+if LINGMO_PACKAGE_QT5BASE_OPENGL
 
 choice
 	prompt "OpenGL API"
 	help
 	  Select OpenGL API.
 
-config BR2_PACKAGE_QT5BASE_OPENGL_DESKTOP
+config LINGMO_PACKAGE_QT5BASE_OPENGL_DESKTOP
 	bool "Desktop OpenGL"
-	depends on BR2_PACKAGE_HAS_LIBGL
+	depends on LINGMO_PACKAGE_HAS_LIBGL
 	help
 	  Use desktop OpenGL.
 
-config BR2_PACKAGE_QT5BASE_OPENGL_ES2
+config LINGMO_PACKAGE_QT5BASE_OPENGL_ES2
 	bool "OpenGL ES 2.0+"
-	depends on BR2_PACKAGE_HAS_LIBGLES
+	depends on LINGMO_PACKAGE_HAS_LIBGLES
 	help
 	  Use OpenGL ES 2.0 and later versions.
 
 endchoice
 
-config BR2_PACKAGE_QT5BASE_OPENGL_LIB
+config LINGMO_PACKAGE_QT5BASE_OPENGL_LIB
 	bool "opengl module"
-	select BR2_PACKAGE_QT5BASE_WIDGETS
+	select LINGMO_PACKAGE_QT5BASE_WIDGETS
 	help
 	  This option enables the Qt5OpenGL library. This library
 	  includes OpenGL support classes provided to ease porting
@@ -180,50 +180,50 @@ config BR2_PACKAGE_QT5BASE_OPENGL_LIB
 
 endif
 
-config BR2_PACKAGE_QT5BASE_VULKAN
+config LINGMO_PACKAGE_QT5BASE_VULKAN
 	bool "Vulkan support"
-	depends on BR2_INSTALL_LIBSTDCPP # vulkan-loader
-	depends on !BR2_STATIC_LIBS # vulkan-loader
-	depends on BR2_TOOLCHAIN_HAS_THREADS # vulkan-loader
-	select BR2_PACKAGE_VULKAN_HEADERS
-	select BR2_PACKAGE_VULKAN_LOADER
+	depends on LINGMO_INSTALL_LIBSTDCPP # vulkan-loader
+	depends on !LINGMO_STATIC_LIBS # vulkan-loader
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # vulkan-loader
+	select LINGMO_PACKAGE_VULKAN_HEADERS
+	select LINGMO_PACKAGE_VULKAN_LOADER
 	help
 	  This option enables Vulkan support.
 
-config BR2_PACKAGE_QT5BASE_LINUXFB
+config LINGMO_PACKAGE_QT5BASE_LINUXFB
 	bool "linuxfb support"
 
-config BR2_PACKAGE_QT5BASE_DIRECTFB
+config LINGMO_PACKAGE_QT5BASE_DIRECTFB
 	bool "directfb support"
-	depends on BR2_PACKAGE_DIRECTFB
+	depends on LINGMO_PACKAGE_DIRECTFB
 
 comment "directfb backend available if directfb is enabled"
-	depends on !BR2_PACKAGE_DIRECTFB
+	depends on !LINGMO_PACKAGE_DIRECTFB
 
-config BR2_PACKAGE_QT5BASE_XCB
+config LINGMO_PACKAGE_QT5BASE_XCB
 	bool "X.org XCB support"
-	depends on BR2_PACKAGE_XORG7
-	select BR2_PACKAGE_XLIB_LIBX11
-	select BR2_PACKAGE_LIBXCB
-	select BR2_PACKAGE_XCB_UTIL_IMAGE
-	select BR2_PACKAGE_XCB_UTIL_KEYSYMS
-	select BR2_PACKAGE_XCB_UTIL_RENDERUTIL
-	select BR2_PACKAGE_XCB_UTIL_WM
-	select BR2_PACKAGE_LIBXKBCOMMON
+	depends on LINGMO_PACKAGE_XORG7
+	select LINGMO_PACKAGE_XLIB_LIBX11
+	select LINGMO_PACKAGE_LIBXCB
+	select LINGMO_PACKAGE_XCB_UTIL_IMAGE
+	select LINGMO_PACKAGE_XCB_UTIL_KEYSYMS
+	select LINGMO_PACKAGE_XCB_UTIL_RENDERUTIL
+	select LINGMO_PACKAGE_XCB_UTIL_WM
+	select LINGMO_PACKAGE_LIBXKBCOMMON
 
 comment "X.org XCB backend available if X.org is enabled"
-	depends on !BR2_PACKAGE_XORG7
+	depends on !LINGMO_PACKAGE_XORG7
 
-config BR2_PACKAGE_QT5BASE_EGLFS
+config LINGMO_PACKAGE_QT5BASE_EGLFS
 	bool "eglfs support"
-	depends on BR2_PACKAGE_HAS_LIBEGL
-	depends on BR2_PACKAGE_QT5_GL_AVAILABLE
-	select BR2_PACKAGE_QT5BASE_OPENGL
+	depends on LINGMO_PACKAGE_HAS_LIBEGL
+	depends on LINGMO_PACKAGE_QT5_GL_AVAILABLE
+	select LINGMO_PACKAGE_QT5BASE_OPENGL
 
 comment "eglfs backend available if OpenGL and EGL are enabled"
-	depends on !BR2_PACKAGE_HAS_LIBEGL || !BR2_PACKAGE_QT5_GL_AVAILABLE
+	depends on !LINGMO_PACKAGE_HAS_LIBEGL || !LINGMO_PACKAGE_QT5_GL_AVAILABLE
 
-config BR2_PACKAGE_QT5BASE_DEFAULT_QPA
+config LINGMO_PACKAGE_QT5BASE_DEFAULT_QPA
 	string "Default graphical platform"
 	help
 	  Choose the default platform abstraction to use for graphical
@@ -236,79 +236,79 @@ config BR2_PACKAGE_QT5BASE_DEFAULT_QPA
 	  target. You can choose a different platform at runtime with
 	  the -platform option.
 
-config BR2_PACKAGE_QT5BASE_PRINTSUPPORT
-	depends on BR2_PACKAGE_QT5BASE_WIDGETS
+config LINGMO_PACKAGE_QT5BASE_PRINTSUPPORT
+	depends on LINGMO_PACKAGE_QT5BASE_WIDGETS
 	def_bool y
 
-config BR2_PACKAGE_QT5BASE_FONTCONFIG
+config LINGMO_PACKAGE_QT5BASE_FONTCONFIG
 	bool "fontconfig support"
-	select BR2_PACKAGE_FONTCONFIG
+	select LINGMO_PACKAGE_FONTCONFIG
 	help
 	  This option enables Fontconfig and Freetype support using
 	  the system fontconfig and freetype2 libraries.
 
-config BR2_PACKAGE_QT5BASE_HARFBUZZ
+config LINGMO_PACKAGE_QT5BASE_HARFBUZZ
 	bool "harfbuzz support"
-	select BR2_PACKAGE_HARFBUZZ if \
-		BR2_TOOLCHAIN_HAS_SYNC_4 && \
-		BR2_TOOLCHAIN_GCC_AT_LEAST_4_9
+	select LINGMO_PACKAGE_HARFBUZZ if \
+		LINGMO_TOOLCHAIN_HAS_SYNC_4 && \
+		LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9
 	help
 	  This option enables HarfBuzz support (either system harfbuzz
 	  if the toolchain supports __sync for 4 bytes, or the qt
 	  provided one which avoids this dependency by using QAtomic).
 
-config BR2_PACKAGE_QT5BASE_GIF
+config LINGMO_PACKAGE_QT5BASE_GIF
 	bool "GIF support"
 	help
 	  This compiles and installs the plugin for GIF reading support.
 
-config BR2_PACKAGE_QT5BASE_JPEG
+config LINGMO_PACKAGE_QT5BASE_JPEG
 	bool "JPEG support"
-	select BR2_PACKAGE_JPEG
+	select LINGMO_PACKAGE_JPEG
 	help
 	  This option enables JPEG support using the system libjpeg
 	  library.
 
-config BR2_PACKAGE_QT5BASE_PNG
+config LINGMO_PACKAGE_QT5BASE_PNG
 	bool "PNG support"
-	select BR2_PACKAGE_LIBPNG
+	select LINGMO_PACKAGE_LIBPNG
 	help
 	  This option enables PNG support using the system libpng
 	  library.
 
 endif
 
-config BR2_PACKAGE_QT5BASE_SYSLOG
+config LINGMO_PACKAGE_QT5BASE_SYSLOG
 	bool "syslog support"
 	help
 	  Logs to the standard UNIX logging mechanism.
 
-config BR2_PACKAGE_QT5BASE_DBUS
+config LINGMO_PACKAGE_QT5BASE_DBUS
 	bool "DBus module"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_USE_MMU
-	select BR2_PACKAGE_DBUS
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU
+	select LINGMO_PACKAGE_DBUS
 	help
 	  This option enables the D-Bus module.
 
-config BR2_PACKAGE_QT5BASE_ICU
+config LINGMO_PACKAGE_QT5BASE_ICU
 	bool "Enable ICU support"
-	depends on !BR2_BINFMT_FLAT # icu
-	depends on BR2_HOST_GCC_AT_LEAST_4_9 # icu
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_9 # icu
-	select BR2_PACKAGE_ICU
+	depends on !LINGMO_BINFMT_FLAT # icu
+	depends on LINGMO_HOST_GCC_AT_LEAST_4_9 # icu
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9 # icu
+	select LINGMO_PACKAGE_ICU
 	help
 	  This option enables ICU support in Qt5. This is for example
 	  needed for Qt5Webkit.
 
 comment "icu support needs a toolchain w/ gcc >= 4.9, host gcc >= 4.9"
-	depends on !BR2_BINFMT_FLAT
-	depends on !BR2_TOOLCHAIN_GCC_AT_LEAST_4_9 || \
-		!BR2_HOST_GCC_AT_LEAST_4_9
+	depends on !LINGMO_BINFMT_FLAT
+	depends on !LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9 || \
+		!LINGMO_HOST_GCC_AT_LEAST_4_9
 
-config BR2_PACKAGE_QT5BASE_TSLIB
+config LINGMO_PACKAGE_QT5BASE_TSLIB
 	bool "Enable Tslib support"
-	select BR2_PACKAGE_TSLIB
+	select LINGMO_PACKAGE_TSLIB
 	help
 	  This options enables the Tslib plugin
 

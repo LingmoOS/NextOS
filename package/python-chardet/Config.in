@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_CHARDET
+config LINGMO_PACKAGE_PYTHON_CHARDET
 	bool "python-chardet"
 	help
 	  Universal encoding detector for Python 3.

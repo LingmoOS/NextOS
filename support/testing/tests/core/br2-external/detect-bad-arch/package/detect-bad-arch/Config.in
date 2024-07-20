@@ -1,4 +1,4 @@
-config BR2_PACKAGE_DETECT_BAD_ARCH
+config LINGMO_PACKAGE_DETECT_BAD_ARCH
 	bool
 	default y
 

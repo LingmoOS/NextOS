@@ -5,10 +5,10 @@ import infra.basetest
 class TestRuby(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
-        BR2_PACKAGE_RUBY=y
-        BR2_PACKAGE_ZLIB=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_RUBY=y
+        LINGMO_PACKAGE_ZLIB=y
         """
 
     def version_test(self):

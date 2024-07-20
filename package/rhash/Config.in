@@ -1,6 +1,6 @@
-config BR2_PACKAGE_RHASH
+config LINGMO_PACKAGE_RHASH
 	bool "rhash"
-	select BR2_PACKAGE_LIBOPENSSL_ENABLE_RMD160 if BR2_PACKAGE_LIBOPENSSL
+	select LINGMO_PACKAGE_LIBOPENSSL_ENABLE_RMD160 if LINGMO_PACKAGE_LIBOPENSSL
 	help
 	  LibRHash is a professional, portable, thread-safe C library
 	  for computing a wide variety of hash sums, such as CRC32,
@@ -10,15 +10,15 @@ config BR2_PACKAGE_RHASH
 
 	  https://github.com/rhash/RHash
 
-if BR2_PACKAGE_RHASH
+if LINGMO_PACKAGE_RHASH
 
-config BR2_PACKAGE_RHASH_BIN
+config LINGMO_PACKAGE_RHASH_BIN
 	bool "rhash binary"
-	depends on !BR2_STATIC_LIBS
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  Install rhash console utility
 
 comment "rhash binary needs a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_STATIC_LIBS
 
 endif

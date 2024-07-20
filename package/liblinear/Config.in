@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBLINEAR
+config LINGMO_PACKAGE_LIBLINEAR
 	bool "liblinear"
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	help
 	  liblinear is a linear classifier for data with millions of
 	  instances and features.
@@ -8,4 +8,4 @@ config BR2_PACKAGE_LIBLINEAR
 	  http://www.csie.ntu.edu.tw/~cjlin/liblinear/
 
 comment "liblinear needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP

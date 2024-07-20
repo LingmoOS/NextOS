@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_MAGIC_WORMHOLE_TRANSIT_RELAY
+config LINGMO_PACKAGE_PYTHON_MAGIC_WORMHOLE_TRANSIT_RELAY
 	bool "python-magic-wormhole-transit-relay"
-	select BR2_PACKAGE_PYTHON_TWISTED # runtime
+	select LINGMO_PACKAGE_PYTHON_TWISTED # runtime
 	help
 	  Transit Relay server for Magic-Wormhole.
 

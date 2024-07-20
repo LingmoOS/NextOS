@@ -10,44 +10,44 @@ AIRCRACK_NG_LICENSE = GPL-2.0+
 AIRCRACK_NG_LICENSE_FILES = LICENSE
 AIRCRACK_NG_CPE_ID_VENDOR = aircrack-ng
 AIRCRACK_NG_DEPENDENCIES = \
-	$(if $(BR2_PACKAGE_CMOCKA),cmocka) \
-	$(if $(BR2_PACKAGE_LIBNL),libnl) \
-	$(if $(BR2_PACKAGE_OPENSSL),openssl) \
-	$(if $(BR2_PACKAGE_PCRE),pcre) \
-	$(if $(BR2_PACKAGE_ZLIB),zlib) \
+	$(if $(LINGMO_PACKAGE_CMOCKA),cmocka) \
+	$(if $(LINGMO_PACKAGE_LIBNL),libnl) \
+	$(if $(LINGMO_PACKAGE_OPENSSL),openssl) \
+	$(if $(LINGMO_PACKAGE_PCRE),pcre) \
+	$(if $(LINGMO_PACKAGE_ZLIB),zlib) \
 	host-pkgconf
 AIRCRACK_NG_AUTORECONF = YES
 # Enable buddy-ng, easside-ng, tkiptun-ng, wesside-ng
 AIRCRACK_NG_CONF_OPTS = --with-experimental
 
-ifeq ($(BR2_TOOLCHAIN_HAS_SSP),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_SSP),y)
 AIRCRACK_NG_CONF_OPTS += --with-opt
 else
 AIRCRACK_NG_CONF_OPTS += --without-opt
 endif
 
-ifeq ($(BR2_PACKAGE_DUMA),y)
+ifeq ($(LINGMO_PACKAGE_DUMA),y)
 AIRCRACK_NG_DEPENDENCIES += duma
 AIRCRACK_NG_CONF_OPTS += --with-duma
 else
 AIRCRACK_NG_CONF_OPTS += --without-duma
 endif
 
-ifeq ($(BR2_PACKAGE_HWLOC),y)
+ifeq ($(LINGMO_PACKAGE_HWLOC),y)
 AIRCRACK_NG_DEPENDENCIES += hwloc
 AIRCRACK_NG_CONF_OPTS += --enable-hwloc
 else
 AIRCRACK_NG_CONF_OPTS += --disable-hwloc
 endif
 
-ifeq ($(BR2_PACKAGE_JEMALLOC),y)
+ifeq ($(LINGMO_PACKAGE_JEMALLOC),y)
 AIRCRACK_NG_DEPENDENCIES += jemalloc
 AIRCRACK_NG_CONF_OPTS += --with-jemalloc
 else
 AIRCRACK_NG_CONF_OPTS += --without-jemalloc
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGCRYPT),y)
+ifeq ($(LINGMO_PACKAGE_LIBGCRYPT),y)
 AIRCRACK_NG_DEPENDENCIES += libgcrypt
 AIRCRACK_NG_CONF_OPTS += \
 	--with-gcrypt \
@@ -56,18 +56,18 @@ else
 AIRCRACK_NG_CONF_OPTS += --without-gcrypt
 endif
 
-ifeq ($(BR2_PACKAGE_LIBPCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBPCAP),y)
 AIRCRACK_NG_DEPENDENCIES += libpcap
 AIRCRACK_NG_CONF_OPTS += \
 	--with-libpcap-include=$(STAGING_DIR)/usr/include \
 	--with-libpcap-lib=$(STAGING_DIR)/usr/lib
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 AIRCRACK_NG_CONF_ENV += \
 	LIBS="`$(STAGING_DIR)/usr/bin/pcap-config --static --additional-libs`"
 endif
 endif
 
-ifeq ($(BR2_PACKAGE_SQLITE),y)
+ifeq ($(LINGMO_PACKAGE_SQLITE),y)
 AIRCRACK_NG_DEPENDENCIES += sqlite
 AIRCRACK_NG_CONF_OPTS += --with-sqlite3=$(STAGING_DIR)/usr
 else

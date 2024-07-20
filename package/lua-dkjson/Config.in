@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUA_DKJSON
+config LINGMO_PACKAGE_LUA_DKJSON
 	bool "lua-dkjson"
 	help
 	  David Kolf's JSON module for Lua.

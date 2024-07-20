@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_XLWT
+config LINGMO_PACKAGE_PYTHON_XLWT
 	bool "python-xlwt"
 	help
 	  Library to create spreadsheet files compatible with MS Excel

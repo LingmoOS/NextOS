@@ -1,6 +1,6 @@
-config BR2_PACKAGE_HAVEGED
+config LINGMO_PACKAGE_HAVEGED
 	bool "haveged"
-	depends on BR2_USE_MMU # fork()
+	depends on LINGMO_USE_MMU # fork()
 	help
 	  The haveged project is an attempt to provide an easy-to-use,
 	  unpredictable random number generator based upon an adaptation

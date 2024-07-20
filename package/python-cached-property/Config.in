@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_CACHED_PROPERTY
+config LINGMO_PACKAGE_PYTHON_CACHED_PROPERTY
 	bool "python-cached-property"
 	help
 	  A decorator for caching properties in classes.

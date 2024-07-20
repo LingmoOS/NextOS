@@ -1,35 +1,35 @@
 choice
 	prompt "Barebox configuration"
-	default BR2_TARGET_BAREBOX_USE_DEFCONFIG
+	default LINGMO_TARGET_BAREBOX_USE_DEFCONFIG
 
-config BR2_TARGET_BAREBOX_USE_DEFCONFIG
+config LINGMO_TARGET_BAREBOX_USE_DEFCONFIG
 	bool "Using a defconfig"
 
-config BR2_TARGET_BAREBOX_USE_CUSTOM_CONFIG
+config LINGMO_TARGET_BAREBOX_USE_CUSTOM_CONFIG
 	bool "Using a custom config file"
 
 endchoice
 
-config BR2_TARGET_BAREBOX_BOARD_DEFCONFIG
+config LINGMO_TARGET_BAREBOX_BOARD_DEFCONFIG
 	string "board defconfig"
-	depends on BR2_TARGET_BAREBOX_USE_DEFCONFIG
+	depends on LINGMO_TARGET_BAREBOX_USE_DEFCONFIG
 	help
 	  Name of the board for which Barebox should be built, without
 	  the _defconfig suffix.
 
-config BR2_TARGET_BAREBOX_CUSTOM_CONFIG_FILE
+config LINGMO_TARGET_BAREBOX_CUSTOM_CONFIG_FILE
 	string "Configuration file path"
-	depends on BR2_TARGET_BAREBOX_USE_CUSTOM_CONFIG
+	depends on LINGMO_TARGET_BAREBOX_USE_CUSTOM_CONFIG
 	help
 	  Path to the barebox configuration file
 
-config BR2_TARGET_BAREBOX_CONFIG_FRAGMENT_FILES
+config LINGMO_TARGET_BAREBOX_CONFIG_FRAGMENT_FILES
 	string "Additional configuration fragment files"
 	help
 	  A space-separated list of configuration fragment files,
 	  that will be merged to the main Barebox configuration file.
 
-config BR2_TARGET_BAREBOX_IMAGE_FILE
+config LINGMO_TARGET_BAREBOX_IMAGE_FILE
 	string "Image file names"
 	help
 	  Space-separated list of barebox images which will be copied to
@@ -44,21 +44,21 @@ config BR2_TARGET_BAREBOX_IMAGE_FILE
 	  Buildroot. They will still need to be referenced from image
 	  packages or flashed separately onto the hardware.
 
-config BR2_TARGET_BAREBOX_BAREBOXENV
+config LINGMO_TARGET_BAREBOX_BAREBOXENV
 	bool "bareboxenv tool in target"
 	help
 	  Install bareboxenv tool in target.
 
-config BR2_TARGET_BAREBOX_CUSTOM_ENV
+config LINGMO_TARGET_BAREBOX_CUSTOM_ENV
 	bool "Generate an environment image"
 	help
 	  Generate a custom environment image. This environment will
 	  contain the variables and scripts to be used at boot by
 	  barebox.
 
-config BR2_TARGET_BAREBOX_CUSTOM_ENV_PATH
+config LINGMO_TARGET_BAREBOX_CUSTOM_ENV_PATH
 	string "Environment path"
-	depends on BR2_TARGET_BAREBOX_CUSTOM_ENV
+	depends on LINGMO_TARGET_BAREBOX_CUSTOM_ENV
 	help
 	  Path to the directory containing the custom barebox
 	  environment. Depending on your setup, it will probably be
@@ -68,7 +68,7 @@ config BR2_TARGET_BAREBOX_CUSTOM_ENV_PATH
 	  barebox devfs format, stored in the images directory, with
 	  the same name as the directory name given here.
 
-config BR2_TARGET_BAREBOX_CUSTOM_EMBEDDED_ENV_PATH
+config LINGMO_TARGET_BAREBOX_CUSTOM_EMBEDDED_ENV_PATH
 	string "Embedded environment path"
 	help
 	  If this option is not empty, it is the path to a custom

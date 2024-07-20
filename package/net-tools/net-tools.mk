@@ -17,7 +17,7 @@ define NET_TOOLS_CONFIGURE_CMDS
 endef
 
 # Enable I18N when appropiate
-ifeq ($(BR2_SYSTEM_ENABLE_NLS),y)
+ifeq ($(LINGMO_SYSTEM_ENABLE_NLS),y)
 define NET_TOOLS_ENABLE_I18N
 	$(SED) 's:I18N 0:I18N 1:' $(@D)/config.h
 endef

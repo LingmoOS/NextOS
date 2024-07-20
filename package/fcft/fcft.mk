@@ -21,21 +21,21 @@ FCFT_CONF_OPTS = \
 	-Ddocs=disabled \
 	-Dexamples=false
 
-ifeq ($(BR2_PACKAGE_FCFT_GRAPHEME_SHAPING),y)
+ifeq ($(LINGMO_PACKAGE_FCFT_GRAPHEME_SHAPING),y)
 FCFT_DEPENDENCIES += harfbuzz
 FCFT_CONF_OPTS += -Dgrapheme-shaping=enabled
 else
 FCFT_CONF_OPTS += -Dgrapheme-shaping=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_FCFT_RUN_SHAPING),y)
+ifeq ($(LINGMO_PACKAGE_FCFT_RUN_SHAPING),y)
 FCFT_DEPENDENCIES += harfbuzz utf8proc
 FCFT_CONF_OPTS += -Drun-shaping=enabled
 else
 FCFT_CONF_OPTS += -Drun-shaping=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_FCFT_SVG_SUPPORT),y)
+ifeq ($(LINGMO_PACKAGE_FCFT_SVG_SUPPORT),y)
 FCFT_CONF_OPTS += -Dsvg-backend='nanosvg'
 else
 FCFT_CONF_OPTS += -Dsvg-backend='none'

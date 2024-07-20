@@ -1,4 +1,4 @@
-config BR2_PACKAGE_ENET
+config LINGMO_PACKAGE_ENET
 	bool "enet"
 	help
 	  ENet's purpose is to provide a relatively thin, simple

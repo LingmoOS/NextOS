@@ -1,7 +1,7 @@
-config BR2_PACKAGE_PYTHON_SIMPLEAUDIO
+config LINGMO_PACKAGE_PYTHON_SIMPLEAUDIO
 	bool "python-simpleaudio"
-	depends on BR2_TOOLCHAIN_HAS_THREADS # alsa-lib
-	select BR2_PACKAGE_ALSA_LIB
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # alsa-lib
+	select LINGMO_PACKAGE_ALSA_LIB
 	help
 	  The simplaudio package provides cross-platform,
 	  dependency-free audio playback capability for Python 3 on
@@ -10,4 +10,4 @@ config BR2_PACKAGE_PYTHON_SIMPLEAUDIO
 	  https://github.com/hamiltron/py-simple-audio
 
 comment "python-simpleaudio needs a toolchain w/ threads"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS

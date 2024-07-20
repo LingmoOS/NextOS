@@ -6,14 +6,14 @@
 
 GIT_VERSION = 2.43.5
 GIT_SOURCE = git-$(GIT_VERSION).tar.xz
-GIT_SITE = $(BR2_KERNEL_MIRROR)/software/scm/git
+GIT_SITE = $(LINGMO_KERNEL_MIRROR)/software/scm/git
 GIT_LICENSE = GPL-2.0, LGPL-2.1+
 GIT_LICENSE_FILES = COPYING LGPL-2.1
 GIT_CPE_ID_VENDOR = git-scm
 GIT_SELINUX_MODULES = apache git xdg
 GIT_DEPENDENCIES = zlib $(TARGET_NLS_DEPENDENCIES)
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 GIT_DEPENDENCIES += host-pkgconf openssl
 GIT_CONF_OPTS += --with-openssl
 GIT_MAKE_OPTS += LIB_4_CRYPTO="`$(PKG_CONFIG_HOST_BINARY) --libs libssl libcrypto`"
@@ -21,14 +21,14 @@ else
 GIT_CONF_OPTS += --without-openssl
 endif
 
-ifeq ($(BR2_PACKAGE_PCRE2),y)
+ifeq ($(LINGMO_PACKAGE_PCRE2),y)
 GIT_DEPENDENCIES += pcre2
 GIT_CONF_OPTS += --with-libpcre2
 else
 GIT_CONF_OPTS += --without-libpcre2
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCURL),y)
+ifeq ($(LINGMO_PACKAGE_LIBCURL),y)
 GIT_DEPENDENCIES += libcurl
 GIT_CONF_OPTS += --with-curl
 GIT_CONF_ENV += \
@@ -37,14 +37,14 @@ else
 GIT_CONF_OPTS += --without-curl
 endif
 
-ifeq ($(BR2_PACKAGE_EXPAT),y)
+ifeq ($(LINGMO_PACKAGE_EXPAT),y)
 GIT_DEPENDENCIES += expat
 GIT_CONF_OPTS += --with-expat
 else
 GIT_CONF_OPTS += --without-expat
 endif
 
-ifeq ($(BR2_PACKAGE_LIBICONV),y)
+ifeq ($(LINGMO_PACKAGE_LIBICONV),y)
 GIT_DEPENDENCIES += libiconv
 GIT_CONF_ENV_LIBS += -liconv
 GIT_CONF_OPTS += --with-iconv=$(STAGING_DIR)/usr
@@ -53,20 +53,20 @@ else
 GIT_CONF_OPTS += --without-iconv
 endif
 
-ifeq ($(BR2_PACKAGE_TCL),y)
+ifeq ($(LINGMO_PACKAGE_TCL),y)
 GIT_DEPENDENCIES += tcl
 GIT_CONF_OPTS += --with-tcltk
 else
 GIT_CONF_OPTS += --without-tcltk
 endif
 
-ifeq ($(BR2_SYSTEM_ENABLE_NLS),)
+ifeq ($(LINGMO_SYSTEM_ENABLE_NLS),)
 GIT_MAKE_OPTS += NO_GETTEXT=1
 endif
 
 GIT_CFLAGS = $(TARGET_CFLAGS)
 
-ifneq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_85180)$(BR2_TOOLCHAIN_HAS_GCC_BUG_93847),)
+ifneq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_85180)$(LINGMO_TOOLCHAIN_HAS_GCC_BUG_93847),)
 GIT_CFLAGS += -O0
 endif
 

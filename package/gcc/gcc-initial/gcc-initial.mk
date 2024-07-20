@@ -40,14 +40,14 @@ HOST_GCC_INITIAL_CONF_OPTS = \
 	--disable-threads \
 	--with-newlib \
 	--disable-largefile \
-	$(call qstrip,$(BR2_EXTRA_GCC_CONFIG_OPTIONS))
+	$(call qstrip,$(LINGMO_EXTRA_GCC_CONFIG_OPTIONS))
 
 HOST_GCC_INITIAL_CONF_ENV = \
 	$(HOST_GCC_COMMON_CONF_ENV)
 
 # Enable GCC target libs optimizations to optimize out __register_frame
 # when needed for some architectures when building with glibc.
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_107728),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_107728),y)
 HOST_GCC_INITIAL_CONF_ENV += CFLAGS_FOR_TARGET="$(GCC_COMMON_TARGET_CFLAGS) -O1"
 HOST_GCC_INITIAL_CONF_ENV += CXXFLAGS_FOR_TARGET="$(GCC_COMMON_TARGET_CXXFLAGS) -O1"
 endif

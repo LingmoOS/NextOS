@@ -1,4 +1,4 @@
-config BR2_PACKAGE_JQUERY_DATETIMEPICKER
+config LINGMO_PACKAGE_JQUERY_DATETIMEPICKER
 	bool "jquery-datetimepicker"
 	help
 	  Use this plugin to unobtrusively add a datetimepicker,

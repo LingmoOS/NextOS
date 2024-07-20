@@ -15,14 +15,14 @@ OPUSFILE_INSTALL_STAGING = YES
 # 0001-Propagate-allocation-failure-from-ogg_sync_buffer.patch
 OPUSFILE_IGNORE_CVES += CVE-2022-47021
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 OPUSFILE_DEPENDENCIES += openssl
 else
 OPUSFILE_CONF_OPTS += --disable-http
 endif
 
 # Use the same as opus package since it's a dep and we can't mix
-ifeq ($(BR2_PACKAGE_OPUS_FIXED_POINT),y)
+ifeq ($(LINGMO_PACKAGE_OPUS_FIXED_POINT),y)
 OPUSFILE_CONF_OPTS += --enable-fixed-point
 endif
 

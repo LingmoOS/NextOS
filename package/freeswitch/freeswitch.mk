@@ -155,138 +155,138 @@ FREESWITCH_PRE_CONFIGURE_HOOKS += FREESWITCH_ENABLE_MODULES
 
 # mod_isac supports a limited set of archs
 # src/mod/codecs/mod_isac/typedefs.h
-ifeq ($(BR2_i386)$(BR2_mips)$(BR2_mipsel)$(BR2_mips64)$(BR2_mips64el)$(BR2_x86_64),y)
+ifeq ($(LINGMO_i386)$(LINGMO_mips)$(LINGMO_mipsel)$(LINGMO_mips64)$(LINGMO_mips64el)$(LINGMO_x86_64),y)
 FREESWITCH_LICENSE += , BSD-3-Clause (mod_isac)
 FREESWITCH_LICENSE_FILES += src/mod/codecs/mod_isac/LICENSE
 FREESWITCH_ENABLED_MODULES += codecs/mod_isac
 endif
 
-ifeq ($(BR2_PACKAGE_ALSA_LIB),y)
+ifeq ($(LINGMO_PACKAGE_ALSA_LIB),y)
 FREESWITCH_DEPENDENCIES += alsa-lib
 FREESWITCH_ENABLED_MODULES += endpoints/mod_alsa
 endif
 
 # Use the pass-through g729 module provided by freeswitch instead of
 # the external mod_bcg729 provided by freeswitch-mod-bcg729.
-ifeq ($(BR2_PACKAGE_FREESWITCH_MOD_BCG729),)
+ifeq ($(LINGMO_PACKAGE_FREESWITCH_MOD_BCG729),)
 FREESWITCH_ENABLED_MODULES += codecs/mod_g729
 endif
 
-ifeq ($(BR2_PACKAGE_FREETYPE),y)
+ifeq ($(LINGMO_PACKAGE_FREETYPE),y)
 FREESWITCH_DEPENDENCIES += freetype
 endif
 
-ifeq ($(BR2_PACKAGE_LIBBROADVOICE),y)
+ifeq ($(LINGMO_PACKAGE_LIBBROADVOICE),y)
 FREESWITCH_DEPENDENCIES += libbroadvoice
 FREESWITCH_ENABLED_MODULES += codecs/mod_bv
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCODEC2),y)
+ifeq ($(LINGMO_PACKAGE_LIBCODEC2),y)
 FREESWITCH_DEPENDENCIES += libcodec2
 FREESWITCH_ENABLED_MODULES += codecs/mod_codec2
 endif
 
-ifeq ($(BR2_PACKAGE_LIBEDIT),y)
+ifeq ($(LINGMO_PACKAGE_LIBEDIT),y)
 FREESWITCH_DEPENDENCIES += libedit
 FREESWITCH_CONF_OPTS += --enable-core-libedit-support
 else
 FREESWITCH_CONF_OPTS += --disable-core-libedit-support
 endif
 
-ifeq ($(BR2_PACKAGE_LIBG7221),y)
+ifeq ($(LINGMO_PACKAGE_LIBG7221),y)
 FREESWITCH_DEPENDENCIES += libg7221
 endif
 
-ifeq ($(BR2_PACKAGE_LIBILBC),y)
+ifeq ($(LINGMO_PACKAGE_LIBILBC),y)
 FREESWITCH_DEPENDENCIES += libilbc
 FREESWITCH_ENABLED_MODULES += codecs/mod_ilbc
 endif
 
-ifeq ($(BR2_PACKAGE_LIBKS),y)
+ifeq ($(LINGMO_PACKAGE_LIBKS),y)
 FREESWITCH_DEPENDENCIES += libks
 FREESWITCH_ENABLED_MODULES += endpoints/mod_verto
 endif
 
-ifeq ($(BR2_PACKAGE_LIBLDNS),y)
+ifeq ($(LINGMO_PACKAGE_LIBLDNS),y)
 FREESWITCH_DEPENDENCIES += libldns
 FREESWITCH_ENABLED_MODULES += applications/mod_enum
 endif
 
-ifeq ($(BR2_PACKAGE_LIBMEMCACHED),y)
+ifeq ($(LINGMO_PACKAGE_LIBMEMCACHED),y)
 FREESWITCH_DEPENDENCIES += libmemcached
 FREESWITCH_ENABLED_MODULES += applications/mod_memcache
 endif
 
-ifeq ($(BR2_PACKAGE_LIBOPENH264),y)
+ifeq ($(LINGMO_PACKAGE_LIBOPENH264),y)
 FREESWITCH_LICENSE += , BSD-2-Clause (libopenh264)
 FREESWITCH_LICENSE_FILES += docs/OPENH264_BINARY_LICENSE.txt
 FREESWITCH_DEPENDENCIES += libopenh264
 FREESWITCH_ENABLED_MODULES += codecs/mod_openh264
 endif
 
-ifeq ($(BR2_PACKAGE_LIBPNG),y)
+ifeq ($(LINGMO_PACKAGE_LIBPNG),y)
 FREESWITCH_DEPENDENCIES += libpng
 FREESWITCH_ENABLED_MODULES += formats/mod_png
 endif
 
-ifeq ($(BR2_PACKAGE_LIBYAML),y)
+ifeq ($(LINGMO_PACKAGE_LIBYAML),y)
 FREESWITCH_DEPENDENCIES += libyaml
 FREESWITCH_ENABLED_MODULES += languages/mod_yaml
 endif
 
-ifeq ($(BR2_PACKAGE_LUA),y)
+ifeq ($(LINGMO_PACKAGE_LUA),y)
 FREESWITCH_DEPENDENCIES += lua
 FREESWITCH_ENABLED_MODULES += languages/mod_lua
 endif
 
-ifeq ($(BR2_PACKAGE_OPENLDAP),y)
+ifeq ($(LINGMO_PACKAGE_OPENLDAP),y)
 FREESWITCH_DEPENDENCIES += openldap
 FREESWITCH_ENABLED_MODULES += directories/mod_ldap xml_int/mod_xml_ldap
 endif
 
-ifeq ($(BR2_PACKAGE_OPUS),y)
+ifeq ($(LINGMO_PACKAGE_OPUS),y)
 FREESWITCH_DEPENDENCIES += opus
 FREESWITCH_ENABLED_MODULES += codecs/mod_opus
 endif
 
-ifeq ($(BR2_PACKAGE_PORTAUDIO),y)
+ifeq ($(LINGMO_PACKAGE_PORTAUDIO),y)
 FREESWITCH_DEPENDENCIES += portaudio
 FREESWITCH_ENABLED_MODULES += endpoints/mod_portaudio
 endif
 
-ifeq ($(BR2_PACKAGE_LAME)$(BR2_PACKAGE_LIBSHOUT)$(BR2_PACKAGE_MPG123),yyy)
+ifeq ($(LINGMO_PACKAGE_LAME)$(LINGMO_PACKAGE_LIBSHOUT)$(LINGMO_PACKAGE_MPG123),yyy)
 FREESWITCH_DEPENDENCIES += lame libshout mpg123
 FREESWITCH_ENABLED_MODULES += formats/mod_shout
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSILK),y)
+ifeq ($(LINGMO_PACKAGE_LIBSILK),y)
 FREESWITCH_DEPENDENCIES += libsilk
 FREESWITCH_ENABLED_MODULES += codecs/mod_silk
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSNDFILE),y)
+ifeq ($(LINGMO_PACKAGE_LIBSNDFILE),y)
 FREESWITCH_DEPENDENCIES += libsndfile
 FREESWITCH_ENABLED_MODULES += formats/mod_sndfile
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSOUNDTOUCH),y)
+ifeq ($(LINGMO_PACKAGE_LIBSOUNDTOUCH),y)
 FREESWITCH_DEPENDENCIES += libsoundtouch
 FREESWITCH_ENABLED_MODULES += applications/mod_soundtouch
 endif
 
-ifeq ($(BR2_PACKAGE_OPENCV3),y)
+ifeq ($(LINGMO_PACKAGE_OPENCV3),y)
 FREESWITCH_DEPENDENCIES += opencv3
 FREESWITCH_ENABLED_MODULES += applications/mod_cv
 endif
 
-ifeq ($(BR2_PACKAGE_POSTGRESQL),y)
+ifeq ($(LINGMO_PACKAGE_POSTGRESQL),y)
 FREESWITCH_CONF_ENV += \
 	ac_cv_path_PG_CONFIG=$(STAGING_DIR)/usr/bin/pg_config
 FREESWITCH_DEPENDENCIES += postgresql
 FREESWITCH_ENABLED_MODULES += databases/mod_pgsql
 endif
 
-ifeq ($(BR2_PACKAGE_UNIXODBC),y)
+ifeq ($(LINGMO_PACKAGE_UNIXODBC),y)
 FREESWITCH_DEPENDENCIES += unixodbc
 FREESWITCH_CONF_OPTS += \
 	--enable-core-odbc-support \
@@ -295,11 +295,11 @@ else
 FREESWITCH_CONF_OPTS += --disable-core-odbc-support
 endif
 
-ifeq ($(BR2_PACKAGE_XZ),y)
+ifeq ($(LINGMO_PACKAGE_XZ),y)
 FREESWITCH_DEPENDENCIES += xz
 endif
 
-ifeq ($(BR2_TOOLCHAIN_GCC_AT_LEAST_4_8)$(BR2_PACKAGE_FFMPEG),yy)
+ifeq ($(LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_8)$(LINGMO_PACKAGE_FFMPEG),yy)
 FREESWITCH_LICENSE += , BSD-3-Clause (libvpx, libyuv)
 FREESWITCH_LICENSE_FILES += libs/libvpx/LICENSE libs/libyuv/LICENSE
 FREESWITCH_CONF_OPTS += --enable-libvpx --enable-libyuv

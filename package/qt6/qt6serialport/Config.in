@@ -1,4 +1,4 @@
-config BR2_PACKAGE_QT6SERIALPORT
+config LINGMO_PACKAGE_QT6SERIALPORT
 	bool "qt6serialport"
 	help
 	  Qt is a cross-platform application and UI framework for

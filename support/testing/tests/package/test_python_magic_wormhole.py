@@ -8,12 +8,12 @@ class TestPythonPy3MagicWormhole(TestPythonPackageBase):
     __test__ = True
     config = TestPythonPackageBase.config + \
         """
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_PYTHON_MAGIC_WORMHOLE=y
-        BR2_PACKAGE_PYTHON_MAGIC_WORMHOLE_MAILBOX_SERVER=y
-        BR2_PACKAGE_PYTHON_MAGIC_WORMHOLE_TRANSIT_RELAY=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON_MAGIC_WORMHOLE=y
+        LINGMO_PACKAGE_PYTHON_MAGIC_WORMHOLE_MAILBOX_SERVER=y
+        LINGMO_PACKAGE_PYTHON_MAGIC_WORMHOLE_TRANSIT_RELAY=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     timeout = 60
 

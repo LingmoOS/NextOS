@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LINENOISE
+config LINGMO_PACKAGE_LINENOISE
 	bool "linenoise"
 	help
 	  A small self-contained alternative to readline and libedit

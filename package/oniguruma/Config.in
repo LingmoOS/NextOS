@@ -1,4 +1,4 @@
-config BR2_PACKAGE_ONIGURUMA
+config LINGMO_PACKAGE_ONIGURUMA
 	bool "oniguruma"
 	help
 	  Oniguruma is a modern and flexible regular expressions

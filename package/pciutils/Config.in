@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PCIUTILS
+config LINGMO_PACKAGE_PCIUTILS
 	bool "pciutils"
 	help
 	  Various utilities dealing with the PCI bus.

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PSUTIL
+config LINGMO_PACKAGE_PYTHON_PSUTIL
 	bool "python-psutil"
 	help
 	  psutil is a cross-platform library for retrieving

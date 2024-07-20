@@ -1,13 +1,13 @@
 comment "sunxi-mali-utgard-driver needs a Linux kernel to be built"
-	depends on BR2_PACKAGE_SUNXI_MALI_UTGARD
-	depends on !BR2_LINUX_KERNEL
+	depends on LINGMO_PACKAGE_SUNXI_MALI_UTGARD
+	depends on !LINGMO_LINUX_KERNEL
 
-config BR2_PACKAGE_SUNXI_MALI_UTGARD_DRIVER
+config LINGMO_PACKAGE_SUNXI_MALI_UTGARD_DRIVER
 	bool "sunxi-mali-utgard-driver"
 	default y
-	depends on BR2_PACKAGE_SUNXI_MALI_UTGARD # runtime
-	depends on BR2_LINUX_KERNEL
-	select BR2_LINUX_NEEDS_MODULES # not using kernel-module infra
+	depends on LINGMO_PACKAGE_SUNXI_MALI_UTGARD # runtime
+	depends on LINGMO_LINUX_KERNEL
+	select LINGMO_LINUX_NEEDS_MODULES # not using kernel-module infra
 	help
 	  This package builds and installs the Linux kernel driver for
 	  the Mali Utgard GPU on Allwinner platforms, compatible with

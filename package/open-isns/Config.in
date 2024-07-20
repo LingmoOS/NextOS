@@ -1,6 +1,6 @@
-config BR2_PACKAGE_OPEN_ISNS
+config LINGMO_PACKAGE_OPEN_ISNS
 	bool "open-isns"
-	depends on BR2_USE_MMU # fork()
+	depends on LINGMO_USE_MMU # fork()
 	help
 	  iSNS server and client for Linux.
 

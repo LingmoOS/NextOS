@@ -19,41 +19,41 @@ LIBGPHOTO2_DEPENDENCIES = libxml2 libusb libtool host-pkgconf
 LIBGPHOTO2_CONF_ENV = udevscriptdir=/lib/udev
 LIBGPHOTO2_CONF_OPTS += --without-rpmbuild --disable-gp2ddb --disable-internal-docs
 
-ifeq ($(BR2_PACKAGE_LIBUSB_COMPAT),y)
+ifeq ($(LINGMO_PACKAGE_LIBUSB_COMPAT),y)
 # libusb-compat is not actually used, but it is detected, so add it
 # here to guarantee reproducible builds
 LIBGPHOTO2_DEPENDENCIES += libusb-compat
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCURL),y)
+ifeq ($(LINGMO_PACKAGE_LIBCURL),y)
 LIBGPHOTO2_DEPENDENCIES += libcurl
 LIBGPHOTO2_CONF_OPTS += --with-libcurl=auto
 else
 LIBGPHOTO2_CONF_OPTS += --with-libcurl=no
 endif
 
-ifeq ($(BR2_PACKAGE_LIBEXIF),y)
+ifeq ($(LINGMO_PACKAGE_LIBEXIF),y)
 LIBGPHOTO2_DEPENDENCIES += libexif
 LIBGPHOTO2_CONF_OPTS += --with-libexif=auto
 else
 LIBGPHOTO2_CONF_OPTS += --with-libexif=no
 endif
 
-ifeq ($(BR2_PACKAGE_JPEG),y)
+ifeq ($(LINGMO_PACKAGE_JPEG),y)
 LIBGPHOTO2_DEPENDENCIES += jpeg
 LIBGPHOTO2_CONF_OPTS += --with-jpeg
 else
 LIBGPHOTO2_CONF_OPTS += --without-jpeg
 endif
 
-ifeq ($(BR2_PACKAGE_GD),y)
+ifeq ($(LINGMO_PACKAGE_GD),y)
 LIBGPHOTO2_DEPENDENCIES += gd
 LIBGPHOTO2_CONF_OPTS += --with-gdlib=auto
 else
 LIBGPHOTO2_CONF_OPTS += --with-gdlib=no
 endif
 
-ifeq ($(BR2_PACKAGE_LOCKDEV),y)
+ifeq ($(LINGMO_PACKAGE_LOCKDEV),y)
 LIBGPHOTO2_DEPENDENCIES += lockdev
 endif
 

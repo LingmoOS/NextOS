@@ -13,7 +13,7 @@ RTLA_MAKE_OPTS = $(LINUX_MAKE_FLAGS) \
 	LDFLAGS="$(TARGET_LDFLAGS)" \
 	PKG_CONFIG_PATH=$(STAGING_DIR)/usr/lib/pkgconfig
 
-ifeq ($(BR2_TOOLCHAIN_HAS_SSP),)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_SSP),)
 define RTLA_DISABLE_STACK_PROTECTOR
 	$(SED) 's/-fstack-protector.* //' $(LINUX_DIR)/tools/tracing/rtla/Makefile
 endef

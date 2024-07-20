@@ -1,10 +1,10 @@
-config BR2_PACKAGE_EXFAT
+config LINGMO_PACKAGE_EXFAT
 	bool "exFAT (FUSE)"
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libfuse
-	depends on BR2_USE_MMU # libfuse
-	depends on BR2_USE_WCHAR
-	depends on !BR2_STATIC_LIBS # libfuse
-	select BR2_PACKAGE_LIBFUSE3 if !BR2_PACKAGE_LIBFUSE
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libfuse
+	depends on LINGMO_USE_MMU # libfuse
+	depends on LINGMO_USE_WCHAR
+	depends on !LINGMO_STATIC_LIBS # libfuse
+	select LINGMO_PACKAGE_LIBFUSE3 if !LINGMO_PACKAGE_LIBFUSE
 	help
 	  A full-featured exFAT file system implementation for GNU/Linux
 	  and other Unix-like systems as a FUSE module.
@@ -12,5 +12,5 @@ config BR2_PACKAGE_EXFAT
 	  https://github.com/relan/exfat
 
 comment "exfat needs a toolchain w/ wchar, threads, dynamic library"
-	depends on BR2_USE_MMU
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || !BR2_USE_WCHAR || BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || !LINGMO_USE_WCHAR || LINGMO_STATIC_LIBS

@@ -1,10 +1,10 @@
-config BR2_PACKAGE_RATPOISON
+config LINGMO_PACKAGE_RATPOISON
 	bool "ratpoison"
-	depends on BR2_USE_MMU
-	depends on BR2_PACKAGE_XORG7
-	select BR2_PACKAGE_FONTCONFIG
-	select BR2_PACKAGE_LIBERATION
-	select BR2_PACKAGE_XLIB_LIBX11
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_PACKAGE_XORG7
+	select LINGMO_PACKAGE_FONTCONFIG
+	select LINGMO_PACKAGE_LIBERATION
+	select LINGMO_PACKAGE_XLIB_LIBX11
 	help
 	  Ratpoison is a simple Window Manager. It is largely modelled
 	  after GNU Screen and focuses on the keyboard instead of a

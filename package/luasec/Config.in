@@ -1,7 +1,7 @@
-config BR2_PACKAGE_LUASEC
+config LINGMO_PACKAGE_LUASEC
 	bool "luasec"
-	select BR2_PACKAGE_OPENSSL
-	select BR2_PACKAGE_LUASOCKET # runtime
+	select LINGMO_PACKAGE_OPENSSL
+	select LINGMO_PACKAGE_LUASOCKET # runtime
 	help
 	  A binding for OpenSSL library to provide TLS/SSL communication
 	  over LuaSocket.

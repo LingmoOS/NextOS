@@ -6,9 +6,9 @@ import infra.basetest
 class TestSquashfs(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_TARGET_ROOTFS_SQUASHFS=y
-        BR2_TARGET_ROOTFS_SQUASHFS4_LZO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_TARGET_ROOTFS_SQUASHFS=y
+        LINGMO_TARGET_ROOTFS_SQUASHFS4_LZO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     expected_blocksize_in_bytes = 128*1024
 
@@ -38,10 +38,10 @@ class TestSquashfs(infra.basetest.BRTest):
 class TestSquashfsMinBlocksize(TestSquashfs):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_TARGET_ROOTFS_SQUASHFS=y
-        BR2_TARGET_ROOTFS_SQUASHFS_BS_4K=y
-        BR2_TARGET_ROOTFS_SQUASHFS4_LZO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_TARGET_ROOTFS_SQUASHFS=y
+        LINGMO_TARGET_ROOTFS_SQUASHFS_BS_4K=y
+        LINGMO_TARGET_ROOTFS_SQUASHFS4_LZO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     expected_blocksize_in_bytes = 4*1024
 
@@ -49,9 +49,9 @@ class TestSquashfsMinBlocksize(TestSquashfs):
 class TestSquashfsMaxBlocksize(TestSquashfs):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_TARGET_ROOTFS_SQUASHFS=y
-        BR2_TARGET_ROOTFS_SQUASHFS_BS_1024K=y
-        BR2_TARGET_ROOTFS_SQUASHFS4_LZO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_TARGET_ROOTFS_SQUASHFS=y
+        LINGMO_TARGET_ROOTFS_SQUASHFS_BS_1024K=y
+        LINGMO_TARGET_ROOTFS_SQUASHFS4_LZO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     expected_blocksize_in_bytes = 1024*1024

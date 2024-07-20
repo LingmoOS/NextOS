@@ -8,7 +8,7 @@ MPV_VERSION = 0.35.1
 MPV_SITE = $(call github,mpv-player,mpv,v$(MPV_VERSION))
 MPV_DEPENDENCIES = \
 	host-pkgconf ffmpeg libass zlib \
-	$(if $(BR2_PACKAGE_LIBICONV),libiconv)
+	$(if $(LINGMO_PACKAGE_LIBICONV),libiconv)
 MPV_LICENSE = GPL-2.0+
 MPV_LICENSE_FILES = LICENSE.GPL
 MPV_CPE_ID_VENDOR = mpv
@@ -29,27 +29,27 @@ MPV_CONF_OPTS = \
 	--disable-uchardet \
 	--disable-vapoursynth
 
-ifeq ($(BR2_REPRODUCIBLE),y)
+ifeq ($(LINGMO_REPRODUCIBLE),y)
 MPV_CONF_OPTS += --disable-build-date
 endif
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 MPV_CONF_OPTS += --disable-libmpv-shared --enable-libmpv-static
 else
 MPV_CONF_OPTS += --enable-libmpv-shared --disable-libmpv-static
 endif
 
-ifeq ($(BR2_PACKAGE_ALSA_LIB),y)
+ifeq ($(LINGMO_PACKAGE_ALSA_LIB),y)
 MPV_CONF_OPTS += --enable-alsa
 MPV_DEPENDENCIES += alsa-lib
 else
 MPV_CONF_OPTS += --disable-alsa
 endif
 
-ifeq ($(BR2_PACKAGE_MESA3D_GBM),y)
+ifeq ($(LINGMO_PACKAGE_MESA3D_GBM),y)
 MPV_CONF_OPTS += --enable-gbm
 MPV_DEPENDENCIES += mesa3d
-ifeq ($(BR2_PACKAGE_LIBDRM),y)
+ifeq ($(LINGMO_PACKAGE_LIBDRM),y)
 MPV_CONF_OPTS += --enable-egl-drm
 else
 MPV_CONF_OPTS += --disable-egl-drm
@@ -60,7 +60,7 @@ endif
 
 # jack support
 # It also requires 64-bit sync intrinsics
-ifeq ($(BR2_TOOLCHAIN_HAS_SYNC_8)$(BR2_PACKAGE_JACK2),yy)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_SYNC_8)$(LINGMO_PACKAGE_JACK2),yy)
 MPV_CONF_OPTS += --enable-jack
 MPV_DEPENDENCIES += jack2
 else
@@ -68,7 +68,7 @@ MPV_CONF_OPTS += --disable-jack
 endif
 
 # jpeg support
-ifeq ($(BR2_PACKAGE_JPEG),y)
+ifeq ($(LINGMO_PACKAGE_JPEG),y)
 MPV_CONF_OPTS += --enable-jpeg
 MPV_DEPENDENCIES += jpeg
 else
@@ -76,7 +76,7 @@ MPV_CONF_OPTS += --disable-jpeg
 endif
 
 # lcms2 support
-ifeq ($(BR2_PACKAGE_LCMS2),y)
+ifeq ($(LINGMO_PACKAGE_LCMS2),y)
 MPV_CONF_OPTS += --enable-lcms2
 MPV_DEPENDENCIES += lcms2
 else
@@ -84,7 +84,7 @@ MPV_CONF_OPTS += --disable-lcms2
 endif
 
 # libarchive support
-ifeq ($(BR2_PACKAGE_LIBARCHIVE),y)
+ifeq ($(LINGMO_PACKAGE_LIBARCHIVE),y)
 MPV_CONF_OPTS += --enable-libarchive
 MPV_DEPENDENCIES += libarchive
 else
@@ -92,7 +92,7 @@ MPV_CONF_OPTS += --disable-libarchive
 endif
 
 # bluray support
-ifeq ($(BR2_PACKAGE_LIBBLURAY),y)
+ifeq ($(LINGMO_PACKAGE_LIBBLURAY),y)
 MPV_CONF_OPTS += --enable-libbluray
 MPV_DEPENDENCIES += libbluray
 else
@@ -100,7 +100,7 @@ MPV_CONF_OPTS += --disable-libbluray
 endif
 
 # libcdio-paranoia
-ifeq ($(BR2_PACKAGE_LIBCDIO_PARANOIA),y)
+ifeq ($(LINGMO_PACKAGE_LIBCDIO_PARANOIA),y)
 MPV_CONF_OPTS += --enable-cdda
 MPV_DEPENDENCIES += libcdio-paranoia
 else
@@ -108,7 +108,7 @@ MPV_CONF_OPTS += --disable-cdda
 endif
 
 # libdvdnav
-ifeq ($(BR2_PACKAGE_LIBDVDNAV),y)
+ifeq ($(LINGMO_PACKAGE_LIBDVDNAV),y)
 MPV_CONF_OPTS += --enable-dvdnav
 MPV_DEPENDENCIES += libdvdnav
 else
@@ -116,7 +116,7 @@ MPV_CONF_OPTS += --disable-dvdnav
 endif
 
 # libdrm
-ifeq ($(BR2_PACKAGE_LIBDRM),y)
+ifeq ($(LINGMO_PACKAGE_LIBDRM),y)
 MPV_CONF_OPTS += --enable-drm
 MPV_DEPENDENCIES += libdrm
 else
@@ -124,7 +124,7 @@ MPV_CONF_OPTS += --disable-drm
 endif
 
 # libvdpau
-ifeq ($(BR2_PACKAGE_LIBVDPAU),y)
+ifeq ($(LINGMO_PACKAGE_LIBVDPAU),y)
 MPV_CONF_OPTS += --enable-vdpau
 MPV_DEPENDENCIES += libvdpau
 else
@@ -133,7 +133,7 @@ endif
 
 # LUA support, only for lua51/lua52/luajit
 # This enables the controller (OSD) together with libass
-ifeq ($(BR2_PACKAGE_LUA_5_1)$(BR2_PACKAGE_LUAJIT),y)
+ifeq ($(LINGMO_PACKAGE_LUA_5_1)$(LINGMO_PACKAGE_LUAJIT),y)
 MPV_CONF_OPTS += --enable-lua
 MPV_DEPENDENCIES += luainterpreter
 else
@@ -141,13 +141,13 @@ MPV_CONF_OPTS += --disable-lua
 endif
 
 # OpenGL support
-ifeq ($(BR2_PACKAGE_HAS_LIBGL),y)
+ifeq ($(LINGMO_PACKAGE_HAS_LIBGL),y)
 MPV_CONF_OPTS += --enable-gl
 MPV_DEPENDENCIES += libgl
-else ifeq ($(BR2_PACKAGE_HAS_LIBGLES),y)
+else ifeq ($(LINGMO_PACKAGE_HAS_LIBGLES),y)
 MPV_CONF_OPTS += --enable-gl
 MPV_DEPENDENCIES += libgles
-else ifeq ($(BR2_PACKAGE_HAS_LIBEGL),y)
+else ifeq ($(LINGMO_PACKAGE_HAS_LIBEGL),y)
 MPV_CONF_OPTS += --enable-gl
 MPV_DEPENDENCIES += libegl
 else
@@ -155,7 +155,7 @@ MPV_CONF_OPTS += --disable-gl
 endif
 
 # pulseaudio support
-ifeq ($(BR2_PACKAGE_PULSEAUDIO),y)
+ifeq ($(LINGMO_PACKAGE_PULSEAUDIO),y)
 MPV_CONF_OPTS += --enable-pulse
 MPV_DEPENDENCIES += pulseaudio
 else
@@ -164,7 +164,7 @@ endif
 
 # SDL support
 # Sdl2 requires 64-bit sync intrinsics
-ifeq ($(BR2_TOOLCHAIN_HAS_SYNC_8)$(BR2_PACKAGE_SDL2),yy)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_SYNC_8)$(LINGMO_PACKAGE_SDL2),yy)
 MPV_CONF_OPTS += --enable-sdl2
 MPV_DEPENDENCIES += sdl2
 else
@@ -172,7 +172,7 @@ MPV_CONF_OPTS += --disable-sdl2
 endif
 
 # Raspberry Pi support
-ifeq ($(BR2_PACKAGE_RPI_USERLAND),y)
+ifeq ($(LINGMO_PACKAGE_RPI_USERLAND),y)
 MPV_CONF_OPTS += --enable-rpi --enable-gl
 MPV_DEPENDENCIES += rpi-userland
 else
@@ -180,10 +180,10 @@ MPV_CONF_OPTS += --disable-rpi
 endif
 
 # va-api support
-ifeq ($(BR2_PACKAGE_LIBVA)$(BR2_PACKAGE_MPV_SUPPORTS_VAAPI),yy)
+ifeq ($(LINGMO_PACKAGE_LIBVA)$(LINGMO_PACKAGE_MPV_SUPPORTS_VAAPI),yy)
 MPV_CONF_OPTS += --enable-vaapi
 MPV_DEPENDENCIES += libva
-ifeq ($(BR2_PACKAGE_LIBDRM)$(BR2_PACKAGE_MESA3D_OPENGL_EGL),yy)
+ifeq ($(LINGMO_PACKAGE_LIBDRM)$(LINGMO_PACKAGE_MESA3D_OPENGL_EGL),yy)
 MPV_CONF_OPTS += --enable-vaapi-drm
 else
 MPV_CONF_OPTS += --disable-vaapi-drm
@@ -193,17 +193,17 @@ MPV_CONF_OPTS += --disable-vaapi --disable-vaapi-drm
 endif
 
 # wayland support
-ifeq ($(BR2_PACKAGE_WAYLAND),y)
+ifeq ($(LINGMO_PACKAGE_WAYLAND),y)
 MPV_CONF_OPTS += --enable-wayland
 MPV_DEPENDENCIES += libxkbcommon wayland wayland-protocols
 else
 MPV_CONF_OPTS += --disable-wayland
 endif
 
-# Base X11 support. Config.in ensures that if BR2_PACKAGE_XORG7 is
+# Base X11 support. Config.in ensures that if LINGMO_PACKAGE_XORG7 is
 # enabled, xlib_libX11, xlib_libXext, xlib_libXinerama,
 # xlib_libXrandr, xlib_libXScrnSaver.
-ifeq ($(BR2_PACKAGE_XORG7),y)
+ifeq ($(LINGMO_PACKAGE_XORG7),y)
 MPV_CONF_OPTS += --enable-x11
 MPV_DEPENDENCIES += \
 	xlib_libX11 \
@@ -213,7 +213,7 @@ MPV_DEPENDENCIES += \
 	xlib_libXrandr \
 	xlib_libXScrnSaver
 # XVideo
-ifeq ($(BR2_PACKAGE_XLIB_LIBXV),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXV),y)
 MPV_CONF_OPTS += --enable-xv
 MPV_DEPENDENCIES += xlib_libXv
 else
@@ -223,7 +223,7 @@ else
 MPV_CONF_OPTS += --disable-x11
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 MPV_CONF_ENV += LDFLAGS="$(TARGET_LDFLAGS) -latomic"
 endif
 

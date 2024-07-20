@@ -17,7 +17,7 @@ LIBZLIB_CPE_ID_PRODUCT = zlib
 # It is not possible to build only a shared version of zlib, so we build both
 # shared and static, unless we only want the static libs, and we eventually
 # selectively remove what we do not want
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 LIBZLIB_PIC =
 LIBZLIB_SHARED = --static
 else
@@ -65,7 +65,7 @@ endef
 # We don't care removing the .a from target, since it not used at link
 # time to build other packages, and it is anyway removed later before
 # assembling the filesystem images anyway.
-ifeq ($(BR2_SHARED_LIBS),y)
+ifeq ($(LINGMO_SHARED_LIBS),y)
 define LIBZLIB_RM_STATIC_STAGING
 	rm -f $(STAGING_DIR)/usr/lib/libz.a
 endef

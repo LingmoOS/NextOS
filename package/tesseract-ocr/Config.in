@@ -1,17 +1,17 @@
 comment "tesseract-ocr needs a toolchain w/ threads, C++, gcc >= 7, dynamic library, wchar"
-	depends on BR2_USE_MMU
-	depends on !BR2_INSTALL_LIBSTDCPP || !BR2_TOOLCHAIN_HAS_THREADS || \
-		!BR2_TOOLCHAIN_GCC_AT_LEAST_7 || BR2_STATIC_LIBS || !BR2_USE_WCHAR
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_INSTALL_LIBSTDCPP || !LINGMO_TOOLCHAIN_HAS_THREADS || \
+		!LINGMO_TOOLCHAIN_GCC_AT_LEAST_7 || LINGMO_STATIC_LIBS || !LINGMO_USE_WCHAR
 
-menuconfig BR2_PACKAGE_TESSERACT_OCR
+menuconfig LINGMO_PACKAGE_TESSERACT_OCR
 	bool "tesseract-ocr"
-	depends on BR2_INSTALL_LIBSTDCPP
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_7 # C++17
-	depends on BR2_USE_MMU # fork()
-	depends on !BR2_STATIC_LIBS
-	depends on BR2_USE_WCHAR
-	select BR2_PACKAGE_LEPTONICA
+	depends on LINGMO_INSTALL_LIBSTDCPP
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_7 # C++17
+	depends on LINGMO_USE_MMU # fork()
+	depends on !LINGMO_STATIC_LIBS
+	depends on LINGMO_USE_WCHAR
+	select LINGMO_PACKAGE_LEPTONICA
 	help
 	  Tesseract is an OCR (Optical Character Recognition) engine,
 	  It can be used directly, or (for programmers) using an API.
@@ -19,26 +19,26 @@ menuconfig BR2_PACKAGE_TESSERACT_OCR
 
 	  https://github.com/tesseract-ocr/tesseract
 
-if BR2_PACKAGE_TESSERACT_OCR
+if LINGMO_PACKAGE_TESSERACT_OCR
 
 comment "tesseract-ocr languages support"
 
-config BR2_PACKAGE_TESSERACT_OCR_LANG_ENG
+config LINGMO_PACKAGE_TESSERACT_OCR_LANG_ENG
 	bool "English"
 
-config BR2_PACKAGE_TESSERACT_OCR_LANG_FRA
+config LINGMO_PACKAGE_TESSERACT_OCR_LANG_FRA
 	bool "French"
 
-config BR2_PACKAGE_TESSERACT_OCR_LANG_GER
+config LINGMO_PACKAGE_TESSERACT_OCR_LANG_GER
 	bool "German"
 
-config BR2_PACKAGE_TESSERACT_OCR_LANG_SPA
+config LINGMO_PACKAGE_TESSERACT_OCR_LANG_SPA
 	bool "Spanish"
 
-config BR2_PACKAGE_TESSERACT_OCR_LANG_CHI_SIM
+config LINGMO_PACKAGE_TESSERACT_OCR_LANG_CHI_SIM
 	bool "Simplified Chinese"
 
-config BR2_PACKAGE_TESSERACT_OCR_LANG_CHI_TRA
+config LINGMO_PACKAGE_TESSERACT_OCR_LANG_CHI_TRA
 	bool "Traditional Chinese"
 
 endif

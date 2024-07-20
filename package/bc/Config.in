@@ -1,4 +1,4 @@
-config BR2_PACKAGE_BC
+config LINGMO_PACKAGE_BC
 	bool "bc"
 	help
 	  'bc' is an arbitrary precision numeric processing language

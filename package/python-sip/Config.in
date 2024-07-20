@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_SIP
+config LINGMO_PACKAGE_PYTHON_SIP
 	bool "python-sip"
-	depends on BR2_PACKAGE_QT5
+	depends on LINGMO_PACKAGE_QT5
 	help
 	  SIP is a tool that makes it very easy to create Python
 	  bindings for C and C++ libraries. It was originally

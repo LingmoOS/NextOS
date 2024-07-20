@@ -1,4 +1,4 @@
-config BR2_PACKAGE_FLUID_SOUNDFONT
+config LINGMO_PACKAGE_FLUID_SOUNDFONT
 	bool "fluid-soundfont"
 	help
 	  FluidR3 is the third release of Frank Wen's pro-quality

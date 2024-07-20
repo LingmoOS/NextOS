@@ -13,7 +13,7 @@ RESTORECOND_DEPENDENCIES = libglib2 libsepol libselinux dbus-glib
 
 RESTORECOND_MAKE_OPTS += \
 	$(TARGET_CONFIGURE_OPTS) \
-	ARCH="$(BR2_ARCH)"
+	ARCH="$(LINGMO_ARCH)"
 
 # We need to pass DESTDIR at build time because it's used by
 # restorecond build system to find headers and libraries.

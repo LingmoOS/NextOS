@@ -15,32 +15,32 @@ UCLIBC_NG_TEST_LICENSE_FILES = COPYING.LIB
 UCLIBC_NG_TEST_MAKE_ENV += NO_MATH=1
 
 # obsolete encrypt and setkey functions are not available since glibc 2.28
-ifeq ($(BR2_TOOLCHAIN_USES_GLIBC),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_GLIBC),y)
 UCLIBC_NG_TEST_MAKE_ENV += NO_CRYPT=1
 endif
 
 # locale tests are not compatible with musl, yet
-ifeq ($(BR2_TOOLCHAIN_USES_MUSL),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_MUSL),y)
 UCLIBC_NG_TEST_MAKE_ENV += NO_LOCALE=1
 endif
-ifeq ($(BR2_USE_WCHAR),)
+ifeq ($(LINGMO_USE_WCHAR),)
 UCLIBC_NG_TEST_MAKE_ENV += NO_WCHAR=1
 endif
-ifeq ($(BR2_ENABLE_LOCALE),)
+ifeq ($(LINGMO_ENABLE_LOCALE),)
 UCLIBC_NG_TEST_MAKE_ENV += NO_LOCALE=1
 endif
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS),)
 UCLIBC_NG_TEST_MAKE_ENV += NO_TLS=1 NO_THREADS=1
 endif
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS_NPTL),)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS_NPTL),)
 UCLIBC_NG_TEST_MAKE_ENV += NO_TLS=1 NO_NPTL=1
 endif
 # most NPTL/TLS tests use dlopen
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 UCLIBC_NG_TEST_MAKE_ENV += NO_TLS=1 NO_NPTL=1 NO_DL=1
 endif
 # no TLS macros available
-ifeq ($(BR2_s390x),y)
+ifeq ($(LINGMO_s390x),y)
 UCLIBC_NG_TEST_MAKE_ENV += NO_TLS=1
 endif
 

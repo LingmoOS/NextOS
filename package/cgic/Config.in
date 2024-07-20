@@ -1,4 +1,4 @@
-config BR2_PACKAGE_CGIC
+config LINGMO_PACKAGE_CGIC
 	bool "cgic"
 	help
 	  C CGI library

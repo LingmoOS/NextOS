@@ -58,14 +58,14 @@ FREERADIUS_SERVER_CONF_OPTS += \
 	--without-rlm_sql_freetds \
 	--without-rlm_yubikey
 
-ifeq ($(BR2_PACKAGE_COLLECTD),y)
+ifeq ($(LINGMO_PACKAGE_COLLECTD),y)
 FREERADIUS_SERVER_CONF_OPTS += --with-collectdclient
 FREERADIUS_SERVER_DEPENDENCIES += collectd
 else
 FREERADIUS_SERVER_CONF_OPTS += --without-collectdclient
 endif
 
-ifeq ($(BR2_PACKAGE_GDBM),y)
+ifeq ($(LINGMO_PACKAGE_GDBM),y)
 FREERADIUS_SERVER_CONF_OPTS += \
 	--with-rlm_counter \
 	--with-rlm_ippool
@@ -76,7 +76,7 @@ FREERADIUS_SERVER_CONF_OPTS += \
 	--without-rlm_ippool
 endif
 
-ifeq ($(BR2_PACKAGE_HIREDIS),y)
+ifeq ($(LINGMO_PACKAGE_HIREDIS),y)
 FREERADIUS_SERVER_CONF_OPTS += \
 	--with-rlm_cache_redis \
 	--with-rlm_redis \
@@ -89,21 +89,21 @@ FREERADIUS_SERVER_CONF_OPTS += \
 	--without-rlm_rediswho
 endif
 
-ifeq ($(BR2_PACKAGE_JSON_C)$(BR2_PACKAGE_LIBCURL),yy)
+ifeq ($(LINGMO_PACKAGE_JSON_C)$(LINGMO_PACKAGE_LIBCURL),yy)
 FREERADIUS_SERVER_CONF_OPTS += --with-rlm_rest
 FREERADIUS_SERVER_DEPENDENCIES += json-c libcurl
 else
 FREERADIUS_SERVER_CONF_OPTS += --without-rlm_rest
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBCAP),y)
 FREERADIUS_SERVER_CONF_OPTS += --with-libcap
 FREERADIUS_SERVER_DEPENDENCIES += libcap
 else
 FREERADIUS_SERVER_CONF_OPTS += --without-libcap
 endif
 
-ifeq ($(BR2_PACKAGE_LIBKRB5),y)
+ifeq ($(LINGMO_PACKAGE_LIBKRB5),y)
 FREERADIUS_SERVER_CONF_OPTS += \
 	ac_cv_path_krb5_config=$(STAGING_DIR)/usr/bin/krb5-config \
 	--with-rlm_krb5
@@ -112,49 +112,49 @@ else
 FREERADIUS_SERVER_CONF_OPTS += --without-rlm_krb5
 endif
 
-ifeq ($(BR2_PACKAGE_LIBPCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBPCAP),y)
 FREERADIUS_SERVER_CONF_OPTS += --with-pcap
 FREERADIUS_SERVER_DEPENDENCIES += libpcap
 else
 FREERADIUS_SERVER_CONF_OPTS += --without-pcap
 endif
 
-ifeq ($(BR2_PACKAGE_LINUX_PAM),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_PAM),y)
 FREERADIUS_SERVER_CONF_OPTS += --with-rlm_pam
 FREERADIUS_SERVER_DEPENDENCIES += linux-pam
 else
 FREERADIUS_SERVER_CONF_OPTS += --without-rlm_pam
 endif
 
-ifeq ($(BR2_PACKAGE_OPENLDAP),y)
+ifeq ($(LINGMO_PACKAGE_OPENLDAP),y)
 FREERADIUS_SERVER_CONF_OPTS += --with-rlm_ldap
 FREERADIUS_SERVER_DEPENDENCIES += openldap
 else
 FREERADIUS_SERVER_CONF_OPTS += --without-rlm_ldap
 endif
 
-ifeq ($(BR2_PACKAGE_MEMCACHED),y)
+ifeq ($(LINGMO_PACKAGE_MEMCACHED),y)
 FREERADIUS_SERVER_CONF_OPTS += --with-rlm_cache_memcached
 FREERADIUS_SERVER_DEPENDENCIES += memcached
 else
 FREERADIUS_SERVER_CONF_OPTS += --without-rlm_cache_memcached
 endif
 
-ifeq ($(BR2_PACKAGE_MARIADB),y)
+ifeq ($(LINGMO_PACKAGE_MARIADB),y)
 FREERADIUS_SERVER_CONF_OPTS += --with-rlm_sql_mysql
 FREERADIUS_SERVER_DEPENDENCIES += mariadb
 else
 FREERADIUS_SERVER_CONF_OPTS += --without-rlm_sql_mysql
 endif
 
-ifeq ($(BR2_PACKAGE_PCRE),y)
+ifeq ($(LINGMO_PACKAGE_PCRE),y)
 FREERADIUS_SERVER_CONF_OPTS += --with-pcre
 FREERADIUS_SERVER_DEPENDENCIES += pcre
 else
 FREERADIUS_SERVER_CONF_OPTS += --without-pcre
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON3),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3),y)
 FREERADIUS_SERVER_CONF_OPTS += \
 	--with-rlm_python3 \
 	--with-rlm-python3-config-bin=$(STAGING_DIR)/usr/bin/python3-config
@@ -163,35 +163,35 @@ else
 FREERADIUS_SERVER_CONF_OPTS += --without-rlm_python3
 endif
 
-ifeq ($(BR2_PACKAGE_READLINE),y)
+ifeq ($(LINGMO_PACKAGE_READLINE),y)
 FREERADIUS_SERVER_CONF_OPTS += --with-readline
 FREERADIUS_SERVER_DEPENDENCIES += readline
 else
 FREERADIUS_SERVER_CONF_OPTS += --without-readline
 endif
 
-ifeq ($(BR2_PACKAGE_SQLITE),y)
+ifeq ($(LINGMO_PACKAGE_SQLITE),y)
 FREERADIUS_SERVER_CONF_OPTS += --with-rlm_sql_sqlite
 FREERADIUS_SERVER_DEPENDENCIES += sqlite
 else
 FREERADIUS_SERVER_CONF_OPTS += --without-rlm_sql_sqlite
 endif
 
-ifeq ($(BR2_PACKAGE_UNIXODBC),y)
+ifeq ($(LINGMO_PACKAGE_UNIXODBC),y)
 FREERADIUS_SERVER_CONF_OPTS += --with-rlm_sql_unixodbc
 FREERADIUS_SERVER_DEPENDENCIES += unixodbc
 else
 FREERADIUS_SERVER_CONF_OPTS += --without-rlm_sql_unixodbc
 endif
 
-ifeq ($(BR2_PACKAGE_POSTGRESQL),y)
+ifeq ($(LINGMO_PACKAGE_POSTGRESQL),y)
 FREERADIUS_SERVER_CONF_OPTS += --with-rlm_sql_postgresql
 FREERADIUS_SERVER_DEPENDENCIES += postgresql
 else
 FREERADIUS_SERVER_CONF_OPTS += --without-rlm_sql_postgresql
 endif
 
-ifeq ($(BR2_PACKAGE_LIBOPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_LIBOPENSSL),y)
 FREERADIUS_SERVER_DEPENDENCIES += openssl
 FREERADIUS_SERVER_CONF_OPTS += \
 	--with-openssl \
@@ -204,21 +204,21 @@ FREERADIUS_SERVER_CONF_OPTS += \
 	--without-rlm_eap_pwd
 endif
 
-ifeq ($(BR2_PACKAGE_PCRE),y)
+ifeq ($(LINGMO_PACKAGE_PCRE),y)
 FREERADIUS_SERVER_CONF_OPTS += --with-pcre
 FREERADIUS_SERVER_DEPENDENCIES += pcre
 else
 FREERADIUS_SERVER_CONF_OPTS += --without-pcre
 endif
 
-ifeq ($(BR2_PACKAGE_RUBY),y)
+ifeq ($(LINGMO_PACKAGE_RUBY),y)
 FREERADIUS_SERVER_CONF_OPTS += --with-rlm_ruby
 FREERADIUS_SERVER_DEPENDENCIES += ruby
 else
 FREERADIUS_SERVER_CONF_OPTS += --without-rlm_ruby
 endif
 
-ifeq ($(BR2_INIT_SYSTEMD),y)
+ifeq ($(LINGMO_INIT_SYSTEMD),y)
 FREERADIUS_SERVER_CONF_OPTS += --with-systemd
 FREERADIUS_SERVER_DEPENDENCIES += systemd
 else

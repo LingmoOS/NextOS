@@ -23,7 +23,7 @@ LIBRSVG_CPE_ID_VENDOR = gnome
 # We're patching gdk-pixbuf-loader/Makefile.am
 LIBRSVG_AUTORECONF = YES
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 LIBRSVG_CONF_OPTS += --enable-introspection
 LIBRSVG_DEPENDENCIES += gobject-introspection
 else

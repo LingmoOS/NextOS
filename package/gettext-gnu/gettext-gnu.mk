@@ -7,7 +7,7 @@
 # Please keep in sync with GETTEXT_TINY_ARCHIVE_VERSION in
 # gettext-tiny/gettext-tiny.mk
 GETTEXT_GNU_VERSION = 0.22.4
-GETTEXT_GNU_SITE = $(BR2_GNU_MIRROR)/gettext
+GETTEXT_GNU_SITE = $(LINGMO_GNU_MIRROR)/gettext
 GETTEXT_GNU_SOURCE = gettext-$(GETTEXT_GNU_VERSION).tar.xz
 GETTEXT_GNU_INSTALL_STAGING = YES
 GETTEXT_GNU_LICENSE = LGPL-2.1+ (libintl), GPL-3.0+ (the rest)
@@ -15,7 +15,7 @@ GETTEXT_GNU_LICENSE_FILES = COPYING gettext-runtime/intl/COPYING.LIB
 GETTEXT_GNU_CPE_ID_VENDOR = gnu
 GETTEXT_GNU_CPE_ID_PRODUCT = gettext
 GETTEXT_GNU_PROVIDES = gettext
-GETTEXT_GNU_DEPENDENCIES = $(if $(BR2_PACKAGE_LIBICONV),libiconv)
+GETTEXT_GNU_DEPENDENCIES = $(if $(LINGMO_PACKAGE_LIBICONV),libiconv)
 
 # Avoid using the bundled subset of libxml2
 HOST_GETTEXT_GNU_DEPENDENCIES = host-libxml2
@@ -44,7 +44,7 @@ HOST_GETTEXT_GNU_CONF_OPTS = \
 
 # Force the build of libintl, even if the C library provides a stub
 # gettext implementation
-ifeq ($(BR2_PACKAGE_GETTEXT_PROVIDES_LIBINTL),y)
+ifeq ($(LINGMO_PACKAGE_GETTEXT_PROVIDES_LIBINTL),y)
 GETTEXT_GNU_CONF_OPTS += --with-included-gettext
 else
 GETTEXT_GNU_CONF_OPTS += --without-included-gettext
@@ -77,10 +77,10 @@ GETTEXT_GNU_POST_INSTALL_TARGET_HOOKS += GETTEXT_GNU_REMOVE_UNNEEDED
 
 # Force build with NLS support, otherwise libintl is not built
 # This is needed because some packages (eg. libglib2) requires
-# locales, but do not properly depend on BR2_ENABLE_LOCALE, and
-# instead select BR2_PACKAGE_GETTEXT_GNU. Those packages need to be
+# locales, but do not properly depend on LINGMO_ENABLE_LOCALE, and
+# instead select LINGMO_PACKAGE_GETTEXT_GNU. Those packages need to be
 # fixed before we can remove the following 3 lines... :-(
-ifeq ($(BR2_ENABLE_LOCALE),)
+ifeq ($(LINGMO_ENABLE_LOCALE),)
 GETTEXT_GNU_CONF_OPTS += --enable-nls
 endif
 

@@ -5,7 +5,7 @@
 ################################################################################
 
 READLINE_VERSION = 8.2
-READLINE_SITE = $(BR2_GNU_MIRROR)/readline
+READLINE_SITE = $(LINGMO_GNU_MIRROR)/readline
 READLINE_INSTALL_STAGING = YES
 READLINE_DEPENDENCIES = ncurses host-autoconf
 HOST_READLINE_DEPENDENCIES = host-ncurses host-autoconf
@@ -16,7 +16,7 @@ READLINE_LICENSE = GPL-3.0+
 READLINE_LICENSE_FILES = COPYING
 READLINE_CPE_ID_VENDOR = gnu
 
-ifeq ($(BR2_PACKAGE_READLINE_BRACKETED_PASTE),y)
+ifeq ($(LINGMO_PACKAGE_READLINE_BRACKETED_PASTE),y)
 READLINE_CONF_OPTS += --enable-bracketed-paste-default
 else
 READLINE_CONF_OPTS += --disable-bracketed-paste-default

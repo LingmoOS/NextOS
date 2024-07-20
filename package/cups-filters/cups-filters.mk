@@ -27,56 +27,56 @@ CUPS_FILTERS_CONF_OPTS = \
 	--with-test-font-path=/dev/null \
 	--without-rcdir
 
-ifeq ($(BR2_PACKAGE_LIBPNG),y)
+ifeq ($(LINGMO_PACKAGE_LIBPNG),y)
 CUPS_FILTERS_CONF_OPTS += --with-png
 CUPS_FILTERS_DEPENDENCIES += libpng
 else
 CUPS_FILTERS_CONF_OPTS += --without-png
 endif
 
-ifeq ($(BR2_PACKAGE_TIFF),y)
+ifeq ($(LINGMO_PACKAGE_TIFF),y)
 CUPS_FILTERS_CONF_OPTS += --with-tiff
 CUPS_FILTERS_DEPENDENCIES += tiff
 else
 CUPS_FILTERS_CONF_OPTS += --without-tiff
 endif
 
-ifeq ($(BR2_PACKAGE_DBUS),y)
+ifeq ($(LINGMO_PACKAGE_DBUS),y)
 CUPS_FILTERS_CONF_OPTS += --enable-dbus
 CUPS_FILTERS_DEPENDENCIES += dbus
 else
 CUPS_FILTERS_CONF_OPTS += --disable-dbus
 endif
 
-ifeq ($(BR2_PACKAGE_AVAHI_LIBAVAHI_CLIENT),y)
+ifeq ($(LINGMO_PACKAGE_AVAHI_LIBAVAHI_CLIENT),y)
 CUPS_FILTERS_DEPENDENCIES += avahi
 CUPS_FILTERS_CONF_OPTS += --enable-avahi
 else
 CUPS_FILTERS_CONF_OPTS += --disable-avahi
 endif
 
-ifeq ($(BR2_PACKAGE_GHOSTSCRIPT),y)
+ifeq ($(LINGMO_PACKAGE_GHOSTSCRIPT),y)
 CUPS_FILTERS_DEPENDENCIES += ghostscript
 CUPS_FILTERS_CONF_OPTS += --enable-ghostscript
 else
 CUPS_FILTERS_CONF_OPTS += --disable-ghostscript
 endif
 
-ifeq ($(BR2_PACKAGE_IJS),y)
+ifeq ($(LINGMO_PACKAGE_IJS),y)
 CUPS_FILTERS_DEPENDENCIES += ijs
 CUPS_FILTERS_CONF_OPTS += --enable-ijs
 else
 CUPS_FILTERS_CONF_OPTS += --disable-ijs
 endif
 
-ifeq ($(BR2_PACKAGE_POPPLER),y)
+ifeq ($(LINGMO_PACKAGE_POPPLER),y)
 CUPS_FILTERS_DEPENDENCIES += poppler
 CUPS_FILTERS_CONF_OPTS += --enable-poppler
 else
 CUPS_FILTERS_CONF_OPTS += --disable-poppler
 endif
 
-ifeq ($(BR2_PACKAGE_LIBEXIF),y)
+ifeq ($(LINGMO_PACKAGE_LIBEXIF),y)
 CUPS_FILTERS_CONF_OPTS += --enable-exif
 CUPS_FILTERS_DEPENDENCIES += libexif
 else

@@ -20,9 +20,9 @@ class TestProsody(TestLuaBase):
 class TestProsodyLua51(TestProsody):
     config = TestLuaBase.config + \
         """
-        BR2_PACKAGE_LUA=y
-        BR2_PACKAGE_LUA_5_1=y
-        BR2_PACKAGE_PROSODY=y
+        LINGMO_PACKAGE_LUA=y
+        LINGMO_PACKAGE_LUA_5_1=y
+        LINGMO_PACKAGE_PROSODY=y
         """
 
     def test_run(self):
@@ -36,8 +36,8 @@ class TestProsodyLua51(TestProsody):
 class TestProsodyLuajit(TestProsody):
     config = TestLuaBase.config + \
         """
-        BR2_PACKAGE_LUAJIT=y
-        BR2_PACKAGE_PROSODY=y
+        LINGMO_PACKAGE_LUAJIT=y
+        LINGMO_PACKAGE_PROSODY=y
         """
 
     def test_run(self):

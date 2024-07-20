@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_RFC3987
+config LINGMO_PACKAGE_PYTHON_RFC3987
 	bool "python-rfc3987"
 	help
 	  Parsing and validation of URIs (RFC 3986) and IRIs (RFC

@@ -19,8 +19,8 @@ class TestPerlClassLoad(TestPerlBase):
 
     config = TestPerlBase.config + \
         """
-        BR2_PACKAGE_PERL=y
-        BR2_PACKAGE_PERL_CLASS_LOAD=y
+        LINGMO_PACKAGE_PERL=y
+        LINGMO_PACKAGE_PERL_CLASS_LOAD=y
         """
 
     def test_run(self):

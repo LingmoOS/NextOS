@@ -1,4 +1,4 @@
-config BR2_PACKAGE_FREETYPE
+config LINGMO_PACKAGE_FREETYPE
 	bool "freetype"
 	help
 	  a free, high-quality and portable font engine.

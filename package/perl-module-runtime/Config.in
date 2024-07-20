@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_MODULE_RUNTIME
+config LINGMO_PACKAGE_PERL_MODULE_RUNTIME
 	bool "perl-module-runtime"
 	help
 	  runtime module handling.

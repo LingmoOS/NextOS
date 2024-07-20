@@ -1,17 +1,17 @@
-config BR2_PACKAGE_MOARVM
+config LINGMO_PACKAGE_MOARVM
 	bool "moarvm"
-	depends on BR2_TOOLCHAIN_HAS_THREADS_NPTL # libuv
-	depends on !BR2_STATIC_LIBS # libuv
-	depends on BR2_USE_MMU # libuv
-	depends on BR2_PACKAGE_LIBATOMIC_OPS_ARCH_SUPPORTS # libatomic_ops
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4 # libuv
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_9 # libuv
-	select BR2_PACKAGE_LIBUV
-	select BR2_PACKAGE_LIBTOMMATH
-	select BR2_PACKAGE_LIBATOMIC_OPS
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS_NPTL # libuv
+	depends on !LINGMO_STATIC_LIBS # libuv
+	depends on LINGMO_USE_MMU # libuv
+	depends on LINGMO_PACKAGE_LIBATOMIC_OPS_ARCH_SUPPORTS # libatomic_ops
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4 # libuv
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9 # libuv
+	select LINGMO_PACKAGE_LIBUV
+	select LINGMO_PACKAGE_LIBTOMMATH
+	select LINGMO_PACKAGE_LIBATOMIC_OPS
 	# dyncall does not work on riscv
-	select BR2_PACKAGE_LIBFFI if BR2_riscv
-	select BR2_PACKAGE_ZSTD
+	select LINGMO_PACKAGE_LIBFFI if LINGMO_riscv
+	select LINGMO_PACKAGE_ZSTD
 	help
 	  Short for "Metamodel On A Runtime", MoarVM is a virtual
 	  machine built especially for Rakudo Perl 6 and the NQP
@@ -20,8 +20,8 @@ config BR2_PACKAGE_MOARVM
 	  http://moarvm.com
 
 comment "moarvm needs a toolchain w/ NPTL, dynamic library, gcc >= 4.9"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS_NPTL || BR2_STATIC_LIBS \
-		|| !BR2_TOOLCHAIN_GCC_AT_LEAST_4_9
-	depends on BR2_USE_MMU
-	depends on BR2_PACKAGE_LIBATOMIC_OPS_ARCH_SUPPORTS
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS_NPTL || LINGMO_STATIC_LIBS \
+		|| !LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_PACKAGE_LIBATOMIC_OPS_ARCH_SUPPORTS
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4

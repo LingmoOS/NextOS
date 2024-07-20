@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBART
+config LINGMO_PACKAGE_LIBART
 	bool "libart"
 	help
 	  Libart is a library for high-performance 2D graphics. It

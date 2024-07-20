@@ -12,7 +12,7 @@ LIBDECOR_INSTALL_STAGING = YES
 LIBDECOR_DEPENDENCIES = cairo pango wayland wayland-protocols
 LIBDECOR_CONF_OPTS = -Ddemo=false
 
-ifeq ($(BR2_PACKAGE_DBUS),y)
+ifeq ($(LINGMO_PACKAGE_DBUS),y)
 LIBDECOR_CONF_OPTS += -Ddbus=enabled
 LIBDECOR_DEPENDENCIES += dbus
 else

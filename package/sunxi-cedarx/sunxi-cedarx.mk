@@ -12,7 +12,7 @@ SUNXI_CEDARX_INSTALL_STAGING = YES
 SUNXI_CEDARX_CONFIGURE_OPTS = \
 	CROSS_COMPILE=$(TARGET_CROSS)
 
-ifeq ($(BR2_ARM_EABIHF),y)
+ifeq ($(LINGMO_ARM_EABIHF),y)
 SUNXI_CEDARX_BIN_DIR = $(@D)/libcedarv/linux-armhf
 else
 SUNXI_CEDARX_BIN_DIR = $(@D)/libcedarv/linux-armel2

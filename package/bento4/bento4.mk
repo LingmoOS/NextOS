@@ -12,7 +12,7 @@ BENTO4_LICENSE_FILES = Documents/LICENSE.txt
 BENTO4_CPE_ID_VENDOR = axiosys
 
 # Source/C++/Core/Ap4Config.h
-ifeq ($(BR2_ENDIAN),"BIG")
+ifeq ($(LINGMO_ENDIAN),"BIG")
 BENTO4_BYTE_ORDER = 0
 else
 BENTO4_BYTE_ORDER = 1

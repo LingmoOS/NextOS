@@ -77,12 +77,12 @@ Br2Tree = namedtuple("Br2Tree", ["name", "path"])
 
 def get_trees():
     raw_variables = subprocess.check_output(["make", "--no-print-directory", "-s",
-                                             "BR2_HAVE_DOT_CONFIG=y", "printvars",
-                                             "VARS=BR2_EXTERNAL_NAMES BR2_EXTERNAL_%_PATH"])
+                                             "LINGMO_HAVE_DOT_CONFIG=y", "printvars",
+                                             "VARS=LINGMO_EXTERNAL_NAMES LINGMO_EXTERNAL_%_PATH"])
     variables = dict(line.split("=") for line in raw_variables.decode().split("\n") if line)
-    variables["BR2_EXTERNAL_BUILDROOT_PATH"] = brpath
-    externals = ["BUILDROOT", *variables["BR2_EXTERNAL_NAMES"].split()]
-    return [Br2Tree(name, os.path.normpath(variables[f"BR2_EXTERNAL_{name}_PATH"])) for name in externals]
+    variables["LINGMO_EXTERNAL_BUILDROOT_PATH"] = brpath
+    externals = ["BUILDROOT", *variables["LINGMO_EXTERNAL_NAMES"].split()]
+    return [Br2Tree(name, os.path.normpath(variables[f"LINGMO_EXTERNAL_{name}_PATH"])) for name in externals]
 
 
 class Package:
@@ -417,7 +417,7 @@ def get_show_info_js():
 def package_init_make_info():
     # Fetch all variables at once
     variables = subprocess.check_output(["make", "--no-print-directory", "-s",
-                                         "BR2_HAVE_DOT_CONFIG=y", "printvars",
+                                         "LINGMO_HAVE_DOT_CONFIG=y", "printvars",
                                          "VARS=%_LICENSE %_LICENSE_FILES %_VERSION %_IGNORE_CVES %_CPE_ID"])
     variable_list = variables.decode().splitlines()
 

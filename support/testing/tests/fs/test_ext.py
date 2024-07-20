@@ -40,11 +40,11 @@ def boot_img_and_check_fs_type(emulator, builddir, fs_type):
 class TestExt2(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_TARGET_ROOTFS_EXT2=y
-        BR2_TARGET_ROOTFS_EXT2_2r0=y
-        BR2_TARGET_ROOTFS_EXT2_LABEL="foobaz"
-        BR2_TARGET_ROOTFS_EXT2_SIZE="16384"
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_TARGET_ROOTFS_EXT2=y
+        LINGMO_TARGET_ROOTFS_EXT2_2r0=y
+        LINGMO_TARGET_ROOTFS_EXT2_LABEL="foobaz"
+        LINGMO_TARGET_ROOTFS_EXT2_SIZE="16384"
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):
@@ -60,11 +60,11 @@ class TestExt2(infra.basetest.BRTest):
 class TestExt2r1(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_TARGET_ROOTFS_EXT2=y
-        BR2_TARGET_ROOTFS_EXT2_2r1=y
-        BR2_TARGET_ROOTFS_EXT2_LABEL="foobar"
-        BR2_TARGET_ROOTFS_EXT2_SIZE="16384"
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_TARGET_ROOTFS_EXT2=y
+        LINGMO_TARGET_ROOTFS_EXT2_2r1=y
+        LINGMO_TARGET_ROOTFS_EXT2_LABEL="foobar"
+        LINGMO_TARGET_ROOTFS_EXT2_SIZE="16384"
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):
@@ -81,10 +81,10 @@ class TestExt2r1(infra.basetest.BRTest):
 class TestExt3(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_TARGET_ROOTFS_EXT2=y
-        BR2_TARGET_ROOTFS_EXT2_3=y
-        BR2_TARGET_ROOTFS_EXT2_SIZE="16384"
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_TARGET_ROOTFS_EXT2=y
+        LINGMO_TARGET_ROOTFS_EXT2_3=y
+        LINGMO_TARGET_ROOTFS_EXT2_SIZE="16384"
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):
@@ -101,12 +101,12 @@ class TestExt3(infra.basetest.BRTest):
 class TestExt4(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_TARGET_ROOTFS_EXT2=y
-        BR2_TARGET_ROOTFS_EXT2_4=y
-        BR2_TARGET_ROOTFS_EXT2_SIZE="16384"
-        BR2_TARGET_ROOTFS_EXT2_INODES=3000
-        BR2_TARGET_ROOTFS_EXT2_RESBLKS=10
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_TARGET_ROOTFS_EXT2=y
+        LINGMO_TARGET_ROOTFS_EXT2_4=y
+        LINGMO_TARGET_ROOTFS_EXT2_SIZE="16384"
+        LINGMO_TARGET_ROOTFS_EXT2_INODES=3000
+        LINGMO_TARGET_ROOTFS_EXT2_RESBLKS=10
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):

@@ -22,7 +22,7 @@ DROPBEAR_IGNORE_CVES += CVE-2023-48795
 # prevents dropbear from using SSP support when not available.
 DROPBEAR_CONF_OPTS = --disable-harden
 
-ifeq ($(BR2_PACKAGE_DROPBEAR_CLIENT),y)
+ifeq ($(LINGMO_PACKAGE_DROPBEAR_CLIENT),y)
 # Build dbclient, and create a convenience symlink named ssh
 DROPBEAR_PROGRAMS += dbclient
 DROPBEAR_TARGET_BINS += dbclient ssh
@@ -32,14 +32,14 @@ DROPBEAR_MAKE = \
 	$(MAKE) MULTI=1 SCPPROGRESS=1 \
 	PROGRAMS="$(DROPBEAR_PROGRAMS)"
 
-# With BR2_SHARED_STATIC_LIBS=y the generic infrastructure adds a
+# With LINGMO_SHARED_STATIC_LIBS=y the generic infrastructure adds a
 # --enable-static flags causing dropbear to be built as a static
 # binary. Adding a --disable-static reverts this
-ifeq ($(BR2_SHARED_STATIC_LIBS),y)
+ifeq ($(LINGMO_SHARED_STATIC_LIBS),y)
 DROPBEAR_CONF_OPTS += --disable-static
 endif
 
-ifeq ($(BR2_PACKAGE_LINUX_PAM),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_PAM),y)
 define DROPBEAR_SVR_PAM_AUTH
 	echo '#define DROPBEAR_SVR_PASSWORD_AUTH 0'     >> $(@D)/localoptions.h
 	echo '#define DROPBEAR_SVR_PAM_AUTH 1'          >> $(@D)/localoptions.h
@@ -61,7 +61,7 @@ endef
 DROPBEAR_POST_EXTRACT_HOOKS += DROPBEAR_SVR_PASSWORD_AUTH
 endif
 
-ifeq ($(BR2_PACKAGE_DROPBEAR_LEGACY_CRYPTO),y)
+ifeq ($(LINGMO_PACKAGE_DROPBEAR_LEGACY_CRYPTO),y)
 define DROPBEAR_ENABLE_LEGACY_CRYPTO
 	echo '#define DROPBEAR_3DES 1'                  >> $(@D)/localoptions.h
 	echo '#define DROPBEAR_ENABLE_CBC_MODE 1'       >> $(@D)/localoptions.h
@@ -72,14 +72,14 @@ endef
 DROPBEAR_POST_EXTRACT_HOOKS += DROPBEAR_ENABLE_LEGACY_CRYPTO
 endif
 
-ifeq ($(BR2_PACKAGE_DROPBEAR_DISABLE_REVERSEDNS),)
+ifeq ($(LINGMO_PACKAGE_DROPBEAR_DISABLE_REVERSEDNS),)
 define DROPBEAR_ENABLE_REVERSE_DNS
 	echo '#define DO_HOST_LOOKUP 1'                 >> $(@D)/localoptions.h
 endef
 DROPBEAR_POST_EXTRACT_HOOKS += DROPBEAR_ENABLE_REVERSE_DNS
 endif
 
-ifeq ($(BR2_PACKAGE_DROPBEAR_SMALL),y)
+ifeq ($(LINGMO_PACKAGE_DROPBEAR_SMALL),y)
 DROPBEAR_LICENSE += , Unlicense, WTFPL
 DROPBEAR_LICENSE_FILES += libtommath/LICENSE libtomcrypt/LICENSE
 DROPBEAR_CONF_OPTS += --disable-zlib --enable-bundled-libtom
@@ -93,7 +93,7 @@ DROPBEAR_CONF_OPTS += --disable-bundled-libtom
 endif
 
 define DROPBEAR_CUSTOM_PATH
-	echo '#define DEFAULT_PATH $(BR2_SYSTEM_DEFAULT_PATH)' >>$(@D)/localoptions.h
+	echo '#define DEFAULT_PATH $(LINGMO_SYSTEM_DEFAULT_PATH)' >>$(@D)/localoptions.h
 endef
 DROPBEAR_POST_EXTRACT_HOOKS += DROPBEAR_CUSTOM_PATH
 
@@ -102,7 +102,7 @@ define DROPBEAR_INSTALL_INIT_SYSTEMD
 		$(TARGET_DIR)/usr/lib/systemd/system/dropbear.service
 endef
 
-ifeq ($(BR2_USE_MMU),y)
+ifeq ($(LINGMO_USE_MMU),y)
 define DROPBEAR_INSTALL_INIT_SYSV
 	$(INSTALL) -D -m 755 package/dropbear/S50dropbear \
 		$(TARGET_DIR)/etc/init.d/S50dropbear
@@ -114,15 +114,15 @@ endef
 DROPBEAR_POST_EXTRACT_HOOKS += DROPBEAR_DISABLE_STANDALONE
 endif
 
-ifneq ($(BR2_PACKAGE_DROPBEAR_WTMP),y)
+ifneq ($(LINGMO_PACKAGE_DROPBEAR_WTMP),y)
 DROPBEAR_CONF_OPTS += --disable-wtmp
 endif
 
-ifneq ($(BR2_PACKAGE_DROPBEAR_LASTLOG),y)
+ifneq ($(LINGMO_PACKAGE_DROPBEAR_LASTLOG),y)
 DROPBEAR_CONF_OPTS += --disable-lastlog
 endif
 
-DROPBEAR_LOCALOPTIONS_FILE = $(call qstrip,$(BR2_PACKAGE_DROPBEAR_LOCALOPTIONS_FILE))
+DROPBEAR_LOCALOPTIONS_FILE = $(call qstrip,$(LINGMO_PACKAGE_DROPBEAR_LOCALOPTIONS_FILE))
 ifneq ($(DROPBEAR_LOCALOPTIONS_FILE),)
 define DROPBEAR_APPEND_LOCALOPTIONS_FILE
 	cat $(DROPBEAR_LOCALOPTIONS_FILE) >> $(@D)/localoptions.h

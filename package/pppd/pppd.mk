@@ -17,14 +17,14 @@ PPPD_AUTORECONF = YES
 PPPD_INSTALL_STAGING = YES
 PPPD_CONF_OPTS = --enable-multilink
 
-ifeq ($(BR2_PACKAGE_LINUX_PAM),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_PAM),y)
 PPPD_CONF_OPTS += --with-pam=$(STAGING_DIR)/usr
 PPPD_DEPENDENCIES += linux-pam
 else
 PPPD_CONF_OPTS += --without-pam
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 PPPD_CONF_OPTS += \
 	--enable-eaptls \
 	--enable-openssl-engine \
@@ -39,14 +39,14 @@ PPPD_CONF_OPTS += \
 	--without-openssl
 endif
 
-ifeq ($(BR2_PACKAGE_PPPD_FILTER),y)
+ifeq ($(LINGMO_PACKAGE_PPPD_FILTER),y)
 PPPD_CONF_OPTS += --with-pcap=$(STAGING_DIR)/usr
 PPPD_DEPENDENCIES += libpcap
 else
 PPPD_CONF_OPTS += --without-pcap
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 PPPD_CONF_OPTS += --enable-systemd
 PPPD_DEPENDENCIES += systemd
 else

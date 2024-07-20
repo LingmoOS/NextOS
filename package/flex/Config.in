@@ -1,4 +1,4 @@
-config BR2_PACKAGE_FLEX
+config LINGMO_PACKAGE_FLEX
 	bool "flex"
 	help
 	  A fast lexical analyser generator. A tool for generating

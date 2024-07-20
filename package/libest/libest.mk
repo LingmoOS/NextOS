@@ -18,24 +18,24 @@ LIBEST_DEPENDENCIES = openssl host-pkgconf safeclib
 # possible hidden use of bundled copy of library.
 LIBEST_CONF_OPTS = \
 	--with-ssl-dir=$(STAGING_DIR)/usr \
-	$(if $(BR2_TOOLCHAIN_HAS_THREADS),--enable-pthreads,--disable-pthreads) \
-	$(if $(BR2_PACKAGE_LIBEST_BRSKI),--enable-brski,--disable-brski) \
+	$(if $(LINGMO_TOOLCHAIN_HAS_THREADS),--enable-pthreads,--disable-pthreads) \
+	$(if $(LINGMO_PACKAGE_LIBEST_BRSKI),--enable-brski,--disable-brski) \
 	--disable-examples \
 	--without-libcoap-dir \
 	--with-system-libsafec
 
-ifeq ($(BR2_PACKAGE_LIBEXECINFO),y)
+ifeq ($(LINGMO_PACKAGE_LIBEXECINFO),y)
 LIBEST_DEPENDENCIES += libexecinfo
 LIBEST_CONF_ENV += LDFLAGS="$(TARGET_LDFLAGS) -lexecinfo"
 endif
 
-ifeq ($(BR2_PACKAGE_LIBEST_MODE_CLIENT_ONLY),y)
+ifeq ($(LINGMO_PACKAGE_LIBEST_MODE_CLIENT_ONLY),y)
 LIBEST_CONF_OPTS += --enable-client-only
 else
 LIBEST_CONF_OPTS += --disable-client-only
 endif
 
-ifeq ($(BR2_PACKAGE_OPENJDK),y)
+ifeq ($(LINGMO_PACKAGE_OPENJDK),y)
 LIBEST_MAKE_ENV += JAVA_HOME=$(HOST_DIR)/lib/jvm
 LIBEST_CONF_ENV += JAVA_HOME=$(HOST_DIR)/lib/jvm
 LIBEST_CONF_OPTS += --enable-jni
@@ -44,14 +44,14 @@ else
 LIBEST_CONF_OPTS += --disable-jni
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCURL),y)
+ifeq ($(LINGMO_PACKAGE_LIBCURL),y)
 LIBEST_CONF_OPTS += --with-libcurl-dir=$(STAGING_DIR)/usr
 LIBEST_DEPENDENCIES += libcurl
 else
 LIBEST_CONF_OPTS += --without-libcurl-dir
 endif
 
-ifeq ($(BR2_PACKAGE_LIBURIPARSER),y)
+ifeq ($(LINGMO_PACKAGE_LIBURIPARSER),y)
 LIBEST_CONF_OPTS += --with-uriparser-dir=$(STAGING_DIR)/usr
 LIBEST_DEPENDENCIES += liburiparser
 else

@@ -6,10 +6,10 @@ import infra.basetest
 class TestLess(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_PACKAGE_BUSYBOX_SHOW_OTHERS=y
-        BR2_PACKAGE_LESS=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS=y
+        LINGMO_PACKAGE_LESS=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_TI_UIM
+config LINGMO_PACKAGE_TI_UIM
 	bool "ti-uim"
 	help
 	  User Mode Initialization Manager for TI wl12xx connectivity

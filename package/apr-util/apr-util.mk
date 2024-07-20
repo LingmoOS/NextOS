@@ -19,37 +19,37 @@ APR_UTIL_CONFIG_SCRIPTS = apu-1-config
 
 # When iconv is available, then use it to provide charset conversion
 # features.
-APR_UTIL_DEPENDENCIES += $(if $(BR2_PACKAGE_LIBICONV),libiconv)
+APR_UTIL_DEPENDENCIES += $(if $(LINGMO_PACKAGE_LIBICONV),libiconv)
 
-ifeq ($(BR2_PACKAGE_BERKELEYDB),y)
+ifeq ($(LINGMO_PACKAGE_BERKELEYDB),y)
 APR_UTIL_CONF_OPTS += --with-dbm=db53 --with-berkeley-db="$(STAGING_DIR)/usr"
 APR_UTIL_DEPENDENCIES += berkeleydb
 else
 APR_UTIL_CONF_OPTS += --without-berkeley-db
 endif
 
-ifeq ($(BR2_PACKAGE_GDBM),y)
+ifeq ($(LINGMO_PACKAGE_GDBM),y)
 APR_UTIL_CONF_OPTS += --with-gdbm="$(STAGING_DIR)/usr"
 APR_UTIL_DEPENDENCIES += gdbm
 else
 APR_UTIL_CONF_OPTS += --without-gdbm
 endif
 
-ifeq ($(BR2_PACKAGE_MARIADB),y)
+ifeq ($(LINGMO_PACKAGE_MARIADB),y)
 APR_UTIL_CONF_OPTS += --with-mysql="$(STAGING_DIR)/usr"
 APR_UTIL_DEPENDENCIES += mariadb
 else
 APR_UTIL_CONF_OPTS += --without-mysql
 endif
 
-ifeq ($(BR2_PACKAGE_SQLITE),y)
+ifeq ($(LINGMO_PACKAGE_SQLITE),y)
 APR_UTIL_CONF_OPTS += --with-sqlite3="$(STAGING_DIR)/usr"
 APR_UTIL_DEPENDENCIES += sqlite
 else
 APR_UTIL_CONF_OPTS += --without-sqlite3
 endif
 
-ifeq ($(BR2_PACKAGE_OPENLDAP),y)
+ifeq ($(LINGMO_PACKAGE_OPENLDAP),y)
 APR_UTIL_CONF_ENV += ac_cv_ldap_set_rebind_proc_style=three
 APR_UTIL_CONF_OPTS += \
 	--with-ldap \
@@ -60,21 +60,21 @@ else
 APR_UTIL_CONF_OPTS += --without-ldap
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 APR_UTIL_CONF_OPTS += --with-crypto --with-openssl="$(STAGING_DIR)/usr"
 APR_UTIL_DEPENDENCIES += openssl
 else
 APR_UTIL_CONF_OPTS += --without-crypto
 endif
 
-ifeq ($(BR2_PACKAGE_POSTGRESQL),y)
+ifeq ($(LINGMO_PACKAGE_POSTGRESQL),y)
 APR_UTIL_CONF_OPTS += --with-pgsql="$(STAGING_DIR)/usr"
 APR_UTIL_DEPENDENCIES += postgresql
 else
 APR_UTIL_CONF_OPTS += --without-pgsql
 endif
 
-ifeq ($(BR2_PACKAGE_UNIXODBC),y)
+ifeq ($(LINGMO_PACKAGE_UNIXODBC),y)
 APR_UTIL_CONF_OPTS += --with-odbc="$(STAGING_DIR)/usr"
 # avoid using target binary $(STAGING_DIR)/usr/bin/odbc_config
 APR_UTIL_CONF_ENV += ac_cv_path_ODBC_CONFIG=""

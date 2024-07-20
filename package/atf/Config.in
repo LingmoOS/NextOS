@@ -1,7 +1,7 @@
-config BR2_PACKAGE_ATF
+config LINGMO_PACKAGE_ATF
 	bool "atf"
-	depends on BR2_INSTALL_LIBSTDCPP
-	depends on BR2_USE_MMU # fork()
+	depends on LINGMO_INSTALL_LIBSTDCPP
+	depends on LINGMO_USE_MMU # fork()
 	help
 	  ATF, or Automated Testing Framework, is a collection of
 	  libraries to write test programs in C, C++ and POSIX shell.
@@ -9,5 +9,5 @@ config BR2_PACKAGE_ATF
 	  https://github.com/jmmv/atf
 
 comment "atf needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
-	depends on BR2_USE_MMU
+	depends on !LINGMO_INSTALL_LIBSTDCPP
+	depends on LINGMO_USE_MMU

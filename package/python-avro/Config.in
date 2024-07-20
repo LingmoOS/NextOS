@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_AVRO
+config LINGMO_PACKAGE_PYTHON_AVRO
 	bool "python-avro"
 	help
 	  Select this option to install the Avro Python3 language

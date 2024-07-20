@@ -1,7 +1,7 @@
-BR_ARCH_XTENSA_OVERLAY_FILE = $(call qstrip,$(BR2_XTENSA_OVERLAY_FILE))
+BR_ARCH_XTENSA_OVERLAY_FILE = $(call qstrip,$(LINGMO_XTENSA_OVERLAY_FILE))
 
-ifeq ($(BR_BUILDING)$(BR2_XTENSA_CUSTOM)$(BR2_TOOLCHAIN_BUILDROOT):$(BR_ARCH_XTENSA_OVERLAY_FILE),yyy:)
-$(error No xtensa overlay file provided. Check your BR2_XTENSA_OVERLAY_FILE setting)
+ifeq ($(BR_BUILDING)$(LINGMO_XTENSA_CUSTOM)$(LINGMO_TOOLCHAIN_BUILDROOT):$(BR_ARCH_XTENSA_OVERLAY_FILE),yyy:)
+$(error No xtensa overlay file provided. Check your LINGMO_XTENSA_OVERLAY_FILE setting)
 endif
 
 ################################################################################

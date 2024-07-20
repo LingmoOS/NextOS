@@ -1,6 +1,6 @@
-if BR2_PACKAGE_LIBRESSL
+if LINGMO_PACKAGE_LIBRESSL
 
-config BR2_PACKAGE_LIBRESSL_BIN
+config LINGMO_PACKAGE_LIBRESSL_BIN
 	bool "openssl binary"
 	help
 	  Install the openssl binary to the target file system. This is

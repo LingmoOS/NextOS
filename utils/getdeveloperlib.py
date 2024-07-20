@@ -157,13 +157,13 @@ def parse_developer_packages(fnames):
 
 def parse_arches_from_config_in(fname):
     """Given a path to an arch/Config.in.* file, parse it to get the list
-    of BR2_ARCH values for this architecture."""
+    of LINGMO_ARCH values for this architecture."""
     arches = set()
     with open(fname, "r") as f:
         parsing_arches = False
         for line in f:
             line = line.strip()
-            if line == "config BR2_ARCH":
+            if line == "config LINGMO_ARCH":
                 parsing_arches = True
                 continue
             if parsing_arches:

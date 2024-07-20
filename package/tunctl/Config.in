@@ -1,4 +1,4 @@
-config BR2_PACKAGE_TUNCTL
+config LINGMO_PACKAGE_TUNCTL
 	bool "tunctl"
 	help
 	  Tunctl is a tool for controlling the TUN/TAP driver in Linux.

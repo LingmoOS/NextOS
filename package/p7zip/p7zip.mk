@@ -10,7 +10,7 @@ P7ZIP_LICENSE = LGPL-2.1+ with unRAR restriction
 P7ZIP_LICENSE_FILES = DOC/License.txt
 P7ZIP_CPE_ID_VENDOR = 7-zip
 
-ifeq ($(BR2_PACKAGE_P7ZIP_7ZA),y)
+ifeq ($(LINGMO_PACKAGE_P7ZIP_7ZA),y)
 P7ZIP_TARGET = 7za
 else
 P7ZIP_TARGET = 7zr

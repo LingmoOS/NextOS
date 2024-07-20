@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PY
+config LINGMO_PACKAGE_PYTHON_PY
 	bool "python-py"
 	help
 	  library with cross-python path, ini-parsing, io, code, log

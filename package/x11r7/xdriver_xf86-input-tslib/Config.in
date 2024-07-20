@@ -1,7 +1,7 @@
-config BR2_PACKAGE_XDRIVER_XF86_INPUT_TSLIB
+config LINGMO_PACKAGE_XDRIVER_XF86_INPUT_TSLIB
 	bool "xf86-input-tslib"
-	select BR2_PACKAGE_XORGPROTO
-	select BR2_PACKAGE_TSLIB
+	select LINGMO_PACKAGE_XORGPROTO
+	select LINGMO_PACKAGE_TSLIB
 	help
 	  Touch screen library input driver
 

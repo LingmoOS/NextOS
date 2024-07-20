@@ -1,6 +1,6 @@
-config BR2_PACKAGE_MPFR
+config LINGMO_PACKAGE_MPFR
 	bool "mpfr"
-	select BR2_PACKAGE_GMP
+	select LINGMO_PACKAGE_GMP
 	help
 	  C library for multiple-precision floating-point computations
 	  with exact rounding.

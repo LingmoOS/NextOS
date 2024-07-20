@@ -6,9 +6,9 @@
 
 # Version is set when using buildroot toolchain.
 # If not, we do like other packages
-BINUTILS_VERSION = $(call qstrip,$(BR2_BINUTILS_VERSION))
+BINUTILS_VERSION = $(call qstrip,$(LINGMO_BINUTILS_VERSION))
 ifeq ($(BINUTILS_VERSION),)
-ifeq ($(BR2_arc),y)
+ifeq ($(LINGMO_arc),y)
 BINUTILS_VERSION = arc-2023.09-release
 else
 BINUTILS_VERSION = 2.40
@@ -21,9 +21,9 @@ BINUTILS_SOURCE = binutils-gdb-$(BINUTILS_VERSION).tar.gz
 BINUTILS_FROM_GIT = y
 endif
 
-BINUTILS_SITE ?= $(BR2_GNU_MIRROR)/binutils
+BINUTILS_SITE ?= $(LINGMO_GNU_MIRROR)/binutils
 BINUTILS_SOURCE ?= binutils-$(BINUTILS_VERSION).tar.xz
-BINUTILS_EXTRA_CONFIG_OPTIONS = $(call qstrip,$(BR2_BINUTILS_EXTRA_CONFIG_OPTIONS))
+BINUTILS_EXTRA_CONFIG_OPTIONS = $(call qstrip,$(LINGMO_BINUTILS_EXTRA_CONFIG_OPTIONS))
 BINUTILS_INSTALL_STAGING = YES
 BINUTILS_DEPENDENCIES = zlib $(TARGET_NLS_DEPENDENCIES)
 BINUTILS_MAKE_OPTS = LIBS=$(TARGET_NLS_LIBS)
@@ -57,7 +57,7 @@ BINUTILS_CONF_OPTS = \
 	$(BINUTILS_EXTRA_CONFIG_OPTIONS) \
 	--without-zstd
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 BINUTILS_CONF_OPTS += --disable-plugins
 endif
 
@@ -73,7 +73,7 @@ HOST_BINUTILS_INSTALL_OPTS += MAKEINFO=true install
 # Workaround a build issue with -Os for ARM Cortex-M cpus.
 # (Binutils 2.25.1 and 2.26.1)
 # https://sourceware.org/bugzilla/show_bug.cgi?id=20552
-ifeq ($(BR2_ARM_CPU_ARMV7M)$(BR2_OPTIMIZE_S),yy)
+ifeq ($(LINGMO_ARM_CPU_ARMV7M)$(LINGMO_OPTIMIZE_S),yy)
 BINUTILS_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) -O2"
 endif
 
@@ -94,7 +94,7 @@ HOST_BINUTILS_CONF_OPTS = \
 	$(BINUTILS_EXTRA_CONFIG_OPTIONS) \
 	--without-zstd
 
-ifeq ($(BR2_BINUTILS_GPROFNG),y)
+ifeq ($(LINGMO_BINUTILS_GPROFNG),y)
 HOST_BINUTILS_DEPENDENCIES += host-bison
 HOST_BINUTILS_CONF_OPTS += --enable-gprofng
 else
@@ -105,7 +105,7 @@ endif
 # our TARGET_CONFIGURE_ARGS are taken into consideration for those
 BINUTILS_MAKE_ENV = $(TARGET_CONFIGURE_ARGS)
 
-ifeq ($(BR2_PACKAGE_BINUTILS_HAS_NO_LIBSFRAME),)
+ifeq ($(LINGMO_PACKAGE_BINUTILS_HAS_NO_LIBSFRAME),)
 define BINUTILS_INSTALL_STAGING_LIBSFRAME
 	$(TARGET_MAKE_ENV) $(MAKE) -C $(@D)/libsframe DESTDIR=$(STAGING_DIR) install
 endef
@@ -121,7 +121,7 @@ define BINUTILS_INSTALL_STAGING_CMDS
 endef
 
 # If we don't want full binutils on target
-ifneq ($(BR2_PACKAGE_BINUTILS_TARGET),y)
+ifneq ($(LINGMO_PACKAGE_BINUTILS_TARGET),y)
 # libiberty is static-only, so it is only installed to staging, above.
 define BINUTILS_INSTALL_TARGET_CMDS
 	$(TARGET_MAKE_ENV) $(MAKE) -C $(@D)/bfd DESTDIR=$(TARGET_DIR) install

@@ -12,18 +12,18 @@ LIBOPENH264_CPE_ID_VENDOR = cisco
 LIBOPENH264_CPE_ID_PRODUCT = openh264
 LIBOPENH264_INSTALL_STAGING = YES
 
-ifeq ($(BR2_aarch64),y)
+ifeq ($(LINGMO_aarch64),y)
 LIBOPENH264_ARCH = aarch64
-else ifeq ($(BR2_arm)$(BR2_armeb),y)
+else ifeq ($(LINGMO_arm)$(LINGMO_armeb),y)
 LIBOPENH264_ARCH = arm
-else ifeq ($(BR2_i386),y)
+else ifeq ($(LINGMO_i386),y)
 LIBOPENH264_ARCH = x86
 LIBOPENH264_DEPENDENCIES += host-nasm
-else ifeq ($(BR2_mips)$(BR2_mipsel),y)
+else ifeq ($(LINGMO_mips)$(LINGMO_mipsel),y)
 LIBOPENH264_ARCH = mips
-else ifeq ($(BR2_mips64)$(BR2_mips64el),y)
+else ifeq ($(LINGMO_mips64)$(LINGMO_mips64el),y)
 LIBOPENH264_ARCH = mips64
-else ifeq ($(BR2_x86_64),y)
+else ifeq ($(LINGMO_x86_64),y)
 LIBOPENH264_ARCH = x86_64
 LIBOPENH264_DEPENDENCIES += host-nasm
 endif
@@ -32,7 +32,7 @@ endif
 # architecture don't need it.
 LIBOPENH264_MAKE_OPTS = \
 	ARCH=$(LIBOPENH264_ARCH) \
-	ENABLE64BIT=$(if $(BR2_x86_64),Yes,No) \
+	ENABLE64BIT=$(if $(LINGMO_x86_64),Yes,No) \
 	USE_STACK_PROTECTOR=No
 
 define LIBOPENH264_BUILD_CMDS

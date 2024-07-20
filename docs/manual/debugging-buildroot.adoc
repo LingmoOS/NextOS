@@ -6,7 +6,7 @@
 == Debugging Buildroot
 
 It is possible to instrument the steps +Buildroot+ does when building
-packages. Define the variable +BR2_INSTRUMENTATION_SCRIPTS+ to contain
+packages. Define the variable +LINGMO_INSTRUMENTATION_SCRIPTS+ to contain
 the path of one or more scripts (or other executables), in a
 space-separated list, you want called before and after each step. The
 scripts are called in sequence, with three parameters:
@@ -18,7 +18,7 @@ scripts are called in sequence, with three parameters:
 For example :
 
 ----
-make BR2_INSTRUMENTATION_SCRIPTS="/path/to/my/script1 /path/to/my/script2"
+make LINGMO_INSTRUMENTATION_SCRIPTS="/path/to/my/script1 /path/to/my/script2"
 ----
 
 The list of steps is:
@@ -34,7 +34,7 @@ The list of steps is:
 
 The script has access to the following variables:
 
-  - +BR2_CONFIG+: the path to the Buildroot .config file
+  - +LINGMO_CONFIG+: the path to the Buildroot .config file
   - +HOST_DIR+, +STAGING_DIR+, +TARGET_DIR+: see
     xref:generic-package-reference[]
   - +BUILD_DIR+: the directory where packages are extracted and built

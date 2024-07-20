@@ -21,7 +21,7 @@ LIBBDPLUS_CONF_OPTS = \
 	--with-libgcrypt-prefix=$(STAGING_DIR)/usr \
 	--with-gpg-error-prefix=$(STAGING_DIR)/usr
 
-ifeq ($(BR2_PACKAGE_LIBAACS),y)
+ifeq ($(LINGMO_PACKAGE_LIBAACS),y)
 LIBBDPLUS_DEPENDENCIES += libaacs
 LIBBDPLUS_CONF_OPTS += --with-libaacs
 else

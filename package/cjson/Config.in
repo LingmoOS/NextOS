@@ -1,4 +1,4 @@
-config BR2_PACKAGE_CJSON
+config LINGMO_PACKAGE_CJSON
 	bool "cJSON"
 	help
 	  An ultra-lightweight, portable, single-file, simple-as-can-be
@@ -6,9 +6,9 @@ config BR2_PACKAGE_CJSON
 
 	  https://github.com/DaveGamble/cJSON
 
-if BR2_PACKAGE_CJSON
+if LINGMO_PACKAGE_CJSON
 
-config BR2_PACKAGE_CJSON_UTILS
+config LINGMO_PACKAGE_CJSON_UTILS
 	bool "cJSON utils"
 	help
 	  Supplementary library with support for JSON Pointer

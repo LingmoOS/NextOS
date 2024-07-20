@@ -14,20 +14,20 @@ to create a special firmware image that bundles your root filesystem and
 kernel image, or any other custom action required for your project.
 
 To enable this feature, specify a space-separated list of post-image
-scripts in config option +BR2_ROOTFS_POST_IMAGE_SCRIPT+ (in the +System
+scripts in config option +LINGMO_ROOTFS_POST_IMAGE_SCRIPT+ (in the +System
 configuration+ menu). If you specify a relative path, it will be
 relative to the root of the Buildroot tree.
 
 Just like post-build scripts, post-image scripts are run with the main
 Buildroot tree as current working directory. The path to the +images+
 output directory is passed as the first argument to each script. If the
-config option +BR2_ROOTFS_POST_SCRIPT_ARGS+ is not empty, these
+config option +LINGMO_ROOTFS_POST_SCRIPT_ARGS+ is not empty, these
 arguments will be passed to the script too. All the scripts will be
 passed the exact same set of arguments, it is not possible to pass
 different sets of arguments to each script.
 
 Again just like for the post-build scripts, the scripts have access to
-the environment variables +BR2_CONFIG+, +HOST_DIR+, +STAGING_DIR+,
+the environment variables +LINGMO_CONFIG+, +HOST_DIR+, +STAGING_DIR+,
 +TARGET_DIR+, +BUILD_DIR+, +BINARIES_DIR+, +CONFIG_DIR+ and
 +BASE_DIR+.
 

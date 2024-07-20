@@ -1,7 +1,7 @@
-config BR2_PACKAGE_SED
+config LINGMO_PACKAGE_SED
 	bool "sed"
-	depends on BR2_USE_WCHAR
-	depends on BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
+	depends on LINGMO_USE_WCHAR
+	depends on LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS
 	help
 	  sed (stream editor) is a non-interactive command-line text
 	  editor.
@@ -9,5 +9,5 @@ config BR2_PACKAGE_SED
 	  https://www.gnu.org/software/sed/
 
 comment "sed needs a toolchain w/ wchar"
-	depends on !BR2_USE_WCHAR
-	depends on BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
+	depends on !LINGMO_USE_WCHAR
+	depends on LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS

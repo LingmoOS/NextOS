@@ -123,7 +123,7 @@ buildroot-generated filesystem.
     #define CONFIG_SYS_MMC_MAX_DEVICE   1
 
  6. Create a custom grub2 config file with the following contents and
-    set its path in BR2_TARGET_GRUB2_CFG:
+    set its path in LINGMO_TARGET_GRUB2_CFG:
 
     set default="0"
     set timeout="5"
@@ -135,14 +135,14 @@ buildroot-generated filesystem.
     }
 
  7. Create a custom builtin config file with the following contents
-    and set its path in BR2_TARGET_GRUB2_BUILTIN_CONFIG:
+    and set its path in LINGMO_TARGET_GRUB2_BUILTIN_CONFIG:
 
     set root=(hd0)
     set prefix=/boot/grub
 
  8. Create a custom post-build script which copies files from
     ${BINARIES_DIR}/boot-part to $(TARGET_DIR)/boot (set its path in
-    BR2_ROOTFS_POST_BUILD_SCRIPT):
+    LINGMO_ROOTFS_POST_BUILD_SCRIPT):
 
     #!/bin/sh
     cp -r ${BINARIES_DIR}/boot-part/* ${TARGET_DIR}/boot/

@@ -28,14 +28,14 @@ DAQ_CONF_OPTS += \
 	--with-dnet-includes=$(STAGING_DIR)/usr/include \
 	--with-dnet-libraries=$(STAGING_DIR)/usr/lib
 
-ifeq ($(BR2_PACKAGE_LIBDNET)$(BR2_PACKAGE_LIBNETFILTER_QUEUE),yy)
+ifeq ($(LINGMO_PACKAGE_LIBDNET)$(LINGMO_PACKAGE_LIBNETFILTER_QUEUE),yy)
 DAQ_DEPENDENCIES += libdnet libnetfilter_queue
 DAQ_CONF_OPTS += --enable-nfq-module
 else
 DAQ_CONF_OPTS += --disable-nfq-module
 endif
 
-ifeq ($(BR2_PACKAGE_LIBPCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBPCAP),y)
 DAQ_DEPENDENCIES += libpcap
 # assume these flags are available to prevent configure from running
 # test programs while cross compiling

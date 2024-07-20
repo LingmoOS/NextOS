@@ -1,6 +1,6 @@
-config BR2_PACKAGE_SMCROUTE
+config LINGMO_PACKAGE_SMCROUTE
 	bool "smcroute"
-	depends on BR2_USE_MMU # fork()
+	depends on LINGMO_USE_MMU # fork()
 	help
 	  SMCRoute is a command line tool to manipulate the multicast
 	  routes of a UNIX kernel. It supports both IPv4 and IPv6

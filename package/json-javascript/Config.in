@@ -1,4 +1,4 @@
-config BR2_PACKAGE_JSON_JAVASCRIPT
+config LINGMO_PACKAGE_JSON_JAVASCRIPT
 	bool "json-javascript"
 	help
 	  JSON in JavaScript

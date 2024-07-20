@@ -1,4 +1,4 @@
-config BR2_PACKAGE_XXHASH
+config LINGMO_PACKAGE_XXHASH
 	bool "xxhash"
 	help
 	  xxHash is an extremely fast hash algorithm, running at RAM

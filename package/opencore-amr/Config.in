@@ -1,6 +1,6 @@
-config BR2_PACKAGE_OPENCORE_AMR
+config LINGMO_PACKAGE_OPENCORE_AMR
 	bool "opencore-amr"
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	help
 	  Library of OpenCORE Framework implementation of Adaptive
 	  Multi Rate Narrowband and Wideband (AMR-NB and AMR-WB)
@@ -9,4 +9,4 @@ config BR2_PACKAGE_OPENCORE_AMR
 	  http://opencore-amr.sourceforge.net/
 
 comment "opencore-amr needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP

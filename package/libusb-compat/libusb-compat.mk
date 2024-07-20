@@ -14,7 +14,7 @@ LIBUSB_COMPAT_CONFIG_SCRIPTS = libusb-config
 LIBUSB_COMPAT_LICENSE = LGPL-2.1+
 LIBUSB_COMPAT_LICENSE_FILES = COPYING
 
-ifeq ($(BR2_STATIC_LIBS),)
+ifeq ($(LINGMO_STATIC_LIBS),)
 LIBUSB_COMPAT_CONF_ENV += \
 	LIBUSB_1_0_SONAME=`LC_ALL=C readelf -d $(STAGING_DIR)/usr/lib/libusb-1.0.so \
 			   |sed -r -e '/\(SONAME\)/!d; s/.*\[(.+)\]$$/\1/'`

@@ -1,10 +1,10 @@
 # Config entries for internal toolchain backend
 
-if BR2_TOOLCHAIN_BUILDROOT
+if LINGMO_TOOLCHAIN_BUILDROOT
 
 comment "Toolchain Buildroot Options"
 
-config BR2_TOOLCHAIN_BUILDROOT_VENDOR
+config LINGMO_TOOLCHAIN_BUILDROOT_VENDOR
 	string "custom toolchain vendor name"
 	default "buildroot"
 	help
@@ -22,22 +22,22 @@ config BR2_TOOLCHAIN_BUILDROOT_VENDOR
 
 choice
 	prompt "C library"
-	default BR2_TOOLCHAIN_BUILDROOT_GLIBC
+	default LINGMO_TOOLCHAIN_BUILDROOT_GLIBC
 
-config BR2_TOOLCHAIN_BUILDROOT_UCLIBC
+config LINGMO_TOOLCHAIN_BUILDROOT_UCLIBC
 	bool "uClibc-ng"
-	depends on BR2_PACKAGE_UCLIBC_SUPPORTS
-	select BR2_TOOLCHAIN_USES_UCLIBC
+	depends on LINGMO_PACKAGE_UCLIBC_SUPPORTS
+	select LINGMO_TOOLCHAIN_USES_UCLIBC
 	help
 	  This option selects uClibc-ng as the C library for the
 	  cross-compilation toolchain.
 
 	  http://uclibc-ng.org
 
-config BR2_TOOLCHAIN_BUILDROOT_GLIBC
+config LINGMO_TOOLCHAIN_BUILDROOT_GLIBC
 	bool "glibc"
-	depends on BR2_PACKAGE_GLIBC_SUPPORTS
-	select BR2_TOOLCHAIN_USES_GLIBC
+	depends on LINGMO_PACKAGE_GLIBC_SUPPORTS
+	select LINGMO_TOOLCHAIN_USES_GLIBC
 	help
 	  This option selects glibc as the C library for the
 	  cross-compilation toolchain.
@@ -45,50 +45,50 @@ config BR2_TOOLCHAIN_BUILDROOT_GLIBC
 	  http://www.gnu.org/software/libc/
 
 comment "glibc needs a toolchain w/ kernel headers >= 3.2"
-	depends on BR2_PACKAGE_GLIBC_ARCH_SUPPORTS
-	depends on !BR2_TOOLCHAIN_HEADERS_AT_LEAST_3_2
+	depends on LINGMO_PACKAGE_GLIBC_ARCH_SUPPORTS
+	depends on !LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_3_2
 
 # glibc >= 2.26 require kernel headers >= 3.10 on powerpc64le.
 comment "glibc on powerpc64le needs a toolchain w/ headers >= 3.10"
-	depends on BR2_powerpc64le
-	depends on !BR2_TOOLCHAIN_HEADERS_AT_LEAST_3_10
+	depends on LINGMO_powerpc64le
+	depends on !LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_3_10
 
 # Support for MIPS NAN2008 needs headers >= 4.5
 comment "glibc on MIPS w/ NAN2008 needs a toolchain w/ headers >= 4.5"
-	depends on BR2_MIPS_NAN_2008
-	depends on !BR2_TOOLCHAIN_HEADERS_AT_LEAST_4_5
+	depends on LINGMO_MIPS_NAN_2008
+	depends on !LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_4_5
 
 comment "glibc on RISC-V 64-bit needs a toolchain w/ headers >= 5.0"
-	depends on BR2_RISCV_64
-	depends on !BR2_TOOLCHAIN_HEADERS_AT_LEAST_5_0
+	depends on LINGMO_RISCV_64
+	depends on !LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_5_0
 
 comment "glibc on RISC-V 32-bit needs a toolchain w/ headers >= 5.4"
-	depends on BR2_RISCV_32
-	depends on !BR2_TOOLCHAIN_HEADERS_AT_LEAST_5_4
+	depends on LINGMO_RISCV_32
+	depends on !LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_5_4
 
 comment "glibc on ARC needs a toolchain w/ headers >= 5.1"
-	depends on BR2_arc
-	depends on !BR2_TOOLCHAIN_HEADERS_AT_LEAST_5_1
+	depends on LINGMO_arc
+	depends on !LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_5_1
 
 comment "glibc on or1k needs a toolchain w/ headers >= 5.4"
-	depends on BR2_or1k
-	depends on !BR2_TOOLCHAIN_HEADERS_AT_LEAST_5_4
+	depends on LINGMO_or1k
+	depends on !LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_5_4
 
-config BR2_TOOLCHAIN_BUILDROOT_MUSL
+config LINGMO_TOOLCHAIN_BUILDROOT_MUSL
 	bool "musl"
-	depends on BR2_PACKAGE_MUSL_SUPPORTS
-	select BR2_TOOLCHAIN_USES_MUSL
+	depends on LINGMO_PACKAGE_MUSL_SUPPORTS
+	select LINGMO_TOOLCHAIN_USES_MUSL
 	help
 	  This option selects musl as the C library for the
 	  cross-compilation toolchain.
 
 	  https://www.musl-libc.org/
 
-config BR2_TOOLCHAIN_BUILDROOT_NONE
+config LINGMO_TOOLCHAIN_BUILDROOT_NONE
 	bool "none"
-	depends on !BR2_PACKAGE_UCLIBC_SUPPORTS && \
-		!BR2_PACKAGE_GLIBC_SUPPORTS && \
-		!BR2_PACKAGE_MUSL_SUPPORTS
+	depends on !LINGMO_PACKAGE_UCLIBC_SUPPORTS && \
+		!LINGMO_PACKAGE_GLIBC_SUPPORTS && \
+		!LINGMO_PACKAGE_MUSL_SUPPORTS
 	help
 	  This option is visible if no C library is available for the
 	  currently selected configuration. If you select this option,
@@ -98,11 +98,11 @@ config BR2_TOOLCHAIN_BUILDROOT_NONE
 
 endchoice
 
-config BR2_TOOLCHAIN_BUILDROOT_LIBC
+config LINGMO_TOOLCHAIN_BUILDROOT_LIBC
 	string
-	default "uclibc" if BR2_TOOLCHAIN_BUILDROOT_UCLIBC
-	default "glibc"  if BR2_TOOLCHAIN_BUILDROOT_GLIBC
-	default "musl"	 if BR2_TOOLCHAIN_BUILDROOT_MUSL
+	default "uclibc" if LINGMO_TOOLCHAIN_BUILDROOT_UCLIBC
+	default "glibc"  if LINGMO_TOOLCHAIN_BUILDROOT_GLIBC
+	default "musl"	 if LINGMO_TOOLCHAIN_BUILDROOT_MUSL
 
 source "package/linux-headers/Config.in.host"
 source "package/linux-headers/Config.in"

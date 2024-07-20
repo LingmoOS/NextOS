@@ -1,7 +1,7 @@
-config BR2_PACKAGE_HOST_PRU_SOFTWARE_SUPPORT
+config LINGMO_PACKAGE_HOST_PRU_SOFTWARE_SUPPORT
 	bool "host pru-software-support"
-	depends on BR2_PACKAGE_HOST_TI_CGT_PRU_ARCH_SUPPORTS
-	select BR2_PACKAGE_HOST_TI_CGT_PRU
+	depends on LINGMO_PACKAGE_HOST_TI_CGT_PRU_ARCH_SUPPORTS
+	select LINGMO_PACKAGE_HOST_TI_CGT_PRU
 	help
 	  This package provides useful headers and libraries for the
 	  PRU unit found on some TI processors e.g. AM3358. Note that

@@ -7,18 +7,18 @@ from infra.emulator import Emulator
 
 BASIC_TOOLCHAIN_CONFIG = \
     """
-    BR2_arm=y
-    BR2_TOOLCHAIN_EXTERNAL=y
-    BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-    BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV5_EABI_GLIBC_STABLE=y
+    LINGMO_arm=y
+    LINGMO_TOOLCHAIN_EXTERNAL=y
+    LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+    LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV5_EABI_GLIBC_STABLE=y
     """
 
 MINIMAL_CONFIG = \
     """
-    BR2_INIT_NONE=y
-    BR2_SYSTEM_BIN_SH_NONE=y
-    # BR2_PACKAGE_BUSYBOX is not set
-    # BR2_TARGET_ROOTFS_TAR is not set
+    LINGMO_INIT_NONE=y
+    LINGMO_SYSTEM_BIN_SH_NONE=y
+    # LINGMO_PACKAGE_BUSYBOX is not set
+    # LINGMO_TARGET_ROOTFS_TAR is not set
     """
 
 
@@ -37,8 +37,8 @@ class BRConfigTest(unittest.TestCase):
         super(BRConfigTest, self).__init__(names)
         self.testname = self.__class__.__name__
         self.builddir = self.outputdir and os.path.join(self.outputdir, self.testname)
-        self.config += '\nBR2_DL_DIR="{}"\n'.format(self.downloaddir)
-        self.config += "\nBR2_JLEVEL={}\n".format(self.jlevel)
+        self.config += '\nLINGMO_DL_DIR="{}"\n'.format(self.downloaddir)
+        self.config += "\nLINGMO_JLEVEL={}\n".format(self.jlevel)
 
     def show_msg(self, msg):
         print("{} {:40s} {}".format(datetime.datetime.now().strftime("%H:%M:%S"),
@@ -52,7 +52,7 @@ class BRConfigTest(unittest.TestCase):
             self.b.delete()
 
         if not self.b.is_finished():
-            self.b.configure(make_extra_opts=["BR2_EXTERNAL={}".format(":".join(self.br2_external))])
+            self.b.configure(make_extra_opts=["LINGMO_EXTERNAL={}".format(":".join(self.br2_external))])
 
     def tearDown(self):
         self.show_msg("Cleaning up")

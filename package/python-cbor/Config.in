@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_CBOR
+config LINGMO_PACKAGE_PYTHON_CBOR
 	bool "python-cbor"
 	help
 	  RFC 7049 - Concise Binary Object Representation.

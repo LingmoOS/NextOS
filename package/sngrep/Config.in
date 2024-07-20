@@ -1,11 +1,11 @@
 comment "sngrep needs a toolchain w/ threads"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS
 
-config BR2_PACKAGE_SNGREP
+config LINGMO_PACKAGE_SNGREP
 	bool "sngrep"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	select BR2_PACKAGE_NCURSES
-	select BR2_PACKAGE_LIBPCAP
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	select LINGMO_PACKAGE_NCURSES
+	select LINGMO_PACKAGE_LIBPCAP
 	help
 	  sngrep is a tool for displaying SIP calls message flows from
 	  terminal.  It supports live capture to display realtime SIP

@@ -22,14 +22,14 @@ SHAIRPORT_SYNC_CONF_OPTS = --with-alsa \
 SHAIRPORT_SYNC_CONF_ENV += LIBS="$(SHAIRPORT_SYNC_CONF_LIBS)"
 
 # Avahi or tinysvcmdns (shaiport-sync bundles its own version of tinysvcmdns).
-ifeq ($(BR2_PACKAGE_AVAHI_LIBAVAHI_CLIENT),y)
+ifeq ($(LINGMO_PACKAGE_AVAHI_LIBAVAHI_CLIENT),y)
 SHAIRPORT_SYNC_DEPENDENCIES += avahi
 SHAIRPORT_SYNC_CONF_OPTS += --with-avahi --without-tinysvcmdns
 else
 SHAIRPORT_SYNC_CONF_OPTS += --without-avahi --with-tinysvcmdns
 endif
 
-ifeq ($(BR2_PACKAGE_LIBDAEMON),y)
+ifeq ($(LINGMO_PACKAGE_LIBDAEMON),y)
 SHAIRPORT_SYNC_DEPENDENCIES += libdaemon
 SHAIRPORT_SYNC_CONF_OPTS += --with-libdaemon
 else
@@ -37,26 +37,26 @@ SHAIRPORT_SYNC_CONF_OPTS += --without-libdaemon
 endif
 
 # OpenSSL or mbedTLS
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 SHAIRPORT_SYNC_DEPENDENCIES += openssl
 SHAIRPORT_SYNC_CONF_OPTS += --with-ssl=openssl
 else
 SHAIRPORT_SYNC_DEPENDENCIES += mbedtls
 SHAIRPORT_SYNC_CONF_OPTS += --with-ssl=mbedtls
 SHAIRPORT_SYNC_CONF_LIBS += -lmbedx509 -lmbedcrypto
-ifeq ($(BR2_PACKAGE_MBEDTLS_COMPRESSION),y)
+ifeq ($(LINGMO_PACKAGE_MBEDTLS_COMPRESSION),y)
 SHAIRPORT_SYNC_CONF_LIBS += -lz
 endif
 endif
 
-ifeq ($(BR2_PACKAGE_SHAIRPORT_SYNC_CONVOLUTION),y)
+ifeq ($(LINGMO_PACKAGE_SHAIRPORT_SYNC_CONVOLUTION),y)
 SHAIRPORT_SYNC_DEPENDENCIES += libsndfile
 SHAIRPORT_SYNC_CONF_OPTS += --with-convolution
 else
 SHAIRPORT_SYNC_CONF_OPTS += --without-convolution
 endif
 
-ifeq ($(BR2_PACKAGE_SHAIRPORT_SYNC_DBUS),y)
+ifeq ($(LINGMO_PACKAGE_SHAIRPORT_SYNC_DBUS),y)
 SHAIRPORT_SYNC_DEPENDENCIES += libglib2
 SHAIRPORT_SYNC_CONF_OPTS += --with-dbus-interface --with-mpris-interface
 define SHAIRPORT_SYNC_INSTALL_DBUS
@@ -71,14 +71,14 @@ else
 SHAIRPORT_SYNC_CONF_OPTS += --without-dbus-interface --without-mpris-interface
 endif
 
-ifeq ($(BR2_PACKAGE_SHAIRPORT_SYNC_LIBSOXR),y)
+ifeq ($(LINGMO_PACKAGE_SHAIRPORT_SYNC_LIBSOXR),y)
 SHAIRPORT_SYNC_DEPENDENCIES += libsoxr
 SHAIRPORT_SYNC_CONF_OPTS += --with-soxr
 else
 SHAIRPORT_SYNC_CONF_OPTS += --without-soxr
 endif
 
-ifeq ($(BR2_PACKAGE_SHAIRPORT_SYNC_MQTT),y)
+ifeq ($(LINGMO_PACKAGE_SHAIRPORT_SYNC_MQTT),y)
 SHAIRPORT_SYNC_DEPENDENCIES += avahi dbus mosquitto
 SHAIRPORT_SYNC_CONF_OPTS += --with-mqtt-client
 else

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_READ_EDID
+config LINGMO_PACKAGE_READ_EDID
 	bool "read-edid"
 	help
 	  Read-edid is a pair of tools for reading the EDID from a

@@ -1,6 +1,6 @@
-config BR2_PACKAGE_XCB_UTIL_IMAGE
+config LINGMO_PACKAGE_XCB_UTIL_IMAGE
 	bool "xcb-util-image"
-	select BR2_PACKAGE_XCB_UTIL
+	select LINGMO_PACKAGE_XCB_UTIL
 	help
 
 	  The XCB util modules provides a number of libraries which

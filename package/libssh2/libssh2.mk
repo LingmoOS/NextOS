@@ -16,18 +16,18 @@ LIBSSH2_CONF_OPTS = --disable-examples-build --disable-rpath
 # 0002-src-add-strict-KEX-to-fix-CVE-2023-48795-Terrapin-Attack.patch
 LIBSSH2_IGNORE_CVES += CVE-2023-48795
 
-ifeq ($(BR2_PACKAGE_LIBSSH2_MBEDTLS),y)
+ifeq ($(LINGMO_PACKAGE_LIBSSH2_MBEDTLS),y)
 LIBSSH2_DEPENDENCIES += mbedtls
 LIBSSH2_CONF_OPTS += --with-libmbedcrypto-prefix=$(STAGING_DIR)/usr \
 	--with-crypto=mbedtls
-else ifeq ($(BR2_PACKAGE_LIBSSH2_LIBGCRYPT),y)
+else ifeq ($(LINGMO_PACKAGE_LIBSSH2_LIBGCRYPT),y)
 LIBSSH2_DEPENDENCIES += libgcrypt
 LIBSSH2_CONF_OPTS += --with-libgcrypt-prefix=$(STAGING_DIR)/usr \
 	--with-crypto=libgcrypt
 # configure.ac forgets to link to dependent libraries of gcrypt breaking static
 # linking
 LIBSSH2_CONF_ENV += LIBS="`$(STAGING_DIR)/usr/bin/libgcrypt-config --libs`"
-else ifeq ($(BR2_PACKAGE_LIBSSH2_OPENSSL),y)
+else ifeq ($(LINGMO_PACKAGE_LIBSSH2_OPENSSL),y)
 LIBSSH2_DEPENDENCIES += host-pkgconf openssl
 LIBSSH2_CONF_OPTS += --with-libssl-prefix=$(STAGING_DIR)/usr \
 	--with-crypto=openssl
@@ -37,7 +37,7 @@ LIBSSH2_CONF_ENV += LIBS=`$(PKG_CONFIG_HOST_BINARY) --libs openssl`
 endif
 
 # Add zlib support if enabled
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 LIBSSH2_DEPENDENCIES += zlib
 LIBSSH2_CONF_OPTS += --with-libz \
 	--with-libz-prefix=$(STAGING_DIR)/usr

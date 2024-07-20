@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_GENIMAGE
+config LINGMO_PACKAGE_HOST_GENIMAGE
 	bool "host genimage"
 	help
 	  genimage is a tool to generate multiple filesystem and flash

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_LZMA_ALONE
+config LINGMO_PACKAGE_HOST_LZMA_ALONE
 	bool "host lzma-alone"
 	help
 	  LZMA has two well-known command-line tools:

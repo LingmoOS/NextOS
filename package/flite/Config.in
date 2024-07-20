@@ -1,6 +1,6 @@
-config BR2_PACKAGE_FLITE
+config LINGMO_PACKAGE_FLITE
 	bool "flite"
-	depends on BR2_USE_WCHAR
+	depends on LINGMO_USE_WCHAR
 	help
 	  Flite: a small, fast run time synthesis engine.
 
@@ -13,4 +13,4 @@ config BR2_PACKAGE_FLITE
 	  http://www.festvox.org/flite
 
 comment "flite needs a toolchain w/ wchar"
-	depends on !BR2_USE_WCHAR
+	depends on !LINGMO_USE_WCHAR

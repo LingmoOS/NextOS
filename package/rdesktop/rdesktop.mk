@@ -15,18 +15,18 @@ RDESKTOP_DEPENDENCIES = \
 	xlib_libX11 \
 	xlib_libXcursor \
 	xlib_libXt \
-	$(if $(BR2_PACKAGE_ALSA_LIB_PCM),alsa-lib) \
-	$(if $(BR2_PACKAGE_LIBAO),libao) \
-	$(if $(BR2_PACKAGE_LIBICONV),libiconv) \
-	$(if $(BR2_PACKAGE_LIBSAMPLERATE),libsamplerate) \
-	$(if $(BR2_PACKAGE_PULSEAUDIO),pulseaudio) \
-	$(if $(BR2_PACKAGE_XLIB_LIBXRANDR),xlib_libXrandr)
+	$(if $(LINGMO_PACKAGE_ALSA_LIB_PCM),alsa-lib) \
+	$(if $(LINGMO_PACKAGE_LIBAO),libao) \
+	$(if $(LINGMO_PACKAGE_LIBICONV),libiconv) \
+	$(if $(LINGMO_PACKAGE_LIBSAMPLERATE),libsamplerate) \
+	$(if $(LINGMO_PACKAGE_PULSEAUDIO),pulseaudio) \
+	$(if $(LINGMO_PACKAGE_XLIB_LIBXRANDR),xlib_libXrandr)
 RDESKTOP_CONF_OPTS = --disable-credssp
 RDESKTOP_LICENSE = GPL-3.0+
 RDESKTOP_LICENSE_FILES = COPYING
 RDESKTOP_CPE_ID_VENDOR = rdesktop
 
-ifeq ($(BR2_PACKAGE_PCSC_LITE),y)
+ifeq ($(LINGMO_PACKAGE_PCSC_LITE),y)
 RDESKTOP_DEPENDENCIES += pcsc-lite
 else
 RDESKTOP_CONF_OPTS += --disable-smartcard

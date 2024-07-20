@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_CHARSET_NORMALIZER
+config LINGMO_PACKAGE_PYTHON_CHARSET_NORMALIZER
 	bool "python-charset-normalizer"
 	help
 	  The Real First Universal Charset Detector. Open, modern and

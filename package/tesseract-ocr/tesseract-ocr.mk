@@ -24,34 +24,34 @@ TESSERACT_OCR_CONF_ENV = \
 TESSERACT_OCR_CONF_OPTS = \
 	--disable-opencl
 
-ifeq ($(BR2_ARM_CPU_HAS_NEON),y)
+ifeq ($(LINGMO_ARM_CPU_HAS_NEON),y)
 TESSERACT_OCR_CONF_ENV += ax_cv_check_cxxflags__mfpu_neon=yes
 else
 TESSERACT_OCR_CONF_ENV += ax_cv_check_cxxflags__mfpu_neon=no
 endif
 
 # Language data files download
-ifeq ($(BR2_PACKAGE_TESSERACT_OCR_LANG_ENG),y)
+ifeq ($(LINGMO_PACKAGE_TESSERACT_OCR_LANG_ENG),y)
 TESSERACT_OCR_DATA_FILES += eng.traineddata
 endif
 
-ifeq ($(BR2_PACKAGE_TESSERACT_OCR_LANG_FRA),y)
+ifeq ($(LINGMO_PACKAGE_TESSERACT_OCR_LANG_FRA),y)
 TESSERACT_OCR_DATA_FILES += fra.traineddata
 endif
 
-ifeq ($(BR2_PACKAGE_TESSERACT_OCR_LANG_GER),y)
+ifeq ($(LINGMO_PACKAGE_TESSERACT_OCR_LANG_GER),y)
 TESSERACT_OCR_DATA_FILES += deu.traineddata
 endif
 
-ifeq ($(BR2_PACKAGE_TESSERACT_OCR_LANG_SPA),y)
+ifeq ($(LINGMO_PACKAGE_TESSERACT_OCR_LANG_SPA),y)
 TESSERACT_OCR_DATA_FILES += spa.traineddata
 endif
 
-ifeq ($(BR2_PACKAGE_TESSERACT_OCR_LANG_CHI_SIM),y)
+ifeq ($(LINGMO_PACKAGE_TESSERACT_OCR_LANG_CHI_SIM),y)
 TESSERACT_OCR_DATA_FILES += chi_sim.traineddata
 endif
 
-ifeq ($(BR2_PACKAGE_TESSERACT_OCR_LANG_CHI_TRA),y)
+ifeq ($(LINGMO_PACKAGE_TESSERACT_OCR_LANG_CHI_TRA),y)
 TESSERACT_OCR_DATA_FILES += chi_tra.traineddata
 endif
 

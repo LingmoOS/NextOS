@@ -9,7 +9,7 @@ ${MKIMAGE} -A riscv -O linux -T kernel -C none \
 
 # Link the kernel-built board dtb file to using the k210.dtb generic
 # name for use by genimage.cfg
-BOARDDTBKPATH="$(grep BR2_LINUX_KERNEL_INTREE_DTS_NAME ${BR2_CONFIG} | cut -d'=' -f2 | tr -d \")"
+BOARDDTBKPATH="$(grep LINGMO_LINUX_KERNEL_INTREE_DTS_NAME ${LINGMO_CONFIG} | cut -d'=' -f2 | tr -d \")"
 
 BOARDDTB="$(basename ${BOARDDTBKPATH})"
 if [ -z "${BOARDDTB}" ]; then

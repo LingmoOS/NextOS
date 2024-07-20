@@ -19,7 +19,7 @@ SDL_GFX_CONF_OPTS = \
 
 # Even though x86_64 processors support MMX, the MMX-specific assembly
 # code in sdl_gfx is IA32 specific, and does not build for x86_64.
-ifeq ($(BR2_i386)$(BR2_X86_CPU_HAS_MMX),yy)
+ifeq ($(LINGMO_i386)$(LINGMO_X86_CPU_HAS_MMX),yy)
 SDL_GFX_CONF_OPTS += --enable-mmx
 else
 SDL_GFX_CONF_OPTS += --disable-mmx

@@ -18,6 +18,6 @@ class TestPythonPy3Gpiozero(TestPythonGpiozero):
     __test__ = True
     config = TestPythonGpiozero.config + \
         """
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_PYTHON_GPIOZERO=y
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON_GPIOZERO=y
         """

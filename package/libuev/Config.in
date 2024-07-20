@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBUEV
+config LINGMO_PACKAGE_LIBUEV
 	bool "libuev"
 	help
 	  Simple event loop for Linux.

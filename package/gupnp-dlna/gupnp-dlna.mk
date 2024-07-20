@@ -15,14 +15,14 @@ GUPNP_DLNA_LICENSE_FILES = COPYING
 GUPNP_DLNA_INSTALL_STAGING = YES
 GUPNP_DLNA_DEPENDENCIES = host-pkgconf libglib2 libxml2
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 GUPNP_DLNA_CONF_OPTS += -Dintrospection=true -Dvapi=true
 GUPNP_DLNA_DEPENDENCIES += host-vala gobject-introspection
 else
 GUPNP_DLNA_CONF_OPTS += -Dintrospection=false -Dvapi=false
 endif
 
-ifeq ($(BR2_PACKAGE_GST1_PLUGINS_BASE):$(BR2_STATIC_LIBS),y:)
+ifeq ($(LINGMO_PACKAGE_GST1_PLUGINS_BASE):$(LINGMO_STATIC_LIBS),y:)
 GUPNP_DLNA_CONF_OPTS += -Dgstreamer_backend=enabled
 GUPNP_DLNA_DEPENDENCIES += gstreamer1 gst1-plugins-base
 else

@@ -13,7 +13,7 @@
 
 18XX_TI_UTILS_CFLAGS = -I$(STAGING_DIR)/usr/include/libnl3 -DCONFIG_LIBNL32
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 18XX_TI_UTILS_BUILD_TARGET = static
 endif
 

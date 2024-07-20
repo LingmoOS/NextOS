@@ -23,14 +23,14 @@ HOST_OMNIORB_DEPENDENCIES = host-python3
 OMNIORB_CONF_OPTS += --disable-longdouble
 HOST_OMNIORB_CONF_OPTS += --disable-longdouble
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 OMNIORB_CONF_OPTS += --with-openssl
 OMNIORB_DEPENDENCIES += host-pkgconf openssl
 else
 OMNIORB_CONF_OPTS += --without-openssl
 endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 OMNIORB_DEPENDENCIES += zlib
 endif
 
@@ -43,11 +43,11 @@ define OMNIORB_ENABLE_EXTRA_APPS
 	$(SED) 's:SUBDIRS += lib:SUBDIRS += lib appl services:g' $(@D)/src/dir.mk
 endef
 
-ifeq ($(BR2_PACKAGE_OMNIORB_WITH_APPS),y)
+ifeq ($(LINGMO_PACKAGE_OMNIORB_WITH_APPS),y)
 OMNIORB_POST_PATCH_HOOKS += OMNIORB_ENABLE_EXTRA_APPS
 endif
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 define OMNIORB_DISABLE_SHARED
 	echo "BuildSharedLibrary =" >> $(@D)/mk/beforeauto.mk
 endef

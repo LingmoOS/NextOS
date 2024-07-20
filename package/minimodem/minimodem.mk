@@ -11,21 +11,21 @@ MINIMODEM_LICENSE_FILES = COPYING
 
 MINIMODEM_DEPENDENCIES = fftw-single host-pkgconf
 
-ifeq ($(BR2_PACKAGE_ALSA_LIB_PCM),y)
+ifeq ($(LINGMO_PACKAGE_ALSA_LIB_PCM),y)
 MINIMODEM_DEPENDENCIES += alsa-lib
 MINIMODEM_CONF_OPTS += --with-alsa
 else
 MINIMODEM_CONF_OPTS += --without-alsa
 endif
 
-ifeq ($(BR2_PACKAGE_PULSEAUDIO),y)
+ifeq ($(LINGMO_PACKAGE_PULSEAUDIO),y)
 MINIMODEM_DEPENDENCIES += pulseaudio
 MINIMODEM_CONF_OPTS += --with-pulseaudio
 else
 MINIMODEM_CONF_OPTS += --without-pulseaudio
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSNDFILE),y)
+ifeq ($(LINGMO_PACKAGE_LIBSNDFILE),y)
 MINIMODEM_DEPENDENCIES += libsndfile
 MINIMODEM_CONF_OPTS += --with-sndfile
 else

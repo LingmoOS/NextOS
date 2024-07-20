@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_HTML_TAGSET
+config LINGMO_PACKAGE_PERL_HTML_TAGSET
 	bool "perl-html-tagset"
 	help
 	  data tables useful in parsing HTML.

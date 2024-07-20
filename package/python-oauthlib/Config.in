@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_OAUTHLIB
+config LINGMO_PACKAGE_PYTHON_OAUTHLIB
 	bool "python-oauthlib"
 	help
 	  A generic, spec-compliant, thorough implementation of the

@@ -1,19 +1,19 @@
-config BR2_PACKAGE_SEDUTIL_ARCH_SUPPORTS
+config LINGMO_PACKAGE_SEDUTIL_ARCH_SUPPORTS
 	bool
 	# no big endian support
-	default y if BR2_arcle || BR2_arm || BR2_aarch64 \
-	       || BR2_i386 || BR2_microblazeel || BR2_mipsel \
-	       || BR2_mips64el || BR2_nios2 || BR2_powerpc64le \
-	       || BR2_sh4 || BR2_sh4a || BR2_x86_64 \
-	       || BR2_XTENSA_LITTLE_ENDIAN
+	default y if LINGMO_arcle || LINGMO_arm || LINGMO_aarch64 \
+	       || LINGMO_i386 || LINGMO_microblazeel || LINGMO_mipsel \
+	       || LINGMO_mips64el || LINGMO_nios2 || LINGMO_powerpc64le \
+	       || LINGMO_sh4 || LINGMO_sh4a || LINGMO_x86_64 \
+	       || LINGMO_XTENSA_LITTLE_ENDIAN
 
-config BR2_PACKAGE_SEDUTIL
+config LINGMO_PACKAGE_SEDUTIL
 	bool "sedutil"
-	depends on BR2_PACKAGE_SEDUTIL_ARCH_SUPPORTS
-	depends on BR2_TOOLCHAIN_HEADERS_AT_LEAST_3_12 # linux/nvme.h
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_8 # C++11
-	depends on !BR2_TOOLCHAIN_EXTERNAL_CODESOURCERY_MIPS # 4.4.1 headers
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_PACKAGE_SEDUTIL_ARCH_SUPPORTS
+	depends on LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_3_12 # linux/nvme.h
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_8 # C++11
+	depends on !LINGMO_TOOLCHAIN_EXTERNAL_CODESOURCERY_MIPS # 4.4.1 headers
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	help
 	  The Drive Trust Alliance Self Encrypting Drive Utility,
 	  allowing configuration the SEDs that comply with the
@@ -22,8 +22,8 @@ config BR2_PACKAGE_SEDUTIL
           https://github.com/Drive-Trust-Alliance/sedutil
 
 comment "sedutil needs a toolchain w/ C++, gcc >= 4.8, headers >= 3.12"
-	depends on BR2_PACKAGE_SEDUTIL_ARCH_SUPPORTS
-	depends on !BR2_TOOLCHAIN_EXTERNAL_CODESOURCERY_MIPS
-	depends on !BR2_INSTALL_LIBSTDCPP || \
-		!BR2_TOOLCHAIN_GCC_AT_LEAST_4_8 || \
-		!BR2_TOOLCHAIN_HEADERS_AT_LEAST_3_12
+	depends on LINGMO_PACKAGE_SEDUTIL_ARCH_SUPPORTS
+	depends on !LINGMO_TOOLCHAIN_EXTERNAL_CODESOURCERY_MIPS
+	depends on !LINGMO_INSTALL_LIBSTDCPP || \
+		!LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_8 || \
+		!LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_3_12

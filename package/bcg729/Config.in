@@ -1,4 +1,4 @@
-config BR2_PACKAGE_BCG729
+config LINGMO_PACKAGE_BCG729
 	bool "bcg729"
 	help
 	  Bcg729 is an opensource implementation of both encoder and

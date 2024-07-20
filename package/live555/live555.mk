@@ -19,7 +19,7 @@ LIVE555_INSTALL_STAGING = YES
 
 LIVE555_CFLAGS = $(TARGET_CFLAGS)
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 LIVE555_CONFIG_TARGET = linux
 LIVE555_LIBRARY_LINK = $(TARGET_AR) cr
 else
@@ -28,18 +28,18 @@ LIVE555_LIBRARY_LINK = $(TARGET_CC) -o
 LIVE555_CFLAGS += -fPIC
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 LIVE555_DEPENDENCIES += host-pkgconf openssl
 LIVE555_CONSOLE_LIBS = `$(PKG_CONFIG_HOST_BINARY) --libs openssl`
 # passed to ar for static linking, which gets confused by -L<dir>
-ifneq ($(BR2_STATIC_LIBS),y)
+ifneq ($(LINGMO_STATIC_LIBS),y)
 LIVE555_LIVEMEDIA_LIBS = $(LIVE555_CONSOLE_LIBS)
 endif
 else
 LIVE555_CFLAGS += -DNO_OPENSSL
 endif
 
-ifneq ($(BR2_ENABLE_LOCALE),y)
+ifneq ($(LINGMO_ENABLE_LOCALE),y)
 LIVE555_CFLAGS += -DLOCALE_NOT_USED
 endif
 

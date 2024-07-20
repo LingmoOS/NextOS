@@ -6,58 +6,58 @@ import checkpackagelib.lib_config as m
 AttributesOrder = [
     ('good example',
      'any',
-     'config BR2_PACKAGE_FOO\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n'
      'default y\n'
-     'depends on BR2_USE_BAR # runtime\n'
-     'select BR2_PACKAGE_BAZ\n'
+     'depends on LINGMO_USE_BAR # runtime\n'
+     'select LINGMO_PACKAGE_BAZ\n'
      'help\n'
      '\t  help text\n',
      []),
     ('depends before default',
      'any',
-     'config BR2_PACKAGE_FOO\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n'
-     'depends on BR2_USE_BAR\n'
+     'depends on LINGMO_USE_BAR\n'
      'default y\n',
      [['any:4: attributes order: type, default, depends on, select, help (url#_config_files)',
        'default y\n']]),
     ('select after help',
      'any',
-     'config BR2_PACKAGE_FOO\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n'
      'help\n'
      '\t  help text\n'
-     'select BR2_PACKAGE_BAZ\n',
+     'select LINGMO_PACKAGE_BAZ\n',
      [['any:5: attributes order: type, default, depends on, select, help (url#_config_files)',
-       'select BR2_PACKAGE_BAZ\n']]),
+       'select LINGMO_PACKAGE_BAZ\n']]),
     ('string',
      'any',
-     'config BR2_PACKAGE_FOO_PLUGINS\n'
+     'config LINGMO_PACKAGE_FOO_PLUGINS\n'
      'string "foo plugins"\n'
      'default "all"\n',
      []),
     ('ignore tabs',
      'any',
-     'config\tBR2_PACKAGE_FOO_PLUGINS\n'
+     'config\tLINGMO_PACKAGE_FOO_PLUGINS\n'
      'default\t"all"\n'
      'string\t"foo plugins"\n',
      [['any:3: attributes order: type, default, depends on, select, help (url#_config_files)',
        'string\t"foo plugins"\n']]),
     ('choice',
      'any',
-     'config BR2_PACKAGE_FOO\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n'
-     'if BR2_PACKAGE_FOO\n'
+     'if LINGMO_PACKAGE_FOO\n'
      '\n'
      'choice\n'
      'prompt "type of foo"\n'
-     'default BR2_PACKAGE_FOO_STRING\n'
+     'default LINGMO_PACKAGE_FOO_STRING\n'
      '\n'
-     'config BR2_PACKAGE_FOO_NONE\n'
+     'config LINGMO_PACKAGE_FOO_NONE\n'
      'bool "none"\n'
      '\n'
-     'config BR2_PACKAGE_FOO_STRING\n'
+     'config LINGMO_PACKAGE_FOO_STRING\n'
      'bool "string"\n'
      '\n'
      'endchoice\n'
@@ -67,27 +67,27 @@ AttributesOrder = [
      []),
     ('type after default',
      'any',
-     'config BR2_PACKAGE_FOO\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n'
-     'if BR2_PACKAGE_FOO\n'
+     'if LINGMO_PACKAGE_FOO\n'
      '\n'
      'choice\n'
-     'default BR2_PACKAGE_FOO_STRING\n'
+     'default LINGMO_PACKAGE_FOO_STRING\n'
      'prompt "type of foo"\n',
      [['any:7: attributes order: type, default, depends on, select, help (url#_config_files)',
        'prompt "type of foo"\n']]),
     ('menu',
      'any',
-     'menuconfig BR2_PACKAGE_FOO\n'
+     'menuconfig LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n'
      'help\n'
      '\t  help text\n'
      '\t  help text\n'
      '\n'
-     'if BR2_PACKAGE_FOO\n'
+     'if LINGMO_PACKAGE_FOO\n'
      '\n'
      'menu "foo plugins"\n'
-     'config BR2_PACKAGE_FOO_COUNTER\n'
+     'config LINGMO_PACKAGE_FOO_COUNTER\n'
      'bool "counter"\n'
      '\n'
      'endmenu\n'
@@ -220,7 +220,7 @@ CommentsMenusPackagesOrder = [
      'package/Config.in',
      'menu "Other"\n'
      'source "package/linux-pam/Config.in"\n'
-     'if BR2_PACKAGE_LINUX_PAM\n'
+     'if LINGMO_PACKAGE_LINUX_PAM\n'
      'comment "linux-pam plugins"\n'
      'source "package/libpam-radius-auth/Config.in"\n'
      'source "package/libpam-tacplus/Config.in"\n'
@@ -231,7 +231,7 @@ CommentsMenusPackagesOrder = [
      'package/Config.in',
      'menu "Other"\n'
      'source "package/linux-pam/Config.in"\n'
-     'if BR2_PACKAGE_LINUX_PAM\n'
+     'if LINGMO_PACKAGE_LINUX_PAM\n'
      'comment "linux-pam plugins"\n'
      'source "package/libpam-tacplus/Config.in"\n'
      'source "package/libpam-radius-auth/Config.in"\n'
@@ -266,11 +266,11 @@ def test_CommentsMenusPackagesOrder(testname, filename, string, expected):
 HelpText = [
     ('single line',
      'any',
-     'config BR2_PACKAGE_FOO\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n'
      'default y\n'
-     'depends on BR2_USE_BAR # runtime\n'
-     'select BR2_PACKAGE_BAZ\n'
+     'depends on LINGMO_USE_BAR # runtime\n'
+     'select LINGMO_PACKAGE_BAZ\n'
      'help\n'
      '\t  help text\n',
      []),
@@ -321,53 +321,53 @@ def test_HelpText(testname, filename, string, expected):
 Indent = [
     ('good example',
      'any',
-     'config BR2_PACKAGE_FOO\n'
+     'config LINGMO_PACKAGE_FOO\n'
      '\tbool "foo"\n'
      '\tdefault y\n'
-     '\tdepends on BR2_TOOLCHAIN_HAS_THREADS\n'
-     '\tdepends on BR2_INSTALL_LIBSTDCPP\n'
+     '\tdepends on LINGMO_TOOLCHAIN_HAS_THREADS\n'
+     '\tdepends on LINGMO_INSTALL_LIBSTDCPP\n'
      '# very useful comment\n'
-     '\tselect BR2_PACKAGE_BAZ\n'
+     '\tselect LINGMO_PACKAGE_BAZ\n'
      '\thelp\n'
      '\t  help text\n'
      '\n'
      'comment "foo needs toolchain w/ C++, threads"\n'
-     '\tdepends on !BR2_INSTALL_LIBSTDCPP || \\\n'
-     '\t\t!BR2_TOOLCHAIN_HAS_THREADS\n'
+     '\tdepends on !LINGMO_INSTALL_LIBSTDCPP || \\\n'
+     '\t\t!LINGMO_TOOLCHAIN_HAS_THREADS\n'
      '\n'
      'source "package/foo/bar/Config.in"\n',
      []),
     ('spaces',
      'any',
-     'config BR2_PACKAGE_FOO\n'
+     'config LINGMO_PACKAGE_FOO\n'
      '        bool "foo"\n',
      [['any:2: should be indented with one tab (url#_config_files)',
        '        bool "foo"\n']]),
     ('without indent',
      'any',
-     'config BR2_PACKAGE_FOO\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'default y\n',
      [['any:2: should be indented with one tab (url#_config_files)',
        'default y\n']]),
     ('too much tabs',
      'any',
-     'config BR2_PACKAGE_FOO\n'
-     '\t\tdepends on BR2_TOOLCHAIN_HAS_THREADS\n',
+     'config LINGMO_PACKAGE_FOO\n'
+     '\t\tdepends on LINGMO_TOOLCHAIN_HAS_THREADS\n',
      [['any:2: should be indented with one tab (url#_config_files)',
-       '\t\tdepends on BR2_TOOLCHAIN_HAS_THREADS\n']]),
+       '\t\tdepends on LINGMO_TOOLCHAIN_HAS_THREADS\n']]),
     ('help',
      'any',
-     'config BR2_PACKAGE_FOO\n'
+     'config LINGMO_PACKAGE_FOO\n'
      '     help\n',
      [['any:2: should be indented with one tab (url#_config_files)',
        '     help\n']]),
     ('continuation line',
      'any',
      'comment "foo needs toolchain w/ C++, threads"\n'
-     '\tdepends on !BR2_INSTALL_LIBSTDCPP || \\\n'
-     '                !BR2_TOOLCHAIN_HAS_THREADS\n',
+     '\tdepends on !LINGMO_INSTALL_LIBSTDCPP || \\\n'
+     '                !LINGMO_TOOLCHAIN_HAS_THREADS\n',
      [['any:3: continuation line should be indented using tabs',
-       '                !BR2_TOOLCHAIN_HAS_THREADS\n']]),
+       '                !LINGMO_TOOLCHAIN_HAS_THREADS\n']]),
     ('comment with tabs',
      'any',
      '\tcomment "foo needs toolchain w/ C++, threads"\n',
@@ -390,69 +390,69 @@ def test_Indent(testname, filename, string, expected):
 RedefinedConfig = [
     ('no redefinition',
      'any',
-     'config BR2_PACKAGE_FOO\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n'
-     'config BR2_PACKAGE_FOO_BAR\n'
+     'config LINGMO_PACKAGE_FOO_BAR\n'
      'bool "foo"\n',
      []),
     ('no conditional',
      'any',
-     'config BR2_PACKAGE_FOO\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n'
-     'config BR2_PACKAGE_BAR\n'
+     'config LINGMO_PACKAGE_BAR\n'
      'bool "bar"\n'
-     'config BR2_PACKAGE_FOO\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n',
-     [['any:5: config BR2_PACKAGE_FOO redeclared (previous line: 1)',
-       'config BR2_PACKAGE_FOO\n']]),
+     [['any:5: config LINGMO_PACKAGE_FOO redeclared (previous line: 1)',
+       'config LINGMO_PACKAGE_FOO\n']]),
     ('three times',
      'any',
-     'config BR2_PACKAGE_FOO\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n'
-     'config BR2_PACKAGE_FOO\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n'
-     'config BR2_PACKAGE_FOO\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n',
-     [['any:3: config BR2_PACKAGE_FOO redeclared (previous line: 1)',
-       'config BR2_PACKAGE_FOO\n'],
-      ['any:5: config BR2_PACKAGE_FOO redeclared (previous line: 1)',
-       'config BR2_PACKAGE_FOO\n']]),
+     [['any:3: config LINGMO_PACKAGE_FOO redeclared (previous line: 1)',
+       'config LINGMO_PACKAGE_FOO\n'],
+      ['any:5: config LINGMO_PACKAGE_FOO redeclared (previous line: 1)',
+       'config LINGMO_PACKAGE_FOO\n']]),
     ('same conditional',
      'any',
-     'if BR2_PACKAGE_BAZ\n'
-     'config BR2_PACKAGE_FOO\n'
+     'if LINGMO_PACKAGE_BAZ\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n'
-     'config BR2_PACKAGE_BAR\n'
+     'config LINGMO_PACKAGE_BAR\n'
      'bool "bar"\n'
-     'config BR2_PACKAGE_FOO\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n'
      'endif\n',
-     [['any:6: config BR2_PACKAGE_FOO redeclared (previous line: 2)',
-       'config BR2_PACKAGE_FOO\n']]),
+     [['any:6: config LINGMO_PACKAGE_FOO redeclared (previous line: 2)',
+       'config LINGMO_PACKAGE_FOO\n']]),
     ('equivalent conditional',
      'any',
-     'if BR2_PACKAGE_BAZ\n'
-     'config BR2_PACKAGE_FOO\n'
+     'if LINGMO_PACKAGE_BAZ\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n'
      'endif\n'
-     'config BR2_PACKAGE_FOO\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n'
-     'if BR2_PACKAGE_BAZ\n'
-     'config BR2_PACKAGE_FOO\n'
+     'if LINGMO_PACKAGE_BAZ\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n'
      'endif\n',
-     [['any:8: config BR2_PACKAGE_FOO redeclared (previous line: 2)',
-       'config BR2_PACKAGE_FOO\n']]),
+     [['any:8: config LINGMO_PACKAGE_FOO redeclared (previous line: 2)',
+       'config LINGMO_PACKAGE_FOO\n']]),
     ('not equivalent conditional',
      'any',
-     'if BR2_PACKAGE_BAZ\n'
-     'config BR2_PACKAGE_FOO\n'
+     'if LINGMO_PACKAGE_BAZ\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n'
      'endif\n'
-     'config BR2_PACKAGE_FOO\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n'
-     'if !BR2_PACKAGE_BAZ\n'
-     'config BR2_PACKAGE_FOO\n'
+     'if !LINGMO_PACKAGE_BAZ\n'
+     'config LINGMO_PACKAGE_FOO\n'
      'bool "foo"\n'
      'endif\n',
      []),

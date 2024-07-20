@@ -31,21 +31,21 @@ XWAYLAND_CONF_OPTS = \
 	-Ddtrace=false \
 	-Ddocs=false
 
-ifeq ($(BR2_PACKAGE_LIBEPOXY),y)
+ifeq ($(LINGMO_PACKAGE_LIBEPOXY),y)
 XWAYLAND_CONF_OPTS += -Dglamor=true
 XWAYLAND_DEPENDENCIES += libepoxy
 else
 XWAYLAND_CONF_OPTS += -Dglamor=false
 endif
 
-ifeq ($(BR2_PACKAGE_HAS_LIBGL),y)
+ifeq ($(LINGMO_PACKAGE_HAS_LIBGL),y)
 XWAYLAND_CONF_OPTS += -Dglx=true
 XWAYLAND_DEPENDENCIES += libgl
 else
 XWAYLAND_CONF_OPTS += -Dglx=false
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXDMCP),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXDMCP),y)
 XWAYLAND_CONF_OPTS += \
 	-Dxdmcp=true \
 	-Dxdm-auth-1=true
@@ -56,24 +56,24 @@ XWAYLAND_CONF_OPTS += \
 	-Dxdm-auth-1=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIBTIRPC),y)
+ifeq ($(LINGMO_PACKAGE_LIBTIRPC),y)
 XWAYLAND_CONF_OPTS += -Dsecure-rpc=true
 XWAYLAND_DEPENDENCIES += libtirpc
 else
 XWAYLAND_CONF_OPTS += -Dsecure-rpc=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSELINUX)$(BR2_PACKAGE_AUDIT),yy)
+ifeq ($(LINGMO_PACKAGE_LIBSELINUX)$(LINGMO_PACKAGE_AUDIT),yy)
 XWAYLAND_CONF_OPTS += -Dxselinux=true
 XWAYLAND_DEPENDENCIES += libselinux audit
 else
 XWAYLAND_CONF_OPTS += -Dxselinux=false
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 XWAYLAND_CONF_OPTS += -Dsha1=libcrypto
 XWAYLAND_DEPENDENCIES += openssl
-else ifeq ($(BR2_PACKAGE_LIBGCRYPT),y)
+else ifeq ($(LINGMO_PACKAGE_LIBGCRYPT),y)
 XWAYLAND_CONF_OPTS += -Dsha1=libgcrypt
 XWAYLAND_DEPENDENCIES += libgcrypt
 else
@@ -81,7 +81,7 @@ XWAYLAND_CONF_OPTS += -Dsha1=libsha1
 XWAYLAND_DEPENDENCIES += libsha1
 endif
 
-ifeq ($(BR2_PACKAGE_LIBUNWIND),y)
+ifeq ($(LINGMO_PACKAGE_LIBUNWIND),y)
 XWAYLAND_CONF_OPTS += -Dlibunwind=true
 XWAYLAND_DEPENDENCIES += libunwind
 else

@@ -18,8 +18,8 @@ LTRACE_AUTORECONF = YES
 # ltrace can use libunwind only if libc has backtrace() support
 # We don't normally do so for uClibc and we can't know if it's external
 # Also ltrace with libunwind support is broken for MIPS so we disable it
-ifeq ($(BR2_PACKAGE_LIBUNWIND),y)
-ifeq ($(BR2_TOOLCHAIN_USES_UCLIBC)$(BR2_mips)$(BR2_mipsel),)
+ifeq ($(LINGMO_PACKAGE_LIBUNWIND),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_UCLIBC)$(LINGMO_mips)$(LINGMO_mipsel),)
 # --with-elfutils only selects unwinding support backend. elfutils is a
 # mandatory dependency regardless.
 LTRACE_CONF_OPTS += --with-libunwind=yes --with-elfutils=no

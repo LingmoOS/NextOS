@@ -13,64 +13,64 @@ OPENVPN_CPE_ID_VENDOR = openvpn
 OPENVPN_SELINUX_MODULES = openvpn
 OPENVPN_CONF_OPTS = \
 	--disable-unit-tests \
-	$(if $(BR2_STATIC_LIBS),--disable-plugins)
+	$(if $(LINGMO_STATIC_LIBS),--disable-plugins)
 OPENVPN_CONF_ENV = NETSTAT=/bin/netstat
 
-ifeq ($(BR2_PACKAGE_LIBNL)$(BR2_TOOLCHAIN_HEADERS_AT_LEAST_4_16),yy)
+ifeq ($(LINGMO_PACKAGE_LIBNL)$(LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_4_16),yy)
 OPENVPN_CONF_OPTS += --enable-dco
 OPENVPN_DEPENDENCIES += libnl
 else
 OPENVPN_CONF_OPTS += --disable-dco
 endif
 
-ifeq ($(BR2_PACKAGE_OPENVPN_SMALL),y)
+ifeq ($(LINGMO_PACKAGE_OPENVPN_SMALL),y)
 OPENVPN_CONF_OPTS += \
 	--enable-small \
 	--disable-plugins
 endif
 
-ifeq ($(BR2_PACKAGE_OPENVPN_LZ4),y)
+ifeq ($(LINGMO_PACKAGE_OPENVPN_LZ4),y)
 OPENVPN_DEPENDENCIES += lz4
 else
 OPENVPN_CONF_OPTS += --disable-lz4
 endif
 
-ifeq ($(BR2_PACKAGE_OPENVPN_LZO),y)
+ifeq ($(LINGMO_PACKAGE_OPENVPN_LZO),y)
 OPENVPN_DEPENDENCIES += lzo
 else
 OPENVPN_CONF_OPTS += --disable-lzo
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSELINUX),y)
+ifeq ($(LINGMO_PACKAGE_LIBSELINUX),y)
 OPENVPN_DEPENDENCIES += libselinux
 OPENVPN_CONF_OPTS += --enable-selinux
 else
 OPENVPN_CONF_OPTS += --disable-selinux
 endif
 
-ifeq ($(BR2_PACKAGE_LINUX_PAM),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_PAM),y)
 OPENVPN_DEPENDENCIES += linux-pam
 OPENVPN_CONF_OPTS += --enable-plugin-auth-pam
 else
 OPENVPN_CONF_OPTS += --disable-plugin-auth-pam
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 OPENVPN_DEPENDENCIES += openssl
 OPENVPN_CONF_OPTS += --with-crypto-library=openssl
-else ifeq ($(BR2_PACKAGE_MBEDTLS),y)
+else ifeq ($(LINGMO_PACKAGE_MBEDTLS),y)
 OPENVPN_DEPENDENCIES += mbedtls
 OPENVPN_CONF_OPTS += --with-crypto-library=mbedtls
 endif
 
-ifeq ($(BR2_PACKAGE_PKCS11_HELPER),y)
+ifeq ($(LINGMO_PACKAGE_PKCS11_HELPER),y)
 OPENVPN_DEPENDENCIES += pkcs11-helper
 OPENVPN_CONF_OPTS += --enable-pkcs11
 else
 OPENVPN_CONF_OPTS += --disable-pkcs11
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 OPENVPN_DEPENDENCIES += systemd
 OPENVPN_CONF_OPTS += --enable-systemd
 else

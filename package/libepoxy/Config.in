@@ -1,7 +1,7 @@
-config BR2_PACKAGE_LIBEPOXY
+config LINGMO_PACKAGE_LIBEPOXY
 	bool "libepoxy"
-	depends on BR2_PACKAGE_HAS_LIBEGL || BR2_PACKAGE_HAS_LIBGL
-	select BR2_PACKAGE_XUTIL_UTIL_MACROS
+	depends on LINGMO_PACKAGE_HAS_LIBEGL || LINGMO_PACKAGE_HAS_LIBGL
+	select LINGMO_PACKAGE_XUTIL_UTIL_MACROS
 	help
 	  Epoxy is a library for handling OpenGL function pointer
 	  management for you.
@@ -9,4 +9,4 @@ config BR2_PACKAGE_LIBEPOXY
 	  https://github.com/anholt/libepoxy
 
 comment "libepoxy needs an OpenGL and/or OpenGL EGL backend"
-	depends on !BR2_PACKAGE_HAS_LIBEGL && !BR2_PACKAGE_HAS_LIBGL
+	depends on !LINGMO_PACKAGE_HAS_LIBEGL && !LINGMO_PACKAGE_HAS_LIBGL

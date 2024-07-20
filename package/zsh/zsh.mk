@@ -16,27 +16,27 @@ ZSH_CPE_ID_VENDOR = zsh
 
 # zsh uses TRY_RUN to determine these
 ZSH_CONF_OPTS += \
-	zsh_cv_long_is_64_bit=$(if $(BR2_ARCH_IS_64),yes,no) \
+	zsh_cv_long_is_64_bit=$(if $(LINGMO_ARCH_IS_64),yes,no) \
 	zsh_cv_off_t_is_64_bit=yes \
 	zsh_cv_64_bit_type='long long' \
 	zsh_cv_64_bit_utype='unsigned long long' \
 	zsh_cv_printf_has_lld=yes
 
-ifeq ($(BR2_PACKAGE_GDBM),y)
+ifeq ($(LINGMO_PACKAGE_GDBM),y)
 ZSH_CONF_OPTS += --enable-gdbm
 ZSH_DEPENDENCIES += gdbm
 else
 ZSH_CONF_OPTS += --disable-gdbm
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBCAP),y)
 ZSH_CONF_OPTS += --enable-cap
 ZSH_DEPENDENCIES += libcap
 else
 ZSH_CONF_OPTS += --disable-cap
 endif
 
-ifeq ($(BR2_PACKAGE_PCRE),y)
+ifeq ($(LINGMO_PACKAGE_PCRE),y)
 ZSH_CONF_OPTS += --enable-pcre
 ZSH_CONF_ENV += ac_cv_prog_PCRECONF=$(STAGING_DIR)/usr/bin/pcre-config
 ZSH_DEPENDENCIES += pcre
@@ -44,7 +44,7 @@ else
 ZSH_CONF_OPTS += --disable-pcre
 endif
 
-ifeq ($(BR2_STATIC_LIBS),)
+ifeq ($(LINGMO_STATIC_LIBS),)
 # zsh uses TRY_RUN to determine these
 ZSH_CONF_OPTS += \
 	zsh_cv_shared_environ=yes \

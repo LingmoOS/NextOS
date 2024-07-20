@@ -16,15 +16,15 @@ KMSXX_CONF_OPTS = \
 	-Domap=disabled \
 	-Dsystem-pybind11=enabled
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_85180),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_85180),y)
 KMSXX_CXXFLAGS += $(TARGET_CXXFLAGS) -O0
 endif
 
-ifeq ($(BR2_PACKAGE_KMSXX_INSTALL_TESTS),y)
+ifeq ($(LINGMO_PACKAGE_KMSXX_INSTALL_TESTS),y)
 KMSXX_CONF_OPTS += -Dutils=true
 # extra handling for some utils not installed by default
 KMSXX_EXTRA_UTILS = kmsview kmscapture omap-wbcap omap-wbm2m
-ifeq ($(BR2_PACKAGE_LIBEVDEV),y)
+ifeq ($(LINGMO_PACKAGE_LIBEVDEV),y)
 KMSXX_DEPENDENCIES += libevdev
 KMSXX_EXTRA_UTILS += kmstouch
 endif

@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LUASYSLOG
+config LINGMO_PACKAGE_LUASYSLOG
 	bool "luasyslog"
-	select BR2_PACKAGE_LUALOGGING # runtime
+	select LINGMO_PACKAGE_LUALOGGING # runtime
 	help
 	  syslog appender for LuaLogging.
 

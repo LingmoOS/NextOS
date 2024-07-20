@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PCRE2
+config LINGMO_PACKAGE_PCRE2
 	bool "pcre2"
 	help
 	  Perl Compatible Regular Expressions. By default, only the
@@ -8,37 +8,37 @@ config BR2_PACKAGE_PCRE2
 
 	  http://www.pcre.org/
 
-if BR2_PACKAGE_PCRE2
+if LINGMO_PACKAGE_PCRE2
 
-config BR2_PACKAGE_PCRE2_16
+config LINGMO_PACKAGE_PCRE2_16
 	bool "16-bit pcre2"
 	help
 	  This option builds the 16-bits pcre2 library, i.e
 	  'libpcre2-16'
 
-config BR2_PACKAGE_PCRE2_32
+config LINGMO_PACKAGE_PCRE2_32
 	bool "32-bit pcre2"
 	help
 	  This option builds the 32-bits pcre2 library, i.e
 	  'libpcre2-32'
 
-config BR2_PACKAGE_PCRE2_JIT_ARCH_SUPPORTS
+config LINGMO_PACKAGE_PCRE2_JIT_ARCH_SUPPORTS
 	bool
-	default y if BR2_aarch64
-	default y if BR2_arm || BR2_armeb
-	default y if BR2_i386 || BR2_x86_64
-	default y if BR2_mips || BR2_mipsel || BR2_mips64 || BR2_mips64el
-	default y if BR2_powerpc
+	default y if LINGMO_aarch64
+	default y if LINGMO_arm || LINGMO_armeb
+	default y if LINGMO_i386 || LINGMO_x86_64
+	default y if LINGMO_mips || LINGMO_mipsel || LINGMO_mips64 || LINGMO_mips64el
+	default y if LINGMO_powerpc
 
-config BR2_PACKAGE_PCRE2_JIT
+config LINGMO_PACKAGE_PCRE2_JIT
 	bool "enable JIT support"
-	depends on BR2_PACKAGE_PCRE2_JIT_ARCH_SUPPORTS
-	depends on BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_PACKAGE_PCRE2_JIT_ARCH_SUPPORTS
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
 	help
 	  This option enables JIT support
 
 comment "JIT support needs a toolchain w/ threads"
-	depends on BR2_PACKAGE_PCRE2_JIT_ARCH_SUPPORTS
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_PACKAGE_PCRE2_JIT_ARCH_SUPPORTS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS
 
 endif

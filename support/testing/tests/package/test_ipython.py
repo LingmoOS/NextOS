@@ -11,8 +11,8 @@ from tests.package.test_python import TestPythonBase
 class TestIPythonPy3(TestPythonBase):
     config = TestPythonBase.config + \
         """
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_PYTHON_IPYTHON=y
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON_IPYTHON=y
         """
     interpreter = "ipython"
 

@@ -1,6 +1,6 @@
-config BR2_PACKAGE_DTC
+config LINGMO_PACKAGE_DTC
 	bool "dtc (libfdt)"
-	depends on !BR2_STATIC_LIBS
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  The Device Tree Compiler, dtc, takes as input a device-tree in
 	  a given format and outputs a device-tree in another format.
@@ -11,9 +11,9 @@ config BR2_PACKAGE_DTC
 
 	  https://git.kernel.org/cgit/utils/dtc/dtc.git
 
-if BR2_PACKAGE_DTC
+if LINGMO_PACKAGE_DTC
 
-config BR2_PACKAGE_DTC_PROGRAMS
+config LINGMO_PACKAGE_DTC_PROGRAMS
 	bool "dtc programs"
 	help
 	  Say 'y' here if you also want the programs on the target:
@@ -30,10 +30,10 @@ config BR2_PACKAGE_DTC_PROGRAMS
 	  you need dtdiff on the target.
 
 comment "dtdiff will not be installed: it requires bash"
-	depends on BR2_PACKAGE_DTC_PROGRAMS
-	depends on !BR2_PACKAGE_BASH
+	depends on LINGMO_PACKAGE_DTC_PROGRAMS
+	depends on !LINGMO_PACKAGE_BASH
 
 endif
 
 comment "dtc needs a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_STATIC_LIBS

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PIEXIF
+config LINGMO_PACKAGE_PYTHON_PIEXIF
 	bool "python-piexif"
 	help
 	  Piexif simplifies interacting with EXIF data in Python. It

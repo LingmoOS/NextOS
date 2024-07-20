@@ -7,7 +7,7 @@
 LINUX_EXTENSIONS += xenomai
 
 # Adeos patch version
-XENOMAI_ADEOS_PATCH = $(call qstrip,$(BR2_LINUX_KERNEL_EXT_XENOMAI_ADEOS_PATCH))
+XENOMAI_ADEOS_PATCH = $(call qstrip,$(LINGMO_LINUX_KERNEL_EXT_XENOMAI_ADEOS_PATCH))
 
 ifneq ($(filter ftp://% http://% https://%,$(XENOMAI_ADEOS_PATCH)),)
 XENOMAI_ADEOS_PATCH_NAME = $(notdir $(XENOMAI_ADEOS_PATCH))

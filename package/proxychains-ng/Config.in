@@ -1,7 +1,7 @@
-config BR2_PACKAGE_PROXYCHAINS_NG
+config LINGMO_PACKAGE_PROXYCHAINS_NG
 	bool "proxychains-ng"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on !BR2_STATIC_LIBS
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  Force any tcp connections to flow through a proxy (or proxy
 	  chain)
@@ -9,4 +9,4 @@ config BR2_PACKAGE_PROXYCHAINS_NG
 	  https://github.com/rofl0r/proxychains
 
 comment "proxychains-ng needs a toolchain w/ threads, dynamic library"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS

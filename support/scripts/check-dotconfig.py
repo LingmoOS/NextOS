@@ -23,9 +23,9 @@ def main():
     with open(defconfig) as defconfigf:
         # strip() to get rid of trailing \n
         for line in (line.strip() for line in defconfigf.readlines()):
-            if line.startswith("BR2_"):
+            if line.startswith("LINGMO_"):
                 defconfiglines.append(line)
-            elif line.startswith('# BR2_') and line.endswith(' is not set'):
+            elif line.startswith('# LINGMO_') and line.endswith(' is not set'):
                 defconfiglines.append(line)
 
     # Check that all the defconfig lines are still present

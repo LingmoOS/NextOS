@@ -13,7 +13,7 @@ PNGQUANT_CPE_ID_VENDOR = pngquant
 HOST_PNGQUANT_DEPENDENCIES = host-libpng
 PNGQUANT_DEPENDENCIES = libpng
 
-ifeq ($(BR2_PACKAGE_LCMS2),y)
+ifeq ($(LINGMO_PACKAGE_LCMS2),y)
 PNGQUANT_DEPENDENCIES += lcms2
 endif
 
@@ -21,8 +21,8 @@ define PNGQUANT_CONFIGURE_CMDS
 	(cd $(@D) && \
 		$(TARGET_CONFIGURE_OPTS) \
 		./configure --prefix=/usr \
-		$(if $(BR2_PACKAGE_LCMS2),--with-lcms2,--without-lcms2) \
-		$(if $(BR2_X86_CPU_HAS_SSE),--enable-sse,--disable-sse) \
+		$(if $(LINGMO_PACKAGE_LCMS2),--with-lcms2,--without-lcms2) \
+		$(if $(LINGMO_X86_CPU_HAS_SSE),--enable-sse,--disable-sse) \
 		$(TARGET_CONFIGURE_OPTS) \
 	)
 endef

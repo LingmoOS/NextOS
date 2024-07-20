@@ -1,9 +1,9 @@
-config BR2_PACKAGE_SHELLINABOX
+config LINGMO_PACKAGE_SHELLINABOX
 	bool "shellinabox"
-	depends on BR2_USE_MMU # fork()
-	depends on !BR2_STATIC_LIBS # dlfcn.h
-	select BR2_PACKAGE_OPENSSL
-	select BR2_PACKAGE_ZLIB
+	depends on LINGMO_USE_MMU # fork()
+	depends on !LINGMO_STATIC_LIBS # dlfcn.h
+	select LINGMO_PACKAGE_OPENSSL
+	select LINGMO_PACKAGE_ZLIB
 	help
 	  Shell In A Box implements a web server that can export
 	  arbitrary command line tools to a web based terminal
@@ -14,5 +14,5 @@ config BR2_PACKAGE_SHELLINABOX
 	  https://github.com/shellinabox/shellinabox
 
 comment "shellinabox needs a toolchain w/ dynamic library"
-	depends on BR2_USE_MMU
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_STATIC_LIBS

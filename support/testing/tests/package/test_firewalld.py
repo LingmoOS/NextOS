@@ -8,23 +8,23 @@ class TestFirewalldSystemd(infra.basetest.BRTest):
     """Build the kernel as firewalld requires several the nftable options."""
 
     config = """
-        BR2_arm=y
-        BR2_cortex_a9=y
-        BR2_ARM_ENABLE_VFP=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_INIT_SYSTEMD=y
-        BR2_LINUX_KERNEL=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE="6.1.61"
-        BR2_LINUX_KERNEL_DEFCONFIG="vexpress"
-        BR2_LINUX_KERNEL_DTS_SUPPORT=y
-        BR2_LINUX_KERNEL_INTREE_DTS_NAME="vexpress-v2p-ca9"
-        BR2_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_FIREWALLD=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_cortex_a9=y
+        LINGMO_ARM_ENABLE_VFP=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_INIT_SYSTEMD=y
+        LINGMO_LINUX_KERNEL=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION_VALUE="6.1.61"
+        LINGMO_LINUX_KERNEL_DEFCONFIG="vexpress"
+        LINGMO_LINUX_KERNEL_DTS_SUPPORT=y
+        LINGMO_LINUX_KERNEL_INTREE_DTS_NAME="vexpress-v2p-ca9"
+        LINGMO_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_FIREWALLD=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):
@@ -64,22 +64,22 @@ class TestFirewalldSysVInit(infra.basetest.BRTest):
     """Build the kernel as firewalld requires several nftable options."""
 
     config = """
-        BR2_arm=y
-        BR2_cortex_a9=y
-        BR2_ARM_ENABLE_VFP=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_LINUX_KERNEL=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE="6.1.61"
-        BR2_LINUX_KERNEL_DEFCONFIG="vexpress"
-        BR2_LINUX_KERNEL_DTS_SUPPORT=y
-        BR2_LINUX_KERNEL_INTREE_DTS_NAME="vexpress-v2p-ca9"
-        BR2_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_FIREWALLD=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_cortex_a9=y
+        LINGMO_ARM_ENABLE_VFP=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_LINUX_KERNEL=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION_VALUE="6.1.61"
+        LINGMO_LINUX_KERNEL_DEFCONFIG="vexpress"
+        LINGMO_LINUX_KERNEL_DTS_SUPPORT=y
+        LINGMO_LINUX_KERNEL_INTREE_DTS_NAME="vexpress-v2p-ca9"
+        LINGMO_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_FIREWALLD=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):

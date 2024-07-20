@@ -1,4 +1,4 @@
-config BR2_PACKAGE_SREDIRD
+config LINGMO_PACKAGE_SREDIRD
 	bool "sredird"
 	help
 	  Sredird is a serial port redirector that is compliant with

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_CLASS_STD
+config LINGMO_PACKAGE_PERL_CLASS_STD
 	bool "perl-class-std"
 	help
 	  Support for creating standard "inside-out" classes.

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_AENUM
+config LINGMO_PACKAGE_PYTHON_AENUM
 	bool "python-aenum"
 	help
 	  Advanced Enumerations (compatible with Python's stdlib Enum),

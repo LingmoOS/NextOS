@@ -5,7 +5,7 @@ class TestZstd(TestCompressorBase):
     __test__ = True
     config = TestCompressorBase.config + \
         """
-        BR2_PACKAGE_ZSTD=y
+        LINGMO_PACKAGE_ZSTD=y
         """
     compress_cmd = "zstd"
     compressed_file_ext = ".zst"

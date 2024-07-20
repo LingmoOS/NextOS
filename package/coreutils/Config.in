@@ -1,8 +1,8 @@
-config BR2_PACKAGE_COREUTILS
+config LINGMO_PACKAGE_COREUTILS
 	bool "coreutils"
-	depends on BR2_USE_WCHAR
-	depends on BR2_USE_MMU # fork()
-	depends on BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
+	depends on LINGMO_USE_WCHAR
+	depends on LINGMO_USE_MMU # fork()
+	depends on LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS
 	help
 	  All of the basic file/text/shell utilities. These are the
 	  core utilities which are expected to exist on every system.
@@ -15,11 +15,11 @@ config BR2_PACKAGE_COREUTILS
 
 	  http://www.gnu.org/software/coreutils/
 
-if BR2_PACKAGE_COREUTILS
+if LINGMO_PACKAGE_COREUTILS
 
-config BR2_PACKAGE_COREUTILS_INDIVIDUAL_BINARIES
+config LINGMO_PACKAGE_COREUTILS_INDIVIDUAL_BINARIES
 	bool "Individual binaries"
-	depends on !BR2_STATIC_LIBS
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  By default (i.e. with this option disabled), coreutils is
 	  installed as a single binary (Busybox style) called
@@ -29,11 +29,11 @@ config BR2_PACKAGE_COREUTILS_INDIVIDUAL_BINARIES
 	  With this option enabled, each utility is a separate binary.
 
 comment "coreutils individual binaries need a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_STATIC_LIBS
 
 endif
 
 comment "coreutils needs a toolchain w/ wchar"
-	depends on BR2_USE_MMU
-	depends on !BR2_USE_WCHAR
-	depends on BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_USE_WCHAR
+	depends on LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS

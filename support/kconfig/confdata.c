@@ -70,7 +70,7 @@ static void conf_message(const char *fmt, ...)
 
 const char *conf_get_configname(void)
 {
-	char *name = getenv("BR2_CONFIG");
+	char *name = getenv("LINGMO_CONFIG");
 
 	return name ? name : ".config";
 }

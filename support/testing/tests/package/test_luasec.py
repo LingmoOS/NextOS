@@ -4,8 +4,8 @@ from tests.package.test_lua import TestLuaBase
 class TestLuaLuaSec(TestLuaBase):
     config = TestLuaBase.config + \
         """
-        BR2_PACKAGE_LUA=y
-        BR2_PACKAGE_LUASEC=y
+        LINGMO_PACKAGE_LUA=y
+        LINGMO_PACKAGE_LUASEC=y
         """
 
     def test_run(self):
@@ -16,8 +16,8 @@ class TestLuaLuaSec(TestLuaBase):
 class TestLuajitLuaSec(TestLuaBase):
     config = TestLuaBase.config + \
         """
-        BR2_PACKAGE_LUAJIT=y
-        BR2_PACKAGE_LUASEC=y
+        LINGMO_PACKAGE_LUAJIT=y
+        LINGMO_PACKAGE_LUASEC=y
         """
 
     def test_run(self):

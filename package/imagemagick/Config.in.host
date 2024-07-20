@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_IMAGEMAGICK
+config LINGMO_PACKAGE_HOST_IMAGEMAGICK
 	bool "host imagemagick"
 	help
 	  ImageMagick(R) is a software suite to create, edit, and
@@ -12,13 +12,13 @@ config BR2_PACKAGE_HOST_IMAGEMAGICK
 
 	  http://www.imagemagick.org/
 
-if BR2_PACKAGE_HOST_IMAGEMAGICK
+if LINGMO_PACKAGE_HOST_IMAGEMAGICK
 
-config BR2_PACKAGE_HOST_IMAGEMAGICK_SVG
+config LINGMO_PACKAGE_HOST_IMAGEMAGICK_SVG
 	bool "SVG support"
-	depends on BR2_PACKAGE_HOST_RUSTC_ARCH_SUPPORTS # host-librsvg
-	depends on BR2_HOST_GCC_AT_LEAST_4_9 # host-pango -> host-harfbuzz
-	select BR2_PACKAGE_HOST_IMAGEMAGICK_XML
+	depends on LINGMO_PACKAGE_HOST_RUSTC_ARCH_SUPPORTS # host-librsvg
+	depends on LINGMO_HOST_GCC_AT_LEAST_4_9 # host-pango -> host-harfbuzz
+	select LINGMO_PACKAGE_HOST_IMAGEMAGICK_XML
 	help
 	  Say 'y' here is you need ImageMagick tools (like convert)
 	  to support SVG.
@@ -27,10 +27,10 @@ config BR2_PACKAGE_HOST_IMAGEMAGICK_SVG
 	  extra dependencies, and thus extra build time.
 
 comment "SVG support needs host gcc >= 4.9"
-	depends on BR2_PACKAGE_HOST_RUSTC_ARCH_SUPPORTS
-	depends on !BR2_HOST_GCC_AT_LEAST_4_9
+	depends on LINGMO_PACKAGE_HOST_RUSTC_ARCH_SUPPORTS
+	depends on !LINGMO_HOST_GCC_AT_LEAST_4_9
 
-config BR2_PACKAGE_HOST_IMAGEMAGICK_XML
+config LINGMO_PACKAGE_HOST_IMAGEMAGICK_XML
 	bool "XML support"
 	help
 	  Say 'y' here if you need ImageMagick to support XML. Indeed,

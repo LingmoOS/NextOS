@@ -17,12 +17,12 @@ CMOCKA_SUPPORTS_IN_SOURCE_BUILD = NO
 
 # cmocka always builds a shared library, but you can optionally build a static
 # library as well
-ifeq ($(BR2_SHARED_STATIC_LIBS),y)
+ifeq ($(LINGMO_SHARED_STATIC_LIBS),y)
 CMOCKA_CONF_OPTS += -DWITH_STATIC_LIB=ON
 endif
 
 # gcc for ARM Thumb1 doesn't implement -fstack-clash-protection
-ifeq ($(BR2_ARM_INSTRUCTIONS_THUMB),y)
+ifeq ($(LINGMO_ARM_INSTRUCTIONS_THUMB),y)
 CMOCKA_CONF_OPTS += -DWITH_STACK_CLASH_PROTECTION=OFF
 endif
 

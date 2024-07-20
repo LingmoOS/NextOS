@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PERL_MIME_TOOLS
+config LINGMO_PACKAGE_PERL_MIME_TOOLS
 	bool "perl-mime-tools"
-	select BR2_PACKAGE_PERL_MAILTOOLS # runtime
+	select LINGMO_PACKAGE_PERL_MAILTOOLS # runtime
 	help
 	  Tools to manipulate MIME messages.
 

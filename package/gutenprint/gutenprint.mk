@@ -24,8 +24,8 @@ HOST_GUTENPRINT_POST_PATCH_HOOKS += GUTENPRINT_CREATE_M4_DIR
 
 GUTENPRINT_DEPENDENCIES = \
 	cups host-pkgconf \
-	$(if $(BR2_PACKAGE_LIBICONV),libiconv) \
-	$(if $(BR2_PACKAGE_LIBUSB),libusb)
+	$(if $(LINGMO_PACKAGE_LIBICONV),libiconv) \
+	$(if $(LINGMO_PACKAGE_LIBUSB),libusb)
 
 # host-gutenprint is needed to generate XML as part of compilation
 # the program that generates the xml also links against libgutenprint
@@ -49,7 +49,7 @@ GUTENPRINT_CONF_OPTS = \
 	--disable-cups-ppds
 
 # USE_PREGEN_XMLI18N_TMP_H is added by our patch
-GUTENPRINT_MAKE_ENV = BR2_USE_PREGEN_XMLI18N_TMP_H=$(HOST_DIR)/include/xmli18n-tmp.h
+GUTENPRINT_MAKE_ENV = LINGMO_USE_PREGEN_XMLI18N_TMP_H=$(HOST_DIR)/include/xmli18n-tmp.h
 
 HOST_GUTENPRINT_DEPENDENCIES = host-pkgconf
 # The host-gutenprint shall create the required header

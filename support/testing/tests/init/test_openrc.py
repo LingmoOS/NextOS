@@ -4,13 +4,13 @@ from tests.init.base import InitSystemBase as InitSystemBase
 class InitSystemOpenrcBase(InitSystemBase):
     config = \
         """
-        BR2_arm=y
-        BR2_cortex_a9=y
-        BR2_ARM_ENABLE_VFP=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_INIT_OPENRC=y
-        BR2_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_cortex_a9=y
+        LINGMO_ARM_ENABLE_VFP=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_INIT_OPENRC=y
+        LINGMO_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def check_init(self):
@@ -24,9 +24,9 @@ class InitSystemOpenrcBase(InitSystemBase):
 class TestInitSystemOpenrcRoFull(InitSystemOpenrcBase):
     config = InitSystemOpenrcBase.config + \
         """
-        BR2_SYSTEM_DHCP="eth0"
-        # BR2_TARGET_GENERIC_REMOUNT_ROOTFS_RW is not set
-        BR2_TARGET_ROOTFS_SQUASHFS=y
+        LINGMO_SYSTEM_DHCP="eth0"
+        # LINGMO_TARGET_GENERIC_REMOUNT_ROOTFS_RW is not set
+        LINGMO_TARGET_ROOTFS_SQUASHFS=y
         """
 
     def test_run(self):
@@ -37,8 +37,8 @@ class TestInitSystemOpenrcRoFull(InitSystemOpenrcBase):
 class TestInitSystemOpenrcRwFull(InitSystemOpenrcBase):
     config = InitSystemOpenrcBase.config + \
         """
-        BR2_SYSTEM_DHCP="eth0"
-        BR2_TARGET_ROOTFS_EXT2=y
+        LINGMO_SYSTEM_DHCP="eth0"
+        LINGMO_TARGET_ROOTFS_EXT2=y
         """
 
     def test_run(self):
@@ -49,9 +49,9 @@ class TestInitSystemOpenrcRwFull(InitSystemOpenrcBase):
 class TestInitSystemOpenrcMergedUsrFull(InitSystemOpenrcBase):
     config = InitSystemOpenrcBase.config + \
         """
-        BR2_ROOTFS_MERGED_USR=y
-        BR2_SYSTEM_DHCP="eth0"
-        BR2_TARGET_ROOTFS_EXT2=y
+        LINGMO_ROOTFS_MERGED_USR=y
+        LINGMO_SYSTEM_DHCP="eth0"
+        LINGMO_TARGET_ROOTFS_EXT2=y
         """
 
     def test_run(self):

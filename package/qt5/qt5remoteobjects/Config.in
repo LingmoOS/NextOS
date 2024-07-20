@@ -1,7 +1,7 @@
-config BR2_PACKAGE_QT5REMOTEOBJECTS
+config LINGMO_PACKAGE_QT5REMOTEOBJECTS
 	bool "qt5remoteobjects"
-	select BR2_PACKAGE_QT5BASE
-	select BR2_PACKAGE_QT5BASE_NETWORK
+	select LINGMO_PACKAGE_QT5BASE
+	select LINGMO_PACKAGE_QT5BASE_NETWORK
 	help
 	  Qt is a cross-platform application and UI framework for
 	  developers using C++.

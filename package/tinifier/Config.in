@@ -1,6 +1,6 @@
-config BR2_PACKAGE_TINIFIER
+config LINGMO_PACKAGE_TINIFIER
 	bool "tinifier"
-	depends on BR2_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS
+	depends on LINGMO_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS
 	help
 	  CLI tool for images compressing
 

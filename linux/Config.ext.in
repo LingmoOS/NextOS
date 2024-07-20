@@ -2,14 +2,14 @@ menu "Linux Kernel Extensions"
 
 #-------------------------------------------------------------------------------
 # Xenomai
-config BR2_LINUX_KERNEL_EXT_XENOMAI
+config LINGMO_LINUX_KERNEL_EXT_XENOMAI
 	bool "Adeos/Xenomai Real-time patch"
-	depends on BR2_PACKAGE_XENOMAI_COBALT_ARCH_SUPPORTS
-	depends on BR2_USE_MMU # xenomai
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4 # xenomai
-	depends on BR2_TOOLCHAIN_HAS_THREADS # xenomai
-	depends on !BR2_TOOLCHAIN_USES_MUSL # xenomai
-	select BR2_PACKAGE_XENOMAI
+	depends on LINGMO_PACKAGE_XENOMAI_COBALT_ARCH_SUPPORTS
+	depends on LINGMO_USE_MMU # xenomai
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4 # xenomai
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # xenomai
+	depends on !LINGMO_TOOLCHAIN_USES_MUSL # xenomai
+	select LINGMO_PACKAGE_XENOMAI
 	help
 	  Xenomai is split in two parts: a kernel part and a userspace
 	  part. Enabling this option automatically selects the Xenomai
@@ -27,9 +27,9 @@ config BR2_LINUX_KERNEL_EXT_XENOMAI
 	  Xenomai is know to support Blackfin, SH4, x86, ARM, NIOS2
 	  and PowerPC architectures.
 
-config BR2_LINUX_KERNEL_EXT_XENOMAI_ADEOS_PATCH
+config LINGMO_LINUX_KERNEL_EXT_XENOMAI_ADEOS_PATCH
 	string "Path/URL for Adeos patch file"
-	depends on BR2_LINUX_KERNEL_EXT_XENOMAI
+	depends on LINGMO_LINUX_KERNEL_EXT_XENOMAI
 	help
 	  Optionally, explicitly specify where to find the Adeos
 	  patch to use.
@@ -39,27 +39,27 @@ config BR2_LINUX_KERNEL_EXT_XENOMAI_ADEOS_PATCH
 	  Please verify that your kernel version in Buildroot matches.
 
 comment "xenomai needs a uClibc or glibc toolchain w/ threads"
-	depends on BR2_PACKAGE_XENOMAI_COBALT_ARCH_SUPPORTS
-	depends on BR2_USE_MMU
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_TOOLCHAIN_USES_MUSL
+	depends on LINGMO_PACKAGE_XENOMAI_COBALT_ARCH_SUPPORTS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_TOOLCHAIN_USES_MUSL
 
 #-------------------------------------------------------------------------------
 # RTAI
-config BR2_LINUX_KERNEL_EXT_RTAI
+config LINGMO_LINUX_KERNEL_EXT_RTAI
 	bool "RTAI Real-time patch"
-	depends on !BR2_LINUX_KERNEL_LATEST_VERSION
-	depends on !BR2_LINUX_KERNEL_LATEST_CIP_VERSION
-	depends on !BR2_LINUX_KERNEL_LATEST_CIP_RT_VERSION
-	select BR2_PACKAGE_RTAI
+	depends on !LINGMO_LINUX_KERNEL_LATEST_VERSION
+	depends on !LINGMO_LINUX_KERNEL_LATEST_CIP_VERSION
+	depends on !LINGMO_LINUX_KERNEL_LATEST_CIP_RT_VERSION
+	select LINGMO_PACKAGE_RTAI
 	help
 	  RTAI Kernel part.
 
 #-------------------------------------------------------------------------------
 # ev3dev Linux drivers
-config BR2_LINUX_KERNEL_EXT_EV3DEV_LINUX_DRIVERS
+config LINGMO_LINUX_KERNEL_EXT_EV3DEV_LINUX_DRIVERS
 	bool "ev3dev Linux drivers"
-	select BR2_PACKAGE_EV3DEV_LINUX_DRIVERS
+	select LINGMO_PACKAGE_EV3DEV_LINUX_DRIVERS
 	help
 	  Linux drivers for LEGO MINDSTORMS EV3 from the ev3dev project.
 
@@ -67,9 +67,9 @@ config BR2_LINUX_KERNEL_EXT_EV3DEV_LINUX_DRIVERS
 
 #-------------------------------------------------------------------------------
 # fbtft
-config BR2_LINUX_KERNEL_EXT_FBTFT
+config LINGMO_LINUX_KERNEL_EXT_FBTFT
 	bool "FB TFT drivers"
-	select BR2_PACKAGE_FBTFT
+	select LINGMO_PACKAGE_FBTFT
 	help
 	  Linux Framebuffer drivers for small TFT LCD display modules,
 	  e.g. Adafruit PiTFT displays for Raspberry Pi (this extra
@@ -87,9 +87,9 @@ config BR2_LINUX_KERNEL_EXT_FBTFT
 	  https://github.com/notro/fbtft
 
 # aufs-standalone
-config BR2_LINUX_KERNEL_EXT_AUFS
+config LINGMO_LINUX_KERNEL_EXT_AUFS
 	bool "Aufs Filesystem Module patch"
-	select BR2_PACKAGE_AUFS
+	select LINGMO_PACKAGE_AUFS
 	help
 	  Aufs is split in two parts: a kernel part and a userspace
 	  part. Enabling this option automatically selects the aufs
@@ -98,7 +98,7 @@ config BR2_LINUX_KERNEL_EXT_AUFS
 
 	  It is important to use the correct branch of aufs-standalone.
 
-if BR2_LINUX_KERNEL_EXT_AUFS
+if LINGMO_LINUX_KERNEL_EXT_AUFS
 
 choice
 	bool "aufs-standalone series"
@@ -111,24 +111,24 @@ choice
 	  Note: neither aufs1.x nor aufs2.x (both for kernels older than
 	  3.x) are supported.
 
-config BR2_LINUX_KERNEL_EXT_AUFS_SERIES_3
+config LINGMO_LINUX_KERNEL_EXT_AUFS_SERIES_3
 	bool "aufs3.x"
 
-config BR2_LINUX_KERNEL_EXT_AUFS_SERIES_4
+config LINGMO_LINUX_KERNEL_EXT_AUFS_SERIES_4
 	bool "aufs4.x"
 
-config BR2_LINUX_KERNEL_EXT_AUFS_SERIES_5
+config LINGMO_LINUX_KERNEL_EXT_AUFS_SERIES_5
 	bool "aufs5.x"
 
 endchoice
 
-config BR2_LINUX_KERNEL_EXT_AUFS_SERIES
+config LINGMO_LINUX_KERNEL_EXT_AUFS_SERIES
 	int
-	default 3 if BR2_LINUX_KERNEL_EXT_AUFS_SERIES_3
-	default 4 if BR2_LINUX_KERNEL_EXT_AUFS_SERIES_4
-	default 5 if BR2_LINUX_KERNEL_EXT_AUFS_SERIES_5
+	default 3 if LINGMO_LINUX_KERNEL_EXT_AUFS_SERIES_3
+	default 4 if LINGMO_LINUX_KERNEL_EXT_AUFS_SERIES_4
+	default 5 if LINGMO_LINUX_KERNEL_EXT_AUFS_SERIES_5
 
-config BR2_LINUX_KERNEL_EXT_AUFS_VERSION
+config LINGMO_LINUX_KERNEL_EXT_AUFS_VERSION
 	string "aufs-standalone version"
 	default ""
 	help
@@ -149,6 +149,6 @@ config BR2_LINUX_KERNEL_EXT_AUFS_VERSION
 endif # aufs
 
 # kernel extensions from br2-external trees, if any
-source "$BR2_BASE_DIR/.br2-external.in.linux"
+source "$LINGMO_BASE_DIR/.br2-external.in.linux"
 
 endmenu

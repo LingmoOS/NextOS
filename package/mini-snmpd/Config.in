@@ -1,4 +1,4 @@
-config BR2_PACKAGE_MINI_SNMPD
+config LINGMO_PACKAGE_MINI_SNMPD
 	bool "mini-snmpd"
 	help
 	  Mini SNMPd is a minimal implementation targeted at small or

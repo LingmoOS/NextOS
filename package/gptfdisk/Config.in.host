@@ -1,6 +1,6 @@
-config BR2_PACKAGE_HOST_GPTFDISK
+config LINGMO_PACKAGE_HOST_GPTFDISK
 	bool "host gptfdisk"
-	select BR2_PACKAGE_HOST_UTIL_LINUX
+	select LINGMO_PACKAGE_HOST_UTIL_LINUX
 	help
 	  GPT fdisk (consisting of the gdisk and sgdisk programs) is a
 	  text-mode partitioning tool that works on Globally Unique

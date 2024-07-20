@@ -30,6 +30,6 @@ class TestPythonPy3Click(TestPythonClick):
     __test__ = True
     config = TestPythonClick.config + \
         """
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_PYTHON_CLICK=y
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON_CLICK=y
         """

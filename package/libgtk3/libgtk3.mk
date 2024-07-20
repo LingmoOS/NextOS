@@ -17,71 +17,71 @@ LIBGTK3_INSTALL_STAGING = YES
 LIBGTK3_DEPENDENCIES = host-pkgconf host-libgtk3 at-spi2-core libglib2 cairo pango \
 	gdk-pixbuf libepoxy $(TARGET_NLS_DEPENDENCIES)
 
-ifeq ($(BR2_PACKAGE_LIBGTK3_X11),y)
+ifeq ($(LINGMO_PACKAGE_LIBGTK3_X11),y)
 LIBGTK3_DEPENDENCIES += fontconfig xlib_libX11 xlib_libXext xlib_libXrandr xlib_libXrender xlib_libXi
 LIBGTK3_CONF_OPTS += -Dx11_backend=true
 else
 LIBGTK3_CONF_OPTS += -Dx11_backend=false
 endif
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 LIBGTK3_CONF_OPTS += -Dintrospection=true
 LIBGTK3_DEPENDENCIES += gobject-introspection
 else
 LIBGTK3_CONF_OPTS += -Dintrospection=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGTK3_WAYLAND),y)
+ifeq ($(LINGMO_PACKAGE_LIBGTK3_WAYLAND),y)
 LIBGTK3_DEPENDENCIES += wayland wayland-protocols libxkbcommon
 LIBGTK3_CONF_OPTS += -Dwayland_backend=true
 else
 LIBGTK3_CONF_OPTS += -Dwayland_backend=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGTK3_BROADWAY),y)
+ifeq ($(LINGMO_PACKAGE_LIBGTK3_BROADWAY),y)
 LIBGTK3_CONF_OPTS += -Dbroadway_backend=true
 else
 LIBGTK3_CONF_OPTS += -Dbroadway_backend=false
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXINERAMA),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXINERAMA),y)
 LIBGTK3_CONF_OPTS += -Dxinerama=yes
 LIBGTK3_DEPENDENCIES += xlib_libXinerama
 else
 LIBGTK3_CONF_OPTS += -Dxinerama=no
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXCURSOR),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXCURSOR),y)
 LIBGTK3_DEPENDENCIES += xlib_libXcursor
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXFIXES),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXFIXES),y)
 LIBGTK3_DEPENDENCIES += xlib_libXfixes
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXCOMPOSITE),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXCOMPOSITE),y)
 LIBGTK3_DEPENDENCIES += xlib_libXcomposite
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXDAMAGE),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXDAMAGE),y)
 LIBGTK3_DEPENDENCIES += xlib_libXdamage
 endif
 
-ifeq ($(BR2_PACKAGE_CUPS),y)
+ifeq ($(LINGMO_PACKAGE_CUPS),y)
 LIBGTK3_CONF_OPTS += -Dprint_backends=file,cups
 LIBGTK3_DEPENDENCIES += cups
 else
 LIBGTK3_CONF_OPTS += -Dprint_backends=auto
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGTK3_DEMO),y)
+ifeq ($(LINGMO_PACKAGE_LIBGTK3_DEMO),y)
 LIBGTK3_CONF_OPTS += -Ddemos=true -Dexamples=true
 LIBGTK3_DEPENDENCIES += hicolor-icon-theme shared-mime-info
 else
 LIBGTK3_CONF_OPTS += -Ddemos=false -Dexamples=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGTK3_TESTS),y)
+ifeq ($(LINGMO_PACKAGE_LIBGTK3_TESTS),y)
 LIBGTK3_CONF_OPTS += -Dtests=true -Dinstalled_tests=true
 else
 LIBGTK3_CONF_OPTS += -Dtests=false -Dinstalled_tests=false

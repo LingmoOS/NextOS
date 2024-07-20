@@ -14,7 +14,7 @@ ODB_LICENSE_FILES = LICENSE
 # the ODB compiler, as it install header files that are needed at
 # runtime by the odb compiler.
 HOST_ODB_DEPENDENCIES = host-libcutl host-libodb
-ifeq ($(BR2_PACKAGE_LIBODB_BOOST),y)
+ifeq ($(LINGMO_PACKAGE_LIBODB_BOOST),y)
 HOST_ODB_DEPENDENCIES += host-libodb-boost
 endif
 HOST_ODB_CONF_ENV = CXXFLAGS="$(HOST_CXXFLAGS) -std=c++11"

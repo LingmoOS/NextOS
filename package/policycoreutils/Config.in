@@ -1,16 +1,16 @@
 comment "policycoreutils needs a toolchain w/ threads, dynamic library, gcc >= 5"
-	depends on BR2_PACKAGE_AUDIT_ARCH_SUPPORTS
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS || \
-		!BR2_TOOLCHAIN_GCC_AT_LEAST_5
+	depends on LINGMO_PACKAGE_AUDIT_ARCH_SUPPORTS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS || \
+		!LINGMO_TOOLCHAIN_GCC_AT_LEAST_5
 
-config BR2_PACKAGE_POLICYCOREUTILS
+config LINGMO_PACKAGE_POLICYCOREUTILS
 	bool "policycoreutils"
-	depends on BR2_PACKAGE_AUDIT_ARCH_SUPPORTS # libsemanage
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libsemanage
-	depends on !BR2_STATIC_LIBS # libsemanage
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_5 # libsemanage -> libselinux -> libsepol
-	select BR2_PACKAGE_LIBSEMANAGE
-	select BR2_PACKAGE_LIBCAP_NG
+	depends on LINGMO_PACKAGE_AUDIT_ARCH_SUPPORTS # libsemanage
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libsemanage
+	depends on !LINGMO_STATIC_LIBS # libsemanage
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_5 # libsemanage -> libselinux -> libsepol
+	select LINGMO_PACKAGE_LIBSEMANAGE
+	select LINGMO_PACKAGE_LIBCAP_NG
 	help
 	  Policycoreutils is a collection of policy utilities
 	  (originally the "core" set of utilities needed to use

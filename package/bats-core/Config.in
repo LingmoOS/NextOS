@@ -1,6 +1,6 @@
-config BR2_PACKAGE_BATS_CORE
+config LINGMO_PACKAGE_BATS_CORE
 	bool "bats"
-	depends on BR2_PACKAGE_BASH # runtime
+	depends on LINGMO_PACKAGE_BASH # runtime
 	help
 	  Bats: Bash Automated Testing System
 

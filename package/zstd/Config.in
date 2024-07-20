@@ -1,4 +1,4 @@
-config BR2_PACKAGE_ZSTD
+config LINGMO_PACKAGE_ZSTD
 	bool "zstd"
 	help
 	  Zstandard, or zstd as short version, is a fast lossless

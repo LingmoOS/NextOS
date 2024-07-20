@@ -6,7 +6,7 @@
 
 IW_VERSION = 5.19
 IW_SOURCE = iw-$(IW_VERSION).tar.xz
-IW_SITE = $(BR2_KERNEL_MIRROR)/software/network/iw
+IW_SITE = $(LINGMO_KERNEL_MIRROR)/software/network/iw
 IW_LICENSE = ISC
 IW_LICENSE_FILES = COPYING
 IW_CPE_ID_VENDOR = kernel

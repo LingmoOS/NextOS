@@ -18,7 +18,7 @@ LIBVDPAU_CONF_OPTS = \
 	-Ddocumentation=false \
 	-Dmoduledir=/usr/lib/vdpau
 
-ifeq ($(BR2_PACKAGE_XORGPROTO),y)
+ifeq ($(LINGMO_PACKAGE_XORGPROTO),y)
 LIBVDPAU_DEPENDENCIES += xorgproto
 LIBVDPAU_CONF_OPTS += -Ddri2=true
 else

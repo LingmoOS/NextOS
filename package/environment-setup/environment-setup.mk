@@ -33,7 +33,7 @@ define HOST_ENVIRONMENT_SETUP_INSTALL_CMDS
 	printf "export \"PATH=\$$SDK_PATH/bin:\$$SDK_PATH/sbin:\$$PATH\"\n" \
 		>> $(ENVIRONMENT_SETUP_FILE)
 
-	$(if $(BR2_LINUX_KERNEL),\
+	$(if $(LINGMO_LINUX_KERNEL),\
 		printf "export \"KERNELDIR=$(LINUX_BUILDDIR)\"\n" \
 			>> $(ENVIRONMENT_SETUP_FILE),)
 endef

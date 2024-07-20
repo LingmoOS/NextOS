@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PAHO_MQTT
+config LINGMO_PACKAGE_PYTHON_PAHO_MQTT
 	bool "python-paho-mqtt"
 	help
 	  The Paho Python Client provides a client class with support

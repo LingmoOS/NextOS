@@ -35,8 +35,8 @@
 define inner-virtual-package
 
 # Ensure the virtual package has an implementation defined.
-ifeq ($$(BR2_PACKAGE_HAS_$(2)),y)
-ifeq ($$(call qstrip,$$(BR2_PACKAGE_PROVIDES_$(2))),)
+ifeq ($$(LINGMO_PACKAGE_HAS_$(2)),y)
+ifeq ($$(call qstrip,$$(LINGMO_PACKAGE_PROVIDES_$(2))),)
 $$(error No implementation selected for virtual package $(1). Configuration error)
 endif
 endif
@@ -49,17 +49,17 @@ $(2)_SOURCE =
 $(2)_IS_VIRTUAL = YES
 
 # Add dependency against the provider
-# For a host package, there is no corresponding BR2_PACKAGE_PROVIDES_HOST_FOO,
+# For a host package, there is no corresponding LINGMO_PACKAGE_PROVIDES_HOST_FOO,
 # so we need to compute it from the target variant.
 ifeq ($(4),target)
-$(2)_DEPENDENCIES += $$(call qstrip,$$(BR2_PACKAGE_PROVIDES_$(2)))
+$(2)_DEPENDENCIES += $$(call qstrip,$$(LINGMO_PACKAGE_PROVIDES_$(2)))
 else
-ifeq ($$(call qstrip,$$(BR2_PACKAGE_PROVIDES_$(2))),)
-# Inherit from target package BR2_PACKAGE_PROVIDES_FOO
-$(2)_DEPENDENCIES += host-$$(call qstrip,$$(BR2_PACKAGE_PROVIDES_$(3)))
+ifeq ($$(call qstrip,$$(LINGMO_PACKAGE_PROVIDES_$(2))),)
+# Inherit from target package LINGMO_PACKAGE_PROVIDES_FOO
+$(2)_DEPENDENCIES += host-$$(call qstrip,$$(LINGMO_PACKAGE_PROVIDES_$(3)))
 else
-# BR2_PACKAGE_PROVIDES_HOST_<pkg> is explicitly defined
-$(2)_DEPENDENCIES += $$(call qstrip,$$(BR2_PACKAGE_PROVIDES_$(2)))
+# LINGMO_PACKAGE_PROVIDES_HOST_<pkg> is explicitly defined
+$(2)_DEPENDENCIES += $$(call qstrip,$$(LINGMO_PACKAGE_PROVIDES_$(2)))
 endif
 endif
 

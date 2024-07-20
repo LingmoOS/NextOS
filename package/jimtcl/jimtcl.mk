@@ -18,13 +18,13 @@ JIMTCL_HEADERS_TO_INSTALL = \
 	jim-win32compat.h \
 	jim-config.h
 
-ifeq ($(BR2_PACKAGE_TCL),)
+ifeq ($(LINGMO_PACKAGE_TCL),)
 define JIMTCL_LINK_TCLSH
 	ln -sf jimsh $(TARGET_DIR)/usr/bin/tclsh
 endef
 endif
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 define JIMTCL_INSTALL_LIB
 	$(INSTALL) -m 0644 -D $(@D)/libjim.a $(1)/usr/lib/libjim.a
 endef
@@ -50,7 +50,7 @@ define JIMTCL_CONFIGURE_CMDS
 	(cd $(@D); \
 		$(TARGET_CONFIGURE_OPTS) \
 		CCACHE=none \
-		$(if $(BR2_INSTALL_LIBSTDCPP),,CXX=false) \
+		$(if $(LINGMO_INSTALL_LIBSTDCPP),,CXX=false) \
 		./configure --prefix=/usr \
 		--host=$(GNU_TARGET_NAME) \
 		--build=$(GNU_HOST_NAME) \

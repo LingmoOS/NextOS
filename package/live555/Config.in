@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIVE555
+config LINGMO_PACKAGE_LIVE555
 	bool "live555"
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	help
 	  LIVE555 Streaming Media forms a set of C++ libraries for
 	  multimedia streaming, using open standard protocols
@@ -9,4 +9,4 @@ config BR2_PACKAGE_LIVE555
 	  http://www.live555.com/liveMedia/
 
 comment "live555 needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP

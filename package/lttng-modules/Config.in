@@ -1,7 +1,7 @@
-config BR2_PACKAGE_LTTNG_MODULES
+config LINGMO_PACKAGE_LTTNG_MODULES
 	bool "lttng-modules"
-	depends on BR2_LINUX_KERNEL
-	depends on BR2_TOOLCHAIN_HEADERS_AT_LEAST_3_0
+	depends on LINGMO_LINUX_KERNEL
+	depends on LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_3_0
 	help
 	  Linux kernel modules for the LTTng 2.x kernel tracing
 	  infrastructure.
@@ -36,8 +36,8 @@ config BR2_PACKAGE_LTTNG_MODULES
 	  http://lttng.org
 
 comment "lttng-modules needs a Linux kernel to be built"
-	depends on !BR2_LINUX_KERNEL
+	depends on !LINGMO_LINUX_KERNEL
 
 comment "lttng-modules needs a toolchain w/ headers >= 3.0"
-	depends on BR2_LINUX_KERNEL
-	depends on !BR2_TOOLCHAIN_HEADERS_AT_LEAST_3_0
+	depends on LINGMO_LINUX_KERNEL
+	depends on !LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_3_0

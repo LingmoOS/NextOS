@@ -29,19 +29,19 @@ WLROOTS_CONF_OPTS = -Dexamples=false -Dxcb-errors=disabled
 WLROOTS_RENDERERS = gles2
 WLROOTS_BACKENDS = libinput drm
 
-ifeq ($(BR2_PACKAGE_WLROOTS_X11),y)
+ifeq ($(LINGMO_PACKAGE_WLROOTS_X11),y)
 WLROOTS_BACKENDS += x11
 WLROOTS_DEPENDENCIES += libxcb xcb-util-wm xcb-util-renderutil xlib_libX11
 endif
 
-ifeq ($(BR2_PACKAGE_WLROOTS_XWAYLAND),y)
+ifeq ($(LINGMO_PACKAGE_WLROOTS_XWAYLAND),y)
 WLROOTS_CONF_OPTS += -Dxwayland=enabled
 WLROOTS_DEPENDENCIES += libxcb xcb-util-wm xwayland
 else
 WLROOTS_CONF_OPTS += -Dxwayland=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_MESA3D_VULKAN_DRIVER)$(BR2_PACKAGE_VULKAN_LOADER),yy)
+ifeq ($(LINGMO_PACKAGE_MESA3D_VULKAN_DRIVER)$(LINGMO_PACKAGE_VULKAN_LOADER),yy)
 WLROOTS_RENDERERS += vulkan
 WLROOTS_DEPENDENCIES += mesa3d vulkan-loader
 endif

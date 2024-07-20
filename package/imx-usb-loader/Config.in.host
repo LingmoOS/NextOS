@@ -1,7 +1,7 @@
-config BR2_PACKAGE_HOST_IMX_USB_LOADER
+config LINGMO_PACKAGE_HOST_IMX_USB_LOADER
 	bool "host imx-usb-loader"
-	depends on BR2_arm || BR2_aarch64
-	depends on BR2_HOST_GCC_AT_LEAST_4_9 # host-libusb
+	depends on LINGMO_arm || LINGMO_aarch64
+	depends on LINGMO_HOST_GCC_AT_LEAST_4_9 # host-libusb
 	help
 	  This package contains tools to download and execute code
 	  on Freescale i.MX5x/6x/7x/8x and Vybrid SoCs through the
@@ -10,5 +10,5 @@ config BR2_PACKAGE_HOST_IMX_USB_LOADER
 	  https://github.com/boundarydevices/imx_usb_loader
 
 comment "host imx-usb-loader needs a toolchain w/ host gcc >= 4.9"
-	depends on BR2_arm || BR2_aarch64
-	depends on !BR2_HOST_GCC_AT_LEAST_4_9
+	depends on LINGMO_arm || LINGMO_aarch64
+	depends on !LINGMO_HOST_GCC_AT_LEAST_4_9

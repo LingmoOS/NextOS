@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PLY
+config LINGMO_PACKAGE_PYTHON_PLY
 	bool "python-ply"
 	help
 	  Python Lex & Yacc.

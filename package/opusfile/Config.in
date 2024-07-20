@@ -1,7 +1,7 @@
-config BR2_PACKAGE_OPUSFILE
+config LINGMO_PACKAGE_OPUSFILE
 	bool "opusfile"
-	select BR2_PACKAGE_LIBOGG
-	select BR2_PACKAGE_OPUS
+	select LINGMO_PACKAGE_LIBOGG
+	select LINGMO_PACKAGE_OPUS
 	help
 	  A convenient high-level API for decoding and basic
 	  manipulation of all Ogg Opus audio streams.

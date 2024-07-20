@@ -15,7 +15,7 @@ LIBQB_INSTALL_STAGING = YES
 LIBQB_CONF_OPTS = --disable-tests
 LIBQB_DEPENDENCIES = libxml2
 
-# ac_cv_prog_cc_c99 is required for BR2_USE_WCHAR=n because the C99 test
+# ac_cv_prog_cc_c99 is required for LINGMO_USE_WCHAR=n because the C99 test
 # provided by autoconf relies on wchar_t.
 LIBQB_CONF_ENV = ac_cv_prog_cc_c99=-std=gnu99
 

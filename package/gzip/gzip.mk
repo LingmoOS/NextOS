@@ -6,7 +6,7 @@
 
 GZIP_VERSION = 1.13
 GZIP_SOURCE = gzip-$(GZIP_VERSION).tar.xz
-GZIP_SITE = $(BR2_GNU_MIRROR)/gzip
+GZIP_SITE = $(LINGMO_GNU_MIRROR)/gzip
 # Some other tools expect it to be in /bin
 GZIP_CONF_OPTS = --exec-prefix=/
 GZIP_LICENSE = GPL-3.0+

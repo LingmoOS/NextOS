@@ -52,8 +52,8 @@ If you want to build a system for other boards based on the same SoC
 the upstream kernel and U-Boot, you simply need to change the
 following Buildroot options:
 
- - Kernel Device Tree file name (BR2_LINUX_KERNEL_INTREE_DTS_NAME)
- - U-Boot (BR2_TARGET_UBOOT_CUSTOM_MAKEOPTS="DEVICE_TREE=<dts file name>")
+ - Kernel Device Tree file name (LINGMO_LINUX_KERNEL_INTREE_DTS_NAME)
+ - U-Boot (LINGMO_TARGET_UBOOT_CUSTOM_MAKEOPTS="DEVICE_TREE=<dts file name>")
 
 Custom ps7_init_gpl.c/h support:
 

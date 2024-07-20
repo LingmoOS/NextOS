@@ -5,7 +5,7 @@ class TestPixz(TestCompressorBase):
     __test__ = True
     config = TestCompressorBase.config + \
         """
-        BR2_PACKAGE_PIXZ=y
+        LINGMO_PACKAGE_PIXZ=y
         """
     compress_cmd = "pixz -p3"
     decompress_cmd = "pixz -d"

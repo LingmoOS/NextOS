@@ -1,13 +1,13 @@
-config BR2_PACKAGE_LIBPEAS
+config LINGMO_PACKAGE_LIBPEAS
 	bool "libpeas"
-	depends on BR2_USE_MMU # gobject-introspection
-	depends on BR2_PACKAGE_GOBJECT_INTROSPECTION_ARCH_SUPPORTS
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_9 # gobject-introspection
-	depends on BR2_HOST_GCC_AT_LEAST_8 # gobject-introspection -> host-qemu
-	depends on BR2_TOOLCHAIN_USES_GLIBC # gobject-introspection
-	depends on BR2_PACKAGE_PYTHON3 # gobject-introspection
-	select BR2_PACKAGE_GOBJECT_INTROSPECTION
-	select BR2_PACKAGE_LIBGLIB2
+	depends on LINGMO_USE_MMU # gobject-introspection
+	depends on LINGMO_PACKAGE_GOBJECT_INTROSPECTION_ARCH_SUPPORTS
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9 # gobject-introspection
+	depends on LINGMO_HOST_GCC_AT_LEAST_8 # gobject-introspection -> host-qemu
+	depends on LINGMO_TOOLCHAIN_USES_GLIBC # gobject-introspection
+	depends on LINGMO_PACKAGE_PYTHON3 # gobject-introspection
+	select LINGMO_PACKAGE_GOBJECT_INTROSPECTION
+	select LINGMO_PACKAGE_LIBGLIB2
 	help
 	  libpeas is a gobject-based plugins engine, and is targetted at
 	  giving every application the chance to assume its own
@@ -20,26 +20,26 @@ config BR2_PACKAGE_LIBPEAS
 
 	  https://wiki.gnome.org/Projects/Libpeas
 
-if BR2_PACKAGE_LIBPEAS
+if LINGMO_PACKAGE_LIBPEAS
 
-config BR2_PACKAGE_LIBPEAS_WIDGETS
+config LINGMO_PACKAGE_LIBPEAS_WIDGETS
 	bool "widgets"
-	depends on BR2_PACKAGE_LIBGTK3
+	depends on LINGMO_PACKAGE_LIBGTK3
 	help
 	  Build GTK+ widgetry
 
 comment "widget support needs libgtk3"
-	depends on !BR2_PACKAGE_LIBGTK3
+	depends on !LINGMO_PACKAGE_LIBGTK3
 
 endif
 
 comment "libpeas needs python3"
-	depends on BR2_PACKAGE_GOBJECT_INTROSPECTION_ARCH_SUPPORTS
-	depends on BR2_USE_MMU
-	depends on !BR2_PACKAGE_PYTHON3
+	depends on LINGMO_PACKAGE_GOBJECT_INTROSPECTION_ARCH_SUPPORTS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_PACKAGE_PYTHON3
 
 comment "libpeas needs a glibc toolchain, gcc >= 4.9, host gcc >= 8"
-	depends on BR2_PACKAGE_GOBJECT_INTROSPECTION_ARCH_SUPPORTS
-	depends on BR2_USE_MMU
-	depends on !BR2_TOOLCHAIN_USES_GLIBC || \
-		!BR2_TOOLCHAIN_GCC_AT_LEAST_4_9 || !BR2_HOST_GCC_AT_LEAST_8
+	depends on LINGMO_PACKAGE_GOBJECT_INTROSPECTION_ARCH_SUPPORTS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_TOOLCHAIN_USES_GLIBC || \
+		!LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9 || !LINGMO_HOST_GCC_AT_LEAST_8

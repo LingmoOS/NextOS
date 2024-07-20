@@ -9,7 +9,7 @@ WQY_ZENHEI_SITE = https://downloads.sourceforge.net/project/wqy/wqy-zenhei/$(WQY
 WQY_ZENHEI_LICENSE = GPL-2.0-with-font-exception
 WQY_ZENHEI_LICENSE_FILES = COPYING
 
-ifeq ($(BR2_PACKAGE_FONTCONFIG),y)
+ifeq ($(LINGMO_PACKAGE_FONTCONFIG),y)
 define WQY_ZENHEI_FONTCONFIG_CONF_INSTALL_CMDS
 	$(INSTALL) -D -m 0644 $(@D)/43-wqy-zenhei-sharp.conf \
 		$(TARGET_DIR)/usr/share/fontconfig/conf.avail/43-wqy-zenhei-sharp.conf

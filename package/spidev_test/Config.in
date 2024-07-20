@@ -1,4 +1,4 @@
-config BR2_PACKAGE_SPIDEV_TEST
+config LINGMO_PACKAGE_SPIDEV_TEST
 	bool "spidev_test"
 	help
 	  SPI testing utility (using spidev driver).

@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_SPAKE2
+config LINGMO_PACKAGE_PYTHON_SPAKE2
 	bool "python-spake2"
-	select BR2_PACKAGE_PYTHON_HKDF # runtime
+	select LINGMO_PACKAGE_PYTHON_HKDF # runtime
 	help
 	  SPAKE2 password-authenticated key exchange (in pure python).
 

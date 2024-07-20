@@ -6,7 +6,7 @@
 
 E2FSPROGS_VERSION = 1.47.0
 E2FSPROGS_SOURCE = e2fsprogs-$(E2FSPROGS_VERSION).tar.xz
-E2FSPROGS_SITE = $(BR2_KERNEL_MIRROR)/linux/kernel/people/tytso/e2fsprogs/v$(E2FSPROGS_VERSION)
+E2FSPROGS_SITE = $(LINGMO_KERNEL_MIRROR)/linux/kernel/people/tytso/e2fsprogs/v$(E2FSPROGS_VERSION)
 E2FSPROGS_LICENSE = GPL-2.0, MIT-like with advertising clause (libss and libet)
 E2FSPROGS_LICENSE_FILES = NOTICE lib/ss/mit-sipb-copyright.h lib/et/internal.h
 E2FSPROGS_CPE_ID_VALID = YES
@@ -42,12 +42,12 @@ HOST_E2FSPROGS_CONF_OPTS = \
 E2FSPROGS_CONF_OPTS = \
 	--bindir=/bin \
 	--sbindir=/sbin \
-	$(if $(BR2_STATIC_LIBS),--disable-elf-shlibs,--enable-elf-shlibs) \
-	$(if $(BR2_PACKAGE_E2FSPROGS_DEBUGFS),--enable-debugfs,--disable-debugfs) \
-	$(if $(BR2_PACKAGE_E2FSPROGS_E2IMAGE),--enable-imager,--disable-imager) \
-	$(if $(BR2_PACKAGE_E2FSPROGS_E4DEFRAG),--enable-defrag,--disable-defrag) \
-	$(if $(BR2_PACKAGE_E2FSPROGS_FSCK),--enable-fsck,--disable-fsck) \
-	$(if $(BR2_PACKAGE_E2FSPROGS_RESIZE2FS),--enable-resizer,--disable-resizer) \
+	$(if $(LINGMO_STATIC_LIBS),--disable-elf-shlibs,--enable-elf-shlibs) \
+	$(if $(LINGMO_PACKAGE_E2FSPROGS_DEBUGFS),--enable-debugfs,--disable-debugfs) \
+	$(if $(LINGMO_PACKAGE_E2FSPROGS_E2IMAGE),--enable-imager,--disable-imager) \
+	$(if $(LINGMO_PACKAGE_E2FSPROGS_E4DEFRAG),--enable-defrag,--disable-defrag) \
+	$(if $(LINGMO_PACKAGE_E2FSPROGS_FSCK),--enable-fsck,--disable-fsck) \
+	$(if $(LINGMO_PACKAGE_E2FSPROGS_RESIZE2FS),--enable-resizer,--disable-resizer) \
 	--disable-uuidd \
 	--disable-libblkid \
 	--disable-libuuid \
@@ -56,19 +56,19 @@ E2FSPROGS_CONF_OPTS = \
 	--disable-rpath \
 	--enable-symlink-install
 
-ifeq ($(BR2_PACKAGE_E2FSPROGS_FUSE2FS),y)
+ifeq ($(LINGMO_PACKAGE_E2FSPROGS_FUSE2FS),y)
 E2FSPROGS_CONF_OPTS += --enable-fuse2fs
 E2FSPROGS_DEPENDENCIES += libfuse
 else
 E2FSPROGS_CONF_OPTS += --disable-fuse2fs
 endif
 
-ifeq ($(BR2_nios2),y)
+ifeq ($(LINGMO_nios2),y)
 E2FSPROGS_CONF_ENV += ac_cv_func_fallocate=no
 endif
 
 # workaround gcc bug 111001
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_111001),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_111001),y)
 E2FSPROGS_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) -Os"
 endif
 
@@ -81,7 +81,7 @@ E2FSPROGS_INSTALL_STAGING_OPTS = \
 	install-libs
 
 # e2scrub has no associated --enable/disable option
-ifneq ($(BR2_PACKAGE_E2FSPROGS_E2SCRUB),y)
+ifneq ($(LINGMO_PACKAGE_E2FSPROGS_E2SCRUB),y)
 E2FSPROGS_MAKE_OPTS += E2SCRUB_DIR=
 endif
 

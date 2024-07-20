@@ -12,7 +12,7 @@ OPKG_LICENSE_FILES = COPYING
 OPKG_INSTALL_STAGING = YES
 OPKG_CONF_OPTS = --enable-sha256
 
-ifeq ($(BR2_PACKAGE_OPKG_GPG_SIGN),y)
+ifeq ($(LINGMO_PACKAGE_OPKG_GPG_SIGN),y)
 OPKG_CONF_OPTS += --enable-gpg
 OPKG_CONF_ENV += \
 	ac_cv_path_GPGME_CONFIG=$(STAGING_DIR)/usr/bin/gpgme-config \
@@ -22,10 +22,10 @@ else
 OPKG_CONF_OPTS += --disable-gpg
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCURL),y)
+ifeq ($(LINGMO_PACKAGE_LIBCURL),y)
 OPKG_DEPENDENCIES += libcurl
 OPKG_CONF_OPTS += --enable-curl
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 OPKG_CONF_OPTS += --enable-ssl-curl
 else
 OPKG_CONF_OPTS += --disable-ssl-curl
@@ -34,28 +34,28 @@ else
 OPKG_CONF_OPTS += --disable-curl --disable-ssl-curl
 endif
 
-ifeq ($(BR2_PACKAGE_BZIP2),y)
+ifeq ($(LINGMO_PACKAGE_BZIP2),y)
 OPKG_DEPENDENCIES += bzip2
 OPKG_CONF_OPTS += --enable-bzip2
 else
 OPKG_CONF_OPTS += --disable-bzip2
 endif
 
-ifeq ($(BR2_PACKAGE_LZ4),y)
+ifeq ($(LINGMO_PACKAGE_LZ4),y)
 OPKG_DEPENDENCIES += lz4
 OPKG_CONF_OPTS += --enable-lz4
 else
 OPKG_CONF_OPTS += --disable-lz4
 endif
 
-ifeq ($(BR2_PACKAGE_XZ),y)
+ifeq ($(LINGMO_PACKAGE_XZ),y)
 OPKG_DEPENDENCIES += xz
 OPKG_CONF_OPTS += --enable-xz
 else
 OPKG_CONF_OPTS += --disable-xz
 endif
 
-ifeq ($(BR2_PACKAGE_ZSTD),y)
+ifeq ($(LINGMO_PACKAGE_ZSTD),y)
 OPKG_DEPENDENCIES += zstd
 OPKG_CONF_OPTS += --enable-zstd
 else

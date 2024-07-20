@@ -1,7 +1,7 @@
-config BR2_PACKAGE_DATATABLES_BUTTONS
+config LINGMO_PACKAGE_DATATABLES_BUTTONS
 	bool "datatables-buttons"
-	depends on BR2_PACKAGE_DATATABLES
-	select BR2_PACKAGE_JSZIP
+	depends on LINGMO_PACKAGE_DATATABLES
+	select LINGMO_PACKAGE_JSZIP
 	help
 	  The Buttons library for DataTables provides a framework with
 	  common options and API that can be used with DataTables, but

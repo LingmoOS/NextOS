@@ -7,13 +7,13 @@ import infra.basetest
 class TestPostScripts(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_INIT_NONE=y
-        BR2_SYSTEM_BIN_SH_NONE=y
-        # BR2_PACKAGE_BUSYBOX is not set
-        BR2_ROOTFS_POST_BUILD_SCRIPT="{}"
-        BR2_ROOTFS_POST_FAKEROOT_SCRIPT="{}"
-        BR2_ROOTFS_POST_IMAGE_SCRIPT="{}"
-        BR2_ROOTFS_POST_SCRIPT_ARGS="foobar baz"
+        LINGMO_INIT_NONE=y
+        LINGMO_SYSTEM_BIN_SH_NONE=y
+        # LINGMO_PACKAGE_BUSYBOX is not set
+        LINGMO_ROOTFS_POST_BUILD_SCRIPT="{}"
+        LINGMO_ROOTFS_POST_FAKEROOT_SCRIPT="{}"
+        LINGMO_ROOTFS_POST_IMAGE_SCRIPT="{}"
+        LINGMO_ROOTFS_POST_SCRIPT_ARGS="foobar baz"
         """.format(infra.filepath("tests/core/post-build.sh"),
                    infra.filepath("tests/core/post-fakeroot.sh"),
                    infra.filepath("tests/core/post-image.sh"))
@@ -34,7 +34,7 @@ class TestPostScripts(infra.basetest.BRTest):
         staging = os.readlink(os.path.join(self.builddir, "staging"))
         self.assertEqual(lines["STAGING_DIR"], staging)
         self.assertEqual(lines["BINARIES_DIR"], os.path.join(self.builddir, "images"))
-        self.assertEqual(lines["BR2_CONFIG"], os.path.join(self.builddir, ".config"))
+        self.assertEqual(lines["LINGMO_CONFIG"], os.path.join(self.builddir, ".config"))
 
     def test_run(self):
         self.check_post_log_file("post-build.log",

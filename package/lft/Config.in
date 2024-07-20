@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LFT
+config LINGMO_PACKAGE_LFT
 	bool "lft"
-	select BR2_PACKAGE_LIBPCAP
+	select LINGMO_PACKAGE_LIBPCAP
 	help
 	  LFT, short for Layer Four Traceroute, is a sort of
 	  'traceroute' that often works much faster (than the

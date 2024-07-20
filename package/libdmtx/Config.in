@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBDMTX
+config LINGMO_PACKAGE_LIBDMTX
 	bool "libdmtx"
 	help
 	  libdmtx is a software library that enables programs to read

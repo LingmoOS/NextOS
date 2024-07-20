@@ -17,14 +17,14 @@ LIBEDIT_AUTORECONF = YES
 
 # musl is ISO 10646 compliant but doesn't define __STDC_ISO_10646__,
 # so let's define it manually
-ifeq ($(BR2_TOOLCHAIN_USES_MUSL),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_MUSL),y)
 LIBEDIT_CONF_OPTS += CFLAGS="$(TARGET_CFLAGS) -D__STDC_ISO_10646__=201103L"
 endif
 
 # Note: libbsd required for *vis functions, but works only with a toolchain
 # with __progname; otherwise, some features are disabled, as if libbsd was
 # missing entirely.
-ifeq ($(BR2_PACKAGE_LIBBSD),y)
+ifeq ($(LINGMO_PACKAGE_LIBBSD),y)
 LIBEDIT_DEPENDENCIES += libbsd
 endif
 

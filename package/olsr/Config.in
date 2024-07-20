@@ -1,10 +1,10 @@
-config BR2_PACKAGE_OLSR
+config LINGMO_PACKAGE_OLSR
 	bool "olsr"
-	depends on BR2_USE_MMU # fork()
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on !BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU # fork()
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_STATIC_LIBS
 	# https://github.com/OLSR/olsrd/issues/6
-	depends on !BR2_TOOLCHAIN_USES_MUSL || BR2_TOOLCHAIN_HEADERS_AT_LEAST_4_15
+	depends on !LINGMO_TOOLCHAIN_USES_MUSL || LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_4_15
 	help
 	  The Optimized Link State Routing protocol (OLSR) is a
 	  routing protocol that is optimised for mobile ad-hoc
@@ -16,9 +16,9 @@ config BR2_PACKAGE_OLSR
 	  http://www.olsr.org/
 
 comment "olsr needs a toolchain w/ threads, dynamic library"
-	depends on BR2_USE_MMU
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS
 
 comment "olsr needs a musl toolchain w/ headers >= 4.15"
-	depends on BR2_TOOLCHAIN_USES_MUSL
-	depends on !BR2_TOOLCHAIN_HEADERS_AT_LEAST_4_15
+	depends on LINGMO_TOOLCHAIN_USES_MUSL
+	depends on !LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_4_15

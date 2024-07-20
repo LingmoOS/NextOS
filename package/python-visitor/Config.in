@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_VISITOR
+config LINGMO_PACKAGE_PYTHON_VISITOR
 	bool "python-visitor"
 	help
 	  A tiny pythonic visitor implementation.

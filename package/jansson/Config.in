@@ -1,4 +1,4 @@
-config BR2_PACKAGE_JANSSON
+config LINGMO_PACKAGE_JANSSON
 	bool "jansson"
 	help
 	  Jansson is a C library for encoding, decoding and manipulating

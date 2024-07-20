@@ -35,12 +35,12 @@ HOST_ICU_MAKE_ENV += TARGET=""
 # When available, icu prefers to use C++11 atomics, which rely on the
 # __atomic builtins. On certain architectures, this requires linking
 # with libatomic starting from gcc 4.8.
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 ICU_CONF_ENV += LIBS="-latomic"
 endif
 
 # strtod_l() is not supported by musl; also xlocale.h is missing
-ifeq ($(BR2_TOOLCHAIN_USES_MUSL),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_MUSL),y)
 ICU_CONF_ENV += ac_cv_func_strtod_l=no
 endif
 
@@ -64,7 +64,7 @@ ifeq ($(LD_LIBRARY_PATH),)
 ICU_MAKE_ENV += LD_LIBRARY_PATH=/dev/null
 endif
 
-ICU_CUSTOM_DATA_PATH = $(call qstrip,$(BR2_PACKAGE_ICU_CUSTOM_DATA_PATH))
+ICU_CUSTOM_DATA_PATH = $(call qstrip,$(LINGMO_PACKAGE_ICU_CUSTOM_DATA_PATH))
 
 ifneq ($(ICU_CUSTOM_DATA_PATH),)
 define ICU_COPY_CUSTOM_DATA

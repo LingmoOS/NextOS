@@ -46,28 +46,28 @@ GHOSTSCRIPT_CONF_OPTS = \
 	--without-libpaper \
 	--with-system-libtiff
 
-ifeq ($(BR2_PACKAGE_JBIG2DEC),y)
+ifeq ($(LINGMO_PACKAGE_JBIG2DEC),y)
 GHOSTSCRIPT_DEPENDENCIES += jbig2dec
 GHOSTSCRIPT_CONF_OPTS += --with-jbig2dec
 else
 GHOSTSCRIPT_CONF_OPTS += --without-jbig2dec
 endif
 
-ifeq ($(BR2_PACKAGE_LIBIDN),y)
+ifeq ($(LINGMO_PACKAGE_LIBIDN),y)
 GHOSTSCRIPT_DEPENDENCIES += libidn
 GHOSTSCRIPT_CONF_OPTS += --with-libidn
 else
 GHOSTSCRIPT_CONF_OPTS += --without-libidn
 endif
 
-ifeq ($(BR2_PACKAGE_OPENJPEG),y)
+ifeq ($(LINGMO_PACKAGE_OPENJPEG),y)
 GHOSTSCRIPT_DEPENDENCIES += openjpeg
 GHOSTSCRIPT_CONF_OPTS += --enable-openjpeg
 else
 GHOSTSCRIPT_CONF_OPTS += --disable-openjpeg
 endif
 
-ifeq ($(BR2_PACKAGE_OPENJPEG)$(BR2_PACKAGE_JBIG2DEC),yy)
+ifeq ($(LINGMO_PACKAGE_OPENJPEG)$(LINGMO_PACKAGE_JBIG2DEC),yy)
 # Dependencies already handle on per-package basis above,
 # but duplicated here for consistency.
 GHOSTSCRIPT_DEPENDENCIES += openjpeg jbig2dec
@@ -76,7 +76,7 @@ else
 GHOSTSCRIPT_CONF_OPTS += --without-pdf
 endif
 
-ifeq ($(BR2_PACKAGE_CUPS),y)
+ifeq ($(LINGMO_PACKAGE_CUPS),y)
 GHOSTSCRIPT_DEPENDENCIES += cups
 GHOSTSCRIPT_CONF_OPTS += \
 	CUPSCONFIG=$(STAGING_DIR)/usr/bin/cups-config \
@@ -85,14 +85,14 @@ else
 GHOSTSCRIPT_CONF_OPTS += --disable-cups
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBX11),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBX11),y)
 GHOSTSCRIPT_DEPENDENCIES += xlib_libX11
 GHOSTSCRIPT_CONF_OPTS += --with-x
 else
 GHOSTSCRIPT_CONF_OPTS += --without-x
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS),)
 GHOSTSCRIPT_CONF_OPTS += --without-tesseract
 endif
 

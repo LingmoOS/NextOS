@@ -1,9 +1,9 @@
-config BR2_PACKAGE_LIBPHIDGET
+config LINGMO_PACKAGE_LIBPHIDGET
 	bool "libphidget"
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libusb
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_9 # libusb
-	depends on !BR2_STATIC_LIBS
-	select BR2_PACKAGE_LIBUSB
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libusb
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9 # libusb
+	depends on !LINGMO_STATIC_LIBS
+	select LINGMO_PACKAGE_LIBUSB
 	help
 	  The libphidget library provides an API for controlling
 	  Phidgets USB devices. The library translates API function
@@ -25,5 +25,5 @@ config BR2_PACKAGE_LIBPHIDGET
 	  http://phidgets.com/
 
 comment "libphidget needs a toolchain w/ threads, dynamic library, gcc >= 4.9"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS || \
-		!BR2_TOOLCHAIN_GCC_AT_LEAST_4_9
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS || \
+		!LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9

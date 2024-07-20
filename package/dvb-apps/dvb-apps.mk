@@ -10,16 +10,16 @@ DVB_APPS_SITE_METHOD = hg
 DVB_APPS_LICENSE = GPL-2.0, GPL-2.0+, LGPL-2.1+
 DVB_APPS_LICENSE_FILES = COPYING COPYING.LGPL
 
-ifeq ($(BR2_ENABLE_LOCALE),)
+ifeq ($(LINGMO_ENABLE_LOCALE),)
 DVB_APPS_DEPENDENCIES += libiconv
 DVB_APPS_LDLIBS += -liconv
 endif
 
 DVB_APPS_MAKE_OPTS = PERL5LIB=$(@D)/util/scan
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 DVB_APPS_MAKE_OPTS += enable_shared=no
-else ifeq ($(BR2_SHARED_LIBS),y)
+else ifeq ($(LINGMO_SHARED_LIBS),y)
 DVB_APPS_MAKE_OPTS += enable_static=no
 endif
 

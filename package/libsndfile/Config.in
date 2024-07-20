@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBSNDFILE
+config LINGMO_PACKAGE_LIBSNDFILE
 	bool "libsndfile"
 	help
 	  Libsndfile is a C library for reading and writing files

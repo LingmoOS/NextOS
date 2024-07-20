@@ -1,4 +1,4 @@
-config BR2_PACKAGE_CPULOAD
+config LINGMO_PACKAGE_CPULOAD
 	bool "cpuload"
 	help
 	  cpuload is a simple tool to obtain intuitive vision of CPU

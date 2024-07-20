@@ -4,7 +4,7 @@ Date: Tue, 9 Jan 2018 14:37:43 +0300
 
     merge_config.sh: add br2-external support
 
-    Pass BR2_EXTERNAL value via -e option.
+    Pass LINGMO_EXTERNAL value via -e option.
     This will prevent merge_config.sh from silently eating any symbols defined in
     external trees on a clean buildroot tree invocation.
 
@@ -29,7 +29,7 @@ Index: kconfig/merge_config.sh
  		continue
  		;;
 +	"-e")
-+		EXTERNAL_ARG="BR2_EXTERNAL=$2"
++		EXTERNAL_ARG="LINGMO_EXTERNAL=$2"
 +		shift 2
 +		continue
 +		;;

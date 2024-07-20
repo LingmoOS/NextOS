@@ -13,12 +13,12 @@ RAUC_CPE_ID_VENDOR = pengutronix
 RAUC_DEPENDENCIES = host-pkgconf openssl libglib2
 RAUC_CONF_OPTS += -Dtests=false
 
-ifeq ($(BR2_PACKAGE_RAUC_DBUS),y)
+ifeq ($(LINGMO_PACKAGE_RAUC_DBUS),y)
 RAUC_CONF_OPTS += -Dservice=true
 RAUC_DEPENDENCIES += dbus
 
 # systemd service uses dbus interface
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 # configure uses pkg-config --variable=systemdsystemunitdir systemd
 RAUC_DEPENDENCIES += systemd
 define RAUC_INSTALL_INIT_SYSTEMD
@@ -32,28 +32,28 @@ else
 RAUC_CONF_OPTS += -Dservice=false
 endif
 
-ifeq ($(BR2_PACKAGE_RAUC_GPT),y)
+ifeq ($(LINGMO_PACKAGE_RAUC_GPT),y)
 RAUC_CONF_OPTS += -Dgpt=enabled
 RAUC_DEPENDENCIES += util-linux-libs
 else
 RAUC_CONF_OPTS += -Dgpt=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_RAUC_NETWORK),y)
+ifeq ($(LINGMO_PACKAGE_RAUC_NETWORK),y)
 RAUC_CONF_OPTS += -Dnetwork=true
 RAUC_DEPENDENCIES += libcurl
 else
 RAUC_CONF_OPTS += -Dnetwork=false
 endif
 
-ifeq ($(BR2_PACKAGE_RAUC_JSON),y)
+ifeq ($(LINGMO_PACKAGE_RAUC_JSON),y)
 RAUC_CONF_OPTS += -Djson=enabled
 RAUC_DEPENDENCIES += json-glib
 else
 RAUC_CONF_OPTS += -Djson=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_RAUC_STREAMING),y)
+ifeq ($(LINGMO_PACKAGE_RAUC_STREAMING),y)
 RAUC_CONF_OPTS += -Dstreaming=true
 RAUC_DEPENDENCIES += libnl
 else
@@ -65,7 +65,7 @@ HOST_RAUC_DEPENDENCIES = \
 	host-openssl \
 	host-libglib2 \
 	host-squashfs \
-	$(if $(BR2_PACKAGE_HOST_LIBP11),host-libp11)
+	$(if $(LINGMO_PACKAGE_HOST_LIBP11),host-libp11)
 
 HOST_RAUC_CONF_OPTS += \
 	-Dnetwork=false \

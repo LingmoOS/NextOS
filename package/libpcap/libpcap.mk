@@ -13,7 +13,7 @@ LIBPCAP_INSTALL_STAGING = YES
 LIBPCAP_DEPENDENCIES = host-flex host-bison host-pkgconf
 HOST_LIBPCAP_DEPENDENCIES = host-flex host-bison host-pkgconf
 
-# ac_cv_prog_cc_c99 is required for BR2_USE_WCHAR=n because the C99 test
+# ac_cv_prog_cc_c99 is required for LINGMO_USE_WCHAR=n because the C99 test
 # provided by autoconf relies on wchar_t.
 LIBPCAP_CONF_ENV = \
 	ac_cv_header_linux_wireless_h=yes \
@@ -39,13 +39,13 @@ define LIBPCAP_CONFIG_REMOVE_RPATH
 endef
 LIBPCAP_POST_BUILD_HOOKS = LIBPCAP_CONFIG_REMOVE_RPATH
 
-ifeq ($(BR2_PACKAGE_BLUEZ5_UTILS_HEADERS),y)
+ifeq ($(LINGMO_PACKAGE_BLUEZ5_UTILS_HEADERS),y)
 LIBPCAP_DEPENDENCIES += bluez5_utils-headers
 else
 LIBPCAP_CONF_OPTS += --disable-bluetooth
 endif
 
-ifeq ($(BR2_PACKAGE_LIBNL),y)
+ifeq ($(LINGMO_PACKAGE_LIBNL),y)
 LIBPCAP_DEPENDENCIES += libnl
 LIBPCAP_CONF_OPTS += --with-libnl
 else
@@ -53,7 +53,7 @@ LIBPCAP_CONF_OPTS += --without-libnl
 endif
 
 # microblaze/sparc/sparc64 need -fPIC instead of -fpic
-ifeq ($(BR2_microblaze)$(BR2_sparc)$(BR2_sparc64),y)
+ifeq ($(LINGMO_microblaze)$(LINGMO_sparc)$(LINGMO_sparc64),y)
 LIBPCAP_CFLAGS += -fPIC
 endif
 

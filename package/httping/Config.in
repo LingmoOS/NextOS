@@ -1,9 +1,9 @@
 comment "httping needs a toolchain w/ wchar"
-	depends on !BR2_USE_WCHAR
+	depends on !LINGMO_USE_WCHAR
 
-config BR2_PACKAGE_HTTPING
+config LINGMO_PACKAGE_HTTPING
 	bool "httping"
-	depends on BR2_USE_WCHAR
+	depends on LINGMO_USE_WCHAR
 	help
 	  Httping is like 'ping' but for http-requests.
 	  Give it an url, and it'll show you how long it takes to
@@ -14,9 +14,9 @@ config BR2_PACKAGE_HTTPING
 
 	  http://www.vanheusden.com/httping/
 
-if BR2_PACKAGE_HTTPING
+if LINGMO_PACKAGE_HTTPING
 
-config BR2_PACKAGE_HTTPING_TFO
+config LINGMO_PACKAGE_HTTPING_TFO
 	bool "TCP Fast Open (TFO) support"
 
 endif

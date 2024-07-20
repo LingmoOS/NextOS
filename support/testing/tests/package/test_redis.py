@@ -5,8 +5,8 @@ import infra.basetest
 
 class TestRedis(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + """
-    BR2_TARGET_ROOTFS_CPIO=y
-    BR2_PACKAGE_REDIS=y
+    LINGMO_TARGET_ROOTFS_CPIO=y
+    LINGMO_PACKAGE_REDIS=y
     """
 
     def test_run(self):

@@ -18,16 +18,16 @@ LIBGCRYPT_CPE_ID_VENDOR = gnupg
 LIBGCRYPT_AUTORECONF = YES
 LIBGCRYPT_CONF_OPTS = \
 	--disable-tests \
-	$(if $(BR2_OPTIMIZE_0),--disable-ppc-crypto-support,) \
+	$(if $(LINGMO_OPTIMIZE_0),--disable-ppc-crypto-support,) \
 	--with-gpg-error-prefix=$(STAGING_DIR)/usr
 
 # disable asm for broken archs
-ifeq ($(BR2_i386)$(BR2_m68k_cf),y)
+ifeq ($(LINGMO_i386)$(LINGMO_m68k_cf),y)
 LIBGCRYPT_CONF_OPTS += --disable-asm
 endif
 
 # Code doesn't build in thumb mode
-ifeq ($(BR2_ARM_INSTRUCTIONS_THUMB),y)
+ifeq ($(LINGMO_ARM_INSTRUCTIONS_THUMB),y)
 LIBGCRYPT_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) -marm"
 endif
 

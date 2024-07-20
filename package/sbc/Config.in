@@ -1,4 +1,4 @@
-config BR2_PACKAGE_SBC
+config LINGMO_PACKAGE_SBC
 	bool "sbc"
 	help
 	  An audio codec to connect bluetooth high quality audio
@@ -6,11 +6,11 @@ config BR2_PACKAGE_SBC
 
 	  http://www.bluez.org/
 
-if BR2_PACKAGE_SBC
+if LINGMO_PACKAGE_SBC
 
-config BR2_PACKAGE_SBC_TOOLS
+config LINGMO_PACKAGE_SBC_TOOLS
 	bool "tools"
-	select BR2_PACKAGE_LIBSNDFILE
+	select LINGMO_PACKAGE_LIBSNDFILE
 	help
 	  Build the command-line SBC tools as well as the library.
 

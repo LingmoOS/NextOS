@@ -16,8 +16,8 @@ SUDO_SELINUX_MODULES = sudo
 # This is to avoid sudo's make install from chown()ing files which fails
 SUDO_INSTALL_TARGET_OPTS = INSTALL_OWNER="" DESTDIR="$(TARGET_DIR)" install
 SUDO_CONF_OPTS = \
-	--with-tzdir=$(if $(BR2_PACKAGE_TZDATA),/usr/share/zoneinfo,no) \
-	--enable-tmpfiles.d=$(if $(BR2_PACKAGE_SYSTEMD),/usr/lib/tmpfiles.d,no) \
+	--with-tzdir=$(if $(LINGMO_PACKAGE_TZDATA),/usr/share/zoneinfo,no) \
+	--enable-tmpfiles.d=$(if $(LINGMO_PACKAGE_SYSTEMD),/usr/lib/tmpfiles.d,no) \
 	--without-lecture \
 	--without-sendmail \
 	--without-umask \
@@ -25,7 +25,7 @@ SUDO_CONF_OPTS = \
 	--without-interfaces \
 	--with-env-editor
 
-ifeq ($(BR2_PACKAGE_LINUX_PAM),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_PAM),y)
 define SUDO_INSTALL_PAM_CONF
 	$(INSTALL) -D -m 0644 package/sudo/sudo.pam $(TARGET_DIR)/etc/pam.d/sudo
 endef
@@ -37,21 +37,21 @@ else
 SUDO_CONF_OPTS += --without-pam
 endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 SUDO_CONF_OPTS += --enable-zlib
 SUDO_DEPENDENCIES += zlib
 else
 SUDO_CONF_OPTS += --disable-zlib
 endif
 
-ifeq ($(BR2_PACKAGE_OPENLDAP),y)
+ifeq ($(LINGMO_PACKAGE_OPENLDAP),y)
 SUDO_DEPENDENCIES += openldap
 SUDO_CONF_OPTS += --with-ldap
 else
 SUDO_CONF_OPTS += --without-ldap
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 SUDO_DEPENDENCIES += host-pkgconf openssl
 SUDO_CONF_OPTS += --enable-openssl
 else

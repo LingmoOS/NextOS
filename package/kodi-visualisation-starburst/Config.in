@@ -1,6 +1,6 @@
-config BR2_PACKAGE_KODI_VISUALISATION_STARBURST
+config LINGMO_PACKAGE_KODI_VISUALISATION_STARBURST
 	bool "kodi-visualisation-starburst"
-	select BR2_PACKAGE_GLM
+	select LINGMO_PACKAGE_GLM
 	help
 	  StarBurst visualization for Kodi
 

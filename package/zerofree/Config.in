@@ -1,8 +1,8 @@
-config BR2_PACKAGE_ZEROFREE
+config LINGMO_PACKAGE_ZEROFREE
 	bool "zerofree"
-	depends on BR2_USE_MMU # e2fsprogs
-	depends on !BR2_STATIC_LIBS
-	select BR2_PACKAGE_E2FSPROGS
+	depends on LINGMO_USE_MMU # e2fsprogs
+	depends on !LINGMO_STATIC_LIBS
+	select LINGMO_PACKAGE_E2FSPROGS
 	help
 	  zerofree is a utility which scans the free blocks in an ext2
 	  filesystem and fills any non-zero blocks with zeroes.
@@ -10,5 +10,5 @@ config BR2_PACKAGE_ZEROFREE
 	  https://frippery.org/uml/
 
 comment "zerofree needs a toolchain w/ dynamic library"
-	depends on BR2_USE_MMU
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_STATIC_LIBS

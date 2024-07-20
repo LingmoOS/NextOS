@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBFRIBIDI
+config LINGMO_PACKAGE_LIBFRIBIDI
 	bool "libfribidi"
 	help
 	  GNU FriBidi is an implementation of the Unicode

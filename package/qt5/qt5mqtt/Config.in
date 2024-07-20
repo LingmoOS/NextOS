@@ -1,4 +1,4 @@
-config BR2_PACKAGE_QT5MQTT
+config LINGMO_PACKAGE_QT5MQTT
 	bool "qt5mqtt"
 	help
 	  Qt is a cross-platform application and UI framework for

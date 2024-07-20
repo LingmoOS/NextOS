@@ -6,10 +6,10 @@ import infra.basetest
 class TestSELinuxInfra(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG +\
         """
-        BR2_PACKAGE_REFPOLICY=y
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_SETOOLS=y
-        BR2_TARGET_ROOTFS_CPIO=y
+        LINGMO_PACKAGE_REFPOLICY=y
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_SETOOLS=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
         """
 
     def base_test_run(self):
@@ -22,7 +22,7 @@ class TestSELinuxInfra(infra.basetest.BRTest):
 class TestSELinuxExtraModules(TestSELinuxInfra):
     config = TestSELinuxInfra.config + \
         """
-        BR2_REFPOLICY_EXTRA_MODULES="ntp tor"
+        LINGMO_REFPOLICY_EXTRA_MODULES="ntp tor"
         """
 
     def test_run(self):
@@ -40,7 +40,7 @@ class TestSELinuxExtraModules(TestSELinuxInfra):
 class TestSELinuxExtraModulesDirs(TestSELinuxInfra):
     config = TestSELinuxInfra.config + \
         """
-        BR2_REFPOLICY_EXTRA_MODULES_DIRS="{}"
+        LINGMO_REFPOLICY_EXTRA_MODULES_DIRS="{}"
         """.format(infra.filepath("tests/core/test_selinux/extra_modules"))
 
     def test_run(self):
@@ -54,9 +54,9 @@ class TestSELinuxExtraModulesDirs(TestSELinuxInfra):
 class TestSELinuxCustomGit(TestSELinuxInfra):
     config = TestSELinuxInfra.config + \
         """
-        BR2_PACKAGE_REFPOLICY_CUSTOM_GIT=y
-        BR2_PACKAGE_REFPOLICY_CUSTOM_REPO_URL="https://github.com/SELinuxProject/refpolicy.git"
-        BR2_PACKAGE_REFPOLICY_CUSTOM_REPO_VERSION="RELEASE_2_20200818"
+        LINGMO_PACKAGE_REFPOLICY_CUSTOM_GIT=y
+        LINGMO_PACKAGE_REFPOLICY_CUSTOM_REPO_URL="https://github.com/SELinuxProject/refpolicy.git"
+        LINGMO_PACKAGE_REFPOLICY_CUSTOM_REPO_VERSION="RELEASE_2_20200818"
         """
 
     def test_run(self):
@@ -67,7 +67,7 @@ class TestSELinuxPackage(TestSELinuxInfra):
     br2_external = [infra.filepath("tests/core/test_selinux/br2_external")]
     config = TestSELinuxInfra.config + \
         """
-        BR2_PACKAGE_SELINUX_TEST=y
+        LINGMO_PACKAGE_SELINUX_TEST=y
         """
 
     def test_run(self):

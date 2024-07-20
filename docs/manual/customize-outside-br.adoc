@@ -20,10 +20,10 @@ place project-specific customizations in two locations:
    tree.
 
 One can tell Buildroot to use one or more br2-external trees by setting
-the +BR2_EXTERNAL+ make variable set to the path(s) of the br2-external
+the +LINGMO_EXTERNAL+ make variable set to the path(s) of the br2-external
 tree(s) to use. It can be passed to any Buildroot +make+ invocation. It
 is automatically saved in the hidden +.br2-external.mk+ file in the output
-directory. Thanks to this, there is no need to pass +BR2_EXTERNAL+ at
+directory. Thanks to this, there is no need to pass +LINGMO_EXTERNAL+ at
 every +make+ invocation. It can however be changed at any time by
 passing a new value, and can be removed by passing an empty value.
 
@@ -41,7 +41,7 @@ xref:br2-external-converting[] for help on doing so.
 Some examples:
 
 -----
-buildroot/ $ make BR2_EXTERNAL=/path/to/foo menuconfig
+buildroot/ $ make LINGMO_EXTERNAL=/path/to/foo menuconfig
 -----
 
 From now on, definitions from the +/path/to/foo+ br2-external tree
@@ -55,19 +55,19 @@ buildroot/ $ make legal-info
 We can switch to another br2-external tree at any time:
 
 -----
-buildroot/ $ make BR2_EXTERNAL=/where/we/have/bar xconfig
+buildroot/ $ make LINGMO_EXTERNAL=/where/we/have/bar xconfig
 -----
 
 We can also use multiple br2-external trees:
 
 ----
-buildroot/ $ make BR2_EXTERNAL=/path/to/foo:/where/we/have/bar menuconfig
+buildroot/ $ make LINGMO_EXTERNAL=/path/to/foo:/where/we/have/bar menuconfig
 ----
 
 Or disable the usage of any br2-external tree:
 
 -----
-buildroot/ $ make BR2_EXTERNAL= xconfig
+buildroot/ $ make LINGMO_EXTERNAL= xconfig
 -----
 
 ==== Layout of a br2-external tree
@@ -99,7 +99,7 @@ recognised:
  * +name+, mandatory, defines the name for that br2-external tree. That
    name must only use ASCII characters in the set +[A-Za-z0-9_]+; any
    other character is forbidden. Buildroot sets the variable
-   +BR2_EXTERNAL_$(NAME)_PATH+ to the absolute path of the br2-external
+   +LINGMO_EXTERNAL_$(NAME)_PATH+ to the absolute path of the br2-external
    tree, so that you can use it to refer to your br2-external tree. This
    variable is available both in Kconfig, so you can use it to source your
    Kconfig files (see below) and in the Makefile, so that you can use it
@@ -121,19 +121,19 @@ Since it is possible to use multiple br2-external trees at once, this
    and is used when displaying information about a br2-external tree (e.g.
    above the list of defconfig files, or as the prompt in the menuconfig);
    as such, it should relatively brief (40 chars is probably a good upper
-   limit). The description is available in the +BR2_EXTERNAL_$(NAME)_DESC+
+   limit). The description is available in the +LINGMO_EXTERNAL_$(NAME)_DESC+
    variable.
 
-Examples of names and the corresponding +BR2_EXTERNAL_$(NAME)_PATH+
+Examples of names and the corresponding +LINGMO_EXTERNAL_$(NAME)_PATH+
 variables:
 
-  * +FOO+ -> +BR2_EXTERNAL_FOO_PATH+
-  * +BAR_42+ -> +BR2_EXTERNAL_BAR_42_PATH+
+  * +FOO+ -> +LINGMO_EXTERNAL_FOO_PATH+
+  * +BAR_42+ -> +LINGMO_EXTERNAL_BAR_42_PATH+
 
 In the following examples, it is assumed the name to be set to +BAR_42+.
 
 .Note:
-Both +BR2_EXTERNAL_$(NAME)_PATH+ and `BR2_EXTERNAL_$(NAME)_DESC` are
+Both +LINGMO_EXTERNAL_$(NAME)_PATH+ and `LINGMO_EXTERNAL_$(NAME)_DESC` are
   available in the Kconfig files and the Makefiles. They are also
   exported in the environment so are available in post-build, post-image
   and in-fakeroot scripts.
@@ -153,18 +153,18 @@ The main usage of this is to store package recipes. The recommended way
 to do this is to write a +Config.in+ file that looks like:
 
 ------
-source "$BR2_EXTERNAL_BAR_42_PATH/package/package1/Config.in"
-source "$BR2_EXTERNAL_BAR_42_PATH/package/package2/Config.in"
+source "$LINGMO_EXTERNAL_BAR_42_PATH/package/package1/Config.in"
+source "$LINGMO_EXTERNAL_BAR_42_PATH/package/package2/Config.in"
 ------
 
 Then, have an +external.mk+ file that looks like:
 
 ------
-include $(sort $(wildcard $(BR2_EXTERNAL_BAR_42_PATH)/package/*/*.mk))
+include $(sort $(wildcard $(LINGMO_EXTERNAL_BAR_42_PATH)/package/*/*.mk))
 ------
 
-And then in +$(BR2_EXTERNAL_BAR_42_PATH)/package/package1+ and
-+$(BR2_EXTERNAL_BAR_42_PATH)/package/package2+ create normal
+And then in +$(LINGMO_EXTERNAL_BAR_42_PATH)/package/package1+ and
++$(LINGMO_EXTERNAL_BAR_42_PATH)/package/package2+ create normal
 Buildroot package recipes, as explained in xref:adding-packages[].
 If you prefer, you can also group the packages in subdirectories
 called <boardname> and adapt the above paths accordingly.
@@ -211,15 +211,15 @@ a set of files that define those alternatives:
 One can store all the board-specific configuration files there, such
 as the kernel configuration, the root filesystem overlay, or any other
 configuration file for which Buildroot allows to set the location (by
-using the +BR2_EXTERNAL_$(NAME)_PATH+ variable). For example, you
+using the +LINGMO_EXTERNAL_$(NAME)_PATH+ variable). For example, you
 could set the paths to a global patch directory, to a rootfs overlay
 and to the kernel configuration file as follows (e.g. by running
 `make menuconfig` and filling in these options):
 
 ----
-BR2_GLOBAL_PATCH_DIR=$(BR2_EXTERNAL_BAR_42_PATH)/patches/
-BR2_ROOTFS_OVERLAY=$(BR2_EXTERNAL_BAR_42_PATH)/board/<boardname>/overlay/
-BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE=$(BR2_EXTERNAL_BAR_42_PATH)/board/<boardname>/kernel.config
+LINGMO_GLOBAL_PATCH_DIR=$(LINGMO_EXTERNAL_BAR_42_PATH)/patches/
+LINGMO_ROOTFS_OVERLAY=$(LINGMO_EXTERNAL_BAR_42_PATH)/board/<boardname>/overlay/
+LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE=$(LINGMO_EXTERNAL_BAR_42_PATH)/board/<boardname>/kernel.config
 ----
 
 ===== Additional Linux kernel extensions
@@ -243,10 +243,10 @@ illustration, of course):
   |     `----
   |
   |- Config.in
-  |     |source "$BR2_EXTERNAL_BAR_42_PATH/toolchain/toolchain-external-mine/Config.in.options"
-  |     |source "$BR2_EXTERNAL_BAR_42_PATH/package/pkg-1/Config.in"
-  |     |source "$BR2_EXTERNAL_BAR_42_PATH/package/pkg-2/Config.in"
-  |     |source "$BR2_EXTERNAL_BAR_42_PATH/package/my-jpeg/Config.in"
+  |     |source "$LINGMO_EXTERNAL_BAR_42_PATH/toolchain/toolchain-external-mine/Config.in.options"
+  |     |source "$LINGMO_EXTERNAL_BAR_42_PATH/package/pkg-1/Config.in"
+  |     |source "$LINGMO_EXTERNAL_BAR_42_PATH/package/pkg-2/Config.in"
+  |     |source "$LINGMO_EXTERNAL_BAR_42_PATH/package/my-jpeg/Config.in"
   |     |
   |     |config BAR_42_FLASH_ADDR
   |     |    hex "my-board flash address"
@@ -254,17 +254,17 @@ illustration, of course):
   |     `----
   |
   |- external.mk
-  |     |include $(sort $(wildcard $(BR2_EXTERNAL_BAR_42_PATH)/package/*/*.mk))
-  |     |include $(sort $(wildcard $(BR2_EXTERNAL_BAR_42_PATH)/toolchain/*/*.mk))
+  |     |include $(sort $(wildcard $(LINGMO_EXTERNAL_BAR_42_PATH)/package/*/*.mk))
+  |     |include $(sort $(wildcard $(LINGMO_EXTERNAL_BAR_42_PATH)/toolchain/*/*.mk))
   |     |
   |     |flash-my-board:
-  |     |    $(BR2_EXTERNAL_BAR_42_PATH)/board/my-board/flash-image \
+  |     |    $(LINGMO_EXTERNAL_BAR_42_PATH)/board/my-board/flash-image \
   |     |        --image $(BINARIES_DIR)/image.bin \
   |     |        --address $(BAR_42_FLASH_ADDR)
   |     `----
   |
   |- package/pkg-1/Config.in
-  |     |config BR2_PACKAGE_PKG_1
+  |     |config LINGMO_PACKAGE_PKG_1
   |     |    bool "pkg-1"
   |     |    help
   |     |      Some help about pkg-1
@@ -289,12 +289,12 @@ illustration, of course):
   |- package/pkg-2/pkg-2.mk
   |
   |- provides/jpeg.in
-  |     |config BR2_PACKAGE_MY_JPEG
+  |     |config LINGMO_PACKAGE_MY_JPEG
   |     |    bool "my-jpeg"
   |     `----
   |- package/my-jpeg/Config.in
-  |     |config BR2_PACKAGE_PROVIDES_JPEG
-  |     |    default "my-jpeg" if BR2_PACKAGE_MY_JPEG
+  |     |config LINGMO_PACKAGE_PROVIDES_JPEG
+  |     |    default "my-jpeg" if LINGMO_PACKAGE_MY_JPEG
   |     `----
   |- package/my-jpeg/my-jpeg.mk
   |     |# This is a normal package .mk file
@@ -305,24 +305,24 @@ illustration, of course):
   |     `----
   |
   |- provides/init.in
-  |     |config BR2_INIT_MINE
+  |     |config LINGMO_INIT_MINE
   |     |    bool "my custom init"
-  |     |    select BR2_PACKAGE_MY_INIT
-  |     |    select BR2_PACKAGE_SKELETON_INIT_MINE if BR2_ROOTFS_SKELETON_DEFAULT
+  |     |    select LINGMO_PACKAGE_MY_INIT
+  |     |    select LINGMO_PACKAGE_SKELETON_INIT_MINE if LINGMO_ROOTFS_SKELETON_DEFAULT
   |     `----
   |
   |- provides/skeleton.in
-  |     |config BR2_ROOTFS_SKELETON_MINE
+  |     |config LINGMO_ROOTFS_SKELETON_MINE
   |     |    bool "my custom skeleton"
-  |     |    select BR2_PACKAGE_SKELETON_MINE
+  |     |    select LINGMO_PACKAGE_SKELETON_MINE
   |     `----
   |- package/skeleton-mine/Config.in
-  |     |config BR2_PACKAGE_SKELETON_MINE
+  |     |config LINGMO_PACKAGE_SKELETON_MINE
   |     |    bool
-  |     |    select BR2_PACKAGE_HAS_SKELETON
+  |     |    select LINGMO_PACKAGE_HAS_SKELETON
   |     |
-  |     |config BR2_PACKAGE_PROVIDES_SKELETON
-  |     |    default "skeleton-mine" if BR2_PACKAGE_SKELETON_MINE
+  |     |config LINGMO_PACKAGE_PROVIDES_SKELETON
+  |     |    default "skeleton-mine" if LINGMO_PACKAGE_SKELETON_MINE
   |     `----
   |- package/skeleton-mine/skeleton-mine.mk
   |     |SKELETON_MINE_ADD_TOOLCHAIN_DEPENDENCY = NO
@@ -333,16 +333,16 @@ illustration, of course):
   |     `----
   |
   |- provides/toolchains.in
-  |     |config BR2_TOOLCHAIN_EXTERNAL_MINE
+  |     |config LINGMO_TOOLCHAIN_EXTERNAL_MINE
   |     |    bool "my custom toolchain"
-  |     |    depends on BR2_some_arch
-  |     |    select BR2_INSTALL_LIBSTDCPP
+  |     |    depends on LINGMO_some_arch
+  |     |    select LINGMO_INSTALL_LIBSTDCPP
   |     `----
   |- toolchain/toolchain-external-mine/Config.in.options
-  |     |if BR2_TOOLCHAIN_EXTERNAL_MINE
-  |     |config BR2_TOOLCHAIN_EXTERNAL_PREFIX
+  |     |if LINGMO_TOOLCHAIN_EXTERNAL_MINE
+  |     |config LINGMO_TOOLCHAIN_EXTERNAL_PREFIX
   |     |    default "arch-mine-linux-gnu"
-  |     |config BR2_PACKAGE_PROVIDES_TOOLCHAIN_EXTERNAL
+  |     |config LINGMO_PACKAGE_PROVIDES_TOOLCHAIN_EXTERNAL
   |     |    default "toolchain-external-mine"
   |     |endif
   |     `----
@@ -353,7 +353,7 @@ illustration, of course):
   |     `----
   |
   |- linux/Config.ext.in
-  |     |config BR2_LINUX_KERNEL_EXT_EXAMPLE_DRIVER
+  |     |config LINGMO_LINUX_KERNEL_EXT_EXAMPLE_DRIVER
   |     |    bool "example-external-driver"
   |     |    help
   |     |      Example external driver
@@ -361,10 +361,10 @@ illustration, of course):
   |- linux/linux-ext-example-driver.mk
   |
   |- configs/my-board_defconfig
-  |     |BR2_GLOBAL_PATCH_DIR="$(BR2_EXTERNAL_BAR_42_PATH)/patches/"
-  |     |BR2_ROOTFS_OVERLAY="$(BR2_EXTERNAL_BAR_42_PATH)/board/my-board/overlay/"
-  |     |BR2_ROOTFS_POST_IMAGE_SCRIPT="$(BR2_EXTERNAL_BAR_42_PATH)/board/my-board/post-image.sh"
-  |     |BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE="$(BR2_EXTERNAL_BAR_42_PATH)/board/my-board/kernel.config"
+  |     |LINGMO_GLOBAL_PATCH_DIR="$(LINGMO_EXTERNAL_BAR_42_PATH)/patches/"
+  |     |LINGMO_ROOTFS_OVERLAY="$(LINGMO_EXTERNAL_BAR_42_PATH)/board/my-board/overlay/"
+  |     |LINGMO_ROOTFS_POST_IMAGE_SCRIPT="$(LINGMO_EXTERNAL_BAR_42_PATH)/board/my-board/post-image.sh"
+  |     |LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE="$(LINGMO_EXTERNAL_BAR_42_PATH)/board/my-board/kernel.config"
   |     `----
   |
   |- patches/linux/0001-some-change.patch

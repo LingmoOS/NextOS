@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBPAM_NFC
+config LINGMO_PACKAGE_LIBPAM_NFC
 	bool "libpam-nfc"
-	select BR2_PACKAGE_LIBNFC
+	select LINGMO_PACKAGE_LIBNFC
 	help
 	  NFC-based PAM authentification module.
 

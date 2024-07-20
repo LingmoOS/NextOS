@@ -12,14 +12,14 @@ IBRDTN_LICENSE_FILES = COPYING
 IBRDTN_DEPENDENCIES = ibrcommon host-pkgconf
 IBRDTN_CONF_ENV = CXXFLAGS="$(TARGET_CXXFLAGS) -std=c++11"
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 IBRDTN_CONF_OPTS += --with-compression
 IBRDTN_DEPENDENCIES += zlib
 else
 IBRDTN_CONF_OPTS += --without-compression
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGLIB2),y)
+ifeq ($(LINGMO_PACKAGE_LIBGLIB2),y)
 IBRDTN_CONF_OPTS += --with-glib
 IBRDTN_DEPENDENCIES += libglib2
 else

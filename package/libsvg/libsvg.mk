@@ -12,7 +12,7 @@ LIBSVG_LICENSE = LGPL-2.0+
 LIBSVG_LICENSE_FILES = COPYING
 
 # libsvg needs at last a XML parser
-ifeq ($(BR2_PACKAGE_EXPAT),y)
+ifeq ($(LINGMO_PACKAGE_EXPAT),y)
 LIBSVG_CONF_OPTS += --with-expat
 LIBSVG_DEPENDENCIES += expat
 else

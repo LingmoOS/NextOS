@@ -67,7 +67,7 @@
 
 	Issues resolved (http://bugs.uclibc.org):
 
-        #15766: BR2_PACKAGE_WESTON_XWAYLAND -- 12.0.1 -- fails to build..
+        #15766: LINGMO_PACKAGE_WESTON_XWAYLAND -- 12.0.1 -- fails to build..
 	#15973: imx8m bootloader image generation broken since update..
         #16075: Cannot use linux kernel extensions from external tree..
 	#16093: kmod and gcc-14 build error
@@ -321,7 +321,7 @@
 
 	Issues resolved (http://bugs.uclibc.org):
 
-	#15856: Using BR2_CONFIG= on a different file-system...
+	#15856: Using LINGMO_CONFIG= on a different file-system...
 
 2023.11-rc1, released November 14th, 2023
 
@@ -349,7 +349,7 @@
           ninja instead of make (based on <pkg>_CMAKE_BACKEND).
 
 	- The RPATH fixup done at the end of the build is now done in
-          parallel (according to BR2_JLEVEL).
+          parallel (according to LINGMO_JLEVEL).
 
 	- Packages downloaded from Subversion repos no longer
           retrieves svn:externals unless <pkg>_SVN_EXTERNALS is set to
@@ -360,13 +360,13 @@
           tarballs of these custom downloads checked by the download
           infrastructure based on .hash files in the global patch
           directory. These hashes are optional unless
-          BR2_DOWNLOAD_FORCE_CHECK_HASHES is enabled.
+          LINGMO_DOWNLOAD_FORCE_CHECK_HASHES is enabled.
 
 	  A utils/add-custom-hashes helper script has been added to
           assist in managing such hash files.
 
 	- Various improvements to utils/docker-run to handle external
-          (BR2_DL_DIR defined in environment) download directory,
+          (LINGMO_DL_DIR defined in environment) download directory,
           proxy configuration, SELinux and out of tree (O=) builds.
 
 	New defconfigs: AMD Zynq ZC702, ASUS Tinker-s rk3288, ICnova
@@ -398,7 +398,7 @@
 
 	#14366: Nodejs fails with "version `GLIBC_2.34' not found"..
 	#14741: e2fsck is failing during cronjob build where fail...
-	#15628: Missing dependencies in BR2_PACKAGE_PYTHON_MAKO
+	#15628: Missing dependencies in LINGMO_PACKAGE_PYTHON_MAKO
 	#15733: xfsprogs outdated
 	#15772: lz4 failed to compile with gcc 10.4.0
 	#15778: strace comilation fails on Fedora39/gcc13
@@ -427,7 +427,7 @@
 
 	Issues resolved (http://bugs.uclibc.org):
 
-	#15856: Using BR2_CONFIG= on a different file-system...
+	#15856: Using LINGMO_CONFIG= on a different file-system...
 
 2023.08.3, released November 14th, 2023
 
@@ -442,7 +442,7 @@
 	tarballs of these custom downloads checked by the download
 	infrastructure based on .hash files in the global patch
 	directory. These hashes are optional unless
-	BR2_DOWNLOAD_FORCE_CHECK_HASHES is enabled.
+	LINGMO_DOWNLOAD_FORCE_CHECK_HASHES is enabled.
 
 	A utils/add-custom-hashes helper script has been added to
 	assist in managing such hash files.
@@ -513,7 +513,7 @@
 
 	Issues resolved (http://bugs.uclibc.org):
 
-	#15628: Missing dependencies in BR2_PACKAGE_PYTHON_MAKO
+	#15628: Missing dependencies in LINGMO_PACKAGE_PYTHON_MAKO
 	#15808: connman is not supported on musl
 	#15814: C++ not supported by bootlin toolchain
 
@@ -732,7 +732,7 @@
 
 	Fixes all over the tree.
 
-	Infrastructure: Add BR2_HOST_CMAKE_AT_LEAST_* for packages
+	Infrastructure: Add LINGMO_HOST_CMAKE_AT_LEAST_* for packages
 	needing a newer host-cmake than what is currently enforced
 	(3.18) - Up to the version provided by the cmake package (3.22).
 
@@ -876,7 +876,7 @@
 
 	Issues resolved (http://bugs.uclibc.org):
 
-	#15856: Using BR2_CONFIG= on a different file-system...
+	#15856: Using LINGMO_CONFIG= on a different file-system...
 
 2023.02.7, released November 14th, 2023
 
@@ -891,7 +891,7 @@
 	tarballs of these custom downloads checked by the download
 	infrastructure based on .hash files in the global patch
 	directory. These hashes are optional unless
-	BR2_DOWNLOAD_FORCE_CHECK_HASHES is enabled.
+	LINGMO_DOWNLOAD_FORCE_CHECK_HASHES is enabled.
 
 	A utils/add-custom-hashes helper script has been added to
 	assist in managing such hash files.
@@ -955,7 +955,7 @@
 
 	Issues resolved (http://bugs.uclibc.org):
 
-	#15628: Missing dependencies in BR2_PACKAGE_PYTHON_MAKO
+	#15628: Missing dependencies in LINGMO_PACKAGE_PYTHON_MAKO
 	#15808: connman is not supported on musl
 	#15814: C++ not supported by bootlin toolchain
 
@@ -1046,7 +1046,7 @@
 
 	Important / security related fixes.
 
-	Infrastructure: Add BR2_HOST_CMAKE_AT_LEAST_* for packages
+	Infrastructure: Add LINGMO_HOST_CMAKE_AT_LEAST_* for packages
 	needing a newer host-cmake than what is currently enforced
 	(3.18) - Up to the version provided by the cmake package (3.22).
 
@@ -1181,7 +1181,7 @@
 
 	- The handling of the CCACHE_* environment variables by the
           toolchain wrapper is now more strict, causing the variables
-          to only be exported when BR2_CCACHE is enabled.
+          to only be exported when LINGMO_CCACHE is enabled.
 
 	Infrastructure:
 
@@ -1201,7 +1201,7 @@
 
 	Misc:
 
-	- Erofs: Use fixed timestamp and UUID when BR2_REPRODUCIBLE is
+	- Erofs: Use fixed timestamp and UUID when LINGMO_REPRODUCIBLE is
 	  used.
 
 	- Ext2: Year 2038+ compatible inodes are now used by default,
@@ -1242,13 +1242,13 @@
 	Issues resolved (http://bugs.uclibc.org):
 
 	#14971: Kernel 3.10.108 fail to build in Buildroot 2022.08-rc1
-	#14996: Too many directories in BR2_EXTERNAL causes hang during make
+	#14996: Too many directories in LINGMO_EXTERNAL causes hang during make
 	#15161: kernel can't support SUBDIR
-	#15196: Setting BR2_PACKAGE_RPI_FIRMWARE_CONFIG_FILE does not work
+	#15196: Setting LINGMO_PACKAGE_RPI_FIRMWARE_CONFIG_FILE does not work
 	#15226: lsblk: not found
 	#15271: no start-qemu.sh
 	#15281: Error compiling GDAL library for RPi-64 if libgdal-dev install..
-	#15291: BR2_PACKAGE_GNU_EFI_ARCH_SUPPORTS without location
+	#15291: LINGMO_PACKAGE_GNU_EFI_ARCH_SUPPORTS without location
 	#15301: Selecting NAND Flash boot media (NAND_BOOT) breaks the uboot..
 	#15331: Warning on python-flit-core license when generating legal info
 
@@ -1309,7 +1309,7 @@
 
 	#15271: no start-qemu.sh
 	#15281: Error compiling GDAL library for RPi-64 if libgdal-dev install..
-	#15291: BR2_PACKAGE_GNU_EFI_ARCH_SUPPORTS without location
+	#15291: LINGMO_PACKAGE_GNU_EFI_ARCH_SUPPORTS without location
 	#15301: Selecting NAND Flash boot media (NAND_BOOT) breaks the uboot..
 	#15331: Warning on python-flit-core license when generating legal info
 
@@ -1320,7 +1320,7 @@
 	Br2-external: Fix make performance issue when many (> 6)
 	external trees are used together.
 
-	Erofs: Use fixed timestamp and UUID when BR2_REPRODUCIBLE is
+	Erofs: Use fixed timestamp and UUID when LINGMO_REPRODUCIBLE is
 	used.
 
 	Go: Ensure our go build and module cache is used, even for the
@@ -1358,9 +1358,9 @@
 	Issues resolved (http://bugs.uclibc.org):
 
 	#14971: Kernel 3.10.108 fail to build in Buildroot 2022.08-rc1
-	#14996: Too many directories in BR2_EXTERNAL causes hang during make
+	#14996: Too many directories in LINGMO_EXTERNAL causes hang during make
 	#15161: kernel can't support SUBDIR
-	#15196: Setting BR2_PACKAGE_RPI_FIRMWARE_CONFIG_FILE does not work
+	#15196: Setting LINGMO_PACKAGE_RPI_FIRMWARE_CONFIG_FILE does not work
 	#15226: lsblk: not found
 
 2022.11, released December 5th, 2022
@@ -1614,14 +1614,14 @@
 	  been removed.
 	- glibc bumped to 2.35-134-gb6aade18a7e5719c942aa2da6cf3157aca993fa4
 	- uclibc bumped to 1.0.42
-	- BR2_GCC_ENABLE_LTO option removed, the toolchain is now
-	  always built with LTO support. The new option BR2_ENABLE_LTO
+	- LINGMO_GCC_ENABLE_LTO option removed, the toolchain is now
+	  always built with LTO support. The new option LINGMO_ENABLE_LTO
 	  enables the use of LTO in a subset of packages that have
 	  explicit handling for LTO.
 	- GDB enabled on OpenRISC.
 	- Toolchain menu now appears before "Build options". The
 	  selection of the C library now determines whether static
-	  library (BR2_STATIC_LIBS) will be available or not, instead
+	  library (LINGMO_STATIC_LIBS) will be available or not, instead
 	  of the other way around.
 
 	Filesystem:
@@ -1808,7 +1808,7 @@
 
 	Fixes all over the tree.
 
-	Rework BR2_STATIC_LIBS handling to ensure it can only be
+	Rework LINGMO_STATIC_LIBS handling to ensure it can only be
 	enabled if a suitable C library is available.
 
 	Updated/fixed packages: arm-trusted-firmware, at91bootstap,
@@ -1892,7 +1892,7 @@
 	#14706: nodjs build problem
 	#14711: nodjs build problem missing bzip
 	#14721: python-argon2_cffi no longer works
-	#14731: BR2_PACKAGE_IOSTAT
+	#14731: LINGMO_PACKAGE_IOSTAT
 	#14751: LVM2 Outdated Link
 
 2022.02.12, released May 5th, 2023
@@ -1957,7 +1957,7 @@
 	Issues resolved (http://bugs.uclibc.org):
 
 	#15271: no start-qemu.sh
-	#15291: BR2_PACKAGE_GNU_EFI_ARCH_SUPPORTS without location
+	#15291: LINGMO_PACKAGE_GNU_EFI_ARCH_SUPPORTS without location
 	#15301: Selecting NAND Flash boot media (NAND_BOOT) breaks the uboot..
 
 2022.02.9, released January 18th, 2023
@@ -1967,7 +1967,7 @@
 	Br2-external: Fix make performance issue when many (> 6)
 	external trees are used together.
 
-	Erofs: Use fixed timestamp and UUID when BR2_REPRODUCIBLE is
+	Erofs: Use fixed timestamp and UUID when LINGMO_REPRODUCIBLE is
 	used.
 
 	Go: Ensure our go build and module cache is used, even for the
@@ -1999,9 +1999,9 @@
 	Issues resolved (http://bugs.uclibc.org):
 
 	#14971: Kernel 3.10.108 fail to build in Buildroot 2022.08-rc1
-	#14996: Too many directories in BR2_EXTERNAL causes hang during make
+	#14996: Too many directories in LINGMO_EXTERNAL causes hang during make
 	#15161: kernel can't support SUBDIR
-	#15196: Setting BR2_PACKAGE_RPI_FIRMWARE_CONFIG_FILE does not work
+	#15196: Setting LINGMO_PACKAGE_RPI_FIRMWARE_CONFIG_FILE does not work
 	#15226: lsblk: not found
 
 2022.02.8, released December 10th, 2022
@@ -2300,7 +2300,7 @@
 	#14686: genimage.cfg have a hard-coded .ext4 extension which..
 	#14701: Multiple unresolved symbols while building kernel ..
 	#14711: nodjs build problem missing bzip
-	#14731: BR2_PACKAGE_IOSTAT
+	#14731: LINGMO_PACKAGE_IOSTAT
 
 2022.02, released March 8th, 2022
 
@@ -2330,7 +2330,7 @@
 	Issues resolved (http://bugs.uclibc.org):
 
 	#13126: make fails - bzip2-1.0.6.tar.gz and DirectFB-1.7.7.tar..
-	#14611: 2022.02-rc2: Build of BR2_x86_64 with BR2_LINUX_KERNEL_..
+	#14611: 2022.02-rc2: Build of LINGMO_x86_64 with LINGMO_LINUX_KERNEL_..
 	#14631: host-go-bootstrap: go not being built for package in ..
 	#14636: azure-iot-sdk-c: Installed headers do not compile
 	#14641: oprofile can not find the events files
@@ -2557,7 +2557,7 @@
 
 	Issues resolved (http://bugs.uclibc.org):
 
-	#14346: BR2_PACKAGE_NFS_UTILS_RPC_NFSD does not patch CONFIG_NFSD..
+	#14346: LINGMO_PACKAGE_NFS_UTILS_RPC_NFSD does not patch CONFIG_NFSD..
 
 2021.11-rc2, released November 19th, 2021
 
@@ -2666,7 +2666,7 @@
 
 	Issues resolved (http://bugs.uclibc.org):
 
-	#14346: BR2_PACKAGE_NFS_UTILS_RPC_NFSD does not patch CONFIG_NFSD..
+	#14346: LINGMO_PACKAGE_NFS_UTILS_RPC_NFSD does not patch CONFIG_NFSD..
 
 2021.08.2, released November 10th, 2021
 
@@ -2793,7 +2793,7 @@
 
 	Issues resolved (http://bugs.uclibc.org):
 
-	#13586: grub failure with BR2_OPTIMIZE_3
+	#13586: grub failure with LINGMO_OPTIMIZE_3
 	#13671: openSSH server closes connection before authentication..
 
 2021.08-rc1, released August 3rd, 2021
@@ -2816,7 +2816,7 @@
 	Bootloaders/firmware: support for building the EDK II UEFI
 	firmware, support for building AT91Bootstrap 4.x.
 
-	New BR2_ENABLE_RUNTIME_DEBUG option, that controls whether
+	New LINGMO_ENABLE_RUNTIME_DEBUG option, that controls whether
 	packages should be compiled with runtime debugging
 	information (which is different than debugging symbols).
 
@@ -2850,7 +2850,7 @@
 	#13661: host-python2 build fails on aarch64
 	#13836: package build failure when target install set to no on
 	        pkg-generic pkg types
-	#13846: BR2_PACKAGE_LVM2_STANDARD_INSTALL should be default to
+	#13846: LINGMO_PACKAGE_LVM2_STANDARD_INSTALL should be default to
 	        y as before
 
 2021.05.3, released October 11, 2021
@@ -2956,10 +2956,10 @@
 
 	Issues resolved (http://bugs.uclibc.org):
 
-	#13586: grub failure with BR2_OPTIMIZE_3
+	#13586: grub failure with LINGMO_OPTIMIZE_3
 	#13661: host-python2 build fails on aarch64
 	#13836: package build failure when target install set to no..
-	#13846: BR2_PACKAGE_LVM2_STANDARD_INSTALL should be default to..
+	#13846: LINGMO_PACKAGE_LVM2_STANDARD_INSTALL should be default to..
 
 2021.05, released June 6th, 2021
 
@@ -3214,7 +3214,7 @@
 
 	Issues resolved (http://bugs.uclibc.org):
 
-	#14346: BR2_PACKAGE_NFS_UTILS_RPC_NFSD does not patch CONFIG_NFSD..
+	#14346: LINGMO_PACKAGE_NFS_UTILS_RPC_NFSD does not patch CONFIG_NFSD..
 
 2021.02.7, released November 10th, 2021
 
@@ -3335,10 +3335,10 @@
 
 	Issues resolved (http://bugs.uclibc.org):
 
-	#13586: grub failure with BR2_OPTIMIZE_3
+	#13586: grub failure with LINGMO_OPTIMIZE_3
 	#13661: host-python2 build fails on aarch64
 	#13836: package build failure when target install set to no..
-	#13846: BR2_PACKAGE_LVM2_STANDARD_INSTALL should be default to..
+	#13846: LINGMO_PACKAGE_LVM2_STANDARD_INSTALL should be default to..
 
 2021.02.3, released June 12th, 2021
 
@@ -3620,7 +3620,7 @@
 	#13416: dhcpcd start warning message: no such user dhcpcd
 	#13456: ccache prevents build
 	#13471: package/mpd/mpd.conf make use of path not created
-	#13506: BR2_PACKAGE_DHCPCD missing directory creation
+	#13506: LINGMO_PACKAGE_DHCPCD missing directory creation
 
 2020.11.4, released April 5th, 2021
 
@@ -3686,7 +3686,7 @@
 	Issues resolved (http://bugs.uclibc.org):
 
 	#11706: binman (U-boot tool) cannot find libfdt "binman: No mod..
-	#13506: BR2_PACKAGE_DHCPCD missing directory creation
+	#13506: LINGMO_PACKAGE_DHCPCD missing directory creation
 
 2020.11.2, released January 31st, 2021
 
@@ -3810,7 +3810,7 @@
 	Issues resolved (http://bugs.uclibc.org):
 
 	#13281: Raspberry Pi 2: overlays folder missing in genimage-ra..
-	#13291: BR2_DL_DIR is ignored when creating defconfig
+	#13291: LINGMO_DL_DIR is ignored when creating defconfig
 	#13306: wpewebkit build problem in 2020-11-rc1
 
 2020.11-rc1, released November 4th, 2020
@@ -3839,7 +3839,7 @@
 	Go: Modules handling. The module name must be specified using
 	<pkg>_GOMOD.
 
-	BR2_EXTERNAL: Support for defining skeleton and init system
+	LINGMO_EXTERNAL: Support for defining skeleton and init system
 	packages in external trees.
 
 	meson: Correct SDK cross-compilation.conf file when
@@ -3847,7 +3847,7 @@
 
 	systemd: Use /run rather than /var/run for PID files in units.
 
-	Fakeroot scripts (BR2_ROOTFS_POST_FAKEROOT_SCRIPT) are now run
+	Fakeroot scripts (LINGMO_ROOTFS_POST_FAKEROOT_SCRIPT) are now run
 	after all finalization hooks (including pre-rootfs) to ensure
 	they can override any late configuration done by packages.
 
@@ -3972,7 +3972,7 @@
 
 	Toolchain: use Secure-PLT rather than BSS-PLT for PowerPC 32.
 
-	Fakeroot scripts (BR2_ROOTFS_POST_FAKEROOT_SCRIPT) are now run
+	Fakeroot scripts (LINGMO_ROOTFS_POST_FAKEROOT_SCRIPT) are now run
 	after all finalization hooks (including pre-rootfs) to ensure
 	they can override any late configuration done by packages.
 
@@ -4109,7 +4109,7 @@
 	Infrastructure:
 
 	- qmake-package was fixed to be compatible with
-          BR2_PER_PACKAGE_DIRECTORIES
+          LINGMO_PER_PACKAGE_DIRECTORIES
 	- complete rewrite of the Gitlab CI Yaml configuration file,
           now generated directly by the Gitlab CI pipeline itselfs
 
@@ -4138,7 +4138,7 @@
 
 	Issues resolved (http://bugs.uclibc.org):
 
-	#12941: Python GObject fails to build when using  BR2_PER_PACKAGE_DIRECTORIES
+	#12941: Python GObject fails to build when using  LINGMO_PER_PACKAGE_DIRECTORIES
 	#12946: Grub: Decompressor is too big.
 	#12986: Mtools: Error converting to codepage 850
 	#13001: openjdk-bin replaces libfreetype.so from  host-freetype
@@ -4160,7 +4160,7 @@
 
 	Toolchain: use Secure-PLT rather than BSS-PLT for PowerPC 32.
 
-	Fakeroot scripts (BR2_ROOTFS_POST_FAKEROOT_SCRIPT) are now run
+	Fakeroot scripts (LINGMO_ROOTFS_POST_FAKEROOT_SCRIPT) are now run
 	after all finalization hooks (including pre-rootfs) to ensure
 	they can override any late configuration done by packages.
 
@@ -4287,7 +4287,7 @@
 
 	Issues resolved (http://bugs.uclibc.org):
 
-	#12941: Python GObject fails to build when using BR2_PER_PACKAGE_..
+	#12941: Python GObject fails to build when using LINGMO_PER_PACKAGE_..
 	#12946: Grub: Decompressor is too big.
 	#12986: Mtools: Error converting to codepage 850
 	#13001: openjdk-bin replaces libfreetype.so from host-freetype
@@ -4521,7 +4521,7 @@
 
 	Issues resolved (http://bugs.uclibc.org):
 
-	#13506: BR2_PACKAGE_DHCPCD missing directory creation
+	#13506: LINGMO_PACKAGE_DHCPCD missing directory creation
 
 2020.02.10, released January 31st, 2021
 
@@ -4754,7 +4754,7 @@
 
 	Issues resolved (http://bugs.uclibc.org):
 
-	#12941: Python GObject fails to build when using BR2_PER_PACKAGE_..
+	#12941: Python GObject fails to build when using LINGMO_PER_PACKAGE_..
 	#12946: Grub: Decompressor is too big.
 	#12986: Mtools: Error converting to codepage 850
 	#13001: openjdk-bin replaces libfreetype.so from host-freetype
@@ -5145,7 +5145,7 @@
 	other package variables.
 
 	Add <pkg>_KEEP_PY_FILES to exclude specific python .py files
-	from the removal done by BR2_PACKAGE_PYTHON{,3}_PYC_ONLY for
+	from the removal done by LINGMO_PACKAGE_PYTHON{,3}_PYC_ONLY for
 	the (rare) case where the .py files are needed at runtime
 	rather than .pyc.
 
@@ -5303,7 +5303,7 @@
 	#12191: cmake BUILDDIR
 	#12241: Permission denied while running "make"
 	#12261: sudo versions prior to 1.8.28 are affected.
-	#12276: make clean/distclean does not remove BR2_DL_DIR and BR2_HOST_DIR
+	#12276: make clean/distclean does not remove LINGMO_DL_DIR and LINGMO_HOST_DIR
 	#12281: Custom configuration fails to build (based on raspberrypi3_..
 
 2019.08.3, released December 7th, 2019
@@ -5315,7 +5315,7 @@
 	other package variables
 
 	Add <pkg>_KEEP_PY_FILES to exclude specific python .py files
-	from the removal done by BR2_PACKAGE_PYTHON{,3}_PYC_ONLY for
+	from the removal done by LINGMO_PACKAGE_PYTHON{,3}_PYC_ONLY for
 	the (rare) case where the .py files are needed at runtime
 	rather than .pyc.
 
@@ -5508,7 +5508,7 @@
 
 	Filesystems: Pass extra pax options to tar for binary
 	reproducibility. Build host-cpio for the --reproducible option
-	support when BR2_REPRODUCIBLE is enabled. Genimage updated to
+	support when LINGMO_REPRODUCIBLE is enabled. Genimage updated to
 	version 11, bringing GPT support.
 
 	Br2-external: Add support for injecting additional options to
@@ -5887,7 +5887,7 @@
 	other package variables
 
 	Add <pkg>_KEEP_PY_FILES to exclude specific python .py files
-	from the removal done by BR2_PACKAGE_PYTHON{,3}_PYC_ONLY for
+	from the removal done by LINGMO_PACKAGE_PYTHON{,3}_PYC_ONLY for
 	the (rare) case where the .py files are needed at runtime
 	rather than .pyc.
 
@@ -6259,7 +6259,7 @@
 	SDK: Fix handling of relative symlinks (targets starting with
 	'.' or '..')
 
-	BR2_SYSTEM_DEFAULT_PATH setting to customize the default path
+	LINGMO_SYSTEM_DEFAULT_PATH setting to customize the default path
 	for processes.
 
 	The custom skeleton logic will now populate the needed /bin,
@@ -6510,11 +6510,11 @@
 	download: Fix confusion in git submodule handling if dl/ is a
 	symlink.
 
-	genrandconfig: Fix missing newline in BR2_WGET handling,
+	genrandconfig: Fix missing newline in LINGMO_WGET handling,
 	causing the following line to be ignored. This would affect
-	BR2_ENABLE_DEBUG, BR2_INIT_BUSYBOX, BR2_INIT_SYSTEMD,
-	BR2_ROOTFS_DEVICE_CREATION_DYNAMIC_EUDEV, BR2_STATIC_LIBS or
-	BR2_PACKAGE_PYTHON_PY_ONLY depending on the randomization.
+	LINGMO_ENABLE_DEBUG, LINGMO_INIT_BUSYBOX, LINGMO_INIT_SYSTEMD,
+	LINGMO_ROOTFS_DEVICE_CREATION_DYNAMIC_EUDEV, LINGMO_STATIC_LIBS or
+	LINGMO_PACKAGE_PYTHON_PY_ONLY depending on the randomization.
 
 	show-build-order: Also include the dependencies of
 	rootfs-common.
@@ -6569,7 +6569,7 @@
 	a number of packages, including GCC.
 
 	utils/diffconfig: Make it work for (non-Buildroot) config
-	files not using the BR2_ prefix.
+	files not using the LINGMO_ prefix.
 
 	New defconfigs: Amarula a64-relic, Bananapi m2 ultra, Embest
 	riotboard, Hardkernel Odroid XU-4, QEMU riscv64-virt.
@@ -6621,11 +6621,11 @@
 	#11116: Buildroot should set PYTHON_EGG_CACHE instead of writing ..
 	#11156: In python3 module 'socket' has no attribute 'AF_BLUETOOTH'
 	#11166: Erlang bad argument on valid uint64 when crosscompiled on..
-	#11206: zlib: fails to build with Linaro toolchain, BR2_RELRO_FULL..
-	#11241: ACPID shouldn't depend on BR2_x86_64 || BR2_i386
+	#11206: zlib: fails to build with Linaro toolchain, LINGMO_RELRO_FULL..
+	#11241: ACPID shouldn't depend on LINGMO_x86_64 || LINGMO_i386
 	#11251: Util scanpypi failes when package change - to _ in tar file
 	#11266: qt5base-5.11.1 does not compile with musl, complains about..
-	#11286: python-rpi-gpio only should depend on BR2_arm || BR2_aarch64
+	#11286: python-rpi-gpio only should depend on LINGMO_arm || LINGMO_aarch64
 	#11321: Latest master fails to build readline with RELRO FULL
 	#11326: sysvinit fails to build in latest GIT master
 	#11331: Internal application no longer builds with latest GIT master
@@ -6673,11 +6673,11 @@
 	architectures with control flow integrity (CFI) support. Only
 	allow FORTIFY_SOURCE support on gcc >= 6.
 
-	genrandconfig: Fix missing newline in BR2_WGET handling,
+	genrandconfig: Fix missing newline in LINGMO_WGET handling,
 	causing the following line to be ignored. This would affect
-	BR2_ENABLE_DEBUG, BR2_INIT_BUSYBOX, BR2_INIT_SYSTEMD,
-	BR2_ROOTFS_DEVICE_CREATION_DYNAMIC_EUDEV, BR2_STATIC_LIBS or
-	BR2_PACKAGE_PYTHON_PY_ONLY depending on the randomization.
+	LINGMO_ENABLE_DEBUG, LINGMO_INIT_BUSYBOX, LINGMO_INIT_SYSTEMD,
+	LINGMO_ROOTFS_DEVICE_CREATION_DYNAMIC_EUDEV, LINGMO_STATIC_LIBS or
+	LINGMO_PACKAGE_PYTHON_PY_ONLY depending on the randomization.
 
 	show-build-order: Also include the dependencies of
 	rootfs-common.
@@ -6718,7 +6718,7 @@
 	send-email.
 
 	utils/diffconfig: Make it work for (non-Buildroot) config
-	files not using the BR2_ prefix.
+	files not using the LINGMO_ prefix.
 
 	u-boot: Fix for environment image handling on big endian
 	systems.
@@ -6810,7 +6810,7 @@
 
 	Issues resolved (http://bugs.uclibc.org):
 
-	#11091: BR2_PRIMARY_SITE doesn't work (wget is selected...
+	#11091: LINGMO_PRIMARY_SITE doesn't work (wget is selected...
 	#11141: WF111 package no longer available
 	#11211: Internal compiler error: Killed (program cc1plus)..
 	#11236: util-linux fails to build on Travis CI when python..
@@ -7060,7 +7060,7 @@
 	menus.
 
 	Packages: Renamed a number of package options not prefixed
-	with BR2_PACKAGE_<pkg> for consstency.
+	with LINGMO_PACKAGE_<pkg> for consstency.
 
 	Download infrastructure: Fix file:// protocol handling after
 	download rework.
@@ -7099,8 +7099,8 @@
 
 	Systemd can now be built with uClibc toolchains.
 
-	Linux: addition of BR2_LINUX_KERNEL_NEEDS_HOST_LIBELF and
-	BR2_LINUX_KERNEL_NEEDS_HOST_OPENSSL to support building Linux
+	Linux: addition of LINGMO_LINUX_KERNEL_NEEDS_HOST_LIBELF and
+	LINGMO_LINUX_KERNEL_NEEDS_HOST_OPENSSL to support building Linux
 	kernel configurations that need libelf on the host or openssl
 	on the host.
 
@@ -7186,14 +7186,14 @@
 	Issues resolved (http://bugs.uclibc.org):
 
 	#10151: toolchain eclipse register : fails with a custom
-		BR2_HOST_DIR
+		LINGMO_HOST_DIR
 	#10511: Packages get downloaded uncompressed with wget
 	#10531: QtWebengine doesn't build if the host hasn't a 32 bits
 		C++ compiler working
 	#10846: error in compiling gnutls
 	#10886: openssl-1.0.2n fails to build
 	#10896: /bin/sh not in /etc/shells
-	#10961: Grub2 fails to build for x86_64 when BR2_SSP_ALL is
+	#10961: Grub2 fails to build for x86_64 when LINGMO_SSP_ALL is
 		enabled
 
 2018.02.12, Released March 29th, 2019
@@ -7290,11 +7290,11 @@
 	architectures with control flow integrity (CFI) support. Only
 	allow FORTIFY_SOURCE support on gcc >= 6.
 
-	genrandconfig: Fix missing newline in BR2_WGET handling,
+	genrandconfig: Fix missing newline in LINGMO_WGET handling,
 	causing the following line to be ignored. This would affect
-	BR2_ENABLE_DEBUG, BR2_INIT_BUSYBOX, BR2_INIT_SYSTEMD,
-	BR2_ROOTFS_DEVICE_CREATION_DYNAMIC_EUDEV, BR2_STATIC_LIBS or
-	BR2_PACKAGE_PYTHON_PY_ONLY depending on the randomization.
+	LINGMO_ENABLE_DEBUG, LINGMO_INIT_BUSYBOX, LINGMO_INIT_SYSTEMD,
+	LINGMO_ROOTFS_DEVICE_CREATION_DYNAMIC_EUDEV, LINGMO_STATIC_LIBS or
+	LINGMO_PACKAGE_PYTHON_PY_ONLY depending on the randomization.
 
 	show-build-order: Also include the dependencies of
 	rootfs-common.
@@ -7333,7 +7333,7 @@
 	send-email.
 
 	utils/diffconfig: Make it work for (non-Buildroot) config
-	files not using the BR2_ prefix.
+	files not using the LINGMO_ prefix.
 
 	u-boot: Fix for environment image handling on big endian
 	systems.
@@ -7509,7 +7509,7 @@
 	Issues resolved (http://bugs.uclibc.org):
 
 	#10896: /bin/sh not in /etc/shells
-	#10961: Grub2 fails to build for x86_64 when BR2_SSP_ALL is enabled
+	#10961: Grub2 fails to build for x86_64 when LINGMO_SSP_ALL is enabled
 
 2018.02.1, Released April 9th, 2018
 
@@ -7742,7 +7742,7 @@
 	#10176: Rsyslog's S01logging is deleted by Busybox.mk from...
 	#10216: package/x11r7/mcookie/mcookie.c:207: bad size ?
 	#10301: systemd/getty unused options
-	#10331: kmsxx, host installation fails with BR2_SHARED_...
+	#10331: kmsxx, host installation fails with LINGMO_SHARED_...
 	#10556: Building ntp package with SSL library libressl...
 	#10641: avahi-autoipd not starting when using systemd-tmpfiles
 
@@ -7798,7 +7798,7 @@
 
 	Issues resolved (http://bugs.buildroot.org):
 
-	#10326: mesa3d package fails to build when BR2_SHARED_STATIC_LIBS=y
+	#10326: mesa3d package fails to build when LINGMO_SHARED_STATIC_LIBS=y
 	#10491: Cannot output security warning when compiled with buildroot..
 
 2017.11-rc1, Released November 6th, 2017
@@ -7821,7 +7821,7 @@
 	Toolchain: Linaro toolchains updated to 2017.08, ARC toolchain
 	updated to 2017.09, Glibc updated to 2.26, Glibc support for
 	ARCv2. The toolchain wrapper now handles SOURCE_DATE_EPOCH for
-	older (pre-gcc7.x) toolchains for BR2_REPRODUCIBLE.
+	older (pre-gcc7.x) toolchains for LINGMO_REPRODUCIBLE.
 
 	New defconfigs: Atmel SAM45D27, Bananapi M1 and M2 Plus,
 	Engicam i.CoreM6 Qt5 configuration, i.MX6 sabreauto (mainline
@@ -7887,7 +7887,7 @@
 
 	Issues resolved (http://bugs.buildroot.org):
 
-	10326: mesa3d package fails to build when BR2_SHARED_STATIC_LIBS=y
+	10326: mesa3d package fails to build when LINGMO_SHARED_STATIC_LIBS=y
 	10361: python3 python-config script generates invalid includes
 	10501: host-localedef fails to compile on Ubuntu 17.10
 
@@ -8016,19 +8016,19 @@
 	- Major revamp of the gettext handling, with user-visible
 	  effect:
 
-	  - prior to this revamp, when BR2_ENABLE_LOCALE=y, each
+	  - prior to this revamp, when LINGMO_ENABLE_LOCALE=y, each
 	    package could decide to enable or not NLS support. When
-	    BR2_ENABLE_LOCALE was disabled, NLS support was forced off
+	    LINGMO_ENABLE_LOCALE was disabled, NLS support was forced off
 	    by passing --disable-nls to packages.
 
-	  - after this revamp, a new BR2_SYSTEM_ENABLE_NLS option
+	  - after this revamp, a new LINGMO_SYSTEM_ENABLE_NLS option
 	    controls whether NLS support should be enabled or not in
 	    packages. This option defaults to disabled, which means
 	    that now, NLS support is by default disabled in all
 	    packages.
 
 	  Therefore, if you need NLS support in packages, you must now
-	  explicitly enable the BR2_SYSTEM_ENABLE_NLS option.
+	  explicitly enable the LINGMO_SYSTEM_ENABLE_NLS option.
 
 	- The host directory no longer has a usr/ component. This
 	  makes it much more natural to use that directory as an
@@ -8126,8 +8126,8 @@
 
 	#7892: systemd-journald is broken
 	#9341: avahi-utils does not compile with uClibc +  libglib2
-	#9441: Link BR2_TOOLCHAIN_EXTERNAL_GDB_SERVER_COPY to
-	       BR2_ENABLE_DEBUG
+	#9441: Link LINGMO_TOOLCHAIN_EXTERNAL_GDB_SERVER_COPY to
+	       LINGMO_ENABLE_DEBUG
 	#9746: ext4 image generated by Buildroot is not working
 	       properly with U-Boot
 	#9886: Build fails with "unexpected EOF while looking for
@@ -8250,7 +8250,7 @@
 
 	Issues resolved (http://bugs.buildroot.org):
 
-	#9871: fbgrab 1.3 won't build with BR2_REPRODUCIBLE set
+	#9871: fbgrab 1.3 won't build with LINGMO_REPRODUCIBLE set
 	#9876: aarch64 support with gcc 4.8 toolchain
 	#9896: host-gcc-initial error downloading because incorrect URL
 
@@ -8414,7 +8414,7 @@
 	#9766: support/scripts/pkgutil.py conflicts with the pkgutil.py..
 	#9776: libubox build failed
 	#9791: Python searches for packages in the user site directory
-	#9806: libseccomp is not available when BR2_arm=y
+	#9806: libseccomp is not available when LINGMO_arm=y
 	#9826: post-build scritp - symlinks created in post-build script..
 	#9836: triggerhappy: systemd unit broken
 	#9846: musl libc not installed correctly in target folder
@@ -8466,7 +8466,7 @@
 	#10176: Rsyslog's S01logging is deleted by Busybox.mk from...
 	#10216: package/x11r7/mcookie/mcookie.c:207: bad size ?
 	#10301: systemd/getty unused options
-	#10331: kmsxx, host installation fails with BR2_SHARED_...
+	#10331: kmsxx, host installation fails with LINGMO_SHARED_...
 	#10536: Finding non-relative paths in the ccache
 	#10641: avahi-autoipd not starting when using systemd-tmpfiles
 
@@ -8509,7 +8509,7 @@
 
 	Issues resolved (http://bugs.buildroot.org):
 
-	10326: mesa3d package fails to build when BR2_SHARED_STATIC_LIBS=y
+	10326: mesa3d package fails to build when LINGMO_SHARED_STATIC_LIBS=y
 	10361: python3 python-config script generates invalid includes
 	10501: host-localedef fails to compile on Ubuntu 17.10
 
@@ -8558,7 +8558,7 @@
 
 	#10141: Squashfs extended attribute failures
 	#10261: Grub2 fails to build for x86_64
-	#10276: BR2_PACKAGE_LINUX_TOOLS_GPIO fails for MIPS with...
+	#10276: LINGMO_PACKAGE_LINUX_TOOLS_GPIO fails for MIPS with...
 
 2017.02.5, Released July 27th, 2017
 
@@ -8633,7 +8633,7 @@
 	Issues resolved (http://bugs.buildroot.org):
 
 	#9796: source-check broken for Git downloads
-	#9871: fbgrab 1.3 won't build with BR2_REPRODUCIBLE set
+	#9871: fbgrab 1.3 won't build with LINGMO_REPRODUCIBLE set
 
 2017.02.2, Released May 1st, 2017
 
@@ -8844,7 +8844,7 @@
 	#9501: eudev fails to build with older kernel headers
 	#9526: Embedded NPM fails to start with "no such file or directory" error
 	#9541: Platform drivers autoloading from info in device tree does not work
-	#9546: seems BR2_PACKAGE_RPI_FIRMWARE_INSTALL_DTB_OVERLAYS do nothing
+	#9546: seems LINGMO_PACKAGE_RPI_FIRMWARE_INSTALL_DTB_OVERLAYS do nothing
 	#9551: Coreutils fails to build target src/src_libsinglebin_pinky_a-pinky.o
 	#9566: [kmod] Compilation fails with uclibc
 	#9571: buildroot fails while building opencv for arm64 platform
@@ -8863,7 +8863,7 @@
 
 	Important / security related fixes.
 
-	A fix for BR2_EXTERNAL trees referenced using relative paths,
+	A fix for LINGMO_EXTERNAL trees referenced using relative paths,
 	which broke in 2016.11.
 
 	Updated/fixed packages: bind, docker-engine, gd, gnutls, go,
@@ -8963,8 +8963,8 @@
 
 	Fixes all over the tree and new features.
 
-	It is now possible to specify multiple BR2_EXTERNAL
-	directories. The required files in a BR2_EXTERNAL directory
+	It is now possible to specify multiple LINGMO_EXTERNAL
+	directories. The required files in a LINGMO_EXTERNAL directory
 	have changed to accomodate this feature. Refer to the
 	documentation for details of how to update them. External
 	trees now have a name and a description. Also, it is possible
@@ -8990,7 +8990,7 @@
 	terminate with an error message that specifies which package
 	and which file caused the failure.
 
-	The concept of "deprecated packages" and the BR2_DEPRECATED
+	The concept of "deprecated packages" and the LINGMO_DEPRECATED
 	option have been removed. Instead, packages are removed
 	immediately. Packages are only removed when they don't work
 	for some reason. If you still need a removed package and
@@ -9145,7 +9145,7 @@
 	Issues resolved (http://bugs.buildroot.org):
 
 	#9101: Error on support/download/git with system git older than 1.8.4
-	#9181: Compiling linux kernel fails if BR2_LINUX_KERNEL_TOOL_CPU..
+	#9181: Compiling linux kernel fails if LINGMO_LINUX_KERNEL_TOOL_CPU..
 
 2016.08-rc2, Released August 17th, 2016
 
@@ -9194,7 +9194,7 @@
 	copied if possible to save space. Patches and extra downloads
 	are also saved.
 
-	An experimental configuration knob (BR2_REPRODUCIBLE) has been
+	An experimental configuration knob (LINGMO_REPRODUCIBLE) has been
 	added to make the builds more reproducible (E.G. less
 	differences in the binary output between builds of the same
 	configuration). This is still work in progress.
@@ -9306,11 +9306,11 @@
 	Fixes all over the tree.
 
 	Rootfs overlay handling now refuses to overwrite
-	/{usr,bin,sbin,lib} symlinks from BR2_ROOTFS_MERGED_USR option
+	/{usr,bin,sbin,lib} symlinks from LINGMO_ROOTFS_MERGED_USR option
 	even if these directories are present in the overlay.
 
 	External toolchain: Unbreak user provided libraries deployment
-	(BR2_TOOLCHAIN_EXTRA_EXTERNAL_LIBS) handling after refactoring.
+	(LINGMO_TOOLCHAIN_EXTRA_EXTERNAL_LIBS) handling after refactoring.
 
 	QEMU coldfire: Fix for signal handling kernel issue, enable
 	networking support.
@@ -9377,7 +9377,7 @@
 	Issues resolved (http://bugs.buildroot.org):
 
 	#6830: Qt5: no fonts are installed
-	#7562: musl buildroot-toolchain and BR2_MIPS_SOFT_FLOAT break
+	#7562: musl buildroot-toolchain and LINGMO_MIPS_SOFT_FLOAT break
 	#7580: Invalid filesystem in Pandaboard defconfig
 	#8346: wf111 package removes all kernel module dependencies
 	#8436: xserver_xorg-server Segmentation fault
@@ -9948,7 +9948,7 @@
 	#8391: Node.js 0.12.7 fails to build on raspberry_pi defconfig
 	#8396: CCACHE initialization
 	#8401: gpsd 3.15 NMEA support
-	#8416: cups depends on BR2_DEPRECATED_SINCE_2015_05
+	#8416: cups depends on LINGMO_DEPRECATED_SINCE_2015_05
 	#8421: util-linux installs systemd files in output/target/home/
 
 2015.08, Released August 31st, 2015
@@ -10047,12 +10047,12 @@
 	   permissions in the target filesystem. However, existing
 	   permissions on a custom skeleton or rootfs overlay will no
 	   longer be preserved. Therefore, it is necessary to add a
-	   permission table (BR2_ROOTFS_DEVICE_TABLE) to set the
+	   permission table (LINGMO_ROOTFS_DEVICE_TABLE) to set the
 	   required permissions.
 	 - Add support for kconfig fragments.
 	 - No longer pass --{enable,disable}-debug to autotools
 	   packages depending on the value of
-	   BR2_ENABLE_DEBUG. BR2_ENABLE_DEBUG now only controls
+	   LINGMO_ENABLE_DEBUG. LINGMO_ENABLE_DEBUG now only controls
 	   whether we build with -g or not.
 	 - Support for extracting archives in .lzma in the generic
 	   package infrastructure.
@@ -10067,7 +10067,7 @@
 	 - Addition of a 'kernel-module' package infrastructure, which
 	   simplifies the packaging of external kernel modules. Many
 	   existing packages are converted to use it.
-	 - Allow bootloaders to be implemented in $(BR2_EXTERNAL)
+	 - Allow bootloaders to be implemented in $(LINGMO_EXTERNAL)
 	 - Remove /etc/securetty from the default skeleton.
 	 - Migration of sysV initscripts from the default skeleton to
 	   a package called 'initscripts', installed only when Busbox
@@ -10207,7 +10207,7 @@
 	#7592: Buildroot GCC: -lto requires plugin support in ranlib
 	#7628: Python SSL does not get built for Raspberry Pi
 	#7682: Missing dependencies for NFS
-	#7742: dhcp lacks important features when BR2_ENABLE_DEBUG
+	#7742: dhcp lacks important features when LINGMO_ENABLE_DEBUG
 	#7754: make: *** [/..../buildroot-2014.11/output/build/host-gcc-initial-4.8.3/.stamp_built] Error 2
 	#7946: libglib2-2.42.2 fails to build for sparc-buildroot-linux-gnu
 	#7956: glibc 2.20 and 2.21 fail to build for sh64-buildroot-linux-gnu
@@ -10452,7 +10452,7 @@
 	Issues resolved (http://bugs.uclibc.org):
 
 	#7478: Multiple chosen python modules are not built due to...
-	#7508: Use of BR2_EXTERNAL and dependencies to existing packages
+	#7508: Use of LINGMO_EXTERNAL and dependencies to existing packages
 	#7676: Package procps-ng installs binaries to nonsensical folder
 	#7724: Startx is not installed in the target
 	#7760: botan: wrong prefix in botan-1.10.pc
@@ -10509,11 +10509,11 @@
 	Static/shared library handling reworked. This is now a
 	tristate (shared only / shared and static / static
 	only). Default is now shared only to speed up the
-	build. BR2_PREFER_STATIC_LIB is now called BR2_STATIC_LIBS.
+	build. LINGMO_PREFER_STATIC_LIB is now called LINGMO_STATIC_LIBS.
 
 	The toolchain (internal and external) will now warn when an
 	unsafe library or header path is used (such as /usr/include or
-	/usr/lib). If BR2_COMPILER_PARANOID_UNSAFE_PATH is enabled
+	/usr/lib). If LINGMO_COMPILER_PARANOID_UNSAFE_PATH is enabled
 	under build options this instead becomes an error.
 
 	A installation path issue with the internal musl toolchain
@@ -10543,7 +10543,7 @@
 	/run instead of a symlink to /tmp/ for security reasons / to
 	protect against conflicts with user generated temporary files.
 
-	BR2_EXTERNAL is now exported to post-build and post-image
+	LINGMO_EXTERNAL is now exported to post-build and post-image
 	scripts.
 
 	New packages: bdwgc, benejson, blktrace, bootstrap, cgic,
@@ -10659,7 +10659,7 @@
 
 	Documentation: Various updates to the user manual. The
 	asciidoc documentation handling has now been extended so it
-	can be used by (BR2_EXTERNAL) packages.
+	can be used by (LINGMO_EXTERNAL) packages.
 
 	Updated/fixed packages: acl, acpid, agentpp, aircrack-ng,
 	alsa-lib, alsamixergui, alsa-utils, apitrace, apr, apr-util,
@@ -10857,7 +10857,7 @@
 	#7346: [2014.08rc3] vim-8ae50e3ef8bf.tar.gz can not be downloaded, ...
 	#7352: [2014.08-rc3] diffutils-3.3 failed on building
 	#7358: rpi-userland: linking with bcm_host doesn't give vc_dispmanx_*
-	#7364: monit builds a static application, even though BR2_PREFER_...
+	#7364: monit builds a static application, even though LINGMO_PREFER_...
 	#7370: ngrep - requires --with-pcap-includes fully defined to find...
 	#7442: rootfs remount does not work as expected with sysvinit
 	#7448: Having export MACHINE="something" breaks glibc build on IMX6...
@@ -11098,12 +11098,12 @@
 
 	Stripping using sstrip has been deprecated.
 
-	BR2_EXTERNAL can now also be used to implement custom
+	LINGMO_EXTERNAL can now also be used to implement custom
 	filesystem types.
 
-	The newly added BR2_GRAPH_DEPTH variable to limit the depth of
+	The newly added LINGMO_GRAPH_DEPTH variable to limit the depth of
 	the generated dependency graph has been renamed to
-	BR2_GRAPH_DEPS_OPTS, so additional options can be supported in
+	LINGMO_GRAPH_DEPS_OPTS, so additional options can be supported in
 	the future.
 
 	The virtual package infrastructure will now error out early
@@ -11127,7 +11127,7 @@
 
 	Issues resolved (http://bugs.uclibc.org):
 
-	#5396: Boot hangs when starting samba if BR2_ENABLE_LOCALE...
+	#5396: Boot hangs when starting samba if LINGMO_ENABLE_LOCALE...
 	#7016: Git issues in resulting buildroot tar
 	#7094: pciutils doesn't build on Blackfin
 
@@ -11152,7 +11152,7 @@
 	library for internal and external toolchains. 4.8-R3 support
 	for ARC, Internal toolchain support for Aarch64 and
 	Microblaze. Environment variable to control debug output of
-	toolchain wrapper renamed to BR2_DEBUG_WRAPPER to match the
+	toolchain wrapper renamed to LINGMO_DEBUG_WRAPPER to match the
 	other variables. Toolchain tuple vendor name can now be
 	customized. Updated external Linaro ARM/Aarch64
 	toolchains. Added external Linaro ARMEB toolchain.
@@ -11344,8 +11344,8 @@
 
 	#5450: AT91SAM9260 Bootstrap compilation problem
 	#5582: libiconv 1.14 failed to build
-	#5624: When building directfb, BR2_TARGET_LDFLAGS not used by..
-	#5852: [2012.11] usb_modeswitch should depends of "BR2_PACK..
+	#5624: When building directfb, LINGMO_TARGET_LDFLAGS not used by..
+	#5852: [2012.11] usb_modeswitch should depends of "LINGMO_PACK..
 	#6218: binutils-2.23.2/gas fails with undefined reference to..
 	#6236: binutils-2.23.2/bfd fails with undefined reference to..
 	#6470: If the build directory is a child of /usr, the build..
@@ -11356,13 +11356,13 @@
 
 	Fixes all over the tree and new features.
 
-	Support for external packages/defconfigs (BR2_EXTERNAL). See
+	Support for external packages/defconfigs (LINGMO_EXTERNAL). See
 	user manual for details.
 
 	Cleanup of environment variable names for consistency. The
 	download directory location override (BUILDROOT_DL_DIR) is now
-	called BR2_DL_DIR. Likewise the name of the current .config is
-	renamed from BUILDROOT_CONFIG to BR2_CONFIG. Please update
+	called LINGMO_DL_DIR. Likewise the name of the current .config is
+	renamed from BUILDROOT_CONFIG to LINGMO_CONFIG. Please update
 	your post build scripts if you use this! BUILD_DIR is now also
 	exported to the post build/image scripts.
 
@@ -11552,7 +11552,7 @@
 	Issues resolved (http://bugs.uclibc.org):
 
 	#3601: DHCPD S80dhcp-server startup script issues
-	#6320: Fix kernel compile issue if BR2_LINUX_KERNEL_CUSTOM_GIT_VERS..
+	#6320: Fix kernel compile issue if LINGMO_LINUX_KERNEL_CUSTOM_GIT_VERS..
 	#6416: Xenomai package, patch alternative
 	#6590: directfb-examples build failed whit linaro toolchain
 
@@ -11638,7 +11638,7 @@
 
 	Issues resolved (http://bugs.uclibc.org):
 
-	#1138: Buildroot fails to build packages if BR2_GCC_SHARED_LIBGCC=y
+	#1138: Buildroot fails to build packages if LINGMO_GCC_SHARED_LIBGCC=y
 	#5408: qt build failure with Sourcery CodeBench ARM 2010.09
 	#5630: makefile error with toolchain helpers.mk
 	#5672: htop: remove X11 stuff
@@ -12142,7 +12142,7 @@
 	Issues resolved (http://bugs.uclibc.org):
 
 	#4237: building shared openssl w/-Os fails due to gcc bug
-	#5690: python3 does not obey to BR2_PACKAGE_PYTHON3_PYC_ONLY=y
+	#5690: python3 does not obey to LINGMO_PACKAGE_PYTHON3_PYC_ONLY=y
 	#5602: python3 should install a "python" symbolic link
 	#5846: Extra slash added to last slash in URL
 
@@ -12278,7 +12278,7 @@
 	Changed the source URLs of all packages located on Sourceforge
 	in order to use the automatic mirror selection URL
 	downloads.sourceforge.net, and get rid of the
-	BR2_SOURCEFORGE_MIRROR option.
+	LINGMO_SOURCEFORGE_MIRROR option.
 
 2012.08-rc3, Released August 25th, 2012
 
@@ -12504,7 +12504,7 @@
 	#2503: Microperl fails build on MIPSel or with Fedora13.x86_64
 	#2557: [PATCH] mkfs.xfs complains about missing libxfs.so.0
 	#2881: Can't build project statically with external toolchain
-	#3751: MIPS: fix BR2_GCC_TARGET_ABI for MIPS n64
+	#3751: MIPS: fix LINGMO_GCC_TARGET_ABI for MIPS n64
 	#4808: ccache may build against wrong zlib
 	#4880: New package lcdproc
 	#4886: New package protobuf
@@ -13487,8 +13487,8 @@
 	#1129: Bump memstat to 0.8 and migrate to Makefile.package.in
 	#1189: Wrong u-boot configuration name for integrator926 target
 	#1219: kernel headers not correctly installed into toolchain/staging
-	#1267: Wrong BR2_EXTRA_VERSION
-	#1273: BR2_INET_IPV6 does not enable IPv6 in pppd
+	#1267: Wrong LINGMO_EXTRA_VERSION
+	#1273: LINGMO_INET_IPV6 does not enable IPv6 in pppd
 	#1303: Add librsync package
 	#1321: Busybox link fails due to lack of --sysroot option
 	#1327: mtd-utils compile failure due to lack of --sysroot in CFLAGS

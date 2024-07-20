@@ -13,7 +13,7 @@ CCID_INSTALL_STAGING = YES
 CCID_DEPENDENCIES = pcsc-lite host-pkgconf libusb
 CCID_CONF_OPTS = --enable-usbdropdir=/usr/lib/pcsc/drivers
 
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 define CCID_INSTALL_UDEV_RULES
 	if test -d $(TARGET_DIR)/etc/udev/rules.d ; then \
 		cp $(@D)/src/92_pcscd_ccid.rules $(TARGET_DIR)/etc/udev/rules.d/ ; \

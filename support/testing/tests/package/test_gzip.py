@@ -5,8 +5,8 @@ class TestGzip(TestCompressorBase):
     __test__ = True
     config = TestCompressorBase.config + \
         """
-        BR2_PACKAGE_BUSYBOX_SHOW_OTHERS=y
-        BR2_PACKAGE_GZIP=y
+        LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS=y
+        LINGMO_PACKAGE_GZIP=y
         """
     compress_cmd = "gzip"
     decompress_cmd = "gunzip"

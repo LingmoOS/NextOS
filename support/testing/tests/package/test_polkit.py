@@ -6,14 +6,14 @@ class TestPolkitInfra(infra.basetest.BRTest):
     br2_external = [infra.filepath("tests/package/br2-external/polkit")]
     config = \
         """
-        BR2_arm=y
-        BR2_cortex_a9=y
-        BR2_ARM_ENABLE_VFP=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        BR2_PACKAGE_POLKIT=y
-        BR2_PACKAGE_POLKIT_RULES_TEST=y
+        LINGMO_arm=y
+        LINGMO_cortex_a9=y
+        LINGMO_ARM_ENABLE_VFP=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        LINGMO_PACKAGE_POLKIT=y
+        LINGMO_PACKAGE_POLKIT_RULES_TEST=y
         """
     rule_paths = [
         "/etc/polkit-1/rules.d",
@@ -31,10 +31,10 @@ class TestPolkitSystemd(TestPolkitInfra):
     config = \
         """
         {}
-        BR2_INIT_SYSTEMD=y
-        BR2_PACKAGE_SYSTEMD_POLKIT=y
-        BR2_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_INIT_SYSTEMD=y
+        LINGMO_PACKAGE_SYSTEMD_POLKIT=y
+        LINGMO_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """.format(TestPolkitInfra.config)
 
     def test_run(self):

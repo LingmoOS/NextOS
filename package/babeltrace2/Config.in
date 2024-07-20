@@ -1,9 +1,9 @@
-config BR2_PACKAGE_BABELTRACE2
+config LINGMO_PACKAGE_BABELTRACE2
 	bool "babeltrace2"
-	depends on BR2_USE_WCHAR # libglib2
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libglib2
-	depends on BR2_USE_MMU # libglib2
-	select BR2_PACKAGE_LIBGLIB2
+	depends on LINGMO_USE_WCHAR # libglib2
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libglib2
+	depends on LINGMO_USE_MMU # libglib2
+	select LINGMO_PACKAGE_LIBGLIB2
 	help
 	  Babeltrace 2 is an open-source trace manipulation toolkit.
 
@@ -20,10 +20,10 @@ config BR2_PACKAGE_BABELTRACE2
 
 	  To get support for the debugging information filter
 	  component class, enable the elfutils package
-	  (BR2_PACKAGE_ELFUTILS).
+	  (LINGMO_PACKAGE_ELFUTILS).
 
 	  https://babeltrace.org/
 
 comment "babeltrace2 needs a toolchain w/ wchar, threads"
-	depends on BR2_USE_MMU
-	depends on !BR2_USE_WCHAR || !BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_USE_WCHAR || !LINGMO_TOOLCHAIN_HAS_THREADS

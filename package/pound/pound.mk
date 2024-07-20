@@ -16,12 +16,12 @@ POUND_CONF_OPTS = \
 	--with-owner=$(shell id -un) \
 	--with-group=$(shell id -gn)
 
-ifeq ($(BR2_PACKAGE_PCRE2),y)
+ifeq ($(LINGMO_PACKAGE_PCRE2),y)
 POUND_CONF_OPTS += --enable-pcreposix=pcre2
 POUND_CONF_ENV += \
 	ac_cv_path_PCRE2_CONFIG=$(STAGING_DIR)/usr/bin/pcre2-config
 POUND_DEPENDENCIES += pcre2
-else ifeq ($(BR2_PACKAGE_PCRE),y)
+else ifeq ($(LINGMO_PACKAGE_PCRE),y)
 POUND_CONF_OPTS += --enable-pcreposix=pcre1
 POUND_DEPENDENCIES += pcre
 else

@@ -8,17 +8,17 @@ class TestNu(infra.basetest.BRTest):
     # support a host rustc which is necessary for nushell
     config = \
         """
-        BR2_arm=y
-        BR2_cortex_a9=y
-        BR2_ARM_ENABLE_NEON=y
-        BR2_ARM_ENABLE_VFP=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
-        BR2_SYSTEM_DHCP="eth0"
-        BR2_PACKAGE_NUSHELL=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        BR2_ROOTFS_POST_BUILD_SCRIPT="{}"
-        BR2_ROOTFS_POST_SCRIPT_ARGS="{}"
+        LINGMO_arm=y
+        LINGMO_cortex_a9=y
+        LINGMO_ARM_ENABLE_NEON=y
+        LINGMO_ARM_ENABLE_VFP=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
+        LINGMO_SYSTEM_DHCP="eth0"
+        LINGMO_PACKAGE_NUSHELL=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        LINGMO_ROOTFS_POST_BUILD_SCRIPT="{}"
+        LINGMO_ROOTFS_POST_SCRIPT_ARGS="{}"
         """.format(infra.filepath("tests/package/copy-sample-script-to-target.sh"),
                    infra.filepath("tests/package/sample_nu.nu"))
 

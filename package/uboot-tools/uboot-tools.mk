@@ -14,15 +14,15 @@ UBOOT_TOOLS_CPE_ID_PRODUCT = u-boot
 UBOOT_TOOLS_INSTALL_STAGING = YES
 
 # u-boot 2020.01+ needs make 4.0+
-UBOOT_TOOLS_DEPENDENCIES = $(BR2_MAKE_HOST_DEPENDENCY)
-HOST_UBOOT_TOOLS_DEPENDENCIES = $(BR2_MAKE_HOST_DEPENDENCY)
+UBOOT_TOOLS_DEPENDENCIES = $(LINGMO_MAKE_HOST_DEPENDENCY)
+HOST_UBOOT_TOOLS_DEPENDENCIES = $(LINGMO_MAKE_HOST_DEPENDENCY)
 
 define UBOOT_TOOLS_CONFIGURE_CMDS
 	mkdir -p $(@D)/include/config
 	touch $(@D)/include/config/auto.conf
 	mkdir -p $(@D)/include/generated
 	touch $(@D)/include/generated/autoconf.h
-	echo $(if $(BR2_PACKAGE_UBOOT_TOOLS_FIT_SUPPORT),'#define CONFIG_FIT_PRINT 1') >> $(@D)/include/generated/autoconf.h
+	echo $(if $(LINGMO_PACKAGE_UBOOT_TOOLS_FIT_SUPPORT),'#define CONFIG_FIT_PRINT 1') >> $(@D)/include/generated/autoconf.h
 	mkdir -p $(@D)/include/asm
 	touch $(@D)/include/asm/linkage.h
 endef
@@ -33,59 +33,59 @@ UBOOT_TOOLS_MAKE_OPTS = CROSS_COMPILE="$(TARGET_CROSS)" \
 	HOSTCFLAGS="$(HOST_CFLAGS)" \
 	STRIP=$(TARGET_STRIP)
 
-ifeq ($(BR2_PACKAGE_UBOOT_TOOLS_FIT_SUPPORT),y)
+ifeq ($(LINGMO_PACKAGE_UBOOT_TOOLS_FIT_SUPPORT),y)
 UBOOT_TOOLS_MAKE_OPTS += CONFIG_FIT=y CONFIG_MKIMAGE_DTC_PATH=dtc
 UBOOT_TOOLS_DEPENDENCIES += dtc
 endif
 
-ifeq ($(BR2_PACKAGE_UBOOT_TOOLS_FIT_SIGNATURE_SUPPORT),y)
+ifeq ($(LINGMO_PACKAGE_UBOOT_TOOLS_FIT_SIGNATURE_SUPPORT),y)
 UBOOT_TOOLS_MAKE_OPTS += CONFIG_FIT_SIGNATURE=y CONFIG_FIT_SIGNATURE_MAX_SIZE=0x10000000
 UBOOT_TOOLS_DEPENDENCIES += openssl host-pkgconf
 endif
 
-ifeq ($(BR2_PACKAGE_UBOOT_TOOLS_MKEFICAPSULE),y)
+ifeq ($(LINGMO_PACKAGE_UBOOT_TOOLS_MKEFICAPSULE),y)
 UBOOT_TOOLS_MAKE_OPTS += CONFIG_EFI_HAVE_CAPSULE_SUPPORT=y
 endif
 
-ifeq ($(BR2_PACKAGE_UBOOT_TOOLS_FIT_CHECK_SIGN),y)
+ifeq ($(LINGMO_PACKAGE_UBOOT_TOOLS_FIT_CHECK_SIGN),y)
 define UBOOT_TOOLS_INSTALL_FIT_CHECK_SIGN
 	$(INSTALL) -m 0755 -D $(@D)/tools/fit_check_sign $(TARGET_DIR)/usr/bin/fit_check_sign
 endef
 endif
 
 define UBOOT_TOOLS_BUILD_CMDS
-	$(TARGET_MAKE_ENV) $(BR2_MAKE) -C $(@D) $(UBOOT_TOOLS_MAKE_OPTS) \
+	$(TARGET_MAKE_ENV) $(LINGMO_MAKE) -C $(@D) $(UBOOT_TOOLS_MAKE_OPTS) \
 		CROSS_BUILD_TOOLS=y tools-only
-	$(TARGET_MAKE_ENV) $(BR2_MAKE) -C $(@D) $(UBOOT_TOOLS_MAKE_OPTS) \
+	$(TARGET_MAKE_ENV) $(LINGMO_MAKE) -C $(@D) $(UBOOT_TOOLS_MAKE_OPTS) \
 		envtools no-dot-config-targets=envtools
 endef
 
-ifeq ($(BR2_PACKAGE_UBOOT_TOOLS_MKIMAGE),y)
+ifeq ($(LINGMO_PACKAGE_UBOOT_TOOLS_MKIMAGE),y)
 define UBOOT_TOOLS_INSTALL_MKIMAGE
 	$(INSTALL) -m 0755 -D $(@D)/tools/mkimage $(TARGET_DIR)/usr/bin/mkimage
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_UBOOT_TOOLS_MKEFICAPSULE),y)
+ifeq ($(LINGMO_PACKAGE_UBOOT_TOOLS_MKEFICAPSULE),y)
 define UBOOT_TOOLS_INSTALL_MKEFICAPSULE
 	$(INSTALL) -m 0755 -D $(@D)/tools/mkeficapsule $(TARGET_DIR)/usr/bin/mkeficapsule
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_UBOOT_TOOLS_MKENVIMAGE),y)
+ifeq ($(LINGMO_PACKAGE_UBOOT_TOOLS_MKENVIMAGE),y)
 define UBOOT_TOOLS_INSTALL_MKENVIMAGE
 	$(INSTALL) -m 0755 -D $(@D)/tools/mkenvimage $(TARGET_DIR)/usr/bin/mkenvimage
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_UBOOT_TOOLS_FWPRINTENV),y)
+ifeq ($(LINGMO_PACKAGE_UBOOT_TOOLS_FWPRINTENV),y)
 define UBOOT_TOOLS_INSTALL_FWPRINTENV
 	$(INSTALL) -m 0755 -D $(@D)/tools/env/fw_printenv $(TARGET_DIR)/usr/sbin/fw_printenv
 	ln -sf fw_printenv $(TARGET_DIR)/usr/sbin/fw_setenv
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_UBOOT_TOOLS_DUMPIMAGE),y)
+ifeq ($(LINGMO_PACKAGE_UBOOT_TOOLS_DUMPIMAGE),y)
 define UBOOT_TOOLS_INSTALL_DUMPIMAGE
 	$(INSTALL) -m 0755 -D $(@D)/tools/dumpimage $(TARGET_DIR)/usr/sbin/dumpimage
 endef
@@ -112,7 +112,7 @@ define HOST_UBOOT_TOOLS_CONFIGURE_CMDS
 	touch $(@D)/include/config/auto.conf
 	mkdir -p $(@D)/include/generated
 	touch $(@D)/include/generated/autoconf.h
-	echo $(if $(BR2_PACKAGE_HOST_UBOOT_TOOLS_FIT_SUPPORT),'#define CONFIG_FIT_PRINT 1') >> $(@D)/include/generated/autoconf.h
+	echo $(if $(LINGMO_PACKAGE_HOST_UBOOT_TOOLS_FIT_SUPPORT),'#define CONFIG_FIT_PRINT 1') >> $(@D)/include/generated/autoconf.h
 	mkdir -p $(@D)/include/asm
 	touch $(@D)/include/asm/linkage.h
 endef
@@ -122,12 +122,12 @@ HOST_UBOOT_TOOLS_MAKE_OPTS = HOSTCC="$(HOSTCC)" \
 	HOSTLDFLAGS="$(HOST_LDFLAGS)" \
 	CONFIG_EFI_HAVE_CAPSULE_SUPPORT=y
 
-ifeq ($(BR2_PACKAGE_HOST_UBOOT_TOOLS_FIT_SUPPORT),y)
+ifeq ($(LINGMO_PACKAGE_HOST_UBOOT_TOOLS_FIT_SUPPORT),y)
 HOST_UBOOT_TOOLS_MAKE_OPTS += CONFIG_FIT=y CONFIG_MKIMAGE_DTC_PATH=dtc
 HOST_UBOOT_TOOLS_DEPENDENCIES += host-dtc
 endif
 
-ifeq ($(BR2_PACKAGE_HOST_UBOOT_TOOLS_FIT_SIGNATURE_SUPPORT),y)
+ifeq ($(LINGMO_PACKAGE_HOST_UBOOT_TOOLS_FIT_SIGNATURE_SUPPORT),y)
 HOST_UBOOT_TOOLS_MAKE_OPTS += CONFIG_FIT_SIGNATURE=y CONFIG_FIT_SIGNATURE_MAX_SIZE=0x10000000
 HOST_UBOOT_TOOLS_DEPENDENCIES += host-openssl
 define HOST_UBOOT_TOOLS_INSTALL_FIT_CHECK_SIGN
@@ -135,21 +135,21 @@ define HOST_UBOOT_TOOLS_INSTALL_FIT_CHECK_SIGN
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE),y)
+ifeq ($(LINGMO_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE),y)
 
-UBOOT_TOOLS_GENERATE_ENV_FILE = $(call qstrip,$(BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SOURCE))
+UBOOT_TOOLS_GENERATE_ENV_FILE = $(call qstrip,$(LINGMO_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SOURCE))
 
-# If BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SOURCE is left empty, we
+# If LINGMO_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SOURCE is left empty, we
 # will use the default environment provided in the U-Boot build
 # directory as boot-env-defaults.txt, which requires having uboot as a
 # dependency.
-# If BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SOURCE is not empty, is
+# If LINGMO_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SOURCE is not empty, is
 # might be referring to a file within the U-Boot source tree, so we
 # also need to have uboot as a dependency.
-ifeq ($(BR2_TARGET_UBOOT),y)
+ifeq ($(LINGMO_TARGET_UBOOT),y)
 HOST_UBOOT_TOOLS_DEPENDENCIES += uboot
 
-# Handle the case where BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SOURCE
+# Handle the case where LINGMO_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SOURCE
 # is left empty, use the default U-Boot environment.
 ifeq ($(UBOOT_TOOLS_GENERATE_ENV_FILE),)
 UBOOT_TOOLS_GENERATE_ENV_FILE = $(@D)/boot-env-defaults.txt
@@ -160,55 +160,55 @@ define HOST_UBOOT_TOOLS_GENERATE_ENV_DEFAULTS
 		> $(UBOOT_TOOLS_GENERATE_ENV_FILE)
 endef
 endif # UBOOT_TOOLS_GENERATE_ENV_FILE
-endif # BR2_TARGET_UBOOT
+endif # LINGMO_TARGET_UBOOT
 
 ifeq ($(BR_BUILDING),y)
-ifeq ($(call qstrip,$(BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SIZE)),)
-$(error Please provide U-Boot environment size (BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SIZE setting))
+ifeq ($(call qstrip,$(LINGMO_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SIZE)),)
+$(error Please provide U-Boot environment size (LINGMO_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SIZE setting))
 endif
 # If U-Boot is not available, ENVIMAGE_SOURCE must be provided by user,
 # otherwise it is optional because the default can be taken from U-Boot
-ifeq ($(BR2_TARGET_UBOOT),)
-ifeq ($(call qstrip,$(BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SOURCE)),)
-$(error Please provide U-Boot environment file (BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SOURCE setting))
+ifeq ($(LINGMO_TARGET_UBOOT),)
+ifeq ($(call qstrip,$(LINGMO_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SOURCE)),)
+$(error Please provide U-Boot environment file (LINGMO_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SOURCE setting))
 endif
-endif #BR2_TARGET_UBOOT
+endif #LINGMO_TARGET_UBOOT
 endif #BR_BUILDING
 
 define HOST_UBOOT_TOOLS_GENERATE_ENVIMAGE
 	$(HOST_UBOOT_TOOLS_GENERATE_ENV_DEFAULTS)
 	cat $(UBOOT_TOOLS_GENERATE_ENV_FILE) | \
-		$(@D)/tools/mkenvimage -s $(BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SIZE) \
-		$(if $(BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_REDUNDANT),-r) \
-		$(if $(filter "BIG",$(BR2_ENDIAN)),-b) \
+		$(@D)/tools/mkenvimage -s $(LINGMO_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SIZE) \
+		$(if $(LINGMO_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_REDUNDANT),-r) \
+		$(if $(filter "BIG",$(LINGMO_ENDIAN)),-b) \
 		-o $(@D)/tools/uboot-env.bin \
 		-
 endef
 define HOST_UBOOT_TOOLS_INSTALL_ENVIMAGE
 	$(INSTALL) -m 0755 -D $(@D)/tools/uboot-env.bin $(BINARIES_DIR)/uboot-env.bin
 endef
-endif #BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE
+endif #LINGMO_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE
 
-ifeq ($(BR2_PACKAGE_HOST_UBOOT_TOOLS_BOOT_SCRIPT),y)
+ifeq ($(LINGMO_PACKAGE_HOST_UBOOT_TOOLS_BOOT_SCRIPT),y)
 ifeq ($(BR_BUILDING),y)
-ifeq ($(call qstrip,$(BR2_PACKAGE_HOST_UBOOT_TOOLS_BOOT_SCRIPT_SOURCE)),)
-$(error Please define a source file for U-Boot boot script (BR2_PACKAGE_HOST_UBOOT_TOOLS_BOOT_SCRIPT_SOURCE setting))
+ifeq ($(call qstrip,$(LINGMO_PACKAGE_HOST_UBOOT_TOOLS_BOOT_SCRIPT_SOURCE)),)
+$(error Please define a source file for U-Boot boot script (LINGMO_PACKAGE_HOST_UBOOT_TOOLS_BOOT_SCRIPT_SOURCE setting))
 endif
 endif #BR_BUILDING
 
 define HOST_UBOOT_TOOLS_GENERATE_BOOT_SCRIPT
 	$(@D)/tools/mkimage -C none -A $(MKIMAGE_ARCH) -T script \
-		-d $(call qstrip,$(BR2_PACKAGE_HOST_UBOOT_TOOLS_BOOT_SCRIPT_SOURCE)) \
+		-d $(call qstrip,$(LINGMO_PACKAGE_HOST_UBOOT_TOOLS_BOOT_SCRIPT_SOURCE)) \
 		$(@D)/tools/boot.scr
 endef
 define HOST_UBOOT_TOOLS_INSTALL_BOOT_SCRIPT
 	$(INSTALL) -m 0755 -D $(@D)/tools/boot.scr $(BINARIES_DIR)/boot.scr
 endef
-endif #BR2_PACKAGE_HOST_UBOOT_TOOLS_BOOT_SCRIPT
+endif #LINGMO_PACKAGE_HOST_UBOOT_TOOLS_BOOT_SCRIPT
 
 define HOST_UBOOT_TOOLS_BUILD_CMDS
-	$(BR2_MAKE1) -C $(@D) $(HOST_UBOOT_TOOLS_MAKE_OPTS) tools-only
-	$(BR2_MAKE1) -C $(@D) $(HOST_UBOOT_TOOLS_MAKE_OPTS) envtools no-dot-config-targets=envtools
+	$(LINGMO_MAKE1) -C $(@D) $(HOST_UBOOT_TOOLS_MAKE_OPTS) tools-only
+	$(LINGMO_MAKE1) -C $(@D) $(HOST_UBOOT_TOOLS_MAKE_OPTS) envtools no-dot-config-targets=envtools
 	$(HOST_UBOOT_TOOLS_GENERATE_ENVIMAGE)
 	$(HOST_UBOOT_TOOLS_GENERATE_BOOT_SCRIPT)
 endef

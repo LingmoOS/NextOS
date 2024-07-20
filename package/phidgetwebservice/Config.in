@@ -1,9 +1,9 @@
-config BR2_PACKAGE_PHIDGETWEBSERVICE
+config LINGMO_PACKAGE_PHIDGETWEBSERVICE
 	bool "phidgetwebservice"
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libusb, libphidget
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_9 # libphidget -> libusb
-	depends on !BR2_STATIC_LIBS # libphidget
-	select BR2_PACKAGE_LIBPHIDGET
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libusb, libphidget
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9 # libphidget -> libusb
+	depends on !LINGMO_STATIC_LIBS # libphidget
+	select LINGMO_PACKAGE_LIBPHIDGET
 	help
 	  phidgetwebservice (the Phidget WebService) provides an HTTP
 	  front-end to the libphidget device control API. This
@@ -19,5 +19,5 @@ config BR2_PACKAGE_PHIDGETWEBSERVICE
 	  http://phidgets.com/
 
 comment "phidgetwebservice needs a toolchain w/ threads, dynamic library, gcc >= 4.9"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS || \
-		!BR2_TOOLCHAIN_GCC_AT_LEAST_4_9
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS || \
+		!LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9

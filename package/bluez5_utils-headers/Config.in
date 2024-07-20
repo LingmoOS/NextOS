@@ -1,4 +1,4 @@
-config BR2_PACKAGE_BLUEZ5_UTILS_HEADERS
+config LINGMO_PACKAGE_BLUEZ5_UTILS_HEADERS
 	bool
 	help
 	  Header files from bluez utils version 5.x

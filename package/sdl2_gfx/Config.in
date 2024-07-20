@@ -1,6 +1,6 @@
-config BR2_PACKAGE_SDL2_GFX
+config LINGMO_PACKAGE_SDL2_GFX
 	bool "sdl2_gfx"
-	depends on BR2_PACKAGE_SDL2
+	depends on LINGMO_PACKAGE_SDL2
 	help
 	  The SDL2_gfx library is an extension to the SDL2 library
 	  which provides basic antialiased drawing routines such as

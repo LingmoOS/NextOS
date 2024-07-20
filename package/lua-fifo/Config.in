@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUA_FIFO
+config LINGMO_PACKAGE_LUA_FIFO
 	bool "lua-fifo"
 	help
 	  A lua library/'class' that implements a FIFO.

@@ -6,11 +6,11 @@ import infra.basetest
 class TestPhpPeclDbus(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_PACKAGE_PHP=y
-        BR2_PACKAGE_PHP_SAPI_CLI=y
-        BR2_PACKAGE_PHP_PECL_DBUS=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_PHP=y
+        LINGMO_PACKAGE_PHP_SAPI_CLI=y
+        LINGMO_PACKAGE_PHP_PECL_DBUS=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):

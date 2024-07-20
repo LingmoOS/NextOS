@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBUBOX
+config LINGMO_PACKAGE_LIBUBOX
 	bool "libubox"
-	depends on !BR2_STATIC_LIBS
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  This library originates from the OpenWrt project to
 	  handle the configuration file infrastructure, but can
@@ -10,4 +10,4 @@ config BR2_PACKAGE_LIBUBOX
 	  https://openwrt.org/docs/techref/libubox
 
 comment "libubox needs a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_STATIC_LIBS

@@ -14,7 +14,7 @@ GFLAGS_LICENSE_FILES = COPYING.txt
 # unexpected build failures with packages that use gflags (e.g. rocksdb)
 GFLAGS_CONF_OPTS = -DCMAKE_BUILD_TYPE=Release
 
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS),)
 GFLAGS_CONF_OPTS += -DBUILD_gflags_LIB=OFF \
 	-DCMAKE_CXX_FLAGS="$(TARGET_CXXFLAGS) -DNO_THREADS"
 endif

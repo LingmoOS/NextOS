@@ -12,7 +12,7 @@ BENEJSON_INSTALL_STAGING = YES
 BENEJSON_DEPENDENCIES = host-scons
 
 # wchar support needs to be manually disabled
-ifeq ($(BR2_USE_WCHAR),)
+ifeq ($(LINGMO_USE_WCHAR),)
 define BENEJSON_DISABLE_WCHAR
 	$(SED) 's,^#define BNJ_WCHAR_SUPPORT,#undef BNJ_WCHAR_SUPPORT,' \
 		$(@D)/benejson/benejson.h
@@ -22,7 +22,7 @@ endif
 
 BENEJSON_SCONS_TARGETS = include
 
-ifeq ($(BR2_STATIC_LIBS)$(BR2_SHARED_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS)$(LINGMO_SHARED_STATIC_LIBS),y)
 BENEJSON_SCONS_TARGETS += lib/libbenejson.a
 define BENEJSON_INSTALL_STATIC_LIB
 	$(INSTALL) -D -m 0644 $(@D)/lib/libbenejson.a \
@@ -30,7 +30,7 @@ define BENEJSON_INSTALL_STATIC_LIB
 endef
 endif # Static enabled
 
-ifeq ($(BR2_SHARED_LIBS)$(BR2_SHARED_STATIC_LIBS),y)
+ifeq ($(LINGMO_SHARED_LIBS)$(LINGMO_SHARED_STATIC_LIBS),y)
 BENEJSON_SCONS_TARGETS += lib/libbenejson.so
 define BENEJSON_INSTALL_SHARED_LIB
 	$(INSTALL) -D -m 0644 $(@D)/lib/libbenejson.so \

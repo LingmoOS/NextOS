@@ -1,4 +1,4 @@
-config BR2_PACKAGE_QT5SPEECH
+config LINGMO_PACKAGE_QT5SPEECH
 	bool "qt5speech"
 	help
 	  Qt is a cross-platform application and UI framework for

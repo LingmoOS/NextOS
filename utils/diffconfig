@@ -28,14 +28,14 @@ If no config files are specified, .config and .config.old are used.
 
 Example usage:
  $ diffconfig .config config-with-some-changes
--BR2_LINUX_KERNEL_INTREE_DTS_NAME "vexpress-v2p-ca9"
- BR2_LINUX_KERNEL_DTS_SUPPORT y -> n
- BR2_LINUX_KERNEL_USE_INTREE_DTS y -> n
- BR2_PACKAGE_DFU_UTIL n -> y
- BR2_PACKAGE_LIBUSB n -> y
- BR2_TARGET_GENERIC_HOSTNAME "buildroot" -> "Tuxie"
- BR2_TARGET_GENERIC_ISSUE "Welcome to Buildroot" -> "Welcome to CustomBoard"
-+BR2_PACKAGE_LIBUSB_COMPAT n
+-LINGMO_LINUX_KERNEL_INTREE_DTS_NAME "vexpress-v2p-ca9"
+ LINGMO_LINUX_KERNEL_DTS_SUPPORT y -> n
+ LINGMO_LINUX_KERNEL_USE_INTREE_DTS y -> n
+ LINGMO_PACKAGE_DFU_UTIL n -> y
+ LINGMO_PACKAGE_LIBUSB n -> y
+ LINGMO_TARGET_GENERIC_HOSTNAME "buildroot" -> "Tuxie"
+ LINGMO_TARGET_GENERIC_ISSUE "Welcome to Buildroot" -> "Welcome to CustomBoard"
++LINGMO_PACKAGE_LIBUSB_COMPAT n
 
 """)
     sys.exit(0)

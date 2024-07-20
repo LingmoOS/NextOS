@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_AIOCONSOLE
+config LINGMO_PACKAGE_PYTHON_AIOCONSOLE
 	bool "python-aioconsole"
 	help
 	  Asynchronous console and interfaces for asyncio.

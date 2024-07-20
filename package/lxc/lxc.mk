@@ -17,62 +17,62 @@ LXC_CONF_OPTS = \
 	-Dexamples=false \
 	-Dman=false
 
-ifeq ($(BR2_PACKAGE_BASH_COMPLETION),y)
+ifeq ($(LINGMO_PACKAGE_BASH_COMPLETION),y)
 LXC_DEPENDENCIES += bash-completion
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBCAP),y)
 LXC_CONF_OPTS += -Dcapabilities=true
 LXC_DEPENDENCIES += libcap
 else
 LXC_CONF_OPTS += -Dcapabilities=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSECCOMP),y)
+ifeq ($(LINGMO_PACKAGE_LIBSECCOMP),y)
 LXC_CONF_OPTS += -Dseccomp=true
 LXC_DEPENDENCIES += libseccomp
 else
 LXC_CONF_OPTS += -Dseccomp=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSELINUX),y)
+ifeq ($(LINGMO_PACKAGE_LIBSELINUX),y)
 LXC_CONF_OPTS += -Dselinux=true
 LXC_DEPENDENCIES += libselinux
 else
 LXC_CONF_OPTS += -Dselinux=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIBURING),y)
+ifeq ($(LINGMO_PACKAGE_LIBURING),y)
 LXC_CONF_OPTS += -Dio-uring-event-loop=true
 LXC_DEPENDENCIES += liburing
 else
 LXC_CONF_OPTS += -Dio-uring-event-loop=false
 endif
 
-ifeq ($(BR2_PACKAGE_LINUX_PAM),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_PAM),y)
 LXC_CONF_OPTS += -Dpam-cgroup=true
 LXC_DEPENDENCIES += linux-pam
 else
 LXC_CONF_OPTS += -Dpam-cgroup=false
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 LXC_CONF_OPTS += -Dopenssl=true
 LXC_DEPENDENCIES += openssl
 else
 LXC_CONF_OPTS += -Dopenssl=false
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 LXC_CONF_OPTS += -Dsd-bus=enabled
 LXC_DEPENDENCIES += systemd
 else
 LXC_CONF_OPTS += -Dsd-bus=disabled
 endif
 
-ifeq ($(BR2_INIT_SYSTEMD),y)
+ifeq ($(LINGMO_INIT_SYSTEMD),y)
 LXC_CONF_OPTS += -Dinit-script=systemd
-else ifeq ($(BR2_INIT_SYSV),y)
+else ifeq ($(LINGMO_INIT_SYSV),y)
 LXC_CONF_OPTS += -Dinit-script=sysvinit
 else
 LXC_CONF_OPTS += -Dinit-script=

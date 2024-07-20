@@ -32,7 +32,7 @@ XDRIVER_XF86_VIDEO_INTEL_DEPENDENCIES = \
 	xserver_xorg-server
 
 # DRI support is provided by xserver_xorg-server if libgl is enabled
-ifeq ($(BR2_PACKAGE_HAS_LIBGL),y)
+ifeq ($(LINGMO_PACKAGE_HAS_LIBGL),y)
 XDRIVER_XF86_VIDEO_INTEL_CONF_OPTS += \
 	--enable-dri2 \
 	--enable-dri3 \

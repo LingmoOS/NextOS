@@ -16,38 +16,38 @@ MPG123_DEPENDENCIES = host-pkgconf
 # mpg123 has some assembly function that is not present in Thumb mode:
 # Error: selected processor does not support `smull r3,ip,r2,r10' in Thumb mode
 # so, we desactivate Thumb mode
-ifeq ($(BR2_ARM_INSTRUCTIONS_THUMB),y)
+ifeq ($(LINGMO_ARM_INSTRUCTIONS_THUMB),y)
 MPG123_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) -marm"
 endif
 
-MPG123_CPU = $(if $(BR2_SOFT_FLOAT),generic_nofpu,generic_fpu)
+MPG123_CPU = $(if $(LINGMO_SOFT_FLOAT),generic_nofpu,generic_fpu)
 
-ifeq ($(BR2_aarch64),y)
+ifeq ($(LINGMO_aarch64),y)
 MPG123_CPU = aarch64
 endif
 
-ifeq ($(BR2_arm),y)
-ifeq ($(or $(BR2_ARM_CPU_HAS_NEON),$(BR2_ARM_CPU_HAS_VFPV2)),y)
+ifeq ($(LINGMO_arm),y)
+ifeq ($(or $(LINGMO_ARM_CPU_HAS_NEON),$(LINGMO_ARM_CPU_HAS_VFPV2)),y)
 MPG123_CPU = arm_fpu
 else
 MPG123_CPU = arm_nofpu
 endif
 endif
 
-ifeq ($(BR2_i386),y)
+ifeq ($(LINGMO_i386),y)
 MPG123_CPU = x86
 endif
 
-ifeq ($(BR2_powerpc),y)
-ifeq ($(BR2_POWERPC_CPU_HAS_ALTIVEC),y)
+ifeq ($(LINGMO_powerpc),y)
+ifeq ($(LINGMO_POWERPC_CPU_HAS_ALTIVEC),y)
 MPG123_CPU = altivec
 endif
-ifeq ($(BR2_SOFT_FLOAT),y)
+ifeq ($(LINGMO_SOFT_FLOAT),y)
 MPG123_CPU = ppc_nofpu
 endif
 endif # powerpc
 
-ifeq ($(BR2_x86_64),y)
+ifeq ($(LINGMO_x86_64),y)
 MPG123_CPU = x86-64
 endif
 
@@ -55,7 +55,7 @@ MPG123_CONF_OPTS += --with-cpu=$(MPG123_CPU)
 
 MPG123_AUDIO = dummy oss
 
-ifeq ($(BR2_PACKAGE_PORTAUDIO),y)
+ifeq ($(LINGMO_PACKAGE_PORTAUDIO),y)
 MPG123_AUDIO += portaudio
 MPG123_CONF_OPTS += --with-default-audio=portaudio
 MPG123_DEPENDENCIES += portaudio
@@ -64,13 +64,13 @@ MPG123_DEPENDENCIES += portaudio
 MPG123_CONF_ENV += LIBS="`$(PKG_CONFIG_HOST_BINARY) --libs portaudio-2.0`"
 endif
 
-ifeq ($(BR2_PACKAGE_SDL),y)
+ifeq ($(LINGMO_PACKAGE_SDL),y)
 MPG123_AUDIO += sdl
 MPG123_CONF_OPTS += --with-default-audio=sdl
 MPG123_DEPENDENCIES += sdl
 endif
 
-ifeq ($(BR2_PACKAGE_ALSA_LIB),y)
+ifeq ($(LINGMO_PACKAGE_ALSA_LIB),y)
 MPG123_AUDIO += alsa
 MPG123_CONF_OPTS += --with-default-audio=alsa
 MPG123_DEPENDENCIES += alsa-lib
@@ -82,7 +82,7 @@ endif
 MPG123_CONF_OPTS += --with-audio=$(subst $(space),$(comma),$(MPG123_AUDIO))
 
 # output modules are loaded with dlopen()
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 MPG123_CONF_OPTS += --disable-modules
 else
 MPG123_CONF_OPTS += --enable-modules

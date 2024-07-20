@@ -1,20 +1,20 @@
-config BR2_PACKAGE_BASH
+config LINGMO_PACKAGE_BASH
 	bool "bash"
 	# uses fork()
-	depends on BR2_USE_MMU
-	depends on BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
-	select BR2_PACKAGE_NCURSES
-	select BR2_PACKAGE_READLINE
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS
+	select LINGMO_PACKAGE_NCURSES
+	select LINGMO_PACKAGE_READLINE
 	help
 	  The standard GNU Bourne again shell.
 
 	  http://tiswww.case.edu/php/chet/bash/bashtop.html
 
-if BR2_PACKAGE_BASH
+if LINGMO_PACKAGE_BASH
 
-config BR2_PACKAGE_BASH_LOADABLE_EXAMPLES
+config LINGMO_PACKAGE_BASH_LOADABLE_EXAMPLES
 	bool "loadable examples"
-	depends on !BR2_STATIC_LIBS
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  This option will enable the installation of the "loadable"
 	  examples, which are dynamically loadable extension providing

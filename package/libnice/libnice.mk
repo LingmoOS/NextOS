@@ -14,7 +14,7 @@ LIBNICE_CONF_OPTS = \
 	-Dexamples=disabled \
 	-Dtests=disabled
 
-ifeq ($(BR2_PACKAGE_GNUTLS),y)
+ifeq ($(LINGMO_PACKAGE_GNUTLS),y)
 LIBNICE_CONF_OPTS += -Dcrypto-library=gnutls
 LIBNICE_DEPENDENCIES += gnutls
 else
@@ -22,14 +22,14 @@ LIBNICE_CONF_OPTS += -Dcrypto-library=openssl
 LIBNICE_DEPENDENCIES += openssl
 endif
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 LIBNICE_CONF_OPTS += -Dintrospection=enabled
 LIBNICE_DEPENDENCIES += gobject-introspection
 else
 LIBNICE_CONF_OPTS += -Dintrospection=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_GST1_PLUGINS_BASE),y)
+ifeq ($(LINGMO_PACKAGE_GST1_PLUGINS_BASE),y)
 LIBNICE_CONF_OPTS += -Dgstreamer=enabled
 LIBNICE_DEPENDENCIES += gst1-plugins-base
 else

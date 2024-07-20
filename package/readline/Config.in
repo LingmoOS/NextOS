@@ -1,6 +1,6 @@
-config BR2_PACKAGE_READLINE
+config LINGMO_PACKAGE_READLINE
 	bool "readline"
-	select BR2_PACKAGE_NCURSES
+	select LINGMO_PACKAGE_NCURSES
 	help
 	  The GNU Readline library provides a set of functions for use
 	  by applications that allow users to edit command lines
@@ -8,9 +8,9 @@ config BR2_PACKAGE_READLINE
 
 	  https://tiswww.case.edu/php/chet/readline/rltop.html
 
-config BR2_PACKAGE_READLINE_BRACKETED_PASTE
+config LINGMO_PACKAGE_READLINE_BRACKETED_PASTE
 	bool "Enable bracketed paste"
-	depends on BR2_PACKAGE_READLINE
+	depends on LINGMO_PACKAGE_READLINE
 	help
 	  Enable the "bracketed paste" feature in libreadline.
 

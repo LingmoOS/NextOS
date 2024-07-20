@@ -20,7 +20,7 @@ HOST_XLIB_LIBXFONT_DEPENDENCIES = \
 XLIB_LIBXFONT_CONF_OPTS = --disable-devel-docs
 HOST_XLIB_LIBXFONT_CONF_OPTS = --disable-devel-docs
 
-ifeq ($(BR2_microblaze),y)
+ifeq ($(LINGMO_microblaze),y)
 # The microblaze toolchains don't define the __ELF__ preprocessor
 # symbol even though they do use the elf format. LibXfont checks for
 # this symbol to know if weak symbols are supported, and otherwise
@@ -32,7 +32,7 @@ endif
 
 XLIB_LIBXFONT_CFLAGS = $(TARGET_CFLAGS)
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_85180),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_85180),y)
 XLIB_LIBXFONT_CFLAGS += -O0
 endif
 

@@ -1,6 +1,6 @@
-config BR2_PACKAGE_KODI_SCREENSAVER_ASTEROIDS
+config LINGMO_PACKAGE_KODI_SCREENSAVER_ASTEROIDS
 	bool "kodi-screensaver-asteroids"
-	select BR2_PACKAGE_GLM
+	select LINGMO_PACKAGE_GLM
 	help
 	  Asteroids screensaver for Kodi
 

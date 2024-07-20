@@ -14,8 +14,8 @@ NETSURF_CPE_ID_VENDOR = netsurf-browser
 NETSURF_DEPENDENCIES = expat jpeg libpng \
 	host-bison host-flex host-gperf host-pkgconf host-vim
 
-# internal duktape doesn't build with BR2_OPTIMIZE_FAST
-ifeq ($(BR2_OPTIMIZE_FAST),y)
+# internal duktape doesn't build with LINGMO_OPTIMIZE_FAST
+ifeq ($(LINGMO_OPTIMIZE_FAST),y)
 define NETSURF_DUKTAPE_CONFIGURE_CMDS
 	echo "override NETSURF_USE_DUKTAPE := NO"       >> $(@D)/netsurf/Makefile.config
 endef
@@ -25,18 +25,18 @@ define NETSURF_DUKTAPE_CONFIGURE_CMDS
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_NETSURF_GTK),y)
+ifeq ($(LINGMO_PACKAGE_NETSURF_GTK),y)
 NETSURF_DEPENDENCIES += libgtk2
 NETSURF_FRONTEND = gtk2
 endif
 
-ifeq ($(BR2_PACKAGE_NETSURF_GTK3),y)
+ifeq ($(LINGMO_PACKAGE_NETSURF_GTK3),y)
 NETSURF_DEPENDENCIES += libgtk3
 NETSURF_FRONTEND = gtk3
 endif
 
-ifeq ($(BR2_PACKAGE_NETSURF_GTK)$(BR2_PACKAGE_NETSURF_GTK3),y)
-ifeq ($(BR2_PACKAGE_LIBRSVG),y)
+ifeq ($(LINGMO_PACKAGE_NETSURF_GTK)$(LINGMO_PACKAGE_NETSURF_GTK3),y)
+ifeq ($(LINGMO_PACKAGE_LIBRSVG),y)
 NETSURF_DEPENDENCIES += librsvg
 define NETSURF_SVG_CONFIGURE_CMDS
 	echo "override NETSURF_USE_RSVG := YES"         >> $(@D)/netsurf/Makefile.config
@@ -45,13 +45,13 @@ endef
 endif
 endif
 
-ifeq ($(BR2_PACKAGE_NETSURF_SDL),y)
+ifeq ($(LINGMO_PACKAGE_NETSURF_SDL),y)
 NETSURF_DEPENDENCIES += sdl host-libpng
 NETSURF_FRONTEND = framebuffer
 NETSURF_CONFIG = \
 	BUILD_CFLAGS='$(HOST_CFLAGS)' \
 	BUILD_LDFLAGS='$(HOST_LDFLAGS) -lpng'
-ifeq ($(BR2_PACKAGE_FREETYPE),y)
+ifeq ($(LINGMO_PACKAGE_FREETYPE),y)
 NETSURF_DEPENDENCIES += freetype
 define NETSURF_FONTLIB_CONFIGURE_CMDS
 	echo "override NETSURF_FB_FONTLIB := freetype"  >> $(@D)/netsurf/Makefile.config
@@ -59,7 +59,7 @@ endef
 endif
 endif
 
-ifeq ($(BR2_PACKAGE_LIBICONV),y)
+ifeq ($(LINGMO_PACKAGE_LIBICONV),y)
 NETSURF_DEPENDENCIES += libiconv
 define NETSURF_ICONV_CONFIGURE_CMDS
 	echo "CFLAGS += -DWITH_ICONV_FILTER"            >> $(@D)/libparserutils/Makefile.config.override
@@ -67,7 +67,7 @@ define NETSURF_ICONV_CONFIGURE_CMDS
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCURL),y)
+ifeq ($(LINGMO_PACKAGE_LIBCURL),y)
 NETSURF_DEPENDENCIES += libcurl openssl
 else
 define NETSURF_CURL_CONFIGURE_CMDS
@@ -76,7 +76,7 @@ define NETSURF_CURL_CONFIGURE_CMDS
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_WEBP),y)
+ifeq ($(LINGMO_PACKAGE_WEBP),y)
 NETSURF_DEPENDENCIES += webp
 define NETSURF_WEBP_CONFIGURE_CMDS
 	echo "override NETSURF_USE_WEBP := YES"         >> $(@D)/netsurf/Makefile.config

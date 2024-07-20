@@ -1,14 +1,14 @@
-config BR2_PACKAGE_FRR
+config LINGMO_PACKAGE_FRR
 	bool "frr"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on !BR2_STATIC_LIBS # libyang
-	depends on BR2_USE_MMU # fork()
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4 # json-c, libyang
-	select BR2_PACKAGE_BASH
-	select BR2_PACKAGE_BUSYBOX_SHOW_OTHERS # bash
-	select BR2_PACKAGE_LIBYANG
-	select BR2_PACKAGE_READLINE
-	select BR2_PACKAGE_JSON_C
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_STATIC_LIBS # libyang
+	depends on LINGMO_USE_MMU # fork()
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4 # json-c, libyang
+	select LINGMO_PACKAGE_BASH
+	select LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS # bash
+	select LINGMO_PACKAGE_LIBYANG
+	select LINGMO_PACKAGE_READLINE
+	select LINGMO_PACKAGE_JSON_C
 	help
 	  The FRRouting Protocol Suite.
 
@@ -17,23 +17,23 @@ config BR2_PACKAGE_FRR
 
 	  https://frrouting.org
 
-if BR2_PACKAGE_FRR
+if LINGMO_PACKAGE_FRR
 
-config BR2_PACKAGE_FRR_BMP
+config LINGMO_PACKAGE_FRR_BMP
 	bool "BMP protocol"
-	select BR2_PACKAGE_C_ARES
+	select LINGMO_PACKAGE_C_ARES
 	help
 	  Build BGP Monitoring Protocol daemon.
 
-config BR2_PACKAGE_FRR_NHRPD
+config LINGMO_PACKAGE_FRR_NHRPD
 	bool "NHRPD protocol"
-	select BR2_PACKAGE_C_ARES
+	select LINGMO_PACKAGE_C_ARES
 	help
 	  Build Next Hop Routing Protocol daemon.
 
 endif
 
 comment "frr needs a toolchain w/ threads, dynamic library"
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4
-	depends on BR2_USE_MMU
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS

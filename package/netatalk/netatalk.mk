@@ -30,20 +30,20 @@ NETATALK_CONF_OPTS += \
 	--with-dtrace=no \
 	--with-mysql-config=no
 
-ifeq ($(BR2_PACKAGE_ACL),y)
+ifeq ($(LINGMO_PACKAGE_ACL),y)
 NETATALK_DEPENDENCIES += acl
 else
 NETATALK_CONF_OPTS += --with-acls=no
 endif
 
-ifeq ($(BR2_PACKAGE_AVAHI_DAEMON)$(BR2_PACKAGE_DBUS),yy)
+ifeq ($(LINGMO_PACKAGE_AVAHI_DAEMON)$(LINGMO_PACKAGE_DBUS),yy)
 NETATALK_DEPENDENCIES += avahi
 NETATALK_CONF_OPTS += --enable-zeroconf=$(STAGING_DIR)/usr
 else
 NETATALK_CONF_OPTS += --disable-zeroconf
 endif
 
-ifeq ($(BR2_PACKAGE_CUPS),y)
+ifeq ($(LINGMO_PACKAGE_CUPS),y)
 NETATALK_DEPENDENCIES += cups
 NETATALK_CONF_ENV += ac_cv_path_CUPS_CONFIG=$(STAGING_DIR)/usr/bin/cups-config
 NETATALK_CONF_OPTS += --enable-cups

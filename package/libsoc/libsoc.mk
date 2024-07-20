@@ -13,7 +13,7 @@ LIBSOC_INSTALL_STAGING = YES
 LIBSOC_DEPENDENCIES = host-pkgconf
 
 # Install Python 3 bindings
-ifeq ($(BR2_PACKAGE_PYTHON3),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3),y)
 LIBSOC_DEPENDENCIES += python3
 LIBSOC_CONF_OPTS += --enable-python=3
 else

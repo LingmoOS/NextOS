@@ -14,7 +14,7 @@ NORM_LICENSE_FILES = LICENSE.TXT
 # The bundled waf script is too old for >= python3.11
 NORM_NEEDS_EXTERNAL_WAF = YES
 
-ifeq ($(BR2_PACKAGE_LIBNETFILTER_QUEUE),y)
+ifeq ($(LINGMO_PACKAGE_LIBNETFILTER_QUEUE),y)
 NORM_DEPENDENCIES += libnetfilter_queue
 endif
 

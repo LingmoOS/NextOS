@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_BITARRAY
+config LINGMO_PACKAGE_PYTHON_BITARRAY
 	bool "python-bitarray"
 	help
 	  efficient arrays of booleans -- C extension.

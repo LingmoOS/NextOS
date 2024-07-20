@@ -27,7 +27,7 @@ LIBPTHSEM_CONFIG_SCRIPTS = pthsem-config
 LIBPTHSEM_CONF_ENV += \
 	ac_cv_check_sjlj=ssjlj
 
-ifeq ($(BR2_PACKAGE_LIBPTHSEM_COMPAT),y)
+ifeq ($(LINGMO_PACKAGE_LIBPTHSEM_COMPAT),y)
 LIBPTHSEM_CONF_OPTS += --enable-compat
 LIBPTHSEM_CONFIG_SCRIPTS += pth-config
 else

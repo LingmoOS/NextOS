@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBUNISTRING
+config LINGMO_PACKAGE_LIBUNISTRING
 	bool "libunistring"
-	depends on BR2_USE_WCHAR
+	depends on LINGMO_USE_WCHAR
 	help
 	  The libunistring library provides functions for manipulating
 	  Unicode strings and for manipulating C strings according to
@@ -9,4 +9,4 @@ config BR2_PACKAGE_LIBUNISTRING
 	  http://www.gnu.org/software/libunistring/
 
 comment "libunistring needs a toolchain w/ wchar"
-	depends on !BR2_USE_WCHAR
+	depends on !LINGMO_USE_WCHAR

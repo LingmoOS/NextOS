@@ -17,7 +17,7 @@ HOST_JQ_CONF_ENV += CFLAGS="$(HOST_CFLAGS) -std=c99"
 
 HOST_JQ_CONF_OPTS += --without-oniguruma
 
-ifeq ($(BR2_PACKAGE_ONIGURUMA),y)
+ifeq ($(LINGMO_PACKAGE_ONIGURUMA),y)
 JQ_DEPENDENCIES += oniguruma
 JQ_CONF_OPTS += --with-oniguruma
 else

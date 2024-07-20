@@ -29,7 +29,7 @@ ENLIGHTENMENT_CONF_OPTS = \
 # enlightenment.pc and /usr/lib/enlightenment/modules/*.so
 ENLIGHTENMENT_INSTALL_STAGING = YES
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 ENLIGHTENMENT_CONF_OPTS += -Dsystemd=true
 ENLIGHTENMENT_DEPENDENCIES += systemd
 else
@@ -37,14 +37,14 @@ ENLIGHTENMENT_CONF_OPTS += -Dsystemd=false
 endif
 
 # alsa backend needs mixer support
-ifeq ($(BR2_PACKAGE_ALSA_LIB)$(BR2_PACKAGE_ALSA_LIB_MIXER),yy)
+ifeq ($(LINGMO_PACKAGE_ALSA_LIB)$(LINGMO_PACKAGE_ALSA_LIB_MIXER),yy)
 ENLIGHTENMENT_CONF_OPTS += -Dmixer=true
 ENLIGHTENMENT_DEPENDENCIES += alsa-lib
 else
 ENLIGHTENMENT_CONF_OPTS += -Dmixer=false
 endif
 
-ifeq ($(BR2_PACKAGE_XKEYBOARD_CONFIG),y)
+ifeq ($(LINGMO_PACKAGE_XKEYBOARD_CONFIG),y)
 ENLIGHTENMENT_DEPENDENCIES += xkeyboard-config
 endif
 

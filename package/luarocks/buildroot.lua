@@ -159,23 +159,23 @@ local function generate_config (rockspec, lcname)
    local fname = 'package/' .. lcname .. '/Config.in'
    local f = assert(io.open(fname, 'w'))
    util.printout('write ' .. fname)
-   f:write('config BR2_PACKAGE_' .. ucname .. '\n')
+   f:write('config LINGMO_PACKAGE_' .. ucname .. '\n')
    f:write('\tbool "' .. lcname .. '"\n')
    if only_luajit then
-      f:write('\tdepends on BR2_PACKAGE_LUAJIT\n')
+      f:write('\tdepends on LINGMO_PACKAGE_LUAJIT\n')
    end
    for i = 1, #external_dependencies do
-      f:write('\tselect BR2_PACKAGE_' .. brname(external_dependencies[i]) .. '\n')
+      f:write('\tselect LINGMO_PACKAGE_' .. brname(external_dependencies[i]) .. '\n')
    end
    for i = 1, #dependencies do
-      f:write('\tselect BR2_PACKAGE_' .. brname(dependencies[i]) .. ' # runtime\n')
+      f:write('\tselect LINGMO_PACKAGE_' .. brname(dependencies[i]) .. ' # runtime\n')
    end
    f:write('\thelp\n')
    f:write('\t  ' .. table.concat(wrap(summary, 62), '\n\t  ') .. '\n')
    f:write('\n\t  ' .. homepage .. '\n')
    if only_luajit then
       f:write('\ncomment "' .. lcname .. ' needs LuaJIT"\n')
-      f:write('\tdepends on !BR2_PACKAGE_LUAJIT\n')
+      f:write('\tdepends on !LINGMO_PACKAGE_LUAJIT\n')
    end
    f:close()
 end
@@ -287,8 +287,8 @@ local function generate_test (rockspec, lcname)
    f:write('class TestLua' .. classname .. '(TestLuaBase):\n')
    f:write('    config = TestLuaBase.config + \\\n')
    f:write('        """\n')
-   f:write('        BR2_PACKAGE_LUA=y\n')
-   f:write('        BR2_PACKAGE_' .. ucname .. '=y\n')
+   f:write('        LINGMO_PACKAGE_LUA=y\n')
+   f:write('        LINGMO_PACKAGE_' .. ucname .. '=y\n')
    f:write('        """\n')
    f:write('\n')
    f:write('    def test_run(self):\n')
@@ -301,8 +301,8 @@ local function generate_test (rockspec, lcname)
    f:write('class TestLuajit' .. classname .. '(TestLuaBase):\n')
    f:write('    config = TestLuaBase.config + \\\n')
    f:write('        """\n')
-   f:write('        BR2_PACKAGE_LUAJIT=y\n')
-   f:write('        BR2_PACKAGE_' .. ucname .. '=y\n')
+   f:write('        LINGMO_PACKAGE_LUAJIT=y\n')
+   f:write('        LINGMO_PACKAGE_' .. ucname .. '=y\n')
    f:write('        """\n')
    f:write('\n')
    f:write('    def test_run(self):\n')

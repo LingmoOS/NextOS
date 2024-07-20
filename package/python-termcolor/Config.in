@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_TERMCOLOR
+config LINGMO_PACKAGE_PYTHON_TERMCOLOR
 	bool "python-termcolor"
 	help
 	  ANSII Color formatting for output in terminal.

@@ -26,7 +26,7 @@ SHELLINABOX_CONF_OPTS = \
 
 # musl's implementation of utmpx is a dummy one, and some aspects of
 # it cause build failures in shellinabox
-ifeq ($(BR2_TOOLCHAIN_USES_MUSL),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_MUSL),y)
 SHELLINABOX_CONF_OPTS += --disable-utmp
 endif
 

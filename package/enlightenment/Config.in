@@ -1,25 +1,25 @@
-config BR2_PACKAGE_ENLIGHTENMENT
+config LINGMO_PACKAGE_ENLIGHTENMENT
 	bool "enlightenment"
-	depends on BR2_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS # efl svg -> librsvg
+	depends on LINGMO_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS # efl svg -> librsvg
 	# libevas-generic-loaders-svg -> librsvg -> glib2 / pango
-	depends on BR2_USE_WCHAR
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_USE_WCHAR
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	# libedbus -> dbus
 	# libedbus -> glib2, libevas
-	depends on BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
 	# libedbus -> dbus, efl libraries
-	depends on BR2_USE_MMU
-	depends on BR2_PACKAGE_EFL
-	depends on BR2_PACKAGE_HAS_UDEV # efl (eeze) -> libudev
-	depends on BR2_PACKAGE_XORG7
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_PACKAGE_EFL
+	depends on LINGMO_PACKAGE_HAS_UDEV # efl (eeze) -> libudev
+	depends on LINGMO_PACKAGE_XORG7
 	# libevas-generic-loaders-svg -> librsvg -> pango -> harfbuzz
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_9
-	select BR2_PACKAGE_EFL_X_XLIB
-	select BR2_PACKAGE_EFL_EEZE
-	select BR2_PACKAGE_EFL_JPEG # needed at runtime by enlightenment_start
-	select BR2_PACKAGE_EFL_SVG
-	select BR2_PACKAGE_XCB_UTIL_KEYSYMS
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9
+	select LINGMO_PACKAGE_EFL_X_XLIB
+	select LINGMO_PACKAGE_EFL_EEZE
+	select LINGMO_PACKAGE_EFL_JPEG # needed at runtime by enlightenment_start
+	select LINGMO_PACKAGE_EFL_SVG
+	select LINGMO_PACKAGE_XCB_UTIL_KEYSYMS
 	help
 	  Enlightenment, also known simply as E, is a stacking window
 	  manager for the X Window System which can be used alone or
@@ -30,9 +30,9 @@ config BR2_PACKAGE_ENLIGHTENMENT
 	  https://www.enlightenment.org/
 
 comment "enlightenment needs udev /dev management and a toolchain w/ wchar, C++, threads, gcc >= 4.9"
-	depends on BR2_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
-	depends on BR2_PACKAGE_EFL && BR2_PACKAGE_XORG7 && BR2_USE_MMU
-	depends on !BR2_USE_WCHAR || !BR2_TOOLCHAIN_HAS_THREADS || !BR2_INSTALL_LIBSTDCPP || \
-		!BR2_TOOLCHAIN_GCC_AT_LEAST_4_9 || \
-		!BR2_PACKAGE_HAS_UDEV
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4
+	depends on LINGMO_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
+	depends on LINGMO_PACKAGE_EFL && LINGMO_PACKAGE_XORG7 && LINGMO_USE_MMU
+	depends on !LINGMO_USE_WCHAR || !LINGMO_TOOLCHAIN_HAS_THREADS || !LINGMO_INSTALL_LIBSTDCPP || \
+		!LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9 || \
+		!LINGMO_PACKAGE_HAS_UDEV
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4

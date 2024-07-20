@@ -1,7 +1,7 @@
-config BR2_PACKAGE_LIBDBI_DRIVERS
+config LINGMO_PACKAGE_LIBDBI_DRIVERS
 	bool "libdbi-drivers"
-	depends on !BR2_STATIC_LIBS # libdbi
-	select BR2_PACKAGE_LIBDBI
+	depends on !LINGMO_STATIC_LIBS # libdbi
+	select LINGMO_PACKAGE_LIBDBI
 	help
 	  The libdbi-drivers project provides the
 	  database-specific drivers for the libdbi framework.
@@ -9,4 +9,4 @@ config BR2_PACKAGE_LIBDBI_DRIVERS
 	  http://libdbi-drivers.sourceforge.net
 
 comment "libdbi-drivers needs a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_STATIC_LIBS

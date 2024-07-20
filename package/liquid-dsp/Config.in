@@ -1,10 +1,10 @@
 comment "liquid-dsp requires a glibc or musl toolchain w/ dynamic library"
-	depends on !(BR2_TOOLCHAIN_USES_GLIBC || BR2_TOOLCHAIN_USES_MUSL) || BR2_STATIC_LIBS
+	depends on !(LINGMO_TOOLCHAIN_USES_GLIBC || LINGMO_TOOLCHAIN_USES_MUSL) || LINGMO_STATIC_LIBS
 
-config BR2_PACKAGE_LIQUID_DSP
+config LINGMO_PACKAGE_LIQUID_DSP
 	bool "liquid-dsp"
-	depends on BR2_TOOLCHAIN_USES_GLIBC || BR2_TOOLCHAIN_USES_MUSL
-	depends on !BR2_STATIC_LIBS
+	depends on LINGMO_TOOLCHAIN_USES_GLIBC || LINGMO_TOOLCHAIN_USES_MUSL
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  Liquid-DSP is a free and open-source signal processing
 	  library for software-defined radios written in C.  Its
@@ -14,9 +14,9 @@ config BR2_PACKAGE_LIQUID_DSP
 
 	  http://liquidsdr.org/
 
-if BR2_PACKAGE_LIQUID_DSP
+if LINGMO_PACKAGE_LIQUID_DSP
 
-config BR2_PACKAGE_LIQUID_DSP_FAST
+config LINGMO_PACKAGE_LIQUID_DSP_FAST
 	bool "optimize for speed over accuracy"
 	help
 	  Optimize for speed over accuracy.

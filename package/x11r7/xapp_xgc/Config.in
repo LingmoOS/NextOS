@@ -1,5 +1,5 @@
-config BR2_PACKAGE_XAPP_XGC
+config LINGMO_PACKAGE_XAPP_XGC
 	bool "xgc"
-	select BR2_PACKAGE_XLIB_LIBXAW
+	select LINGMO_PACKAGE_XLIB_LIBXAW
 	help
 	  X graphics demo

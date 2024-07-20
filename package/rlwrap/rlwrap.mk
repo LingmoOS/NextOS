@@ -11,19 +11,19 @@ RLWRAP_LICENSE_FILES = AUTHORS COPYING
 
 RLWRAP_DEPENDENCIES = readline
 
-ifeq ($(BR2_PACKAGE_RLWRAP_SPY_ON_READLINE),y)
+ifeq ($(LINGMO_PACKAGE_RLWRAP_SPY_ON_READLINE),y)
 RLWRAP_CONF_OPTS += --enable-spy-on-readline
 else
 RLWRAP_CONF_OPTS += --disable-spy-on-readline
 endif
 
-ifeq ($(BR2_PACKAGE_RLWRAP_HOMEGROWN_REDISPLAY),y)
+ifeq ($(LINGMO_PACKAGE_RLWRAP_HOMEGROWN_REDISPLAY),y)
 RLWRAP_CONF_OPTS += --enable-homegrown-redisplay
 else
 RLWRAP_CONF_OPTS += --disable-homegrown-redisplay
 endif
 
-ifeq ($(BR2_PACKAGE_RLWRAP_MULTIBYTE_AWARE),y)
+ifeq ($(LINGMO_PACKAGE_RLWRAP_MULTIBYTE_AWARE),y)
 RLWRAP_CONF_OPTS += --enable-multibyte-aware
 else
 RLWRAP_CONF_OPTS += --disable-multibyte-aware

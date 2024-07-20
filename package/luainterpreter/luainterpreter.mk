@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-LUAINTERPRETER_ABIVER = $(call qstrip,$(BR2_PACKAGE_LUAINTERPRETER_ABI_VERSION))
+LUAINTERPRETER_ABIVER = $(call qstrip,$(LINGMO_PACKAGE_LUAINTERPRETER_ABI_VERSION))
 
 # Lua packages often install documentation, clean that up globally
 define LUAINTERPRETER_REMOVE_DOC

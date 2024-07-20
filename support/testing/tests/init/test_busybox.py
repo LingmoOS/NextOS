@@ -5,7 +5,7 @@ from tests.init.base import InitSystemBase as InitSystemBase
 class InitSystemBusyboxBase(InitSystemBase):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        # BR2_TARGET_ROOTFS_TAR is not set
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def check_init(self):
@@ -15,8 +15,8 @@ class InitSystemBusyboxBase(InitSystemBase):
 class TestInitSystemBusyboxRo(InitSystemBusyboxBase):
     config = InitSystemBusyboxBase.config + \
         """
-        # BR2_TARGET_GENERIC_REMOUNT_ROOTFS_RW is not set
-        BR2_TARGET_ROOTFS_SQUASHFS=y
+        # LINGMO_TARGET_GENERIC_REMOUNT_ROOTFS_RW is not set
+        LINGMO_TARGET_ROOTFS_SQUASHFS=y
         """
 
     def test_run(self):
@@ -28,7 +28,7 @@ class TestInitSystemBusyboxRo(InitSystemBusyboxBase):
 class TestInitSystemBusyboxRw(InitSystemBusyboxBase):
     config = InitSystemBusyboxBase.config + \
         """
-        BR2_TARGET_ROOTFS_EXT2=y
+        LINGMO_TARGET_ROOTFS_EXT2=y
         """
 
     def test_run(self):
@@ -40,9 +40,9 @@ class TestInitSystemBusyboxRw(InitSystemBusyboxBase):
 class TestInitSystemBusyboxRoNet(InitSystemBusyboxBase):
     config = InitSystemBusyboxBase.config + \
         """
-        BR2_SYSTEM_DHCP="eth0"
-        # BR2_TARGET_GENERIC_REMOUNT_ROOTFS_RW is not set
-        BR2_TARGET_ROOTFS_SQUASHFS=y
+        LINGMO_SYSTEM_DHCP="eth0"
+        # LINGMO_TARGET_GENERIC_REMOUNT_ROOTFS_RW is not set
+        LINGMO_TARGET_ROOTFS_SQUASHFS=y
         """
 
     def test_run(self):
@@ -54,8 +54,8 @@ class TestInitSystemBusyboxRoNet(InitSystemBusyboxBase):
 class TestInitSystemBusyboxRwNet(InitSystemBusyboxBase):
     config = InitSystemBusyboxBase.config + \
         """
-        BR2_SYSTEM_DHCP="eth0"
-        BR2_TARGET_ROOTFS_EXT2=y
+        LINGMO_SYSTEM_DHCP="eth0"
+        LINGMO_TARGET_ROOTFS_EXT2=y
         """
 
     def test_run(self):

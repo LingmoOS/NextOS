@@ -12,7 +12,7 @@ LFT_LICENSE_FILES = COPYING
 LFT_CONF_OPTS = --with-pcap=$(STAGING_DIR)/usr
 LFT_MAKE_ENV = STRIP=true
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 LFT_CONF_OPTS += LIBS="`$(STAGING_DIR)/usr/bin/pcap-config --static --additional-libs`"
 endif
 

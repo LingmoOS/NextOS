@@ -1,18 +1,18 @@
-config BR2_PACKAGE_WOLFSSL_ASM_SUPPORTS
+config LINGMO_PACKAGE_WOLFSSL_ASM_SUPPORTS
 	bool
-	default y if BR2_aarch64
-	default y if (BR2_arm || BR2_armeb) && !BR2_ARM_CPU_ARMV4 # clz
-	default y if BR2_powerpc
-	default y if BR2_powerpc64 || BR2_powerpc64le
-	default y if BR2_mips64 && !BR2_MIPS_CPU_MIPS32R6
-	default y if BR2_mips64el && !BR2_MIPS_CPU_MIPS32R6
-	default y if BR2_mips || BR2_mipsel
-	default y if BR2_riscv && BR2_RISCV_ISA_RVM
-	default y if BR2_s390x
+	default y if LINGMO_aarch64
+	default y if (LINGMO_arm || LINGMO_armeb) && !LINGMO_ARM_CPU_ARMV4 # clz
+	default y if LINGMO_powerpc
+	default y if LINGMO_powerpc64 || LINGMO_powerpc64le
+	default y if LINGMO_mips64 && !LINGMO_MIPS_CPU_MIPS32R6
+	default y if LINGMO_mips64el && !LINGMO_MIPS_CPU_MIPS32R6
+	default y if LINGMO_mips || LINGMO_mipsel
+	default y if LINGMO_riscv && LINGMO_RISCV_ISA_RVM
+	default y if LINGMO_s390x
 
-config BR2_PACKAGE_WOLFSSL
+config LINGMO_PACKAGE_WOLFSSL
 	bool "wolfssl"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
 	help
 	  The wolfSSL embedded SSL library (formerly CyaSSL) is a
 	  lightweight, portable, C-language-based SSL/TLS library
@@ -21,18 +21,18 @@ config BR2_PACKAGE_WOLFSSL
 
 	  https://www.wolfssl.com/
 
-if BR2_PACKAGE_WOLFSSL
+if LINGMO_PACKAGE_WOLFSSL
 
-config BR2_PACKAGE_WOLFSSL_ALL
+config LINGMO_PACKAGE_WOLFSSL_ALL
 	bool "enable all features, except SSLv3"
-	depends on !BR2_STATIC_LIBS
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  Enable all wolfSSL features, except SSL version 3.0 support.
 
 comment "all features, except SSLv3 needs a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_STATIC_LIBS
 
-config BR2_PACKAGE_WOLFSSL_SSLV3
+config LINGMO_PACKAGE_WOLFSSL_SSLV3
 	bool "enable SSLv3"
 	help
 	  Enable SSL version 3.0 support.
@@ -40,4 +40,4 @@ config BR2_PACKAGE_WOLFSSL_SSLV3
 endif
 
 comment "wolfssl needs a toolchain w/ threads"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS

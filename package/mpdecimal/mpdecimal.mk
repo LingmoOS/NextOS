@@ -18,13 +18,13 @@ MPDECIMAL_MAKE_OPTS = MPD_PTHREAD=
 # available in musl/uclibc. So in this case, we tell mpdecimal to use
 # the generic 32 bits code, which is anyway the one used on ARM,
 # PowerPC, etc.
-ifeq ($(BR2_TOOLCHAIN_USES_GLIBC),)
-ifeq ($(BR2_i386),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_GLIBC),)
+ifeq ($(LINGMO_i386),y)
 MPDECIMAL_CONF_ENV += MACHINE=ansi32
 endif
 endif
 
-ifeq ($(BR2_INSTALL_LIBSTDCPP),y)
+ifeq ($(LINGMO_INSTALL_LIBSTDCPP),y)
 MPDECIMAL_CONF_OPTS += --enable-cxx
 else
 MPDECIMAL_CONF_OPTS += --disable-cxx

@@ -16,10 +16,10 @@ SYSKLOGD_CPE_ID_VALID = YES
 SYSKLOGD_CONF_OPTS = \
 	--bindir=/usr/bin \
 	--sbindir=/sbin \
-	--with-suspend-time=$(BR2_PACKAGE_SYSKLOGD_REMOTE_DELAY)
+	--with-suspend-time=$(LINGMO_PACKAGE_SYSKLOGD_REMOTE_DELAY)
 
 # Disable/Enable utilities
-ifeq ($(BR2_PACKAGE_SYSKLOGD_LOGGER),y)
+ifeq ($(LINGMO_PACKAGE_SYSKLOGD_LOGGER),y)
 SYSKLOGD_CONF_OPTS += --with-logger
 else
 SYSKLOGD_CONF_OPTS += --without-logger

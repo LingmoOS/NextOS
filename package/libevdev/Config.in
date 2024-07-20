@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBEVDEV
+config LINGMO_PACKAGE_LIBEVDEV
 	bool "libevdev"
 	help
 	  libevdev is a wrapper library for evdev devices

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LINUX_SYSCALL_SUPPORT
+config LINGMO_PACKAGE_LINUX_SYSCALL_SUPPORT
 	bool "linux-syscall-support (lss)"
 	help
 	  This project provides a header file that can be included into

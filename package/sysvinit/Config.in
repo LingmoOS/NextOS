@@ -1,8 +1,8 @@
-config BR2_PACKAGE_SYSVINIT
+config LINGMO_PACKAGE_SYSVINIT
 	bool "sysvinit"
-	depends on BR2_USE_MMU # fork()
-	depends on BR2_INIT_SYSV
-	depends on BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
+	depends on LINGMO_USE_MMU # fork()
+	depends on LINGMO_INIT_SYSV
+	depends on LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS
 	help
 	  System V style implementation of /sbin/init, parent of all
 	  processes

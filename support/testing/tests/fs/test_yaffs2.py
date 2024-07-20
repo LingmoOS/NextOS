@@ -7,7 +7,7 @@ class TestYaffs2(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         infra.basetest.MINIMAL_CONFIG + \
         """
-        BR2_TARGET_ROOTFS_YAFFS2=y
+        LINGMO_TARGET_ROOTFS_YAFFS2=y
         """
 
     def test_run(self):

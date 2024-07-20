@@ -23,11 +23,11 @@ FFTW_SINGLE_CFLAGS = $(FFTW_COMMON_CFLAGS)
 
 # x86 optimisations
 FFTW_SINGLE_CONF_OPTS += \
-	$(if $(BR2_X86_CPU_HAS_SSE),--enable,--disable)-sse \
-	$(if $(BR2_X86_CPU_HAS_SSE2),--enable,--disable)-sse2
+	$(if $(LINGMO_X86_CPU_HAS_SSE),--enable,--disable)-sse \
+	$(if $(LINGMO_X86_CPU_HAS_SSE2),--enable,--disable)-sse2
 
 # ARM optimisations
-ifeq ($(BR2_ARM_CPU_HAS_NEON):$(BR2_ARM_SOFT_FLOAT),y:)
+ifeq ($(LINGMO_ARM_CPU_HAS_NEON):$(LINGMO_ARM_SOFT_FLOAT),y:)
 FFTW_SINGLE_CONF_OPTS += --enable-neon
 FFTW_SINGLE_CFLAGS += -mfpu=neon
 else

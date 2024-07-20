@@ -1,14 +1,14 @@
-config BR2_PACKAGE_MMC_UTILS
+config LINGMO_PACKAGE_MMC_UTILS
 	bool "mmc-utils"
-	depends on BR2_TOOLCHAIN_HEADERS_AT_LEAST_4_4
+	depends on LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_4_4
 	help
 	  MMC utils
 
 	  https://git.kernel.org/pub/scm/utils/mmc/mmc-utils.git
 
-if BR2_PACKAGE_MMC_UTILS
+if LINGMO_PACKAGE_MMC_UTILS
 
-config BR2_PACKAGE_MMC_UTILS_ENABLE_DANGEROUS_COMMANDS
+config LINGMO_PACKAGE_MMC_UTILS_ENABLE_DANGEROUS_COMMANDS
 	bool "Enable dangerous commands"
 	help
 	   Enable support for dangerous commands in mmc-utils. mmc-utils
@@ -18,4 +18,4 @@ config BR2_PACKAGE_MMC_UTILS_ENABLE_DANGEROUS_COMMANDS
 endif
 
 comment "mmc-utils needs a toolchain w/ headers >= 4.4"
-	depends on !BR2_TOOLCHAIN_HEADERS_AT_LEAST_4_4
+	depends on !LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_4_4

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBDVBCSA
+config LINGMO_PACKAGE_LIBDVBCSA
 	bool "libdvbcsa"
 	help
 	  libdvbcsa is a free implementation of the DVB Common

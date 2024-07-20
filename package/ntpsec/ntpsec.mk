@@ -57,17 +57,17 @@ NTPSEC_CONF_OPTS = \
 	--disable-doc \
 	--disable-manpage
 
-ifeq ($(BR2_PACKAGE_NTPSEC_CLASSIC_MODE),y)
+ifeq ($(LINGMO_PACKAGE_NTPSEC_CLASSIC_MODE),y)
 NTPSEC_CONF_OPTS += --enable-classic-mode
 endif
 
 # no '--enable-nts' option available
-ifeq ($(BR2_PACKAGE_NTPSEC_NTS),)
+ifeq ($(LINGMO_PACKAGE_NTPSEC_NTS),)
 NTPSEC_CONF_OPTS += --disable-nts
 endif
 
 # refclocks are disabled by default, can only be enabled
-ifeq ($(BR2_PACKAGE_NTPSEC_REFCLOCK_ALL),y)
+ifeq ($(LINGMO_PACKAGE_NTPSEC_REFCLOCK_ALL),y)
 NTPSEC_DEPENDENCIES += pps-tools
 NTPSEC_CONF_OPTS += --refclock=all
 endif

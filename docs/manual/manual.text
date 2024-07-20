@@ -147,7 +147,7 @@ List of Examples
 
 ---------------------------------------------------------------------
 
-Buildroot ${BR2_VERSION%%-git*} manual generated on 2024-07-13
+Buildroot ${LINGMO_VERSION%%-git*} manual generated on 2024-07-13
 12:30:50 UTC from git revision e0a2687421
 
 The Buildroot manual is written by the Buildroot developers. It is
@@ -813,7 +813,7 @@ When using an external toolchain, Buildroot generates a wrapper
 program, that transparently passes the appropriate options (according
 to the configuration) to the external toolchain programs. In case you
 need to debug this wrapper to check exactly what arguments are
-passed, you can set the environment variable BR2_DEBUG_WRAPPER to
+passed, you can set the environment variable LINGMO_DEBUG_WRAPPER to
 either one of:
 
   * 0, empty or not set: no debug
@@ -843,7 +843,7 @@ different solutions to handle the /dev directory :
     device_table_dev.txt in the Buildroot source code. This file is
     processed when Buildroot generates the final root filesystem
     image, and the device files are therefore not visible in the
-    output/target directory. The BR2_ROOTFS_STATIC_DEVICE_TABLE
+    output/target directory. The LINGMO_ROOTFS_STATIC_DEVICE_TABLE
     option allows to change the default device table used by
     Buildroot, or to add an additional device table, so that
     additional device files are created by Buildroot during the
@@ -851,7 +851,7 @@ different solutions to handle the /dev directory :
     in your system, you can for example create a board/<yourcompany>/
     <yourproject>/device_table_dev.txt file that contains the
     description of your additional device files, and then you can set
-    BR2_ROOTFS_STATIC_DEVICE_TABLE to system/device_table_dev.txt
+    LINGMO_ROOTFS_STATIC_DEVICE_TABLE to system/device_table_dev.txt
     board/<yourcompany>/<yourproject>/device_table_dev.txt. For more
     details about the format of the device table file, see
     Chapter 25, Makedev syntax documentation.
@@ -920,7 +920,7 @@ can be chosen from System configuration, Init system:
 
   * The first solution is BusyBox. Amongst many programs, BusyBox has
     an implementation of a basic init program, which is sufficient
-    for most embedded systems. Enabling the BR2_INIT_BUSYBOX will
+    for most embedded systems. Enabling the LINGMO_INIT_BUSYBOX will
     ensure BusyBox will build and install its init program. This is
     the default solution in Buildroot. The BusyBox init program will
     read the /etc/inittab file at boot to know what to do. The syntax
@@ -974,7 +974,7 @@ BusyBox
 
     If you already have a BusyBox configuration file, you can
     directly specify this file in the Buildroot configuration, using
-    BR2_PACKAGE_BUSYBOX_CONFIG. Otherwise, Buildroot will start from
+    LINGMO_PACKAGE_BUSYBOX_CONFIG. Otherwise, Buildroot will start from
     a default BusyBox configuration file.
 
     To make subsequent changes to the configuration, use make
@@ -988,19 +988,19 @@ BusyBox
 uClibc
     Configuration of uClibc is done in the same way as for BusyBox.
     The configuration variable to specify an existing configuration
-    file is BR2_UCLIBC_CONFIG. The command to make subsequent changes
+    file is LINGMO_UCLIBC_CONFIG. The command to make subsequent changes
     is make uclibc-menuconfig.
 Linux kernel
 
     If you already have a kernel configuration file, you can directly
     specify this file in the Buildroot configuration, using
-    BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG.
+    LINGMO_LINUX_KERNEL_USE_CUSTOM_CONFIG.
 
     If you do not yet have a kernel configuration file, you can
     either start by specifying a defconfig in the Buildroot
-    configuration, using BR2_LINUX_KERNEL_USE_DEFCONFIG, or start by
+    configuration, using LINGMO_LINUX_KERNEL_USE_DEFCONFIG, or start by
     creating an empty file and specifying it as custom configuration
-    file, using BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG.
+    file, using LINGMO_LINUX_KERNEL_USE_CUSTOM_CONFIG.
 
     To make subsequent changes to the configuration, use make
     linux-menuconfig to open the Linux configuration editor.
@@ -1008,14 +1008,14 @@ Linux kernel
 Barebox
     Configuration of Barebox is done in the same way as for the Linux
     kernel. The corresponding configuration variables are
-    BR2_TARGET_BAREBOX_USE_CUSTOM_CONFIG and
-    BR2_TARGET_BAREBOX_USE_DEFCONFIG. To open the configuration
+    LINGMO_TARGET_BAREBOX_USE_CUSTOM_CONFIG and
+    LINGMO_TARGET_BAREBOX_USE_DEFCONFIG. To open the configuration
     editor, use make barebox-menuconfig.
 U-Boot
     Configuration of U-Boot (version 2015.04 or newer) is done in the
     same way as for the Linux kernel. The corresponding configuration
-    variables are BR2_TARGET_UBOOT_USE_CUSTOM_CONFIG and
-    BR2_TARGET_UBOOT_USE_DEFCONFIG. To open the configuration editor,
+    variables are LINGMO_TARGET_UBOOT_USE_CUSTOM_CONFIG and
+    LINGMO_TARGET_UBOOT_USE_DEFCONFIG. To open the configuration editor,
     use make uboot-menuconfig.
 
 Chapter 8. General Buildroot usage
@@ -1317,24 +1317,24 @@ passed to make or set in the environment:
     also be set from the configuration interface, so through the
     Buildroot .config file; this is the recommended way of setting
     it.
-  * BR2_CCACHE_DIR to override the directory where Buildroot stores
+  * LINGMO_CCACHE_DIR to override the directory where Buildroot stores
     the cached files when using ccache.
-  * BR2_DL_DIR to override the directory in which Buildroot stores/
+  * LINGMO_DL_DIR to override the directory in which Buildroot stores/
     retrieves downloaded files. Note that the Buildroot download
     directory can also be set from the configuration interface, so
     through the Buildroot .config file. See Section 8.13.4, “Location
     of downloaded packages” for more details on how you can set the
     download directory.
-  * BR2_GRAPH_ALT, if set and non-empty, to use an alternate
+  * LINGMO_GRAPH_ALT, if set and non-empty, to use an alternate
     color-scheme in build-time graphs
-  * BR2_GRAPH_OUT to set the filetype of generated graphs, either pdf
+  * LINGMO_GRAPH_OUT to set the filetype of generated graphs, either pdf
     (the default), or png.
-  * BR2_GRAPH_DEPS_OPTS to pass extra options to the dependency
+  * LINGMO_GRAPH_DEPS_OPTS to pass extra options to the dependency
     graph; see Section 8.9, “Graphing the dependencies between
     packages” for the accepted options
-  * BR2_GRAPH_DOT_OPTS is passed verbatim as options to the dot
+  * LINGMO_GRAPH_DOT_OPTS is passed verbatim as options to the dot
     utility to draw the dependency graph.
-  * BR2_GRAPH_SIZE_OPTS to pass extra options to the size graph; see
+  * LINGMO_GRAPH_SIZE_OPTS to pass extra options to the size graph; see
     Section 8.11, “Graphing the filesystem size contribution of
     packages” for the acepted options
 
@@ -1440,14 +1440,14 @@ use this feature. In most distributions, it is available as the
 graphviz package.
 
 By default, the dependency graphs are generated in the PDF format.
-However, by passing the BR2_GRAPH_OUT environment variable, you can
+However, by passing the LINGMO_GRAPH_OUT environment variable, you can
 switch to other output formats, such as PNG, PostScript or SVG. All
 formats supported by the -T option of the dot tool are supported.
 
-BR2_GRAPH_OUT=svg make graph-depends
+LINGMO_GRAPH_OUT=svg make graph-depends
 
 The graph-depends behaviour can be controlled by setting options in
-the BR2_GRAPH_DEPS_OPTS environment variable. The accepted options
+the LINGMO_GRAPH_DEPS_OPTS environment variable. The accepted options
 are:
 
   * --depth N, -d N, to limit the dependency depth to N levels. The
@@ -1465,7 +1465,7 @@ are:
     root package (R), the target packages (T) and the host packages
     (H). Defaults to: lightblue,grey,gainsboro
 
-BR2_GRAPH_DEPS_OPTS='-d 3 --no-transitive --colors=red,green,blue' make graph-depends
+LINGMO_GRAPH_DEPS_OPTS='-d 3 --no-transitive --colors=red,green,blue' make graph-depends
 
 8.10. Graphing the build duration
 
@@ -1497,10 +1497,10 @@ distributions), and also the argparse module if you’re using a Python
 version older than 2.7 (python-argparse on most distributions).
 
 By default, the output format for the graph is PDF, but a different
-format can be selected using the BR2_GRAPH_OUT environment variable.
+format can be selected using the LINGMO_GRAPH_OUT environment variable.
 The only other format supported is PNG:
 
-BR2_GRAPH_OUT=png make graph-build
+LINGMO_GRAPH_OUT=png make graph-build
 
 8.11. Graphing the filesystem size contribution of packages
 
@@ -1530,13 +1530,13 @@ installed (python-matplotlib on most distributions), and also the
 argparse module if you’re using a Python version older than 2.7
 (python-argparse on most distributions).
 
-Just like for the duration graph, a BR2_GRAPH_OUT environment
+Just like for the duration graph, a LINGMO_GRAPH_OUT environment
 variable is supported to adjust the output file format. See
 Section 8.9, “Graphing the dependencies between packages” for details
 about this environment variable.
 
 Additionally, one may set the environment variable
-BR2_GRAPH_SIZE_OPTS to further control the generated graph. Accepted
+LINGMO_GRAPH_SIZE_OPTS to further control the generated graph. Accepted
 options are:
 
   * --size-limit X, -l X, will group all packages which individual
@@ -1572,7 +1572,7 @@ Buildroot has always been capable of using parallel build on a per
 package basis: each package is built by Buildroot using make -jN (or
 the equivalent invocation for non-make-based build systems). The
 level of parallelism is by default number of CPUs + 1, but it can be
-adjusted using the BR2_JLEVEL configuration option.
+adjusted using the LINGMO_JLEVEL configuration option.
 
 Until 2020.02, Buildroot was however building packages in a serial
 fashion: each package was built one after the other, without
@@ -1585,11 +1585,11 @@ cases.
 
 In order to use top-level parallel build, one must:
 
- 1. Enable the option BR2_PER_PACKAGE_DIRECTORIES in the Buildroot
+ 1. Enable the option LINGMO_PER_PACKAGE_DIRECTORIES in the Buildroot
     configuration
  2. Use make -jN when starting the Buildroot build
 
-Internally, the BR2_PER_PACKAGE_DIRECTORIES will enable a mechanism
+Internally, the LINGMO_PER_PACKAGE_DIRECTORIES will enable a mechanism
 called per-package directories, which will have the following
 effects:
 
@@ -1625,7 +1625,7 @@ development files of all selected packages, as an SDK, by running the
 command make sdk. This generates a tarball of the content of the host
 directory output/host/, named <TARGET-TUPLE>_sdk-buildroot.tar.gz
 (which can be overriden by setting the environment variable
-BR2_SDK_PREFIX) and located in the output directory output/images/.
+LINGMO_SDK_PREFIX) and located in the output directory output/images/.
 
 This tarball can then be distributed to application developers, when
 they want to develop their applications that are not (yet) packaged
@@ -1642,7 +1642,7 @@ you to just prepare the SDK with make prepare-sdk without actually
 generating a tarball.
 
 For your convenience, by selecting the option
-BR2_PACKAGE_HOST_ENVIRONMENT_SETUP, you can get a environment-setup
+LINGMO_PACKAGE_HOST_ENVIRONMENT_SETUP, you can get a environment-setup
 script installed in output/host/ and therefore in your SDK. This
 script can be sourced with . your/sdk/path/environment-setup to
 export a number of environment variables that will help cross-compile
@@ -1663,12 +1663,12 @@ control the execution of the program.
 To achieve this:
 
   * If you are using an internal toolchain (built by Buildroot), you
-    must enable BR2_PACKAGE_HOST_GDB, BR2_PACKAGE_GDB and
-    BR2_PACKAGE_GDB_SERVER. This ensures that both the cross gdb and
+    must enable LINGMO_PACKAGE_HOST_GDB, LINGMO_PACKAGE_GDB and
+    LINGMO_PACKAGE_GDB_SERVER. This ensures that both the cross gdb and
     gdbserver get built, and that gdbserver gets installed to your
     target.
   * If you are using an external toolchain, you should enable
-    BR2_TOOLCHAIN_EXTERNAL_GDB_SERVER_COPY, which will copy the
+    LINGMO_TOOLCHAIN_EXTERNAL_GDB_SERVER_COPY, which will copy the
     gdbserver included with the external toolchain to the target. If
     your external toolchain does not have a cross gdb or gdbserver,
     it is also possible to let Buildroot build them, by enabling the
@@ -1712,7 +1712,7 @@ ccache support is integrated in Buildroot. You just have to enable
 Enable compiler cache in Build options. This will automatically build
 ccache and use it for every host and target compilation.
 
-The cache is located in the directory defined by the BR2_CCACHE_DIR
+The cache is located in the directory defined by the LINGMO_CCACHE_DIR
 configuration option, which defaults to $HOME/.buildroot-ccache. This
 default location is outside of Buildroot output directory so that it
 can be shared by separate Buildroot builds. If you want to get rid of
@@ -1737,7 +1737,7 @@ staging directory. Because of this, building in a different output
 directory would lead to many cache misses.
 
 To avoid this issue, buildroot has the Use relative paths option
-(BR2_CCACHE_USE_BASEDIR). This will rewrite all absolute paths that
+(LINGMO_CCACHE_USE_BASEDIR). This will rewrite all absolute paths that
 point inside the output directory into relative paths. Thus, changing
 the output directory no longer leads to cache misses.
 
@@ -1751,13 +1751,13 @@ directories" [https://ccache.samba.org/manual.html#
 _compiling_in_different_directories] for more details about this
 rewriting of absolute paths.
 
-When ccache is enabled in Buildroot using the BR2_CCACHE=y option:
+When ccache is enabled in Buildroot using the LINGMO_CCACHE=y option:
 
   * ccache is used during the Buildroot build itself
   * ccache is not used when building outside of Buildroot, for
     example when directly calling the cross-compiler or using the SDK
 
-One can override this behavior using the BR2_USE_CCACHE environment
+One can override this behavior using the LINGMO_USE_CCACHE environment
 variable: when set to 1, usage of ccache is enabled (default during
 the Buildroot build), when unset or set to a value different from 1,
 usage of ccache is disabled.
@@ -1765,7 +1765,7 @@ usage of ccache is disabled.
 8.13.4. Location of downloaded packages
 
 The various tarballs that are downloaded by Buildroot are all stored
-in BR2_DL_DIR, which by default is the dl directory. If you want to
+in LINGMO_DL_DIR, which by default is the dl directory. If you want to
 keep a complete version of Buildroot which is known to be working
 with the associated tarballs, you can make a copy of this directory.
 This will allow you to regenerate the toolchain and the target
@@ -1773,15 +1773,15 @@ filesystem with exactly the same versions.
 
 If you maintain several Buildroot trees, it might be better to have a
 shared download location. This can be achieved by pointing the
-BR2_DL_DIR environment variable to a directory. If this is set, then
-the value of BR2_DL_DIR in the Buildroot configuration is overridden.
+LINGMO_DL_DIR environment variable to a directory. If this is set, then
+the value of LINGMO_DL_DIR in the Buildroot configuration is overridden.
 The following line should be added to <~/.bashrc>.
 
- export BR2_DL_DIR=<shared download location>
+ export LINGMO_DL_DIR=<shared download location>
 
 The download location can also be set in the .config file, with the
-BR2_DL_DIR option. Unlike most options in the .config file, this
-value is overridden by the BR2_DL_DIR environment variable.
+LINGMO_DL_DIR option. Unlike most options in the .config file, this
+value is overridden by the LINGMO_DL_DIR environment variable.
 
 8.13.5. Package-specific make targets
 
@@ -1911,7 +1911,7 @@ file, which allows the user to tell Buildroot the location of the
 source for certain packages.
 
 The default location of the override file is $(CONFIG_DIR)/local.mk,
-as defined by the BR2_PACKAGE_OVERRIDE_FILE configuration option. $
+as defined by the LINGMO_PACKAGE_OVERRIDE_FILE configuration option. $
 (CONFIG_DIR) is the location of the Buildroot .config file, so
 local.mk by default lives side-by-side with the .config file, which
 means:
@@ -1922,7 +1922,7 @@ means:
     = is used)
 
 If a different location than these defaults is required, it can be
-specified through the BR2_PACKAGE_OVERRIDE_FILE configuration option.
+specified through the LINGMO_PACKAGE_OVERRIDE_FILE configuration option.
 
 In this override file, Buildroot expects to find lines of the form:
 
@@ -1998,20 +1998,20 @@ Typical actions you may need to perform for a given project are:
   * customizing the generated target filesystem
 
       + adding or overwriting files on the target filesystem (using
-        BR2_ROOTFS_OVERLAY)
+        LINGMO_ROOTFS_OVERLAY)
       + modifying or deleting files on the target filesystem (using
-        BR2_ROOTFS_POST_BUILD_SCRIPT)
+        LINGMO_ROOTFS_POST_BUILD_SCRIPT)
       + running arbitrary commands prior to generating the filesystem
-        image (using BR2_ROOTFS_POST_BUILD_SCRIPT)
+        image (using LINGMO_ROOTFS_POST_BUILD_SCRIPT)
       + setting file permissions and ownership (using
-        BR2_ROOTFS_DEVICE_TABLE)
+        LINGMO_ROOTFS_DEVICE_TABLE)
       + adding custom devices nodes (using
-        BR2_ROOTFS_STATIC_DEVICE_TABLE)
-  * adding custom user accounts (using BR2_ROOTFS_USERS_TABLES)
+        LINGMO_ROOTFS_STATIC_DEVICE_TABLE)
+  * adding custom user accounts (using LINGMO_ROOTFS_USERS_TABLES)
   * running arbitrary commands after generating the filesystem image
-    (using BR2_ROOTFS_POST_IMAGE_SCRIPT)
+    (using LINGMO_ROOTFS_POST_IMAGE_SCRIPT)
   * adding project-specific patches to some packages (using
-    BR2_GLOBAL_PATCH_DIR)
+    LINGMO_GLOBAL_PATCH_DIR)
   * adding project-specific packages
 
 An important note regarding such project-specific customizations:
@@ -2123,10 +2123,10 @@ layers common and fooboard is:
             +-- patches/
                 +-- ...
 
-For example, if the user has the BR2_GLOBAL_PATCH_DIR configuration
+For example, if the user has the LINGMO_GLOBAL_PATCH_DIR configuration
 option set as:
 
-BR2_GLOBAL_PATCH_DIR="board/<company>/common/patches board/<company>/fooboard/patches"
+LINGMO_GLOBAL_PATCH_DIR="board/<company>/common/patches board/<company>/fooboard/patches"
 
 then first the patches from the common layer would be applied,
 followed by the patches from the fooboard layer.
@@ -2149,11 +2149,11 @@ locations:
     tree.
 
 One can tell Buildroot to use one or more br2-external trees by
-setting the BR2_EXTERNAL make variable set to the path(s) of the
+setting the LINGMO_EXTERNAL make variable set to the path(s) of the
 br2-external tree(s) to use. It can be passed to any Buildroot make
 invocation. It is automatically saved in the hidden .br2-external.mk
 file in the output directory. Thanks to this, there is no need to
-pass BR2_EXTERNAL at every make invocation. It can however be changed
+pass LINGMO_EXTERNAL at every make invocation. It can however be changed
 at any time by passing a new value, and can be removed by passing an
 empty value.
 
@@ -2169,7 +2169,7 @@ so.
 
 Some examples:
 
-buildroot/ $ make BR2_EXTERNAL=/path/to/foo menuconfig
+buildroot/ $ make LINGMO_EXTERNAL=/path/to/foo menuconfig
 
 From now on, definitions from the /path/to/foo br2-external tree will
 be used:
@@ -2179,15 +2179,15 @@ buildroot/ $ make legal-info
 
 We can switch to another br2-external tree at any time:
 
-buildroot/ $ make BR2_EXTERNAL=/where/we/have/bar xconfig
+buildroot/ $ make LINGMO_EXTERNAL=/where/we/have/bar xconfig
 
 We can also use multiple br2-external trees:
 
-buildroot/ $ make BR2_EXTERNAL=/path/to/foo:/where/we/have/bar menuconfig
+buildroot/ $ make LINGMO_EXTERNAL=/path/to/foo:/where/we/have/bar menuconfig
 
 Or disable the usage of any br2-external tree:
 
-buildroot/ $ make BR2_EXTERNAL= xconfig
+buildroot/ $ make LINGMO_EXTERNAL= xconfig
 
 9.2.1. Layout of a br2-external tree
 
@@ -2218,7 +2218,7 @@ recognised:
   * name, mandatory, defines the name for that br2-external tree.
     That name must only use ASCII characters in the set [A-Za-z0-9_];
     any other character is forbidden. Buildroot sets the variable
-    BR2_EXTERNAL_$(NAME)_PATH to the absolute path of the
+    LINGMO_EXTERNAL_$(NAME)_PATH to the absolute path of the
     br2-external tree, so that you can use it to refer to your
     br2-external tree. This variable is available both in Kconfig, so
     you can use it to source your Kconfig files (see below) and in
@@ -2242,19 +2242,19 @@ recognised:
     about a br2-external tree (e.g. above the list of defconfig
     files, or as the prompt in the menuconfig); as such, it should
     relatively brief (40 chars is probably a good upper limit). The
-    description is available in the BR2_EXTERNAL_$(NAME)_DESC
+    description is available in the LINGMO_EXTERNAL_$(NAME)_DESC
     variable.
 
-Examples of names and the corresponding BR2_EXTERNAL_$(NAME)_PATH
+Examples of names and the corresponding LINGMO_EXTERNAL_$(NAME)_PATH
 variables:
 
-  * FOO → BR2_EXTERNAL_FOO_PATH
-  * BAR_42 → BR2_EXTERNAL_BAR_42_PATH
+  * FOO → LINGMO_EXTERNAL_FOO_PATH
+  * BAR_42 → LINGMO_EXTERNAL_BAR_42_PATH
 
 In the following examples, it is assumed the name to be set to
 BAR_42.
 
-Note: Both BR2_EXTERNAL_$(NAME)_PATH and BR2_EXTERNAL_$(NAME)_DESC
+Note: Both LINGMO_EXTERNAL_$(NAME)_PATH and LINGMO_EXTERNAL_$(NAME)_DESC
 are available in the Kconfig files and the Makefiles. They are also
 exported in the environment so are available in post-build,
 post-image and in-fakeroot scripts.
@@ -2274,15 +2274,15 @@ the makefile logic.
 The main usage of this is to store package recipes. The recommended
 way to do this is to write a Config.in file that looks like:
 
-source "$BR2_EXTERNAL_BAR_42_PATH/package/package1/Config.in"
-source "$BR2_EXTERNAL_BAR_42_PATH/package/package2/Config.in"
+source "$LINGMO_EXTERNAL_BAR_42_PATH/package/package1/Config.in"
+source "$LINGMO_EXTERNAL_BAR_42_PATH/package/package2/Config.in"
 
 Then, have an external.mk file that looks like:
 
-include $(sort $(wildcard $(BR2_EXTERNAL_BAR_42_PATH)/package/*/*.mk))
+include $(sort $(wildcard $(LINGMO_EXTERNAL_BAR_42_PATH)/package/*/*.mk))
 
-And then in $(BR2_EXTERNAL_BAR_42_PATH)/package/package1 and $
-(BR2_EXTERNAL_BAR_42_PATH)/package/package2 create normal Buildroot
+And then in $(LINGMO_EXTERNAL_BAR_42_PATH)/package/package1 and $
+(LINGMO_EXTERNAL_BAR_42_PATH)/package/package2 create normal Buildroot
 package recipes, as explained in Chapter 18, Adding new packages to
 Buildroot. If you prefer, you can also group the packages in
 subdirectories called <boardname> and adapt the above paths
@@ -2332,14 +2332,14 @@ providing a set of files that define those alternatives:
 One can store all the board-specific configuration files there, such
 as the kernel configuration, the root filesystem overlay, or any
 other configuration file for which Buildroot allows to set the
-location (by using the BR2_EXTERNAL_$(NAME)_PATH variable). For
+location (by using the LINGMO_EXTERNAL_$(NAME)_PATH variable). For
 example, you could set the paths to a global patch directory, to a
 rootfs overlay and to the kernel configuration file as follows (e.g.
 by running make menuconfig and filling in these options):
 
-BR2_GLOBAL_PATCH_DIR=$(BR2_EXTERNAL_BAR_42_PATH)/patches/
-BR2_ROOTFS_OVERLAY=$(BR2_EXTERNAL_BAR_42_PATH)/board/<boardname>/overlay/
-BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE=$(BR2_EXTERNAL_BAR_42_PATH)/board/<boardname>/kernel.config
+LINGMO_GLOBAL_PATCH_DIR=$(LINGMO_EXTERNAL_BAR_42_PATH)/patches/
+LINGMO_ROOTFS_OVERLAY=$(LINGMO_EXTERNAL_BAR_42_PATH)/board/<boardname>/overlay/
+LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE=$(LINGMO_EXTERNAL_BAR_42_PATH)/board/<boardname>/kernel.config
 
 9.2.1.6. Additional Linux kernel extensions
 
@@ -2361,10 +2361,10 @@ the sake of illustration, of course):
   |     `----
   |
   |- Config.in
-  |     |source "$BR2_EXTERNAL_BAR_42_PATH/toolchain/toolchain-external-mine/Config.in.options"
-  |     |source "$BR2_EXTERNAL_BAR_42_PATH/package/pkg-1/Config.in"
-  |     |source "$BR2_EXTERNAL_BAR_42_PATH/package/pkg-2/Config.in"
-  |     |source "$BR2_EXTERNAL_BAR_42_PATH/package/my-jpeg/Config.in"
+  |     |source "$LINGMO_EXTERNAL_BAR_42_PATH/toolchain/toolchain-external-mine/Config.in.options"
+  |     |source "$LINGMO_EXTERNAL_BAR_42_PATH/package/pkg-1/Config.in"
+  |     |source "$LINGMO_EXTERNAL_BAR_42_PATH/package/pkg-2/Config.in"
+  |     |source "$LINGMO_EXTERNAL_BAR_42_PATH/package/my-jpeg/Config.in"
   |     |
   |     |config BAR_42_FLASH_ADDR
   |     |    hex "my-board flash address"
@@ -2372,17 +2372,17 @@ the sake of illustration, of course):
   |     `----
   |
   |- external.mk
-  |     |include $(sort $(wildcard $(BR2_EXTERNAL_BAR_42_PATH)/package/*/*.mk))
-  |     |include $(sort $(wildcard $(BR2_EXTERNAL_BAR_42_PATH)/toolchain/*/*.mk))
+  |     |include $(sort $(wildcard $(LINGMO_EXTERNAL_BAR_42_PATH)/package/*/*.mk))
+  |     |include $(sort $(wildcard $(LINGMO_EXTERNAL_BAR_42_PATH)/toolchain/*/*.mk))
   |     |
   |     |flash-my-board:
-  |     |    $(BR2_EXTERNAL_BAR_42_PATH)/board/my-board/flash-image \
+  |     |    $(LINGMO_EXTERNAL_BAR_42_PATH)/board/my-board/flash-image \
   |     |        --image $(BINARIES_DIR)/image.bin \
   |     |        --address $(BAR_42_FLASH_ADDR)
   |     `----
   |
   |- package/pkg-1/Config.in
-  |     |config BR2_PACKAGE_PKG_1
+  |     |config LINGMO_PACKAGE_PKG_1
   |     |    bool "pkg-1"
   |     |    help
   |     |      Some help about pkg-1
@@ -2407,12 +2407,12 @@ the sake of illustration, of course):
   |- package/pkg-2/pkg-2.mk
   |
   |- provides/jpeg.in
-  |     |config BR2_PACKAGE_MY_JPEG
+  |     |config LINGMO_PACKAGE_MY_JPEG
   |     |    bool "my-jpeg"
   |     `----
   |- package/my-jpeg/Config.in
-  |     |config BR2_PACKAGE_PROVIDES_JPEG
-  |     |    default "my-jpeg" if BR2_PACKAGE_MY_JPEG
+  |     |config LINGMO_PACKAGE_PROVIDES_JPEG
+  |     |    default "my-jpeg" if LINGMO_PACKAGE_MY_JPEG
   |     `----
   |- package/my-jpeg/my-jpeg.mk
   |     |# This is a normal package .mk file
@@ -2423,24 +2423,24 @@ the sake of illustration, of course):
   |     `----
   |
   |- provides/init.in
-  |     |config BR2_INIT_MINE
+  |     |config LINGMO_INIT_MINE
   |     |    bool "my custom init"
-  |     |    select BR2_PACKAGE_MY_INIT
-  |     |    select BR2_PACKAGE_SKELETON_INIT_MINE if BR2_ROOTFS_SKELETON_DEFAULT
+  |     |    select LINGMO_PACKAGE_MY_INIT
+  |     |    select LINGMO_PACKAGE_SKELETON_INIT_MINE if LINGMO_ROOTFS_SKELETON_DEFAULT
   |     `----
   |
   |- provides/skeleton.in
-  |     |config BR2_ROOTFS_SKELETON_MINE
+  |     |config LINGMO_ROOTFS_SKELETON_MINE
   |     |    bool "my custom skeleton"
-  |     |    select BR2_PACKAGE_SKELETON_MINE
+  |     |    select LINGMO_PACKAGE_SKELETON_MINE
   |     `----
   |- package/skeleton-mine/Config.in
-  |     |config BR2_PACKAGE_SKELETON_MINE
+  |     |config LINGMO_PACKAGE_SKELETON_MINE
   |     |    bool
-  |     |    select BR2_PACKAGE_HAS_SKELETON
+  |     |    select LINGMO_PACKAGE_HAS_SKELETON
   |     |
-  |     |config BR2_PACKAGE_PROVIDES_SKELETON
-  |     |    default "skeleton-mine" if BR2_PACKAGE_SKELETON_MINE
+  |     |config LINGMO_PACKAGE_PROVIDES_SKELETON
+  |     |    default "skeleton-mine" if LINGMO_PACKAGE_SKELETON_MINE
   |     `----
   |- package/skeleton-mine/skeleton-mine.mk
   |     |SKELETON_MINE_ADD_TOOLCHAIN_DEPENDENCY = NO
@@ -2451,16 +2451,16 @@ the sake of illustration, of course):
   |     `----
   |
   |- provides/toolchains.in
-  |     |config BR2_TOOLCHAIN_EXTERNAL_MINE
+  |     |config LINGMO_TOOLCHAIN_EXTERNAL_MINE
   |     |    bool "my custom toolchain"
-  |     |    depends on BR2_some_arch
-  |     |    select BR2_INSTALL_LIBSTDCPP
+  |     |    depends on LINGMO_some_arch
+  |     |    select LINGMO_INSTALL_LIBSTDCPP
   |     `----
   |- toolchain/toolchain-external-mine/Config.in.options
-  |     |if BR2_TOOLCHAIN_EXTERNAL_MINE
-  |     |config BR2_TOOLCHAIN_EXTERNAL_PREFIX
+  |     |if LINGMO_TOOLCHAIN_EXTERNAL_MINE
+  |     |config LINGMO_TOOLCHAIN_EXTERNAL_PREFIX
   |     |    default "arch-mine-linux-gnu"
-  |     |config BR2_PACKAGE_PROVIDES_TOOLCHAIN_EXTERNAL
+  |     |config LINGMO_PACKAGE_PROVIDES_TOOLCHAIN_EXTERNAL
   |     |    default "toolchain-external-mine"
   |     |endif
   |     `----
@@ -2471,7 +2471,7 @@ the sake of illustration, of course):
   |     `----
   |
   |- linux/Config.ext.in
-  |     |config BR2_LINUX_KERNEL_EXT_EXAMPLE_DRIVER
+  |     |config LINGMO_LINUX_KERNEL_EXT_EXAMPLE_DRIVER
   |     |    bool "example-external-driver"
   |     |    help
   |     |      Example external driver
@@ -2479,10 +2479,10 @@ the sake of illustration, of course):
   |- linux/linux-ext-example-driver.mk
   |
   |- configs/my-board_defconfig
-  |     |BR2_GLOBAL_PATCH_DIR="$(BR2_EXTERNAL_BAR_42_PATH)/patches/"
-  |     |BR2_ROOTFS_OVERLAY="$(BR2_EXTERNAL_BAR_42_PATH)/board/my-board/overlay/"
-  |     |BR2_ROOTFS_POST_IMAGE_SCRIPT="$(BR2_EXTERNAL_BAR_42_PATH)/board/my-board/post-image.sh"
-  |     |BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE="$(BR2_EXTERNAL_BAR_42_PATH)/board/my-board/kernel.config"
+  |     |LINGMO_GLOBAL_PATCH_DIR="$(LINGMO_EXTERNAL_BAR_42_PATH)/patches/"
+  |     |LINGMO_ROOTFS_OVERLAY="$(LINGMO_EXTERNAL_BAR_42_PATH)/board/my-board/overlay/"
+  |     |LINGMO_ROOTFS_POST_IMAGE_SCRIPT="$(LINGMO_EXTERNAL_BAR_42_PATH)/board/my-board/post-image.sh"
+  |     |LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE="$(LINGMO_EXTERNAL_BAR_42_PATH)/board/my-board/kernel.config"
   |     `----
   |
   |- patches/linux/0001-some-change.patch
@@ -2561,8 +2561,8 @@ savedefconfig.
 This strips the Buildroot configuration down by removing
 configuration options that are at their default value. The result is
 stored in a file called defconfig. If you want to save it in another
-place, change the BR2_DEFCONFIG option in the Buildroot configuration
-itself, or call make with make savedefconfig BR2_DEFCONFIG=
+place, change the LINGMO_DEFCONFIG option in the Buildroot configuration
+itself, or call make with make savedefconfig LINGMO_DEFCONFIG=
 <path-to-defconfig>.
 
 The recommended place to store this defconfig is configs/<boardname>
@@ -2571,7 +2571,7 @@ be listed in make list-defconfigs and can be set again by running
 make <boardname>_defconfig.
 
 Alternatively, you can copy the file to any other place and rebuild
-with make defconfig BR2_DEFCONFIG=<path-to-defconfig-file>.
+with make defconfig LINGMO_DEFCONFIG=<path-to-defconfig-file>.
 
 9.4. Storing the configuration of other components
 
@@ -2579,7 +2579,7 @@ The configuration files for BusyBox, the Linux kernel, Barebox,
 U-Boot and uClibc should be stored as well if changed. For each of
 these components, a Buildroot configuration option exists to point to
 an input configuration file, e.g.
-BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE. To store their configuration,
+LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE. To store their configuration,
 set these configuration options to a path where you want to save the
 configuration files, and then use the helper targets described below
 to actually store the configuration.
@@ -2589,7 +2589,7 @@ recommended path to store these configuration files is board/
 <company>/<boardname>/foo.config.
 
 Make sure that you create a configuration file before changing the
-BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE etc. options. Otherwise,
+LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE etc. options. Otherwise,
 Buildroot will try to access this config file, which doesn’t exist
 yet, and will fail. You can create the configuration file by running
 make linux-menuconfig etc.
@@ -2598,21 +2598,21 @@ Buildroot provides a few helper targets to make the saving of
 configuration files easier.
 
   * make linux-update-defconfig saves the linux configuration to the
-    path specified by BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE. It
+    path specified by LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE. It
     simplifies the config file by removing default values. However,
     this only works with kernels starting from 2.6.33. For earlier
     kernels, use make linux-update-config.
   * make busybox-update-config saves the busybox configuration to the
-    path specified by BR2_PACKAGE_BUSYBOX_CONFIG.
+    path specified by LINGMO_PACKAGE_BUSYBOX_CONFIG.
   * make uclibc-update-config saves the uClibc configuration to the
-    path specified by BR2_UCLIBC_CONFIG.
+    path specified by LINGMO_UCLIBC_CONFIG.
   * make barebox-update-defconfig saves the barebox configuration to
-    the path specified by BR2_TARGET_BAREBOX_CUSTOM_CONFIG_FILE.
+    the path specified by LINGMO_TARGET_BAREBOX_CUSTOM_CONFIG_FILE.
   * make uboot-update-defconfig saves the U-Boot configuration to the
-    path specified by BR2_TARGET_UBOOT_CUSTOM_CONFIG_FILE.
+    path specified by LINGMO_TARGET_UBOOT_CUSTOM_CONFIG_FILE.
   * For at91bootstrap3, no helper exists so you have to copy the
     config file manually to
-    BR2_TARGET_AT91BOOTSTRAP3_CUSTOM_CONFIG_FILE.
+    LINGMO_TARGET_AT91BOOTSTRAP3_CUSTOM_CONFIG_FILE.
 
 9.5. Customizing the generated target filesystem
 
@@ -2622,11 +2622,11 @@ few other ways to customize the resulting target filesystem.
 The two recommended methods, which can co-exist, are root filesystem
 overlay(s) and post build script(s).
 
-Root filesystem overlays (BR2_ROOTFS_OVERLAY)
+Root filesystem overlays (LINGMO_ROOTFS_OVERLAY)
 
     A filesystem overlay is a tree of files that is copied directly
     over the target filesystem after it has been built. To enable
-    this feature, set config option BR2_ROOTFS_OVERLAY (in the System
+    this feature, set config option LINGMO_ROOTFS_OVERLAY (in the System
     configuration menu) to the root of the overlay. You can even
     specify multiple overlays, space-separated. If you specify a
     relative path, it will be relative to the root of the Buildroot
@@ -2634,7 +2634,7 @@ Root filesystem overlays (BR2_ROOTFS_OVERLAY)
     .svn, .hg, etc., files called .empty and files ending in ~ are
     excluded from the copy.
 
-    When BR2_ROOTFS_MERGED_USR is enabled, then the overlay must not
+    When LINGMO_ROOTFS_MERGED_USR is enabled, then the overlay must not
     contain the /bin, /lib or /sbin directories, as Buildroot will
     create them as symbolic links to the relevant folders in /usr. In
     such a situation, should the overlay have any programs or
@@ -2645,13 +2645,13 @@ Root filesystem overlays (BR2_ROOTFS_OVERLAY)
     recommended path for this overlay is board/<company>/<boardname>/
     rootfs-overlay.
 
-Post-build scripts (BR2_ROOTFS_POST_BUILD_SCRIPT)
+Post-build scripts (LINGMO_ROOTFS_POST_BUILD_SCRIPT)
 
     Post-build scripts are shell scripts called after Buildroot
     builds all the selected software, but before the rootfs images
     are assembled. To enable this feature, specify a space-separated
     list of post-build scripts in config option
-    BR2_ROOTFS_POST_BUILD_SCRIPT (in the System configuration menu).
+    LINGMO_ROOTFS_POST_BUILD_SCRIPT (in the System configuration menu).
     If you specify a relative path, it will be relative to the root
     of the Buildroot tree.
 
@@ -2668,14 +2668,14 @@ Post-build scripts (BR2_ROOTFS_POST_BUILD_SCRIPT)
     The post-build scripts are run with the main Buildroot tree as
     current working directory. The path to the target filesystem is
     passed as the first argument to each script. If the config option
-    BR2_ROOTFS_POST_SCRIPT_ARGS is not empty, these arguments will be
+    LINGMO_ROOTFS_POST_SCRIPT_ARGS is not empty, these arguments will be
     passed to the script too. All the scripts will be passed the
     exact same set of arguments, it is not possible to pass different
     sets of arguments to each script.
 
     In addition, you may also use these environment variables:
 
-      o BR2_CONFIG: the path to the Buildroot .config file
+      o LINGMO_CONFIG: the path to the Buildroot .config file
       o CONFIG_DIR: the directory containing the .config file, and
         therefore the top-level Buildroot Makefile to use (which is
         correct for both in-tree and out-of-tree builds)
@@ -2707,7 +2707,7 @@ Direct modification of the target filesystem
     they will persist after a make clean, using a root filesystem
     overlay or a post-build script.
 
-Custom target skeleton (BR2_ROOTFS_SKELETON_CUSTOM)
+Custom target skeleton (LINGMO_ROOTFS_SKELETON_CUSTOM)
 
     The root filesystem image is created from a target skeleton, on
     top of which all packages install their files. The skeleton is
@@ -2723,15 +2723,15 @@ Custom target skeleton (BR2_ROOTFS_SKELETON_CUSTOM)
     skeleton may be more suitable.
 
     To enable this feature, enable config option
-    BR2_ROOTFS_SKELETON_CUSTOM and set
-    BR2_ROOTFS_SKELETON_CUSTOM_PATH to the path of your custom
+    LINGMO_ROOTFS_SKELETON_CUSTOM and set
+    LINGMO_ROOTFS_SKELETON_CUSTOM_PATH to the path of your custom
     skeleton. Both options are available in the System configuration
     menu. If you specify a relative path, it will be relative to the
     root of the Buildroot tree.
 
     Custom skeletons don’t need to contain the /bin, /lib or /sbin
     directories, since they are created automatically during the
-    build. When BR2_ROOTFS_MERGED_USR is enabled, then the custom
+    build. When LINGMO_ROOTFS_MERGED_USR is enabled, then the custom
     skeleton must not contain the /bin, /lib or /sbin directories, as
     Buildroot will create them as symbolic links to the relevant
     folders in /usr. In such a situation, should the skeleton have
@@ -2743,7 +2743,7 @@ Custom target skeleton (BR2_ROOTFS_SKELETON_CUSTOM)
     improvements brought to the default skeleton in later Buildroot
     releases.
 
-Post-fakeroot scripts (BR2_ROOTFS_POST_FAKEROOT_SCRIPT)
+Post-fakeroot scripts (LINGMO_ROOTFS_POST_FAKEROOT_SCRIPT)
 
     When aggregating the final images, some parts of the process
     requires root rights: creating device nodes in /dev, setting
@@ -2786,14 +2786,14 @@ cannot do such changes from there unless you use an explicit fakeroot
 from the post-build script.
 
 Instead, Buildroot provides support for so-called permission tables.
-To use this feature, set config option BR2_ROOTFS_DEVICE_TABLE to a
+To use this feature, set config option LINGMO_ROOTFS_DEVICE_TABLE to a
 space-separated list of permission tables, regular text files
 following the makedev syntax.
 
 If you are using a static device table (i.e. not using devtmpfs,
 mdev, or (e)udev) then you can add device nodes using the same
 syntax, in so-called device tables. To use this feature, set config
-option BR2_ROOTFS_STATIC_DEVICE_TABLE to a space-separated list of
+option LINGMO_ROOTFS_STATIC_DEVICE_TABLE to a space-separated list of
 device tables.
 
 As shown in Section 9.1, “Recommended directory structure”, the
@@ -2809,7 +2809,7 @@ FOO_PERMISSIONS and FOO_DEVICES in the package’s .mk file instead
 Sometimes it is needed to add specific users in the target system. To
 cover this requirement, Buildroot provides support for so-called 
 users tables. To use this feature, set config option
-BR2_ROOTFS_USERS_TABLES to a space-separated list of users tables,
+LINGMO_ROOTFS_USERS_TABLES to a space-separated list of users tables,
 regular text files following the makeusers syntax.
 
 As shown in Section 9.1, “Recommended directory structure”, the
@@ -2833,20 +2833,20 @@ filesystem and kernel image, or any other custom action required for
 your project.
 
 To enable this feature, specify a space-separated list of post-image
-scripts in config option BR2_ROOTFS_POST_IMAGE_SCRIPT (in the System
+scripts in config option LINGMO_ROOTFS_POST_IMAGE_SCRIPT (in the System
 configuration menu). If you specify a relative path, it will be
 relative to the root of the Buildroot tree.
 
 Just like post-build scripts, post-image scripts are run with the
 main Buildroot tree as current working directory. The path to the
 images output directory is passed as the first argument to each
-script. If the config option BR2_ROOTFS_POST_SCRIPT_ARGS is not
+script. If the config option LINGMO_ROOTFS_POST_SCRIPT_ARGS is not
 empty, these arguments will be passed to the script too. All the
 scripts will be passed the exact same set of arguments, it is not
 possible to pass different sets of arguments to each script.
 
 Again just like for the post-build scripts, the scripts have access
-to the environment variables BR2_CONFIG, HOST_DIR, STAGING_DIR,
+to the environment variables LINGMO_CONFIG, HOST_DIR, STAGING_DIR,
 TARGET_DIR, BUILD_DIR, BINARIES_DIR, CONFIG_DIR and BASE_DIR.
 
 The post-image scripts will be executed as the user that executes
@@ -2864,16 +2864,16 @@ those provided in Buildroot. This might be used to support custom
 features in a project, for example, or when working on a new
 architecture.
 
-The BR2_GLOBAL_PATCH_DIR configuration option can be used to specify
+The LINGMO_GLOBAL_PATCH_DIR configuration option can be used to specify
 a space separated list of one or more directories containing package
 patches.
 
 For a specific version <packageversion> of a specific package
-<packagename>, patches are applied from BR2_GLOBAL_PATCH_DIR as
+<packagename>, patches are applied from LINGMO_GLOBAL_PATCH_DIR as
 follows:
 
  1. For every directory - <global-patch-dir> - that exists in
-    BR2_GLOBAL_PATCH_DIR, a <package-patch-dir> will be determined as
+    LINGMO_GLOBAL_PATCH_DIR, a <package-patch-dir> will be determined as
     follows:
 
       + <global-patch-dir>/<packagename>/<packageversion>/ if the
@@ -2894,7 +2894,7 @@ follows:
 For information about how patches are applied for a package, see
 Section 19.2, “How patches are applied”
 
-The BR2_GLOBAL_PATCH_DIR option is the preferred method for
+The LINGMO_GLOBAL_PATCH_DIR option is the preferred method for
 specifying a custom patch directory for packages. It can be used to
 specify a patch directory for any package in buildroot. It should
 also be used in place of the custom patch directory options that are
@@ -2902,12 +2902,12 @@ available for packages such as U-Boot and Barebox. By doing this, it
 will allow a user to manage their patches from one top-level
 directory.
 
-The exception to BR2_GLOBAL_PATCH_DIR being the preferred method for
-specifying custom patches is BR2_LINUX_KERNEL_PATCH.
-BR2_LINUX_KERNEL_PATCH should be used to specify kernel patches that
-are available at a URL. Note: BR2_LINUX_KERNEL_PATCH specifies kernel
+The exception to LINGMO_GLOBAL_PATCH_DIR being the preferred method for
+specifying custom patches is LINGMO_LINUX_KERNEL_PATCH.
+LINGMO_LINUX_KERNEL_PATCH should be used to specify kernel patches that
+are available at a URL. Note: LINGMO_LINUX_KERNEL_PATCH specifies kernel
 patches that are applied after patches available in
-BR2_GLOBAL_PATCH_DIR, as it is done from a post-patch hook of the
+LINGMO_GLOBAL_PATCH_DIR, as it is done from a post-patch hook of the
 Linux package.
 
 9.8.2. Providing extra hashes
@@ -2924,7 +2924,7 @@ For users concerned with the integrity of such downloads, it is
 possible to provide a list of hashes that Buildroot can use to check
 arbitrary downloaded files. Those extra hashes are looked up
 similarly to the extra patches (above); for each directory in
-BR2_GLOBAL_PATCH_DIR, the first file to exist is used to check a
+LINGMO_GLOBAL_PATCH_DIR, the first file to exist is used to check a
 package download:
 
   * <global-patch-dir>/<packagename>/<packageversion>/
@@ -2999,12 +2999,12 @@ are not relevant to your project can be skipped.
  4. Set the following options to board/<manufacturer>/<boardname>/
     <package>.config (as far as they are relevant):
 
-      + BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE
-      + BR2_PACKAGE_BUSYBOX_CONFIG
-      + BR2_UCLIBC_CONFIG
-      + BR2_TARGET_AT91BOOTSTRAP3_CUSTOM_CONFIG_FILE
-      + BR2_TARGET_BAREBOX_CUSTOM_CONFIG_FILE
-      + BR2_TARGET_UBOOT_CUSTOM_CONFIG_FILE
+      + LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE
+      + LINGMO_PACKAGE_BUSYBOX_CONFIG
+      + LINGMO_UCLIBC_CONFIG
+      + LINGMO_TARGET_AT91BOOTSTRAP3_CUSTOM_CONFIG_FILE
+      + LINGMO_TARGET_BAREBOX_CUSTOM_CONFIG_FILE
+      + LINGMO_TARGET_UBOOT_CUSTOM_CONFIG_FILE
  5. Write the configuration files:
 
       + make linux-update-defconfig
@@ -3017,28 +3017,28 @@ are not relevant to your project can be skipped.
  6. Create board/<manufacturer>/<boardname>/rootfs-overlay/ and fill
     it with additional files you need on your rootfs, e.g. board/
     <manufacturer>/<boardname>/rootfs-overlay/etc/inittab. Set
-    BR2_ROOTFS_OVERLAY to board/<manufacturer>/<boardname>/
+    LINGMO_ROOTFS_OVERLAY to board/<manufacturer>/<boardname>/
     rootfs-overlay.
  7. Create a post-build script board/<manufacturer>/<boardname>/
-    post_build.sh. Set BR2_ROOTFS_POST_BUILD_SCRIPT to board/
+    post_build.sh. Set LINGMO_ROOTFS_POST_BUILD_SCRIPT to board/
     <manufacturer>/<boardname>/post_build.sh
  8. If additional setuid permissions have to be set or device nodes
     have to be created, create board/<manufacturer>/<boardname>/
-    device_table.txt and add that path to BR2_ROOTFS_DEVICE_TABLE.
+    device_table.txt and add that path to LINGMO_ROOTFS_DEVICE_TABLE.
  9. If additional user accounts have to be created, create board/
     <manufacturer>/<boardname>/users_table.txt and add that path to
-    BR2_ROOTFS_USERS_TABLES.
+    LINGMO_ROOTFS_USERS_TABLES.
 10. To add custom patches to certain packages, set
-    BR2_GLOBAL_PATCH_DIR to board/<manufacturer>/<boardname>/patches/
+    LINGMO_GLOBAL_PATCH_DIR to board/<manufacturer>/<boardname>/patches/
     and add your patches for each package in a subdirectory named
     after the package. Each patch should be called <packagename>-
     <num>-<description>.patch.
 11. Specifically for the Linux kernel, there also exists the option
-    BR2_LINUX_KERNEL_PATCH with as main advantage that it can also
+    LINGMO_LINUX_KERNEL_PATCH with as main advantage that it can also
     download patches from a URL. If you do not need this,
-    BR2_GLOBAL_PATCH_DIR is preferred. U-Boot, Barebox, at91bootstrap
+    LINGMO_GLOBAL_PATCH_DIR is preferred. U-Boot, Barebox, at91bootstrap
     and at91bootstrap3 also have separate options, but these do not
-    provide any advantage over BR2_GLOBAL_PATCH_DIR and will likely
+    provide any advantage over LINGMO_GLOBAL_PATCH_DIR and will likely
     be removed in the future.
 12. If you need to add project-specific packages, create package/
     <manufacturer>/ and place your packages in that directory. Create
@@ -3064,8 +3064,8 @@ of systemd, and how various use cases can be implemented.
 10.1.1. DBus daemon
 
 Systemd requires a DBus daemon. There are two options for it:
-traditional dbus (BR2_PACKAGE_DBUS) and bus1 dbus-broker
-(BR2_PACKAGE_DBUS_BROKER). At least one of them must be chosen. If
+traditional dbus (LINGMO_PACKAGE_DBUS) and bus1 dbus-broker
+(LINGMO_PACKAGE_DBUS_BROKER). At least one of them must be chosen. If
 both are included in the configuration, dbus-broker will be used as
 system bus, but the traditional dbus-daemon is still installed as
 well and can be used as session bus. Also its tools (e.g. dbus-send)
@@ -3099,22 +3099,22 @@ SELinux has three modes of operation:
     denied
 
 In Buildroot the mode of operation is controlled by the
-BR2_PACKAGE_REFPOLICY_POLICY_STATE_* configuration options. The Linux
+LINGMO_PACKAGE_REFPOLICY_POLICY_STATE_* configuration options. The Linux
 kernel also has various configuration options that affect how SELinux
 is enabled (see security/selinux/Kconfig in the Linux kernel
 sources).
 
 By default in Buildroot the SELinux policy is provided by the
 upstream refpolicy [https://github.com/SELinuxProject/refpolicy]
-project, enabled with BR2_PACKAGE_REFPOLICY.
+project, enabled with LINGMO_PACKAGE_REFPOLICY.
 
 10.2.1. Enabling SELinux support
 
 To have proper support for SELinux in a Buildroot generated system,
 the following configuration options must be enabled:
 
-  * BR2_PACKAGE_LIBSELINUX
-  * BR2_PACKAGE_REFPOLICY
+  * LINGMO_PACKAGE_LIBSELINUX
+  * LINGMO_PACKAGE_REFPOLICY
 
 In addition, your filesystem image format must support extended
 attributes.
@@ -3131,9 +3131,9 @@ several ways to enable such modules are provided:
   * Packages can provide additional SELinux modules by putting them
     (.fc, .if and .te files) in package/<packagename>/selinux/.
   * Extra SELinux modules can be added in directories pointed by the
-    BR2_REFPOLICY_EXTRA_MODULES_DIRS configuration option.
+    LINGMO_REFPOLICY_EXTRA_MODULES_DIRS configuration option.
   * Additional modules in the refpolicy can be enabled if listed in
-    the BR2_REFPOLICY_EXTRA_MODULES_DEPENDENCIES configuration
+    the LINGMO_REFPOLICY_EXTRA_MODULES_DEPENDENCIES configuration
     option.
 
 Buildroot also allows to completely override the refpolicy. This
@@ -3147,9 +3147,9 @@ official refpolicy [https://github.com/SELinuxProject/refpolicy].
 In order to fully override the refpolicy the following configuration
 variables have to be set:
 
-  * BR2_PACKAGE_REFPOLICY_CUSTOM_GIT
-  * BR2_PACKAGE_REFPOLICY_CUSTOM_REPO_URL
-  * BR2_PACKAGE_REFPOLICY_CUSTOM_REPO_VERSION
+  * LINGMO_PACKAGE_REFPOLICY_CUSTOM_GIT
+  * LINGMO_PACKAGE_REFPOLICY_CUSTOM_REPO_URL
+  * LINGMO_PACKAGE_REFPOLICY_CUSTOM_REPO_VERSION
 
 Chapter 11. Frequently Asked Questions & Troubleshooting
 
@@ -3396,7 +3396,7 @@ There are multiple situations to consider:
         architectures, so systems using musl on 32-bit platforms are
         Y2038 compatible.
       + With glibc, 64-bit time_t on 32-bit architectures is enabled
-        by the Buildroot option BR2_TIME_BITS_64. With this option
+        by the Buildroot option LINGMO_TIME_BITS_64. With this option
         enabled, systems using glibc on 32-bit platforms are Y2038
         compatible.
 
@@ -3408,8 +3408,8 @@ they do not make correct use of the time APIs and types.
 Chapter 12. Known issues
 
   * It is not possible to pass extra linker options via
-    BR2_TARGET_LDFLAGS if such options contain a $ sign. For example,
-    the following is known to break: BR2_TARGET_LDFLAGS="-Wl,-rpath=
+    LINGMO_TARGET_LDFLAGS if such options contain a $ sign. For example,
+    the following is known to break: LINGMO_TARGET_LDFLAGS="-Wl,-rpath=
     '$ORIGIN/../lib'"
   * The libffi package is not supported on the SuperH 2 and ARMv7-M
     architectures.
@@ -3725,10 +3725,10 @@ Buildroot.
 
 An entry has the following pattern:
 
-config BR2_PACKAGE_LIBFOO
+config LINGMO_PACKAGE_LIBFOO
         bool "libfoo"
-        depends on BR2_PACKAGE_LIBBAZ
-        select BR2_PACKAGE_LIBBAR
+        depends on LINGMO_PACKAGE_LIBBAZ
+        select LINGMO_PACKAGE_LIBBAR
         help
           This is a comment that explains what libfoo is. The help text
           should be wrapped.
@@ -3782,7 +3782,7 @@ kbuild/kconfig-language.txt.
 
         YES:
 
-        ifeq ($(BR2_PACKAGE_PYTHON3),y)
+        ifeq ($(LINGMO_PACKAGE_PYTHON3),y)
         LIBFOO_CONF_OPTS += --with-python-support
         LIBFOO_DEPENDENCIES += python3
         else
@@ -3791,8 +3791,8 @@ kbuild/kconfig-language.txt.
 
         NO:
 
-        LIBFOO_CONF_OPTS += --with$(if $(BR2_PACKAGE_PYTHON3),,out)-python-support
-        LIBFOO_DEPENDENCIES += $(if $(BR2_PACKAGE_PYTHON3),python3,)
+        LIBFOO_CONF_OPTS += --with$(if $(LINGMO_PACKAGE_PYTHON3),,out)-python-support
+        LIBFOO_DEPENDENCIES += $(if $(LINGMO_PACKAGE_PYTHON3),python3,)
 
       + Keep configure options and dependencies close together.
   * Optional hooks: keep hook definition and assignment together in
@@ -3800,7 +3800,7 @@ kbuild/kconfig-language.txt.
 
     YES:
 
-    ifneq ($(BR2_LIBFOO_INSTALL_DATA),y)
+    ifneq ($(LINGMO_LIBFOO_INSTALL_DATA),y)
     define LIBFOO_REMOVE_DATA
             $(RM) -r $(TARGET_DIR)/usr/share/libfoo/data
     endef
@@ -3813,7 +3813,7 @@ kbuild/kconfig-language.txt.
             $(RM) -r $(TARGET_DIR)/usr/share/libfoo/data
     endef
 
-    ifneq ($(BR2_LIBFOO_INSTALL_DATA),y)
+    ifneq ($(LINGMO_LIBFOO_INSTALL_DATA),y)
     LIBFOO_POST_INSTALL_TARGET_HOOKS += LIBFOO_REMOVE_DATA
     endif
 
@@ -3929,8 +3929,8 @@ version), Firmware, Bootloader, Kernel, and Filesystem.
 
 Always use fixed versions or commit hashes for the different
 components, not the "latest" version. For example, set
-BR2_LINUX_KERNEL_CUSTOM_VERSION=y and
-BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE to the kernel version you
+LINGMO_LINUX_KERNEL_CUSTOM_VERSION=y and
+LINGMO_LINUX_KERNEL_CUSTOM_VERSION_VALUE to the kernel version you
 tested with.
 
 It is recommended to use as much as possible upstream versions of the
@@ -4004,7 +4004,7 @@ file will contain the option descriptions related to our libfoo
 software that will be used and displayed in the configuration tool.
 It should basically contain:
 
-config BR2_PACKAGE_LIBFOO
+config LINGMO_PACKAGE_LIBFOO
         bool "libfoo"
         help
           This is a comment that explains what libfoo is. The help text
@@ -4030,7 +4030,7 @@ is as follows:
  6. Any dependency of the select form
  7. The help keyword and help text.
 
-You can add other sub-options into a if BR2_PACKAGE_LIBFOO…endif
+You can add other sub-options into a if LINGMO_PACKAGE_LIBFOO…endif
 statement to configure particular things in your software. You can
 look at examples in other packages. The syntax of the Config.in file
 is the same as the one for the kernel Kconfig file. The documentation
@@ -4058,7 +4058,7 @@ two options here:
     the configuration menu. In this case, create a Config.in.host
     file for that host package:
 
-    config BR2_PACKAGE_HOST_FOO
+    config LINGMO_PACKAGE_HOST_FOO
             bool "host foo"
             help
               This is a comment that explains what foo for the host is.
@@ -4087,7 +4087,7 @@ are enabled. Typically, Buildroot uses the following rules:
     These dependencies are generally not obvious and it therefore
     make sense to have the kconfig system ensure that the
     dependencies are selected. For example, the libgtk2 package uses
-    select BR2_PACKAGE_LIBGLIB2 to make sure this library is also
+    select LINGMO_PACKAGE_LIBGLIB2 to make sure this library is also
     enabled. The select keyword expresses the dependency with a
     backward semantic.
   * Use a depends on type of dependency when the user really needs to
@@ -4105,13 +4105,13 @@ requirement is not met.
 
 An example illustrates both the usage of select and depends on.
 
-config BR2_PACKAGE_RRDTOOL
+config LINGMO_PACKAGE_RRDTOOL
         bool "rrdtool"
-        depends on BR2_USE_WCHAR
-        select BR2_PACKAGE_FREETYPE
-        select BR2_PACKAGE_LIBART
-        select BR2_PACKAGE_LIBPNG
-        select BR2_PACKAGE_ZLIB
+        depends on LINGMO_USE_WCHAR
+        select LINGMO_PACKAGE_FREETYPE
+        select LINGMO_PACKAGE_LIBART
+        select LINGMO_PACKAGE_LIBPNG
+        select LINGMO_PACKAGE_ZLIB
         help
           RRDtool is the OpenSource industry standard, high performance
           data logging and graphing system for time series data.
@@ -4119,31 +4119,31 @@ config BR2_PACKAGE_RRDTOOL
           http://oss.oetiker.ch/rrdtool/
 
 comment "rrdtool needs a toolchain w/ wchar"
-        depends on !BR2_USE_WCHAR
+        depends on !LINGMO_USE_WCHAR
 
 Note that these two dependency types are only transitive with the
 dependencies of the same kind.
 
 This means, in the following example:
 
-config BR2_PACKAGE_A
+config LINGMO_PACKAGE_A
         bool "Package A"
 
-config BR2_PACKAGE_B
+config LINGMO_PACKAGE_B
         bool "Package B"
-        depends on BR2_PACKAGE_A
+        depends on LINGMO_PACKAGE_A
 
-config BR2_PACKAGE_C
+config LINGMO_PACKAGE_C
         bool "Package C"
-        depends on BR2_PACKAGE_B
+        depends on LINGMO_PACKAGE_B
 
-config BR2_PACKAGE_D
+config LINGMO_PACKAGE_D
         bool "Package D"
-        select BR2_PACKAGE_B
+        select LINGMO_PACKAGE_B
 
-config BR2_PACKAGE_E
+config LINGMO_PACKAGE_E
         bool "Package E"
-        select BR2_PACKAGE_D
+        select LINGMO_PACKAGE_D
 
   * Selecting Package C will be visible if Package B has been
     selected, which in turn is only visible if Package A has been
@@ -4155,15 +4155,15 @@ config BR2_PACKAGE_E
     the dependency of Package B on Package A. Therefore, in such a
     situation, the transitive dependency has to be added explicitly:
 
-config BR2_PACKAGE_D
+config LINGMO_PACKAGE_D
         bool "Package D"
-        depends on BR2_PACKAGE_A
-        select BR2_PACKAGE_B
+        depends on LINGMO_PACKAGE_A
+        select LINGMO_PACKAGE_B
 
-config BR2_PACKAGE_E
+config LINGMO_PACKAGE_E
         bool "Package E"
-        depends on BR2_PACKAGE_A
-        select BR2_PACKAGE_D
+        depends on LINGMO_PACKAGE_A
+        select LINGMO_PACKAGE_D
 
 Overall, for package library dependencies, select should be
 preferred.
@@ -4225,12 +4225,12 @@ the text to use in the comment.
 
   * Target architecture
 
-      + Dependency symbol: BR2_powerpc, BR2_mips, … (see arch/
+      + Dependency symbol: LINGMO_powerpc, LINGMO_mips, … (see arch/
         Config.in)
       + Comment string: no comment to be added
   * MMU support
 
-      + Dependency symbol: BR2_USE_MMU
+      + Dependency symbol: LINGMO_USE_MMU
       + Comment string: no comment to be added
   * Gcc _sync* built-ins used for atomic operations. They are
     available in variants operating on 1 byte, 2 bytes, 4 bytes and 8
@@ -4238,31 +4238,31 @@ the text to use in the comment.
     different sizes, one dependency symbol is available for each
     size:
 
-      + Dependency symbol: BR2_TOOLCHAIN_HAS_SYNC_1 for 1 byte,
-        BR2_TOOLCHAIN_HAS_SYNC_2 for 2 bytes,
-        BR2_TOOLCHAIN_HAS_SYNC_4 for 4 bytes,
-        BR2_TOOLCHAIN_HAS_SYNC_8 for 8 bytes.
+      + Dependency symbol: LINGMO_TOOLCHAIN_HAS_SYNC_1 for 1 byte,
+        LINGMO_TOOLCHAIN_HAS_SYNC_2 for 2 bytes,
+        LINGMO_TOOLCHAIN_HAS_SYNC_4 for 4 bytes,
+        LINGMO_TOOLCHAIN_HAS_SYNC_8 for 8 bytes.
       + Comment string: no comment to be added
   * Gcc _atomic* built-ins used for atomic operations.
 
-      + Dependency symbol: BR2_TOOLCHAIN_HAS_ATOMIC.
+      + Dependency symbol: LINGMO_TOOLCHAIN_HAS_ATOMIC.
       + Comment string: no comment to be added
   * Kernel headers
 
-      + Dependency symbol: BR2_TOOLCHAIN_HEADERS_AT_LEAST_X_Y,
+      + Dependency symbol: LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_X_Y,
         (replace X_Y with the proper version, see toolchain/
         Config.in)
       + Comment string: headers >= X.Y and/or headers <= X.Y (replace
         X.Y with the proper version)
   * GCC version
 
-      + Dependency symbol: BR2_TOOLCHAIN_GCC_AT_LEAST_X_Y, (replace
+      + Dependency symbol: LINGMO_TOOLCHAIN_GCC_AT_LEAST_X_Y, (replace
         X_Y with the proper version, see toolchain/Config.in)
       + Comment string: gcc >= X.Y and/or gcc <= X.Y (replace X.Y
         with the proper version)
   * Host GCC version
 
-      + Dependency symbol: BR2_HOST_GCC_AT_LEAST_X_Y, (replace X_Y
+      + Dependency symbol: LINGMO_HOST_GCC_AT_LEAST_X_Y, (replace X_Y
         with the proper version, see Config.in)
       + Comment string: no comment to be added
       + Note that it is usually not the package itself that has a
@@ -4270,44 +4270,44 @@ the text to use in the comment.
         it depends.
   * C library
 
-      + Dependency symbol: BR2_TOOLCHAIN_USES_GLIBC,
-        BR2_TOOLCHAIN_USES_MUSL, BR2_TOOLCHAIN_USES_UCLIBC
+      + Dependency symbol: LINGMO_TOOLCHAIN_USES_GLIBC,
+        LINGMO_TOOLCHAIN_USES_MUSL, LINGMO_TOOLCHAIN_USES_UCLIBC
       + Comment string: for the C library, a slightly different
         comment text is used: foo needs a glibc toolchain, or foo
         needs a glibc toolchain w/ C++
   * C++ support
 
-      + Dependency symbol: BR2_INSTALL_LIBSTDCPP
+      + Dependency symbol: LINGMO_INSTALL_LIBSTDCPP
       + Comment string: C++
   * D support
 
-      + Dependency symbol: BR2_TOOLCHAIN_HAS_DLANG
+      + Dependency symbol: LINGMO_TOOLCHAIN_HAS_DLANG
       + Comment string: Dlang
   * Fortran support
 
-      + Dependency symbol: BR2_TOOLCHAIN_HAS_FORTRAN
+      + Dependency symbol: LINGMO_TOOLCHAIN_HAS_FORTRAN
       + Comment string: fortran
   * thread support
 
-      + Dependency symbol: BR2_TOOLCHAIN_HAS_THREADS
+      + Dependency symbol: LINGMO_TOOLCHAIN_HAS_THREADS
       + Comment string: threads (unless
-        BR2_TOOLCHAIN_HAS_THREADS_NPTL is also needed, in which case,
+        LINGMO_TOOLCHAIN_HAS_THREADS_NPTL is also needed, in which case,
         specifying only NPTL is sufficient)
   * NPTL thread support
 
-      + Dependency symbol: BR2_TOOLCHAIN_HAS_THREADS_NPTL
+      + Dependency symbol: LINGMO_TOOLCHAIN_HAS_THREADS_NPTL
       + Comment string: NPTL
   * RPC support
 
-      + Dependency symbol: BR2_TOOLCHAIN_HAS_NATIVE_RPC
+      + Dependency symbol: LINGMO_TOOLCHAIN_HAS_NATIVE_RPC
       + Comment string: RPC
   * wchar support
 
-      + Dependency symbol: BR2_USE_WCHAR
+      + Dependency symbol: LINGMO_USE_WCHAR
       + Comment string: wchar
   * dynamic library
 
-      + Dependency symbol: !BR2_STATIC_LIBS
+      + Dependency symbol: !LINGMO_STATIC_LIBS
       + Comment string: dynamic library
 
 18.2.5. Dependencies on a Linux kernel built by buildroot
@@ -4327,7 +4327,7 @@ foo needs a toolchain w/ featA, featB, featC and a Linux kernel to be built
 18.2.6. Dependencies on udev /dev management
 
 If a package needs udev /dev management, it should depend on symbol
-BR2_PACKAGE_HAS_UDEV, and the following comment should be added:
+LINGMO_PACKAGE_HAS_UDEV, and the following comment should be added:
 
 foo needs udev /dev management
 
@@ -5297,7 +5297,7 @@ cases, typical packages will therefore only use a few of them.
     to the configure script. By default, empty.
   * LIBFOO_MAKE, to specify an alternate make command. This is
     typically useful when parallel make is enabled in the
-    configuration (using BR2_JLEVEL) but that this feature should be
+    configuration (using LINGMO_JLEVEL) but that this feature should be
     disabled for the given package, for one reason or another. By
     default, set to $(MAKE). If parallel building is not supported by
     the package, then it should be set to LIBFOO_MAKE=$(MAKE1).
@@ -5447,9 +5447,9 @@ typical packages will therefore only use a few of them.
     necessary to set them in the package’s *.mk file unless you want
     to override them:
 
-      + CMAKE_BUILD_TYPE is driven by BR2_ENABLE_RUNTIME_DEBUG;
+      + CMAKE_BUILD_TYPE is driven by LINGMO_ENABLE_RUNTIME_DEBUG;
       + CMAKE_INSTALL_PREFIX;
-      + BUILD_SHARED_LIBS is driven by BR2_STATIC_LIBS;
+      + BUILD_SHARED_LIBS is driven by LINGMO_STATIC_LIBS;
       + BUILD_DOC, BUILD_DOCS are disabled;
       + BUILD_EXAMPLE, BUILD_EXAMPLES are disabled;
       + BUILD_TEST, BUILD_TESTS, BUILD_TESTING are disabled.
@@ -5461,7 +5461,7 @@ typical packages will therefore only use a few of them.
     separate build directory.
   * LIBFOO_MAKE, to specify an alternate make command. This is
     typically useful when parallel make is enabled in the
-    configuration (using BR2_JLEVEL) but that this feature should be
+    configuration (using LINGMO_JLEVEL) but that this feature should be
     disabled for the given package, for one reason or another. By
     default, set to $(MAKE). If parallel building is not supported by
     the package, then it should be set to LIBFOO_MAKE=$(MAKE1).
@@ -5673,7 +5673,7 @@ order.
 Please keep in mind that you’ll most likely have to manually check
 the package for any mistakes as there are things that cannot be
 guessed by the generator (e.g. dependencies on any of the python core
-modules such as BR2_PACKAGE_PYTHON_ZLIB). Also, please take note that
+modules such as LINGMO_PACKAGE_PYTHON_ZLIB). Also, please take note that
 the license and license files are guessed and must be checked. You
 also need to manually add the package to the package/Config.in file.
 
@@ -5701,11 +5701,11 @@ Such a package should:
 
   * add python-cffi as a runtime dependency in order to install the
     compiled C library wrapper on the target. This is achieved by
-    adding select BR2_PACKAGE_PYTHON_CFFI to the package Config.in.
+    adding select LINGMO_PACKAGE_PYTHON_CFFI to the package Config.in.
 
-config BR2_PACKAGE_PYTHON_FOO
+config LINGMO_PACKAGE_PYTHON_FOO
         bool "python-foo"
-        select BR2_PACKAGE_PYTHON_CFFI # runtime
+        select LINGMO_PACKAGE_PYTHON_CFFI # runtime
 
   * add host-python-cffi as a build-time dependency in order to
     cross-compile the C wrapper. This is achieved by adding
@@ -5803,9 +5803,9 @@ LUA_FOO_LICENSE, LUA_FOO_LICENSE_FILES.
 
 Two of them are populated by the LuaRocks infrastructure (for the
 download step). If your package is not hosted on the LuaRocks mirror
-$(BR2_LUAROCKS_MIRROR), you can override them:
+$(LINGMO_LUAROCKS_MIRROR), you can override them:
 
-  * LUA_FOO_SITE, which defaults to $(BR2_LUAROCKS_MIRROR)
+  * LUA_FOO_SITE, which defaults to $(LINGMO_LUAROCKS_MIRROR)
   * LUA_FOO_SOURCE, which defaults to $(lowercase
     LUA_FOO_NAME_UPSTREAM)-$(LUA_FOO_VERSION).src.rock
 
@@ -5836,7 +5836,7 @@ with an example :
 06:
 07: PERL_FOO_BAR_VERSION = 0.02
 08: PERL_FOO_BAR_SOURCE = Foo-Bar-$(PERL_FOO_BAR_VERSION).tar.gz
-09: PERL_FOO_BAR_SITE = $(BR2_CPAN_MIRROR)/authors/id/M/MO/MONGER
+09: PERL_FOO_BAR_SITE = $(LINGMO_CPAN_MIRROR)/authors/id/M/MO/MONGER
 10: PERL_FOO_BAR_DEPENDENCIES = perl-strictures
 11: PERL_FOO_BAR_LICENSE = Artistic or GPL-1.0+
 12: PERL_FOO_BAR_LICENSE_FILES = LICENSE
@@ -5961,16 +5961,16 @@ First, let’s create the virtual package.
 The Config.in file of virtual package something-virtual should
 contain:
 
-01: config BR2_PACKAGE_HAS_SOMETHING_VIRTUAL
+01: config LINGMO_PACKAGE_HAS_SOMETHING_VIRTUAL
 02:     bool
 03:
-04: config BR2_PACKAGE_PROVIDES_SOMETHING_VIRTUAL
-05:     depends on BR2_PACKAGE_HAS_SOMETHING_VIRTUAL
+04: config LINGMO_PACKAGE_PROVIDES_SOMETHING_VIRTUAL
+05:     depends on LINGMO_PACKAGE_HAS_SOMETHING_VIRTUAL
 06:     string
 
 In this file, we declare two options,
-BR2_PACKAGE_HAS_SOMETHING_VIRTUAL and
-BR2_PACKAGE_PROVIDES_SOMETHING_VIRTUAL, whose values will be used by
+LINGMO_PACKAGE_HAS_SOMETHING_VIRTUAL and
+LINGMO_PACKAGE_PROVIDES_SOMETHING_VIRTUAL, whose values will be used by
 the providers.
 
 18.12.3. Virtual package’s .mk file
@@ -5997,21 +5997,21 @@ some modifications.
 The Config.in file of the package some-provider, which provides the
 functionalities of something-virtual, should contain:
 
-01: config BR2_PACKAGE_SOME_PROVIDER
+01: config LINGMO_PACKAGE_SOME_PROVIDER
 02:     bool "some-provider"
-03:     select BR2_PACKAGE_HAS_SOMETHING_VIRTUAL
+03:     select LINGMO_PACKAGE_HAS_SOMETHING_VIRTUAL
 04:     help
 05:       This is a comment that explains what some-provider is.
 06:
 07:       http://foosoftware.org/some-provider/
 08:
-09: if BR2_PACKAGE_SOME_PROVIDER
-10: config BR2_PACKAGE_PROVIDES_SOMETHING_VIRTUAL
+09: if LINGMO_PACKAGE_SOME_PROVIDER
+10: config LINGMO_PACKAGE_PROVIDES_SOMETHING_VIRTUAL
 11:     default "some-provider"
 12: endif
 
-On line 3, we select BR2_PACKAGE_HAS_SOMETHING_VIRTUAL, and on line
-11, we set the value of BR2_PACKAGE_PROVIDES_SOMETHING_VIRTUAL to the
+On line 3, we select LINGMO_PACKAGE_HAS_SOMETHING_VIRTUAL, and on line
+11, we set the value of LINGMO_PACKAGE_PROVIDES_SOMETHING_VIRTUAL to the
 name of the provider, but only if it is selected.
 
 18.12.5. Provider’s .mk file
@@ -6028,15 +6028,15 @@ dependencies for this package!
 18.12.6. Notes on depending on a virtual package
 
 When adding a package that requires a certain FEATURE provided by a
-virtual package, you have to use depends on BR2_PACKAGE_HAS_FEATURE,
+virtual package, you have to use depends on LINGMO_PACKAGE_HAS_FEATURE,
 like so:
 
-config BR2_PACKAGE_HAS_FEATURE
+config LINGMO_PACKAGE_HAS_FEATURE
     bool
 
-config BR2_PACKAGE_FOO
+config LINGMO_PACKAGE_FOO
     bool "foo"
-    depends on BR2_PACKAGE_HAS_FEATURE
+    depends on LINGMO_PACKAGE_HAS_FEATURE
 
 18.12.7. Notes on depending on a specific provider
 
@@ -6046,27 +6046,27 @@ provider.
 
 Let’s take an example with two providers for a FEATURE:
 
-config BR2_PACKAGE_HAS_FEATURE
+config LINGMO_PACKAGE_HAS_FEATURE
     bool
 
-config BR2_PACKAGE_FOO
+config LINGMO_PACKAGE_FOO
     bool "foo"
-    select BR2_PACKAGE_HAS_FEATURE
+    select LINGMO_PACKAGE_HAS_FEATURE
 
-config BR2_PACKAGE_BAR
+config LINGMO_PACKAGE_BAR
     bool "bar"
-    select BR2_PACKAGE_HAS_FEATURE
+    select LINGMO_PACKAGE_HAS_FEATURE
 
 And you are adding a package that needs FEATURE as provided by foo,
 but not as provided by bar.
 
-If you were to use select BR2_PACKAGE_FOO, then the user would still
-be able to select BR2_PACKAGE_BAR in the menuconfig. This would
+If you were to use select LINGMO_PACKAGE_FOO, then the user would still
+be able to select LINGMO_PACKAGE_BAR in the menuconfig. This would
 create a configuration inconsistency, whereby two providers of the
 same FEATURE would be enabled at once, one explicitly set by the
 user, the other implicitly by your select.
 
-Instead, you have to use depends on BR2_PACKAGE_FOO, which avoids any
+Instead, you have to use depends on LINGMO_PACKAGE_FOO, which avoids any
 implicit configuration inconsistency.
 
 18.13. Infrastructure for packages using kconfig for configuration
@@ -6354,7 +6354,7 @@ example:
 13:
 14: FOO_DEPENDENCIES = host-pkgconf bar
 15:
-16: ifeq ($(BR2_PACKAGE_BAZ),y)
+16: ifeq ($(LINGMO_PACKAGE_BAZ),y)
 17: FOO_CONF_OPTS += -Dbaz=true
 18: FOO_DEPENDENCIES += baz
 19: else
@@ -6460,10 +6460,10 @@ repeatable builds. Cargo packages are called "crates".
 
 The Config.in file of Cargo-based package foo should contain:
 
-01: config BR2_PACKAGE_FOO
+01: config LINGMO_PACKAGE_FOO
 02:     bool "foo"
-03:     depends on BR2_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
-04:     select BR2_PACKAGE_HOST_RUSTC
+03:     depends on LINGMO_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
+04:     select LINGMO_PACKAGE_HOST_RUSTC
 05:     help
 06:       This is a comment that explains what foo is.
 07:
@@ -6578,16 +6578,16 @@ be built.
 
 In their Config.in file, packages using the golang-package
 infrastructure should depend on
-BR2_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS because Buildroot will
+LINGMO_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS because Buildroot will
 automatically add a dependency on host-go to such packages. If you
 need CGO support in your package, you must add a dependency on
-BR2_PACKAGE_HOST_GO_TARGET_CGO_LINKING_SUPPORTS.
+LINGMO_PACKAGE_HOST_GO_TARGET_CGO_LINKING_SUPPORTS.
 
 The main macro of the Go package infrastructure is golang-package. It
 is similar to the generic-package macro. The ability to build host
 packages is also available, with the host-golang-package macro. Host
 packages built by host-golang-package macro should depend on
-BR2_PACKAGE_HOST_GO_HOST_ARCH_SUPPORTS.
+LINGMO_PACKAGE_HOST_GO_HOST_ARCH_SUPPORTS.
 
 Just like the generic infrastructure, the Go infrastructure works by
 defining a number of variables before calling the golang-package.
@@ -6798,7 +6798,7 @@ Let’s look at a more complex example:
 13: FOO_MODULE_SUBDIRS = driver/base
 14: FOO_MODULE_MAKE_OPTS = KVERSION=$(LINUX_VERSION_PROBED)
 15:
-16: ifeq ($(BR2_PACKAGE_LIBBAR),y)
+16: ifeq ($(LINGMO_PACKAGE_LIBBAR),y)
 17: FOO_DEPENDENCIES += libbar
 18: FOO_CONF_OPTS += --enable-bar
 19: FOO_MODULE_SUBDIRS += driver/bar
@@ -7017,16 +7017,16 @@ Config.in. This file will contain the option descriptions related to
 each kernel tool that will be used and displayed in the configuration
 tool. It would basically look like:
 
-01: config BR2_PACKAGE_LINUX_TOOLS_FOO
+01: config LINGMO_PACKAGE_LINUX_TOOLS_FOO
 02:     bool "foo"
-03:     select BR2_PACKAGE_LINUX_TOOLS
+03:     select LINGMO_PACKAGE_LINUX_TOOLS
 04:     help
 05:       This is a comment that explains what foo kernel tool is.
 06:
 07:       http://foosoftware.org/foo/
 
 The name of the option starts with the prefix
-BR2_PACKAGE_LINUX_TOOLS_, followed by the uppercase name of the tool
+LINGMO_PACKAGE_LINUX_TOOLS_, followed by the uppercase name of the tool
 (like is done for packages).
 
 Note. Unlike other packages, the linux-tools package options appear
@@ -7104,7 +7104,7 @@ the existing linux/Config.ext.in. This file contains the option
 descriptions related to each kernel extension that will be used and
 displayed in the configuration tool. It would basically look like:
 
-01: config BR2_LINUX_KERNEL_EXT_FOO
+01: config LINGMO_LINUX_KERNEL_EXT_FOO
 02:     bool "foo"
 03:     help
 04:       This is a comment that explains what foo kernel extension is.
@@ -7231,7 +7231,7 @@ Due to this, and in order to make sure that Native Language Support
 is properly handled, packages in Buildroot that can use NLS support
 should:
 
- 1. Ensure NLS support is enabled when BR2_SYSTEM_ENABLE_NLS=y. This
+ 1. Ensure NLS support is enabled when LINGMO_SYSTEM_ENABLE_NLS=y. This
     is done automatically for autotools packages and therefore should
     only be done for packages using other package infrastructures.
  2. Add $(TARGET_NLS_DEPENDENCIES) to the package <pkg>_DEPENDENCIES
@@ -7260,7 +7260,7 @@ such as the gettext program itself, which allows to retrieve
 translated strings, from the command line. In such a case, the
 package should:
 
-  * use select BR2_PACKAGE_GETTEXT in their Config.in file,
+  * use select LINGMO_PACKAGE_GETTEXT in their Config.in file,
     indicating in a comment above that it’s a runtime dependency
     only.
   * not add any gettext dependency in the DEPENDENCIES variable of
@@ -7286,8 +7286,8 @@ the following rules:
   * the make target name is the package name itself (e.g.:
     foo-bar_boo);
   * the config entry is the upper case package name with . and -
-    characters substituted with _, prefixed with BR2_PACKAGE_ (e.g.:
-    BR2_PACKAGE_FOO_BAR_BOO);
+    characters substituted with _, prefixed with LINGMO_PACKAGE_ (e.g.:
+    LINGMO_PACKAGE_FOO_BAR_BOO);
   * the *.mk file variable prefix is the upper case package name with
     . and - characters substituted with _ (e.g.:
     FOO_BAR_BOO_VERSION).
@@ -7340,16 +7340,16 @@ or toolchain option. For example, let’s create a config snippet that
 just enables libcurl, without any TLS backend:
 
 $ cat libcurl.config
-BR2_PACKAGE_LIBCURL=y
+LINGMO_PACKAGE_LIBCURL=y
 
 If your package needs more configuration options, you can add them to
 the config snippet. For example, here’s how you would test libcurl
 with openssl as a TLS backend and the curl program:
 
 $ cat libcurl.config
-BR2_PACKAGE_LIBCURL=y
-BR2_PACKAGE_LIBCURL_CURL=y
-BR2_PACKAGE_OPENSSL=y
+LINGMO_PACKAGE_LIBCURL=y
+LINGMO_PACKAGE_LIBCURL_CURL=y
+LINGMO_PACKAGE_OPENSSL=y
 
 Then run the test-pkg script, by telling it what config snippet to
 use and what package to test:
@@ -7386,7 +7386,7 @@ The results mean:
   * SKIPPED: one or more configuration options listed in the config
     snippet were not present in the final configuration. This is due
     to options having dependencies not satisfied by the toolchain,
-    such as for example a package that depends on BR2_USE_MMU with a
+    such as for example a package that depends on LINGMO_USE_MMU with a
     noMMU toolchain. The missing options are reported in
     missing.config in the output build directory (~/br-test-pkg/
     TOOLCHAIN_NAME/ by default).
@@ -7549,7 +7549,7 @@ Notes
 
 19.1.3. Global patch directory
 
-The BR2_GLOBAL_PATCH_DIR configuration file option can be used to
+The LINGMO_GLOBAL_PATCH_DIR configuration file option can be used to
 specify a space separated list of one or more directories containing
 global package patches. See Section 9.8.1, “Providing extra patches”
 for details.
@@ -7571,7 +7571,7 @@ for details.
         right order, it is highly recommended to name the patch files
         like this: <number>-<description>.patch, where <number>
         refers to the apply order.
- 5. If BR2_GLOBAL_PATCH_DIR is defined, the directories will be
+ 5. If LINGMO_GLOBAL_PATCH_DIR is defined, the directories will be
     enumerated in the order they are specified. The patches are
     applied as described in the previous step.
  6. Run the <packagename>_POST_PATCH_HOOKS commands if defined.
@@ -7663,7 +7663,7 @@ TODO
 Chapter 21. Debugging Buildroot
 
 It is possible to instrument the steps Buildroot does when building
-packages. Define the variable BR2_INSTRUMENTATION_SCRIPTS to contain
+packages. Define the variable LINGMO_INSTRUMENTATION_SCRIPTS to contain
 the path of one or more scripts (or other executables), in a
 space-separated list, you want called before and after each step. The
 scripts are called in sequence, with three parameters:
@@ -7674,7 +7674,7 @@ scripts are called in sequence, with three parameters:
 
 For example :
 
-make BR2_INSTRUMENTATION_SCRIPTS="/path/to/my/script1 /path/to/my/script2"
+make LINGMO_INSTRUMENTATION_SCRIPTS="/path/to/my/script1 /path/to/my/script2"
 
 The list of steps is:
 
@@ -7692,7 +7692,7 @@ The list of steps is:
 
 The script has access to the following variables:
 
-  * BR2_CONFIG: the path to the Buildroot .config file
+  * LINGMO_CONFIG: the path to the Buildroot .config file
   * HOST_DIR, STAGING_DIR, TARGET_DIR: see Section 18.6.2,
     “generic-package reference”
   * BUILD_DIR: the directory where packages are extracted and built
@@ -8564,7 +8564,7 @@ hda, /dev/hdaX, X ranging from 1 to 15:
 /dev/hda b 640 root root 3 1 1 1 15
 
 Extended attributes are supported if
-BR2_ROOTFS_DEVICE_TABLE_SUPPORTS_EXTENDED_ATTRIBUTES is enabled. This
+LINGMO_ROOTFS_DEVICE_TABLE_SUPPORTS_EXTENDED_ATTRIBUTES is enabled. This
 is done by adding a line starting with |xattr after the line
 describing the file. Right now, only capability is supported as
 extended attribute.
@@ -8746,10 +8746,10 @@ This can be done very easily in just a few steps:
     Note. Be careful when choosing a name: It has to be unique and be
     made with only ASCII characters from the set [A-Za-z0-9_].
 
-  * Then, change every occurence of BR2_EXTERNAL in your br2-external
+  * Then, change every occurence of LINGMO_EXTERNAL in your br2-external
     tree with the new variable:
 
-    $ find . -type f | xargs sed -i 's/BR2_EXTERNAL/BR2_EXTERNAL_NAME_OF_YOUR_TREE_PATH/g'
+    $ find . -type f | xargs sed -i 's/LINGMO_EXTERNAL/LINGMO_EXTERNAL_NAME_OF_YOUR_TREE_PATH/g'
 
 Now, your br2-external tree can be used with Buildroot 2016.11
 onward.

@@ -34,10 +34,10 @@ Ifdef = [
     ('simple',
      'any',
      '\n'
-     'ifdef BR2_PACKAGE_FWTS_EFI_RUNTIME_MODULE\n'
+     'ifdef LINGMO_PACKAGE_FWTS_EFI_RUNTIME_MODULE\n'
      'endif\n',
      [['any:2: use ifeq ($(SYMBOL),y) instead of ifdef SYMBOL',
-       'ifdef BR2_PACKAGE_FWTS_EFI_RUNTIME_MODULE\n']]),
+       'ifdef LINGMO_PACKAGE_FWTS_EFI_RUNTIME_MODULE\n']]),
     ('ignore indentation',
      'any',
      '  ifdef FOO\n'
@@ -51,10 +51,10 @@ Ifdef = [
     ('typo',
      'any',
      '\n'
-     'ifndef ($(BR2_ENABLE_LOCALE),y)\n'
+     'ifndef ($(LINGMO_ENABLE_LOCALE),y)\n'
      'endif\n',
      [['any:2: use ifneq ($(SYMBOL),y) instead of ifndef SYMBOL',
-       'ifndef ($(BR2_ENABLE_LOCALE),y)\n']]),
+       'ifndef ($(LINGMO_ENABLE_LOCALE),y)\n']]),
     ('else ifdef',
      'any',
      'else ifdef  SYMBOL # comment\n',
@@ -85,13 +85,13 @@ Indent = [
      []),
     ('do not indent on conditional (good)',
      'any',
-     'ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),y)\n'
+     'ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS),y)\n'
      'FOO_CONF_OPTS += something\n'
      'endef\n',
      []),
     ('do not indent on conditional (bad)',
      'any',
-     'ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),y)\n'
+     'ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS),y)\n'
      '\tFOO_CONF_OPTS += something\n'
      'endef\n',
      [['any:2: unexpected indent with tabs',

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_ENSCRIPT
+config LINGMO_PACKAGE_ENSCRIPT
 	bool "enscript"
 	help
 	  GNU Enscript is a free replacement for Adobe's enscript

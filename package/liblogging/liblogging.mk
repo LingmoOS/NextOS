@@ -12,7 +12,7 @@ LIBLOGGING_CPE_ID_VENDOR = adiscon
 LIBLOGGING_INSTALL_STAGING = YES
 LIBLOGGING_CONF_OPTS = --enable-cached-man-pages
 
-ifeq ($(BR2_INIT_SYSTEMD),y)
+ifeq ($(LINGMO_INIT_SYSTEMD),y)
 LIBLOGGING_CONF_OPTS += --enable-journal
 LIBLOGGING_DEPENDENCIES += systemd
 else

@@ -15,7 +15,7 @@ LIBJWT_CPE_ID_VENDOR = bencollins
 LIBJWT_CPE_ID_PRODUCT = jwt_c_library
 LIBJWT_CONF_OPTS = --without-examples
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 LIBJWT_CONF_OPTS += --with-openssl
 LIBJWT_DEPENDENCIES += openssl
 else

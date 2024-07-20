@@ -27,49 +27,49 @@ C_ICAP_CONF_ENV = ac_cv_10031b_ipc_sem=yes ac_cv_fcntl=yes
 # sysroot, thus avoiding the build breakage.
 C_ICAP_AUTORECONF = YES
 
-ifeq ($(BR2_PACKAGE_BERKELEYDB),y)
+ifeq ($(LINGMO_PACKAGE_BERKELEYDB),y)
 C_ICAP_CONF_OPTS += --with-bdb
 C_ICAP_DEPENDENCIES += berkeleydb
 else
 C_ICAP_CONF_OPTS += --without-bdb
 endif
 
-ifeq ($(BR2_PACKAGE_BZIP2),y)
+ifeq ($(LINGMO_PACKAGE_BZIP2),y)
 C_ICAP_CONF_OPTS += --with-bzlib
 C_ICAP_DEPENDENCIES += bzip2
 else
 C_ICAP_CONF_OPTS += --without-bzlib
 endif
 
-ifeq ($(BR2_PACKAGE_LIBMEMCACHED),y)
+ifeq ($(LINGMO_PACKAGE_LIBMEMCACHED),y)
 C_ICAP_CONF_OPTS += --with-memcached
 C_ICAP_DEPENDENCIES += libmemcached
 else
 C_ICAP_CONF_OPTS += --without-memcached
 endif
 
-ifeq ($(BR2_PACKAGE_OPENLDAP),y)
+ifeq ($(LINGMO_PACKAGE_OPENLDAP),y)
 C_ICAP_CONF_OPTS += --with-ldap
 C_ICAP_DEPENDENCIES += openldap
 else
 C_ICAP_CONF_OPTS += --without-ldap
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 C_ICAP_CONF_OPTS += --with-openssl
 C_ICAP_DEPENDENCIES += openssl
 else
 C_ICAP_CONF_OPTS += --without-openssl
 endif
 
-ifeq ($(BR2_PACKAGE_PCRE),y)
+ifeq ($(LINGMO_PACKAGE_PCRE),y)
 C_ICAP_CONF_OPTS += --with-pcre
 C_ICAP_DEPENDENCIES += pcre
 else
 C_ICAP_CONF_OPTS += --without-pcre
 endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 C_ICAP_CONF_OPTS += --with-zlib
 C_ICAP_DEPENDENCIES += zlib
 else

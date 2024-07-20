@@ -1,4 +1,4 @@
-config BR2_PACKAGE_ODHCPLOC
+config LINGMO_PACKAGE_ODHCPLOC
 	bool "odhcploc"
 	help
 	  Open DHCP Locate (ODHCPLoc) is program to locate and

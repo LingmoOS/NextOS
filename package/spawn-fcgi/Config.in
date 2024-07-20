@@ -1,6 +1,6 @@
-config BR2_PACKAGE_SPAWN_FCGI
+config LINGMO_PACKAGE_SPAWN_FCGI
 	bool "spawn-fcgi"
-	depends on BR2_USE_MMU # fork()
+	depends on LINGMO_USE_MMU # fork()
 	help
 	  FastCGI process spawner.
 	  Project split from lighttpd.

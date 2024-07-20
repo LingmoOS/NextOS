@@ -10,9 +10,9 @@ KISMET_SITE = http://www.kismetwireless.net/code
 KISMET_DEPENDENCIES = \
 	host-pkgconf \
 	libpcap \
-	$(if $(BR2_PACKAGE_LIBNL),libnl) \
-	$(if $(BR2_PACKAGE_OPENSSL),openssl) \
-	$(if $(BR2_PACKAGE_PROTOBUF),protobuf) \
+	$(if $(LINGMO_PACKAGE_LIBNL),libnl) \
+	$(if $(LINGMO_PACKAGE_OPENSSL),openssl) \
+	$(if $(LINGMO_PACKAGE_PROTOBUF),protobuf) \
 	protobuf-c \
 	sqlite \
 	zlib
@@ -24,51 +24,51 @@ KISMET_CONF_OPTS = --disable-debuglibs --disable-wifi-coconut
 
 KISMET_CXXFLAGS = $(TARGET_CXXFLAGS)
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_85180),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_85180),y)
 KISMET_CXXFLAGS += -O0
 endif
 
 KISMET_CONF_ENV += CXXFLAGS="$(KISMET_CXXFLAGS)"
 
-ifeq ($(BR2_PACKAGE_LIBCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBCAP),y)
 KISMET_DEPENDENCIES += libcap
 KISMET_CONF_OPTS += --enable-libcap
 else
 KISMET_CONF_OPTS += --disable-libcap
 endif
 
-ifeq ($(BR2_PACKAGE_LIBUSB),y)
+ifeq ($(LINGMO_PACKAGE_LIBUSB),y)
 KISMET_DEPENDENCIES += libusb
 KISMET_CONF_OPTS += --enable-libusb
 else
 KISMET_CONF_OPTS += --disable-libusb
 endif
 
-ifeq ($(BR2_PACKAGE_LIBWEBSOCKETS),y)
+ifeq ($(LINGMO_PACKAGE_LIBWEBSOCKETS),y)
 KISMET_DEPENDENCIES += libwebsockets
 KISMET_CONF_OPTS += --enable-libwebsockets
 else
 KISMET_CONF_OPTS += --disable-libwebsockets
 endif
 
-ifeq ($(BR2_PACKAGE_LM_SENSORS),y)
+ifeq ($(LINGMO_PACKAGE_LM_SENSORS),y)
 KISMET_DEPENDENCIES += lm-sensors
 KISMET_CONF_OPTS += --enable-lmsensors
 else
 KISMET_CONF_OPTS += --disable-lmsensors
 endif
 
-ifeq ($(BR2_PACKAGE_PCRE2),y)
+ifeq ($(LINGMO_PACKAGE_PCRE2),y)
 KISMET_DEPENDENCIES += pcre2
 KISMET_CONF_OPTS += --enable-pcre --enable-require-pcre2
-else ifeq ($(BR2_PACKAGE_PCRE),y)
+else ifeq ($(LINGMO_PACKAGE_PCRE),y)
 KISMET_DEPENDENCIES += pcre
 KISMET_CONF_OPTS += --enable-pcre --disable-require-pcre2
 else
 KISMET_CONF_OPTS += --disable-pcre
 endif
 
-ifeq ($(BR2_PACKAGE_KISMET_PYTHON_TOOLS),y)
+ifeq ($(LINGMO_PACKAGE_KISMET_PYTHON_TOOLS),y)
 KISMET_DEPENDENCIES += python3 python-setuptools
 KISMET_CONF_OPTS += \
 	--enable-python-tools \
@@ -83,7 +83,7 @@ KISMET_INSTALL_TARGET_OPTS += \
 	INSTGRP=$(shell id -g) \
 	SUIDGROUP=$(shell id -g)
 
-ifeq ($(BR2_PACKAGE_KISMET_SERVER),y)
+ifeq ($(LINGMO_PACKAGE_KISMET_SERVER),y)
 KISMET_CONF_OPTS += --disable-capture-tools-only
 KISMET_INSTALL_TARGET_OPTS += install
 else

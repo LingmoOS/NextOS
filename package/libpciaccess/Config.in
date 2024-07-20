@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBPCIACCESS
+config LINGMO_PACKAGE_LIBPCIACCESS
 	bool "libpciaccess"
 	help
 	  X.Org libpciaccess

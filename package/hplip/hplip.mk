@@ -32,7 +32,7 @@ HPLIP_CONF_OPTS = \
 # build system does not support cups-config
 HPLIP_CONF_ENV = LIBS=`$(STAGING_DIR)/usr/bin/cups-config --libs`
 
-ifeq ($(BR2_PACKAGE_DBUS),y)
+ifeq ($(LINGMO_PACKAGE_DBUS),y)
 HPLIP_CONF_OPTS += --enable-dbus-build
 HPLIP_DEPENDENCIES += dbus
 else

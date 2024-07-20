@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBILBC
+config LINGMO_PACKAGE_LIBILBC
 	bool "libilbc"
 	help
 	  iLBC (internet Low Bitrate Codec) is a FREE speech codec

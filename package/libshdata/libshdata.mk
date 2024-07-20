@@ -12,7 +12,7 @@ LIBSHDATA_DEPENDENCIES = libfutils ulog host-alchemy
 LIBSHDATA_INSTALL_STAGING = YES
 
 LIBSHDATA_TARGETS = libshdata
-ifeq ($(BR2_PACKAGE_LIBSHDATA_STRESS),y)
+ifeq ($(LINGMO_PACKAGE_LIBSHDATA_STRESS),y)
 LIBSHDATA_TARGETS += libshdata-stress
 endif
 
@@ -24,14 +24,14 @@ define LIBSHDATA_BUILD_CMDS
 	$(LIBSHDATA_TARGET_ENV) $(ALCHEMY_MAKE) $(LIBSHDATA_TARGETS)
 endef
 
-ifeq ($(BR2_SHARED_LIBS),)
+ifeq ($(LINGMO_SHARED_LIBS),)
 define LIBSHDATA_INSTALL_STATIC_LIBS
 	$(INSTALL) -D -m 644 $(@D)/alchemy-out/staging/usr/lib/libshdata.a \
 		$(STAGING_DIR)/usr/lib/libshdata.a
 endef
 endif
 
-ifeq ($(BR2_STATIC_LIBS),)
+ifeq ($(LINGMO_STATIC_LIBS),)
 # $(1): destination directory: target or staging
 define LIBSHDATA_INSTALL_SHARED_LIBS
 	mkdir -p $(1)/usr/lib/
@@ -40,7 +40,7 @@ define LIBSHDATA_INSTALL_SHARED_LIBS
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSHDATA_STRESS),y)
+ifeq ($(LINGMO_PACKAGE_LIBSHDATA_STRESS),y)
 define LIBSHDATA_INSTALL_BIN
 	$(INSTALL) -D -m 755 $(@D)/alchemy-out/staging/usr/bin/libshdata-stress \
 		$(TARGET_DIR)/usr/bin/libshdata-stress

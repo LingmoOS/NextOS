@@ -1,7 +1,7 @@
-config BR2_PACKAGE_LEAFNODE2
+config LINGMO_PACKAGE_LEAFNODE2
 	bool "leafnode2"
-	depends on BR2_USE_MMU # fork()
-	select BR2_PACKAGE_PCRE
+	depends on LINGMO_USE_MMU # fork()
+	select LINGMO_PACKAGE_PCRE
 	help
 	  Leafnode-2 is a store-and-forward NNTP (or Usenet) proxy
 	  server designed for small sites with just a few active

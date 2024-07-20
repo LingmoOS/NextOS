@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBCODEC2
+config LINGMO_PACKAGE_LIBCODEC2
 	bool "libcodec2"
 	help
 	  Codec2 is an open source low bit rate speech codec designed
@@ -6,9 +6,9 @@ config BR2_PACKAGE_LIBCODEC2
 
 	  http://rowetel.com/codec2.html
 
-if BR2_PACKAGE_LIBCODEC2
+if LINGMO_PACKAGE_LIBCODEC2
 
-config BR2_PACKAGE_LIBCODEC2_EXAMPLES
+config LINGMO_PACKAGE_LIBCODEC2_EXAMPLES
 	bool "libcodec2_examples"
 	help
 	  Install Codec2 examples.

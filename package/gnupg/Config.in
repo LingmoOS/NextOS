@@ -1,6 +1,6 @@
-config BR2_PACKAGE_GNUPG
+config LINGMO_PACKAGE_GNUPG
 	bool "gnupg"
-	select BR2_PACKAGE_ZLIB
+	select LINGMO_PACKAGE_ZLIB
 	help
 	  GnuPG is the GNU project's complete and free implementation
 	  of the OpenPGP standard as defined by RFC4880. GnuPG allows
@@ -12,19 +12,19 @@ config BR2_PACKAGE_GNUPG
 
 	  http://gnupg.org/
 
-if BR2_PACKAGE_GNUPG
+if LINGMO_PACKAGE_GNUPG
 
-config BR2_PACKAGE_GNUPG_AES
+config LINGMO_PACKAGE_GNUPG_AES
 	bool "AES support"
 	help
 	  Support for the AES cipher
 
-config BR2_PACKAGE_GNUPG_RSA
+config LINGMO_PACKAGE_GNUPG_RSA
 	bool "RSA support"
 	help
 	  Support for RSA public key algorithm
 
-config BR2_PACKAGE_GNUPG_GPGV
+config LINGMO_PACKAGE_GNUPG_GPGV
 	bool "gpgv"
 	help
 	  gpgv is an OpenPGP signature verification tool.
@@ -36,7 +36,7 @@ config BR2_PACKAGE_GNUPG_GPGV
 	  signature are valid. There are no configuration files and
 	  only a few options are implemented.
 
-config BR2_PACKAGE_GNUPG_GPGSPLIT
+config LINGMO_PACKAGE_GNUPG_GPGSPLIT
 	bool "gpgsplit"
 	help
 	  gpgsplit splits an OpenPGP message into packets.

@@ -12,7 +12,7 @@ FCGIWRAP_LICENSE_FILES = COPYING
 FCGIWRAP_AUTORECONF = YES
 FCGIWRAP_CONF_ENV = CFLAGS="$(TARGET_CFLAGS) -Wno-error"
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 FCGIWRAP_DEPENDENCIES += systemd
 FCGIWRAP_CONF_OPTS += --with-systemd
 else
@@ -22,7 +22,7 @@ endif
 # libfcgi needs libm and fcgiwrap does not use libtool or pkgconf to
 # detect libfcgi, so we need to add -lm explicitely when using static
 # libs.
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 FCGIWRAP_CONF_OPTS += LIBS=-lm
 endif
 

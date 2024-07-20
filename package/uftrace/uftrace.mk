@@ -15,26 +15,26 @@ UFTRACE_CONFIGURE_OPTS = \
 	--without-libncurses \
 	--without-capstone
 
-ifeq ($(BR2_i386),y)
+ifeq ($(LINGMO_i386),y)
 UFTRACE_ARCH = i386
 else
-UFTRACE_ARCH = $(BR2_ARCH)
+UFTRACE_ARCH = $(LINGMO_ARCH)
 endif
 
 # Only --without-<foo> options are supported.
-ifeq ($(BR2_PACKAGE_ELFUTILS),y)
+ifeq ($(LINGMO_PACKAGE_ELFUTILS),y)
 UFTRACE_DEPENDENCIES += elfutils
 else
 UFTRACE_CONFIGURE_OPTS += --without-libelf
 endif
 
-ifeq ($(BR2_INSTALL_LIBSTDCPP),)
+ifeq ($(LINGMO_INSTALL_LIBSTDCPP),)
 UFTRACE_CONFIGURE_OPTS += --without-libstdc++
 endif
 
 UFTRACE_LDFLAGS = $(TARGET_LDFLAGS)
 
-ifeq ($(BR2_PACKAGE_ARGP_STANDALONE),y)
+ifeq ($(LINGMO_PACKAGE_ARGP_STANDALONE),y)
 UFTRACE_DEPENDENCIES += argp-standalone
 UFTRACE_LDFLAGS += -largp
 endif

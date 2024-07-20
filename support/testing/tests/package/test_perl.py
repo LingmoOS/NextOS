@@ -6,8 +6,8 @@ import infra.basetest
 class TestPerlBase(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def login(self):
@@ -25,7 +25,7 @@ class TestPerlBase(infra.basetest.BRTest):
 class TestPerl(TestPerlBase):
     config = TestPerlBase.config + \
         """
-        BR2_PACKAGE_PERL=y
+        LINGMO_PACKAGE_PERL=y
         """
 
     def version_test(self):

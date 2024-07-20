@@ -17,7 +17,7 @@ MP4V2_LICENSE_FILES = COPYING
 # disable it
 MP4V2_CONF_ENV = ac_cv_prog_FOUND_HELP2MAN=no
 
-ifeq ($(BR2_PACKAGE_MP4V2_UTIL),y)
+ifeq ($(LINGMO_PACKAGE_MP4V2_UTIL),y)
 MP4V2_CONF_OPTS += --enable-util
 else
 MP4V2_CONF_OPTS += --disable-util

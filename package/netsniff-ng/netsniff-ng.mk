@@ -16,7 +16,7 @@ NETSNIFF_NG_CONF_ENV = \
 NETSNIFF_NG_DEPENDENCIES = host-pkgconf libpcap libnetfilter_conntrack liburcu
 NETSNIFF_NG_CONF_OPTS = --prefix=$(TARGET_DIR)/usr
 
-ifeq ($(BR2_PACKAGE_NETSNIFF_NG_MAUSEZAHN),y)
+ifeq ($(LINGMO_PACKAGE_NETSNIFF_NG_MAUSEZAHN),y)
 NETSNIFF_NG_DEPENDENCIES += libcli libnet
 NETSNIFF_NG_BUILD_MAKE_TARGET = all
 NETSNIFF_NG_INSTALL_MAKE_TARGET = install
@@ -25,23 +25,23 @@ NETSNIFF_NG_BUILD_MAKE_TARGET = allbutmausezahn
 NETSNIFF_NG_INSTALL_MAKE_TARGET = install_allbutmausezahn
 endif
 
-ifeq ($(BR2_PACKAGE_GEOIP),y)
+ifeq ($(LINGMO_PACKAGE_GEOIP),y)
 NETSNIFF_NG_DEPENDENCIES += geoip
 else
 NETSNIFF_NG_CONF_OPTS += --disable-geoip
 endif
 
-ifeq ($(BR2_PACKAGE_LIBNL),y)
+ifeq ($(LINGMO_PACKAGE_LIBNL),y)
 NETSNIFF_NG_DEPENDENCIES += libnl
 else
 NETSNIFF_NG_CONF_OPTS += --disable-libnl
 endif
 
-ifeq ($(BR2_PACKAGE_NCURSES),y)
+ifeq ($(LINGMO_PACKAGE_NCURSES),y)
 NETSNIFF_NG_DEPENDENCIES += ncurses
 endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 NETSNIFF_NG_DEPENDENCIES += zlib
 else
 NETSNIFF_NG_CONF_OPTS += --disable-zlib

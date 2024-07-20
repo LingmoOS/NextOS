@@ -14,7 +14,7 @@ DVDAUTHOR_CONF_ENV = \
 	ac_cv_path_XML2_CONFIG=$(STAGING_DIR)/usr/bin/xml2-config \
 	ac_cv_prog_GMAGICKCONFIG=
 
-ifeq ($(BR2_PACKAGE_IMAGEMAGICK),y)
+ifeq ($(LINGMO_PACKAGE_IMAGEMAGICK),y)
 DVDAUTHOR_DEPENDENCIES += imagemagick
 DVDAUTHOR_CONF_ENV += \
 	ac_cv_prog_MAGICKCONFIG=$(STAGING_DIR)/usr/bin/Magick-config
@@ -25,18 +25,18 @@ endif
 
 # Automatically detected by dvdauthor configure script, no way to
 # disable.
-ifeq ($(BR2_PACKAGE_FONTCONFIG),y)
+ifeq ($(LINGMO_PACKAGE_FONTCONFIG),y)
 DVDAUTHOR_DEPENDENCIES += fontconfig
 endif
 
-ifeq ($(BR2_PACKAGE_LIBFRIBIDI),y)
+ifeq ($(LINGMO_PACKAGE_LIBFRIBIDI),y)
 DVDAUTHOR_DEPENDENCIES += libfribidi
 endif
 
-ifeq ($(BR2_PACKAGE_DVDAUTHOR_DVDUNAUTHOR),y)
+ifeq ($(LINGMO_PACKAGE_DVDAUTHOR_DVDUNAUTHOR),y)
 DVDAUTHOR_DEPENDENCIES += libdvdread
 # dvdauthor configure does not use pkg-config to detect libdvdread
-ifeq ($(BR2_PACKAGE_LIBDVDCSS)$(BR2_STATIC_LIBS),yy)
+ifeq ($(LINGMO_PACKAGE_LIBDVDCSS)$(LINGMO_STATIC_LIBS),yy)
 DVDAUTHOR_CONF_ENV += LIBS="-ldvdcss"
 endif
 DVDAUTHOR_CONF_OPTS += --enable-dvdunauthor

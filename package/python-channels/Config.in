@@ -1,10 +1,10 @@
-config BR2_PACKAGE_PYTHON_CHANNELS
+config LINGMO_PACKAGE_PYTHON_CHANNELS
 	bool "python-channels"
 	# python-daphne -> python-autobahn -> python-cryptography
-	depends on BR2_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
-	select BR2_PACKAGE_PYTHON_ASGIREF # runtime
-	select BR2_PACKAGE_PYTHON_DAPHNE # runtime
-	select BR2_PACKAGE_PYTHON_DJANGO # runtime
+	depends on LINGMO_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
+	select LINGMO_PACKAGE_PYTHON_ASGIREF # runtime
+	select LINGMO_PACKAGE_PYTHON_DAPHNE # runtime
+	select LINGMO_PACKAGE_PYTHON_DJANGO # runtime
 	help
 	  Channels augments Django to bring WebSocket, long-poll
 	  HTTP, task offloading and other async support to your

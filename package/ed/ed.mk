@@ -5,7 +5,7 @@
 ################################################################################
 
 ED_VERSION = 1.19
-ED_SITE = $(BR2_GNU_MIRROR)/ed
+ED_SITE = $(LINGMO_GNU_MIRROR)/ed
 ED_SOURCE = ed-$(ED_VERSION).tar.lz
 ED_LICENSE = GPL-2.0+
 ED_LICENSE_FILES = COPYING

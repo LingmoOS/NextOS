@@ -18,7 +18,7 @@ GST1_DEVTOOLS_DEPENDENCIES = \
 	gst1-plugins-base \
 	json-glib
 
-ifeq ($(BR2_PACKAGE_GST1_RTSP_SERVER),y)
+ifeq ($(LINGMO_PACKAGE_GST1_RTSP_SERVER),y)
 GST1_DEVTOOLS_DEPENDENCIES += gst1-rtsp-server
 endif
 
@@ -30,7 +30,7 @@ GST1_DEVTOOLS_CONF_OPTS = \
 	-Ddoc=disabled
 
 # build GstValidateVideo
-ifeq ($(BR2_PACKAGE_CAIRO),y)
+ifeq ($(LINGMO_PACKAGE_CAIRO),y)
 GST1_DEVTOOLS_CONF_OPTS += -Dcairo=enabled
 GST1_DEVTOOLS_DEPENDENCIES += cairo
 else

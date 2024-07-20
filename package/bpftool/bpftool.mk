@@ -13,11 +13,11 @@ BPFTOOL_LICENSE_FILES = LICENSE LICENSE.BSD-2-Clause LICENSE.GPL-2.0
 BPFTOOL_DEPENDENCIES = binutils elfutils
 HOST_BPFTOOL_DEPENDENCIES = host-elfutils host-pkgconf host-zlib
 
-ifeq ($(BR2_PACKAGE_LIBCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBCAP),y)
 BPFTOOL_DEPENDENCIES += libcap
 endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 BPFTOOL_DEPENDENCIES += zlib
 endif
 

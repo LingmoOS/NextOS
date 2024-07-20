@@ -15,7 +15,7 @@ LIBPRI_INSTALL_STAGING = YES
 
 # The Makefile default rule will always try to generate both libraries.
 # So we need to explicitly build only what we can.
-ifneq ($(BR2_SHARED_LIBS),y)
+ifneq ($(LINGMO_SHARED_LIBS),y)
 LIBPRI_LIBS = libpri.a
 LIBPRI_UTILS += pritest rosetest testprilib
 define LIBPRI_INSTALL_A
@@ -23,7 +23,7 @@ define LIBPRI_INSTALL_A
 endef
 endif
 
-ifneq ($(BR2_STATIC_LIBS),y)
+ifneq ($(LINGMO_STATIC_LIBS),y)
 LIBPRI_LIBS += libpri.so.1.4
 LIBPRI_UTILS += pridump
 define LIBPRI_INSTALL_SO

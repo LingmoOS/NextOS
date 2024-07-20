@@ -17,7 +17,7 @@ GTKMM3_CONF_OPTS = \
 	-Dbuild-demos=false \
 	-Dbuild-tests=false
 
-ifeq ($(BR2_PACKAGE_LIBGTK3_X11),y)
+ifeq ($(LINGMO_PACKAGE_LIBGTK3_X11),y)
 GTKMM3_CONF_OPTS += -Dbuild-x11-api=true
 else
 GTKMM3_CONF_OPTS += -Dbuild-x11-api=false

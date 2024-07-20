@@ -9,7 +9,7 @@ OLSR_SITE = $(call github,OLSR,olsrd,v$(OLSR_VERSION))
 OLSR_PLUGINS = arprefresh bmf dot_draw dyn_gw dyn_gw_plain httpinfo jsoninfo \
 	mdns nameservice netjson poprouting p2pd pgraph secure txtinfo watchdog
 # Doesn't really need quagga but not very useful without it
-OLSR_PLUGINS += $(if $(BR2_PACKAGE_QUAGGA),quagga)
+OLSR_PLUGINS += $(if $(LINGMO_PACKAGE_QUAGGA),quagga)
 OLSR_LICENSE = BSD-3-Clause
 OLSR_LICENSE_FILES = license.txt
 OLSR_DEPENDENCIES = host-flex host-bison
@@ -19,7 +19,7 @@ OLSR_CFLAGS = $(TARGET_CFLAGS)
 # it needs -fPIC to link on lot of architectures
 OLSR_CFLAGS += -fPIC
 
-ifeq ($(BR2_PACKAGE_GPSD),y)
+ifeq ($(LINGMO_PACKAGE_GPSD),y)
 OLSR_LICENSE += , LGPL-2.1+ (nmealib)
 OLSR_LICENSE_FILES += lib/pud/nmealib/LICENSE
 OLSR_DEPENDENCIES += gpsd

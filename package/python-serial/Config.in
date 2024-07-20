@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_SERIAL
+config LINGMO_PACKAGE_PYTHON_SERIAL
 	bool "python-serial"
 	help
 	  python-serial is a Python library to access serial ports.

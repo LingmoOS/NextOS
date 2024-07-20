@@ -14,13 +14,13 @@ def jffs2dump_find_file(files_list, fname):
 class TestJffs2(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_TARGET_ROOTFS_JFFS2=y
-        BR2_TARGET_ROOTFS_JFFS2_CUSTOM=y
-        BR2_TARGET_ROOTFS_JFFS2_CUSTOM_EBSIZE=0x40000
-        BR2_TARGET_ROOTFS_JFFS2_NOCLEANMARKER=y
-        BR2_TARGET_ROOTFS_JFFS2_PAD=y
-        BR2_TARGET_ROOTFS_JFFS2_PADSIZE=0x4000000
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_TARGET_ROOTFS_JFFS2=y
+        LINGMO_TARGET_ROOTFS_JFFS2_CUSTOM=y
+        LINGMO_TARGET_ROOTFS_JFFS2_CUSTOM_EBSIZE=0x40000
+        LINGMO_TARGET_ROOTFS_JFFS2_NOCLEANMARKER=y
+        LINGMO_TARGET_ROOTFS_JFFS2_PAD=y
+        LINGMO_TARGET_ROOTFS_JFFS2_PADSIZE=0x4000000
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     # TODO: there are some scary JFFS2 messages when one starts to

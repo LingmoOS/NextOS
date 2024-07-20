@@ -14,35 +14,35 @@ SDL2_MIXER_DEPENDENCIES = sdl2 host-pkgconf
 
 SDL2_MIXER_CONF_OPTS = --disable-music-mp3
 
-ifeq ($(BR2_PACKAGE_FLAC),y)
+ifeq ($(LINGMO_PACKAGE_FLAC),y)
 SDL2_MIXER_CONF_OPTS += --enable-music-flac
 SDL2_MIXER_DEPENDENCIES += flac
 else
 SDL2_MIXER_CONF_OPTS += --disable-music-flac
 endif
 
-ifeq ($(BR2_PACKAGE_FLUIDSYNTH),y)
+ifeq ($(LINGMO_PACKAGE_FLUIDSYNTH),y)
 SDL2_MIXER_CONF_OPTS += --enable-music-midi-fluidsynth
 SDL2_MIXER_DEPENDENCIES += fluidsynth
 else
 SDL2_MIXER_CONF_OPTS += --disable-music-midi-fluidsynth
 endif
 
-ifeq ($(BR2_PACKAGE_LIBMODPLUG),y)
+ifeq ($(LINGMO_PACKAGE_LIBMODPLUG),y)
 SDL2_MIXER_CONF_OPTS += --enable-music-mod-modplug
 SDL2_MIXER_DEPENDENCIES += libmodplug
 else
 SDL2_MIXER_CONF_OPTS += --disable-music-mod-modplug
 endif
 
-ifeq ($(BR2_PACKAGE_OPUSFILE),y)
+ifeq ($(LINGMO_PACKAGE_OPUSFILE),y)
 SDL2_MIXER_CONF_OPTS += --enable-music-opus
 SDL2_MIXER_DEPENDENCIES += opusfile
 else
 SDL2_MIXER_CONF_OPTS += --disable-music-opus
 endif
 
-ifeq ($(BR2_PACKAGE_TREMOR),y)
+ifeq ($(LINGMO_PACKAGE_TREMOR),y)
 SDL2_MIXER_CONF_OPTS += --enable-music-ogg-tremor
 SDL2_MIXER_DEPENDENCIES += tremor
 else

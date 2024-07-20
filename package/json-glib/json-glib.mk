@@ -18,14 +18,14 @@ JSON_GLIB_DEPENDENCIES = \
 	host-pkgconf \
 	libglib2
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 JSON_GLIB_CONF_OPTS += -Dintrospection=enabled
 JSON_GLIB_DEPENDENCIES += gobject-introspection
 else
 JSON_GLIB_CONF_OPTS += -Dintrospection=disabled
 endif
 
-ifeq ($(BR2_SYSTEM_ENABLE_NLS),y)
+ifeq ($(LINGMO_SYSTEM_ENABLE_NLS),y)
 JSON_GLIB_CONF_OPTS += -Dnls=enabled
 else
 JSON_GLIB_CONF_OPTS += -Dnls=disabled

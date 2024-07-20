@@ -24,25 +24,25 @@ SDL_IMAGE_CONF_OPTS = \
 	--disable-png-shared \
 	--disable-tif-shared \
 	--disable-webp-shared \
-	--enable-bmp=$(if $(BR2_PACKAGE_SDL_IMAGE_BMP),yes,no) \
-	--enable-gif=$(if $(BR2_PACKAGE_SDL_IMAGE_GIF),yes,no) \
-	--enable-jpg=$(if $(BR2_PACKAGE_SDL_IMAGE_JPEG),yes,no) \
-	--enable-lbm=$(if $(BR2_PACKAGE_SDL_IMAGE_LBM),yes,no) \
-	--enable-pcx=$(if $(BR2_PACKAGE_SDL_IMAGE_PCX),yes,no) \
-	--enable-png=$(if $(BR2_PACKAGE_SDL_IMAGE_PNG),yes,no) \
-	--enable-pnm=$(if $(BR2_PACKAGE_SDL_IMAGE_PNM),yes,no) \
-	--enable-tga=$(if $(BR2_PACKAGE_SDL_IMAGE_TARGA),yes,no) \
-	--enable-tif=$(if $(BR2_PACKAGE_SDL_IMAGE_TIFF),yes,no) \
-	--enable-webp=$(if $(BR2_PACKAGE_SDL_IMAGE_WEBP),yes,no) \
-	--enable-xcf=$(if $(BR2_PACKAGE_SDL_IMAGE_XCF),yes,no) \
-	--enable-xpm=$(if $(BR2_PACKAGE_SDL_IMAGE_XPM),yes,no) \
-	--enable-xv=$(if $(BR2_PACKAGE_SDL_IMAGE_XV),yes,no)
+	--enable-bmp=$(if $(LINGMO_PACKAGE_SDL_IMAGE_BMP),yes,no) \
+	--enable-gif=$(if $(LINGMO_PACKAGE_SDL_IMAGE_GIF),yes,no) \
+	--enable-jpg=$(if $(LINGMO_PACKAGE_SDL_IMAGE_JPEG),yes,no) \
+	--enable-lbm=$(if $(LINGMO_PACKAGE_SDL_IMAGE_LBM),yes,no) \
+	--enable-pcx=$(if $(LINGMO_PACKAGE_SDL_IMAGE_PCX),yes,no) \
+	--enable-png=$(if $(LINGMO_PACKAGE_SDL_IMAGE_PNG),yes,no) \
+	--enable-pnm=$(if $(LINGMO_PACKAGE_SDL_IMAGE_PNM),yes,no) \
+	--enable-tga=$(if $(LINGMO_PACKAGE_SDL_IMAGE_TARGA),yes,no) \
+	--enable-tif=$(if $(LINGMO_PACKAGE_SDL_IMAGE_TIFF),yes,no) \
+	--enable-webp=$(if $(LINGMO_PACKAGE_SDL_IMAGE_WEBP),yes,no) \
+	--enable-xcf=$(if $(LINGMO_PACKAGE_SDL_IMAGE_XCF),yes,no) \
+	--enable-xpm=$(if $(LINGMO_PACKAGE_SDL_IMAGE_XPM),yes,no) \
+	--enable-xv=$(if $(LINGMO_PACKAGE_SDL_IMAGE_XV),yes,no)
 
 SDL_IMAGE_DEPENDENCIES = sdl \
-	$(if $(BR2_PACKAGE_SDL_IMAGE_JPEG),jpeg) \
-	$(if $(BR2_PACKAGE_SDL_IMAGE_PNG),libpng) \
-	$(if $(BR2_PACKAGE_SDL_IMAGE_TIFF),tiff) \
-	$(if $(BR2_PACKAGE_SDL_IMAGE_WEBP),webp)
+	$(if $(LINGMO_PACKAGE_SDL_IMAGE_JPEG),jpeg) \
+	$(if $(LINGMO_PACKAGE_SDL_IMAGE_PNG),libpng) \
+	$(if $(LINGMO_PACKAGE_SDL_IMAGE_TIFF),tiff) \
+	$(if $(LINGMO_PACKAGE_SDL_IMAGE_WEBP),webp)
 
 HOST_SDL_IMAGE_CONF_OPTS = \
 	--with-sdl-prefix=$(HOST_DIR) \

@@ -18,7 +18,7 @@ LUGARU_DEPENDENCIES = host-pkgconf jpeg libgl libglu libpng libvorbis \
 # Avoid incompatible posix_memalign declaration on x86 and x86_64 with
 # musl.
 # https://gcc.gnu.org/ml/gcc-patches/2015-05/msg01425.html
-ifeq ($(BR2_TOOLCHAIN_USES_MUSL):$(BR2_i386)$(BR2_x86_64),y:y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_MUSL):$(LINGMO_i386)$(LINGMO_x86_64),y:y)
 define LUGARU_REMOVE_PEDANTIC
 	$(SED) 's% -pedantic%%' $(@D)/CMakeLists.txt
 endef

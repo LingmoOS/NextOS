@@ -1,4 +1,4 @@
-config BR2_PACKAGE_QT5COAP
+config LINGMO_PACKAGE_QT5COAP
 	bool "qt5coap"
 	help
 	  Qt is a cross-platform application and UI framework for

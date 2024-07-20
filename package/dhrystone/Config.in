@@ -1,4 +1,4 @@
-config BR2_PACKAGE_DHRYSTONE
+config LINGMO_PACKAGE_DHRYSTONE
 	bool "dhrystone"
 	help
 	  easy-to-use integer benchmark

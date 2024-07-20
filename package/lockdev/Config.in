@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LOCKDEV
+config LINGMO_PACKAGE_LOCKDEV
 	bool "lockdev"
 	help
 	  Library for locking devices.

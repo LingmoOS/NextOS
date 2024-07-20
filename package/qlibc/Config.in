@@ -1,9 +1,9 @@
-config BR2_PACKAGE_QLIBC
+config LINGMO_PACKAGE_QLIBC
 	bool "qlibc"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_USE_WCHAR
-	depends on !BR2_STATIC_LIBS
-	select BR2_PACKAGE_LIBICONV if !BR2_ENABLE_LOCALE
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_WCHAR
+	depends on !LINGMO_STATIC_LIBS
+	select LINGMO_PACKAGE_LIBICONV if !LINGMO_ENABLE_LOCALE
 	help
 	  qLibc is currently one of the most functionally complete
 	  public licensed C/C++ libraries. The C/C++ library which
@@ -14,4 +14,4 @@ config BR2_PACKAGE_QLIBC
 	  https://github.com/wolkykim/qlibc
 
 comment "qlibc needs a toolchain w/ threads, wchar, dynamic library"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || !BR2_USE_WCHAR || BR2_STATIC_LIBS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || !LINGMO_USE_WCHAR || LINGMO_STATIC_LIBS

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUA_VALUA
+config LINGMO_PACKAGE_LUA_VALUA
 	bool "lua-valua"
 	help
 	  This module provides tools for validating values, very useful

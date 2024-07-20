@@ -50,7 +50,7 @@ function generate_mender_image {
         --compression lzma \
         write rootfs-image \
         -t "${DEVICE_TYPE}" \
-        -n "${BR2_VERSION}" \
+        -n "${LINGMO_VERSION}" \
         -f "${BINARIES_DIR}/rootfs.ext2" \
         -o "${BINARIES_DIR}/${DEVICE_TYPE}-${ARTIFACT_NAME}.mender"
 }

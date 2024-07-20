@@ -59,23 +59,23 @@ DHCP_CONF_OPTS = \
 	--with-relay-pid-file=/var/run/dhcrelay.pid \
 	--with-relay6-pid-file=/var/run/dhcrelay6.pid
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 DHCP_BIND_EXTRA_CONFIG += --with-zlib=$(STAGING_DIR)/usr
 DHCP_DEPENDENCIES += zlib
 else
 DHCP_BIND_EXTRA_CONFIG += --without-zlib
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_ATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_ATOMIC),y)
 DHCP_BIND_EXTRA_CONFIG += --enable-atomic
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 DHCP_CONF_ENV += LIBS=-latomic
 endif
 else
 DHCP_BIND_EXTRA_CONFIG += --disable-atomic
 endif
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 DHCP_CONF_OPTS += --disable-libtool
 else
 DHCP_POST_EXTRACT_HOOKS += DHCP_LIBTOOL_AUTORECONF
@@ -83,13 +83,13 @@ DHCP_AUTORECONF = YES
 DHCP_CONF_OPTS += --enable-libtool
 endif
 
-ifeq ($(BR2_PACKAGE_DHCP_SERVER_DELAYED_ACK),y)
+ifeq ($(LINGMO_PACKAGE_DHCP_SERVER_DELAYED_ACK),y)
 DHCP_CONF_OPTS += --enable-delayed-ack
 else
 DHCP_CONF_OPTS += --disable-delayed-ack
 endif
 
-ifeq ($(BR2_PACKAGE_DHCP_SERVER_ENABLE_PARANOIA),y)
+ifeq ($(LINGMO_PACKAGE_DHCP_SERVER_ENABLE_PARANOIA),y)
 DHCP_CONF_OPTS += --enable-paranoia
 else
 DHCP_CONF_OPTS += --disable-paranoia
@@ -101,7 +101,7 @@ define DHCP_INSTALL_LIBS
 	$(MAKE) -C $(@D)/omapip install-exec DESTDIR=$(TARGET_DIR)
 endef
 
-ifeq ($(BR2_PACKAGE_DHCP_SERVER),y)
+ifeq ($(LINGMO_PACKAGE_DHCP_SERVER),y)
 define DHCP_INSTALL_CTL_LIBS
 	$(MAKE) -C $(@D)/dhcpctl install-exec DESTDIR=$(TARGET_DIR)
 endef
@@ -114,7 +114,7 @@ define DHCP_INSTALL_SERVER
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_DHCP_RELAY),y)
+ifeq ($(LINGMO_PACKAGE_DHCP_RELAY),y)
 define DHCP_INSTALL_RELAY
 	mkdir -p $(TARGET_DIR)/var/lib
 	(cd $(TARGET_DIR)/var/lib; ln -snf /tmp dhcp)
@@ -122,7 +122,7 @@ define DHCP_INSTALL_RELAY
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_DHCP_CLIENT),y)
+ifeq ($(LINGMO_PACKAGE_DHCP_CLIENT),y)
 define DHCP_INSTALL_CLIENT
 	mkdir -p $(TARGET_DIR)/var/lib
 	(cd $(TARGET_DIR)/var/lib; ln -snf /tmp dhcp)
@@ -143,7 +143,7 @@ define DHCP_INSTALL_INIT_SYSV
 		$(TARGET_DIR)/etc/init.d/S80dhcp-relay
 endef
 
-ifeq ($(BR2_PACKAGE_DHCP_SERVER),y)
+ifeq ($(LINGMO_PACKAGE_DHCP_SERVER),y)
 define DHCP_INSTALL_INIT_SYSTEMD
 	$(INSTALL) -D -m 644 package/dhcp/dhcpd.service \
 		$(TARGET_DIR)/usr/lib/systemd/system/dhcpd.service

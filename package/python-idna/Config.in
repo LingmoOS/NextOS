@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_IDNA
+config LINGMO_PACKAGE_PYTHON_IDNA
 	bool "python-idna"
-	select BR2_PACKAGE_PYTHON3_UNICODEDATA
+	select LINGMO_PACKAGE_PYTHON3_UNICODEDATA
 	help
 	  A library to support the Internationalised Domain Names in
 	  Applications (IDNA) protocol as specified in RFC 5891. This

@@ -12,19 +12,19 @@ LIBCEC_LICENSE_FILES = COPYING
 LIBCEC_INSTALL_STAGING = YES
 LIBCEC_DEPENDENCIES = host-pkgconf libplatform
 
-ifeq ($(BR2_PACKAGE_LOCKDEV),y)
+ifeq ($(LINGMO_PACKAGE_LOCKDEV),y)
 LIBCEC_DEPENDENCIES += lockdev
 endif
 
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 LIBCEC_DEPENDENCIES += udev
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON3),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3),y)
 LIBCEC_DEPENDENCIES += host-swig python3
 endif
 
-ifeq ($(BR2_PACKAGE_RPI_USERLAND),y)
+ifeq ($(LINGMO_PACKAGE_RPI_USERLAND),y)
 LIBCEC_DEPENDENCIES += rpi-userland
 LIBCEC_CONF_OPTS += \
 	-DCMAKE_C_FLAGS="$(TARGET_CFLAGS) -lvcos -lvchiq_arm" \
@@ -33,7 +33,7 @@ LIBCEC_CONF_OPTS += \
 		-I$(STAGING_DIR)/usr/include/interface/vcos/pthreads"
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXRANDR),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXRANDR),y)
 LIBCEC_DEPENDENCIES += xlib_libXrandr
 endif
 

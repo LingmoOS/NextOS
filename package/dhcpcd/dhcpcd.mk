@@ -20,24 +20,24 @@ DHCPCD_CONFIG_OPTS = \
 DHCPCD_MAKE_OPTS = \
 	BINMODE=755
 
-ifeq ($(BR2_PACKAGE_DHCPCD_ENABLE_PRIVSEP),y)
+ifeq ($(LINGMO_PACKAGE_DHCPCD_ENABLE_PRIVSEP),y)
 DHCPCD_CONFIG_OPTS += --enable-privsep
 else
 DHCPCD_CONFIG_OPTS += --disable-privsep
 endif
 
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 DHCPCD_CONFIG_OPTS += --with-udev
 DHCPCD_DEPENDENCIES += udev
 else
 DHCPCD_CONFIG_OPTS += --without-udev
 endif
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 DHCPCD_CONFIG_OPTS += --enable-static
 endif
 
-ifeq ($(BR2_USE_MMU),)
+ifeq ($(LINGMO_USE_MMU),)
 DHCPCD_CONFIG_OPTS += --disable-fork
 endif
 
@@ -56,7 +56,7 @@ endef
 # When network-manager is enabled together with dhcpcd, it will use
 # dhcpcd as a DHCP client, and will be in charge of running, so we
 # don't want the init script or service file to be installed.
-ifeq ($(BR2_PACKAGE_NETWORK_MANAGER),)
+ifeq ($(LINGMO_PACKAGE_NETWORK_MANAGER),)
 define DHCPCD_INSTALL_INIT_SYSV
 	$(INSTALL) -m 755 -D package/dhcpcd/S41dhcpcd \
 		$(TARGET_DIR)/etc/init.d/S41dhcpcd

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBMINIUPNPC
+config LINGMO_PACKAGE_LIBMINIUPNPC
 	bool "libminiupnpc"
 	help
 	  The UPnP protocol is supported by most home adsl/cable routers

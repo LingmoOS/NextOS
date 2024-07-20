@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_SLOCI_IMAGE
+config LINGMO_PACKAGE_HOST_SLOCI_IMAGE
 	bool "host sloci-image"
 	help
 	  A simple CLI tool for packing rootfs into a single-layer OCI

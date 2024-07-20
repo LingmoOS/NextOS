@@ -15,14 +15,14 @@ BIRD_DEPENDENCIES = host-flex host-bison
 # 0001-configure.ac-fix-build-with-autoconf-2.70.patch
 BIRD_AUTORECONF = YES
 
-ifeq ($(BR2_PACKAGE_BIRD_CLIENT),y)
+ifeq ($(LINGMO_PACKAGE_BIRD_CLIENT),y)
 BIRD_CONF_OPTS += --enable-client
 BIRD_DEPENDENCIES += ncurses readline
 else
 BIRD_CONF_OPTS += --disable-client
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSSH),y)
+ifeq ($(LINGMO_PACKAGE_LIBSSH),y)
 BIRD_CONF_OPTS += --enable-libssh
 BIRD_DEPENDENCIES += libssh
 else
@@ -30,17 +30,17 @@ BIRD_CONF_OPTS += --disable-libssh
 endif
 
 BIRD_PROTOCOLS = \
-	$(if $(BR2_PACKAGE_BIRD_BFD),bfd) \
-	$(if $(BR2_PACKAGE_BIRD_BABEL),babel) \
-	$(if $(BR2_PACKAGE_BIRD_BGP),bgp) \
-	$(if $(BR2_PACKAGE_BIRD_MRT),mrt) \
-	$(if $(BR2_PACKAGE_BIRD_OSPF),ospf) \
-	$(if $(BR2_PACKAGE_BIRD_PERF),perf) \
-	$(if $(BR2_PACKAGE_BIRD_PIPE),pipe) \
-	$(if $(BR2_PACKAGE_BIRD_RADV),radv) \
-	$(if $(BR2_PACKAGE_BIRD_RIP),rip) \
-	$(if $(BR2_PACKAGE_BIRD_RPKI),rpki) \
-	$(if $(BR2_PACKAGE_BIRD_STATIC),static)
+	$(if $(LINGMO_PACKAGE_BIRD_BFD),bfd) \
+	$(if $(LINGMO_PACKAGE_BIRD_BABEL),babel) \
+	$(if $(LINGMO_PACKAGE_BIRD_BGP),bgp) \
+	$(if $(LINGMO_PACKAGE_BIRD_MRT),mrt) \
+	$(if $(LINGMO_PACKAGE_BIRD_OSPF),ospf) \
+	$(if $(LINGMO_PACKAGE_BIRD_PERF),perf) \
+	$(if $(LINGMO_PACKAGE_BIRD_PIPE),pipe) \
+	$(if $(LINGMO_PACKAGE_BIRD_RADV),radv) \
+	$(if $(LINGMO_PACKAGE_BIRD_RIP),rip) \
+	$(if $(LINGMO_PACKAGE_BIRD_RPKI),rpki) \
+	$(if $(LINGMO_PACKAGE_BIRD_STATIC),static)
 
 BIRD_CONF_OPTS += --with-protocols=$(subst $(space),$(comma),$(strip $(BIRD_PROTOCOLS)))
 

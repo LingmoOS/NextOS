@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_LTTNG_BABELTRACE
+config LINGMO_PACKAGE_HOST_LTTNG_BABELTRACE
 	bool "host lttng-babeltrace"
 	help
 	  The Babeltrace project provides trace read and write

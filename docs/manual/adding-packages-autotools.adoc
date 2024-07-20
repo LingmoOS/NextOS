@@ -101,7 +101,7 @@ cases, typical packages will therefore only use a few of them.
 
 * +LIBFOO_MAKE+, to specify an alternate +make+
   command. This is typically useful when parallel make is enabled in
-  the configuration (using +BR2_JLEVEL+) but that this
+  the configuration (using +LINGMO_JLEVEL+) but that this
   feature should be disabled for the given package, for one reason or
   another. By default, set to +$(MAKE)+. If parallel building
   is not supported by the package, then it should be set to

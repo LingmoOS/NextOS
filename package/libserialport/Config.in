@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBSERIALPORT
+config LINGMO_PACKAGE_LIBSERIALPORT
 	bool "libserialport"
 	help
 	  Libserialport is a minimal, cross-platform shared

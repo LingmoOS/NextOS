@@ -17,12 +17,12 @@ LIBCLI_MAKE_ARGS += OPTIM=
 LIBCLI_MAKE_ARGS += TESTS=
 
 # Disable the static library for shared only build
-ifeq ($(BR2_SHARED_LIBS),y)
+ifeq ($(LINGMO_SHARED_LIBS),y)
 LIBCLI_MAKE_ARGS += STATIC_LIB=
 endif
 
 # Disable the shared library for static only build
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 LIBCLI_MAKE_ARGS += DYNAMIC_LIB=
 endif
 

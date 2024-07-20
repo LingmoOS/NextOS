@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBOAUTH
+config LINGMO_PACKAGE_LIBOAUTH
 	bool "liboauth"
-	select BR2_PACKAGE_OPENSSL
+	select LINGMO_PACKAGE_OPENSSL
 	help
 	  liboauth is a collection of c functions implementing the oAuth
 	  Core 1.0 Rev A standard API. liboauth provides basic functions

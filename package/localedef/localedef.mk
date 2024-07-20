@@ -13,12 +13,12 @@ LOCALEDEF_SITE = $(call github,bminor,glibc,$(LOCALEDEF_VERSION))
 HOST_LOCALEDEF_DL_SUBDIR = glibc
 
 HOST_LOCALEDEF_DEPENDENCIES = \
-	$(BR2_MAKE_HOST_DEPENDENCY) \
-	$(BR2_PYTHON3_HOST_DEPENDENCY) \
+	$(LINGMO_MAKE_HOST_DEPENDENCY) \
+	$(LINGMO_PYTHON3_HOST_DEPENDENCY) \
 	host-bison \
 	host-gawk
 
-HOST_LOCALEDEF_CONF_ENV += ac_cv_prog_MAKE="$(BR2_MAKE)"
+HOST_LOCALEDEF_CONF_ENV += ac_cv_prog_MAKE="$(LINGMO_MAKE)"
 
 # Even though we use the autotools-package infrastructure, we have to override
 # the default configure commands for since we have to build out-of-tree, but we
@@ -44,7 +44,7 @@ define HOST_LOCALEDEF_CONFIGURE_CMDS
 endef
 
 define HOST_LOCALEDEF_BUILD_CMDS
-	$(HOST_MAKE_ENV) $(BR2_MAKE1) $(HOST_LOCALEDEF_MAKE_OPTS) \
+	$(HOST_MAKE_ENV) $(LINGMO_MAKE1) $(HOST_LOCALEDEF_MAKE_OPTS) \
 		-C $(@D)/build locale/others
 endef
 

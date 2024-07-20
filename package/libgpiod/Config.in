@@ -1,15 +1,15 @@
-config BR2_PACKAGE_LIBGPIOD
+config LINGMO_PACKAGE_LIBGPIOD
 	bool "libgpiod"
-	depends on BR2_TOOLCHAIN_HEADERS_AT_LEAST_4_8
+	depends on LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_4_8
 	help
 	  This is a C library that abstracts the GPIO character
 	  device operations on linux.
 
 	  https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/
 
-if BR2_PACKAGE_LIBGPIOD
+if LINGMO_PACKAGE_LIBGPIOD
 
-config BR2_PACKAGE_LIBGPIOD_TOOLS
+config LINGMO_PACKAGE_LIBGPIOD_TOOLS
 	bool "install tools"
 	help
 	  Include a set of command-line tools for managing GPIOs.
@@ -17,4 +17,4 @@ config BR2_PACKAGE_LIBGPIOD_TOOLS
 endif
 
 comment "libgpiod needs kernel headers >= 4.8"
-	depends on !BR2_TOOLCHAIN_HEADERS_AT_LEAST_4_8
+	depends on !LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_4_8

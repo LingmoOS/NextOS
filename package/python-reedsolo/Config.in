@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_REEDSOLO
+config LINGMO_PACKAGE_PYTHON_REEDSOLO
 	bool "python-reedsolo"
 	help
 	  Pure-Python Reed Solomon encoder/decoder.

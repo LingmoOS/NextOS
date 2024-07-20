@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_HIREDIS
+config LINGMO_PACKAGE_PYTHON_HIREDIS
 	bool "python-hiredis"
 	help
 	  Python wrapper for hiredis.

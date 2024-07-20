@@ -16,20 +16,20 @@ SEATD_CONF_OPTS += \
 	-Dexamples=disabled \
 	-Dwerror=false
 
-ifeq ($(BR2_PACKAGE_SYSTEMD_LOGIND),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD_LOGIND),y)
 SEATD_CONF_OPTS += -Dlibseat-logind=systemd
 SEATD_DEPENDENCIES += systemd
 else
 SEATD_CONF_OPTS += -Dlibseat-logind=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_SEATD_BUILTIN),y)
+ifeq ($(LINGMO_PACKAGE_SEATD_BUILTIN),y)
 SEATD_CONF_OPTS += -Dlibseat-builtin=enabled
 else
 SEATD_CONF_OPTS += -Dlibseat-builtin=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_SEATD_DAEMON),y)
+ifeq ($(LINGMO_PACKAGE_SEATD_DAEMON),y)
 SEATD_CONF_OPTS += -Dlibseat-seatd=enabled -Dserver=enabled
 
 define SEATD_USERS

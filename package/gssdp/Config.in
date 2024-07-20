@@ -1,10 +1,10 @@
-config BR2_PACKAGE_GSSDP
+config LINGMO_PACKAGE_GSSDP
 	bool "gssdp"
-	depends on BR2_USE_WCHAR # glib2, libsoup3
-	depends on BR2_TOOLCHAIN_HAS_THREADS # glib2, libsoup3
-	depends on BR2_USE_MMU # glib2, libsoup3
-	select BR2_PACKAGE_LIBGLIB2
-	select BR2_PACKAGE_LIBSOUP3
+	depends on LINGMO_USE_WCHAR # glib2, libsoup3
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # glib2, libsoup3
+	depends on LINGMO_USE_MMU # glib2, libsoup3
+	select LINGMO_PACKAGE_LIBGLIB2
+	select LINGMO_PACKAGE_LIBSOUP3
 	help
 	  GSSDP implements resource discovery and announcement over
 	  SSDP.
@@ -12,5 +12,5 @@ config BR2_PACKAGE_GSSDP
 	  http://www.gupnp.org
 
 comment "gssdp needs a toolchain w/ wchar, threads"
-	depends on BR2_USE_MMU
-	depends on !BR2_USE_WCHAR || !BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_USE_WCHAR || !LINGMO_TOOLCHAIN_HAS_THREADS

@@ -19,11 +19,11 @@ QT5WEBENGINE_LICENSE_FILES = LICENSE.GPL2 LICENSE.GPL3 LICENSE.GPL3-EXCEPT \
 # command line argument separator
 QT5WEBENGINE_CONF_OPTS = --
 
-ifeq ($(BR2_PACKAGE_QT5BASE_EXAMPLES),y)
+ifeq ($(LINGMO_PACKAGE_QT5BASE_EXAMPLES),y)
 QT5WEBENGINE_DEPENDENCIES += qt5svg
 endif
 
-ifeq ($(BR2_PACKAGE_QT5BASE_XCB),y)
+ifeq ($(LINGMO_PACKAGE_QT5BASE_XCB),y)
 QT5WEBENGINE_DEPENDENCIES += \
 	xlib_libXcomposite \
 	xlib_libXcursor \
@@ -127,20 +127,20 @@ QT5WEBENGINE_CONF_OPTS += \
 	-no-feature-webengine-system-minizip \
 	-no-feature-webengine-system-gn
 
-ifeq ($(BR2_PACKAGE_QT5WEBENGINE_PROPRIETARY_CODECS),y)
+ifeq ($(LINGMO_PACKAGE_QT5WEBENGINE_PROPRIETARY_CODECS),y)
 QT5WEBENGINE_CONF_OPTS += -webengine-proprietary-codecs
 else
 QT5WEBENGINE_CONF_OPTS += -no-webengine-proprietary-codecs
 endif
 
-ifeq ($(BR2_PACKAGE_QT5WEBENGINE_ALSA),y)
+ifeq ($(LINGMO_PACKAGE_QT5WEBENGINE_ALSA),y)
 QT5WEBENGINE_DEPENDENCIES += alsa-lib
 QT5WEBENGINE_CONF_OPTS += -webengine-alsa
 else
 QT5WEBENGINE_CONF_OPTS += -no-webengine-alsa
 endif
 
-ifeq ($(BR2_PACKAGE_PULSEAUDIO),y)
+ifeq ($(LINGMO_PACKAGE_PULSEAUDIO),y)
 QT5WEBENGINE_DEPENDENCIES += pulseaudio
 QT5WEBENGINE_CONF_OPTS += -webengine-pulseaudio
 else

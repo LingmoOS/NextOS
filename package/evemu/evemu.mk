@@ -23,7 +23,7 @@ EVEMU_CONF_OPTS += --disable-tests
 EVEMU_DEPENDENCIES = host-pkgconf libevdev
 
 # Check for target python
-ifeq ($(BR2_PACKAGE_PYTHON3),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3),y)
 EVEMU_CONF_OPTS += --enable-python-bindings
 EVEMU_DEPENDENCIES += python3
 else

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUA_STDLIB
+config LINGMO_PACKAGE_LUA_STDLIB
 	bool "lua-stdlib"
 	help
 	  lua-stdlib is a library of modules for common programming

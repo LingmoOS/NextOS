@@ -1,4 +1,4 @@
-config BR2_PACKAGE_JIMTCL
+config LINGMO_PACKAGE_JIMTCL
 	bool "jimtcl"
 	help
 	  Jim Tcl is a small footprint reimplementation of the Tcl

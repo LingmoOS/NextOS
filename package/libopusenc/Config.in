@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBOPUSENC
+config LINGMO_PACKAGE_LIBOPUSENC
 	bool "libopusenc"
-	select BR2_PACKAGE_OPUS
+	select LINGMO_PACKAGE_OPUS
 	help
 	  The libopusenc library provides a high-level API for
 	  encoding opus audio files and live streams.

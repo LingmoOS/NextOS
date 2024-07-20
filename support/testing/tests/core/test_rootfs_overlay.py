@@ -15,7 +15,7 @@ class TestRootfsOverlay(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         infra.basetest.MINIMAL_CONFIG + \
         """
-        BR2_ROOTFS_OVERLAY="{0}1 {0}2"
+        LINGMO_ROOTFS_OVERLAY="{0}1 {0}2"
         """.format(rootfs_overlay_path)
 
     def test_run(self):

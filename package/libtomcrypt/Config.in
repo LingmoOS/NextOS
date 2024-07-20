@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBTOMCRYPT
+config LINGMO_PACKAGE_LIBTOMCRYPT
 	bool "libtomcrypt"
-	select BR2_PACKAGE_LIBTOMMATH
+	select LINGMO_PACKAGE_LIBTOMMATH
 	help
 	  LibTomCrypt is a fairly comprehensive, modular and portable
 	  cryptographic toolkit that provides developers with a vast

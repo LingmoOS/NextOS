@@ -1,4 +1,4 @@
-config BR2_PACKAGE_XDATA_XBITMAPS
+config LINGMO_PACKAGE_XDATA_XBITMAPS
 	bool "xbitmaps"
 	help
 	  No description available

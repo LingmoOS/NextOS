@@ -1,7 +1,7 @@
-config BR2_PACKAGE_SUPERVISOR
+config LINGMO_PACKAGE_SUPERVISOR
 	bool "supervisor"
-	depends on BR2_PACKAGE_PYTHON3
-	select BR2_PACKAGE_PYTHON_SETUPTOOLS # runtime dependency
+	depends on LINGMO_PACKAGE_PYTHON3
+	select LINGMO_PACKAGE_PYTHON_SETUPTOOLS # runtime dependency
 	help
 	  A client/server system that allows its users to control a
 	  number of processes on UNIX-like operating systems.
@@ -9,4 +9,4 @@ config BR2_PACKAGE_SUPERVISOR
 	  http://supervisord.org/
 
 comment "supervisor needs a python interpreter"
-	depends on !BR2_PACKAGE_PYTHON3
+	depends on !LINGMO_PACKAGE_PYTHON3

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_SZIP
+config LINGMO_PACKAGE_SZIP
 	bool "szip"
 	help
 	  Szip is an implementation of the extended-Rice lossless

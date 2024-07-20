@@ -22,28 +22,28 @@ IBRDTND_CONF_ENV = \
 	PDFLATEX='no' \
 	CXXFLAGS="$(TARGET_CXXFLAGS) -std=c++11"
 
-ifeq ($(BR2_PACKAGE_LIBDAEMON),y)
+ifeq ($(LINGMO_PACKAGE_LIBDAEMON),y)
 IBRDTND_CONF_OPTS += --enable-libdaemon
 IBRDTND_DEPENDENCIES += libdaemon
 else
 IBRDTND_CONF_OPTS += --disable-libdaemon
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCURL),y)
+ifeq ($(LINGMO_PACKAGE_LIBCURL),y)
 IBRDTND_CONF_OPTS += --with-curl
 IBRDTND_DEPENDENCIES += libcurl
 else
 IBRDTND_CONF_OPTS += --without-curl
 endif
 
-ifeq ($(BR2_PACKAGE_SQLITE),y)
+ifeq ($(LINGMO_PACKAGE_SQLITE),y)
 IBRDTND_CONF_OPTS += --with-sqlite
 IBRDTND_DEPENDENCIES += sqlite
 else
 IBRDTND_CONF_OPTS += --without-sqlite
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 IBRDTND_CONF_OPTS += --with-tls
 IBRDTND_DEPENDENCIES += openssl
 else

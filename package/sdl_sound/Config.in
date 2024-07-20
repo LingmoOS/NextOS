@@ -1,7 +1,7 @@
-config BR2_PACKAGE_SDL_SOUND
+config LINGMO_PACKAGE_SDL_SOUND
 	bool "SDL_sound"
-	depends on BR2_PACKAGE_SDL
-	select BR2_PACKAGE_LIBICONV if !BR2_ENABLE_LOCALE
+	depends on LINGMO_PACKAGE_SDL
+	select LINGMO_PACKAGE_LIBICONV if !LINGMO_ENABLE_LOCALE
 	help
 	  SDL_sound is a library that handles the decoding of several
 	  popular sound file formats, such as .WAV and .MP3.
@@ -12,9 +12,9 @@ config BR2_PACKAGE_SDL_SOUND
 
 	  http://icculus.org/SDL_sound/
 
-if BR2_PACKAGE_SDL_SOUND
+if LINGMO_PACKAGE_SDL_SOUND
 
-config BR2_PACKAGE_SDL_SOUND_PLAYSOUND
+config LINGMO_PACKAGE_SDL_SOUND_PLAYSOUND
 	bool "install playsound tool"
 	help
 	  Enable this option to install the playsound/playsound_simple

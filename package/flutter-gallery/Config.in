@@ -1,8 +1,8 @@
-config BR2_PACKAGE_FLUTTER_GALLERY
+config LINGMO_PACKAGE_FLUTTER_GALLERY
 	bool "flutter-gallery"
-	depends on BR2_PACKAGE_HOST_FLUTTER_SDK_BIN_ARCH_SUPPORTS
-	depends on BR2_PACKAGE_FLUTTER_ENGINE
-	select BR2_PACKAGE_HOST_FLUTTER_SDK_BIN
+	depends on LINGMO_PACKAGE_HOST_FLUTTER_SDK_BIN_ARCH_SUPPORTS
+	depends on LINGMO_PACKAGE_FLUTTER_ENGINE
+	select LINGMO_PACKAGE_HOST_FLUTTER_SDK_BIN
 	help
 	  Flutter Gallery is a resource to help developers evaluate
 	  and use Flutter. It is a collection of Material Design &
@@ -12,5 +12,5 @@ config BR2_PACKAGE_FLUTTER_GALLERY
 	  https://github.com/flutter/gallery
 
 comment "flutter-gallery needs flutter-engine"
-	depends on BR2_PACKAGE_HOST_FLUTTER_SDK_BIN_ARCH_SUPPORTS
-	depends on !BR2_PACKAGE_FLUTTER_ENGINE
+	depends on LINGMO_PACKAGE_HOST_FLUTTER_SDK_BIN_ARCH_SUPPORTS
+	depends on !LINGMO_PACKAGE_FLUTTER_ENGINE

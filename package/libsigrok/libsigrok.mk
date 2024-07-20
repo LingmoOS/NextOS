@@ -14,46 +14,46 @@ LIBSIGROK_CONF_OPTS = --disable-java --disable-python
 # We're patching configure.ac
 LIBSIGROK_AUTORECONF = YES
 
-ifeq ($(BR2_PACKAGE_BLUEZ5_UTILS),y)
+ifeq ($(LINGMO_PACKAGE_BLUEZ5_UTILS),y)
 LIBSIGROK_CONF_OPTS += --with-libbluez
 LIBSIGROK_DEPENDENCIES += bluez5_utils
 else
 LIBSIGROK_CONF_OPTS += --without-libbluez
 endif
 
-ifeq ($(BR2_PACKAGE_HIDAPI),y)
+ifeq ($(LINGMO_PACKAGE_HIDAPI),y)
 LIBSIGROK_CONF_OPTS += --with-libhidapi
 LIBSIGROK_DEPENDENCIES += hidapi
 else
 LIBSIGROK_CONF_OPTS += --without-libhidapi
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSERIALPORT),y)
+ifeq ($(LINGMO_PACKAGE_LIBSERIALPORT),y)
 LIBSIGROK_CONF_OPTS += --with-libserialport
 LIBSIGROK_DEPENDENCIES += libserialport
 else
 LIBSIGROK_CONF_OPTS += --without-libserialport
 endif
 
-ifeq ($(BR2_PACKAGE_LIBFTDI1),y)
+ifeq ($(LINGMO_PACKAGE_LIBFTDI1),y)
 LIBSIGROK_CONF_OPTS += --with-libftdi
 LIBSIGROK_DEPENDENCIES += libftdi1
 else
 LIBSIGROK_CONF_OPTS += --without-libftdi
 endif
 
-ifeq ($(BR2_PACKAGE_LIBUSB),y)
+ifeq ($(LINGMO_PACKAGE_LIBUSB),y)
 LIBSIGROK_CONF_OPTS += --with-libusb
 LIBSIGROK_DEPENDENCIES += libusb
 else
 LIBSIGROK_CONF_OPTS += --without-libusb
 endif
 
-ifeq ($(BR2_PACKAGE_GLIBMM),y)
+ifeq ($(LINGMO_PACKAGE_GLIBMM),y)
 LIBSIGROK_DEPENDENCIES += glibmm
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSIGROKCXX),y)
+ifeq ($(LINGMO_PACKAGE_LIBSIGROKCXX),y)
 LIBSIGROK_CONF_ENV = CXXFLAGS="$(TARGET_CXXFLAGS) -std=c++17"
 LIBSIGROK_CONF_OPTS += --enable-cxx
 # host-doxygen is used by C++ bindings to parse libsigrok symbols

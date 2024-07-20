@@ -1,4 +1,4 @@
-config BR2_PACKAGE_WHETSTONE
+config LINGMO_PACKAGE_WHETSTONE
 	bool "whetstone"
 	help
 	  C Converted Whetstone Double Precision Benchmark

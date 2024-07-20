@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_CRCMOD
+config LINGMO_PACKAGE_PYTHON_CRCMOD
 	bool "python-crcmod"
 	help
 	  The software in this package is a Python module for

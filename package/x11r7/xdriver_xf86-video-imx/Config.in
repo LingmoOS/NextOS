@@ -1,11 +1,11 @@
-config BR2_PACKAGE_XDRIVER_XF86_VIDEO_IMX
+config LINGMO_PACKAGE_XDRIVER_XF86_VIDEO_IMX
 	bool "xf86-video-imx"
-	depends on BR2_ARM_EABI # libz160
-	depends on BR2_TOOLCHAIN_USES_GLIBC # libz160
-	depends on BR2_LINUX_KERNEL # linux/mxcfb.h
-	depends on BR2_PACKAGE_GPU_AMD_BIN_MX51_OUTPUT_X11
-	select BR2_PACKAGE_LIBZ160
-	select BR2_PACKAGE_XORGPROTO
+	depends on LINGMO_ARM_EABI # libz160
+	depends on LINGMO_TOOLCHAIN_USES_GLIBC # libz160
+	depends on LINGMO_LINUX_KERNEL # linux/mxcfb.h
+	depends on LINGMO_PACKAGE_GPU_AMD_BIN_MX51_OUTPUT_X11
+	select LINGMO_PACKAGE_LIBZ160
+	select LINGMO_PACKAGE_XORGPROTO
 	help
 	  X.Org driver for iMX5 GPU
 
@@ -19,9 +19,9 @@ config BR2_PACKAGE_XDRIVER_XF86_VIDEO_IMX
 	  EndSection
 
 comment "xf86-video-imx needs an EABI toolchain w/ glibc"
-	depends on BR2_arm
-	depends on !BR2_ARM_EABI || !BR2_TOOLCHAIN_USES_GLIBC
+	depends on LINGMO_arm
+	depends on !LINGMO_ARM_EABI || !LINGMO_TOOLCHAIN_USES_GLIBC
 
 comment "xf86-video-imx needs gpu-amd-bin-mx51 with X11 output and a Linux kernel to be built"
-	depends on BR2_arm
-	depends on !BR2_LINUX_KERNEL || !BR2_PACKAGE_GPU_AMD_BIN_MX51_OUTPUT_X11
+	depends on LINGMO_arm
+	depends on !LINGMO_LINUX_KERNEL || !LINGMO_PACKAGE_GPU_AMD_BIN_MX51_OUTPUT_X11

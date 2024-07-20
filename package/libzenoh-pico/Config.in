@@ -1,9 +1,9 @@
-config BR2_PACKAGE_LIBZENOH_PICO
+config LINGMO_PACKAGE_LIBZENOH_PICO
 	bool "libzenoh-pico"
 	# upstream hardcodes using asm("nop"), which is bogus and
 	# doesn't work on or1k
-	depends on !BR2_or1k
-	depends on BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_or1k
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
 	help
 	  zenoh-pico is the Eclipse zenoh implementation that targets
 	  constrained devices and offers a native C API. It is fully
@@ -14,5 +14,5 @@ config BR2_PACKAGE_LIBZENOH_PICO
 	  https://github.com/eclipse-zenoh/zenoh-pico
 
 comment "libzenoh-pico needs a toolchain w/ threads"
-	depends on !BR2_or1k
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_or1k
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS

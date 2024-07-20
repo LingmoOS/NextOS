@@ -1,4 +1,4 @@
-config BR2_PACKAGE_GETENT
+config LINGMO_PACKAGE_GETENT
 	bool "getent"
 	help
 	  This package installs the 'getent' utility, which allows to

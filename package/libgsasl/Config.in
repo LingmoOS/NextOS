@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBGSASL
+config LINGMO_PACKAGE_LIBGSASL
 	bool "libgsasl"
-	depends on BR2_USE_WCHAR
+	depends on LINGMO_USE_WCHAR
 	help
 	  Simple Authentication and Security Layer framework Library.
 	  GNU SASL is an implementation of the Simple Authentication and
@@ -12,4 +12,4 @@ config BR2_PACKAGE_LIBGSASL
 	  http://www.gnu.org/software/gsasl
 
 comment "libgsasl needs a toolchain w/ wchar"
-	depends on !BR2_USE_WCHAR
+	depends on !LINGMO_USE_WCHAR

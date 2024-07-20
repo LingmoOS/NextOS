@@ -11,10 +11,10 @@ GIFLIB_LICENSE = MIT
 GIFLIB_LICENSE_FILES = COPYING
 GIFLIB_CPE_ID_VALID = YES
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 GIFLIB_BUILD_LIBS = static-lib
 GIFLIB_INSTALL_LIBS = install-static-lib
-else ifeq ($(BR2_SHARED_LIBS),y)
+else ifeq ($(LINGMO_SHARED_LIBS),y)
 GIFLIB_BUILD_LIBS = shared-lib
 GIFLIB_INSTALL_LIBS = install-shared-lib
 else

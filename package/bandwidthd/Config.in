@@ -1,9 +1,9 @@
-config BR2_PACKAGE_BANDWIDTHD
+config LINGMO_PACKAGE_BANDWIDTHD
 	bool "bandwidthd"
-	depends on BR2_USE_MMU # fork()
-	select BR2_PACKAGE_LIBPNG
-	select BR2_PACKAGE_LIBPCAP
-	select BR2_PACKAGE_GD
+	depends on LINGMO_USE_MMU # fork()
+	select LINGMO_PACKAGE_LIBPNG
+	select LINGMO_PACKAGE_LIBPCAP
+	select LINGMO_PACKAGE_GD
 	help
 	  BandwidthD - Bandwidth monitoring
 
@@ -30,14 +30,14 @@ config BR2_PACKAGE_BANDWIDTHD
 	  Github fork:
 	  http://github.com/nroach44/bandwidthd
 
-if BR2_PACKAGE_BANDWIDTHD
+if LINGMO_PACKAGE_BANDWIDTHD
 
-config BR2_PACKAGE_BANDWIDTHD_POSTGRESQL
+config LINGMO_PACKAGE_BANDWIDTHD_POSTGRESQL
 	bool "enable postgresql log target support"
-	depends on !BR2_STATIC_LIBS
-	depends on BR2_USE_WCHAR # postgresql
-	depends on !BR2_OPTIMIZE_FAST # postgresql
-	select BR2_PACKAGE_POSTGRESQL
+	depends on !LINGMO_STATIC_LIBS
+	depends on LINGMO_USE_WCHAR # postgresql
+	depends on !LINGMO_OPTIMIZE_FAST # postgresql
+	select LINGMO_PACKAGE_POSTGRESQL
 	help
 	  Enable support for logging the bandwidthd data to a remote
 	  (or local) postgresql server. This data can then be viewed
@@ -45,14 +45,14 @@ config BR2_PACKAGE_BANDWIDTHD_POSTGRESQL
 	  (github.com/nroach44/bandwidthd) for more information.
 
 comment "postgresql support needs a toolchain w/ dynamic library, wchar"
-	depends on BR2_STATIC_LIBS || !BR2_USE_WCHAR
+	depends on LINGMO_STATIC_LIBS || !LINGMO_USE_WCHAR
 
 comment "postgresql support can't be built with Optimize for fast"
-	depends on BR2_OPTIMIZE_FAST
+	depends on LINGMO_OPTIMIZE_FAST
 
-config BR2_PACKAGE_BANDWIDTHD_SQLITE3
+config LINGMO_PACKAGE_BANDWIDTHD_SQLITE3
 	bool "enable sqlite3 log storage"
-	select BR2_PACKAGE_SQLITE
+	select LINGMO_PACKAGE_SQLITE
 	help
 	  Enable support for storing the aggregated data in an sqlite
 	  db instead of a plain text file.

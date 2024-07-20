@@ -12,10 +12,10 @@ define AUFS_PREPARE_KERNEL
 		exit 1; \
 	fi
 	$(APPLY_PATCHES) $(@D) $(AUFS_DIR) \
-		aufs$(BR2_PACKAGE_AUFS_SERIES)-kbuild.patch \
-		aufs$(BR2_PACKAGE_AUFS_SERIES)-base.patch \
-		aufs$(BR2_PACKAGE_AUFS_SERIES)-mmap.patch \
-		aufs$(BR2_PACKAGE_AUFS_SERIES)-standalone.patch
+		aufs$(LINGMO_PACKAGE_AUFS_SERIES)-kbuild.patch \
+		aufs$(LINGMO_PACKAGE_AUFS_SERIES)-base.patch \
+		aufs$(LINGMO_PACKAGE_AUFS_SERIES)-mmap.patch \
+		aufs$(LINGMO_PACKAGE_AUFS_SERIES)-standalone.patch
 	cp -r $(AUFS_DIR)/fs/aufs/ $(@D)/fs/
 	cp $(AUFS_DIR)/include/uapi/linux/aufs_type.h $(@D)/include/uapi/linux/
 endef

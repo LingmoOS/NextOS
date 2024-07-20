@@ -7,13 +7,13 @@
 TOOLCHAIN_EXTERNAL_SYNOPSYS_ARC_VERSION = 2019.09
 TOOLCHAIN_EXTERNAL_SYNOPSYS_ARC_SITE = https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-$(TOOLCHAIN_EXTERNAL_SYNOPSYS_ARC_VERSION)-release
 
-ifeq ($(BR2_arc750d)$(BR2_arc770d),y)
+ifeq ($(LINGMO_arc750d)$(LINGMO_arc770d),y)
 TOOLCHAIN_EXTERNAL_SYNOPSYS_ARC_CORE = arc700
 else
 TOOLCHAIN_EXTERNAL_SYNOPSYS_ARC_CORE = archs
 endif
 
-ifeq ($(BR2_arcle),y)
+ifeq ($(LINGMO_arcle),y)
 TOOLCHAIN_EXTERNAL_SYNOPSYS_ARC_ENDIANESS = le
 else
 TOOLCHAIN_EXTERNAL_SYNOPSYS_ARC_ENDIANESS = be

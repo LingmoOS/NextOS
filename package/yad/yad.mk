@@ -13,7 +13,7 @@ YAD_DEPENDENCIES = host-intltool host-pkgconf $(TARGET_NLS_DEPENDENCIES)
 YAD_CONF_ENV = LIBS=$(TARGET_NLS_LIBS)
 YAD_CONF_OPTS = --enable-html=no
 
-ifeq ($(BR2_PACKAGE_LIBGTK3_X11),y)
+ifeq ($(LINGMO_PACKAGE_LIBGTK3_X11),y)
 YAD_DEPENDENCIES += libgtk3
 YAD_CONF_OPTS += --with-gtk=gtk3
 else

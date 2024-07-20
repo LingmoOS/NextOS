@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_GNUPG
+config LINGMO_PACKAGE_HOST_GNUPG
 	bool "host gnupg"
 	help
 	  GnuPG is the GNU project's complete and free implementation

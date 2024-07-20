@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 #
-# dtb_list extracts the list of DTB files from BR2_LINUX_KERNEL_INTREE_DTS_NAME
+# dtb_list extracts the list of DTB files from LINGMO_LINUX_KERNEL_INTREE_DTS_NAME
 # in ${BR_CONFIG}, then prints the corresponding list of file names for the
 # genimage configuration file
 #
 dtb_list()
 {
-	local DTB_LIST="$(sed -n 's/^BR2_LINUX_KERNEL_INTREE_DTS_NAME="\([a-z0-9 \-]*\)"$/\1/p' ${BR2_CONFIG})"
+	local DTB_LIST="$(sed -n 's/^LINGMO_LINUX_KERNEL_INTREE_DTS_NAME="\([a-z0-9 \-]*\)"$/\1/p' ${LINGMO_CONFIG})"
 
 	for dt in $DTB_LIST; do
 		echo -n "\"$dt.dtb\", "
@@ -15,13 +15,13 @@ dtb_list()
 }
 
 #
-# linux_image extracts the Linux image format from BR2_LINUX_KERNEL_UIMAGE in
+# linux_image extracts the Linux image format from LINGMO_LINUX_KERNEL_UIMAGE in
 # ${BR_CONFIG}, then prints the corresponding file name for the genimage
 # configuration file
 #
 linux_image()
 {
-	if grep -Eq "^BR2_LINUX_KERNEL_UIMAGE=y$" ${BR2_CONFIG}; then
+	if grep -Eq "^LINGMO_LINUX_KERNEL_UIMAGE=y$" ${LINGMO_CONFIG}; then
 		echo "\"uImage\""
 	else
 		echo "\"zImage\""

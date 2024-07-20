@@ -36,10 +36,10 @@ define PYTHON_WEB2PY_GENERATE_PASSWORD
 	$(HOST_DIR)/bin/python -c 'import os; \
 		os.chdir("$(@D)"); \
 		from gluon.main import save_password; \
-		save_password($(BR2_PACKAGE_PYTHON_WEB2PY_PASSWORD),8000)'
+		save_password($(LINGMO_PACKAGE_PYTHON_WEB2PY_PASSWORD),8000)'
 endef
 
-ifeq ($(BR2_PACKAGE_PYTHON_WEB2PY_INSTALL_ADMIN),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON_WEB2PY_INSTALL_ADMIN),y)
 PYTHON_WEB2PY_POST_BUILD_HOOKS += PYTHON_WEB2PY_GENERATE_PASSWORD
 else
 PYTHON_WEB2PY_EXCLUSIONS += applications/admin

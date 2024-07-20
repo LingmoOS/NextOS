@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUA_BASEXX
+config LINGMO_PACKAGE_LUA_BASEXX
 	bool "lua-basexx"
 	help
 	  A Lua library which provides base2(bitfield), base16(hex),

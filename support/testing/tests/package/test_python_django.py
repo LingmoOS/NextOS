@@ -34,7 +34,7 @@ class TestPythonPy3Django(TestPythonDjango):
     __test__ = True
     config = TestPythonDjango.config + \
         """
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_PYTHON_DJANGO=y
-        BR2_PACKAGE_PYTHON3_SQLITE=y
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON_DJANGO=y
+        LINGMO_PACKAGE_PYTHON3_SQLITE=y
         """

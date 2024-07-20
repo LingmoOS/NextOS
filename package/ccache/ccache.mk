@@ -24,7 +24,7 @@ HOST_CCACHE_CONF_OPTS += \
 #  - Use BR_CACHE_DIR instead of CCACHE_DIR, because CCACHE_DIR
 #    is already used by autotargets for the ccache package.
 #    BR_CACHE_DIR is exported by Makefile based on config option
-#    BR2_CCACHE_DIR.
+#    LINGMO_CCACHE_DIR.
 #  - Change hard-coded last-ditch default to match path in .config, to avoid
 #    the need to specify BR_CACHE_DIR when invoking ccache directly.
 #    CCache replaces "home_dir" with the home directory of the current user,
@@ -49,7 +49,7 @@ endef
 HOST_CCACHE_POST_INSTALL_HOOKS += HOST_CCACHE_MAKE_CACHE_DIR
 
 # Provide capability to do initial ccache setup (e.g. increase default size)
-BR_CCACHE_INITIAL_SETUP = $(call qstrip,$(BR2_CCACHE_INITIAL_SETUP))
+BR_CCACHE_INITIAL_SETUP = $(call qstrip,$(LINGMO_CCACHE_INITIAL_SETUP))
 ifneq ($(BR_CCACHE_INITIAL_SETUP),)
 define HOST_CCACHE_DO_INITIAL_SETUP
 	@$(call MESSAGE,"Applying initial settings")
@@ -62,7 +62,7 @@ endif
 
 $(eval $(host-cmake-package))
 
-ifeq ($(BR2_CCACHE),y)
+ifeq ($(LINGMO_CCACHE),y)
 ccache-stats: host-ccache
 	$(Q)$(CCACHE) -s
 

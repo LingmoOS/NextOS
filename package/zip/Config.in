@@ -1,4 +1,4 @@
-config BR2_PACKAGE_ZIP
+config LINGMO_PACKAGE_ZIP
 	bool "zip"
 	help
 	  Zip is a compression and file packaging/archive utility.

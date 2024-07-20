@@ -50,7 +50,7 @@ MUPDF_MAKE_OPTS = \
 	HAVE_OBJCOPY=no \
 	prefix="/usr"
 
-ifeq ($(BR2_PACKAGE_LIBFREEGLUT),y)
+ifeq ($(LINGMO_PACKAGE_LIBFREEGLUT),y)
 MUPDF_DEPENDENCIES += libfreeglut
 else
 MUPDF_MAKE_OPTS += HAVE_GLUT=no

@@ -35,11 +35,11 @@ BOINC_CONF_OPTS = \
 	--with-pkg-config=$(PKG_CONFIG_HOST_BINARY) \
 	--with-libcurl=$(STAGING_DIR)/usr
 
-ifeq ($(BR2_PACKAGE_FREETYPE),y)
+ifeq ($(LINGMO_PACKAGE_FREETYPE),y)
 BOINC_DEPENDENCIES += freetype
 endif
 
-ifeq ($(BR2_PACKAGE_LIBEXECINFO),y)
+ifeq ($(LINGMO_PACKAGE_LIBEXECINFO),y)
 BOINC_DEPENDENCIES += libexecinfo
 BOINC_MAKE_OPTS += LIBS="-lexecinfo"
 endif

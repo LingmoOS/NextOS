@@ -1,14 +1,14 @@
-config BR2_PACKAGE_LIBICONV
+config LINGMO_PACKAGE_LIBICONV
 	bool "libiconv"
-	depends on !BR2_ENABLE_LOCALE
+	depends on !LINGMO_ENABLE_LOCALE
 	help
 	  unicode conversion library
 
 	  http://ftp.gnu.org/pub/gnu/libiconv
 
-if BR2_PACKAGE_LIBICONV
+if LINGMO_PACKAGE_LIBICONV
 
-config BR2_PACKAGE_LIBICONV_EXTRA_ENCODINGS
+config LINGMO_PACKAGE_LIBICONV_EXTRA_ENCODINGS
 	bool "extra encodings"
 	help
 	  Provide support for a few extra encodings:

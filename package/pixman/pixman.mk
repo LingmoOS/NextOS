@@ -36,13 +36,13 @@ PIXMAN_IGNORE_CVES += CVE-2023-37769
 # the HW doesn't support it. The only case where the ARM SIMD code
 # cannot be *built* at all is when the platform doesn't support ARM
 # instructions at all, so we have to disable that explicitly.
-ifeq ($(BR2_ARM_CPU_HAS_ARM),y)
+ifeq ($(LINGMO_ARM_CPU_HAS_ARM),y)
 PIXMAN_CONF_OPTS += --enable-arm-simd
 else
 PIXMAN_CONF_OPTS += --disable-arm-simd
 endif
 
-ifeq ($(BR2_ARM_CPU_HAS_ARM)$(BR2_ARM_CPU_HAS_NEON),yy)
+ifeq ($(LINGMO_ARM_CPU_HAS_ARM)$(LINGMO_ARM_CPU_HAS_NEON),yy)
 PIXMAN_CONF_OPTS += --enable-arm-neon
 else
 PIXMAN_CONF_OPTS += --disable-arm-neon
@@ -53,11 +53,11 @@ PIXMAN_CFLAGS = $(TARGET_CFLAGS)
 # toolchain gets confused about TLS access through GOT (PIC), so disable TLS
 # movhi	r4, %got_hiadj(%tls_ldo(fast_path_cache))
 # {standard input}:172: Error: bad expression
-ifeq ($(BR2_TOOLCHAIN_EXTERNAL_CODESOURCERY_NIOSII),y)
+ifeq ($(LINGMO_TOOLCHAIN_EXTERNAL_CODESOURCERY_NIOSII),y)
 PIXMAN_CFLAGS += -DPIXMAN_NO_TLS
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_101737),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_101737),y)
 PIXMAN_CFLAGS += -O0
 endif
 

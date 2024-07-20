@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_SCANDIR
+config LINGMO_PACKAGE_PYTHON_SCANDIR
 	bool "python-scandir"
 	help
 	  scandir, a better directory iterator and faster os.walk()

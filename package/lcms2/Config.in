@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LCMS2
+config LINGMO_PACKAGE_LCMS2
 	bool "lcms2"
 	help
 	  Little Color Management Software (CMS) intends to be an OPEN

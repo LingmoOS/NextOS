@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_FROZENLIST
+config LINGMO_PACKAGE_PYTHON_FROZENLIST
 	bool "python-frozenlist"
 	help
 	  A list-like structure which implements

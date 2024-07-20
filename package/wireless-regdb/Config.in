@@ -1,4 +1,4 @@
-config BR2_PACKAGE_WIRELESS_REGDB
+config LINGMO_PACKAGE_WIRELESS_REGDB
 	bool "wireless-regdb"
 	help
 	  Wireless regulatory database.

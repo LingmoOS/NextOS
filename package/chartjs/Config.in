@@ -1,4 +1,4 @@
-config BR2_PACKAGE_CHARTJS
+config LINGMO_PACKAGE_CHARTJS
 	bool "chartjs"
 	help
 	  Chart.js, a simple yet flexible JavaScript charting library

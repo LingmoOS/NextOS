@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_URI
+config LINGMO_PACKAGE_PERL_URI
 	bool "perl-uri"
 	help
 	  Uniform Resource Identifiers (absolute and relative).

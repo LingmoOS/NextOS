@@ -14,14 +14,14 @@ LIBFM_INSTALL_STAGING = YES
 # We're patching src/modules/Makefile.am
 LIBFM_AUTORECONF = YES
 
-ifeq ($(BR2_PACKAGE_LIBEXIF),y)
+ifeq ($(LINGMO_PACKAGE_LIBEXIF),y)
 LIBFM_CONF_OPTS += --enable-exif
 LIBFM_DEPENDENCIES += libexif
 else
 LIBFM_CONF_OPTS += --disable-exif
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGTK3_X11),y)
+ifeq ($(LINGMO_PACKAGE_LIBGTK3_X11),y)
 LIBFM_CONF_OPTS += --with-gtk=3
 LIBFM_DEPENDENCIES += libgtk3
 else

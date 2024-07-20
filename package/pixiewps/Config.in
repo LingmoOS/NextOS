@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PIXIEWPS
+config LINGMO_PACKAGE_PIXIEWPS
 	bool "pixiewps"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
 	help
 	  Pixie WPS is a C based tool to audit networks against the so
 	  called "Pixie Dust" attack.
@@ -8,4 +8,4 @@ config BR2_PACKAGE_PIXIEWPS
 	  https://github.com/wiire-a/pixiewps/wiki
 
 comment "pixiewps needs a toolchain w/ threads"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS

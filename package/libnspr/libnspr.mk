@@ -21,12 +21,12 @@ LIBNSPR_CONF_ENV = \
 	HOST_LDFLAGS="-lc"
 # NSPR mixes up --build and --host
 LIBNSPR_CONF_OPTS = --host=$(GNU_HOST_NAME)
-LIBNSPR_CONF_OPTS += --$(if $(BR2_ARCH_IS_64),en,dis)able-64bit
+LIBNSPR_CONF_OPTS += --$(if $(LINGMO_ARCH_IS_64),en,dis)able-64bit
 
 # ./nspr/pr/include/md/_linux.h tests only __GLIBC__ version to detect
 # c-library features, list musl features here for now (taken from
 # Alpine Linux).
-ifeq ($(BR2_TOOLCHAIN_USES_MUSL),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_MUSL),y)
 LIBNSPR_CFLAGS += \
 	-D_PR_POLL_AVAILABLE \
 	-D_PR_HAVE_OFF64_T \
@@ -39,13 +39,13 @@ endif
 
 LIBNSPR_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) $(LIBNSPR_CFLAGS)"
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 LIBNSPR_MAKE_OPTS = SHARED_LIBRARY=
 LIBNSPR_INSTALL_TARGET_OPTS = DESTDIR=$(TARGET_DIR) SHARED_LIBRARY= install
 LIBNSPR_INSTALL_STAGING_OPTS = DESTDIR=$(STAGING_DIR) SHARED_LIBRARY= install
 endif
 
-ifeq ($(BR2_SHARED_LIBS),y)
+ifeq ($(LINGMO_SHARED_LIBS),y)
 LIBNSPR_MAKE_OPTS = LIBRARY=
 LIBNSPR_INSTALL_TARGET_OPTS = DESTDIR=$(TARGET_DIR) LIBRARY= install
 LIBNSPR_INSTALL_STAGING_OPTS = DESTDIR=$(STAGING_DIR) LIBRARY= install

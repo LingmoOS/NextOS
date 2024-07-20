@@ -1,6 +1,6 @@
-config BR2_PACKAGE_IPCALC
+config LINGMO_PACKAGE_IPCALC
 	bool "ipcalc"
-	depends on BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
+	depends on LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS
 	help
 	  A modern IPv4/IPv6 ipcalc tool, assisting in network
 	  calculations in command line and as a tool for scripts.

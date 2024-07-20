@@ -35,7 +35,7 @@ TPM2_TSS_CONF_OPTS = \
 # uses C99 code but forgets to pass -std=c99 when --disable-defaultflags is used
 TPM2_TSS_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) -std=c99"
 
-ifeq ($(BR2_PACKAGE_TPM2_TSS_FAPI),y)
+ifeq ($(LINGMO_PACKAGE_TPM2_TSS_FAPI),y)
 TPM2_TSS_DEPENDENCIES += json-c libcurl
 TPM2_TSS_CONF_OPTS += --enable-fapi
 else

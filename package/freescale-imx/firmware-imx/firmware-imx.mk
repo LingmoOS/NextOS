@@ -14,7 +14,7 @@ FIRMWARE_IMX_REDISTRIBUTE = NO
 
 FIRMWARE_IMX_INSTALL_IMAGES = YES
 
-ifeq ($(BR2_PACKAGE_LINUX_FIRMWARE),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_FIRMWARE),y)
 FIRMWARE_IMX_DEPENDENCIES += linux-firmware
 endif
 
@@ -28,11 +28,11 @@ endef
 
 define FIRMWARE_IMX_PREPARE_DDR_FW
 	$(TARGET_OBJCOPY) -I binary -O binary \
-		--pad-to $(BR2_PACKAGE_FIRMWARE_IMX_IMEM_LEN) --gap-fill=0x0 \
+		--pad-to $(LINGMO_PACKAGE_FIRMWARE_IMX_IMEM_LEN) --gap-fill=0x0 \
 		$(FIRMWARE_IMX_DDRFW_DIR)/$(strip $(1)).bin \
 		$(FIRMWARE_IMX_DDRFW_DIR)/$(strip $(1))_pad.bin
 	$(TARGET_OBJCOPY) -I binary -O binary \
-		--pad-to $(BR2_PACKAGE_FIRMWARE_IMX_DMEM_LEN) --gap-fill=0x0 \
+		--pad-to $(LINGMO_PACKAGE_FIRMWARE_IMX_DMEM_LEN) --gap-fill=0x0 \
 		$(FIRMWARE_IMX_DDRFW_DIR)/$(strip $(2)).bin \
 		$(FIRMWARE_IMX_DDRFW_DIR)/$(strip $(2))_pad.bin
 	cat $(FIRMWARE_IMX_DDRFW_DIR)/$(strip $(1))_pad.bin \
@@ -40,12 +40,12 @@ define FIRMWARE_IMX_PREPARE_DDR_FW
 		$(FIRMWARE_IMX_DDRFW_DIR)/$(strip $(3)).bin
 endef
 
-FIRMWARE_IMX_DDR_VERSION = $(call qstrip,$(BR2_PACKAGE_FIRMWARE_IMX_DDR_VERSION))
+FIRMWARE_IMX_DDR_VERSION = $(call qstrip,$(LINGMO_PACKAGE_FIRMWARE_IMX_DDR_VERSION))
 ifneq ($(FIRMWARE_IMX_DDR_VERSION),)
 FIRMWARE_IMX_DDR_VERSION_SUFFIX = _$(FIRMWARE_IMX_DDR_VERSION)
 endif
 
-ifeq ($(BR2_PACKAGE_FIRMWARE_IMX_NEEDS_DDR_FW_IMX9),y)
+ifeq ($(LINGMO_PACKAGE_FIRMWARE_IMX_NEEDS_DDR_FW_IMX9),y)
 FIRMWARE_IMX_DDRFW_DIR = $(@D)/firmware/ddr/synopsys
 
 define FIRMWARE_IMX_INSTALL_IMAGE_DDR_FW
@@ -72,7 +72,7 @@ define FIRMWARE_IMX_INSTALL_IMAGE_DDR_FW
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_FIRMWARE_IMX_LPDDR4),y)
+ifeq ($(LINGMO_PACKAGE_FIRMWARE_IMX_LPDDR4),y)
 FIRMWARE_IMX_DDRFW_DIR = $(@D)/firmware/ddr/synopsys
 
 define FIRMWARE_IMX_INSTALL_IMAGE_DDR_FW
@@ -99,7 +99,7 @@ define FIRMWARE_IMX_INSTALL_IMAGE_DDR_FW
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_FIRMWARE_IMX_DDR4),y)
+ifeq ($(LINGMO_PACKAGE_FIRMWARE_IMX_DDR4),y)
 FIRMWARE_IMX_DDRFW_DIR = $(@D)/firmware/ddr/synopsys
 
 define FIRMWARE_IMX_INSTALL_IMAGE_DDR_FW
@@ -126,7 +126,7 @@ define FIRMWARE_IMX_INSTALL_IMAGE_DDR_FW
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_FIRMWARE_IMX_DDR3),y)
+ifeq ($(LINGMO_PACKAGE_FIRMWARE_IMX_DDR3),y)
 FIRMWARE_IMX_DDRFW_DIR = $(@D)/firmware/ddr/synopsys
 
 define FIRMWARE_IMX_INSTALL_IMAGE_DDR_FW
@@ -152,7 +152,7 @@ endif
 # HDMI firmware
 #
 
-ifeq ($(BR2_PACKAGE_FIRMWARE_IMX_NEEDS_HDMI_FW),y)
+ifeq ($(LINGMO_PACKAGE_FIRMWARE_IMX_NEEDS_HDMI_FW),y)
 define FIRMWARE_IMX_INSTALL_IMAGE_HDMI_FW
 	cp $(@D)/firmware/hdmi/cadence/signed_hdmi_imx8m.bin \
 		$(BINARIES_DIR)/signed_hdmi_imx8m.bin
@@ -163,7 +163,7 @@ endif
 # EASRC firmware
 #
 
-ifeq ($(BR2_PACKAGE_FIRMWARE_IMX_NEEDS_EASRC_FW),y)
+ifeq ($(LINGMO_PACKAGE_FIRMWARE_IMX_NEEDS_EASRC_FW),y)
 define FIRMWARE_IMX_INSTALL_TARGET_EASRC_FW
 	mkdir -p $(TARGET_DIR)/lib/firmware/imx
 	cp -r $(@D)/firmware/easrc $(TARGET_DIR)/lib/firmware/imx
@@ -174,7 +174,7 @@ endif
 # EPDC firmware
 #
 
-ifeq ($(BR2_PACKAGE_FIRMWARE_IMX_NEEDS_EPDC_FW),y)
+ifeq ($(LINGMO_PACKAGE_FIRMWARE_IMX_NEEDS_EPDC_FW),y)
 define FIRMWARE_IMX_INSTALL_TARGET_EPDC_FW
 	mkdir -p $(TARGET_DIR)/lib/firmware/imx
 	cp -r $(@D)/firmware/epdc $(TARGET_DIR)/lib/firmware/imx
@@ -187,7 +187,7 @@ endif
 # SDMA firmware
 #
 
-FIRMWARE_IMX_SDMA_FW_NAME = $(call qstrip,$(BR2_PACKAGE_FIRMWARE_IMX_SDMA_FW_NAME))
+FIRMWARE_IMX_SDMA_FW_NAME = $(call qstrip,$(LINGMO_PACKAGE_FIRMWARE_IMX_SDMA_FW_NAME))
 ifneq ($(FIRMWARE_IMX_SDMA_FW_NAME),)
 define FIRMWARE_IMX_INSTALL_TARGET_SDMA_FW
 	mkdir -p $(TARGET_DIR)/lib/firmware/imx/sdma
@@ -200,7 +200,7 @@ endif
 # VPU firmware
 #
 
-FIRMWARE_IMX_VPU_FW_NAME = $(call qstrip,$(BR2_PACKAGE_FIRMWARE_IMX_VPU_FW_NAME))
+FIRMWARE_IMX_VPU_FW_NAME = $(call qstrip,$(LINGMO_PACKAGE_FIRMWARE_IMX_VPU_FW_NAME))
 ifneq ($(FIRMWARE_IMX_VPU_FW_NAME),)
 define FIRMWARE_IMX_INSTALL_TARGET_VPU_FW
 	mkdir -p $(TARGET_DIR)/lib/firmware/vpu

@@ -32,18 +32,18 @@ GST1_RTSP_SERVER_CONF_OPTS += \
 	-Dglib-asserts=disabled \
 	-Dglib-checks=disabled
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 GST1_RTSP_SERVER_CONF_OPTS += -Dintrospection=enabled
 GST1_RTSP_SERVER_DEPENDENCIES += gobject-introspection
 else
 GST1_RTSP_SERVER_CONF_OPTS += -Dintrospection=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCGROUP),y)
+ifeq ($(LINGMO_PACKAGE_LIBCGROUP),y)
 GST1_RTSP_SERVER_DEPENDENCIES += libcgroup
 endif
 
-ifeq ($(BR2_PACKAGE_GST1_PLUGINS_BAD),y)
+ifeq ($(LINGMO_PACKAGE_GST1_PLUGINS_BAD),y)
 GST1_RTSP_SERVER_DEPENDENCIES += gst1-plugins-bad
 endif
 

@@ -1,14 +1,14 @@
-config BR2_PACKAGE_UNIONFS
+config LINGMO_PACKAGE_UNIONFS
 	bool "unionfs (FUSE)"
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libfuse
-	depends on BR2_USE_MMU # libfuse
-	depends on !BR2_STATIC_LIBS # libfuse
-	select BR2_PACKAGE_LIBFUSE
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libfuse
+	depends on LINGMO_USE_MMU # libfuse
+	depends on !LINGMO_STATIC_LIBS # libfuse
+	select LINGMO_PACKAGE_LIBFUSE
 	help
 	  A userspace unionfs implementation.
 
 	  https://github.com/rpodgorny/unionfs-fuse
 
 comment "unionfs needs a toolchain w/ threads, dynamic library"
-	depends on BR2_USE_MMU
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS

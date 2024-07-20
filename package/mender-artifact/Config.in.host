@@ -1,6 +1,6 @@
-config BR2_PACKAGE_HOST_MENDER_ARTIFACT
+config LINGMO_PACKAGE_HOST_MENDER_ARTIFACT
 	bool "host mender-artifact"
-	depends on BR2_PACKAGE_HOST_GO_HOST_ARCH_SUPPORTS
+	depends on LINGMO_PACKAGE_HOST_GO_HOST_ARCH_SUPPORTS
 	help
 	  The mender-artifact tool is a CLI implementation of the
 	  Mender artifacts library.

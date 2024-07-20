@@ -11,8 +11,8 @@ class TestPerlIOSocketMulticast(TestPerlBase):
 
     config = TestPerlBase.config + \
         """
-        BR2_PACKAGE_PERL=y
-        BR2_PACKAGE_PERL_IO_SOCKET_MULTICAST=y
+        LINGMO_PACKAGE_PERL=y
+        LINGMO_PACKAGE_PERL_IO_SOCKET_MULTICAST=y
         """
 
     def test_run(self):

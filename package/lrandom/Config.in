@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LRANDOM
+config LINGMO_PACKAGE_LRANDOM
 	bool "lrandom"
 	help
 	  A library for generating random numbers

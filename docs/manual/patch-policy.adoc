@@ -61,7 +61,7 @@ These patch files should be named +<number>-<description>.patch+.
 
 ==== Global patch directory
 
-The +BR2_GLOBAL_PATCH_DIR+ configuration file option can be
+The +LINGMO_GLOBAL_PATCH_DIR+ configuration file option can be
 used to specify a space separated list of one or more directories
 containing global package patches. See xref:customize-patches[] for
 details.
@@ -90,7 +90,7 @@ details.
   +<number>-<description>.patch+, where +<number>+ refers to the
   'apply order'.
 
-. If +BR2_GLOBAL_PATCH_DIR+ is defined, the directories will be
+. If +LINGMO_GLOBAL_PATCH_DIR+ is defined, the directories will be
   enumerated in the order they are specified. The patches are applied
   as described in the previous step.
 

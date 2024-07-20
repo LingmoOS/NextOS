@@ -19,28 +19,28 @@ RESIPROCATE_DEPENDENCIES = c-ares
 RESIPROCATE_CONF_OPTS = -with-c-ares \
 	--with-sysroot="$(STAGING_DIR)"
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 RESIPROCATE_DEPENDENCIES += openssl host-pkgconf
 RESIPROCATE_CONF_OPTS += --with-ssl
 # Configure.ac does not include '-lz' when statically linking against openssl
 RESIPROCATE_CONF_ENV += LIBS=`$(PKG_CONFIG_HOST_BINARY) --libs openssl`
 endif
 
-ifeq ($(BR2_PACKAGE_POPT),y)
+ifeq ($(LINGMO_PACKAGE_POPT),y)
 RESIPROCATE_CONF_OPTS += --with-popt
 RESIPROCATE_DEPENDENCIES += popt
 endif
 
-ifeq ($(BR2_PACKAGE_RESIPROCATE_DTLS_SUPPORT),y)
+ifeq ($(LINGMO_PACKAGE_RESIPROCATE_DTLS_SUPPORT),y)
 RESIPROCATE_CONF_OPTS += --with-dtls
 endif
 
-ifeq ($(BR2_PACKAGE_RESIPROCATE_REND),y)
+ifeq ($(LINGMO_PACKAGE_RESIPROCATE_REND),y)
 RESIPROCATE_CONF_OPTS += --with-rend
 RESIPROCATE_DEPENDENCIES += boost
 endif
 
-ifeq ($(BR2_PACKAGE_RESIPROCATE_APPS),y)
+ifeq ($(LINGMO_PACKAGE_RESIPROCATE_APPS),y)
 RESIPROCATE_CONF_OPTS += --with-apps
 RESIPROCATE_DEPENDENCIES += pcre
 endif

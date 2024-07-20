@@ -1,4 +1,4 @@
-config BR2_PACKAGE_CORKSCREW
+config LINGMO_PACKAGE_CORKSCREW
 	bool "corkscrew"
 	help
 	  Corkscrew is a tool for tunneling SSH through HTTP proxies,

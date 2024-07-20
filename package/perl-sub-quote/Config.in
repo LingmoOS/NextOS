@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_SUB_QUOTE
+config LINGMO_PACKAGE_PERL_SUB_QUOTE
 	bool "perl-sub-quote"
 	help
 	  Efficient generation of subroutines via string eval.

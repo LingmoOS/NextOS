@@ -17,7 +17,7 @@ LIBWPE_CFLAGS = $(TARGET_CFLAGS)
 LIBWPE_CXXFLAGS = $(TARGET_CXXFLAGS)
 
 # Workaround for https://github.com/raspberrypi/userland/issues/316
-ifeq ($(BR2_PACKAGE_RPI_USERLAND),y)
+ifeq ($(LINGMO_PACKAGE_RPI_USERLAND),y)
 LIBWPE_CFLAGS += -D_GNU_SOURCE
 LIBWPE_CXXFLAGS += -D_GNU_SOURCE
 endif

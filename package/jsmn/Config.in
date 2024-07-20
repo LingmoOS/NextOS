@@ -1,4 +1,4 @@
-config BR2_PACKAGE_JSMN
+config LINGMO_PACKAGE_JSMN
 	bool "jsmn"
 	help
 	  jsmn (pronounced like 'jasmine') is a minimalistic JSON

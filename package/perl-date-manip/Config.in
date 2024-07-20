@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_DATE_MANIP
+config LINGMO_PACKAGE_PERL_DATE_MANIP
 	bool "perl-date-manip"
 	help
 	  Date manipulation routines.

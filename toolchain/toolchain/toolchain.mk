@@ -4,9 +4,9 @@
 #
 ################################################################################
 
-ifeq ($(BR2_TOOLCHAIN_BUILDROOT),y)
+ifeq ($(LINGMO_TOOLCHAIN_BUILDROOT),y)
 TOOLCHAIN_DEPENDENCIES += toolchain-buildroot
-else ifeq ($(BR2_TOOLCHAIN_EXTERNAL),y)
+else ifeq ($(LINGMO_TOOLCHAIN_EXTERNAL),y)
 TOOLCHAIN_DEPENDENCIES += toolchain-external
 endif
 
@@ -25,7 +25,7 @@ TOOLCHAIN_INSTALL_STAGING = YES
 # Kernel version 3.12 introduced the libc-compat.h header.
 #
 # [1] http://www.openwall.com/lists/musl/2015/10/08/2
-ifeq ($(BR2_TOOLCHAIN_USES_MUSL)$(BR2_TOOLCHAIN_HEADERS_AT_LEAST_3_12):$(BR2_TOOLCHAIN_HEADERS_AT_LEAST_4_15),yy:)
+ifeq ($(LINGMO_TOOLCHAIN_USES_MUSL)$(LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_3_12):$(LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_4_15),yy:)
 define TOOLCHAIN_MUSL_KERNEL_HEADERS_COMPATIBILITY_HACK
 	$(SED) 's/^#if defined(__GLIBC__)$$/#if 1/' \
 		$(STAGING_DIR)/usr/include/linux/libc-compat.h
@@ -38,7 +38,7 @@ TOOLCHAIN_POST_INSTALL_STAGING_HOOKS += TOOLCHAIN_MUSL_KERNEL_HEADERS_COMPATIBIL
 endif
 
 # Install default nsswitch.conf file if the skeleton doesn't provide it
-ifeq ($(BR2_TOOLCHAIN_USES_GLIBC),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_GLIBC),y)
 define TOOLCHAIN_GLIBC_COPY_NSSWITCH_FILE
 	@if [ ! -f "$(TARGET_DIR)/etc/nsswitch.conf" ]; then \
 		$(INSTALL) -D -m 0644 package/glibc/nsswitch.conf $(TARGET_DIR)/etc/nsswitch.conf ; \

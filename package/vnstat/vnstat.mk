@@ -12,7 +12,7 @@ VNSTAT_SELINUX_MODULES = vnstatd
 VNSTAT_DEPENDENCIES = host-pkgconf sqlite
 VNSTAT_CONF_OPTS = --disable-extra-paths
 
-ifeq ($(BR2_PACKAGE_GD)$(BR2_PACKAGE_LIBPNG),yy)
+ifeq ($(LINGMO_PACKAGE_GD)$(LINGMO_PACKAGE_LIBPNG),yy)
 VNSTAT_DEPENDENCIES += gd
 VNSTAT_CONF_OPTS += --enable-image-output
 else

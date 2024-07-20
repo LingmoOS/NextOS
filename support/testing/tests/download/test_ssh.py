@@ -8,7 +8,7 @@ import infra
 
 class SSHTestBase(infra.basetest.BRConfigTest):
     config = infra.basetest.MINIMAL_CONFIG + '''
-BR2_BACKUP_SITE=""
+LINGMO_BACKUP_SITE=""
 '''
     sshd_test_dir = infra.filepath("tests/download/sshd")
     sshd = None
@@ -39,7 +39,7 @@ BR2_BACKUP_SITE=""
         # enforce that we test the download
         if os.path.exists(dl_dir):
             shutil.rmtree(dl_dir)
-        env = {"BR2_DL_DIR": dl_dir,
+        env = {"LINGMO_DL_DIR": dl_dir,
                "SSHD_PORT_NUMBER": str(self.sshd.port),
                "SSHD_TEST_DIR": self.sshd_test_dir,
                "SSH_IDENTITY": ssh_identity}

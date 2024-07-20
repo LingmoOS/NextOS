@@ -1,7 +1,7 @@
-config BR2_PACKAGE_KODI_PVR_ZATTOO
+config LINGMO_PACKAGE_KODI_PVR_ZATTOO
 	bool "kodi-pvr-zattoo"
-	select BR2_PACKAGE_RAPIDJSON
-	select BR2_PACKAGE_TINYXML2
+	select LINGMO_PACKAGE_RAPIDJSON
+	select LINGMO_PACKAGE_TINYXML2
 	help
 	  Kodi PVR-Addon for Zattoo
 

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_APG
+config LINGMO_PACKAGE_APG
 	bool "apg"
 	help
 	  Automated Password Generator (APG).

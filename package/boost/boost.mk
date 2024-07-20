@@ -20,55 +20,55 @@ HOST_BOOST_FLAGS = --without-icu --with-toolset=gcc \
 	python random serialization stacktrace test thread timer \
 	type_erasure url wave)
 
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_ATOMIC),,atomic)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_CHRONO),,chrono)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_CONTAINER),,container)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_CONTEXT),,context)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_CONTRACT),,contract)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_COROUTINE),,coroutine)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_DATE_TIME),,date_time)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_EXCEPTION),,exception)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_FIBER),,fiber)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_FILESYSTEM),,filesystem)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_GRAPH),,graph)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_GRAPH_PARALLEL),,graph_parallel)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_IOSTREAMS),,iostreams)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_JSON),,json)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_LOCALE),,locale)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_LOG),,log)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_MATH),,math)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_MPI),,mpi)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_NOWIDE),,nowide)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_PROGRAM_OPTIONS),,program_options)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_PYTHON),,python)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_RANDOM),,random)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_REGEX),,regex)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_SERIALIZATION),,serialization)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_STACKTRACE),,stacktrace)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_SYSTEM),,system)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_TEST),,test)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_THREAD),,thread)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_TIMER),,timer)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_TYPE_ERASURE),,type_erasure)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_URL),,url)
-BOOST_WITHOUT_FLAGS += $(if $(BR2_PACKAGE_BOOST_WAVE),,wave)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_ATOMIC),,atomic)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_CHRONO),,chrono)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_CONTAINER),,container)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_CONTEXT),,context)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_CONTRACT),,contract)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_COROUTINE),,coroutine)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_DATE_TIME),,date_time)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_EXCEPTION),,exception)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_FIBER),,fiber)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_FILESYSTEM),,filesystem)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_GRAPH),,graph)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_GRAPH_PARALLEL),,graph_parallel)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_IOSTREAMS),,iostreams)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_JSON),,json)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_LOCALE),,locale)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_LOG),,log)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_MATH),,math)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_MPI),,mpi)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_NOWIDE),,nowide)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_PROGRAM_OPTIONS),,program_options)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_PYTHON),,python)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_RANDOM),,random)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_REGEX),,regex)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_SERIALIZATION),,serialization)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_STACKTRACE),,stacktrace)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_SYSTEM),,system)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_TEST),,test)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_THREAD),,thread)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_TIMER),,timer)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_TYPE_ERASURE),,type_erasure)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_URL),,url)
+BOOST_WITHOUT_FLAGS += $(if $(LINGMO_PACKAGE_BOOST_WAVE),,wave)
 
 BOOST_TARGET_CXXFLAGS = $(TARGET_CXXFLAGS)
 
 BOOST_FLAGS = --with-toolset=gcc
 
-ifeq ($(BR2_PACKAGE_ICU),y)
+ifeq ($(LINGMO_PACKAGE_ICU),y)
 BOOST_FLAGS += --with-icu=$(STAGING_DIR)/usr
 BOOST_DEPENDENCIES += icu
 else
 BOOST_FLAGS += --without-icu
 endif
 
-ifeq ($(BR2_PACKAGE_BOOST_IOSTREAMS),y)
+ifeq ($(LINGMO_PACKAGE_BOOST_IOSTREAMS),y)
 BOOST_DEPENDENCIES += bzip2 zlib
 endif
 
-ifeq ($(BR2_PACKAGE_BOOST_PYTHON),y)
+ifeq ($(LINGMO_PACKAGE_BOOST_PYTHON),y)
 BOOST_FLAGS += \
 	--with-python-root=$(HOST_DIR) \
 	--with-python=$(HOST_DIR)/bin/python$(PYTHON3_VERSION_MAJOR)
@@ -81,9 +81,9 @@ HOST_BOOST_OPTS += --no-cmake-config toolset=gcc threading=multi \
 	--ignore-site-config --layout=system --prefix=$(HOST_DIR) \
 	--user-config=$(@D)/user-config.jam
 
-ifeq ($(BR2_MIPS_OABI32),y)
+ifeq ($(LINGMO_MIPS_OABI32),y)
 BOOST_ABI = o32
-else ifeq ($(BR2_arm)$(BR2_armeb)$(BR2_aarch64)$(BR2_aarch64_be),y)
+else ifeq ($(LINGMO_arm)$(LINGMO_armeb)$(LINGMO_aarch64)$(LINGMO_aarch64_be),y)
 BOOST_ABI = aapcs
 else
 BOOST_ABI = sysv
@@ -93,36 +93,36 @@ BOOST_OPTS += --no-cmake-config \
 	toolset=gcc \
 	threading=multi \
 	abi=$(BOOST_ABI) \
-	variant=$(if $(BR2_ENABLE_RUNTIME_DEBUG),debug,release) \
+	variant=$(if $(LINGMO_ENABLE_RUNTIME_DEBUG),debug,release) \
 	-j$(PARALLEL_JOBS) \
 	-q \
 	--ignore-site-config \
 	--layout=system \
 	--user-config=$(@D)/user-config.jam
 
-ifeq ($(BR2_sparc64),y)
+ifeq ($(LINGMO_sparc64),y)
 BOOST_OPTS += architecture=sparc instruction-set=ultrasparc
 endif
 
-ifeq ($(BR2_sparc),y)
+ifeq ($(LINGMO_sparc),y)
 BOOST_OPTS += architecture=sparc instruction-set=v8
 endif
 
 # By default, Boost build and installs both the shared and static
 # variants. Override that if we want static only or shared only.
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 BOOST_OPTS += link=static runtime-link=static
-else ifeq ($(BR2_SHARED_LIBS),y)
+else ifeq ($(LINGMO_SHARED_LIBS),y)
 BOOST_OPTS += link=shared runtime-link=shared
 endif
 
-ifeq ($(BR2_PACKAGE_BOOST_LOCALE),y)
-ifeq ($(BR2_TOOLCHAIN_USES_UCLIBC),y)
+ifeq ($(LINGMO_PACKAGE_BOOST_LOCALE),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_UCLIBC),y)
 # posix backend needs monetary.h which isn't available on uClibc
 BOOST_OPTS += boost.locale.posix=off
 endif
 
-BOOST_DEPENDENCIES += $(if $(BR2_ENABLE_LOCALE),,libiconv)
+BOOST_DEPENDENCIES += $(if $(LINGMO_ENABLE_LOCALE),,libiconv)
 endif
 
 BOOST_WITHOUT_FLAGS_COMMASEPARATED += $(subst $(space),$(comma),$(strip $(BOOST_WITHOUT_FLAGS)))

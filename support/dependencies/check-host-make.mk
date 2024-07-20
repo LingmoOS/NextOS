@@ -6,16 +6,16 @@
 # package is bumped or a new one added, and it requires a higher
 # version, our package infra will catch it and whine.
 #
-BR2_MAKE_VERSION_MIN = 4.0
+LINGMO_MAKE_VERSION_MIN = 4.0
 
-BR2_MAKE ?= $(call suitable-host-package,make,\
-	$(BR2_MAKE_VERSION_MIN) $(MAKE))
+LINGMO_MAKE ?= $(call suitable-host-package,make,\
+	$(LINGMO_MAKE_VERSION_MIN) $(MAKE))
 
-ifeq ($(BR2_MAKE),)
-BR2_MAKE = $(HOST_DIR)/bin/host-make -j$(PARALLEL_JOBS)
-BR2_MAKE1 = $(HOST_DIR)/bin/host-make -j1
-BR2_MAKE_HOST_DEPENDENCY = host-make
+ifeq ($(LINGMO_MAKE),)
+LINGMO_MAKE = $(HOST_DIR)/bin/host-make -j$(PARALLEL_JOBS)
+LINGMO_MAKE1 = $(HOST_DIR)/bin/host-make -j1
+LINGMO_MAKE_HOST_DEPENDENCY = host-make
 else
-BR2_MAKE = $(MAKE)
-BR2_MAKE1 = $(MAKE1)
+LINGMO_MAKE = $(MAKE)
+LINGMO_MAKE1 = $(MAKE1)
 endif

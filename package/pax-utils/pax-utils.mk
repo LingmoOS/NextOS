@@ -17,14 +17,14 @@ PAX_UTILS_CONF_OPTS = \
 	-Dlddtree_implementation=sh \
 	-Dtests=false
 
-ifeq ($(BR2_PACKAGE_LIBCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBCAP),y)
 PAX_UTILS_DEPENDENCIES += libcap
 PAX_UTILS_CONF_OPTS += -Duse_libcap=enabled
 else
 PAX_UTILS_CONF_OPTS += -Duse_libcap=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSECCOMP),y)
+ifeq ($(LINGMO_PACKAGE_LIBSECCOMP),y)
 PAX_UTILS_DEPENDENCIES += libseccomp
 PAX_UTILS_CONF_OPTS += -Duse_seccomp=true
 else
@@ -32,7 +32,7 @@ PAX_UTILS_CONF_OPTS += -Duse_seccomp=false
 endif
 
 # lddtree and symtree need bash
-ifeq ($(BR2_PACKAGE_BASH),)
+ifeq ($(LINGMO_PACKAGE_BASH),)
 define PAX_UTILS_REMOVE_BASH_TOOLS
 	rm -f $(TARGET_DIR)/usr/bin/{lddtree,symtree}
 endef

@@ -24,25 +24,25 @@ UNBOUND_CONF_OPTS = \
 
 # uClibc-ng does not have MSG_FASTOPEN
 # so TCP Fast Open client mode disabled for it
-ifeq ($(BR2_TOOLCHAIN_USES_UCLIBC),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_UCLIBC),y)
 UNBOUND_CONF_OPTS += --disable-tfo-client
 else
 UNBOUND_CONF_OPTS += --enable-tfo-client
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS_NPTL),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS_NPTL),y)
 UNBOUND_CONF_OPTS += --with-pthreads
 else
 UNBOUND_CONF_OPTS += --without-pthreads
 endif
 
-ifeq ($(BR2_ENABLE_LTO),y)
+ifeq ($(LINGMO_ENABLE_LTO),y)
 UNBOUND_CONF_OPTS += --enable-flto
 else
 UNBOUND_CONF_OPTS += --disable-flto
 endif
 
-ifeq ($(BR2_PACKAGE_UNBOUND_DNSCRYPT),y)
+ifeq ($(LINGMO_PACKAGE_UNBOUND_DNSCRYPT),y)
 UNBOUND_CONF_OPTS += --enable-dnscrypt
 UNBOUND_DEPENDENCIES += libsodium
 else

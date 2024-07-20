@@ -1,4 +1,4 @@
-Fix build with BR2_ENABLE_DEBUG=yes, no need for expert mode anymore
+Fix build with LINGMO_ENABLE_DEBUG=yes, no need for expert mode anymore
 
 Otherwise configure issues this error message:
 configure: error: --enable-debug cannot be used in conjunction with --enable-expert-mode

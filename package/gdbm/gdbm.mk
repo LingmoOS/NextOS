@@ -5,13 +5,13 @@
 ################################################################################
 
 GDBM_VERSION = 1.23
-GDBM_SITE = $(BR2_GNU_MIRROR)/gdbm
+GDBM_SITE = $(LINGMO_GNU_MIRROR)/gdbm
 GDBM_LICENSE = GPL-3.0+
 GDBM_LICENSE_FILES = COPYING
 GDBM_INSTALL_STAGING = YES
 GDBM_DEPENDENCIES = $(TARGET_NLS_DEPENDENCIES)
 
-ifeq ($(BR2_PACKAGE_READLINE),y)
+ifeq ($(LINGMO_PACKAGE_READLINE),y)
 GDBM_CONF_OPTS += --with-readline
 GDBM_DEPENDENCIES += readline
 else

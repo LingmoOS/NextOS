@@ -6,21 +6,21 @@ import infra.basetest
 class TestNftables(infra.basetest.BRTest):
     config = \
         """
-        BR2_aarch64=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
-        BR2_LINUX_KERNEL=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE="6.1.46"
-        BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
-        BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/qemu/aarch64-virt/linux.config"
-        BR2_LINUX_KERNEL_NEEDS_HOST_OPENSSL=y
-        BR2_PACKAGE_NFTABLES=y
-        BR2_PACKAGE_PYTHON3=y
-        BR2_ROOTFS_OVERLAY="{}"
-        BR2_TARGET_ROOTFS_CPIO=y
-        BR2_TARGET_ROOTFS_CPIO_GZIP=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_aarch64=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
+        LINGMO_LINUX_KERNEL=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION_VALUE="6.1.46"
+        LINGMO_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
+        LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/qemu/aarch64-virt/linux.config"
+        LINGMO_LINUX_KERNEL_NEEDS_HOST_OPENSSL=y
+        LINGMO_PACKAGE_NFTABLES=y
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_ROOTFS_OVERLAY="{}"
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        LINGMO_TARGET_ROOTFS_CPIO_GZIP=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """.format(
                 infra.filepath("tests/package/test_nftables/rootfs-overlay"))
 

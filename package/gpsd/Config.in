@@ -1,14 +1,14 @@
 comment "gpsd needs a toolchain w/ threads, dynamic library"
-	depends on BR2_USE_MMU
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS
 
-menuconfig BR2_PACKAGE_GPSD
+menuconfig LINGMO_PACKAGE_GPSD
 	bool "gpsd"
 	# Uses fork()
-	depends on BR2_USE_MMU
-	depends on BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
 	# Always tries to build a shared library
-	depends on !BR2_STATIC_LIBS
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  gpsd is a service daemon that monitors one or more GPSes or
 	  AIS receivers attached to a host computer through serial or
@@ -20,203 +20,203 @@ menuconfig BR2_PACKAGE_GPSD
 
 	  https://gpsd.gitlab.io/gpsd
 
-if BR2_PACKAGE_GPSD
+if LINGMO_PACKAGE_GPSD
 
-config BR2_PACKAGE_GPSD_DEVICES
+config LINGMO_PACKAGE_GPSD_DEVICES
 	string "Where to look for GPSes"
 	default "/dev/ttyS1"
 
 comment "Features"
 
-config BR2_PACKAGE_GPSD_CLIENT_DEBUG
+config LINGMO_PACKAGE_GPSD_CLIENT_DEBUG
 	bool "client debugging support"
 
-config BR2_PACKAGE_GPSD_PROFILING
+config LINGMO_PACKAGE_GPSD_PROFILING
 	bool "profiling support"
-	depends on BR2_TOOLCHAIN_USES_GLIBC
-	depends on !BR2_aarch64
+	depends on LINGMO_TOOLCHAIN_USES_GLIBC
+	depends on !LINGMO_aarch64
 	# Needs glibc for ARC arc-2018.03-eng007+ for correct __mcount linking
-	depends on !BR2_arc
+	depends on !LINGMO_arc
 
 comment "profiling support not available with uClibc-based toolchain"
-	depends on !BR2_TOOLCHAIN_USES_GLIBC
+	depends on !LINGMO_TOOLCHAIN_USES_GLIBC
 
-config BR2_PACKAGE_GPSD_USER
+config LINGMO_PACKAGE_GPSD_USER
 	bool "GPSD privilege revocation user"
 
-config BR2_PACKAGE_GPSD_USER_VALUE
+config LINGMO_PACKAGE_GPSD_USER_VALUE
 	string "user to run as"
 	default "nobody"
-	depends on BR2_PACKAGE_GPSD_USER
+	depends on LINGMO_PACKAGE_GPSD_USER
 
-config BR2_PACKAGE_GPSD_GROUP
+config LINGMO_PACKAGE_GPSD_GROUP
 	bool "GPSD privilege revocation group"
 
-config BR2_PACKAGE_GPSD_GROUP_VALUE
+config LINGMO_PACKAGE_GPSD_GROUP_VALUE
 	string "group to run as"
 	default "nobody"
-	depends on BR2_PACKAGE_GPSD_GROUP
+	depends on LINGMO_PACKAGE_GPSD_GROUP
 
-config BR2_PACKAGE_GPSD_MAX_CLIENT
+config LINGMO_PACKAGE_GPSD_MAX_CLIENT
 	bool "compile with limited maximum clients"
 
-config BR2_PACKAGE_GPSD_MAX_CLIENT_VALUE
+config LINGMO_PACKAGE_GPSD_MAX_CLIENT_VALUE
 	int "maximum number of clients"
 	default "10"
-	depends on BR2_PACKAGE_GPSD_MAX_CLIENT
+	depends on LINGMO_PACKAGE_GPSD_MAX_CLIENT
 
-config BR2_PACKAGE_GPSD_MAX_DEV
+config LINGMO_PACKAGE_GPSD_MAX_DEV
 	bool "compile with maximum allowed devices"
 
-config BR2_PACKAGE_GPSD_MAX_DEV_VALUE
+config LINGMO_PACKAGE_GPSD_MAX_DEV_VALUE
 	int "maximum allowed devices"
 	default "2"
-	depends on BR2_PACKAGE_GPSD_MAX_DEV
+	depends on LINGMO_PACKAGE_GPSD_MAX_DEV
 
-config BR2_PACKAGE_GPSD_SQUELCH
+config LINGMO_PACKAGE_GPSD_SQUELCH
 	bool "squelch gpsd_report and gpsd_hexdump to save cpu"
 
-config BR2_PACKAGE_GPSD_PYTHON
+config LINGMO_PACKAGE_GPSD_PYTHON
 	bool "build Python support and modules"
-	depends on BR2_USE_WCHAR # python3
-	select BR2_PACKAGE_PYTHON3
+	depends on LINGMO_USE_WCHAR # python3
+	select LINGMO_PACKAGE_PYTHON3
 	help
 	  Python libraries and tools for the gpsd service daemon
 	  including gpsfake test harness.
 
 comment "GPSD python support not available with toolchain w/o wide characters support"
-	depends on !BR2_USE_WCHAR
+	depends on !LINGMO_USE_WCHAR
 
 comment "Protocols"
 
-config BR2_PACKAGE_GPSD_AIVDM
+config LINGMO_PACKAGE_GPSD_AIVDM
 	bool "Aivdm"
 	help
 	  Aivdm support
 
-config BR2_PACKAGE_GPSD_ASHTECH
+config LINGMO_PACKAGE_GPSD_ASHTECH
 	bool "Ashtech"
 	help
 	  Ashtech support
 
-config BR2_PACKAGE_GPSD_EARTHMATE
+config LINGMO_PACKAGE_GPSD_EARTHMATE
 	bool "Earthmate"
 	help
 	  DeLorme EarthMate Zodiac support
 
-config BR2_PACKAGE_GPSD_EVERMORE
+config LINGMO_PACKAGE_GPSD_EVERMORE
 	bool "EverMore"
 	help
 	  EverMore binary support
 
-config BR2_PACKAGE_GPSD_FURY
+config LINGMO_PACKAGE_GPSD_FURY
 	bool "Fury"
 	help
 	  Jackson Labs Fury and Firefly support
 
-config BR2_PACKAGE_GPSD_FV18
+config LINGMO_PACKAGE_GPSD_FV18
 	bool "FV-18"
 	help
 	  San Jose Navigation FV-18 support
 
-config BR2_PACKAGE_GPSD_GARMIN
+config LINGMO_PACKAGE_GPSD_GARMIN
 	bool "Garmin (kernel)"
 	help
 	  Garmin kernel driver support
 
-config BR2_PACKAGE_GPSD_GARMIN_SIMPLE_TXT
+config LINGMO_PACKAGE_GPSD_GARMIN_SIMPLE_TXT
 	bool "Garmin (simple text)"
 	help
 	  Garmin Simple Text support
 
-config BR2_PACKAGE_GPSD_GEOSTAR
+config LINGMO_PACKAGE_GPSD_GEOSTAR
 	bool "Geostar"
 	help
 	  Geostar Protocol support
 
-config BR2_PACKAGE_GPSD_GPSCLOCK
+config LINGMO_PACKAGE_GPSD_GPSCLOCK
 	bool "GPSClock"
 	help
 	  GPSClock support
 
-config BR2_PACKAGE_GPSD_GREIS
+config LINGMO_PACKAGE_GPSD_GREIS
 	bool "Greis"
 	help
 	  Greis support
 
-config BR2_PACKAGE_GPSD_ISYNC
+config LINGMO_PACKAGE_GPSD_ISYNC
 	bool "iSync"
 	help
 	  Spectratime iSync LNRClok/GRCLOK support
 
-config BR2_PACKAGE_GPSD_ITRAX
+config LINGMO_PACKAGE_GPSD_ITRAX
 	bool "iTrax"
 	help
 	  iTrax support
 
-config BR2_PACKAGE_GPSD_NAVCOM
+config LINGMO_PACKAGE_GPSD_NAVCOM
 	bool "Navcom"
 	help
 	  Navcom binary support
 
-config BR2_PACKAGE_GPSD_NMEA2000
+config LINGMO_PACKAGE_GPSD_NMEA2000
 	bool "NMEA2000"
-	select BR2_PACKAGE_GPSD_NAVCOM
-	select BR2_PACKAGE_GPSD_AIVDM
+	select LINGMO_PACKAGE_GPSD_NAVCOM
+	select LINGMO_PACKAGE_GPSD_AIVDM
 	help
 	  NMEA2000/CAN support
 
-config BR2_PACKAGE_GPSD_OCEANSERVER
+config LINGMO_PACKAGE_GPSD_OCEANSERVER
 	bool "OceanServer"
 	help
 	  OceanServer Digital Compass support
 
-config BR2_PACKAGE_GPSD_ONCORE
+config LINGMO_PACKAGE_GPSD_ONCORE
 	bool "OnCore"
 	help
 	  OnCore support
 
-config BR2_PACKAGE_GPSD_RTCM104V2
+config LINGMO_PACKAGE_GPSD_RTCM104V2
 	bool "RTCM104 v2"
 	help
 	  RTCM104 v2 support
 
-config BR2_PACKAGE_GPSD_RTCM104V3
+config LINGMO_PACKAGE_GPSD_RTCM104V3
 	bool "RTCM104 v3"
 	help
 	  RTCM104 v3 support
 
-config BR2_PACKAGE_GPSD_SIRF
+config LINGMO_PACKAGE_GPSD_SIRF
 	bool "SiRF"
 	help
 	  SiRF binary support
 
-config BR2_PACKAGE_GPSD_SKYTRAQ
+config LINGMO_PACKAGE_GPSD_SKYTRAQ
 	bool "Skytraq"
 	help
 	  Skytraq support
 
-config BR2_PACKAGE_GPSD_SUPERSTAR2
+config LINGMO_PACKAGE_GPSD_SUPERSTAR2
 	bool "SuperStarII"
 	help
 	  Novatel SuperStarII binary support
 
-config BR2_PACKAGE_GPSD_TRIMBLE_TSIP
+config LINGMO_PACKAGE_GPSD_TRIMBLE_TSIP
 	bool "Trimble TSIP"
 	help
 	  Trimble TSIP support
 
-config BR2_PACKAGE_GPSD_TRIPMATE
+config LINGMO_PACKAGE_GPSD_TRIPMATE
 	bool "TripMate"
 	help
 	  Delorme TripMate support
 
-config BR2_PACKAGE_GPSD_TRUE_NORTH
+config LINGMO_PACKAGE_GPSD_TRUE_NORTH
 	bool "True North Technologies"
 	help
 	  True North Technologies support
 
-config BR2_PACKAGE_GPSD_UBX
+config LINGMO_PACKAGE_GPSD_UBX
 	bool "UBX"
 	help
 	  uBlox UBX binary support

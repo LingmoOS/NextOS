@@ -1,20 +1,20 @@
 choice
 	prompt "Target Architecture Variant"
-	default BR2_xtensa_fsf
-	depends on BR2_xtensa
+	default LINGMO_xtensa_fsf
+	depends on LINGMO_xtensa
 
-config BR2_XTENSA_CUSTOM
+config LINGMO_XTENSA_CUSTOM
 	bool "Custom Xtensa processor configuration"
 
-config BR2_xtensa_fsf
+config LINGMO_xtensa_fsf
 	bool "fsf - Default configuration"
-	select BR2_USE_MMU
+	select LINGMO_USE_MMU
 
 endchoice
 
-config BR2_XTENSA_OVERLAY_FILE
+config LINGMO_XTENSA_OVERLAY_FILE
 	string "Overlay file for custom configuration"
-	depends on BR2_XTENSA_CUSTOM
+	depends on LINGMO_XTENSA_CUSTOM
 	help
 	  Enter the path to the overlay tarball for a custom processor
 	  configuration.
@@ -29,37 +29,37 @@ config BR2_XTENSA_OVERLAY_FILE
 
 choice
 	prompt "Target Architecture Endianness"
-	default BR2_XTENSA_LITTLE_ENDIAN
-	depends on BR2_XTENSA_CUSTOM
+	default LINGMO_XTENSA_LITTLE_ENDIAN
+	depends on LINGMO_XTENSA_CUSTOM
 
-config BR2_XTENSA_LITTLE_ENDIAN
+config LINGMO_XTENSA_LITTLE_ENDIAN
 	bool "Little endian"
 
-config BR2_XTENSA_BIG_ENDIAN
+config LINGMO_XTENSA_BIG_ENDIAN
 	bool "Big endian"
 
 endchoice
 
-config BR2_XTENSA_USE_MMU
+config LINGMO_XTENSA_USE_MMU
 	bool "MMU support"
 	default y
-	depends on BR2_XTENSA_CUSTOM
-	select BR2_USE_MMU
+	depends on LINGMO_XTENSA_CUSTOM
+	select LINGMO_USE_MMU
 	help
 	  Enable this option if your Xtensa core has a MMU (Memory
 	  Management Unit).
 
-config BR2_ENDIAN
-	default "LITTLE"	if BR2_XTENSA_LITTLE_ENDIAN
-	default "BIG"		if BR2_xtensa_fsf || BR2_XTENSA_BIG_ENDIAN
+config LINGMO_ENDIAN
+	default "LITTLE"	if LINGMO_XTENSA_LITTLE_ENDIAN
+	default "BIG"		if LINGMO_xtensa_fsf || LINGMO_XTENSA_BIG_ENDIAN
 
-config BR2_ARCH
-	default "xtensa"	if BR2_xtensa
+config LINGMO_ARCH
+	default "xtensa"	if LINGMO_xtensa
 
-config BR2_NORMALIZED_ARCH
+config LINGMO_NORMALIZED_ARCH
 	default "xtensa"
 
-config BR2_READELF_ARCH_NAME
+config LINGMO_READELF_ARCH_NAME
 	default "Tensilica Xtensa Processor"
 
 # vim: ft=kconfig

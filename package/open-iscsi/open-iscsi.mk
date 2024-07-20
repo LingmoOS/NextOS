@@ -13,7 +13,7 @@ OPEN_ISCSI_DEPENDENCIES = kmod open-isns openssl util-linux
 
 OPEN_ISCSI_CONF_OPTS = -Ddbroot=/var/lib/iscsi
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 OPEN_ISCSI_DEPENDENCIES += systemd
 OPEN_ISCSI_CONF_OPTS += -Dno_systemd=false
 else

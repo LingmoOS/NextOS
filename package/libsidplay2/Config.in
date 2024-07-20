@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBSIDPLAY2
+config LINGMO_PACKAGE_LIBSIDPLAY2
 	bool "libsidplay2"
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	help
 	  Sidplay 2 is the second in the Sidplay series originally
 	  developed by Michael Schwendt. This version is written by
@@ -11,4 +11,4 @@ config BR2_PACKAGE_LIBSIDPLAY2
 	  http://sourceforge.net/projects/sidplay2
 
 comment "libsidplay2 needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP

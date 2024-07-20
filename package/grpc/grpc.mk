@@ -37,14 +37,14 @@ GRPC_CONF_OPTS = \
 	-DgRPC_BUILD_GRPC_PYTHON_PLUGIN=OFF \
 	-DgRPC_BUILD_GRPC_RUBY_PLUGIN=OFF
 
-ifeq ($(BR2_PACKAGE_LIBEXECINFO),y)
+ifeq ($(LINGMO_PACKAGE_LIBEXECINFO),y)
 GRPC_DEPENDENCIES += libexecinfo
 GRPC_EXE_LINKER_FLAGS += -lexecinfo
 endif
 
 # grpc can use __atomic builtins, so we need to link with
 # libatomic when available
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 GRPC_EXE_LINKER_FLAGS += -latomic
 endif
 
@@ -53,12 +53,12 @@ GRPC_CXXFLAGS = $(TARGET_CXXFLAGS)
 
 # Set GPR_DISABLE_WRAPPED_MEMCPY otherwise build will fail on x86_64 with uclibc
 # because grpc tries to link with memcpy@GLIBC_2.2.5
-ifeq ($(BR2_x86_64):$(BR2_TOOLCHAIN_USES_GLIBC),y:)
+ifeq ($(LINGMO_x86_64):$(LINGMO_TOOLCHAIN_USES_GLIBC),y:)
 GRPC_CFLAGS += -DGPR_DISABLE_WRAPPED_MEMCPY
 GRPC_CXXFLAGS += -DGPR_DISABLE_WRAPPED_MEMCPY
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_85180),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_85180),y)
 GRPC_CFLAGS += -O0
 GRPC_CXXFLAGS += -O0
 endif

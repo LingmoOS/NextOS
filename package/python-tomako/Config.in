@@ -1,7 +1,7 @@
-config BR2_PACKAGE_PYTHON_TOMAKO
+config LINGMO_PACKAGE_PYTHON_TOMAKO
 	bool "python-tomako"
-	select BR2_PACKAGE_PYTHON_TORNADO # runtime
-	select BR2_PACKAGE_PYTHON_MAKO # runtime
+	select LINGMO_PACKAGE_PYTHON_TORNADO # runtime
+	select LINGMO_PACKAGE_PYTHON_MAKO # runtime
 	help
 	  Tomako is the easiest way to use Mako as a template engine for
 	  Tornado.

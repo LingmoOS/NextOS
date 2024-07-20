@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBXML2
+config LINGMO_PACKAGE_LIBXML2
 	bool "libxml2"
 	help
 	  XML C Parser

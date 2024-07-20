@@ -1,13 +1,13 @@
-config BR2_TARGET_ROOTFS_CRAMFS
+config LINGMO_TARGET_ROOTFS_CRAMFS
 	bool "cramfs root filesystem"
 	help
 	  Build a cramfs root filesystem
 
 	  https://github.com/npitre/cramfs-tools
 
-if BR2_TARGET_ROOTFS_CRAMFS
+if LINGMO_TARGET_ROOTFS_CRAMFS
 
-config BR2_TARGET_ROOTFS_CRAMFS_XIP
+config LINGMO_TARGET_ROOTFS_CRAMFS_XIP
 	bool "Support XIP of all ELF files"
 	help
 	  For ELF files, uncompressed and properly aligned data blocks
@@ -23,4 +23,4 @@ config BR2_TARGET_ROOTFS_CRAMFS_XIP
 	  The CRAMFS_MTD Kconfig option must also be enabled in a
 	  4.15+ kernel.
 
-endif # BR2_TARGET_ROOTFS_CRAMFS
+endif # LINGMO_TARGET_ROOTFS_CRAMFS

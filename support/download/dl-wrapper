@@ -2,10 +2,10 @@
 
 # This script is a wrapper to the other download backends.
 # Its role is to ensure atomicity when saving downloaded files
-# back to BR2_DL_DIR, and not clutter BR2_DL_DIR with partial,
+# back to LINGMO_DL_DIR, and not clutter LINGMO_DL_DIR with partial,
 # failed downloads.
 
-# To avoid cluttering BR2_DL_DIR, we download to a trashable
+# To avoid cluttering LINGMO_DL_DIR, we download to a trashable
 # location, namely in $(BUILD_DIR).
 # Then, we move the downloaded file to a temporary file in the
 # same directory as the final output file.
@@ -104,7 +104,7 @@ main() {
         # tmpf is the file in which the backends should put the downloaded
         # content.
         # tmpd is located in $(BUILD_DIR), so as not to clutter the (precious)
-        # $(BR2_DL_DIR)
+        # $(LINGMO_DL_DIR)
         # We let the backends create tmpf, so they are able to set whatever
         # permission bits they want (although we're only really interested in
         # the executable bit.)
@@ -183,7 +183,7 @@ main() {
 
     # 'mktemp' creates files with 'go=-rwx', so the files are not accessible
     # to users other than the one doing the download (and root, of course).
-    # This can be problematic when a shared BR2_DL_DIR is used by different
+    # This can be problematic when a shared LINGMO_DL_DIR is used by different
     # users (e.g. on a build server), where all users may write to the shared
     # location, since other users would not be allowed to read the files
     # another user downloaded.

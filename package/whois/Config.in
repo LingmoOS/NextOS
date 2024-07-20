@@ -1,6 +1,6 @@
-config BR2_PACKAGE_WHOIS
+config LINGMO_PACKAGE_WHOIS
 	bool "whois"
-	depends on BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
+	depends on LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS
 	help
 	  Improved whois client.
 

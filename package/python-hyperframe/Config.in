@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_HYPERFRAME
+config LINGMO_PACKAGE_PYTHON_HYPERFRAME
 	bool "python-hyperframe"
 	help
 	  HTTP/2 framing layer for Python.

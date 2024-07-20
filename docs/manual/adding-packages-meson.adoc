@@ -30,7 +30,7 @@ Let's see how to write a +.mk+ file for a Meson-based package, with an example:
 13:
 14: FOO_DEPENDENCIES = host-pkgconf bar
 15:
-16: ifeq ($(BR2_PACKAGE_BAZ),y)
+16: ifeq ($(LINGMO_PACKAGE_BAZ),y)
 17: FOO_CONF_OPTS += -Dbaz=true
 18: FOO_DEPENDENCIES += baz
 19: else

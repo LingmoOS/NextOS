@@ -1,4 +1,4 @@
-config BR2_PACKAGE_DVBSNOOP
+config LINGMO_PACKAGE_DVBSNOOP
 	bool "dvbsnoop"
 	help
 	  Dvbsnoop is just a simple tool to analyze, view or debug a

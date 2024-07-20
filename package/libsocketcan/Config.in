@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBSOCKETCAN
+config LINGMO_PACKAGE_LIBSOCKETCAN
 	bool "libsocketcan"
 	help
 	  SocketCAN library to control CAN devices from C code.

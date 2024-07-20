@@ -16,7 +16,7 @@ USBREDIR_CONF_OPTS = \
 	-Dstack_protector=disabled \
 	-Dtests=disabled
 
-ifeq ($(BR2_PACKAGE_USBREDIR_TOOLS),y)
+ifeq ($(LINGMO_PACKAGE_USBREDIR_TOOLS),y)
 USBREDIR_LICENSE += , GPL-2.0+ (program)
 USBREDIR_LICENSE_FILES += COPYING
 USBREDIR_DEPENDENCIES += libglib2

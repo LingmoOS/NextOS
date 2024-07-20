@@ -77,7 +77,7 @@ and then for device files corresponding to the partitions of
 ----
 
 Extended attributes are supported if
-+BR2_ROOTFS_DEVICE_TABLE_SUPPORTS_EXTENDED_ATTRIBUTES+ is enabled.
++LINGMO_ROOTFS_DEVICE_TABLE_SUPPORTS_EXTENDED_ATTRIBUTES+ is enabled.
 This is done by adding a line starting with +|xattr+ after
 the line describing the file. Right now, only capability
 is supported as extended attribute.

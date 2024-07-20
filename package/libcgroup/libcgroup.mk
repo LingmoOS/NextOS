@@ -16,20 +16,20 @@ LIBCGROUP_CONF_OPTS = \
 	--disable-daemon \
 	--disable-initscript-install
 
-ifeq ($(BR2_PACKAGE_LIBCGROUP_TOOLS),y)
+ifeq ($(LINGMO_PACKAGE_LIBCGROUP_TOOLS),y)
 LIBCGROUP_CONF_OPTS += --enable-tools
 else
 LIBCGROUP_CONF_OPTS += --disable-tools
 endif
 
-ifeq ($(BR2_PACKAGE_LINUX_PAM),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_PAM),y)
 LIBCGROUP_DEPENDENCIES += linux-pam
 LIBCGROUP_CONF_OPTS += --enable-pam
 else
 LIBCGROUP_CONF_OPTS += --disable-pam
 endif
 
-ifeq ($(BR2_TOOLCHAIN_USES_GLIBC),)
+ifeq ($(LINGMO_TOOLCHAIN_USES_GLIBC),)
 LIBCGROUP_DEPENDENCIES += musl-fts
 endif
 

@@ -11,24 +11,24 @@ FIO_LICENSE_FILES = COPYING MORAL-LICENSE
 
 FIO_OPTS = --disable-native --cc="$(TARGET_CC)" --extra-cflags="$(TARGET_CFLAGS)"
 
-ifeq ($(BR2_PACKAGE_LIBAIO),y)
+ifeq ($(LINGMO_PACKAGE_LIBAIO),y)
 FIO_DEPENDENCIES += libaio
 endif
 
-ifeq ($(BR2_PACKAGE_LIBNFS),y)
+ifeq ($(LINGMO_PACKAGE_LIBNFS),y)
 FIO_DEPENDENCIES += libnfs
 endif
 
-ifeq ($(BR2_PACKAGE_LIBISCSI),y)
+ifeq ($(LINGMO_PACKAGE_LIBISCSI),y)
 FIO_OPTS += --enable-libiscsi
 FIO_DEPENDENCIES += host-pkgconf libiscsi
 endif
 
-ifeq ($(BR2_PACKAGE_NUMACTL),y)
+ifeq ($(LINGMO_PACKAGE_NUMACTL),y)
 FIO_DEPENDENCIES += numactl
 endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 FIO_DEPENDENCIES += zlib
 endif
 

@@ -31,10 +31,10 @@ class TestGdbHostOnlyDefault(BaseGdb):
     config = \
         infra.basetest.MINIMAL_CONFIG + \
         """
-        BR2_arm=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_PACKAGE_HOST_GDB=y
+        LINGMO_arm=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_PACKAGE_HOST_GDB=y
         """
 
     def test_run(self):
@@ -45,13 +45,13 @@ class TestGdbHostOnlyAllFeatures(BaseGdb):
     config = \
         infra.basetest.MINIMAL_CONFIG + \
         """
-        BR2_arm=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_PACKAGE_HOST_GDB=y
-        BR2_PACKAGE_HOST_GDB_TUI=y
-        BR2_PACKAGE_HOST_GDB_PYTHON3=y
-        BR2_PACKAGE_HOST_GDB_SIM=y
+        LINGMO_arm=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_PACKAGE_HOST_GDB=y
+        LINGMO_PACKAGE_HOST_GDB_TUI=y
+        LINGMO_PACKAGE_HOST_GDB_PYTHON3=y
+        LINGMO_PACKAGE_HOST_GDB_SIM=y
         """
 
     def test_run(self):
@@ -61,12 +61,12 @@ class TestGdbHostOnlyAllFeatures(BaseGdb):
 class TestGdbserverOnly(BaseGdb):
     config = \
         """
-        BR2_arm=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_PACKAGE_GDB=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_PACKAGE_GDB=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):
@@ -77,13 +77,13 @@ class TestGdbserverOnly(BaseGdb):
 class TestGdbFullTarget(BaseGdb):
     config = \
         """
-        BR2_arm=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_PACKAGE_GDB=y
-        BR2_PACKAGE_GDB_DEBUGGER=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_PACKAGE_GDB=y
+        LINGMO_PACKAGE_GDB_DEBUGGER=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):
@@ -94,13 +94,13 @@ class TestGdbFullTarget(BaseGdb):
 class TestGdbArc(BaseGdb):
     config = \
         """
-        BR2_arcle=y
-        BR2_archs4x_rel31=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_PACKAGE_HOST_GDB=y
-        BR2_PACKAGE_GDB=y
-        BR2_PACKAGE_GDB_SERVER=y
-        BR2_PACKAGE_GDB_DEBUGGER=y
+        LINGMO_arcle=y
+        LINGMO_archs4x_rel31=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_PACKAGE_HOST_GDB=y
+        LINGMO_PACKAGE_GDB=y
+        LINGMO_PACKAGE_GDB_SERVER=y
+        LINGMO_PACKAGE_GDB_DEBUGGER=y
         """
 
     def test_run(self):

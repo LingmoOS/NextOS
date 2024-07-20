@@ -1,4 +1,4 @@
-config BR2_PACKAGE_VUEJS
+config LINGMO_PACKAGE_VUEJS
 	bool "vuejs"
 	help
 	  VueJS web application framework.

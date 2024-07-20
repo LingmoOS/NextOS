@@ -12,14 +12,14 @@ NANO_LICENSE = GPL-3.0+
 NANO_LICENSE_FILES = COPYING
 NANO_DEPENDENCIES = ncurses
 
-ifeq ($(BR2_PACKAGE_NCURSES_WCHAR),y)
+ifeq ($(LINGMO_PACKAGE_NCURSES_WCHAR),y)
 NANO_CONF_ENV += ac_cv_prog_NCURSESW_CONFIG=$(STAGING_DIR)/usr/bin/$(NCURSES_CONFIG_SCRIPTS)
 else
 NANO_CONF_ENV += ac_cv_prog_NCURSESW_CONFIG=false
 NANO_MAKE_ENV += CURSES_LIB="-lncurses"
 endif
 
-ifeq ($(BR2_PACKAGE_NANO_TINY),y)
+ifeq ($(LINGMO_PACKAGE_NANO_TINY),y)
 NANO_CONF_OPTS += \
 	--enable-tiny \
 	--disable-libmagic \
@@ -30,12 +30,12 @@ define NANO_INSTALL_TARGET_CMDS
 endef
 else
 NANO_CONF_OPTS += --disable-tiny
-ifeq ($(BR2_PACKAGE_FILE),y)
+ifeq ($(LINGMO_PACKAGE_FILE),y)
 NANO_DEPENDENCIES += file
 NANO_CONF_OPTS += --enable-libmagic --enable-color --enable-nanorc
 else
 NANO_CONF_OPTS += --disable-libmagic --disable-color --disable-nanorc
-endif # BR2_PACKAGE_FILE
-endif # BR2_PACKAGE_NANO_TINY
+endif # LINGMO_PACKAGE_FILE
+endif # LINGMO_PACKAGE_NANO_TINY
 
 $(eval $(autotools-package))

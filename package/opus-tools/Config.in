@@ -1,9 +1,9 @@
-config BR2_PACKAGE_OPUS_TOOLS
+config LINGMO_PACKAGE_OPUS_TOOLS
 	bool "opus-tools"
-	select BR2_PACKAGE_LIBOGG
-	select BR2_PACKAGE_LIBOPUSENC
-	select BR2_PACKAGE_OPUS
-	select BR2_PACKAGE_OPUSFILE
+	select LINGMO_PACKAGE_LIBOGG
+	select LINGMO_PACKAGE_LIBOPUSENC
+	select LINGMO_PACKAGE_OPUS
+	select LINGMO_PACKAGE_OPUSFILE
 	help
 	  Opus codec command line tools. This package provides the
 	  reference implementations of encoder and decoder utilities

@@ -1,8 +1,8 @@
-config BR2_PACKAGE_LIBZIP
+config LINGMO_PACKAGE_LIBZIP
 	bool "libzip"
-	depends on !BR2_STATIC_LIBS # dlsym()
-	select BR2_PACKAGE_MUSL_FTS if !BR2_TOOLCHAIN_USES_GLIBC
-	select BR2_PACKAGE_ZLIB
+	depends on !LINGMO_STATIC_LIBS # dlsym()
+	select LINGMO_PACKAGE_MUSL_FTS if !LINGMO_TOOLCHAIN_USES_GLIBC
+	select LINGMO_PACKAGE_ZLIB
 	help
 	  C library for reading, creating, and modifying zip archives.
 	  This package also contains zipcmp, ziptorrent and zipmerge
@@ -11,4 +11,4 @@ config BR2_PACKAGE_LIBZIP
 	  https://libzip.org/
 
 comment "libzip needs a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_STATIC_LIBS

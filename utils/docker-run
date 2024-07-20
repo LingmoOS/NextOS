@@ -70,9 +70,9 @@ if [ "${GIT_DIR}" ]; then
     fi
 fi
 
-if [ "${BR2_DL_DIR}" ]; then
-    mountpoints+=( "${BR2_DL_DIR}" )
-    docker_opts+=( --env BR2_DL_DIR )
+if [ "${LINGMO_DL_DIR}" ]; then
+    mountpoints+=( "${LINGMO_DL_DIR}" )
+    docker_opts+=( --env LINGMO_DL_DIR )
 fi
 
 # shellcheck disable=SC2013 # can't use while-read because of the assignment

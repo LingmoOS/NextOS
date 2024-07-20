@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_STREAM_BUFFERED
+config LINGMO_PACKAGE_PERL_STREAM_BUFFERED
 	bool "perl-stream-buffered"
 	help
 	  temporary buffer to save bytes.

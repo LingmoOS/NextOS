@@ -33,15 +33,15 @@ HOST_ELFUTILS_CONF_OPTS = \
 ELFUTILS_LDFLAGS = $(TARGET_LDFLAGS) \
 	$(TARGET_NLS_LIBS)
 
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 ELFUTILS_LDFLAGS += -latomic
 endif
 
-ifeq ($(BR2_TOOLCHAIN_USES_GLIBC),)
+ifeq ($(LINGMO_TOOLCHAIN_USES_GLIBC),)
 ELFUTILS_DEPENDENCIES += musl-fts argp-standalone
 endif
 
-ifeq ($(BR2_TOOLCHAIN_USES_UCLIBC),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_UCLIBC),y)
 ELFUTILS_CONF_OPTS += --disable-symbol-versioning
 endif
 
@@ -52,34 +52,34 @@ HOST_ELFUTILS_CONF_OPTS += --disable-libdebuginfod --disable-debuginfod
 ELFUTILS_CONF_ENV += \
 	LDFLAGS="$(ELFUTILS_LDFLAGS)"
 
-ifeq ($(BR2_INSTALL_LIBSTDCPP),y)
+ifeq ($(LINGMO_INSTALL_LIBSTDCPP),y)
 ELFUTILS_CONF_OPTS += --enable-demangler
 else
 ELFUTILS_CONF_OPTS += --disable-demangler
 endif
 
-ifeq ($(BR2_PACKAGE_BZIP2),y)
+ifeq ($(LINGMO_PACKAGE_BZIP2),y)
 ELFUTILS_DEPENDENCIES += bzip2
 ELFUTILS_CONF_OPTS += --with-bzlib
 else
 ELFUTILS_CONF_OPTS += --without-bzlib
 endif
 
-ifeq ($(BR2_PACKAGE_XZ),y)
+ifeq ($(LINGMO_PACKAGE_XZ),y)
 ELFUTILS_DEPENDENCIES += xz
 ELFUTILS_CONF_OPTS += --with-lzma
 else
 ELFUTILS_CONF_OPTS += --without-lzma
 endif
 
-ifeq ($(BR2_PACKAGE_ZSTD),y)
+ifeq ($(LINGMO_PACKAGE_ZSTD),y)
 ELFUTILS_DEPENDENCIES += zstd
 ELFUTILS_CONF_OPTS += --with-zstd
 else
 ELFUTILS_CONF_OPTS += --without-zstd
 endif
 
-ifeq ($(BR2_PACKAGE_ELFUTILS_PROGS),y)
+ifeq ($(LINGMO_PACKAGE_ELFUTILS_PROGS),y)
 ELFUTILS_CONF_OPTS += --enable-progs
 ELFUTILS_LICENSE += , GPL-3.0+ (programs)
 ELFUTILS_LICENSE_FILES += COPYING

@@ -4,14 +4,14 @@
 #
 ################################################################################
 
-ifeq ($(BR2_ENDIAN),"BIG")
+ifeq ($(LINGMO_ENDIAN),"BIG")
 CRAMFS_OPTS = -B
 else
 CRAMFS_OPTS = -L
 endif
 
-ifeq ($(BR2_TARGET_ROOTFS_CRAMFS_XIP),y)
-ifeq ($(BR2_USE_MMU),y)
+ifeq ($(LINGMO_TARGET_ROOTFS_CRAMFS_XIP),y)
+ifeq ($(LINGMO_USE_MMU),y)
 CRAMFS_OPTS += -X -X
 else
 CRAMFS_OPTS += -X

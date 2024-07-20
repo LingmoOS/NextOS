@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBAIO
+config LINGMO_PACKAGE_LIBAIO
 	bool "libaio"
 	help
 	  Library for doing asynchronous I/O

@@ -13,13 +13,13 @@ RHASH_CPE_ID_VALID = YES
 RHASH_INSTALL_STAGING = YES
 RHASH_DEPENDENCIES = $(TARGET_NLS_DEPENDENCIES)
 
-ifeq ($(BR2_SYSTEM_ENABLE_NLS),y)
+ifeq ($(LINGMO_SYSTEM_ENABLE_NLS),y)
 RHASH_CONF_OPTS += --enable-gettext
 else
 RHASH_CONF_OPTS += --disable-gettext
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL)x$(BR2_STATIC_LIBS),yx)
+ifeq ($(LINGMO_PACKAGE_OPENSSL)x$(LINGMO_STATIC_LIBS),yx)
 RHASH_CONF_OPTS += --enable-openssl
 RHASH_DEPENDENCIES += openssl
 else
@@ -35,10 +35,10 @@ define RHASH_CONFIGURE_CMDS
 	)
 endef
 
-ifeq ($(BR2_SHARED_LIBS),y)
+ifeq ($(LINGMO_SHARED_LIBS),y)
 RHASH_BUILD_TARGETS = lib-shared build
 RHASH_INSTALL_TARGETS = install-lib-shared install-so-link
-else ifeq ($(BR2_STATIC_LIBS),y)
+else ifeq ($(LINGMO_STATIC_LIBS),y)
 RHASH_BUILD_TARGETS = lib-static
 RHASH_INSTALL_TARGETS = install-lib-static
 else
@@ -57,7 +57,7 @@ define RHASH_INSTALL_STAGING_CMDS
 		install-lib-headers
 endef
 
-ifeq ($(BR2_PACKAGE_RHASH_BIN),y)
+ifeq ($(LINGMO_PACKAGE_RHASH_BIN),y)
 define RHASH_INSTALL_TARGET_RHASH_BIN
 	$(TARGET_MAKE_ENV) $(TARGET_CONFIGURE_OPTS) $(MAKE) -C $(@D) \
 		DESTDIR="$(TARGET_DIR)" $(RHASH_MAKE_OPTS) build-install-binary

@@ -13,8 +13,8 @@ class TestPerlX10(TestPerlBase):
 
     config = TestPerlBase.config + \
         """
-        BR2_PACKAGE_PERL=y
-        BR2_PACKAGE_PERL_X10=y
+        LINGMO_PACKAGE_PERL=y
+        LINGMO_PACKAGE_PERL_X10=y
         """
 
     def test_run(self):

@@ -1,20 +1,20 @@
-config BR2_PACKAGE_CUPS_FILTERS
+config LINGMO_PACKAGE_CUPS_FILTERS
 	bool "cups-filters"
 	# needs fork()
-	depends on BR2_USE_MMU
-	depends on BR2_INSTALL_LIBSTDCPP # qpdf
-	depends on !BR2_STATIC_LIBS
-	depends on BR2_USE_WCHAR # libglib2
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libglib2
-	depends on BR2_PACKAGE_CUPS
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_5 # qpdf
-	depends on BR2_TOOLCHAIN_HAS_ATOMIC # qpdf
-	select BR2_PACKAGE_JPEG
-	select BR2_PACKAGE_FONTCONFIG
-	select BR2_PACKAGE_FREETYPE
-	select BR2_PACKAGE_LCMS2
-	select BR2_PACKAGE_LIBGLIB2
-	select BR2_PACKAGE_QPDF
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_INSTALL_LIBSTDCPP # qpdf
+	depends on !LINGMO_STATIC_LIBS
+	depends on LINGMO_USE_WCHAR # libglib2
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libglib2
+	depends on LINGMO_PACKAGE_CUPS
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_5 # qpdf
+	depends on LINGMO_TOOLCHAIN_HAS_ATOMIC # qpdf
+	select LINGMO_PACKAGE_JPEG
+	select LINGMO_PACKAGE_FONTCONFIG
+	select LINGMO_PACKAGE_FREETYPE
+	select LINGMO_PACKAGE_LCMS2
+	select LINGMO_PACKAGE_LIBGLIB2
+	select LINGMO_PACKAGE_QPDF
 	help
 	  This project provides backends, filters, and other software
 	  that was once part of the core CUPS distribution but is no
@@ -33,8 +33,8 @@ config BR2_PACKAGE_CUPS_FILTERS
 	  http://www.linuxfoundation.org/collaborate/workgroups/openprinting/cups-filters
 
 comment "cups-filters needs a toolchain w/ wchar, C++, threads and dynamic library, gcc >= 5"
-	depends on BR2_USE_MMU
-	depends on BR2_TOOLCHAIN_HAS_ATOMIC
-	depends on !BR2_INSTALL_LIBSTDCPP || !BR2_TOOLCHAIN_HAS_THREADS || \
-		!BR2_USE_WCHAR || BR2_STATIC_LIBS || \
-		!BR2_TOOLCHAIN_GCC_AT_LEAST_5
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_TOOLCHAIN_HAS_ATOMIC
+	depends on !LINGMO_INSTALL_LIBSTDCPP || !LINGMO_TOOLCHAIN_HAS_THREADS || \
+		!LINGMO_USE_WCHAR || LINGMO_STATIC_LIBS || \
+		!LINGMO_TOOLCHAIN_GCC_AT_LEAST_5

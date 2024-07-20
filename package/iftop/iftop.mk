@@ -11,7 +11,7 @@ IFTOP_LICENSE = GPL-2.0+
 IFTOP_LICENSE_FILES = COPYING
 
 IFTOP_LIBS = -lpcap
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 IFTOP_LIBS += `$(STAGING_DIR)/usr/bin/pcap-config --static --additional-libs`
 endif
 IFTOP_CONF_ENV += LIBS+="$(IFTOP_LIBS)"

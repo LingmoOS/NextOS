@@ -1,7 +1,7 @@
-config BR2_PACKAGE_WIREGUARD_TOOLS
+config LINGMO_PACKAGE_WIREGUARD_TOOLS
 	bool "wireguard tools"
 	# kernel module requires 3.10+, userspace makes no sense without it
-	depends on BR2_TOOLCHAIN_HEADERS_AT_LEAST_3_10
+	depends on LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_3_10
 	help
 	  WireGuard is an extremely simple yet fast and modern VPN
 	  that utilizes state-of-the-art cryptography. It aims to be
@@ -18,4 +18,4 @@ config BR2_PACKAGE_WIREGUARD_TOOLS
 	  https://www.wireguard.com
 
 comment "wireguard-tools needs a toolchain w/ headers >= 3.10"
-	depends on !BR2_TOOLCHAIN_HEADERS_AT_LEAST_3_10
+	depends on !LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_3_10

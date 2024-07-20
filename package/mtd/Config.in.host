@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_MTD
+config LINGMO_PACKAGE_HOST_MTD
 	bool "host mtd, jffs2 and ubi/ubifs tools"
 	help
 	  Build mtd, jffs2 and ubi/ubifs tools

@@ -11,7 +11,7 @@ KOMPEXSQLITE_INSTALL_STAGING = YES
 KOMPEXSQLITE_LICENSE = MIT (wrapper), Public Domain (bundled sqlite)
 KOMPEXSQLITE_LICENSE_FILES = inc/KompexSQLiteDatabase.h inc/sqlite3.h
 
-ifeq ($(BR2_STATIC_LIBS)$(BR2_SHARED_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS)$(LINGMO_SHARED_STATIC_LIBS),y)
 KOMPEXSQLITE_CONFS += ReleaseStaticLib
 define KOMPEXSQLITE_INSTALL_STATIC_LIB
 	$(INSTALL) -D -m 0644 $(@D)/lib/release/KompexSQLiteWrapper_Static.a \
@@ -19,7 +19,7 @@ define KOMPEXSQLITE_INSTALL_STATIC_LIB
 endef
 endif
 
-ifeq ($(BR2_SHARED_LIBS)$(BR2_SHARED_STATIC_LIBS),y)
+ifeq ($(LINGMO_SHARED_LIBS)$(LINGMO_SHARED_STATIC_LIBS),y)
 KOMPEXSQLITE_CONFS += ReleaseDynamicLib
 define KOMPEXSQLITE_INSTALL_SHARED_LIB
 	$(INSTALL) -D -m 0755 $(@D)/lib/release/KompexSQLiteWrapper.so \

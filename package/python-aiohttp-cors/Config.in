@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_AIOHTTP_CORS
+config LINGMO_PACKAGE_PYTHON_AIOHTTP_CORS
 	bool "python-aiohttp-cors"
-	select BR2_PACKAGE_PYTHON_AIOHTTP # runtime
+	select LINGMO_PACKAGE_PYTHON_AIOHTTP # runtime
 	help
 	  CORS support for aiohttp.
 

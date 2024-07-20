@@ -6,9 +6,9 @@
 #
 
 BOARD_DIR="$(dirname $0)"
-UBOOT_DEFCONFIG="$(grep BR2_TARGET_UBOOT_BOARD_DEFCONFIG ${BR2_CONFIG} | sed 's/.*\"\(.*\)\"/\1/')"
+UBOOT_DEFCONFIG="$(grep LINGMO_TARGET_UBOOT_BOARD_DEFCONFIG ${LINGMO_CONFIG} | sed 's/.*\"\(.*\)\"/\1/')"
 
-if grep -Eq "^BR2_aarch64=y$" ${BR2_CONFIG}; then
+if grep -Eq "^LINGMO_aarch64=y$" ${LINGMO_CONFIG}; then
 	MKIMAGE_ARCH=arm64
 	UBOOT_BINARY=imx8-boot-sd.bin
 else

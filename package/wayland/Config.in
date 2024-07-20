@@ -1,10 +1,10 @@
-config BR2_PACKAGE_WAYLAND
+config LINGMO_PACKAGE_WAYLAND
 	bool "wayland"
-	depends on !BR2_STATIC_LIBS # dlfcn.h
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	select BR2_PACKAGE_EXPAT
-	select BR2_PACKAGE_LIBFFI
-	select BR2_PACKAGE_LIBXML2
+	depends on !LINGMO_STATIC_LIBS # dlfcn.h
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	select LINGMO_PACKAGE_EXPAT
+	select LINGMO_PACKAGE_LIBFFI
+	select LINGMO_PACKAGE_LIBXML2
 	help
 	  Wayland is a project to define a protocol for a compositor
 	  to talk to its clients as well as a library implementation
@@ -13,4 +13,4 @@ config BR2_PACKAGE_WAYLAND
 	  https://wayland.freedesktop.org/
 
 comment "wayland needs a toolchain w/ threads, dynamic library"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS

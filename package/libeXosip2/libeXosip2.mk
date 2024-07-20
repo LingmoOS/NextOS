@@ -16,16 +16,16 @@ LIBEXOSIP2_CPE_ID_PRODUCT = exosip
 
 LIBEXOSIP2_DEPENDENCIES = host-pkgconf libosip2
 
-ifeq ($(BR2_arc),y)
+ifeq ($(LINGMO_arc),y)
 # toolchain __arc__ define conflicts with libeXosip2 source
 LIBEXOSIP2_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) -U__arc__"
 endif
 
-ifeq ($(BR2_PACKAGE_C_ARES),y)
+ifeq ($(LINGMO_PACKAGE_C_ARES),y)
 LIBEXOSIP2_DEPENDENCIES += c-ares
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 LIBEXOSIP2_DEPENDENCIES += openssl
 LIBEXOSIP2_CONF_OPTS += --enable-openssl
 else
@@ -33,6 +33,6 @@ LIBEXOSIP2_CONF_OPTS += --disable-openssl
 endif
 
 LIBEXOSIP2_CONF_OPTS += \
-	--enable-mt=$(if $(BR2_TOOLCHAIN_HAS_THREADS),yes,no)
+	--enable-mt=$(if $(LINGMO_TOOLCHAIN_HAS_THREADS),yes,no)
 
 $(eval $(autotools-package))

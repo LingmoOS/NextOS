@@ -19,23 +19,23 @@ OPENIPMI_CONF_OPTS = \
 	--with-python=no \
 	--with-swig=no
 
-ifeq ($(BR2_PACKAGE_GDBM),y)
+ifeq ($(LINGMO_PACKAGE_GDBM),y)
 OPENIPMI_DEPENDENCIES += gdbm
 endif
 
-ifeq ($(BR2_PACKAGE_LIBEXECINFO),y)
+ifeq ($(LINGMO_PACKAGE_LIBEXECINFO),y)
 OPENIPMI_DEPENDENCIES += libexecinfo
 OPENIPMI_CONF_ENV += LDFLAGS="$(TARGET_LDFLAGS) -lexecinfo"
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 OPENIPMI_DEPENDENCIES += openssl
 OPENIPMI_CONF_OPTS += --with-openssl=yes
 else
 OPENIPMI_CONF_OPTS += --with-openssl=no
 endif
 
-ifeq ($(BR2_PACKAGE_NETSNMP),y)
+ifeq ($(LINGMO_PACKAGE_NETSNMP),y)
 OPENIPMI_DEPENDENCIES += netsnmp
 OPENIPMI_CONF_OPTS += --with-ucdsnmp=yes
 else

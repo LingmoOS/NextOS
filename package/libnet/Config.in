@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBNET
+config LINGMO_PACKAGE_LIBNET
 	bool "libnet"
 	help
 	  libnet provides a portable framework for low-level network

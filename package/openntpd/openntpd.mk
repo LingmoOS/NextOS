@@ -15,7 +15,7 @@ OPENNTPD_AUTORECONF = YES
 
 # Openntpd searches for tls_config_set_ca_mem which is only available
 # in LibreSSL
-ifeq ($(BR2_PACKAGE_LIBRESSL),y)
+ifeq ($(LINGMO_PACKAGE_LIBRESSL),y)
 OPENNTPD_DEPENDENCIES += openssl
 endif
 

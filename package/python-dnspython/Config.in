@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_DNSPYTHON
+config LINGMO_PACKAGE_PYTHON_DNSPYTHON
 	bool "python-dnspython"
 	help
 	  A powerful DNS toolkit for python.

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_MIMEPARSE
+config LINGMO_PACKAGE_PYTHON_MIMEPARSE
 	bool "python-mimeparse"
 	help
 	  A module provides basic functions for parsing mime-type

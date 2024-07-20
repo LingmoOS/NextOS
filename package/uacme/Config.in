@@ -1,9 +1,9 @@
-config BR2_PACKAGE_UACME
+config LINGMO_PACKAGE_UACME
 	bool "uacme"
-	depends on BR2_USE_MMU # fork()
-	select BR2_PACKAGE_OPENSSL if !(BR2_PACKAGE_GNUTLS || BR2_PACKAGE_MBEDTLS)
-	select BR2_PACKAGE_LIBCURL
-	select BR2_PACKAGE_LIBCURL_FORCE_TLS
+	depends on LINGMO_USE_MMU # fork()
+	select LINGMO_PACKAGE_OPENSSL if !(LINGMO_PACKAGE_GNUTLS || LINGMO_PACKAGE_MBEDTLS)
+	select LINGMO_PACKAGE_LIBCURL
+	select LINGMO_PACKAGE_LIBCURL_FORCE_TLS
 	help
 	  uacme is a client for the ACMEv2 protocol described in
 	  RFC8555, written in plain C with minimal dependencies
@@ -15,19 +15,19 @@ config BR2_PACKAGE_UACME
 
 	  https://github.com/ndilieto/uacme
 
-if BR2_PACKAGE_UACME
+if LINGMO_PACKAGE_UACME
 
-config BR2_PACKAGE_UACME_UALPN
+config LINGMO_PACKAGE_UACME_UALPN
 	bool "enable ualpn"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	select BR2_PACKAGE_LIBEV
-	select BR2_PACKAGE_OPENSSL_FORCE_LIBOPENSSL \
-		if !(BR2_PACKAGE_GNUTLS || BR2_PACKAGE_MBEDTLS)
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	select LINGMO_PACKAGE_LIBEV
+	select LINGMO_PACKAGE_OPENSSL_FORCE_LIBOPENSSL \
+		if !(LINGMO_PACKAGE_GNUTLS || LINGMO_PACKAGE_MBEDTLS)
 	help
 	  Build and install ualpn, the transparent proxying tls-alpn-01
 	  challenge responder.
 
 comment "ualpn needs a toolchain w/ threads"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS
 
 endif

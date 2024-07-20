@@ -1,7 +1,7 @@
-config BR2_PACKAGE_PROCS
+config LINGMO_PACKAGE_PROCS
 	bool "procs"
-	depends on BR2_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
-	select BR2_PACKAGE_HOST_RUSTC
+	depends on LINGMO_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
+	select LINGMO_PACKAGE_HOST_RUSTC
 	help
 	  procs is a modern replacement for ps written in Rust
 

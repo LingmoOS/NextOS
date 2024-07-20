@@ -1,6 +1,6 @@
-config BR2_PACKAGE_NETTLE
+config LINGMO_PACKAGE_NETTLE
 	bool "nettle"
-	select BR2_PACKAGE_GMP
+	select LINGMO_PACKAGE_GMP
 	help
 	  Nettle is a cryptographic library that is designed to fit
 	  easily in more or less any context: In crypto toolkits for

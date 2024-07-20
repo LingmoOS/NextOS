@@ -14,15 +14,15 @@ NE10_CONF_OPTS = \
 	-DGNULINUX_PLATFORM=ON \
 	-DNE10_BUILD_EXAMPLES=OFF \
 	-DNE10_BUILD_UNIT_TEST=OFF \
-	-DNE10_LINUX_TARGET_ARCH=$(if $(BR2_aarch64),aarch64,armv7)
+	-DNE10_LINUX_TARGET_ARCH=$(if $(LINGMO_aarch64),aarch64,armv7)
 
-ifeq ($(BR2_INSTALL_LIBSTDCPP),y)
+ifeq ($(LINGMO_INSTALL_LIBSTDCPP),y)
 NE10_CONF_OPTS += -DNE10_ENABLE_DSP=ON
 else
 NE10_CONF_OPTS += -DNE10_ENABLE_DSP=OFF
 endif
 
-ifeq ($(BR2_STATIC_LIBS),)
+ifeq ($(LINGMO_STATIC_LIBS),)
 NE10_CONF_OPTS += \
 	-DNE10_BUILD_SHARED=ON
 endif
@@ -30,7 +30,7 @@ endif
 # The package does not have any install target, so have to provide
 # INSTALL_STAGING_CMDS and INSTALL_TARGET_CMDS.
 
-ifeq ($(BR2_STATIC_LIBS),)
+ifeq ($(LINGMO_STATIC_LIBS),)
 define NE10_INSTALL_STAGING_SHARED_LIB
 	cp -dpf $(@D)/modules/libNE10*.so* $(STAGING_DIR)/usr/lib/
 endef
@@ -42,7 +42,7 @@ define NE10_INSTALL_STAGING_CMDS
 	$(NE10_INSTALL_STAGING_SHARED_LIB)
 endef
 
-ifeq ($(BR2_STATIC_LIBS),)
+ifeq ($(LINGMO_STATIC_LIBS),)
 define NE10_INSTALL_TARGET_CMDS
 	cp -dpf $(@D)/modules/libNE10*.so* $(TARGET_DIR)/usr/lib/
 endef

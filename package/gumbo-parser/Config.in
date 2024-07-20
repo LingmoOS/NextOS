@@ -1,4 +1,4 @@
-config BR2_PACKAGE_GUMBO_PARSER
+config LINGMO_PACKAGE_GUMBO_PARSER
 	bool "gumbo-parser"
 	help
 	  Gumbo is an implementation of the HTML5 parsing algorithm

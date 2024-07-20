@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PTPD
+config LINGMO_PACKAGE_PTPD
 	bool "ptpd"
 	help
 	  The PTP daemon (PTPd) implements the Precision Time protocol

@@ -15,7 +15,7 @@ BOTAN_INSTALL_STAGING = YES
 
 BOTAN_DEPENDENCIES = host-python3
 BOTAN_CONF_OPTS = \
-	--cpu=$(BR2_ARCH) \
+	--cpu=$(LINGMO_ARCH) \
 	--disable-cc-tests \
 	--os=linux \
 	--cc=gcc \
@@ -23,80 +23,80 @@ BOTAN_CONF_OPTS = \
 	--prefix=/usr \
 	--without-documentation
 
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 BOTAN_CONF_OPTS += --extra-libs=atomic
 endif
 
-ifeq ($(BR2_SHARED_LIBS),y)
+ifeq ($(LINGMO_SHARED_LIBS),y)
 BOTAN_CONF_OPTS += \
 	--disable-static-library \
 	--enable-shared-library
-else ifeq ($(BR2_STATIC_LIBS),y)
+else ifeq ($(LINGMO_STATIC_LIBS),y)
 BOTAN_CONF_OPTS += \
 	--disable-shared-library \
 	--enable-static-library \
 	--no-autoload
-else ifeq ($(BR2_SHARED_STATIC_LIBS),y)
+else ifeq ($(LINGMO_SHARED_STATIC_LIBS),y)
 BOTAN_CONF_OPTS += \
 	--enable-shared-library \
 	--enable-static-library
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_SSP),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_SSP),y)
 BOTAN_CONF_OPTS += --with-stack-protector
 else
 BOTAN_CONF_OPTS += --without-stack-protector
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS_NPTL),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS_NPTL),y)
 BOTAN_CONF_OPTS += --with-os-feature=threads
 else
 BOTAN_CONF_OPTS += --without-os-feature=threads
 endif
 
-ifeq ($(BR2_TOOLCHAIN_USES_UCLIBC),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_UCLIBC),y)
 BOTAN_CONF_OPTS += --without-os-feature=explicit_bzero,getauxval,getentropy
 endif
 
-ifeq ($(BR2_PACKAGE_BOOST_FILESYSTEM)$(BR2_PACKAGE_BOOST_SYSTEM),yy)
+ifeq ($(LINGMO_PACKAGE_BOOST_FILESYSTEM)$(LINGMO_PACKAGE_BOOST_SYSTEM),yy)
 BOTAN_DEPENDENCIES += boost
 BOTAN_CONF_OPTS += --with-boost
 endif
 
-ifeq ($(BR2_PACKAGE_BZIP2),y)
+ifeq ($(LINGMO_PACKAGE_BZIP2),y)
 BOTAN_DEPENDENCIES += bzip2
 BOTAN_CONF_OPTS += --with-bzip2
 endif
 
-ifeq ($(BR2_PACKAGE_SQLITE),y)
+ifeq ($(LINGMO_PACKAGE_SQLITE),y)
 BOTAN_DEPENDENCIES += sqlite
 BOTAN_CONF_OPTS += --with-sqlite
 endif
 
-ifeq ($(BR2_PACKAGE_TROUSERS),y)
+ifeq ($(LINGMO_PACKAGE_TROUSERS),y)
 BOTAN_DEPENDENCIES += trousers
 BOTAN_CONF_OPTS += --with-tpm
 endif
 
-ifeq ($(BR2_PACKAGE_XZ),y)
+ifeq ($(LINGMO_PACKAGE_XZ),y)
 BOTAN_DEPENDENCIES += xz
 BOTAN_CONF_OPTS += --with-lzma
 endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 BOTAN_DEPENDENCIES += zlib
 BOTAN_CONF_OPTS += --with-zlib
 endif
 
-ifeq ($(BR2_POWERPC_CPU_HAS_ALTIVEC),)
+ifeq ($(LINGMO_POWERPC_CPU_HAS_ALTIVEC),)
 BOTAN_CONF_OPTS += --disable-altivec
 endif
 
-ifeq ($(BR2_ARM_CPU_HAS_NEON),)
+ifeq ($(LINGMO_ARM_CPU_HAS_NEON),)
 BOTAN_CONF_OPTS += --disable-neon
 endif
 
-ifeq ($(BR2_SOFT_FLOAT),y)
+ifeq ($(LINGMO_SOFT_FLOAT),y)
 BOTAN_CONF_OPTS += --disable-neon
 endif
 

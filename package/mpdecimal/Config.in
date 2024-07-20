@@ -1,4 +1,4 @@
-config BR2_PACKAGE_MPDECIMAL
+config LINGMO_PACKAGE_MPDECIMAL
 	bool "mpdecimal"
 	help
 	  mpdecimal is a package for correctly-rounded arbitrary

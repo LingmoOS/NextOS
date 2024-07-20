@@ -1,8 +1,8 @@
-config BR2_PACKAGE_IPTRAF_NG
+config LINGMO_PACKAGE_IPTRAF_NG
 	bool "iptraf-ng"
-	depends on BR2_USE_MMU # fork()
-	depends on BR2_TOOLCHAIN_HEADERS_AT_LEAST_3_14
-	select BR2_PACKAGE_NCURSES
+	depends on LINGMO_USE_MMU # fork()
+	depends on LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_3_14
+	select LINGMO_PACKAGE_NCURSES
 	help
 	  IPTraf-ng is a console-based network monitoring program for
 	  Linux that gathers displays information about IP traffic.
@@ -13,5 +13,5 @@ config BR2_PACKAGE_IPTRAF_NG
 	  (http://iptraf.seul.org).
 
 comment "iptraf-ng needs a toolchain w/ kernel headers >= 3.14"
-	depends on BR2_USE_MMU
-	depends on !BR2_TOOLCHAIN_HEADERS_AT_LEAST_3_14
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_3_14

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LV2
+config LINGMO_PACKAGE_LV2
 	bool "lv2"
 	help
 	  LV2 is a plugin standard for audio systems. It defines

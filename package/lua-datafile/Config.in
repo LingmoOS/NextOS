@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUA_DATAFILE
+config LINGMO_PACKAGE_LUA_DATAFILE
 	bool "lua-datafile"
 	help
 	  datafile is a library for avoiding hardcoded paths

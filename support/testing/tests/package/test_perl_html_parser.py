@@ -11,8 +11,8 @@ class TestPerlHTMLParser(TestPerlBase):
 
     config = TestPerlBase.config + \
         """
-        BR2_PACKAGE_PERL=y
-        BR2_PACKAGE_PERL_HTML_PARSER=y
+        LINGMO_PACKAGE_PERL=y
+        LINGMO_PACKAGE_PERL_HTML_PARSER=y
         """
 
     def test_run(self):

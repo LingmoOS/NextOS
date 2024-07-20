@@ -1,4 +1,4 @@
-config BR2_PACKAGE_ODROIDC2_FIRMWARE
+config LINGMO_PACKAGE_ODROIDC2_FIRMWARE
 	bool "odroidc2-firmware"
 	help
 	  This package extracts from

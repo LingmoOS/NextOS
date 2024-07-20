@@ -1,8 +1,8 @@
-config BR2_PACKAGE_LIBTRACEFS
+config LINGMO_PACKAGE_LIBTRACEFS
 	bool "libtracefs"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on !BR2_STATIC_LIBS # libtraceevent
-	select BR2_PACKAGE_LIBTRACEEVENT
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_STATIC_LIBS # libtraceevent
+	select LINGMO_PACKAGE_LIBTRACEEVENT
 	help
 	  libtracefs is used to easily interface with the ftrace
 	  interface through the tracefs virtual filesystem.
@@ -10,4 +10,4 @@ config BR2_PACKAGE_LIBTRACEFS
 	  https://git.kernel.org/pub/scm/libs/libtrace/libtraceevent.git/
 
 comment "libtracefs needs a toolchain w/ threads, dynamic library"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS

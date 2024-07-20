@@ -31,6 +31,6 @@ class TestPythonPy3Argh(TestPythonArgh):
     __test__ = True
     config = TestPythonArgh.config + \
         """
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_PYTHON_ARGH=y
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON_ARGH=y
         """

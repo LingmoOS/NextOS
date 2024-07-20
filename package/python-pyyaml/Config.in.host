@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_PYTHON_PYYAML
+config LINGMO_PACKAGE_HOST_PYTHON_PYYAML
 	bool "host python-pyyaml"
 	help
 	  The host PyYAML package contains binding to the libyaml API.

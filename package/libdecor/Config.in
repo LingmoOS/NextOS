@@ -1,16 +1,16 @@
-config BR2_PACKAGE_LIBDECOR
+config LINGMO_PACKAGE_LIBDECOR
 	bool "libdecor"
-	depends on !BR2_STATIC_LIBS # wayland
-	depends on BR2_USE_MMU # pango
-	depends on BR2_USE_WCHAR # pango
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4 # pango
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_9 # pango
-	depends on BR2_INSTALL_LIBSTDCPP # pango
-	depends on BR2_TOOLCHAIN_HAS_THREADS # pango, wayland
-	select BR2_PACKAGE_CAIRO
-	select BR2_PACKAGE_PANGO
-	select BR2_PACKAGE_WAYLAND
-	select BR2_PACKAGE_WAYLAND_PROTOCOLS
+	depends on !LINGMO_STATIC_LIBS # wayland
+	depends on LINGMO_USE_MMU # pango
+	depends on LINGMO_USE_WCHAR # pango
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4 # pango
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9 # pango
+	depends on LINGMO_INSTALL_LIBSTDCPP # pango
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # pango, wayland
+	select LINGMO_PACKAGE_CAIRO
+	select LINGMO_PACKAGE_PANGO
+	select LINGMO_PACKAGE_WAYLAND
+	select LINGMO_PACKAGE_WAYLAND_PROTOCOLS
 	help
 	  libdecor is a library that can help Wayland clients draw
 	  window decorations for them. It aims to provide multiple
@@ -19,7 +19,7 @@ config BR2_PACKAGE_LIBDECOR
 	  https://gitlab.freedesktop.org/libdecor/libdecor
 
 comment "libdecor needs a toolchain w/ wchar, threads, C++, gcc >= 4.9"
-	depends on BR2_USE_MMU
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4
-	depends on !BR2_INSTALL_LIBSTDCPP || !BR2_TOOLCHAIN_HAS_THREADS || \
-		!BR2_USE_WCHAR || !BR2_TOOLCHAIN_GCC_AT_LEAST_4_9
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4
+	depends on !LINGMO_INSTALL_LIBSTDCPP || !LINGMO_TOOLCHAIN_HAS_THREADS || \
+		!LINGMO_USE_WCHAR || !LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9

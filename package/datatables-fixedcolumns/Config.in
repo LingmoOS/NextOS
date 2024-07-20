@@ -1,6 +1,6 @@
-config BR2_PACKAGE_DATATABLES_FIXEDCOLUMNS
+config LINGMO_PACKAGE_DATATABLES_FIXEDCOLUMNS
 	bool "datatables-fixedcolumns"
-	depends on BR2_PACKAGE_DATATABLES
+	depends on LINGMO_PACKAGE_DATATABLES
 	help
 	  When making use of DataTables' x-axis scrolling feature
 	  (scrollX), you may wish to fix the left or right most columns

@@ -5,7 +5,7 @@
 ################################################################################
 
 BASH_VERSION = 5.2.21
-BASH_SITE = $(BR2_GNU_MIRROR)/bash
+BASH_SITE = $(LINGMO_GNU_MIRROR)/bash
 BASH_DEPENDENCIES = ncurses readline host-bison
 BASH_LICENSE = GPL-3.0+
 BASH_LICENSE_FILES = COPYING
@@ -27,7 +27,7 @@ BASH_CONF_ENV += \
 	bash_cv_printf_a_format=yes
 
 # The static build needs some trickery
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 BASH_CONF_OPTS += --enable-static-link
 # bash wants to redefine the getenv() function. To check whether this is
 # possible, AC_TRY_RUN is used which is not possible in
@@ -35,7 +35,7 @@ BASH_CONF_OPTS += --enable-static-link
 # On uClibc, redefining getenv is not possible; on glibc and musl it is.
 # Related:
 # http://lists.gnu.org/archive/html/bug-bash/2012-03/msg00052.html
-ifeq ($(BR2_TOOLCHAIN_USES_UCLIBC),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_UCLIBC),y)
 BASH_CONF_ENV += bash_cv_getenv_redef=no
 else
 BASH_CONF_ENV += bash_cv_getenv_redef=yes
@@ -47,7 +47,7 @@ define BASH_REMOVE_UNUSED_FILES
 endef
 BASH_POST_INSTALL_TARGET_HOOKS += BASH_REMOVE_UNUSED_FILES
 
-ifeq ($(BR2_PACKAGE_BASH_LOADABLE_EXAMPLES),y)
+ifeq ($(LINGMO_PACKAGE_BASH_LOADABLE_EXAMPLES),y)
 define BASH_REMOVE_LOADABLE_UNUSED_FILES
 	rm -f $(TARGET_DIR)/usr/lib/bash/Makefile.inc
 	rm -f $(TARGET_DIR)/usr/lib/bash/loadables.h

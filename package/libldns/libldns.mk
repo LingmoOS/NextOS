@@ -23,19 +23,19 @@ LIBLDNS_CONF_OPTS = \
 	--without-pyldns \
 	--without-pyldnsx
 
-ifeq ($(BR2_PACKAGE_LIBOPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_LIBOPENSSL),y)
 LIBLDNS_CONF_OPTS += --enable-dane-verify
 else
 LIBLDNS_CONF_OPTS += --disable-dane-verify
 endif
 
-ifeq ($(BR2_PACKAGE_LIBOPENSSL_ENGINES),y)
+ifeq ($(LINGMO_PACKAGE_LIBOPENSSL_ENGINES),y)
 LIBLDNS_CONF_OPTS += --enable-gost
 else
 LIBLDNS_CONF_OPTS += --disable-gost
 endif
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 LIBLDNS_DEPENDENCIES += host-pkgconf
 # missing -lz breaks configure, add it using pkgconf
 LIBLDNS_CONF_ENV += LIBS="`$(PKG_CONFIG_HOST_BINARY) --libs openssl`"

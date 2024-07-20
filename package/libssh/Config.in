@@ -1,10 +1,10 @@
-config BR2_PACKAGE_LIBSSH
+config LINGMO_PACKAGE_LIBSSH
 	bool "libssh"
-	depends on BR2_USE_MMU # fork()
-	depends on !BR2_STATIC_LIBS
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	select BR2_PACKAGE_OPENSSL if !(BR2_PACKAGE_MBEDTLS || BR2_PACKAGE_LIBGCRYPT)
-	select BR2_PACKAGE_LIBOPENSSL_ENABLE_DES if BR2_PACKAGE_LIBOPENSSL
+	depends on LINGMO_USE_MMU # fork()
+	depends on !LINGMO_STATIC_LIBS
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	select LINGMO_PACKAGE_OPENSSL if !(LINGMO_PACKAGE_MBEDTLS || LINGMO_PACKAGE_LIBGCRYPT)
+	select LINGMO_PACKAGE_LIBOPENSSL_ENABLE_DES if LINGMO_PACKAGE_LIBOPENSSL
 	help
 	  libssh is a multiplatform C library implementing the SSHv2
 	  and SSHv1 protocol on client and server side. With libssh,
@@ -13,9 +13,9 @@ config BR2_PACKAGE_LIBSSH
 
 	  http://www.libssh.org/
 
-if BR2_PACKAGE_LIBSSH
+if LINGMO_PACKAGE_LIBSSH
 
-config BR2_PACKAGE_LIBSSH_SERVER
+config LINGMO_PACKAGE_LIBSSH_SERVER
 	bool "server"
 	help
 	  Enable libssh server support
@@ -25,22 +25,22 @@ choice
 	help
 	  Select crypto library to be used in libssh.
 
-config BR2_PACKAGE_LIBSSH_MBEDTLS
+config LINGMO_PACKAGE_LIBSSH_MBEDTLS
 	bool "mbedtls"
-	depends on BR2_PACKAGE_MBEDTLS
+	depends on LINGMO_PACKAGE_MBEDTLS
 
-config BR2_PACKAGE_LIBSSH_LIBGCRYPT
+config LINGMO_PACKAGE_LIBSSH_LIBGCRYPT
 	bool "gcrypt"
-	depends on BR2_PACKAGE_LIBGCRYPT
+	depends on LINGMO_PACKAGE_LIBGCRYPT
 
-config BR2_PACKAGE_LIBSSH_OPENSSL
+config LINGMO_PACKAGE_LIBSSH_OPENSSL
 	bool "openssl"
-	depends on BR2_PACKAGE_OPENSSL
+	depends on LINGMO_PACKAGE_OPENSSL
 
 endchoice
 
 endif
 
 comment "libssh needs a toolchain w/ dynamic library, threads"
-	depends on BR2_USE_MMU
-	depends on BR2_STATIC_LIBS || !BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_STATIC_LIBS || !LINGMO_TOOLCHAIN_HAS_THREADS

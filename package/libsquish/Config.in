@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBSQUISH
+config LINGMO_PACKAGE_LIBSQUISH
 	bool "libsquish"
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	help
 	  The libSquish library compresses images with the DXT standard
 	  (also known as S3TC). This standard is mainly used by OpenGL
@@ -9,4 +9,4 @@ config BR2_PACKAGE_LIBSQUISH
 	  http://sourceforge.net/projects/libsquish
 
 comment "libsquish needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP

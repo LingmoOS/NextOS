@@ -18,7 +18,7 @@ XTERM_CONF_OPTS = --enable-256-color \
 # Avoid freetype2 path poisoning by imake
 XTERM_CONF_ENV = ac_cv_path_IMAKE=""
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXFT),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXFT),y)
 XTERM_DEPENDENCIES += xlib_libXft
 XTERM_CONF_OPTS += --enable-freetype \
 	--with-freetype-config=auto
@@ -26,7 +26,7 @@ else
 XTERM_CONF_OPTS += --disable-freetype
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXINERAMA),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXINERAMA),y)
 XTERM_DEPENDENCIES += xlib_libXinerama
 XTERM_CONF_OPTS += --with-xinerama
 else

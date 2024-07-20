@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_SMBUS_CFFI
+config LINGMO_PACKAGE_PYTHON_SMBUS_CFFI
 	bool "python-smbus-cffi"
-	select BR2_PACKAGE_PYTHON_CFFI
+	select LINGMO_PACKAGE_PYTHON_CFFI
 	help
 	  This Python module allows SMBus access through the I2C /dev
 	  interface on Linux hosts. The host kernel must have I2C

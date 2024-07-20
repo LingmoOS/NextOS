@@ -6,7 +6,7 @@
 
 IWD_VERSION = 2.16
 IWD_SOURCE = iwd-$(IWD_VERSION).tar.xz
-IWD_SITE = $(BR2_KERNEL_MIRROR)/linux/network/wireless
+IWD_SITE = $(LINGMO_KERNEL_MIRROR)/linux/network/wireless
 IWD_LICENSE = LGPL-2.1+
 IWD_LICENSE_FILES = COPYING
 IWD_CPE_ID_VENDOR = intel
@@ -19,7 +19,7 @@ IWD_CONF_OPTS = \
 	--enable-dbus-policy
 IWD_DEPENDENCIES = dbus ell
 
-ifeq ($(BR2_PACKAGE_READLINE),y)
+ifeq ($(LINGMO_PACKAGE_READLINE),y)
 # iwd client depends on readline (GPL-3.0+)
 IWD_LICENSE += , GPL-3.0+ (client)
 IWD_CONF_OPTS += --enable-client
@@ -28,14 +28,14 @@ else
 IWD_CONF_OPTS += --disable-client
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 IWD_CONF_OPTS += --enable-systemd-service
 IWD_DEPENDENCIES += systemd
 else
 IWD_CONF_OPTS += --disable-systemd-service
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD_RESOLVED),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD_RESOLVED),y)
 IWD_RESOLV_SERVICE = systemd
 else
 IWD_RESOLV_SERVICE = resolvconf

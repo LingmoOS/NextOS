@@ -20,17 +20,17 @@ TZDATA_DEFAULT_ZONELIST = \
 	africa antarctica asia australasia europe northamerica \
 	southamerica etcetera backward factory
 
-ifeq ($(call qstrip,$(BR2_TARGET_TZ_ZONELIST)),default)
+ifeq ($(call qstrip,$(LINGMO_TARGET_TZ_ZONELIST)),default)
 TZDATA_ZONELIST = $(TZDATA_DEFAULT_ZONELIST)
 else
-TZDATA_ZONELIST = $(call qstrip,$(BR2_TARGET_TZ_ZONELIST))
+TZDATA_ZONELIST = $(call qstrip,$(LINGMO_TARGET_TZ_ZONELIST))
 endif
 
-TZDATA_LOCALTIME = $(call qstrip,$(BR2_TARGET_LOCALTIME))
+TZDATA_LOCALTIME = $(call qstrip,$(LINGMO_TARGET_LOCALTIME))
 ifneq ($(TZDATA_LOCALTIME),)
 define TZDATA_SET_LOCALTIME
 	if [ ! -f $(TARGET_DIR)/usr/share/zoneinfo/$(TZDATA_LOCALTIME) ]; then \
-		printf "Error: '%s' is not a valid timezone, check your BR2_TARGET_LOCALTIME setting\n" \
+		printf "Error: '%s' is not a valid timezone, check your LINGMO_TARGET_LOCALTIME setting\n" \
 			"$(TZDATA_LOCALTIME)"; \
 		exit 1; \
 	fi

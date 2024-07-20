@@ -13,7 +13,7 @@ LRZIP_CPE_ID_VENDOR = long_range_zip_project
 LRZIP_CPE_ID_PRODUCT = long_range_zip
 LRZIP_DEPENDENCIES = zlib lz4 lzo bzip2
 
-ifeq ($(BR2_i386)$(BR2_x86_64),y)
+ifeq ($(LINGMO_i386)$(LINGMO_x86_64),y)
 LRZIP_DEPENDENCIES += host-nasm
 LRZIP_CONF_OPTS += --enable-asm
 else

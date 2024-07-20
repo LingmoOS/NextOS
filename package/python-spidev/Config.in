@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_SPIDEV
+config LINGMO_PACKAGE_PYTHON_SPIDEV
 	bool "python-spidev"
 	help
 	  Python module for interfacing with SPI devices from user

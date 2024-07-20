@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBTOOL
+config LINGMO_PACKAGE_LIBTOOL
 	bool "libtool"
 	help
 	  Library that hides the complexity of using shared/static

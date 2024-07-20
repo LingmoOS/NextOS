@@ -6,18 +6,18 @@ import infra.basetest
 class TestSELinuxSystemd(infra.basetest.BRTest):
     config = \
         """
-        BR2_x86_64=y
-        BR2_x86_corei7=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_INIT_SYSTEMD=y
-        BR2_LINUX_KERNEL=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE="6.1.26"
-        BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
-        BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/qemu/x86_64/linux.config"
-        BR2_LINUX_KERNEL_NEEDS_HOST_LIBELF=y
-        BR2_PACKAGE_LIBSELINUX=y
-        BR2_PACKAGE_REFPOLICY=y
+        LINGMO_x86_64=y
+        LINGMO_x86_corei7=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_INIT_SYSTEMD=y
+        LINGMO_LINUX_KERNEL=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION_VALUE="6.1.26"
+        LINGMO_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
+        LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/qemu/x86_64/linux.config"
+        LINGMO_LINUX_KERNEL_NEEDS_HOST_LIBELF=y
+        LINGMO_PACKAGE_LIBSELINUX=y
+        LINGMO_PACKAGE_REFPOLICY=y
         """
 
     def wait_boot(self):
@@ -55,9 +55,9 @@ class TestSELinuxSystemd(infra.basetest.BRTest):
 class TestSELinuxSystemdExt4(TestSELinuxSystemd):
     config = TestSELinuxSystemd.config + \
         """
-        BR2_TARGET_ROOTFS_EXT2=y
-        BR2_TARGET_ROOTFS_EXT2_4=y
-        BR2_TARGET_ROOTFS_EXT2_SIZE="100M"
+        LINGMO_TARGET_ROOTFS_EXT2=y
+        LINGMO_TARGET_ROOTFS_EXT2_4=y
+        LINGMO_TARGET_ROOTFS_EXT2_SIZE="100M"
         """
 
     def test_run(self):
@@ -67,8 +67,8 @@ class TestSELinuxSystemdExt4(TestSELinuxSystemd):
 class TestSELinuxSystemdSquashfs(TestSELinuxSystemd):
     config = TestSELinuxSystemd.config + \
         """
-        BR2_TARGET_ROOTFS_SQUASHFS=y
-        BR2_LINUX_KERNEL_CONFIG_FRAGMENT_FILES="{}"
+        LINGMO_TARGET_ROOTFS_SQUASHFS=y
+        LINGMO_LINUX_KERNEL_CONFIG_FRAGMENT_FILES="{}"
         """.format(
             infra.filepath("tests/init/test_systemd_selinux/linux-squashfs.fragment"),
         )

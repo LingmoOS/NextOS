@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HICOLOR_ICON_THEME
+config LINGMO_PACKAGE_HICOLOR_ICON_THEME
 	bool "hicolor icon theme"
 	help
 	  Freedesktop Hicolor icon theme

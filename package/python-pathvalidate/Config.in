@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PATHVALIDATE
+config LINGMO_PACKAGE_PYTHON_PATHVALIDATE
 	bool "python-pathvalidate"
 	help
 	  pathvalidate is a python library to validate/sanitize a string

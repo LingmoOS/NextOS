@@ -1,7 +1,7 @@
-config BR2_PACKAGE_JSON_FOR_MODERN_CPP
+config LINGMO_PACKAGE_JSON_FOR_MODERN_CPP
 	bool "json-for-modern-cpp"
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_9 # C++11
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9 # C++11
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	help
 	  Json for modern c++ has the following desing goals in mind:
 
@@ -26,4 +26,4 @@ config BR2_PACKAGE_JSON_FOR_MODERN_CPP
 	  https://github.com/nlohmann/json
 
 comment "json-for-modern-cpp needs a toolchain w/ C++, gcc >= 4.9"
-	depends on !BR2_INSTALL_LIBSTDCPP || !BR2_TOOLCHAIN_GCC_AT_LEAST_4_9
+	depends on !LINGMO_INSTALL_LIBSTDCPP || !LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9

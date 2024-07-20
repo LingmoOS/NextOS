@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBCONFIG
+config LINGMO_PACKAGE_LIBCONFIG
 	bool "libconfig"
 	help
 	  Libconfig is a simple library for manipulating structured

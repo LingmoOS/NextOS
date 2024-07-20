@@ -7,12 +7,12 @@ class TestDropbear(infra.basetest.BRTest):
     passwd = "testpwd"
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_TARGET_GENERIC_ROOT_PASSWD="{}"
-        BR2_SYSTEM_DHCP="eth0"
-        BR2_PACKAGE_DROPBEAR=y
-        BR2_PACKAGE_SSHPASS=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_TARGET_GENERIC_ROOT_PASSWD="{}"
+        LINGMO_SYSTEM_DHCP="eth0"
+        LINGMO_PACKAGE_DROPBEAR=y
+        LINGMO_PACKAGE_SSHPASS=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """.format(passwd)
 
     def test_run(self):

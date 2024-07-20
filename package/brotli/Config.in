@@ -1,4 +1,4 @@
-config BR2_PACKAGE_BROTLI
+config LINGMO_PACKAGE_BROTLI
 	bool "brotli"
 	help
 	  Generic-purpose lossless compression library. The algorithm

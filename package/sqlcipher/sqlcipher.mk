@@ -23,18 +23,18 @@ SQLCIPHER_CONF_OPTS = \
 SQLCIPHER_CFLAGS += -DSQLITE_HAS_CODEC # Required according to the README
 SQLCIPHER_CONF_ENV += LIBS=`$(PKG_CONFIG_HOST_BINARY) --libs openssl`
 
-ifeq ($(BR2_PACKAGE_SQLCIPHER_STAT3),y)
+ifeq ($(LINGMO_PACKAGE_SQLCIPHER_STAT3),y)
 SQLCIPHER_CFLAGS += -DSQLITE_ENABLE_STAT3
 endif
 
-ifeq ($(BR2_PACKAGE_SQLCIPHER_READLINE),y)
+ifeq ($(LINGMO_PACKAGE_SQLCIPHER_READLINE),y)
 SQLCIPHER_DEPENDENCIES += ncurses readline
 SQLCIPHER_CONF_OPTS += --with-readline-inc="-I$(STAGING_DIR)/usr/include"
 else
 SQLCIPHER_CONF_OPTS += --disable-readline
 endif
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 SQLCIPHER_CONF_OPTS += --disable-load-extension
 else
 SQLCIPHER_CONF_OPTS += --enable-load-extension

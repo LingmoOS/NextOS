@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LUA_STD_NORMALIZE
+config LINGMO_PACKAGE_LUA_STD_NORMALIZE
 	bool "lua-std-normalize"
-	select BR2_PACKAGE_LUA_STD_DEBUG # runtime
+	select LINGMO_PACKAGE_LUA_STD_DEBUG # runtime
 	help
 	  This module can inject deterministic versions of core Lua
 	  functions that do not behave identically across all

@@ -29,28 +29,28 @@ SDL2_IMAGE_CONF_OPTS = \
 
 SDL2_IMAGE_DEPENDENCIES = sdl2 host-pkgconf
 
-ifeq ($(BR2_PACKAGE_JPEG),y)
+ifeq ($(LINGMO_PACKAGE_JPEG),y)
 SDL2_IMAGE_CONF_OPTS += --enable-jpg
 SDL2_IMAGE_DEPENDENCIES += jpeg
 else
 SDL2_IMAGE_CONF_OPTS += --disable-jpg
 endif
 
-ifeq ($(BR2_PACKAGE_LIBPNG),y)
+ifeq ($(LINGMO_PACKAGE_LIBPNG),y)
 SDL2_IMAGE_CONF_OPTS += --enable-png
 SDL2_IMAGE_DEPENDENCIES += libpng
 else
 SDL2_IMAGE_CONF_OPTS += --disable-png
 endif
 
-ifeq ($(BR2_PACKAGE_TIFF),y)
+ifeq ($(LINGMO_PACKAGE_TIFF),y)
 SDL2_IMAGE_CONF_OPTS += --enable-tif
 SDL2_IMAGE_DEPENDENCIES += tiff
 else
 SDL2_IMAGE_CONF_OPTS += --disable-tif
 endif
 
-ifeq ($(BR2_PACKAGE_WEBP),y)
+ifeq ($(LINGMO_PACKAGE_WEBP),y)
 SDL2_IMAGE_CONF_OPTS += --enable-webp
 SDL2_IMAGE_DEPENDENCIES += webp
 else

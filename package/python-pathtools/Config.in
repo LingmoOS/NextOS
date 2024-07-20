@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PATHTOOLS
+config LINGMO_PACKAGE_PYTHON_PATHTOOLS
 	bool "python-pathtools"
 	help
 	  File system general utilities.

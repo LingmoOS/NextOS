@@ -1,7 +1,7 @@
-config BR2_PACKAGE_NSS_PAM_LDAPD
+config LINGMO_PACKAGE_NSS_PAM_LDAPD
 	bool "nss-pam-ldapd"
-	depends on BR2_TOOLCHAIN_USES_GLIBC
-	select BR2_PACKAGE_OPENLDAP
+	depends on LINGMO_TOOLCHAIN_USES_GLIBC
+	select LINGMO_PACKAGE_OPENLDAP
 	help
 	  Name Service Switch (NSS) module that allows your LDAP
 	  server to provide user account, group, host name, alias,
@@ -12,9 +12,9 @@ config BR2_PACKAGE_NSS_PAM_LDAPD
 
 	  http://arthurdejong.org/nss-pam-ldapd/
 
-if BR2_PACKAGE_NSS_PAM_LDAPD
+if LINGMO_PACKAGE_NSS_PAM_LDAPD
 
-config BR2_PACKAGE_NSS_PAM_LDAPD_UTILITIES
+config LINGMO_PACKAGE_NSS_PAM_LDAPD_UTILITIES
 	bool "nss-pam-ldapd utilities"
 	help
 	  Build/Install command-line utilities.
@@ -22,4 +22,4 @@ config BR2_PACKAGE_NSS_PAM_LDAPD_UTILITIES
 endif
 
 comment "nss-pam-ldapd needs a glibc toolchain"
-	depends on !BR2_TOOLCHAIN_USES_GLIBC
+	depends on !LINGMO_TOOLCHAIN_USES_GLIBC

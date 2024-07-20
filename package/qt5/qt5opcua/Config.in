@@ -1,6 +1,6 @@
-config BR2_PACKAGE_QT5OPCUA
+config LINGMO_PACKAGE_QT5OPCUA
 	bool "qt5opcua"
-	depends on BR2_PACKAGE_QT5
+	depends on LINGMO_PACKAGE_QT5
 	help
 	  Qt is a cross-platform application and UI framework for
 	  developers using C++.

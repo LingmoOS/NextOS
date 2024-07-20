@@ -28,34 +28,34 @@ define RSYNC_RUN_RECONFIGURE
 endef
 RSYNC_POST_CONFIGURE_HOOKS += RSYNC_RUN_RECONFIGURE
 
-ifeq ($(BR2_PACKAGE_ACL),y)
+ifeq ($(LINGMO_PACKAGE_ACL),y)
 RSYNC_DEPENDENCIES += acl
 else
 RSYNC_CONF_OPTS += --disable-acl-support
 endif
 
-ifeq ($(BR2_PACKAGE_LZ4),y)
+ifeq ($(LINGMO_PACKAGE_LZ4),y)
 RSYNC_DEPENDENCIES += lz4
 RSYNC_CONF_OPTS += --enable-lz4
 else
 RSYNC_CONF_OPTS += --disable-lz4
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 RSYNC_DEPENDENCIES += openssl
 RSYNC_CONF_OPTS += --enable-openssl
 else
 RSYNC_CONF_OPTS += --disable-openssl
 endif
 
-ifeq ($(BR2_PACKAGE_XXHASH),y)
+ifeq ($(LINGMO_PACKAGE_XXHASH),y)
 RSYNC_DEPENDENCIES += xxhash
 RSYNC_CONF_OPTS += --enable-xxhash
 else
 RSYNC_CONF_OPTS += --disable-xxhash
 endif
 
-ifeq ($(BR2_PACKAGE_ZSTD),y)
+ifeq ($(LINGMO_PACKAGE_ZSTD),y)
 RSYNC_DEPENDENCIES += zstd
 RSYNC_CONF_OPTS += --enable-zstd
 else

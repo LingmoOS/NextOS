@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_LMDB
+config LINGMO_PACKAGE_PYTHON_LMDB
 	bool "python-lmdb"
-	select BR2_PACKAGE_PYTHON_CFFI # runtime
+	select LINGMO_PACKAGE_PYTHON_CFFI # runtime
 	help
 	  Universal Python binding for the LMDB 'Lightning' Database.
 

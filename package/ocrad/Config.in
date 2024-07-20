@@ -1,7 +1,7 @@
-config BR2_PACKAGE_OCRAD
+config LINGMO_PACKAGE_OCRAD
 	bool "ocrad"
-	depends on BR2_INSTALL_LIBSTDCPP
-	select BR2_PACKAGE_LIBPNG
+	depends on LINGMO_INSTALL_LIBSTDCPP
+	select LINGMO_PACKAGE_LIBPNG
 	help
 	  GNU Ocrad is an OCR (Optical Character Recognition) program
 	  based on a feature extraction method.
@@ -12,4 +12,4 @@ config BR2_PACKAGE_OCRAD
 	  http://www.gnu.org/software/ocrad/
 
 comment "ocrad needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP

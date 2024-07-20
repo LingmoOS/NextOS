@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBUCL
+config LINGMO_PACKAGE_LIBUCL
 	bool "libucl"
 	help
 	  Universal configuration library parser

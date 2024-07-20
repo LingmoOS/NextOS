@@ -18,29 +18,29 @@ OPENRC_CONF_OPTS = \
 	-Dpkgconfig=false \
 	-Dsysvinit=true \
 	-Drootprefix=/ \
-	-Dbranding="\"Buildroot $(BR2_VERSION_FULL)\""
+	-Dbranding="\"Buildroot $(LINGMO_VERSION_FULL)\""
 
-ifeq ($(BR2_PACKAGE_BASH_COMPLETION),y)
+ifeq ($(LINGMO_PACKAGE_BASH_COMPLETION),y)
 OPENRC_CONF_OPTS += -Dbash-completions=true
 else
 OPENRC_CONF_OPTS += -Dbash-completions=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSELINUX),y)
+ifeq ($(LINGMO_PACKAGE_LIBSELINUX),y)
 OPENRC_CONF_OPTS += -Dselinux=enabled
 OPENRC_DEPENDENCIES += libselinux
 else
 OPENRC_CONF_OPTS += -Dselinux=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LINUX_PAM),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_PAM),y)
 OPENRC_CONF_OPTS += -Dpam=true
 OPENRC_DEPENDENCIES += linux-pam
 else
 OPENRC_CONF_OPTS += -Dpam=false
 endif
 
-ifeq ($(BR2_ROOTFS_MERGED_USR),y)
+ifeq ($(LINGMO_ROOTFS_MERGED_USR),y)
 OPENRC_CONF_OPTS += -Dsplit-usr=false
 else
 OPENRC_CONF_OPTS += -Dsplit-usr=true
@@ -52,7 +52,7 @@ define OPENRC_INSTALL_SYSV_RCS_SCRIPT
 endef
 OPENRC_POST_INSTALL_TARGET_HOOKS += OPENRC_INSTALL_SYSV_RCS_SCRIPT
 
-ifeq ($(BR2_PACKAGE_KBD),)
+ifeq ($(LINGMO_PACKAGE_KBD),)
 # keymaps and save-keymaps require kbd_mode and dumpkeys, respectively, so
 # remove them if the kbd package is not selected (e.g. devices with serial
 # console, only).
@@ -64,7 +64,7 @@ endef
 OPENRC_POST_INSTALL_TARGET_HOOKS += OPENRC_NO_KBD
 endif
 
-ifeq ($(BR2_PACKAGE_NETIFRC),y)
+ifeq ($(LINGMO_PACKAGE_NETIFRC),y)
 # netifrc replaces network, staticroute and loopback services which are
 # installed by openrc
 define OPENRC_NO_NET
@@ -80,7 +80,7 @@ define OPENRC_REMOVE_UNNEEDED
 endef
 OPENRC_TARGET_FINALIZE_HOOKS += OPENRC_REMOVE_UNNEEDED
 
-ifeq ($(BR2_TARGET_GENERIC_GETTY),y)
+ifeq ($(LINGMO_TARGET_GENERIC_GETTY),y)
 OPENRC_GETTY_SVCNAME = agetty.$(SYSTEM_GETTY_PORT)
 OPENRC_GETTY_CONF_D = $(TARGET_DIR)/etc/conf.d/$(OPENRC_GETTY_SVCNAME)
 define OPENRC_SET_GETTY
@@ -94,6 +94,6 @@ define OPENRC_SET_GETTY
 		$(TARGET_DIR)/etc/runlevels/default/$(OPENRC_GETTY_SVCNAME)
 endef
 OPENRC_TARGET_FINALIZE_HOOKS += OPENRC_SET_GETTY
-endif # BR2_TARGET_GENERIC_GETTY
+endif # LINGMO_TARGET_GENERIC_GETTY
 
 $(eval $(meson-package))

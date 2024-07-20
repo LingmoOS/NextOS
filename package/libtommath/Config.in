@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBTOMMATH
+config LINGMO_PACKAGE_LIBTOMMATH
 	bool "libtommath"
 	help
 	  LibTomMath is a free open source portable number theoretic

@@ -1,11 +1,11 @@
-config BR2_PACKAGE_LIBGLEW
+config LINGMO_PACKAGE_LIBGLEW
 	bool "libglew"
-	depends on BR2_PACKAGE_XORG7
-	depends on BR2_PACKAGE_HAS_LIBGL
-	select BR2_PACKAGE_XLIB_LIBX11
-	select BR2_PACKAGE_XLIB_LIBXEXT
-	select BR2_PACKAGE_XLIB_LIBXI
-	select BR2_PACKAGE_XLIB_LIBXMU
+	depends on LINGMO_PACKAGE_XORG7
+	depends on LINGMO_PACKAGE_HAS_LIBGL
+	select LINGMO_PACKAGE_XLIB_LIBX11
+	select LINGMO_PACKAGE_XLIB_LIBXEXT
+	select LINGMO_PACKAGE_XLIB_LIBXI
+	select LINGMO_PACKAGE_XLIB_LIBXMU
 	help
 	  The OpenGL Extension Wrangler Library (GLEW) is a
 	  cross-platform C/C++ extension loading library. GLEW provides
@@ -17,4 +17,4 @@ config BR2_PACKAGE_LIBGLEW
 	  https://github.com/nigels-com/glew
 
 comment "libglew depends on X.org and needs an OpenGL backend"
-	depends on !BR2_PACKAGE_XORG7 || !BR2_PACKAGE_HAS_LIBGL
+	depends on !LINGMO_PACKAGE_XORG7 || !LINGMO_PACKAGE_HAS_LIBGL

@@ -6,7 +6,7 @@
 
 AUTOFS_VERSION = 5.1.9
 AUTOFS_SOURCE = autofs-$(AUTOFS_VERSION).tar.xz
-AUTOFS_SITE = $(BR2_KERNEL_MIRROR)/linux/daemons/autofs/v5
+AUTOFS_SITE = $(LINGMO_KERNEL_MIRROR)/linux/daemons/autofs/v5
 AUTOFS_LICENSE = GPL-2.0+
 AUTOFS_LICENSE_FILES = COPYING COPYRIGHT
 AUTOFS_DEPENDENCIES = host-flex host-bison host-pkgconf host-nfs-utils
@@ -38,7 +38,7 @@ AUTOFS_CONF_OPTS = \
 
 AUTOFS_MAKE_ENV = DONTSTRIP=1
 
-ifeq ($(BR2_PACKAGE_LIBTIRPC),y)
+ifeq ($(LINGMO_PACKAGE_LIBTIRPC),y)
 AUTOFS_CONF_OPTS += --with-libtirpc
 AUTOFS_DEPENDENCIES += libtirpc
 else

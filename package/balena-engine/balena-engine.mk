@@ -45,7 +45,7 @@ define BALENA_ENGINE_FIX_VENDORING
 endef
 BALENA_ENGINE_POST_EXTRACT_HOOKS += BALENA_ENGINE_FIX_VENDORING
 
-ifeq ($(BR2_INIT_SYSTEMD),y)
+ifeq ($(LINGMO_INIT_SYSTEMD),y)
 BALENA_ENGINE_DEPENDENCIES += systemd
 BALENA_ENGINE_TAGS += journald
 endif
@@ -87,7 +87,7 @@ define BALENA_ENGINE_INSTALL_SYMLINK
 	ln -f -s balena-engine $(TARGET_DIR)/usr/bin/balena-engine-containerd-ctr
 	ln -f -s balena-engine $(TARGET_DIR)/usr/bin/balena-engine-runc
 	ln -f -s balena-engine $(TARGET_DIR)/usr/bin/balena-engine-proxy
-	$(if $(BR2_PACKAGE_TINI),ln -f -s tini $(TARGET_DIR)/usr/bin/balena-engine-init)
+	$(if $(LINGMO_PACKAGE_TINI),ln -f -s tini $(TARGET_DIR)/usr/bin/balena-engine-init)
 endef
 BALENA_ENGINE_POST_INSTALL_TARGET_HOOKS += BALENA_ENGINE_INSTALL_SYMLINK
 

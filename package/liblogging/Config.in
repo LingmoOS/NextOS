@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBLOGGING
+config LINGMO_PACKAGE_LIBLOGGING
 	bool "liblogging"
 	help
 	  Liblogging is an easy to use library for

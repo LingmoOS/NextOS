@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PYCRATE
+config LINGMO_PACKAGE_PYTHON_PYCRATE
 	bool "python-pycrate"
 	help
 	  A software suite to handle various data and protocol

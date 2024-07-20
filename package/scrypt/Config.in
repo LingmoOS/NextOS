@@ -1,6 +1,6 @@
-config BR2_PACKAGE_SCRYPT
+config LINGMO_PACKAGE_SCRYPT
 	bool "scrypt"
-	select BR2_PACKAGE_OPENSSL
+	select LINGMO_PACKAGE_OPENSSL
 	help
 	  A password-based key derivation function specifically
 	  designed to make it costly to perform large-scale custom

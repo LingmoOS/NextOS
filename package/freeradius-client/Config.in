@@ -1,4 +1,4 @@
-config BR2_PACKAGE_FREERADIUS_CLIENT
+config LINGMO_PACKAGE_FREERADIUS_CLIENT
 	bool "freeradius-client"
 	help
 	  FreeRADIUS Client is a framework and library for

@@ -24,12 +24,12 @@ def handle_eval(db, filename, lineno, line):
         return
     if package == 'LINUX':
         # very special case at package/pkg-generic.mk
-        add_multiple_symbol_usages('BR2_LINUX_KERNEL')
+        add_multiple_symbol_usages('LINGMO_LINUX_KERNEL')
         return
 
     # mimic package/pkg-generic.mk and package/pkg-virtual.mk
     if '$(virtual-' in line:
-        prefixes = ['BR2_PACKAGE_PROVIDES_', 'BR2_PACKAGE_HAS_']
+        prefixes = ['LINGMO_PACKAGE_PROVIDES_', 'LINGMO_PACKAGE_HAS_']
         if filename.startswith('toolchain/'):
             prefix = br.toolchain_prefix
         else:
@@ -38,9 +38,9 @@ def handle_eval(db, filename, lineno, line):
         db.add_symbol_virtual(symbol, filename, lineno)
         prefixes.append(prefix)
     elif '$(host-virtual-' in line:
-        prefixes = ['BR2_PACKAGE_HOST_', 'BR2_PACKAGE_PROVIDES_HOST_', 'BR2_PACKAGE_HAS_HOST_']
+        prefixes = ['LINGMO_PACKAGE_HOST_', 'LINGMO_PACKAGE_PROVIDES_HOST_', 'LINGMO_PACKAGE_HAS_HOST_']
     elif '$(host-' in line:
-        prefixes = ['BR2_PACKAGE_HOST_']
+        prefixes = ['LINGMO_PACKAGE_HOST_']
     elif filename.startswith('boot/'):
         prefixes = [br.boot_prefix]
     elif filename.startswith('toolchain/'):

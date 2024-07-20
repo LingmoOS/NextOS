@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_ANNOTATED_TYPES
+config LINGMO_PACKAGE_PYTHON_ANNOTATED_TYPES
 	bool "python-annotated-types"
 	help
 	  Reusable constraint types to use with typing.Annotated.

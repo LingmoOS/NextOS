@@ -17,47 +17,47 @@ SDL_SOUND_CONF_OPTS = \
 	--disable-sdltest \
 	--enable-static
 
-ifneq ($(BR2_ENABLE_LOCALE),y)
+ifneq ($(LINGMO_ENABLE_LOCALE),y)
 SDL_SOUND_DEPENDENCIES += libiconv
 endif
 
 # optional dependencies
-ifeq ($(BR2_PACKAGE_FLAC)$(BR2_PACKAGE_LIBOGG),yy)
+ifeq ($(LINGMO_PACKAGE_FLAC)$(LINGMO_PACKAGE_LIBOGG),yy)
 SDL_SOUND_CONF_OPTS += --enable-flac
 SDL_SOUND_DEPENDENCIES += flac libogg
 else
 SDL_SOUND_CONF_OPTS += --disable-flac
 endif
 
-ifeq ($(BR2_PACKAGE_LIBMODPLUG),y)
+ifeq ($(LINGMO_PACKAGE_LIBMODPLUG),y)
 SDL_SOUND_CONF_OPTS += --enable-modplug
 SDL_SOUND_DEPENDENCIES += libmodplug
 else
 SDL_SOUND_CONF_OPTS += --disable-modplug
 endif
 
-ifeq ($(BR2_PACKAGE_LIBVORBIS),y)
+ifeq ($(LINGMO_PACKAGE_LIBVORBIS),y)
 SDL_SOUND_CONF_OPTS += --enable-ogg
 SDL_SOUND_DEPENDENCIES += libvorbis
 else
 SDL_SOUND_CONF_OPTS += --disable-ogg
 endif
 
-ifeq ($(BR2_PACKAGE_SPEEX),y)
+ifeq ($(LINGMO_PACKAGE_SPEEX),y)
 SDL_SOUND_CONF_OPTS += --enable-speex
 SDL_SOUND_DEPENDENCIES += speex
 else
 SDL_SOUND_CONF_OPTS += --disable-speex
 endif
 
-ifeq ($(BR2_PACKAGE_PHYSFS),y)
+ifeq ($(LINGMO_PACKAGE_PHYSFS),y)
 SDL_SOUND_CONF_OPTS += --enable-physfs
 SDL_SOUND_DEPENDENCIES += physfs
 else
 SDL_SOUND_CONF_OPTS += --disable-physfs
 endif
 
-ifeq ($(BR2_X86_CPU_HAS_MMX),y)
+ifeq ($(LINGMO_X86_CPU_HAS_MMX),y)
 SDL_SOUND_CONF_OPTS += --enable-mmx
 else
 SDL_SOUND_CONF_OPTS += --disable-mmx
@@ -67,7 +67,7 @@ define SDL_SOUND_REMOVE_PLAYSOUND
 	rm $(addprefix $(TARGET_DIR)/usr/bin/,playsound playsound_simple)
 endef
 
-ifneq ($(BR2_PACKAGE_SDL_SOUND_PLAYSOUND),y)
+ifneq ($(LINGMO_PACKAGE_SDL_SOUND_PLAYSOUND),y)
 SDL_SOUND_POST_INSTALL_TARGET_HOOKS += SDL_SOUND_REMOVE_PLAYSOUND
 endif
 

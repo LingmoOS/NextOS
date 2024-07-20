@@ -1,51 +1,51 @@
-config BR2_PACKAGE_HOST_NODEJS_BIN_ARCH_SUPPORTS
+config LINGMO_PACKAGE_HOST_NODEJS_BIN_ARCH_SUPPORTS
 	bool
-	default y if BR2_HOSTARCH = "aarch64"
-	default y if BR2_HOSTARCH = "arm"
-	default y if BR2_HOSTARCH = "ppc64le"
-	default y if BR2_HOSTARCH = "x86_64"
+	default y if LINGMO_HOSTARCH = "aarch64"
+	default y if LINGMO_HOSTARCH = "arm"
+	default y if LINGMO_HOSTARCH = "ppc64le"
+	default y if LINGMO_HOSTARCH = "x86_64"
 
 comment "host nodejs needs a host gcc >= 8"
-	depends on !BR2_PACKAGE_HOST_NODEJS_BIN_ARCH_SUPPORTS
-	depends on !BR2_HOST_GCC_AT_LEAST_8
+	depends on !LINGMO_PACKAGE_HOST_NODEJS_BIN_ARCH_SUPPORTS
+	depends on !LINGMO_HOST_GCC_AT_LEAST_8
 
-config BR2_PACKAGE_HOST_NODEJS
+config LINGMO_PACKAGE_HOST_NODEJS
 	bool "host nodejs"
-	depends on BR2_PACKAGE_HOST_NODEJS_BIN_ARCH_SUPPORTS || \
-		BR2_HOST_GCC_AT_LEAST_8
+	depends on LINGMO_PACKAGE_HOST_NODEJS_BIN_ARCH_SUPPORTS || \
+		LINGMO_HOST_GCC_AT_LEAST_8
 	help
 	  Event-driven I/O server-side JavaScript environment based on
 	  V8.
 
 	  http://nodejs.org/
 
-if BR2_PACKAGE_HOST_NODEJS
+if LINGMO_PACKAGE_HOST_NODEJS
 
 choice
 	prompt "host nodejs variant"
-	default BR2_PACKAGE_HOST_NODEJS_BIN if BR2_PACKAGE_HOST_NODEJS_BIN_ARCH_SUPPORTS
-	default BR2_PACKAGE_HOST_NODEJS_SRC
+	default LINGMO_PACKAGE_HOST_NODEJS_BIN if LINGMO_PACKAGE_HOST_NODEJS_BIN_ARCH_SUPPORTS
+	default LINGMO_PACKAGE_HOST_NODEJS_SRC
 	help
 	  Select a nodejs variant - built from source or
 	  pre-built.
 
-config BR2_PACKAGE_HOST_NODEJS_BIN
+config LINGMO_PACKAGE_HOST_NODEJS_BIN
 	bool "pre-built version"
-	depends on BR2_PACKAGE_HOST_NODEJS_BIN_ARCH_SUPPORTS
+	depends on LINGMO_PACKAGE_HOST_NODEJS_BIN_ARCH_SUPPORTS
 
-config BR2_PACKAGE_HOST_NODEJS_SRC
+config LINGMO_PACKAGE_HOST_NODEJS_SRC
 	bool "compile from source"
-	depends on BR2_HOST_GCC_AT_LEAST_8
-	select BR2_PACKAGE_HOST_PYTHON3
-	select BR2_PACKAGE_HOST_PYTHON3_BZIP2
-	select BR2_PACKAGE_HOST_PYTHON3_SSL
+	depends on LINGMO_HOST_GCC_AT_LEAST_8
+	select LINGMO_PACKAGE_HOST_PYTHON3
+	select LINGMO_PACKAGE_HOST_PYTHON3_BZIP2
+	select LINGMO_PACKAGE_HOST_PYTHON3_SSL
 
 comment "host nodejs from source needs a host gcc >= 8"
-	depends on !BR2_HOST_GCC_AT_LEAST_8
+	depends on !LINGMO_HOST_GCC_AT_LEAST_8
 
 endchoice
 
-config BR2_PACKAGE_HOST_NODEJS_COREPACK
+config LINGMO_PACKAGE_HOST_NODEJS_COREPACK
 	bool "Corepack"
 	help
 	  Enable Corepack with host nodejs.
@@ -60,8 +60,8 @@ config BR2_PACKAGE_HOST_NODEJS_COREPACK
 
 endif
 
-config BR2_PACKAGE_PROVIDES_HOST_NODEJS
+config LINGMO_PACKAGE_PROVIDES_HOST_NODEJS
 	string
-	default "host-nodejs-src" if BR2_PACKAGE_HOST_NODEJS_SRC
+	default "host-nodejs-src" if LINGMO_PACKAGE_HOST_NODEJS_SRC
 	# default to host-nodejs-bin so it's used if nothing is set explicitly
-	default "host-nodejs-bin" if !BR2_PACKAGE_HOST_NODEJS_SRC
+	default "host-nodejs-bin" if !LINGMO_PACKAGE_HOST_NODEJS_SRC

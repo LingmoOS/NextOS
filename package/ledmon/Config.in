@@ -1,9 +1,9 @@
-config BR2_PACKAGE_LEDMON
+config LINGMO_PACKAGE_LEDMON
 	bool "ledmon"
-	depends on BR2_PACKAGE_HAS_UDEV
-	depends on BR2_TOOLCHAIN_HAS_THREADS # sg3_utils
-	select BR2_PACKAGE_PCIUTILS
-	select BR2_PACKAGE_SG3_UTILS
+	depends on LINGMO_PACKAGE_HAS_UDEV
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # sg3_utils
+	select LINGMO_PACKAGE_PCIUTILS
+	select LINGMO_PACKAGE_SG3_UTILS
 	help
 	  Enclosure LED Utilities. The ledmon application is
 	  a daemon process used to monitor a state of software
@@ -12,4 +12,4 @@ config BR2_PACKAGE_LEDMON
 	  https://github.com/intel/ledmon
 
 comment "ledmon needs udev and a toolchain w/ threads"
-	depends on !BR2_PACKAGE_HAS_UDEV || !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_PACKAGE_HAS_UDEV || !LINGMO_TOOLCHAIN_HAS_THREADS

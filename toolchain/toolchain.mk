@@ -8,8 +8,8 @@
 # just after all packages have been built.
 
 # Install the gconv modules
-ifeq ($(BR2_TOOLCHAIN_GLIBC_GCONV_LIBS_COPY),y)
-TOOLCHAIN_GLIBC_GCONV_LIBS = $(call qstrip,$(BR2_TOOLCHAIN_GLIBC_GCONV_LIBS_LIST))
+ifeq ($(LINGMO_TOOLCHAIN_GLIBC_GCONV_LIBS_COPY),y)
+TOOLCHAIN_GLIBC_GCONV_LIBS = $(call qstrip,$(LINGMO_TOOLCHAIN_GLIBC_GCONV_LIBS_LIST))
 define TOOLCHAIN_GLIBC_COPY_GCONV_LIBS
 	$(Q)found_gconv=no; \
 	for d in $(TOOLCHAIN_EXTERNAL_PREFIX) ''; do \

@@ -16,7 +16,7 @@ TERMINOLOGY_CONF_OPTS = \
 	-Dedje-cc=$(HOST_DIR)/bin/edje_cc \
 	-Deet=$(HOST_DIR)/bin/eet
 
-ifeq ($(BR2_SYSTEM_ENABLE_NLS),y)
+ifeq ($(LINGMO_SYSTEM_ENABLE_NLS),y)
 TERMINOLOGY_CONF_OPTS += -Dnls=true
 else
 TERMINOLOGY_CONF_OPTS += -Dnls=false

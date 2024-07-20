@@ -1,4 +1,4 @@
-config BR2_PACKAGE_JQUERY_MOBILE
+config LINGMO_PACKAGE_JQUERY_MOBILE
 	bool "jquery-mobile"
 	help
 	  jQuery-Mobile is a unified, HTML5-based user interface
@@ -9,14 +9,14 @@ config BR2_PACKAGE_JQUERY_MOBILE
 
 	  http://jquerymobile.com
 
-if BR2_PACKAGE_JQUERY_MOBILE
+if LINGMO_PACKAGE_JQUERY_MOBILE
 
-config BR2_PACKAGE_JQUERY_MOBILE_FULL
+config LINGMO_PACKAGE_JQUERY_MOBILE_FULL
 	bool "jquery-mobile development files"
 	help
 	  Installs the development versions.
 
-config BR2_PACKAGE_JQUERY_MOBILE_DEMOS
+config LINGMO_PACKAGE_JQUERY_MOBILE_DEMOS
 	bool "jquery-mobile demo files"
 	help
 	  Installs the demo files.

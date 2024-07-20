@@ -1,4 +1,4 @@
-config BR2_PACKAGE_EDK2_NON_OSI
+config LINGMO_PACKAGE_EDK2_NON_OSI
 	bool
 	help
 	  EDK2 description files for additional platforms, not

@@ -1,22 +1,22 @@
-config BR2_PACKAGE_LIBVNCSERVER
+config LINGMO_PACKAGE_LIBVNCSERVER
 	bool "libvncserver"
-	depends on BR2_USE_MMU # VNCommand.c uses fork()
+	depends on LINGMO_USE_MMU # VNCommand.c uses fork()
 	# binutils issue (bad expression)
-	depends on !BR2_nios2
-	depends on !BR2_STATIC_LIBS
-	select BR2_PACKAGE_LZO
-	select BR2_PACKAGE_LIBOPENSSL_ENABLE_DES if BR2_PACKAGE_LIBOPENSSL
+	depends on !LINGMO_nios2
+	depends on !LINGMO_STATIC_LIBS
+	select LINGMO_PACKAGE_LZO
+	select LINGMO_PACKAGE_LIBOPENSSL_ENABLE_DES if LINGMO_PACKAGE_LIBOPENSSL
 	help
 	  libvncserver is a VNC server/client library.
 
 	  https://libvnc.github.io/
 
-if BR2_PACKAGE_LIBVNCSERVER
+if LINGMO_PACKAGE_LIBVNCSERVER
 
-config BR2_PACKAGE_LIBVNCSERVER_TIGHTPNG
+config LINGMO_PACKAGE_LIBVNCSERVER_TIGHTPNG
 	bool "TightPNG encoding support"
-	select BR2_PACKAGE_JPEG
-	select BR2_PACKAGE_LIBPNG
+	select LINGMO_PACKAGE_JPEG
+	select LINGMO_PACKAGE_LIBPNG
 	help
 	  TightPNG encoding speeds up HTML5 based VNC clients like
 	  noVNC.
@@ -26,6 +26,6 @@ config BR2_PACKAGE_LIBVNCSERVER_TIGHTPNG
 endif
 
 comment "libvncserver needs a toolchain w/ dynamic library"
-	depends on BR2_USE_MMU
-	depends on !BR2_nios2
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_nios2
+	depends on LINGMO_STATIC_LIBS

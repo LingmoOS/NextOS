@@ -1,4 +1,4 @@
-config BR2_PACKAGE_SCRUB
+config LINGMO_PACKAGE_SCRUB
 	bool "scrub"
 	help
 	  Scrub iteratively writes patterns on files or disk devices

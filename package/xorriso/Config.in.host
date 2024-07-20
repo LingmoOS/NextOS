@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_XORRISO
+config LINGMO_PACKAGE_HOST_XORRISO
 	bool "host xorriso"
 	help
 	  xorriso copies file objects from POSIX compliant

@@ -1,27 +1,27 @@
 comment "powerpc-utils tools needs a toolchain w/ dynamic library"
-	depends on BR2_powerpc || BR2_powerpc64 || BR2_powerpc64le
-	depends on BR2_STATIC_LIBS
-	depends on BR2_USE_MMU
-	depends on BR2_TOOLCHAIN_HAS_ATOMIC
+	depends on LINGMO_powerpc || LINGMO_powerpc64 || LINGMO_powerpc64le
+	depends on LINGMO_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_TOOLCHAIN_HAS_ATOMIC
 
-config BR2_PACKAGE_POWERPC_UTILS
+config LINGMO_PACKAGE_POWERPC_UTILS
 	bool "powerpc-utils"
-	depends on !BR2_STATIC_LIBS # dlfcn.h
-	depends on BR2_powerpc || BR2_powerpc64 || BR2_powerpc64le
-	depends on BR2_USE_MMU # numactl
-	depends on BR2_TOOLCHAIN_HAS_ATOMIC # numactl
-	select BR2_PACKAGE_ZLIB
-	select BR2_PACKAGE_NUMACTL
+	depends on !LINGMO_STATIC_LIBS # dlfcn.h
+	depends on LINGMO_powerpc || LINGMO_powerpc64 || LINGMO_powerpc64le
+	depends on LINGMO_USE_MMU # numactl
+	depends on LINGMO_TOOLCHAIN_HAS_ATOMIC # numactl
+	select LINGMO_PACKAGE_ZLIB
+	select LINGMO_PACKAGE_NUMACTL
 	help
 	  System utilities for PowerPC machines.
 
 	  https://github.com/ibm-power-utilities/powerpc-utils.git
 
-if BR2_PACKAGE_POWERPC_UTILS
+if LINGMO_PACKAGE_POWERPC_UTILS
 
-config BR2_PACKAGE_POWERPC_UTILS_RTAS
+config LINGMO_PACKAGE_POWERPC_UTILS_RTAS
 	bool "RTAS support"
-	select BR2_PACKAGE_LIBRTAS
+	select LINGMO_PACKAGE_LIBRTAS
 	help
 	  Enable support for functions that require RTAS.
 

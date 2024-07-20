@@ -7,10 +7,10 @@ import infra.basetest
 class TestSox(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_PACKAGE_AUBIO=y
-        BR2_PACKAGE_SOX=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_AUBIO=y
+        LINGMO_PACKAGE_SOX=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def note_from_freq(self, freq):

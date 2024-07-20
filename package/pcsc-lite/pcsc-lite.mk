@@ -18,11 +18,11 @@ PCSC_LITE_CONF_OPTS = --disable-strict
 # - libudev and libusb can't be used together
 # - libudev has a priority over libusb
 
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 PCSC_LITE_CONF_OPTS += --enable-libudev --disable-libusb
 PCSC_LITE_DEPENDENCIES += udev
 else
-ifeq ($(BR2_PACKAGE_LIBUSB),y)
+ifeq ($(LINGMO_PACKAGE_LIBUSB),y)
 PCSC_LITE_CONF_OPTS += --enable-libusb --disable-libudev
 PCSC_LITE_DEPENDENCIES += libusb
 else
@@ -30,22 +30,22 @@ PCSC_LITE_CONF_OPTS += --disable-libusb --disable-libudev
 endif
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 PCSC_LITE_CONF_OPTS += --enable-libsystemd
 PCSC_LITE_DEPENDENCIES += systemd
 else
 PCSC_LITE_CONF_OPTS += --disable-libsystemd
 endif
 
-ifeq ($(BR2_PACKAGE_PCSC_LITE_DEBUGATR),y)
+ifeq ($(LINGMO_PACKAGE_PCSC_LITE_DEBUGATR),y)
 PCSC_LITE_CONF_OPTS += --enable-debugatr
 endif
 
-ifeq ($(BR2_PACKAGE_PCSC_LITE_EMBEDDED),y)
+ifeq ($(LINGMO_PACKAGE_PCSC_LITE_EMBEDDED),y)
 PCSC_LITE_CONF_OPTS += --enable-embedded
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 PCSC_LITE_CONF_ENV += LIBS=-latomic
 endif
 

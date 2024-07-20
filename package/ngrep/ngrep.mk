@@ -12,7 +12,7 @@ NGREP_INSTALL_STAGING = YES
 # We're patching configure.in
 NGREP_AUTORECONF = YES
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 NGREP_CONF_ENV += LIBS=`$(STAGING_DIR)/usr/bin/pcap-config --static --additional-libs`
 endif
 
@@ -24,7 +24,7 @@ NGREP_CONF_OPTS = \
 
 NGREP_DEPENDENCIES = host-pkgconf libpcap pcre
 
-ifeq ($(BR2_PACKAGE_LIBNET),y)
+ifeq ($(LINGMO_PACKAGE_LIBNET),y)
 NGREP_DEPENDENCIES += libnet
 NGREP_CONF_OPTS += --enable-tcpkill
 else

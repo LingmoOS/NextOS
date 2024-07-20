@@ -1,15 +1,15 @@
 comment "zxing-cpp needs a toolchain w/ C++, wchar, dynamic library, threads"
-	depends on !BR2_INSTALL_LIBSTDCPP || !BR2_USE_WCHAR || \
-		BR2_STATIC_LIBS || !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_INSTALL_LIBSTDCPP || !LINGMO_USE_WCHAR || \
+		LINGMO_STATIC_LIBS || !LINGMO_TOOLCHAIN_HAS_THREADS
 
-config BR2_PACKAGE_ZXING_CPP
+config LINGMO_PACKAGE_ZXING_CPP
 	bool "zxing-cpp"
-	depends on !BR2_STATIC_LIBS
-	depends on BR2_USE_WCHAR
-	depends on BR2_INSTALL_LIBSTDCPP
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	select BR2_PACKAGE_STB
-	select BR2_PACKAGE_PYTHON_PYBIND if BR2_PACKAGE_PYTHON3
+	depends on !LINGMO_STATIC_LIBS
+	depends on LINGMO_USE_WCHAR
+	depends on LINGMO_INSTALL_LIBSTDCPP
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	select LINGMO_PACKAGE_STB
+	select LINGMO_PACKAGE_PYTHON_PYBIND if LINGMO_PACKAGE_PYTHON3
 	help
 	  ZXing-cpp (pronounced "zebra crossing") is an open-source,
 	  multi-format 1D/2D barcode image processing library

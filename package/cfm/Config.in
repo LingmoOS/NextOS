@@ -1,10 +1,10 @@
-config BR2_PACKAGE_CFM
+config LINGMO_PACKAGE_CFM
 	bool "cfm"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_TOOLCHAIN_HEADERS_AT_LEAST_5_0
-	select BR2_PACKAGE_LIBEV
-	select BR2_PACKAGE_LIBMNL
-	select BR2_PACKAGE_LIBNL
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_5_0
+	select LINGMO_PACKAGE_LIBEV
+	select LINGMO_PACKAGE_LIBMNL
+	select LINGMO_PACKAGE_LIBNL
 	help
 	  This is the userspace application that configures the kernel
 	  to run CFM protocol. The userspace application is made of 2
@@ -13,5 +13,5 @@ config BR2_PACKAGE_CFM
 	  https://github.com/microchip-ung/cfm
 
 comment "cfm needs a toolchain w/ threads, kernel headers >= 5.0"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS \
-		|| !BR2_TOOLCHAIN_HEADERS_AT_LEAST_5_0
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS \
+		|| !LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_5_0

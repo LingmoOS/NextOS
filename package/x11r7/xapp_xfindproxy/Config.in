@@ -1,8 +1,8 @@
-config BR2_PACKAGE_XAPP_XFINDPROXY
+config LINGMO_PACKAGE_XAPP_XFINDPROXY
 	bool "xfindproxy"
-	select BR2_PACKAGE_XLIB_LIBICE
-	select BR2_PACKAGE_XLIB_LIBXT
-	select BR2_PACKAGE_XORGPROTO
+	select LINGMO_PACKAGE_XLIB_LIBICE
+	select LINGMO_PACKAGE_XLIB_LIBXT
+	select LINGMO_PACKAGE_XORGPROTO
 	help
 	  xfindproxy utilizes the Proxy Management Protocol to
 	  communicate with a proxy manager to locate available X11

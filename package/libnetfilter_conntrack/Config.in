@@ -1,7 +1,7 @@
-config BR2_PACKAGE_LIBNETFILTER_CONNTRACK
+config LINGMO_PACKAGE_LIBNETFILTER_CONNTRACK
 	bool "libnetfilter_conntrack"
-	select BR2_PACKAGE_LIBMNL
-	select BR2_PACKAGE_LIBNFNETLINK
+	select LINGMO_PACKAGE_LIBMNL
+	select LINGMO_PACKAGE_LIBNFNETLINK
 	help
 	  libnetfilter_conntrack is a userspace library providing
 	  a programming interface (API) to the in-kernel

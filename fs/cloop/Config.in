@@ -1,4 +1,4 @@
-config BR2_TARGET_ROOTFS_CLOOP
+config LINGMO_TARGET_ROOTFS_CLOOP
 	bool "cloop root filesystem for the target device"
 	help
 	  Build a cloop root filesystem

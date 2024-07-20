@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_XMODEM
+config LINGMO_PACKAGE_PYTHON_XMODEM
 	bool "python-xmodem"
 	help
 	  XMODEM protocol implementation.

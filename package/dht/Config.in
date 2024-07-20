@@ -1,4 +1,4 @@
-config BR2_PACKAGE_DHT
+config LINGMO_PACKAGE_DHT
 	bool "dht"
 	help
 	  BitTorrent DHT library

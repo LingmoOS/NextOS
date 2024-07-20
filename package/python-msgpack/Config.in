@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_MSGPACK
+config LINGMO_PACKAGE_PYTHON_MSGPACK
 	bool "python-msgpack"
 	help
 	  MessagePack (http://msgpack.org/) is a fast, compact binary

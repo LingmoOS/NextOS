@@ -1,8 +1,8 @@
-config BR2_PACKAGE_SMACK
+config LINGMO_PACKAGE_SMACK
 	bool "smack"
-	depends on !BR2_STATIC_LIBS # dlfcn.h
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_TOOLCHAIN_HEADERS_AT_LEAST_3_0
+	depends on !LINGMO_STATIC_LIBS # dlfcn.h
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_3_0
 	help
 	  User space programs and libraries for SMACK.
 
@@ -31,5 +31,5 @@ config BR2_PACKAGE_SMACK
 	  https://github.com/smack-team/smack
 
 comment "smack needs a toolchain w/ dynamic library, threads, headers >= 3.0"
-	depends on BR2_STATIC_LIBS || !BR2_TOOLCHAIN_HEADERS_AT_LEAST_3_0 \
-		|| !BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_STATIC_LIBS || !LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_3_0 \
+		|| !LINGMO_TOOLCHAIN_HAS_THREADS

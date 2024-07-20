@@ -6,8 +6,8 @@ import infra.basetest
 class TestPythonBase(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     interpreter = "python"
 
@@ -42,7 +42,7 @@ class TestPythonBase(infra.basetest.BRTest):
 class TestPython3Pyc(TestPythonBase):
     config = TestPythonBase.config + \
         """
-        BR2_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON3=y
         """
 
     def test_run(self):
@@ -56,8 +56,8 @@ class TestPython3Pyc(TestPythonBase):
 class TestPython3Py(TestPythonBase):
     config = TestPythonBase.config + \
         """
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_PYTHON3_PY_ONLY=y
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON3_PY_ONLY=y
         """
 
     def test_run(self):
@@ -71,8 +71,8 @@ class TestPython3Py(TestPythonBase):
 class TestPython3PyPyc(TestPythonBase):
     config = TestPythonBase.config + \
         """
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_PYTHON3_PY_PYC=y
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON3_PY_PYC=y
         """
 
     def test_run(self):
@@ -104,8 +104,8 @@ class TestPythonPackageBase(TestPythonBase):
     __test__ = False
     config_sample_scripts = \
         """
-        BR2_ROOTFS_POST_BUILD_SCRIPT="{}"
-        BR2_ROOTFS_POST_SCRIPT_ARGS="{}"
+        LINGMO_ROOTFS_POST_BUILD_SCRIPT="{}"
+        LINGMO_ROOTFS_POST_SCRIPT_ARGS="{}"
         """.format(infra.filepath("tests/package/copy-sample-script-to-target.sh"),
                    "{sample_scripts}")
     sample_scripts = None

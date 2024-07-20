@@ -1,10 +1,10 @@
-config BR2_PACKAGE_WAVEMON
+config LINGMO_PACKAGE_WAVEMON
 	bool "wavemon"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on !BR2_STATIC_LIBS # libnl tools
-	select BR2_PACKAGE_NCURSES
-	select BR2_PACKAGE_LIBNL
-	select BR2_PACKAGE_LIBNL_TOOLS
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_STATIC_LIBS # libnl tools
+	select LINGMO_PACKAGE_NCURSES
+	select LINGMO_PACKAGE_LIBNL
+	select LINGMO_PACKAGE_LIBNL_TOOLS
 	help
 	  wavemon is a wireless device monitoring application that
 	  allows you to watch signal and noise levels, packet
@@ -18,4 +18,4 @@ config BR2_PACKAGE_WAVEMON
 	  https://github.com/uoaerg/wavemon
 
 comment "wavemon needs a toolchain w/ threads, dynamic library"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS

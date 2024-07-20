@@ -1,6 +1,6 @@
-config BR2_PACKAGE_BCM2835
+config LINGMO_PACKAGE_BCM2835
 	bool "bcm2835"
-	depends on BR2_arm
+	depends on LINGMO_arm
 	help
 	  C library for Broadcom BCM 2835 as used in Raspberry Pi.
 	  It provides access to GPIO and other IO functions on the

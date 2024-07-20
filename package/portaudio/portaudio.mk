@@ -13,11 +13,11 @@ PORTAUDIO_LICENSE = portaudio license (MIT-like plus special clause)
 PORTAUDIO_LICENSE_FILES = LICENSE.txt
 
 PORTAUDIO_DEPENDENCIES = \
-	$(if $(BR2_PACKAGE_PORTAUDIO_ALSA),alsa-lib)
+	$(if $(LINGMO_PACKAGE_PORTAUDIO_ALSA),alsa-lib)
 
 PORTAUDIO_CONF_OPTS = \
-	$(if $(BR2_PACKAGE_PORTAUDIO_ALSA),--with-alsa,--without-alsa) \
-	$(if $(BR2_PACKAGE_PORTAUDIO_OSS),--with-oss,--without-oss) \
-	$(if $(BR2_PACKAGE_PORTAUDIO_CXX),--enable-cxx,--disable-cxx)
+	$(if $(LINGMO_PACKAGE_PORTAUDIO_ALSA),--with-alsa,--without-alsa) \
+	$(if $(LINGMO_PACKAGE_PORTAUDIO_OSS),--with-oss,--without-oss) \
+	$(if $(LINGMO_PACKAGE_PORTAUDIO_CXX),--enable-cxx,--disable-cxx)
 
 $(eval $(autotools-package))

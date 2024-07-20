@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBARGTABLE2
+config LINGMO_PACKAGE_LIBARGTABLE2
 	bool "libargtable2"
 	help
 	  A greatly simplified and yet quite robust argument parsing

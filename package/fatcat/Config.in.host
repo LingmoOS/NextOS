@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_FATCAT
+config LINGMO_PACKAGE_HOST_FATCAT
 	bool "host fatcat"
 	help
 	  Fatcat is designed to manipulate FAT filesystems, in order

@@ -1,7 +1,7 @@
-config BR2_PACKAGE_LIBTHEORA
+config LINGMO_PACKAGE_LIBTHEORA
 	bool "libtheora"
-	select BR2_PACKAGE_LIBOGG
-	select BR2_PACKAGE_LIBVORBIS
+	select LINGMO_PACKAGE_LIBOGG
+	select LINGMO_PACKAGE_LIBVORBIS
 	help
 	  A library for the free and open video compression format
 	  "Theora" from the Xiph.org Foundation.

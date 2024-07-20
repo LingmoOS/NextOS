@@ -37,23 +37,23 @@ LIBKRB5_CONF_OPTS = \
 # libkrb5 has some assembly function that is not present in Thumb mode:
 # Error: selected processor does not support `mcr p15,0,r2,c7,c10,5' in Thumb mode
 # so, we desactivate Thumb mode
-ifeq ($(BR2_ARM_INSTRUCTIONS_THUMB),y)
+ifeq ($(LINGMO_ARM_INSTRUCTIONS_THUMB),y)
 LIBKRB5_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) -marm"
 endif
 
 # Enabling static and shared at the same time is not supported
-ifeq ($(BR2_SHARED_STATIC_LIBS),y)
+ifeq ($(LINGMO_SHARED_STATIC_LIBS),y)
 LIBKRB5_CONF_OPTS += --disable-static
 endif
 
-ifeq ($(BR2_PACKAGE_OPENLDAP),y)
+ifeq ($(LINGMO_PACKAGE_OPENLDAP),y)
 LIBKRB5_CONF_OPTS += --with-ldap
 LIBKRB5_DEPENDENCIES += openldap
 else
 LIBKRB5_CONF_OPTS += --without-ldap
 endif
 
-ifeq ($(BR2_PACKAGE_LIBOPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_LIBOPENSSL),y)
 LIBKRB5_CONF_OPTS += \
 	--enable-pkinit \
 	--with-crypto-impl=openssl \
@@ -68,21 +68,21 @@ LIBKRB5_CONF_OPTS += \
 	--without-tls-impl
 endif
 
-ifeq ($(BR2_PACKAGE_LIBEDIT),y)
+ifeq ($(LINGMO_PACKAGE_LIBEDIT),y)
 LIBKRB5_CONF_OPTS += --with-libedit
 LIBKRB5_DEPENDENCIES += host-pkgconf libedit
 else
 LIBKRB5_CONF_OPTS += --without-libedit
 endif
 
-ifeq ($(BR2_PACKAGE_READLINE),y)
+ifeq ($(LINGMO_PACKAGE_READLINE),y)
 LIBKRB5_CONF_OPTS += --with-readline
 LIBKRB5_DEPENDENCIES += readline
 else
 LIBKRB5_CONF_OPTS += --without-readline
 endif
 
-ifneq ($(BR2_TOOLCHAIN_HAS_THREADS),y)
+ifneq ($(LINGMO_TOOLCHAIN_HAS_THREADS),y)
 LIBKRB5_CONF_OPTS += --disable-thread-support
 endif
 

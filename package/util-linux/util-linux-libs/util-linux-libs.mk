@@ -34,7 +34,7 @@ UTIL_LINUX_LIBS_LINK_LIBS = $(TARGET_NLS_LIBS)
 # Prevent the installation from attempting to move shared libraries from
 # ${usrlib_execdir} (/usr/lib) to ${libdir} (/lib), since both paths are
 # the same when merged usr is in use.
-ifeq ($(BR2_ROOTFS_MERGED_USR),y)
+ifeq ($(LINGMO_ROOTFS_MERGED_USR),y)
 UTIL_LINUX_LIBS_CONF_OPTS += --bindir=/usr/bin --sbindir=/usr/sbin --libdir=/usr/lib
 endif
 
@@ -63,7 +63,7 @@ UTIL_LINUX_LIBS_CONF_ENV += LIBS="$(UTIL_LINUX_LIBS_LINK_LIBS)"
 UTIL_LINUX_LIBS_MAKE_OPTS += LIBS="$(UTIL_LINUX_LIBS_LINK_LIBS)"
 
 # libmount optionally uses selinux
-ifeq ($(BR2_PACKAGE_UTIL_LINUX_LIBMOUNT)$(BR2_PACKAGE_LIBSELINUX),yy)
+ifeq ($(LINGMO_PACKAGE_UTIL_LINUX_LIBMOUNT)$(LINGMO_PACKAGE_LIBSELINUX),yy)
 UTIL_LINUX_LIBS_DEPENDENCIES += libselinux
 UTIL_LINUX_LIBS_CONF_OPTS += --with-selinux
 else
@@ -73,11 +73,11 @@ endif
 # Disable utilities
 UTIL_LINUX_LIBS_CONF_OPTS += \
 	--disable-all-programs \
-	$(if $(BR2_PACKAGE_UTIL_LINUX_LIBBLKID),--enable-libblkid,--disable-libblkid) \
-	$(if $(BR2_PACKAGE_UTIL_LINUX_LIBFDISK),--enable-libfdisk,--disable-libfdisk) \
-	$(if $(BR2_PACKAGE_UTIL_LINUX_LIBMOUNT),--enable-libmount,--disable-libmount) \
-	$(if $(BR2_PACKAGE_UTIL_LINUX_LIBSMARTCOLS),--enable-libsmartcols,--disable-libsmartcols) \
-	$(if $(BR2_PACKAGE_UTIL_LINUX_LIBUUID),--enable-libuuid,--disable-libuuid)
+	$(if $(LINGMO_PACKAGE_UTIL_LINUX_LIBBLKID),--enable-libblkid,--disable-libblkid) \
+	$(if $(LINGMO_PACKAGE_UTIL_LINUX_LIBFDISK),--enable-libfdisk,--disable-libfdisk) \
+	$(if $(LINGMO_PACKAGE_UTIL_LINUX_LIBMOUNT),--enable-libmount,--disable-libmount) \
+	$(if $(LINGMO_PACKAGE_UTIL_LINUX_LIBSMARTCOLS),--enable-libsmartcols,--disable-libsmartcols) \
+	$(if $(LINGMO_PACKAGE_UTIL_LINUX_LIBUUID),--enable-libuuid,--disable-libuuid)
 
 # libmount python bindings are separate, will be installed by full util-linux
 UTIL_LINUX_LIBS_CONF_OPTS += --without-python --disable-pylibmount

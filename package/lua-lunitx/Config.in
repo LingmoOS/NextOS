@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUA_LUNITX
+config LINGMO_PACKAGE_LUA_LUNITX
 	bool "lua-lunitx"
 	help
 	  Lunitx is a unit testing framework for lua, written in lua.

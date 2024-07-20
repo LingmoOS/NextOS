@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PYDEVMEM
+config LINGMO_PACKAGE_PYTHON_PYDEVMEM
 	bool "python-pydevmem"
 	help
 	  Python DevMem is designed primarily for use with accessing

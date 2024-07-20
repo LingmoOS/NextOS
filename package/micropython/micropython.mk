@@ -17,12 +17,12 @@ MICROPYTHON_CPE_ID_VENDOR = micropython
 
 # Use fallback implementation for exception handling on architectures that don't
 # have explicit support.
-ifeq ($(BR2_i386)$(BR2_x86_64)$(BR2_arm)$(BR2_armeb),)
+ifeq ($(LINGMO_i386)$(LINGMO_x86_64)$(LINGMO_arm)$(LINGMO_armeb),)
 MICROPYTHON_CFLAGS = -DMICROPY_GCREGS_SETJMP=1
 endif
 
 # xtensa has problems with nlr_push, use setjmp based implementation instead
-ifeq ($(BR2_xtensa),y)
+ifeq ($(LINGMO_xtensa),y)
 MICROPYTHON_CFLAGS = -DMICROPY_NLR_SETJMP=1
 endif
 
@@ -36,7 +36,7 @@ MICROPYTHON_MAKE_OPTS += \
 	LDFLAGS_EXTRA="$(TARGET_LDFLAGS)" \
 	CWARN=
 
-ifeq ($(BR2_PACKAGE_LIBFFI),y)
+ifeq ($(LINGMO_PACKAGE_LIBFFI),y)
 MICROPYTHON_DEPENDENCIES += host-pkgconf libffi
 MICROPYTHON_MAKE_OPTS += MICROPY_PY_FFI=1
 else
@@ -57,7 +57,7 @@ define MICROPYTHON_INSTALL_TARGET_CMDS
 		install
 endef
 
-ifeq ($(BR2_PACKAGE_MICROPYTHON_LIB),y)
+ifeq ($(LINGMO_PACKAGE_MICROPYTHON_LIB),y)
 define MICROPYTHON_COLLECT_LIBS
 	$(EXTRA_ENV) PYTHONPATH=$(@D)/tools \
 		package/micropython/collect_micropython_lib.py \

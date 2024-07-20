@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_IMAGE_EXIFTOOL
+config LINGMO_PACKAGE_PERL_IMAGE_EXIFTOOL
 	bool "perl-image-exiftool"
 	help
 	  ExifTool is a customizable set of Perl modules plus a

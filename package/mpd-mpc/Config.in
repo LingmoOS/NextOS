@@ -1,6 +1,6 @@
-config BR2_PACKAGE_MPD_MPC
+config LINGMO_PACKAGE_MPD_MPC
 	bool "mpd-mpc"
-	select BR2_PACKAGE_LIBMPDCLIENT
+	select LINGMO_PACKAGE_LIBMPDCLIENT
 	help
 	  A minimalist command line interface to MPD.
 

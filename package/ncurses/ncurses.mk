@@ -33,19 +33,19 @@ NCURSES_CONF_OPTS = \
 	--enable-pc-files \
 	--disable-stripping \
 	--with-pkg-config-libdir="/usr/lib/pkgconfig" \
-	$(if $(BR2_PACKAGE_NCURSES_TARGET_PROGS),,--without-progs) \
+	$(if $(LINGMO_PACKAGE_NCURSES_TARGET_PROGS),,--without-progs) \
 	--without-manpages
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 NCURSES_CONF_OPTS += --without-shared --with-normal
-else ifeq ($(BR2_SHARED_LIBS),y)
+else ifeq ($(LINGMO_SHARED_LIBS),y)
 NCURSES_CONF_OPTS += --with-shared --without-normal
-else ifeq ($(BR2_SHARED_STATIC_LIBS),y)
+else ifeq ($(LINGMO_SHARED_STATIC_LIBS),y)
 NCURSES_CONF_OPTS += --with-shared --with-normal
 endif
 
 # configure can't find the soname for libgpm when cross compiling
-ifeq ($(BR2_PACKAGE_GPM),y)
+ifeq ($(LINGMO_PACKAGE_GPM),y)
 NCURSES_CONF_OPTS += --with-gpm=libgpm.so.2
 NCURSES_DEPENDENCIES += gpm
 else
@@ -71,16 +71,16 @@ NCURSES_TERMINFO_FILES = \
 	x/xterm-256color \
 	x/xterm-color \
 	x/xterm-xfree86 \
-	$(call qstrip,$(BR2_PACKAGE_NCURSES_ADDITIONAL_TERMINFO))
+	$(call qstrip,$(LINGMO_PACKAGE_NCURSES_ADDITIONAL_TERMINFO))
 
-ifeq ($(BR2_PACKAGE_FOOT),y)
+ifeq ($(LINGMO_PACKAGE_FOOT),y)
 NCURSES_TERMINFO_FILES += \
 	f/foot \
 	f/foot+base \
 	f/foot-direct
 endif
 
-ifeq ($(BR2_PACKAGE_NCURSES_WCHAR),y)
+ifeq ($(LINGMO_PACKAGE_NCURSES_WCHAR),y)
 NCURSES_CONF_OPTS += --enable-widec
 NCURSES_LIB_SUFFIX = w
 NCURSES_LIBS = ncurses menu panel form
@@ -109,8 +109,8 @@ define NCURSES_LINK_PC
 endef
 
 NCURSES_LINK_STAGING_LIBS = \
-	$(if $(BR2_STATIC_LIBS)$(BR2_SHARED_STATIC_LIBS),$(call NCURSES_LINK_LIBS_STATIC);) \
-	$(if $(BR2_SHARED_LIBS)$(BR2_SHARED_STATIC_LIBS),$(call NCURSES_LINK_LIBS_SHARED))
+	$(if $(LINGMO_STATIC_LIBS)$(LINGMO_SHARED_STATIC_LIBS),$(call NCURSES_LINK_LIBS_STATIC);) \
+	$(if $(LINGMO_SHARED_LIBS)$(LINGMO_SHARED_STATIC_LIBS),$(call NCURSES_LINK_LIBS_SHARED))
 
 NCURSES_LINK_STAGING_PC = $(call NCURSES_LINK_PC)
 
@@ -119,9 +119,9 @@ NCURSES_CONF_OPTS += --enable-ext-colors
 NCURSES_POST_INSTALL_STAGING_HOOKS += NCURSES_LINK_STAGING_LIBS
 NCURSES_POST_INSTALL_STAGING_HOOKS += NCURSES_LINK_STAGING_PC
 
-endif # BR2_PACKAGE_NCURSES_WCHAR
+endif # LINGMO_PACKAGE_NCURSES_WCHAR
 
-ifneq ($(BR2_ENABLE_DEBUG),y)
+ifneq ($(LINGMO_ENABLE_DEBUG),y)
 NCURSES_CONF_OPTS += --without-debug
 endif
 
@@ -133,7 +133,7 @@ define NCURSES_BUILD_CMDS
 	$(TARGET_MAKE_ENV) $(MAKE) -C $(@D) DESTDIR=$(STAGING_DIR)
 endef
 
-ifeq ($(BR2_PACKAGE_NCURSES_TARGET_PROGS),y)
+ifeq ($(LINGMO_PACKAGE_NCURSES_TARGET_PROGS),y)
 define NCURSES_TARGET_SYMLINK_RESET
 	ln -sf tset $(TARGET_DIR)/usr/bin/reset
 endef

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUA_BINARYHEAP
+config LINGMO_PACKAGE_LUA_BINARYHEAP
 	bool "lua-binaryheap"
 	help
 	  Binary heap implementation in pure Lua.

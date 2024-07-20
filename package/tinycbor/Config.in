@@ -1,4 +1,4 @@
-config BR2_PACKAGE_TINYCBOR
+config LINGMO_PACKAGE_TINYCBOR
 	bool "tinycbor"
 	help
 	  Concise Binary Object Representation (CBOR) Library

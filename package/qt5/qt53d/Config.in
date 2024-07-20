@@ -1,10 +1,10 @@
-config BR2_PACKAGE_QT53D
+config LINGMO_PACKAGE_QT53D
 	bool "qt53d"
-	depends on BR2_PACKAGE_QT5_JSCORE_AVAILABLE # qt5declarative
-	depends on BR2_PACKAGE_QT5_GL_AVAILABLE # qt5declarative_quick
-	select BR2_PACKAGE_QT5BASE_GUI
-	select BR2_PACKAGE_QT5DECLARATIVE
-	select BR2_PACKAGE_QT5DECLARATIVE_QUICK
+	depends on LINGMO_PACKAGE_QT5_JSCORE_AVAILABLE # qt5declarative
+	depends on LINGMO_PACKAGE_QT5_GL_AVAILABLE # qt5declarative_quick
+	select LINGMO_PACKAGE_QT5BASE_GUI
+	select LINGMO_PACKAGE_QT5DECLARATIVE
+	select LINGMO_PACKAGE_QT5DECLARATIVE_QUICK
 	help
 	  Qt is a cross-platform application and UI framework for
 	  developers using C++.
@@ -20,5 +20,5 @@ config BR2_PACKAGE_QT53D
 	  https://doc.qt.io/qt-5/qt3d-index.html
 
 comment "qt53d module needs an OpenGL-capable backend"
-	depends on BR2_PACKAGE_QT5_JSCORE_AVAILABLE
-	depends on !BR2_PACKAGE_QT5_GL_AVAILABLE
+	depends on LINGMO_PACKAGE_QT5_JSCORE_AVAILABLE
+	depends on !LINGMO_PACKAGE_QT5_GL_AVAILABLE

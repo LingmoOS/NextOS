@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUA_INOTIFY
+config LINGMO_PACKAGE_LUA_INOTIFY
 	bool "lua-inotify"
 	help
 	  Inotify bindings for Lua.

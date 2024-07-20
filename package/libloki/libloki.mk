@@ -10,13 +10,13 @@ LIBLOKI_SITE = https://sourceforge.net/projects/loki-lib/files/Loki/Loki%20$(LIB
 LIBLOKI_LICENSE = MIT
 LIBLOKI_INSTALL_STAGING = YES
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 LIBLOKI_BUILD_TARGETS += build-static
 LIBLOKI_INSTALL_TARGETS += install-static
-else ifeq ($(BR2_SHARED_LIBS),y)
+else ifeq ($(LINGMO_SHARED_LIBS),y)
 LIBLOKI_BUILD_TARGETS += build-shared
 LIBLOKI_INSTALL_TARGETS += install-shared
-else ifeq ($(BR2_SHARED_STATIC_LIBS),y)
+else ifeq ($(LINGMO_SHARED_STATIC_LIBS),y)
 LIBLOKI_BUILD_TARGETS += build-static build-shared
 LIBLOKI_INSTALL_TARGETS += install-static install-shared
 endif

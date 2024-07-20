@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUA_ANSICOLORS
+config LINGMO_PACKAGE_LUA_ANSICOLORS
 	bool "lua-ansicolors"
 	help
 	  Library for color Manipulation.

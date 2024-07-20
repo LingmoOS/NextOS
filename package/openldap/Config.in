@@ -1,7 +1,7 @@
-config BR2_PACKAGE_OPENLDAP
+config LINGMO_PACKAGE_OPENLDAP
 	bool "openldap"
-	depends on BR2_USE_WCHAR
-	depends on BR2_USE_MMU # needs fork()
+	depends on LINGMO_USE_WCHAR
+	depends on LINGMO_USE_MMU # needs fork()
 	help
 	  OpenLDAP Software is an open source implementation of the
 	  Lightweight Directory Access Protocol.
@@ -10,9 +10,9 @@ config BR2_PACKAGE_OPENLDAP
 
 	  https://www.openldap.org/
 
-if BR2_PACKAGE_OPENLDAP
+if LINGMO_PACKAGE_OPENLDAP
 
-config BR2_PACKAGE_OPENLDAP_CLIENTS
+config LINGMO_PACKAGE_OPENLDAP_CLIENTS
 	bool "openldap client binaries"
 	default y
 	help
@@ -23,5 +23,5 @@ config BR2_PACKAGE_OPENLDAP_CLIENTS
 endif
 
 comment "openldap needs a toolchain w/ wchar"
-	depends on BR2_USE_MMU # needs fork()
-	depends on !BR2_USE_WCHAR
+	depends on LINGMO_USE_MMU # needs fork()
+	depends on !LINGMO_USE_WCHAR

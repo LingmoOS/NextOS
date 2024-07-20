@@ -27,22 +27,22 @@ PETITBOOT_CONF_OPTS = \
 	--without-signed-boot \
 	--without-twin-fbdev \
 	--without-twin-x11 \
-	$(if $(BR2_PACKAGE_BUSYBOX),--enable-busybox,--disable-busybox) \
+	$(if $(LINGMO_PACKAGE_BUSYBOX),--enable-busybox,--disable-busybox) \
 	HOST_PROG_KEXEC=/usr/sbin/kexec \
 	HOST_PROG_SHUTDOWN=/usr/libexec/petitboot/bb-kexec-reboot
 
 # HPA and Busybox tftp are supported. HPA tftp is part of Buildroot's tftpd
 # package.
-ifeq ($(BR2_PACKAGE_TFTPD),y)
+ifeq ($(LINGMO_PACKAGE_TFTPD),y)
 PETITBOOT_CONF_OPTS += --with-tftp=hpa
-else ifeq ($(BR2_PACKAGE_BUSYBOX),y)
+else ifeq ($(LINGMO_PACKAGE_BUSYBOX),y)
 PETITBOOT_CONF_OPTS += --with-tftp=busybox
 else
 # This actually means "autodetect", there's no way to really disable.
 PETITBOOT_CONF_OPTS += --without-tftp
 endif
 
-ifeq ($(BR2_PACKAGE_DTC),y)
+ifeq ($(LINGMO_PACKAGE_DTC),y)
 PETITBOOT_DEPENDENCIES += dtc
 PETITBOOT_CONF_OPTS += --with-fdt
 define PETITBOOT_POST_INSTALL_DTB
@@ -54,7 +54,7 @@ else
 PETITBOOT_CONF_OPTS += --without-fdt
 endif
 
-PETITBOOT_GETTY_PORT = $(patsubst %,'%',$(call qstrip,$(BR2_PACKAGE_PETITBOOT_GETTY_PORT)))
+PETITBOOT_GETTY_PORT = $(patsubst %,'%',$(call qstrip,$(LINGMO_PACKAGE_PETITBOOT_GETTY_PORT)))
 
 define PETITBOOT_POST_INSTALL
 	$(INSTALL) -D -m 0755 $(@D)/utils/bb-kexec-reboot \

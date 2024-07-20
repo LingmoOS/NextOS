@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_RSA
+config LINGMO_PACKAGE_PYTHON_RSA
 	bool "python-rsa"
-	select BR2_PACKAGE_PYTHON_PYASN1 # runtime
+	select LINGMO_PACKAGE_PYTHON_PYASN1 # runtime
 	help
 	  Python-RSA is a pure-Python RSA implementation. It supports
 	  encryption and decryption, signing and verifying signatures,

@@ -12,7 +12,7 @@ BMON_LICENSE = BSD-2-Clause, MIT
 BMON_LICENSE_FILES = LICENSE.BSD LICENSE.MIT
 
 # link dynamically unless explicitly requested otherwise
-ifeq ($(BR2_STATIC_LIBS),)
+ifeq ($(LINGMO_STATIC_LIBS),)
 BMON_CONF_OPTS += --disable-static
 else
 # forgets to explicitly link with pthread for libnl

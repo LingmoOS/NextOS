@@ -1,8 +1,8 @@
-config BR2_PACKAGE_USBMOUNT
+config LINGMO_PACKAGE_USBMOUNT
 	bool "usbmount"
-	depends on BR2_USE_MMU # lockfile-progs -> liblockfile
-	depends on BR2_PACKAGE_HAS_UDEV
-	select BR2_PACKAGE_LOCKFILE_PROGS
+	depends on LINGMO_USE_MMU # lockfile-progs -> liblockfile
+	depends on LINGMO_PACKAGE_HAS_UDEV
+	select LINGMO_PACKAGE_LOCKFILE_PROGS
 	help
 	  The usbmount package automatically mounts USB mass storage
 	  devices when they are plugged in, and unmounts them when
@@ -11,5 +11,5 @@ config BR2_PACKAGE_USBMOUNT
 	  https://wiki.debian.org/usbmount
 
 comment "usbmount requires udev to be enabled"
-	depends on BR2_USE_MMU
-	depends on !BR2_PACKAGE_HAS_UDEV
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_PACKAGE_HAS_UDEV

@@ -1,8 +1,8 @@
-config BR2_PACKAGE_TPM2_TOTP
+config LINGMO_PACKAGE_TPM2_TOTP
 	bool "tpm2-totp"
-	depends on !BR2_STATIC_LIBS # tpm2-tss
-	select BR2_PACKAGE_LIBQRENCODE
-	select BR2_PACKAGE_TPM2_TSS
+	depends on !LINGMO_STATIC_LIBS # tpm2-tss
+	select LINGMO_PACKAGE_LIBQRENCODE
+	select LINGMO_PACKAGE_TPM2_TSS
 	help
 	  This is a reimplementation of Matthew Garrett's tpmtotp
 	  software for TPM 2.0 using the tpm2-tss software stack. Its
@@ -18,4 +18,4 @@ config BR2_PACKAGE_TPM2_TOTP
 	  https://github.com/tpm2-software/tpm2-totp
 
 comment "tpm2-totp needs a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_STATIC_LIBS

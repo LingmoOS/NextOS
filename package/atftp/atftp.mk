@@ -20,7 +20,7 @@ ATFTP_LIBS = -lpthread
 ATFTP_CONF_ENV = LIBS="$(ATFTP_LIBS)" \
 	CFLAGS="$(TARGET_CFLAGS) -fgnu89-inline"
 
-ifeq ($(BR2_PACKAGE_READLINE),y)
+ifeq ($(LINGMO_PACKAGE_READLINE),y)
 ATFTP_DEPENDENCIES += readline
 ATFTP_CONF_OPTS += --enable-libreadline
 # For static, readline links with ncurses
@@ -29,7 +29,7 @@ else
 ATFTP_CONF_OPTS += --disable-libreadline
 endif
 
-ifeq ($(BR2_PACKAGE_PCRE2),y)
+ifeq ($(LINGMO_PACKAGE_PCRE2),y)
 ATFTP_DEPENDENCIES += pcre2
 ATFTP_CONF_OPTS += --enable-libpcre
 else

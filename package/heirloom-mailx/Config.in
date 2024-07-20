@@ -1,10 +1,10 @@
-config BR2_PACKAGE_HEIRLOOM_MAILX
+config LINGMO_PACKAGE_HEIRLOOM_MAILX
 	bool "heirloom-mailx"
 	# uses fork()
-	depends on BR2_USE_MMU
-	depends on !BR2_STATIC_LIBS
-	select BR2_PACKAGE_LIBOPENSSL_ENABLE_DES if BR2_PACKAGE_LIBOPENSSL
-	select BR2_PACKAGE_LIBOPENSSL_ENABLE_RC2 if BR2_PACKAGE_LIBOPENSSL
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_STATIC_LIBS
+	select LINGMO_PACKAGE_LIBOPENSSL_ENABLE_DES if LINGMO_PACKAGE_LIBOPENSSL
+	select LINGMO_PACKAGE_LIBOPENSSL_ENABLE_RC2 if LINGMO_PACKAGE_LIBOPENSSL
 	help
 	  Heirloom mailx (previously known as nail) is a mail user
 	  agent for Unix systems.
@@ -18,5 +18,5 @@ config BR2_PACKAGE_HEIRLOOM_MAILX
 	  http://heirloom.sourceforge.net/mailx.html
 
 comment "heirloom-mailx needs a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
-	depends on BR2_USE_MMU
+	depends on LINGMO_STATIC_LIBS
+	depends on LINGMO_USE_MMU

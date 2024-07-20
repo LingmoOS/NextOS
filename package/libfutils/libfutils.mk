@@ -15,7 +15,7 @@ LIBFUTILS_TARGET_ENV = \
 	$(ALCHEMY_TARGET_ENV) \
 	ALCHEMY_TARGET_SDK_DIRS="$(ALCHEMY_SDK_BASEDIR)/ulog"
 
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 LIBFUTILS_TARGET_ENV += TARGET_GLOBAL_LDLIBS='-latomic'
 endif
 
@@ -23,7 +23,7 @@ define LIBFUTILS_BUILD_CMDS
 	$(LIBFUTILS_TARGET_ENV) $(ALCHEMY_MAKE) libfutils
 endef
 
-ifeq ($(BR2_STATIC_LIBS),)
+ifeq ($(LINGMO_STATIC_LIBS),)
 # $(1): destination directory: target or staging
 define LIBFUTILS_INSTALL_SHARED_LIBS
 	mkdir -p $(1)/usr/lib/
@@ -32,7 +32,7 @@ define LIBFUTILS_INSTALL_SHARED_LIBS
 endef
 endif
 
-ifeq ($(BR2_SHARED_LIBS),)
+ifeq ($(LINGMO_SHARED_LIBS),)
 define LIBFUTILS_INSTALL_STATIC_LIBS
 	mkdir -p $(1)/usr/lib/
 	$(INSTALL) -D -m 644 $(@D)/alchemy-out/staging/usr/lib/libfutils.a \

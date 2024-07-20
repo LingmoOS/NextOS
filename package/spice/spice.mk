@@ -31,14 +31,14 @@ SPICE_CONF_OPTS = \
 
 SPICE_DEPENDENCIES += host-pkgconf
 
-ifeq ($(BR2_PACKAGE_LZ4),y)
+ifeq ($(LINGMO_PACKAGE_LZ4),y)
 SPICE_CONF_OPTS += --enable-lz4
 SPICE_DEPENDENCIES += lz4
 else
 SPICE_CONF_OPTS += --disable-lz4
 endif
 
-ifeq ($(BR2_PACKAGE_OPUS),y)
+ifeq ($(LINGMO_PACKAGE_OPUS),y)
 SPICE_CONF_OPTS += --enable-opus
 SPICE_DEPENDENCIES += opus
 else

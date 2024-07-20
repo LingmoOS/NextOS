@@ -9,7 +9,7 @@ DING_LIBS_SITE = \
 	https://github.com/SSSD/ding-libs/releases/download/$(DING_LIBS_VERSION)
 DING_LIBS_DEPENDENCIES = host-pkgconf \
 	$(TARGET_NLS_DEPENDENCIES) \
-	$(if $(BR2_PACKAGE_LIBICONV),libiconv)
+	$(if $(LINGMO_PACKAGE_LIBICONV),libiconv)
 DING_LIBS_INSTALL_STAGING = YES
 DING_LIBS_LICENSE = LGPL-3.0+ (library),GPL-3.0+ (test programs)
 DING_LIBS_LICENSE_FILES = COPYING COPYING.LESSER

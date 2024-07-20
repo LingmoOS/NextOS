@@ -18,7 +18,7 @@ LIBPJSIP_MAKE = $(MAKE1)
 LIBPJSIP_CFLAGS = $(TARGET_CFLAGS) -DPJ_HAS_IPV6=1
 
 # relocation truncated to fit: R_68K_GOT16O
-ifeq ($(BR2_m68k_cf),y)
+ifeq ($(LINGMO_m68k_cf),y)
 LIBPJSIP_CFLAGS += -mxgot
 endif
 
@@ -43,28 +43,28 @@ LIBPJSIP_CONF_OPTS = \
 # so we want to use it.
 LIBPJSIP_CONF_OPTS += --enable-epoll
 
-ifeq ($(BR2_PACKAGE_ALSA_LIB_MIXER),y)
+ifeq ($(LINGMO_PACKAGE_ALSA_LIB_MIXER),y)
 LIBPJSIP_DEPENDENCIES += alsa-lib
 LIBPJSIP_CONF_OPTS += --enable-sound
 else
 LIBPJSIP_CONF_OPTS += --disable-sound
 endif
 
-ifeq ($(BR2_PACKAGE_BCG729),y)
+ifeq ($(LINGMO_PACKAGE_BCG729),y)
 LIBPJSIP_DEPENDENCIES += bcg729
 LIBPJSIP_CONF_OPTS += --with-bcg729=$(STAGING_DIR)/usr
 else
 LIBPJSIP_CONF_OPTS += --disable-bcg729
 endif
 
-ifeq ($(BR2_PACKAGE_FFMPEG),y)
+ifeq ($(LINGMO_PACKAGE_FFMPEG),y)
 LIBPJSIP_DEPENDENCIES += ffmpeg
 LIBPJSIP_CONF_OPTS += --with-ffmpeg=$(STAGING_DIR)/usr
 else
 LIBPJSIP_CONF_OPTS += --disable-ffmpeg
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGSM),y)
+ifeq ($(LINGMO_PACKAGE_LIBGSM),y)
 LIBPJSIP_CONF_OPTS += \
 	--enable-gsm-codec \
 	--with-external-gsm
@@ -74,31 +74,31 @@ LIBPJSIP_CONF_OPTS += \
 	--disable-gsm-codec
 endif
 
-ifeq ($(BR2_PACKAGE_LIBOPENH264),y)
+ifeq ($(LINGMO_PACKAGE_LIBOPENH264),y)
 LIBPJSIP_DEPENDENCIES += libopenh264
 LIBPJSIP_CONF_OPTS += --with-openh264=$(STAGING_DIR)/usr
 else
 LIBPJSIP_CONF_OPTS += --disable-openh264
 endif
 
-ifeq ($(BR2_PACKAGE_LIBOPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_LIBOPENSSL),y)
 LIBPJSIP_DEPENDENCIES += libopenssl
 LIBPJSIP_CONF_OPTS += --with-ssl=$(STAGING_DIR)/usr
-else ifeq ($(BR2_PACKAGE_GNUTLS),y)
+else ifeq ($(LINGMO_PACKAGE_GNUTLS),y)
 LIBPJSIP_DEPENDENCIES += gnutls
 LIBPJSIP_CONF_OPTS += --with-gnutls=$(STAGING_DIR)/usr
 else
 LIBPJSIP_CONF_OPTS += --disable-ssl
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSAMPLERATE),y)
+ifeq ($(LINGMO_PACKAGE_LIBSAMPLERATE),y)
 LIBPJSIP_DEPENDENCIES += libsamplerate
 LIBPJSIP_CONF_OPTS += --enable-libsamplerate
 else
 LIBPJSIP_CONF_OPTS += --disable-libsamplerate
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSRTP),y)
+ifeq ($(LINGMO_PACKAGE_LIBSRTP),y)
 LIBPJSIP_DEPENDENCIES += libsrtp
 LIBPJSIP_CONF_OPTS += \
 	--enable-libsrtp \
@@ -107,21 +107,21 @@ else
 LIBPJSIP_CONF_OPTS += --disable-libsrtp
 endif
 
-ifeq ($(BR2_PACKAGE_LIBUPNP),y)
+ifeq ($(LINGMO_PACKAGE_LIBUPNP),y)
 LIBPJSIP_DEPENDENCIES += libupnp
 LIBPJSIP_CONF_OPTS += --with-upnp=$(STAGING_DIR)/usr
 else
 LIBPJSIP_CONF_OPTS += --disable-upnp
 endif
 
-ifeq ($(BR2_PACKAGE_LIBV4L),y)
+ifeq ($(LINGMO_PACKAGE_LIBV4L),y)
 # --enable-v4l2 is broken (check for libv4l2 will be omitted)
 LIBPJSIP_DEPENDENCIES += libv4l
 else
 LIBPJSIP_CONF_OPTS += --disable-v4l2
 endif
 
-ifeq ($(BR2_PACKAGE_LIBYUV),y)
+ifeq ($(LINGMO_PACKAGE_LIBYUV),y)
 LIBPJSIP_DEPENDENCIES += libyuv
 LIBPJSIP_CONF_OPTS += \
 	--enable-libyuv \
@@ -130,35 +130,35 @@ else
 LIBPJSIP_CONF_OPTS += --disable-libyuv
 endif
 
-ifeq ($(BR2_PACKAGE_OPENCORE_AMR),y)
+ifeq ($(LINGMO_PACKAGE_OPENCORE_AMR),y)
 LIBPJSIP_DEPENDENCIES += opencore-amr
 LIBPJSIP_CONF_OPTS += --with-opencore-amr=$(STAGING_DIR)/usr
 else
 LIBPJSIP_CONF_OPTS += --disable-opencore-amr
 endif
 
-ifeq ($(BR2_PACKAGE_OPUS),y)
+ifeq ($(LINGMO_PACKAGE_OPUS),y)
 LIBPJSIP_DEPENDENCIES += opus
 LIBPJSIP_CONF_OPTS += --with-opus=$(STAGING_DIR)/usr
 else
 LIBPJSIP_CONF_OPTS += --disable-opus
 endif
 
-ifeq ($(BR2_PACKAGE_PORTAUDIO),y)
+ifeq ($(LINGMO_PACKAGE_PORTAUDIO),y)
 LIBPJSIP_DEPENDENCIES += portaudio
 LIBPJSIP_CONF_OPTS += --with-external-pa
 else
 LIBPJSIP_CONF_OPTS += --without-external-pa
 endif
 
-ifeq ($(BR2_PACKAGE_SDL2),y)
+ifeq ($(LINGMO_PACKAGE_SDL2),y)
 LIBPJSIP_DEPENDENCIES += sdl2
 LIBPJSIP_CONF_OPTS += --with-sdl=$(STAGING_DIR)/usr
 else
 LIBPJSIP_CONF_OPTS += --disable-sdl
 endif
 
-ifeq ($(BR2_PACKAGE_SPEEX)$(BR2_PACKAGE_SPEEXDSP),yy)
+ifeq ($(LINGMO_PACKAGE_SPEEX)$(LINGMO_PACKAGE_SPEEXDSP),yy)
 LIBPJSIP_CONF_OPTS += \
 	--enable-speex-aec \
 	--enable-speex-codec \
@@ -170,7 +170,7 @@ LIBPJSIP_CONF_OPTS += \
 	--disable-speex-codec
 endif
 
-ifeq ($(BR2_PACKAGE_UTIL_LINUX_LIBUUID),y)
+ifeq ($(LINGMO_PACKAGE_UTIL_LINUX_LIBUUID),y)
 LIBPJSIP_DEPENDENCIES += util-linux
 LIBPJSIP_CONF_OPTS += --enable-libuuid
 else

@@ -16,7 +16,7 @@ TCPDUMP_CONF_ENV = \
 TCPDUMP_CONF_OPTS = \
 	--without-crypto \
 	--disable-local-libpcap \
-	$(if $(BR2_PACKAGE_TCPDUMP_SMB),--enable-smb,--disable-smb)
+	$(if $(LINGMO_PACKAGE_TCPDUMP_SMB),--enable-smb,--disable-smb)
 TCPDUMP_DEPENDENCIES = libpcap host-pkgconf
 TCPDUMP_SELINUX_MODULES = netutils
 

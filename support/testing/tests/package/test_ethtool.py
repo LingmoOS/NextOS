@@ -13,19 +13,19 @@ class TestEthtool(infra.basetest.BRTest):
         infra.filepath("tests/package/test_ethtool/linux-e1000e.fragment")
     config = \
         f"""
-        BR2_aarch64=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
-        BR2_LINUX_KERNEL=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE="6.6.27"
-        BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
-        BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/qemu/aarch64-virt/linux.config"
-        BR2_LINUX_KERNEL_CONFIG_FRAGMENT_FILES="{kernel_fragment}"
-        BR2_PACKAGE_ETHTOOL=y
-        BR2_TARGET_ROOTFS_EXT2=y
-        BR2_TARGET_ROOTFS_EXT2_4=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_aarch64=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
+        LINGMO_LINUX_KERNEL=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION_VALUE="6.6.27"
+        LINGMO_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
+        LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/qemu/aarch64-virt/linux.config"
+        LINGMO_LINUX_KERNEL_CONFIG_FRAGMENT_FILES="{kernel_fragment}"
+        LINGMO_PACKAGE_ETHTOOL=y
+        LINGMO_TARGET_ROOTFS_EXT2=y
+        LINGMO_TARGET_ROOTFS_EXT2_4=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):

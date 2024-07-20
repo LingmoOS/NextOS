@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_IFADDR
+config LINGMO_PACKAGE_PYTHON_IFADDR
 	bool "python-ifaddr"
 	help
 	  Enumerates all IP addresses on all network adapters of the

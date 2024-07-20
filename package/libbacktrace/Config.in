@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBBACKTRACE
+config LINGMO_PACKAGE_LIBBACKTRACE
 	bool "libbacktrace"
 	help
 	  A C library that may be linked into a C/C++ program to

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_ERLANG_GOLDRUSH
+config LINGMO_PACKAGE_ERLANG_GOLDRUSH
 	bool "erlang-goldrush"
 	help
 	  Goldrush is a small Erlang app that provides fast event

@@ -36,80 +36,80 @@ HOST_TIFF_CONF_OPTS = \
 	--disable-zstd
 HOST_TIFF_DEPENDENCIES = host-pkgconf
 
-ifeq ($(BR2_INSTALL_LIBSTDCPP),y)
+ifeq ($(LINGMO_INSTALL_LIBSTDCPP),y)
 TIFF_CONF_OPTS += --enable-cxx
 else
 TIFF_CONF_OPTS += --disable-cxx
 endif
 
-ifneq ($(BR2_PACKAGE_TIFF_CCITT),y)
+ifneq ($(LINGMO_PACKAGE_TIFF_CCITT),y)
 TIFF_CONF_OPTS += --disable-ccitt
 endif
 
-ifeq ($(BR2_PACKAGE_TIFF_LIBDEFLATE),y)
+ifeq ($(LINGMO_PACKAGE_TIFF_LIBDEFLATE),y)
 TIFF_CONF_OPTS += --enable-libdeflate
 TIFF_DEPENDENCIES += libdeflate
 else
 TIFF_CONF_OPTS += --disable-libdeflate
 endif
 
-ifneq ($(BR2_PACKAGE_TIFF_PACKBITS),y)
+ifneq ($(LINGMO_PACKAGE_TIFF_PACKBITS),y)
 TIFF_CONF_OPTS += --disable-packbits
 endif
 
-ifneq ($(BR2_PACKAGE_TIFF_LZW),y)
+ifneq ($(LINGMO_PACKAGE_TIFF_LZW),y)
 TIFF_CONF_OPTS += --disable-lzw
 endif
 
-ifneq ($(BR2_PACKAGE_TIFF_THUNDER),y)
+ifneq ($(LINGMO_PACKAGE_TIFF_THUNDER),y)
 TIFF_CONF_OPTS += --disable-thunder
 endif
 
-ifneq ($(BR2_PACKAGE_TIFF_NEXT),y)
+ifneq ($(LINGMO_PACKAGE_TIFF_NEXT),y)
 TIFF_CONF_OPTS += --disable-next
 endif
 
-ifneq ($(BR2_PACKAGE_TIFF_LOGLUV),y)
+ifneq ($(LINGMO_PACKAGE_TIFF_LOGLUV),y)
 TIFF_CONF_OPTS += --disable-logluv
 endif
 
-ifneq ($(BR2_PACKAGE_TIFF_MDI),y)
+ifneq ($(LINGMO_PACKAGE_TIFF_MDI),y)
 TIFF_CONF_OPTS += --disable-mdi
 endif
 
-ifneq ($(BR2_PACKAGE_TIFF_ZLIB),y)
+ifneq ($(LINGMO_PACKAGE_TIFF_ZLIB),y)
 TIFF_CONF_OPTS += --disable-zlib
 else
 TIFF_DEPENDENCIES += zlib
 endif
 
-ifneq ($(BR2_PACKAGE_TIFF_XZ),y)
+ifneq ($(LINGMO_PACKAGE_TIFF_XZ),y)
 TIFF_CONF_OPTS += --disable-lzma
 else
 TIFF_DEPENDENCIES += xz
 endif
 
-ifneq ($(BR2_PACKAGE_TIFF_PIXARLOG),y)
+ifneq ($(LINGMO_PACKAGE_TIFF_PIXARLOG),y)
 TIFF_CONF_OPTS += --disable-pixarlog
 endif
 
-ifneq ($(BR2_PACKAGE_TIFF_JPEG),y)
+ifneq ($(LINGMO_PACKAGE_TIFF_JPEG),y)
 TIFF_CONF_OPTS += --disable-jpeg
 else
 TIFF_DEPENDENCIES += jpeg
 endif
 
-ifneq ($(BR2_PACKAGE_TIFF_OLD_JPEG),y)
+ifneq ($(LINGMO_PACKAGE_TIFF_OLD_JPEG),y)
 TIFF_CONF_OPTS += --disable-old-jpeg
 endif
 
-ifeq ($(BR2_PACKAGE_TIFF_UTILITIES),y)
+ifeq ($(LINGMO_PACKAGE_TIFF_UTILITIES),y)
 TIFF_CONF_OPTS += --enable-tools
 else
 TIFF_CONF_OPTS += --disable-tools
 endif
 
-ifeq ($(BR2_PACKAGE_TIFF_ZSTD),y)
+ifeq ($(LINGMO_PACKAGE_TIFF_ZSTD),y)
 TIFF_CONF_OPTS += --enable-zstd
 TIFF_DEPENDENCIES += zstd
 else

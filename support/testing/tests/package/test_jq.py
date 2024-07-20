@@ -9,10 +9,10 @@ class TestJq(infra.basetest.BRTest):
         infra.filepath("tests/package/test_jq/rootfs-overlay")
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         f"""
-        BR2_PACKAGE_JQ=y
-        BR2_ROOTFS_OVERLAY="{rootfs_overlay}"
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_JQ=y
+        LINGMO_ROOTFS_OVERLAY="{rootfs_overlay}"
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):

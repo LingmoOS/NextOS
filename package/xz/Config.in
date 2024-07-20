@@ -1,4 +1,4 @@
-config BR2_PACKAGE_XZ
+config LINGMO_PACKAGE_XZ
 	bool "xz-utils"
 	help
 	  XZ is the successor to the Lempel-Ziv/Markov-chain Algorithm

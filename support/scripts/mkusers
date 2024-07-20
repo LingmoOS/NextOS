@@ -49,16 +49,16 @@ GROUP="${TARGET_DIR}/etc/group"
 # with /etc/group, so any use of gshadow must be conditional.
 GSHADOW="${TARGET_DIR}/etc/gshadow"
 
-# We can't simply source ${BR2_CONFIG} as it may contains constructs
+# We can't simply source ${LINGMO_CONFIG} as it may contains constructs
 # such as:
-#    BR2_DEFCONFIG="$(CONFIG_DIR)/defconfig"
+#    LINGMO_DEFCONFIG="$(CONFIG_DIR)/defconfig"
 # which when sourced from a shell script will eventually try to execute
 # a command named 'CONFIG_DIR', which is plain wrong for virtually every
 # systems out there.
 # So, we have to scan that file instead. Sigh... :-(
-PASSWD_METHOD="$( sed -r -e '/^BR2_TARGET_GENERIC_PASSWD_METHOD="(.*)"$/!d;'    \
+PASSWD_METHOD="$( sed -r -e '/^LINGMO_TARGET_GENERIC_PASSWD_METHOD="(.*)"$/!d;'    \
                          -e 's//\1/;'                                           \
-                         "${BR2_CONFIG}"                                        \
+                         "${LINGMO_CONFIG}"                                        \
                 )"
 
 #----------------------------------------------------------------------------

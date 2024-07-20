@@ -20,7 +20,7 @@ LIBUPNP_CONF_OPTS += \
 	--disable-samples \
 	--enable-reuseaddr
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 LIBUPNP_CONF_OPTS += --enable-open-ssl
 LIBUPNP_DEPENDENCIES += openssl
 else

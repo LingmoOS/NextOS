@@ -24,7 +24,7 @@ PHP_LUA_CONF_OPTS = \
 #      LUA_LIB_NAME=lib$LUA_LIB_SUFFIX
 # luajit library name is libluajit-x.y with x.y the api version.
 # In order to use luajit, we use jit-x.y as "lua-version".
-ifeq ($(BR2_PACKAGE_LUAJIT),y)
+ifeq ($(LINGMO_PACKAGE_LUAJIT),y)
 PHP_LUA_CONF_OPTS += --with-lua-version=jit-$(LUAINTERPRETER_ABIVER)
 endif
 

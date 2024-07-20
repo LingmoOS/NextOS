@@ -1,11 +1,11 @@
-config BR2_PACKAGE_DBUS_BROKER
+config LINGMO_PACKAGE_DBUS_BROKER
 	bool "dbus-broker"
-	depends on BR2_USE_MMU
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_TOOLCHAIN_HEADERS_AT_LEAST_4_17
-	depends on BR2_PACKAGE_SYSTEMD
-	select BR2_PACKAGE_EXPAT
-	select BR2_PACKAGE_LIBCAP_NG if BR2_PACKAGE_AUDIT
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_4_17
+	depends on LINGMO_PACKAGE_SYSTEMD
+	select LINGMO_PACKAGE_EXPAT
+	select LINGMO_PACKAGE_LIBCAP_NG if LINGMO_PACKAGE_AUDIT
 	help
 	  Linux D-Bus Message Broker.
 
@@ -20,5 +20,5 @@ config BR2_PACKAGE_DBUS_BROKER
 	  https://github.com/bus1/dbus-broker/wiki
 
 comment "dbusbroker needs systemd and a toolchain w/ threads"
-	depends on BR2_USE_MMU
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || !BR2_PACKAGE_SYSTEMD
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || !LINGMO_PACKAGE_SYSTEMD

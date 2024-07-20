@@ -6,12 +6,12 @@ import infra.basetest
 class TestPhpLuaLua(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_PACKAGE_LUA=y
-        BR2_PACKAGE_PHP=y
-        BR2_PACKAGE_PHP_SAPI_CLI=y
-        BR2_PACKAGE_PHP_LUA=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_LUA=y
+        LINGMO_PACKAGE_PHP=y
+        LINGMO_PACKAGE_PHP_SAPI_CLI=y
+        LINGMO_PACKAGE_PHP_LUA=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):
@@ -36,12 +36,12 @@ class TestPhpLuaLua(infra.basetest.BRTest):
 class TestPhpLuaLuajit(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_PACKAGE_LUAJIT=y
-        BR2_PACKAGE_PHP=y
-        BR2_PACKAGE_PHP_SAPI_CLI=y
-        BR2_PACKAGE_PHP_LUA=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_LUAJIT=y
+        LINGMO_PACKAGE_PHP=y
+        LINGMO_PACKAGE_PHP_SAPI_CLI=y
+        LINGMO_PACKAGE_PHP_LUA=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):

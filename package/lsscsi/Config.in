@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LSSCSI
+config LINGMO_PACKAGE_LSSCSI
 	bool "lsscsi"
 	help
 	  lsscsi - list SCSI devices (or hosts) and their attributes

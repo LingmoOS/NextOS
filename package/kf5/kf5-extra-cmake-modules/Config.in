@@ -1,4 +1,4 @@
-config BR2_PACKAGE_KF5_EXTRA_CMAKE_MODULES
+config LINGMO_PACKAGE_KF5_EXTRA_CMAKE_MODULES
 	bool "kf5-extra-cmake-modules"
 	help
 	  KF5 is a set of Qt framework addons, extending Qt in various

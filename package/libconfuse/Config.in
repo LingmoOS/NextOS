@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBCONFUSE
+config LINGMO_PACKAGE_LIBCONFUSE
 	bool "libconfuse"
 	help
 	  LibConfuse is a configuration file parser library written in

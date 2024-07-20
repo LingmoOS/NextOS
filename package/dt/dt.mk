@@ -21,7 +21,7 @@ DT_CFLAGS = \
 	-DSCSI
 
 # uClibc doesn't provide POSIX AIO
-ifeq ($(BR2_TOOLCHAIN_USES_UCLIBC),)
+ifeq ($(LINGMO_TOOLCHAIN_USES_UCLIBC),)
 DT_CFLAGS += -DAIO
 endif
 

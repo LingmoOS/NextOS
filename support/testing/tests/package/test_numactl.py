@@ -12,21 +12,21 @@ class TestNumaCtl(infra.basetest.BRTest):
         infra.filepath("tests/package/test_numactl/linux-numactl.fragment")
     config = \
         f"""
-        BR2_x86_64=y
-        BR2_x86_corei7=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_LINUX_KERNEL=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE="6.1.75"
-        BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
-        BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/qemu/x86_64/linux.config"
-        BR2_LINUX_KERNEL_CONFIG_FRAGMENT_FILES="{kernel_fragment}"
-        BR2_LINUX_KERNEL_NEEDS_HOST_OPENSSL=y
-        BR2_LINUX_KERNEL_NEEDS_HOST_LIBELF=y
-        BR2_PACKAGE_NUMACTL=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        BR2_TARGET_ROOTFS_CPIO_GZIP=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_corei7=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_LINUX_KERNEL=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION_VALUE="6.1.75"
+        LINGMO_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
+        LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/qemu/x86_64/linux.config"
+        LINGMO_LINUX_KERNEL_CONFIG_FRAGMENT_FILES="{kernel_fragment}"
+        LINGMO_LINUX_KERNEL_NEEDS_HOST_OPENSSL=y
+        LINGMO_LINUX_KERNEL_NEEDS_HOST_LIBELF=y
+        LINGMO_PACKAGE_NUMACTL=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        LINGMO_TARGET_ROOTFS_CPIO_GZIP=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def check_numactl_preferred(self):

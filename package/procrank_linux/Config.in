@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PROCRANK_LINUX
+config LINGMO_PACKAGE_PROCRANK_LINUX
 	bool "procrank_linux"
 	help
 	  procrank is a tool commonly used by Android platform

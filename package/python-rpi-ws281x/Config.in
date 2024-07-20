@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_RPI_WS281X
+config LINGMO_PACKAGE_PYTHON_RPI_WS281X
 	bool "python-rpi-ws281x"
 	help
 	  Userspace Raspberry Pi PWM/PCM/SPI library for SK6812 and

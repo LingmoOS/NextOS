@@ -10,21 +10,21 @@ KVM_UNIT_TESTS_SITE = https://gitlab.com/kvm-unit-tests/kvm-unit-tests/-/archive
 KVM_UNIT_TESTS_LICENSE = GPL-2.0, LGPL-2.0
 KVM_UNIT_TESTS_LICENSE_FILES = COPYRIGHT LICENSE
 
-ifeq ($(BR2_aarch64)$(BR2_aarch64_be),y)
+ifeq ($(LINGMO_aarch64)$(LINGMO_aarch64_be),y)
 KVM_UNIT_TESTS_ARCH = aarch64
-else ifeq ($(BR2_arm),y)
+else ifeq ($(LINGMO_arm),y)
 KVM_UNIT_TESTS_ARCH = arm
-else ifeq ($(BR2_i386),y)
+else ifeq ($(LINGMO_i386),y)
 KVM_UNIT_TESTS_ARCH = i386
-else ifeq ($(BR2_powerpc64)$(BR2_powerpc64le),y)
+else ifeq ($(LINGMO_powerpc64)$(LINGMO_powerpc64le),y)
 KVM_UNIT_TESTS_ARCH = ppc64
-else ifeq ($(BR2_s390x),y)
+else ifeq ($(LINGMO_s390x),y)
 KVM_UNIT_TESTS_ARCH = s390x
-else ifeq ($(BR2_x86_64),y)
+else ifeq ($(LINGMO_x86_64),y)
 KVM_UNIT_TESTS_ARCH = x86_64
 endif
 
-ifeq ($(BR2_ENDIAN),"LITTLE")
+ifeq ($(LINGMO_ENDIAN),"LITTLE")
 KVM_UNIT_TESTS_ENDIAN = little
 else
 KVM_UNIT_TESTS_ENDIAN = big
@@ -40,7 +40,7 @@ KVM_UNIT_TESTS_CONF_OPTS =\
 # compiler. However, for x86-64, we use the host compiler, as
 # kvm-unit-tests builds 32 bit code, which Buildroot toolchains for
 # x86-64 cannot do.
-ifeq ($(BR2_x86_64),)
+ifeq ($(LINGMO_x86_64),)
 KVM_UNIT_TESTS_CONF_OPTS += --cross-prefix="$(TARGET_CROSS)"
 endif
 

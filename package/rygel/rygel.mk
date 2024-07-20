@@ -31,7 +31,7 @@ RYGEL_CONF_OPTS += \
 	-Dtests=false
 RYGEL_PLUGINS = external,lms,mpris,ruih
 
-ifeq ($(BR2_PACKAGE_RYGEL_MEDIA_ENGINE_GSTREAMER1),y)
+ifeq ($(LINGMO_PACKAGE_RYGEL_MEDIA_ENGINE_GSTREAMER1),y)
 RYGEL_CONF_OPTS += \
 	-Dengines=gstreamer \
 	-Dgstreamer=enabled
@@ -40,13 +40,13 @@ RYGEL_DEPENDENCIES += \
 	gst1-plugins-base \
 	gstreamer1 \
 	gstreamer1-editing-services
-else ifeq ($(BR2_PACKAGE_RYGEL_MEDIA_ENGINE_SIMPLE),y)
+else ifeq ($(LINGMO_PACKAGE_RYGEL_MEDIA_ENGINE_SIMPLE),y)
 RYGEL_CONF_OPTS += \
 	-Dengines=simple \
 	-Dgstreamer=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGTK3_X11),y)
+ifeq ($(LINGMO_PACKAGE_LIBGTK3_X11),y)
 RYGEL_CONF_OPTS += -Dgtk=enabled
 RYGEL_DEPENDENCIES += libgtk3
 else

@@ -1,6 +1,6 @@
-config BR2_PACKAGE_GFLAGS
+config LINGMO_PACKAGE_GFLAGS
 	bool "gflags"
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	help
 	  The gflags package contains a C++ library that implements
 	  commandline flags processing. It includes built-in support for
@@ -10,4 +10,4 @@ config BR2_PACKAGE_GFLAGS
 	  https://github.com/gflags/gflags
 
 comment "gflags needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP

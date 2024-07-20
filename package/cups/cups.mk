@@ -33,46 +33,46 @@ CUPS_CONFIG_SCRIPTS = cups-config
 CUPS_DEPENDENCIES = \
 	host-autoconf \
 	host-pkgconf \
-	$(if $(BR2_PACKAGE_ZLIB),zlib)
+	$(if $(LINGMO_PACKAGE_ZLIB),zlib)
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 CUPS_CONF_OPTS += --with-systemd=/usr/lib/systemd/system \
 	--with-ondemand=systemd
 CUPS_DEPENDENCIES += systemd
 endif
 
-ifeq ($(BR2_PACKAGE_DBUS),y)
+ifeq ($(LINGMO_PACKAGE_DBUS),y)
 CUPS_CONF_OPTS += --enable-dbus
 CUPS_DEPENDENCIES += dbus
 else
 CUPS_CONF_OPTS += --disable-dbus
 endif
 
-ifeq ($(BR2_PACKAGE_GNUTLS),y)
+ifeq ($(LINGMO_PACKAGE_GNUTLS),y)
 CUPS_CONF_OPTS += --with-tls=gnutls
 CUPS_DEPENDENCIES += gnutls
-else ifeq ($(BR2_PACKAGE_OPENSSL),y)
+else ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 CUPS_CONF_OPTS += --with-tls=openssl
 CUPS_DEPENDENCIES += openssl
 else
 CUPS_CONF_OPTS += --with-tls=no
 endif
 
-ifeq ($(BR2_PACKAGE_LIBUSB),y)
+ifeq ($(LINGMO_PACKAGE_LIBUSB),y)
 CUPS_CONF_OPTS += --enable-libusb
 CUPS_DEPENDENCIES += libusb
 else
 CUPS_CONF_OPTS += --disable-libusb
 endif
 
-ifeq ($(BR2_PACKAGE_AVAHI_LIBAVAHI_CLIENT),y)
+ifeq ($(LINGMO_PACKAGE_AVAHI_LIBAVAHI_CLIENT),y)
 CUPS_DEPENDENCIES += avahi
 CUPS_CONF_OPTS += --with-dnssd=avahi
 else
 CUPS_CONF_OPTS += --with-dnssd=no
 endif
 
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 define CUPS_INSTALL_UDEV_RULES
 	$(INSTALL) -D -m 0644 package/cups/70-usb-printers.rules \
 		$(TARGET_DIR)/lib/udev/rules.d/70-usb-printers.rules

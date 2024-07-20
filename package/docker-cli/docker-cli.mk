@@ -23,7 +23,7 @@ DOCKER_CLI_LDFLAGS = \
 	-X $(DOCKER_CLI_GOMOD)/cli/version.GitCommit=$(DOCKER_CLI_VERSION) \
 	-X $(DOCKER_CLI_GOMOD)/cli/version.Version=$(DOCKER_CLI_VERSION)
 
-ifeq ($(BR2_PACKAGE_DOCKER_CLI_STATIC),y)
+ifeq ($(LINGMO_PACKAGE_DOCKER_CLI_STATIC),y)
 DOCKER_CLI_LDFLAGS += -extldflags '-static'
 DOCKER_CLI_TAGS += osusergo netgo
 DOCKER_CLI_GO_ENV = CGO_ENABLED=no

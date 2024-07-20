@@ -14,7 +14,7 @@ MATCHBOX_PANEL_DEPENDENCIES = matchbox-lib $(TARGET_NLS_DEPENDENCIES)
 MATCHBOX_PANEL_CONF_ENV = LIBS=$(TARGET_NLS_LIBS)
 MATCHBOX_PANEL_CONF_OPTS = --enable-expat --enable-dnotify
 
-ifeq ($(BR2_PACKAGE_MATCHBOX_STARTUP_MONITOR),y)
+ifeq ($(LINGMO_PACKAGE_MATCHBOX_STARTUP_MONITOR),y)
 MATCHBOX_PANEL_CONF_OPTS += --enable-startup-notification
 MATCHBOX_PANEL_DEPENDENCIES += matchbox-startup-monitor
 else
@@ -22,13 +22,13 @@ MATCHBOX_PANEL_CONF_OPTS += --disable-startup-notification
 endif
 
 # Using ACPI is only possible on x86 (32- or 64-bit) or AArch64
-ifeq ($(BR2_aarch64)$(BR2_i386)$(BR2_x86_64),y)
+ifeq ($(LINGMO_aarch64)$(LINGMO_i386)$(LINGMO_x86_64),y)
 MATCHBOX_PANEL_CONF_OPTS += --enable-acpi-linux
 else
 MATCHBOX_PANEL_CONF_OPTS += --disable-acpi-linux
 endif
 
-ifeq ($(BR2_PACKAGE_WIRELESS_TOOLS_LIB),y)
+ifeq ($(LINGMO_PACKAGE_WIRELESS_TOOLS_LIB),y)
 MATCHBOX_PANEL_DEPENDENCIES += wireless_tools
 endif
 

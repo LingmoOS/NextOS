@@ -5,7 +5,7 @@ class TestLzop(TestCompressorBase):
     __test__ = True
     config = TestCompressorBase.config + \
         """
-        BR2_PACKAGE_LZOP=y
+        LINGMO_PACKAGE_LZOP=y
         """
     compress_cmd = "lzop"
     decompress_cmd = "lzop -d"

@@ -6,7 +6,7 @@ set -e
 # can however use indexed arrays, supported since at least bash-3.0.
 
 # The names of the br2-external trees, once validated.
-declare -a BR2_EXT_NAMES
+declare -a LINGMO_EXT_NAMES
 
 # URL to manual for help in converting old br2-external trees.
 # Escape '#' so that make does not consider it a comment.
@@ -40,8 +40,8 @@ main() {
 }
 
 # Validates the br2-external trees passed as arguments. Makes each of
-# them canonical and store them in the global arrays BR2_EXT_NAMES
-# and BR2_EXT_PATHS.
+# them canonical and store them in the global arrays LINGMO_EXT_NAMES
+# and LINGMO_EXT_PATHS.
 #
 # Note: since this script is always first called from Makefile context
 # to generate the Makefile fragment before it is called to generate the
@@ -89,7 +89,7 @@ do_validate_one() {
         error "'%s': name '%s' contains invalid chars: '%s'\n" \
             "${br2_ext}" "${br2_name//\$/\$\$}" "${n//\$/\$\$}"
     fi
-    eval d="\"\${BR2_EXT_PATHS_${br2_name}}\""
+    eval d="\"\${LINGMO_EXT_PATHS_${br2_name}}\""
     if [ -n "${d}" ]; then
         error "'%s': name '%s' is already used in '%s'\n" \
             "${br2_ext}" "${br2_name}" "${d}"
@@ -105,10 +105,10 @@ do_validate_one() {
     # Register this br2-external tree, use an absolute canonical path
     br2_ext="$( cd "${br2_ext}"; pwd )"
     br2_ver="$( support/scripts/setlocalversion "${br2_ext}" )"
-    BR2_EXT_NAMES+=( "${br2_name}" )
-    eval BR2_EXT_PATHS_${br2_name}="\"\${br2_ext}\""
-    eval BR2_EXT_VERS_${br2_name}="\"\${br2_ver}\""
-    eval BR2_EXT_DESCS_${br2_name}="\"\${br2_desc:-\${br2_name}}\""
+    LINGMO_EXT_NAMES+=( "${br2_name}" )
+    eval LINGMO_EXT_PATHS_${br2_name}="\"\${br2_ext}\""
+    eval LINGMO_EXT_VERS_${br2_name}="\"\${br2_ver}\""
+    eval LINGMO_EXT_DESCS_${br2_name}="\"\${br2_desc:-\${br2_name}}\""
 }
 
 # Generate the .mk snippet that defines makefile variables
@@ -121,34 +121,34 @@ do_mk() {
         printf '#\n# Automatically generated file; DO NOT EDIT.\n#\n'
         printf '\n'
 
-        printf 'BR2_EXTERNAL ?='
-        for br2_name in "${BR2_EXT_NAMES[@]}"; do
-            eval br2_ext="\"\${BR2_EXT_PATHS_${br2_name}}\""
+        printf 'LINGMO_EXTERNAL ?='
+        for br2_name in "${LINGMO_EXT_NAMES[@]}"; do
+            eval br2_ext="\"\${LINGMO_EXT_PATHS_${br2_name}}\""
             printf ' %s' "${br2_ext}"
         done
         printf '\n'
 
-        printf 'export BR2_EXTERNAL_NAMES = \n'
-        printf 'BR2_EXTERNAL_DIRS = \n'
-        printf 'BR2_EXTERNAL_MKS = \n'
+        printf 'export LINGMO_EXTERNAL_NAMES = \n'
+        printf 'LINGMO_EXTERNAL_DIRS = \n'
+        printf 'LINGMO_EXTERNAL_MKS = \n'
 
-        if [ ${#BR2_EXT_NAMES[@]} -eq 0 ]; then
+        if [ ${#LINGMO_EXT_NAMES[@]} -eq 0 ]; then
             printf '\n'
             printf '# No br2-external tree defined.\n'
             return
         fi
 
-        for br2_name in "${BR2_EXT_NAMES[@]}"; do
-            eval br2_desc="\"\${BR2_EXT_DESCS_${br2_name}}\""
-            eval br2_ext="\"\${BR2_EXT_PATHS_${br2_name}}\""
-            eval br2_ver="\"\${BR2_EXT_VERS_${br2_name}}\""
+        for br2_name in "${LINGMO_EXT_NAMES[@]}"; do
+            eval br2_desc="\"\${LINGMO_EXT_DESCS_${br2_name}}\""
+            eval br2_ext="\"\${LINGMO_EXT_PATHS_${br2_name}}\""
+            eval br2_ver="\"\${LINGMO_EXT_VERS_${br2_name}}\""
             printf '\n'
-            printf 'BR2_EXTERNAL_NAMES += %s\n' "${br2_name}"
-            printf 'BR2_EXTERNAL_DIRS += %s\n' "${br2_ext}"
-            printf 'BR2_EXTERNAL_MKS += %s/external.mk\n' "${br2_ext}"
-            printf 'export BR2_EXTERNAL_%s_PATH = %s\n' "${br2_name}" "${br2_ext}"
-            printf 'export BR2_EXTERNAL_%s_DESC = %s\n' "${br2_name}" "${br2_desc}"
-            printf 'export BR2_EXTERNAL_%s_VERSION = %s\n' "${br2_name}" "${br2_ver}"
+            printf 'LINGMO_EXTERNAL_NAMES += %s\n' "${br2_name}"
+            printf 'LINGMO_EXTERNAL_DIRS += %s\n' "${br2_ext}"
+            printf 'LINGMO_EXTERNAL_MKS += %s/external.mk\n' "${br2_ext}"
+            printf 'export LINGMO_EXTERNAL_%s_PATH = %s\n' "${br2_name}" "${br2_ext}"
+            printf 'export LINGMO_EXTERNAL_%s_DESC = %s\n' "${br2_name}" "${br2_desc}"
+            printf 'export LINGMO_EXTERNAL_%s_VERSION = %s\n' "${br2_name}" "${br2_ver}"
         done
     } >"${outputdir}/.br2-external.mk"
 }
@@ -174,47 +174,47 @@ do_kconfig() {
         {
             printf '#\n# Automatically generated file; DO NOT EDIT.\n#\n'
             printf '\n'
-            if [ ${#BR2_EXT_NAMES[@]} -eq 0 ]; then
+            if [ ${#LINGMO_EXT_NAMES[@]} -eq 0 ]; then
                 printf '# No br2-external tree defined.\n'
             fi
         } >"${outputdir}/.br2-external.in.${br2}"
     done
-    if [ ${#BR2_EXT_NAMES[@]} -eq 0 ]; then
+    if [ ${#LINGMO_EXT_NAMES[@]} -eq 0 ]; then
         return
     fi
 
     printf 'menu "External options"\n\n' >>"${outputdir}/.br2-external.in.menus"
 
     {
-        printf 'config BR2_EXTERNAL_NAMES\n'
+        printf 'config LINGMO_EXTERNAL_NAMES\n'
         printf '\tstring\n'
         # Use star-expansion: we really one a single arg.
-        printf '\tdefault "%s"\n' "${BR2_EXT_NAMES[*]}"
+        printf '\tdefault "%s"\n' "${LINGMO_EXT_NAMES[*]}"
         printf '\n'
     } >>"${outputdir}/.br2-external.in.paths"
 
-    for br2_name in "${BR2_EXT_NAMES[@]}"; do
-        eval br2_desc="\"\${BR2_EXT_DESCS_${br2_name}}\""
-        eval br2_ext="\"\${BR2_EXT_PATHS_${br2_name}}\""
-        eval br2_ver="\"\${BR2_EXT_VERS_${br2_name}}\""
+    for br2_name in "${LINGMO_EXT_NAMES[@]}"; do
+        eval br2_desc="\"\${LINGMO_EXT_DESCS_${br2_name}}\""
+        eval br2_ext="\"\${LINGMO_EXT_PATHS_${br2_name}}\""
+        eval br2_ver="\"\${LINGMO_EXT_VERS_${br2_name}}\""
 
         {
-            printf 'config BR2_EXTERNAL_%s_PATH\n' "${br2_name}"
+            printf 'config LINGMO_EXTERNAL_%s_PATH\n' "${br2_name}"
             printf '\tstring\n'
             printf '\tdefault "%s"\n' "${br2_ext}"
-            printf 'config BR2_EXTERNAL_%s_VERSION\n' "${br2_name}"
+            printf 'config LINGMO_EXTERNAL_%s_VERSION\n' "${br2_name}"
             printf '\tstring\n'
             printf '\tdefault "%s"\n' "${br2_ver}"
             printf '\n'
         } >>"${outputdir}/.br2-external.in.paths"
 
         {
-            if [ ${#BR2_EXT_NAMES[@]} -gt 1 ]; then
+            if [ ${#LINGMO_EXT_NAMES[@]} -gt 1 ]; then
                 printf 'menu "%s"\n' "${br2_desc}"
             fi
             printf 'comment "%s (in %s)"\n' "${br2_desc}" "${br2_ext}"
             printf 'source "%s/Config.in"\n' "${br2_ext}"
-            if [ ${#BR2_EXT_NAMES[@]} -gt 1 ]; then
+            if [ ${#LINGMO_EXT_NAMES[@]} -gt 1 ]; then
                 printf 'endmenu # %s\n' "${br2_name}"
             fi
             printf '\n'
@@ -272,7 +272,7 @@ do_kconfig() {
     printf 'endmenu\n' >>"${outputdir}/.br2-external.in.menus"
 }
 
-error() { local fmt="${1}"; shift; printf "BR2_EXTERNAL_ERROR = ${fmt}" "${@}"; exit 1; }
+error() { local fmt="${1}"; shift; printf "LINGMO_EXTERNAL_ERROR = ${fmt}" "${@}"; exit 1; }
 
 my_name="${0##*/}"
 main "${@}"

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_NEON_2_SSE
+config LINGMO_PACKAGE_NEON_2_SSE
 	bool "neon-2-sse"
 	help
 	  The platform independent header allowing to compile any

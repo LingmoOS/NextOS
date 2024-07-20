@@ -6,9 +6,9 @@ import infra.basetest
 class TestMender(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_PACKAGE_MENDER=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        BR2_ROOTFS_OVERLAY="{}"
+        LINGMO_PACKAGE_MENDER=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        LINGMO_ROOTFS_OVERLAY="{}"
         """.format(
            # overlay to add a fake 'fw_printenv', used by Mender
            infra.filepath("tests/package/test_mender/rootfs-overlay"))

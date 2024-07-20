@@ -9,13 +9,13 @@ CPUBURN_ARM_SITE = $(call github,ssvb,cpuburn-arm,$(CPUBURN_ARM_VERSION))
 CPUBURN_ARM_LICENSE = MIT
 CPUBURN_ARM_LICENSE_FILES = cpuburn-a7.S
 
-ifeq ($(BR2_cortex_a7),y)
+ifeq ($(LINGMO_cortex_a7),y)
 CPUBURN_ARM_SRC = cpuburn-a7.S
-else ifeq ($(BR2_cortex_a8),y)
+else ifeq ($(LINGMO_cortex_a8),y)
 CPUBURN_ARM_SRC = cpuburn-a8.S
-else ifeq ($(BR2_cortex_a9),y)
+else ifeq ($(LINGMO_cortex_a9),y)
 CPUBURN_ARM_SRC = cpuburn-a9.S
-else ifeq ($(BR2_cortex_a53),y)
+else ifeq ($(LINGMO_cortex_a53),y)
 CPUBURN_ARM_SRC = cpuburn-a53.S
 endif
 

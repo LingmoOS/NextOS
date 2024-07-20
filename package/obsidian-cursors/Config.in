@@ -1,4 +1,4 @@
-config BR2_PACKAGE_OBSIDIAN_CURSORS
+config LINGMO_PACKAGE_OBSIDIAN_CURSORS
 	bool "obsidian-cursors"
 	help
 	  Obsidian Cursors is a shiny and clean cursor set.

@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_PEXPECT
+config LINGMO_PACKAGE_PYTHON_PEXPECT
 	bool "python-pexpect"
-	select BR2_PACKAGE_PYTHON_PTYPROCESS # runtime
+	select LINGMO_PACKAGE_PYTHON_PTYPROCESS # runtime
 	help
 	  Pexpect is a pure Python module for spawning child
 	  applications; controlling them; and responding to expected

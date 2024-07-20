@@ -11,7 +11,7 @@ NVME_LICENSE_FILES = LICENSE
 
 # Yes, LIBUUID=0 means libuuid support enabled.
 # LIBUUID=1 means libuuid support disabled.
-ifeq ($(BR2_PACKAGE_UTIL_LINUX_LIBUUID),y)
+ifeq ($(LINGMO_PACKAGE_UTIL_LINUX_LIBUUID),y)
 NVME_DEPENDENCIES += util-linux
 NVME_MAKE_OPTS += LIBUUID=0
 else
@@ -20,7 +20,7 @@ endif
 
 # Yes, HAVE_SYSTEMD=0 means systemd support enabled.
 # HAVE_SYSTEMD=1 means systemd support disabled.
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 NVME_DEPENDENCIES += systemd
 NVME_MAKE_OPTS += HAVE_SYSTEMD=0
 else

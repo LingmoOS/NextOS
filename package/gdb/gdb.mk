@@ -4,8 +4,8 @@
 #
 ################################################################################
 
-GDB_VERSION = $(call qstrip,$(BR2_GDB_VERSION))
-GDB_SITE = $(BR2_GNU_MIRROR)/gdb
+GDB_VERSION = $(call qstrip,$(LINGMO_GDB_VERSION))
+GDB_SITE = $(LINGMO_GNU_MIRROR)/gdb
 GDB_SOURCE = gdb-$(GDB_VERSION).tar.xz
 
 ifeq ($(GDB_VERSION),arc-2023.09-release)
@@ -134,14 +134,14 @@ GDB_CONF_OPTS = \
 	--disable-shared \
 	--disable-source-highlight
 
-ifeq ($(BR2_PACKAGE_GDB_DEBUGGER),y)
+ifeq ($(LINGMO_PACKAGE_GDB_DEBUGGER),y)
 GDB_DEPENDENCIES += zlib
 GDB_CONF_OPTS += \
 	--enable-gdb \
 	--with-curses \
 	--with-system-zlib
 GDB_DEPENDENCIES += ncurses \
-	$(if $(BR2_PACKAGE_LIBICONV),libiconv)
+	$(if $(LINGMO_PACKAGE_LIBICONV),libiconv)
 else
 # When only building gdbserver, we don't need zlib. But we have no way to
 # tell the top-level configure that we don't need zlib: it either wants to
@@ -156,7 +156,7 @@ endif
 
 # Starting from GDB 11.x, gmp is needed as a dependency to build full
 # gdb.
-ifeq ($(BR2_PACKAGE_GDB_DEBUGGER),y)
+ifeq ($(LINGMO_PACKAGE_GDB_DEBUGGER),y)
 GDB_CONF_OPTS += \
 	--with-libgmp-prefix=$(STAGING_DIR)/usr
 GDB_DEPENDENCIES += gmp
@@ -166,14 +166,14 @@ endif
 # gdb.
 # GDB fork from ARC GNU tools 2023.09 is based on GDB14 branch and so
 # requires MPFR as well.
-ifeq ($(BR2_GDB_VERSION_14)$(BR2_arc):$(BR2_PACKAGE_GDB_DEBUGGER),y:y)
+ifeq ($(LINGMO_GDB_VERSION_14)$(LINGMO_arc):$(LINGMO_PACKAGE_GDB_DEBUGGER),y:y)
 GDB_DEPENDENCIES += mpfr
 GDB_CONF_OPTS += --with-mpfr=$(STAGING_DIR)
 else
 GDB_CONF_OPTS += --without-mpfr
 endif
 
-ifeq ($(BR2_PACKAGE_GDB_SERVER),y)
+ifeq ($(LINGMO_PACKAGE_GDB_SERVER),y)
 GDB_CONF_OPTS += --enable-gdbserver
 GDB_DEPENDENCIES += $(TARGET_NLS_DEPENDENCIES)
 else
@@ -182,22 +182,22 @@ endif
 
 # gdb 7.12+ by default builds with a C++ compiler, which doesn't work
 # when we don't have C++ support in the toolchain
-ifneq ($(BR2_INSTALL_LIBSTDCPP),y)
+ifneq ($(LINGMO_INSTALL_LIBSTDCPP),y)
 GDB_CONF_OPTS += --disable-build-with-cxx
 endif
 
 # inprocess-agent can't be built statically
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 GDB_CONF_OPTS += --disable-inprocess-agent
 endif
 
-ifeq ($(BR2_PACKAGE_GDB_TUI),y)
+ifeq ($(LINGMO_PACKAGE_GDB_TUI),y)
 GDB_CONF_OPTS += --enable-tui
 else
 GDB_CONF_OPTS += --disable-tui
 endif
 
-ifeq ($(BR2_PACKAGE_GDB_PYTHON),y)
+ifeq ($(LINGMO_PACKAGE_GDB_PYTHON),y)
 # CONF_ENV: for top-level configure; MAKE_ENV: for sub-projects' configure.
 GDB_CONF_ENV += BR_PYTHON_VERSION=$(PYTHON3_VERSION_MAJOR)
 GDB_MAKE_ENV += BR_PYTHON_VERSION=$(PYTHON3_VERSION_MAJOR)
@@ -207,7 +207,7 @@ else
 GDB_CONF_OPTS += --without-python
 endif
 
-ifeq ($(BR2_PACKAGE_EXPAT),y)
+ifeq ($(LINGMO_PACKAGE_EXPAT),y)
 GDB_CONF_OPTS += --with-expat
 GDB_CONF_OPTS += --with-libexpat-prefix=$(STAGING_DIR)/usr
 GDB_DEPENDENCIES += expat
@@ -215,7 +215,7 @@ else
 GDB_CONF_OPTS += --without-expat
 endif
 
-ifeq ($(BR2_PACKAGE_XZ),y)
+ifeq ($(LINGMO_PACKAGE_XZ),y)
 GDB_CONF_OPTS += --with-lzma
 GDB_CONF_OPTS += --with-liblzma-prefix=$(STAGING_DIR)/usr
 GDB_DEPENDENCIES += xz
@@ -223,7 +223,7 @@ else
 GDB_CONF_OPTS += --without-lzma
 endif
 
-ifeq ($(BR2_PACKAGE_GDB_PYTHON),)
+ifeq ($(LINGMO_PACKAGE_GDB_PYTHON),)
 # This removes some unneeded Python scripts and XML target description
 # files that are not useful for a normal usage of the debugger.
 define GDB_REMOVE_UNNEEDED_FILES
@@ -243,7 +243,7 @@ define GDB_SDK_INSTALL_GDBSERVER
 		$(HOST_DIR)/$(GNU_TARGET_NAME)/debug-root/usr/bin/gdbserver
 endef
 
-ifeq ($(BR2_PACKAGE_GDB_SERVER),y)
+ifeq ($(LINGMO_PACKAGE_GDB_SERVER),y)
 GDB_POST_INSTALL_TARGET_HOOKS += GDB_SDK_INSTALL_GDBSERVER
 endif
 
@@ -272,27 +272,27 @@ HOST_GDB_CONF_OPTS = \
 # GDB newer than 14.x need host-mpfr
 # GDB fork from ARC GNU tools 2023.09 is based on GDB14 branch and so
 # requires MPFR as well.
-ifeq ($(BR2_GDB_VERSION_14)$(BR2_arc),y)
+ifeq ($(LINGMO_GDB_VERSION_14)$(LINGMO_arc),y)
 HOST_GDB_DEPENDENCIES += host-mpfr
 HOST_GDB_CONF_OPTS += --with-mpfr=$(HOST_DIR)
 else
 HOST_GDB_CONF_OPTS += --without-mpfr
 endif
 
-ifeq ($(BR2_PACKAGE_HOST_GDB_TUI),y)
+ifeq ($(LINGMO_PACKAGE_HOST_GDB_TUI),y)
 HOST_GDB_CONF_OPTS += --enable-tui
 else
 HOST_GDB_CONF_OPTS += --disable-tui
 endif
 
-ifeq ($(BR2_PACKAGE_HOST_GDB_PYTHON3),y)
+ifeq ($(LINGMO_PACKAGE_HOST_GDB_PYTHON3),y)
 HOST_GDB_CONF_OPTS += --with-python=$(HOST_DIR)/bin/python3
 HOST_GDB_DEPENDENCIES += host-python3
 else
 HOST_GDB_CONF_OPTS += --without-python
 endif
 
-ifeq ($(BR2_PACKAGE_HOST_GDB_SIM),y)
+ifeq ($(LINGMO_PACKAGE_HOST_GDB_SIM),y)
 HOST_GDB_CONF_OPTS += --enable-sim
 else
 HOST_GDB_CONF_OPTS += --disable-sim

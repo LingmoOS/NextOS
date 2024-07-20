@@ -7,19 +7,19 @@ import infra.basetest
 class TestHardeningBase(infra.basetest.BRTest):
     config = \
         """
-        BR2_powerpc64=y
-        BR2_powerpc_e5500=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_CUSTOM=y
-        BR2_TOOLCHAIN_EXTERNAL_DOWNLOAD=y
-        BR2_TOOLCHAIN_EXTERNAL_URL="https://toolchains.bootlin.com/downloads/releases/toolchains/powerpc64-e5500/tarballs/powerpc64-e5500--glibc--stable-2018.02-2.tar.bz2"
-        BR2_TOOLCHAIN_EXTERNAL_GCC_6=y
-        BR2_TOOLCHAIN_EXTERNAL_HEADERS_4_1=y
-        BR2_TOOLCHAIN_EXTERNAL_CUSTOM_GLIBC=y
-        BR2_TOOLCHAIN_EXTERNAL_CXX=y
-        BR2_PACKAGE_LIGHTTPD=y
-        BR2_PACKAGE_HOST_CHECKSEC=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc64=y
+        LINGMO_powerpc_e5500=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_CUSTOM=y
+        LINGMO_TOOLCHAIN_EXTERNAL_DOWNLOAD=y
+        LINGMO_TOOLCHAIN_EXTERNAL_URL="https://toolchains.bootlin.com/downloads/releases/toolchains/powerpc64-e5500/tarballs/powerpc64-e5500--glibc--stable-2018.02-2.tar.bz2"
+        LINGMO_TOOLCHAIN_EXTERNAL_GCC_6=y
+        LINGMO_TOOLCHAIN_EXTERNAL_HEADERS_4_1=y
+        LINGMO_TOOLCHAIN_EXTERNAL_CUSTOM_GLIBC=y
+        LINGMO_TOOLCHAIN_EXTERNAL_CXX=y
+        LINGMO_PACKAGE_LIGHTTPD=y
+        LINGMO_PACKAGE_HOST_CHECKSEC=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     checksec_files = ["usr/sbin/lighttpd", "bin/busybox"]
@@ -37,7 +37,7 @@ class TestHardeningBase(infra.basetest.BRTest):
 class TestRelro(TestHardeningBase):
     config = TestHardeningBase.config + \
         """
-        BR2_RELRO_FULL=y
+        LINGMO_RELRO_FULL=y
         """
 
     def test_run(self):
@@ -51,8 +51,8 @@ class TestRelro(TestHardeningBase):
 class TestRelroPartial(TestHardeningBase):
     config = TestHardeningBase.config + \
         """
-        BR2_RELRO_PARTIAL=y
-        # BR2_PIC_PIE is not set
+        LINGMO_RELRO_PARTIAL=y
+        # LINGMO_PIC_PIE is not set
         """
 
     def test_run(self):
@@ -66,7 +66,7 @@ class TestRelroPartial(TestHardeningBase):
 class TestSspNone(TestHardeningBase):
     config = TestHardeningBase.config + \
         """
-        BR2_SSP_NONE=y
+        LINGMO_SSP_NONE=y
         """
 
     def test_run(self):
@@ -79,7 +79,7 @@ class TestSspNone(TestHardeningBase):
 class TestSspStrong(TestHardeningBase):
     config = TestHardeningBase.config + \
         """
-        BR2_SSP_STRONG=y
+        LINGMO_SSP_STRONG=y
         """
 
     def test_run(self):
@@ -92,7 +92,7 @@ class TestSspStrong(TestHardeningBase):
 class TestFortifyNone(TestHardeningBase):
     config = TestHardeningBase.config + \
         """
-        BR2_FORTIFY_SOURCE_NONE=y
+        LINGMO_FORTIFY_SOURCE_NONE=y
         """
 
     def test_run(self):
@@ -105,7 +105,7 @@ class TestFortifyNone(TestHardeningBase):
 class TestFortifyConserv(TestHardeningBase):
     config = TestHardeningBase.config + \
         """
-        BR2_FORTIFY_SOURCE_1=y
+        LINGMO_FORTIFY_SOURCE_1=y
         """
 
     def test_run(self):

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_EXPAT
+config LINGMO_PACKAGE_EXPAT
 	bool "expat"
 	help
 	  The Expat XML Parser.

@@ -14,19 +14,19 @@ NBD_LICENSE_FILES = COPYING
 NBD_CPE_ID_VENDOR = network_block_device_project
 NBD_CPE_ID_PRODUCT = network_block_device
 
-ifeq ($(BR2_TOOLCHAIN_USES_UCLIBC),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_UCLIBC),y)
 # We have linux/falloc.h
 # but uClibc lacks fallocate(2) which is a glibc-ism
 NBD_CONF_ENV = ac_cv_header_linux_falloc_h=no
 endif
 
-ifneq ($(BR2_PACKAGE_NBD_CLIENT),y)
+ifneq ($(LINGMO_PACKAGE_NBD_CLIENT),y)
 NBD_TOREMOVE += /usr/sbin/nbd-client
 endif
-ifneq ($(BR2_PACKAGE_NBD_SERVER),y)
+ifneq ($(LINGMO_PACKAGE_NBD_SERVER),y)
 NBD_TOREMOVE += /usr/bin/nbd-server
 endif
-ifneq ($(BR2_PACKAGE_NBD_TRDUMP),y)
+ifneq ($(LINGMO_PACKAGE_NBD_TRDUMP),y)
 NBD_TOREMOVE += /usr/bin/nbd-trdump
 endif
 

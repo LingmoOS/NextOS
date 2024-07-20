@@ -4,8 +4,8 @@ from tests.package.test_lua import TestLuaBase
 class TestLuaInotify(TestLuaBase):
     config = TestLuaBase.config + \
         """
-        BR2_PACKAGE_LUA=y
-        BR2_PACKAGE_LUA_INOTIFY=y
+        LINGMO_PACKAGE_LUA=y
+        LINGMO_PACKAGE_LUA_INOTIFY=y
         """
 
     def test_run(self):
@@ -16,8 +16,8 @@ class TestLuaInotify(TestLuaBase):
 class TestLuajitInotify(TestLuaBase):
     config = TestLuaBase.config + \
         """
-        BR2_PACKAGE_LUAJIT=y
-        BR2_PACKAGE_LUA_INOTIFY=y
+        LINGMO_PACKAGE_LUAJIT=y
+        LINGMO_PACKAGE_LUA_INOTIFY=y
         """
 
     def test_run(self):

@@ -23,10 +23,10 @@ OPENMPI_CONF_OPTS = --without-ime
 # with various values that cannot be guessed, so we provide cache
 # files for various architectures.
 
-ifeq ($(BR2_TOOLCHAIN_HAS_FORTRAN),y)
-ifeq ($(BR2_mips)$(BR2_mipsel),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_FORTRAN),y)
+ifeq ($(LINGMO_mips)$(LINGMO_mipsel),y)
 OPENMPI_FORTRAN_CONF_CACHE = package/openmpi/openmpi-mips32-fortran.cache
-else ifeq ($(BR2_mips64)$(BR2_mips64el),y)
+else ifeq ($(LINGMO_mips64)$(LINGMO_mips64el),y)
 OPENMPI_FORTRAN_CONF_CACHE = package/openmpi/openmpi-mips64-fortran.cache
 endif
 endif
@@ -46,11 +46,11 @@ endif
 
 OPENMPI_CFLAGS = $(TARGET_CFLAGS)
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_68485),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_68485),y)
 OPENMPI_CFLAGS += -O0
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 OPENMPI_LIBS += -latomic
 endif
 

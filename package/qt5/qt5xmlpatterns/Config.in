@@ -1,4 +1,4 @@
-config BR2_PACKAGE_QT5XMLPATTERNS
+config LINGMO_PACKAGE_QT5XMLPATTERNS
 	bool "qt5xmlpatterns"
 	help
 	  Qt is a cross-platform application and UI framework for

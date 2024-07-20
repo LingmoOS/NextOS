@@ -1,4 +1,4 @@
-config BR2_PACKAGE_NVME
+config LINGMO_PACKAGE_NVME
 	bool "nvme"
 	help
 	  NVME utility, a utility for interacting with standard NVM

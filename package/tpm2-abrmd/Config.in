@@ -1,11 +1,11 @@
-config BR2_PACKAGE_TPM2_ABRMD
+config LINGMO_PACKAGE_TPM2_ABRMD
 	bool "tpm2-abrmd"
-	depends on BR2_USE_WCHAR # libglib2
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libglib2
-	depends on BR2_USE_MMU # libglib2
-	depends on !BR2_STATIC_LIBS # tpm2-tss
-	select BR2_PACKAGE_LIBGLIB2
-	select BR2_PACKAGE_TPM2_TSS
+	depends on LINGMO_USE_WCHAR # libglib2
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libglib2
+	depends on LINGMO_USE_MMU # libglib2
+	depends on !LINGMO_STATIC_LIBS # tpm2-tss
+	select LINGMO_PACKAGE_LIBGLIB2
+	select LINGMO_PACKAGE_TPM2_TSS
 	help
 	  A system daemon implementing the TPM2 access broker (TAB) &
 	  Resource Manager (RM) spec from the TCG. It should be started
@@ -21,6 +21,6 @@ config BR2_PACKAGE_TPM2_ABRMD
 	  https://github.com/tpm2-software/tpm2-abrmd
 
 comment "tpm2-abrmd needs a toolchain w/ dynamic library, wchar, threads"
-	depends on BR2_USE_MMU
-	depends on !BR2_USE_WCHAR || !BR2_TOOLCHAIN_HAS_THREADS || \
-		BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_USE_WCHAR || !LINGMO_TOOLCHAIN_HAS_THREADS || \
+		LINGMO_STATIC_LIBS

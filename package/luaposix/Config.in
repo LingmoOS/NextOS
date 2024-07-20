@@ -1,9 +1,9 @@
-config BR2_PACKAGE_LUAPOSIX
+config LINGMO_PACKAGE_LUAPOSIX
 	bool "luaposix"
 	# "bit32" is included in Lua 5.2+. luajit has an equivalent
 	# "bit" module, but since it has a different name, luaposix
 	# doesn't find it.
-	select BR2_PACKAGE_LUA_BIT32 if BR2_PACKAGE_LUAINTERPRETER_ABI_VERSION_5_1 # runtime
+	select LINGMO_PACKAGE_LUA_BIT32 if LINGMO_PACKAGE_LUAINTERPRETER_ABI_VERSION_5_1 # runtime
 	help
 	  This is a POSIX binding for LuaJIT, Lua 5.1 through 5.4;
 	  like most libraries it simply binds to C APIs on the

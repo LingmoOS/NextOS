@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_CHECKSEC
+config LINGMO_PACKAGE_HOST_CHECKSEC
 	bool "host checksec"
 	help
 	  This tool provides a shell script to check the

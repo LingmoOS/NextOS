@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_BROTLI
+config LINGMO_PACKAGE_PYTHON_BROTLI
 	bool "python-brotli"
 	help
 	  Python bindings for the Brotli compression library.

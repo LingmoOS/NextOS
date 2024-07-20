@@ -1,6 +1,6 @@
-config BR2_PACKAGE_FSTRCMP
+config LINGMO_PACKAGE_FSTRCMP
 	bool "fstrcmp"
-	depends on BR2_USE_WCHAR
+	depends on LINGMO_USE_WCHAR
 	help
 	  The fstrcmp project provides a library that is used to make
 	  fuzzy comparisons of strings and byte arrays, including multi-
@@ -9,4 +9,4 @@ config BR2_PACKAGE_FSTRCMP
 	  http://fstrcmp.sourceforge.net/
 
 comment "fstrcmp needs a toolchain w/ wchar"
-	depends on !BR2_USE_WCHAR
+	depends on !LINGMO_USE_WCHAR

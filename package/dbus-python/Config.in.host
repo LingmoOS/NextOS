@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_DBUS_PYTHON
+config LINGMO_PACKAGE_HOST_DBUS_PYTHON
 	bool "host dbus-python"
 	help
 	  Python bindings for D-Bus

@@ -1,14 +1,14 @@
 comment "dvdrw-tools needs a toolchain w/ threads, C++, wchar"
-	depends on BR2_USE_MMU
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || !BR2_INSTALL_LIBSTDCPP || \
-		!BR2_USE_WCHAR
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || !LINGMO_INSTALL_LIBSTDCPP || \
+		!LINGMO_USE_WCHAR
 
-config BR2_PACKAGE_DVDRW_TOOLS
+config LINGMO_PACKAGE_DVDRW_TOOLS
 	bool "dvdrw-tools"
-	depends on BR2_USE_MMU # fork()
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_INSTALL_LIBSTDCPP
-	depends on BR2_USE_WCHAR
+	depends on LINGMO_USE_MMU # fork()
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_INSTALL_LIBSTDCPP
+	depends on LINGMO_USE_WCHAR
 	help
 	  The dvd+rw-tools are used to master Blu-ray Disc
 	  and DVD Disc media, both +RW/+R and -RW/-R. Note:
@@ -31,21 +31,21 @@ config BR2_PACKAGE_DVDRW_TOOLS
 
 	  http://fy.chalmers.se/~appro/linux/DVD+RW/tools
 
-if BR2_PACKAGE_DVDRW_TOOLS
+if LINGMO_PACKAGE_DVDRW_TOOLS
 choice
 	prompt "Media Backend"
 	help
 	  Choose which media backend program to use.
 
-config BR2_PACKAGE_DVDRW_TOOLS_CDRKIT_BACKEND
+config LINGMO_PACKAGE_DVDRW_TOOLS_CDRKIT_BACKEND
 	bool "cdrkit"
-	select BR2_PACKAGE_CDRKIT
+	select LINGMO_PACKAGE_CDRKIT
 	help
 	  Symlink mkisofs to genisoimage from the cdrkit package.
 
-config BR2_PACKAGE_DVDRW_TOOLS_XORRISO_BACKEND
+config LINGMO_PACKAGE_DVDRW_TOOLS_XORRISO_BACKEND
 	bool "xorriso"
-	select BR2_PACKAGE_XORRISO
+	select LINGMO_PACKAGE_XORRISO
 	help
 	  Symlink mkisofs to xorrisofs from the xorriso package.
 

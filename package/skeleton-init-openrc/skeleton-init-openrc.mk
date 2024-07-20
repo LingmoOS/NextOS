@@ -15,7 +15,7 @@ SKELETON_INIT_OPENRC_DEPENDENCIES = skeleton-init-common
 
 SKELETON_INIT_OPENRC_PROVIDES = skeleton
 
-ifeq ($(BR2_TARGET_GENERIC_REMOUNT_ROOTFS_RW),y)
+ifeq ($(LINGMO_TARGET_GENERIC_REMOUNT_ROOTFS_RW),y)
 # Comment /dev/root entry in fstab. When openrc does not find fstab entry for
 # "/", it will try to remount "/" as "rw".
 define SKELETON_INIT_OPENRC_ROOT_RO_OR_RW
@@ -27,7 +27,7 @@ else
 define SKELETON_INIT_OPENRC_ROOT_RO_OR_RW
 	$(SED) '\:^#[[:blank:]]*/dev/root[[:blank:]]:s/^# //' $(TARGET_DIR)/etc/fstab
 endef
-endif # BR2_TARGET_GENERIC_REMOUNT_ROOTFS_RW
+endif # LINGMO_TARGET_GENERIC_REMOUNT_ROOTFS_RW
 
 define SKELETON_INIT_OPENRC_INSTALL_TARGET_CMDS
 	$(call SYSTEM_RSYNC,$(SKELETON_INIT_OPENRC_PKGDIR)/skeleton,$(TARGET_DIR))

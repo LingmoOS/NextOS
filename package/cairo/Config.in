@@ -1,9 +1,9 @@
-config BR2_PACKAGE_CAIRO
+config LINGMO_PACKAGE_CAIRO
 	bool "cairo"
-	select BR2_PACKAGE_PIXMAN
-	select BR2_PACKAGE_FONTCONFIG
-	select BR2_PACKAGE_XLIB_LIBX11 if BR2_PACKAGE_XORG7
-	select BR2_PACKAGE_XLIB_LIBXEXT if BR2_PACKAGE_XORG7
+	select LINGMO_PACKAGE_PIXMAN
+	select LINGMO_PACKAGE_FONTCONFIG
+	select LINGMO_PACKAGE_XLIB_LIBX11 if LINGMO_PACKAGE_XORG7
+	select LINGMO_PACKAGE_XLIB_LIBXEXT if LINGMO_PACKAGE_XORG7
 	help
 	  Cairo is a 2D graphics library with support for multiple
 	  output devices. Currently supported output targets include
@@ -13,36 +13,36 @@ config BR2_PACKAGE_CAIRO
 
 	  http://cairographics.org/
 
-if BR2_PACKAGE_CAIRO
+if LINGMO_PACKAGE_CAIRO
 
-config BR2_PACKAGE_CAIRO_PS
+config LINGMO_PACKAGE_CAIRO_PS
 	bool "postscript support"
-	select BR2_PACKAGE_ZLIB
-	select BR2_PACKAGE_CAIRO_PDF
+	select LINGMO_PACKAGE_ZLIB
+	select LINGMO_PACKAGE_CAIRO_PDF
 
-config BR2_PACKAGE_CAIRO_PDF
+config LINGMO_PACKAGE_CAIRO_PDF
 	bool "pdf support"
-	select BR2_PACKAGE_ZLIB
+	select LINGMO_PACKAGE_ZLIB
 
-config BR2_PACKAGE_CAIRO_PNG
+config LINGMO_PACKAGE_CAIRO_PNG
 	bool "png support"
-	select BR2_PACKAGE_LIBPNG
-	select BR2_PACKAGE_ZLIB
+	select LINGMO_PACKAGE_LIBPNG
+	select LINGMO_PACKAGE_ZLIB
 
-config BR2_PACKAGE_CAIRO_SCRIPT
+config LINGMO_PACKAGE_CAIRO_SCRIPT
 	bool "script support"
-	select BR2_PACKAGE_CAIRO_PNG
+	select LINGMO_PACKAGE_CAIRO_PNG
 
-config BR2_PACKAGE_CAIRO_SVG
+config LINGMO_PACKAGE_CAIRO_SVG
 	bool "svg support"
-	select BR2_PACKAGE_CAIRO_PNG
-	select BR2_PACKAGE_CAIRO_PDF
+	select LINGMO_PACKAGE_CAIRO_PNG
+	select LINGMO_PACKAGE_CAIRO_PDF
 
-config BR2_PACKAGE_CAIRO_TEE
+config LINGMO_PACKAGE_CAIRO_TEE
 	bool "tee support"
 
-config BR2_PACKAGE_CAIRO_XML
+config LINGMO_PACKAGE_CAIRO_XML
 	bool "xml support"
-	select BR2_PACKAGE_CAIRO_PNG
+	select LINGMO_PACKAGE_CAIRO_PNG
 
 endif

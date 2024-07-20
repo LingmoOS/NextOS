@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUADBI
+config LINGMO_PACKAGE_LUADBI
 	bool "luadbi"
 	help
 	  LuaDBI is a database interface library for Lua.

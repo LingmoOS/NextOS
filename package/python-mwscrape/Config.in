@@ -1,8 +1,8 @@
-config BR2_PACKAGE_PYTHON_MWSCRAPE
+config LINGMO_PACKAGE_PYTHON_MWSCRAPE
 	bool "python-mwscrape"
-	select BR2_PACKAGE_PYTHON_COUCHDB # runtime
-	select BR2_PACKAGE_PYTHON_MWCLIENT # runtime
-	select BR2_PACKAGE_PYTHON_PYLRU # runtime
+	select LINGMO_PACKAGE_PYTHON_COUCHDB # runtime
+	select LINGMO_PACKAGE_PYTHON_MWCLIENT # runtime
+	select LINGMO_PACKAGE_PYTHON_PYLRU # runtime
 	help
 	  Download rendered articles from MediaWiki API to CouchDB
 

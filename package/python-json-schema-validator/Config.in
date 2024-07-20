@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_JSON_SCHEMA_VALIDATOR
+config LINGMO_PACKAGE_PYTHON_JSON_SCHEMA_VALIDATOR
 	bool "python-json-schema-validator"
 	help
 	  JSON Schema Validator

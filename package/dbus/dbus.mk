@@ -35,40 +35,40 @@ DBUS_CONF_OPTS = \
 	--with-system-socket=/run/dbus/system_bus_socket \
 	--with-system-pid-file=/run/messagebus.pid
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 DBUS_CONF_OPTS += LIBS='-pthread'
 endif
 
-ifeq ($(BR2_microblaze),y)
+ifeq ($(LINGMO_microblaze),y)
 # microblaze toolchain doesn't provide inotify_rm_* but does have sys/inotify.h
 DBUS_CONF_OPTS += --disable-inotify
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSELINUX),y)
+ifeq ($(LINGMO_PACKAGE_LIBSELINUX),y)
 DBUS_CONF_OPTS += --enable-selinux
 DBUS_DEPENDENCIES += libselinux
 else
 DBUS_CONF_OPTS += --disable-selinux
 endif
 
-ifeq ($(BR2_PACKAGE_AUDIT)$(BR2_PACKAGE_LIBCAP_NG),yy)
+ifeq ($(LINGMO_PACKAGE_AUDIT)$(LINGMO_PACKAGE_LIBCAP_NG),yy)
 DBUS_CONF_OPTS += --enable-libaudit
 DBUS_DEPENDENCIES += audit libcap-ng
 else
 DBUS_CONF_OPTS += --disable-libaudit
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBX11),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBX11),y)
 DBUS_CONF_OPTS += --with-x
 DBUS_DEPENDENCIES += xlib_libX11
-ifeq ($(BR2_PACKAGE_XLIB_LIBSM),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBSM),y)
 DBUS_DEPENDENCIES += xlib_libSM
 endif
 else
 DBUS_CONF_OPTS += --without-x
 endif
 
-ifeq ($(BR2_INIT_SYSTEMD),y)
+ifeq ($(LINGMO_INIT_SYSTEMD),y)
 DBUS_CONF_OPTS += \
 	--enable-systemd \
 	--with-systemdsystemunitdir=/usr/lib/systemd/system
@@ -102,7 +102,7 @@ endef
 # If dbus-broker is installed, don't install the activation links for
 # dbus itself, not the configuration files. They will be overwritten
 # by dbus-broker
-ifeq ($(BR2_PACKAGE_DBUS_BROKER),y)
+ifeq ($(LINGMO_PACKAGE_DBUS_BROKER),y)
 define DBUS_REMOVE_SYSTEMD_ACTIVATION_LINKS
 	rm -f $(TARGET_DIR)/usr/lib/systemd/system/multi-user.target.wants/dbus.service
 	rm -f $(TARGET_DIR)/usr/lib/systemd/system/sockets.target.wants/dbus.socket

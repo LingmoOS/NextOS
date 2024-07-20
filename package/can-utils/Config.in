@@ -1,4 +1,4 @@
-config BR2_PACKAGE_CAN_UTILS
+config LINGMO_PACKAGE_CAN_UTILS
 	bool "can-utils"
 	help
 	  SocketCAN is a set of open source CAN drivers and a

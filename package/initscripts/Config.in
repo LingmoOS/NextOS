@@ -1,4 +1,4 @@
-config BR2_PACKAGE_INITSCRIPTS
+config LINGMO_PACKAGE_INITSCRIPTS
 	bool
 	help
 	  The basics startup scripts for both SysV and Busybox

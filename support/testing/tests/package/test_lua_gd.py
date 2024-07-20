@@ -4,11 +4,11 @@ from tests.package.test_lua import TestLuaBase
 class TestLuaLuaGD(TestLuaBase):
     config = TestLuaBase.config + \
         """
-        BR2_PACKAGE_LUA=y
-        BR2_PACKAGE_LUA_GD=y
-        BR2_PACKAGE_FONTCONFIG=y
-        BR2_PACKAGE_JPEG=y
-        BR2_PACKAGE_LIBPNG=y
+        LINGMO_PACKAGE_LUA=y
+        LINGMO_PACKAGE_LUA_GD=y
+        LINGMO_PACKAGE_FONTCONFIG=y
+        LINGMO_PACKAGE_JPEG=y
+        LINGMO_PACKAGE_LIBPNG=y
         """
 
     def test_run(self):
@@ -19,11 +19,11 @@ class TestLuaLuaGD(TestLuaBase):
 class TestLuajitLuaGD(TestLuaBase):
     config = TestLuaBase.config + \
         """
-        BR2_PACKAGE_LUAJIT=y
-        BR2_PACKAGE_LUA_GD=y
-        BR2_PACKAGE_FONTCONFIG=y
-        BR2_PACKAGE_JPEG=y
-        BR2_PACKAGE_LIBPNG=y
+        LINGMO_PACKAGE_LUAJIT=y
+        LINGMO_PACKAGE_LUA_GD=y
+        LINGMO_PACKAGE_FONTCONFIG=y
+        LINGMO_PACKAGE_JPEG=y
+        LINGMO_PACKAGE_LIBPNG=y
         """
 
     def test_run(self):

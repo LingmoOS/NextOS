@@ -19,7 +19,7 @@ TOR_CONF_OPTS = \
 	--with-openssl-dir=$(STAGING_DIR)/usr \
 	--with-zlib-dir=$(STAGING_DIR)/usr
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 TOR_CONF_OPTS += \
 	--enable-static-libevent \
 	--enable-static-openssl \
@@ -27,32 +27,32 @@ TOR_CONF_OPTS += \
 	--enable-static-zlib
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBCAP),y)
 TOR_DEPENDENCIES += libcap
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 TOR_CONF_OPTS += --enable-systemd
 TOR_DEPENDENCIES += host-pkgconf systemd
 else
 TOR_CONF_OPTS += --disable-systemd
 endif
 
-ifeq ($(BR2_PACKAGE_XZ),y)
+ifeq ($(LINGMO_PACKAGE_XZ),y)
 TOR_CONF_OPTS += --enable-lzma
 TOR_DEPENDENCIES += host-pkgconf xz
 else
 TOR_CONF_OPTS += --disable-lzma
 endif
 
-ifeq ($(BR2_PACKAGE_ZSTD),y)
+ifeq ($(LINGMO_PACKAGE_ZSTD),y)
 TOR_CONF_OPTS += --enable-zstd
 TOR_DEPENDENCIES += host-pkgconf zstd
 else
 TOR_CONF_OPTS += --disable-zstd
 endif
 
-ifeq ($(BR2_arm)$(BR2_armeb)$(BR2_i386)$(BR2_x86_64)$(BR2_PACKAGE_LIBSECCOMP),yy)
+ifeq ($(LINGMO_arm)$(LINGMO_armeb)$(LINGMO_i386)$(LINGMO_x86_64)$(LINGMO_PACKAGE_LIBSECCOMP),yy)
 TOR_CONF_OPTS += --enable-seccomp
 TOR_DEPENDENCIES += libseccomp
 else
@@ -62,10 +62,10 @@ endif
 # uses gnu extensions
 TOR_CONF_ENV = ac_cv_prog_cc_c99='-std=gnu99'
 
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 TOR_LIBS += -latomic
 endif
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 TOR_LIBS += -lz
 endif
 TOR_CONF_ENV += LIBS="$(TOR_LIBS)"

@@ -15,12 +15,12 @@ your project can be skipped.
 . +mkdir -p board/<manufacturer>/<boardname>+
 . Set the following options to +board/<manufacturer>/<boardname>/<package>.config+
    (as far as they are relevant):
-   * +BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE+
-   * +BR2_PACKAGE_BUSYBOX_CONFIG+
-   * +BR2_UCLIBC_CONFIG+
-   * +BR2_TARGET_AT91BOOTSTRAP3_CUSTOM_CONFIG_FILE+
-   * +BR2_TARGET_BAREBOX_CUSTOM_CONFIG_FILE+
-   * +BR2_TARGET_UBOOT_CUSTOM_CONFIG_FILE+
+   * +LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE+
+   * +LINGMO_PACKAGE_BUSYBOX_CONFIG+
+   * +LINGMO_UCLIBC_CONFIG+
+   * +LINGMO_TARGET_AT91BOOTSTRAP3_CUSTOM_CONFIG_FILE+
+   * +LINGMO_TARGET_BAREBOX_CUSTOM_CONFIG_FILE+
+   * +LINGMO_TARGET_UBOOT_CUSTOM_CONFIG_FILE+
 . Write the configuration files:
    * +make linux-update-defconfig+
    * +make busybox-update-config+
@@ -32,28 +32,28 @@ your project can be skipped.
 . Create +board/<manufacturer>/<boardname>/rootfs-overlay/+ and fill it
    with additional files you need on your rootfs, e.g.
    +board/<manufacturer>/<boardname>/rootfs-overlay/etc/inittab+.
-   Set +BR2_ROOTFS_OVERLAY+
+   Set +LINGMO_ROOTFS_OVERLAY+
    to +board/<manufacturer>/<boardname>/rootfs-overlay+.
 . Create a post-build script
    +board/<manufacturer>/<boardname>/post_build.sh+. Set
-   +BR2_ROOTFS_POST_BUILD_SCRIPT+ to
+   +LINGMO_ROOTFS_POST_BUILD_SCRIPT+ to
    +board/<manufacturer>/<boardname>/post_build.sh+
 . If additional setuid permissions have to be set or device nodes have
    to be created, create +board/<manufacturer>/<boardname>/device_table.txt+
-   and add that path to +BR2_ROOTFS_DEVICE_TABLE+.
+   and add that path to +LINGMO_ROOTFS_DEVICE_TABLE+.
 . If additional user accounts have to be created, create
    +board/<manufacturer>/<boardname>/users_table.txt+ and add that path
-   to +BR2_ROOTFS_USERS_TABLES+.
-. To add custom patches to certain packages, set +BR2_GLOBAL_PATCH_DIR+
+   to +LINGMO_ROOTFS_USERS_TABLES+.
+. To add custom patches to certain packages, set +LINGMO_GLOBAL_PATCH_DIR+
    to +board/<manufacturer>/<boardname>/patches/+ and add your patches
    for each package in a subdirectory named after the package. Each
    patch should be called +<packagename>-<num>-<description>.patch+.
 . Specifically for the Linux kernel, there also exists the option
-   +BR2_LINUX_KERNEL_PATCH+ with as main advantage that it can also
+   +LINGMO_LINUX_KERNEL_PATCH+ with as main advantage that it can also
    download patches from a URL. If you do not need this,
-   +BR2_GLOBAL_PATCH_DIR+ is preferred. U-Boot, Barebox, at91bootstrap
+   +LINGMO_GLOBAL_PATCH_DIR+ is preferred. U-Boot, Barebox, at91bootstrap
    and at91bootstrap3 also have separate options, but these do not
-   provide any advantage over +BR2_GLOBAL_PATCH_DIR+ and will likely be
+   provide any advantage over +LINGMO_GLOBAL_PATCH_DIR+ and will likely be
    removed in the future.
 . If you need to add project-specific packages, create
    +package/<manufacturer>/+ and place your packages in that

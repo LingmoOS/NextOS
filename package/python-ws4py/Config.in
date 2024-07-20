@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_WS4PY
+config LINGMO_PACKAGE_PYTHON_WS4PY
 	bool "python-ws4py"
 	help
 	  ws4py is a Python package implementing the WebSocket protocol

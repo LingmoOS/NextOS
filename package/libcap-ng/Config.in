@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBCAP_NG
+config LINGMO_PACKAGE_LIBCAP_NG
 	bool "libcap-ng"
 	help
 	  The libcap-ng library is intended to make programming with

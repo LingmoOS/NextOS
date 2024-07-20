@@ -1,4 +1,4 @@
-config BR2_PACKAGE_UNIFDEF
+config LINGMO_PACKAGE_UNIFDEF
 	bool "unifdef"
 	help
 	  The unifdef utility selectively processes conditional C

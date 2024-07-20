@@ -15,45 +15,45 @@ TVHEADEND_DEPENDENCIES = \
 	host-python3 \
 	openssl
 
-ifeq ($(BR2_PACKAGE_AVAHI),y)
+ifeq ($(LINGMO_PACKAGE_AVAHI),y)
 TVHEADEND_DEPENDENCIES += avahi
 endif
 
-ifeq ($(BR2_PACKAGE_DBUS),y)
+ifeq ($(LINGMO_PACKAGE_DBUS),y)
 TVHEADEND_DEPENDENCIES += dbus
 TVHEADEND_CONF_OPTS += --enable-dbus-1
 else
 TVHEADEND_CONF_OPTS += --disable-dbus-1
 endif
 
-ifeq ($(BR2_PACKAGE_TVHEADEND_TRANSCODING),y)
+ifeq ($(LINGMO_PACKAGE_TVHEADEND_TRANSCODING),y)
 TVHEADEND_CONF_OPTS += --enable-libav --enable-libx264
 TVHEADEND_DEPENDENCIES += ffmpeg x264
-ifeq ($(BR2_PACKAGE_LIBVA),y)
+ifeq ($(LINGMO_PACKAGE_LIBVA),y)
 TVHEADEND_CONF_OPTS += --enable-vaapi
 TVHEADEND_DEPENDENCIES += libva
 else
 TVHEADEND_CONF_OPTS += --disable-vaapi
 endif
-ifeq ($(BR2_PACKAGE_OPUS),y)
+ifeq ($(LINGMO_PACKAGE_OPUS),y)
 TVHEADEND_CONF_OPTS += --enable-libopus
 TVHEADEND_DEPENDENCIES += opus
 else
 TVHEADEND_CONF_OPTS += --disable-libopus
 endif
-ifeq ($(BR2_PACKAGE_RPI_USERLAND),y)
+ifeq ($(LINGMO_PACKAGE_RPI_USERLAND),y)
 TVHEADEND_CONF_OPTS += --enable-omx
 TVHEADEND_DEPENDENCIES += rpi-userland
 else
 TVHEADEND_CONF_OPTS += --disable-omx
 endif
-ifeq ($(BR2_PACKAGE_LIBVPX)$(BR2_INSTALL_LIBSTDCPP),yy)
+ifeq ($(LINGMO_PACKAGE_LIBVPX)$(LINGMO_INSTALL_LIBSTDCPP),yy)
 TVHEADEND_CONF_OPTS += --enable-libvpx
 TVHEADEND_DEPENDENCIES += libvpx
 else
 TVHEADEND_CONF_OPTS += --disable-libvpx
 endif
-ifeq ($(BR2_PACKAGE_X265),y)
+ifeq ($(LINGMO_PACKAGE_X265),y)
 TVHEADEND_CONF_OPTS += --enable-libx265
 TVHEADEND_DEPENDENCIES += x265
 else
@@ -70,7 +70,7 @@ TVHEADEND_CONF_OPTS += \
 	--disable-libx265
 endif
 
-ifeq ($(BR2_PACKAGE_TVHEADEND_DESCRAMBLER),y)
+ifeq ($(LINGMO_PACKAGE_TVHEADEND_DESCRAMBLER),y)
 TVHEADEND_CONF_OPTS += \
 	--enable-cardclient \
 	--enable-cwc \
@@ -86,59 +86,59 @@ TVHEADEND_CONF_OPTS += \
 	--disable-constcw
 endif
 
-ifeq ($(BR2_PACKAGE_TVHEADEND_IPTV),y)
+ifeq ($(LINGMO_PACKAGE_TVHEADEND_IPTV),y)
 TVHEADEND_CONF_OPTS += --enable-iptv
 else
 TVHEADEND_CONF_OPTS += --disable-iptv
 endif
 
-ifeq ($(BR2_PACKAGE_TVHEADEND_SATIP),y)
+ifeq ($(LINGMO_PACKAGE_TVHEADEND_SATIP),y)
 TVHEADEND_CONF_OPTS += --enable-satip_client --enable-satip_server
 else
 TVHEADEND_CONF_OPTS += --disable-satip_client --disable-satip_server
 endif
 
-ifeq ($(BR2_PACKAGE_TVHEADEND_TIMESHIFT),y)
+ifeq ($(LINGMO_PACKAGE_TVHEADEND_TIMESHIFT),y)
 TVHEADEND_CONF_OPTS += --enable-timeshift
 else
 TVHEADEND_CONF_OPTS += --disable-timeshift
 endif
 
-ifeq ($(BR2_PACKAGE_LIBDVBCSA),y)
+ifeq ($(LINGMO_PACKAGE_LIBDVBCSA),y)
 TVHEADEND_DEPENDENCIES += libdvbcsa
 TVHEADEND_CONF_OPTS += --enable-tvhcsa
 else
 TVHEADEND_CONF_OPTS += --disable-tvhcsa
 endif
 
-ifeq ($(BR2_PACKAGE_LIBHDHOMERUN),y)
+ifeq ($(LINGMO_PACKAGE_LIBHDHOMERUN),y)
 TVHEADEND_DEPENDENCIES += libhdhomerun
 TVHEADEND_CONF_OPTS += --enable-hdhomerun_client
 else
 TVHEADEND_CONF_OPTS += --disable-hdhomerun_client
 endif
 
-ifeq ($(BR2_PACKAGE_LIBICONV),y)
+ifeq ($(LINGMO_PACKAGE_LIBICONV),y)
 TVHEADEND_DEPENDENCIES += libiconv
 endif
 
 TVHEADEND_CFLAGS = $(TARGET_CFLAGS)
-ifeq ($(BR2_PACKAGE_LIBURIPARSER),y)
+ifeq ($(LINGMO_PACKAGE_LIBURIPARSER),y)
 TVHEADEND_DEPENDENCIES += liburiparser
-TVHEADEND_CFLAGS += $(if $(BR2_USE_WCHAR),,-DURI_NO_UNICODE)
+TVHEADEND_CFLAGS += $(if $(LINGMO_USE_WCHAR),,-DURI_NO_UNICODE)
 endif
 
-ifeq ($(BR2_PACKAGE_PCRE2),y)
+ifeq ($(LINGMO_PACKAGE_PCRE2),y)
 TVHEADEND_DEPENDENCIES += pcre2
 TVHEADEND_CONF_OPTS += --disable-pcre --enable-pcre2
-else ifeq ($(BR2_PACKAGE_PCRE),y)
+else ifeq ($(LINGMO_PACKAGE_PCRE),y)
 TVHEADEND_DEPENDENCIES += pcre
 TVHEADEND_CONF_OPTS += --enable-pcre --disable-pcre2
 else
 TVHEADEND_CONF_OPTS += --disable-pcre --disable-pcre2
 endif
 
-ifeq ($(BR2_TOOLCHAIN_SUPPORTS_PIE),)
+ifeq ($(LINGMO_TOOLCHAIN_SUPPORTS_PIE),)
 TVHEADEND_CONF_OPTS += --disable-pie
 endif
 

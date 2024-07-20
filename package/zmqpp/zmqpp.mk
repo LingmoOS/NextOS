@@ -18,30 +18,30 @@ ZMQPP_LDFLAGS = $(TARGET_LDFLAGS) -lpthread
 # By setting CONFIG to empty, all optimizations such as -funroll-loops
 # -ffast-math -finline-functions -fomit-frame-pointer are disabled,
 # so only set CONFIG for the non-affected cases.
-ifneq ($(BR2_or1k):$(BR2_TOOLCHAIN_GCC_AT_LEAST_6),y:)
-ZMQPP_CONFIG = $(if $(BR2_ENABLE_RUNTIME_DEBUG),buildroot,release)
+ifneq ($(LINGMO_or1k):$(LINGMO_TOOLCHAIN_GCC_AT_LEAST_6),y:)
+ZMQPP_CONFIG = $(if $(LINGMO_ENABLE_RUNTIME_DEBUG),buildroot,release)
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 ZMQPP_LDFLAGS += -latomic
 endif
 
-ifeq ($(BR2_PACKAGE_ZMQPP_CLIENT),y)
+ifeq ($(LINGMO_PACKAGE_ZMQPP_CLIENT),y)
 ZMQPP_DEPENDENCIES += boost
 endif
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 ZMQPP_MAKE_OPTS += BUILD_STATIC=yes BUILD_SHARED=no
-else ifeq ($(BR2_SHARED_STATIC_LIBS),y)
+else ifeq ($(LINGMO_SHARED_STATIC_LIBS),y)
 ZMQPP_MAKE_OPTS += BUILD_STATIC=yes BUILD_SHARED=yes
-else ifeq ($(BR2_SHARED_LIBS),y)
+else ifeq ($(LINGMO_SHARED_LIBS),y)
 ZMQPP_MAKE_OPTS += BUILD_STATIC=no BUILD_SHARED=yes
 endif
 
 define ZMQPP_BUILD_CMDS
 	$(TARGET_MAKE_ENV) $(MAKE) $(TARGET_CONFIGURE_OPTS) \
 		CONFIG=$(ZMQPP_CONFIG) LDFLAGS="$(ZMQPP_LDFLAGS)" \
-		$(ZMQPP_MAKE_OPTS) $(if $(BR2_PACKAGE_ZMQPP_CLIENT),client,library) -C $(@D)
+		$(ZMQPP_MAKE_OPTS) $(if $(LINGMO_PACKAGE_ZMQPP_CLIENT),client,library) -C $(@D)
 endef
 
 define ZMQPP_INSTALL_TARGET_CMDS

@@ -236,7 +236,7 @@ class Indent(_CheckFunction):
 
 
 class RedefinedConfig(_CheckFunction):
-    CONFIG = re.compile(r"^\s*(menu|)config\s+(BR2_\w+)\b")
+    CONFIG = re.compile(r"^\s*(menu|)config\s+(LINGMO_\w+)\b")
     IF = re.compile(r"^\s*if\s+([^#]*)\b")
     ENDIF = re.compile(r"^\s*endif\b")
 

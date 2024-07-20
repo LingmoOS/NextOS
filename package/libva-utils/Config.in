@@ -1,9 +1,9 @@
-config BR2_PACKAGE_LIBVA_UTILS
+config LINGMO_PACKAGE_LIBVA_UTILS
 	bool "libva-utils"
-	depends on BR2_INSTALL_LIBSTDCPP
-	depends on !BR2_STATIC_LIBS # libva
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libva
-	select BR2_PACKAGE_LIBVA
+	depends on LINGMO_INSTALL_LIBSTDCPP
+	depends on !LINGMO_STATIC_LIBS # libva
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libva
+	select LINGMO_PACKAGE_LIBVA
 	help
 	  Libva-utils is a collection of tests for VA-API (Video
 	  Acceleration API)
@@ -11,5 +11,5 @@ config BR2_PACKAGE_LIBVA_UTILS
 	  https://01.org/vaapi
 
 comment "libva-utils needs a toolchain w/ C++, threads, dynamic library"
-	depends on !BR2_INSTALL_LIBSTDCPP || \
-		BR2_STATIC_LIBS || !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_INSTALL_LIBSTDCPP || \
+		LINGMO_STATIC_LIBS || !LINGMO_TOOLCHAIN_HAS_THREADS

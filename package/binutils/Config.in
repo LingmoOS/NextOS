@@ -1,14 +1,14 @@
-config BR2_PACKAGE_BINUTILS
+config LINGMO_PACKAGE_BINUTILS
 	bool "binutils"
-	depends on !BR2_nios2
-	depends on BR2_USE_WCHAR
-	select BR2_PACKAGE_ZLIB
+	depends on !LINGMO_nios2
+	depends on LINGMO_USE_WCHAR
+	select LINGMO_PACKAGE_ZLIB
 	help
 	  Install binutils on the target
 
-if BR2_PACKAGE_BINUTILS
+if LINGMO_PACKAGE_BINUTILS
 
-config BR2_PACKAGE_BINUTILS_TARGET
+config LINGMO_PACKAGE_BINUTILS_TARGET
 	bool "binutils binaries"
 	help
 	  The GNU Binutils are a collection of binary tools:
@@ -22,5 +22,5 @@ config BR2_PACKAGE_BINUTILS_TARGET
 endif
 
 comment "binutils needs a toolchain w/ wchar"
-	depends on !BR2_nios2
-	depends on !BR2_USE_WCHAR
+	depends on !LINGMO_nios2
+	depends on !LINGMO_USE_WCHAR

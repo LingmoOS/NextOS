@@ -1,34 +1,34 @@
 choice
 	prompt "Target Architecture Variant"
-	default BR2_sh4
-	depends on BR2_sh
+	default LINGMO_sh4
+	depends on LINGMO_sh
 	help
 	  Specific CPU variant to use
 
-config BR2_sh4
+config LINGMO_sh4
 	bool "sh4 (SH4 little endian)"
-config BR2_sh4eb
+config LINGMO_sh4eb
 	bool "sh4eb (SH4 big endian)"
-config BR2_sh4a
+config LINGMO_sh4a
 	bool "sh4a (SH4A little endian)"
-config BR2_sh4aeb
+config LINGMO_sh4aeb
 	bool "sh4aeb (SH4A big endian)"
 endchoice
 
-config BR2_ARCH
-	default "sh4"		if BR2_sh4
-	default "sh4eb"		if BR2_sh4eb
-	default "sh4a"		if BR2_sh4a
-	default "sh4aeb"	if BR2_sh4aeb
+config LINGMO_ARCH
+	default "sh4"		if LINGMO_sh4
+	default "sh4eb"		if LINGMO_sh4eb
+	default "sh4a"		if LINGMO_sh4a
+	default "sh4aeb"	if LINGMO_sh4aeb
 
-config BR2_NORMALIZED_ARCH
+config LINGMO_NORMALIZED_ARCH
 	default "sh"
 
-config BR2_ENDIAN
-	default "LITTLE"	if BR2_sh4 || BR2_sh4a
-	default "BIG"		if BR2_sh4eb || BR2_sh4aeb
+config LINGMO_ENDIAN
+	default "LITTLE"	if LINGMO_sh4 || LINGMO_sh4a
+	default "BIG"		if LINGMO_sh4eb || LINGMO_sh4aeb
 
-config BR2_READELF_ARCH_NAME
+config LINGMO_READELF_ARCH_NAME
 	default "Renesas / SuperH SH"
 
 # vim: ft=kconfig

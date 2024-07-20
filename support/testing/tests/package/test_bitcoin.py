@@ -6,26 +6,26 @@ import infra.basetest
 
 class TestBitcoin(infra.basetest.BRTest):
     # infra.basetest.BASIC_TOOLCHAIN_CONFIG cannot be used as it does
-    # not include BR2_TOOLCHAIN_SUPPORTS_ALWAYS_LOCKFREE_ATOMIC_INTS
+    # not include LINGMO_TOOLCHAIN_SUPPORTS_ALWAYS_LOCKFREE_ATOMIC_INTS
     # needed by bitcoin. This config also uses an ext4 rootfs as
     # bitcoind needs some free disk space to start (so we avoid having
     # a larger initrd in RAM).
     config = \
         """
-        BR2_aarch64=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
-        BR2_LINUX_KERNEL=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE="6.1.81"
-        BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
-        BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/qemu/aarch64-virt/linux.config"
-        BR2_PACKAGE_BITCOIN=y
-        BR2_PACKAGE_BITCOIN_WALLET=y
-        BR2_TARGET_ROOTFS_EXT2=y
-        BR2_TARGET_ROOTFS_EXT2_4=y
-        BR2_TARGET_ROOTFS_EXT2_SIZE="256M"
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_aarch64=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
+        LINGMO_LINUX_KERNEL=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION_VALUE="6.1.81"
+        LINGMO_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
+        LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/qemu/aarch64-virt/linux.config"
+        LINGMO_PACKAGE_BITCOIN=y
+        LINGMO_PACKAGE_BITCOIN_WALLET=y
+        LINGMO_TARGET_ROOTFS_EXT2=y
+        LINGMO_TARGET_ROOTFS_EXT2_4=y
+        LINGMO_TARGET_ROOTFS_EXT2_SIZE="256M"
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     # Command prefix for the bitcoin command line interface.
     cli_cmd = "bitcoin-cli -regtest"

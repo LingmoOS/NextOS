@@ -18,11 +18,11 @@ NETTLE_CONF_OPTS = --disable-openssl
 HOST_NETTLE_DEPENDENCIES = host-m4 host-gmp
 
 # ARM assembly requires v6+ ISA
-ifeq ($(BR2_ARM_CPU_ARMV4)$(BR2_ARM_CPU_ARMV5)$(BR2_ARM_CPU_ARMV7M),y)
+ifeq ($(LINGMO_ARM_CPU_ARMV4)$(LINGMO_ARM_CPU_ARMV5)$(LINGMO_ARM_CPU_ARMV7M),y)
 NETTLE_CONF_OPTS += --disable-assembler
 endif
 
-ifeq ($(BR2_ARM_CPU_HAS_NEON),y)
+ifeq ($(LINGMO_ARM_CPU_HAS_NEON),y)
 NETTLE_CONF_OPTS += --enable-arm-neon
 else
 NETTLE_CONF_OPTS += --disable-arm-neon

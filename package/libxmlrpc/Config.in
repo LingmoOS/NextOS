@@ -1,7 +1,7 @@
-config BR2_PACKAGE_LIBXMLRPC
+config LINGMO_PACKAGE_LIBXMLRPC
 	bool "libxmlrpc"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	select BR2_PACKAGE_LIBCURL
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	select LINGMO_PACKAGE_LIBCURL
 	help
 	  XML-RPC is a quick-and-easy way to make procedure calls over
 	  the Internet. It converts the procedure call into an XML
@@ -10,18 +10,18 @@ config BR2_PACKAGE_LIBXMLRPC
 
 	  http://xmlrpc-c.sourceforge.net/
 
-if BR2_PACKAGE_LIBXMLRPC
+if LINGMO_PACKAGE_LIBXMLRPC
 
-config BR2_PACKAGE_LIBXMLRPC_TOOLS_XMLRPC
+config LINGMO_PACKAGE_LIBXMLRPC_TOOLS_XMLRPC
 	bool "install cli tool"
-	depends on !BR2_STATIC_LIBS
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  Command line tool xmlrpc.
 
 comment "cli tool needs a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_STATIC_LIBS
 
-endif # BR2_PACKAGE_LIBXMLRPC
+endif # LINGMO_PACKAGE_LIBXMLRPC
 
 comment "libxmlrpc needs a toolchain w/ threads"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS

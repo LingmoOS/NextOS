@@ -53,10 +53,10 @@ LIBVIRT_CONF_OPTS = \
 	-Dfirewalld_zone=disabled \
 	-Dglusterfs=disabled \
 	-Dhost_validate=enabled \
-	-Dinit_script=$(if $(BR2_INIT_SYSTEMD),systemd,none) \
+	-Dinit_script=$(if $(LINGMO_INIT_SYSTEMD),systemd,none) \
 	-Dlogin_shell=disabled \
 	-Dnetcf=disabled \
-	-Dnls=$(if $(BR2_SYSTEM_ENABLE_NLS),enabled,disabled) \
+	-Dnls=$(if $(LINGMO_SYSTEM_ENABLE_NLS),enabled,disabled) \
 	-Dnumad=disabled \
 	-Dopenwsman=disabled \
 	-Dpciaccess=enabled \
@@ -80,98 +80,98 @@ LIBVIRT_CONF_OPTS = \
 # handle it.
 LIBVIRT_CONF_OPTS += -Dwarning_level=1
 
-ifeq ($(BR2_PACKAGE_ATTR),y)
+ifeq ($(LINGMO_PACKAGE_ATTR),y)
 LIBVIRT_CONF_OPTS += -Dattr=enabled
 LIBVIRT_DEPENDENCIES += attr
 else
 LIBVIRT_CONF_OPTS += -Dattr=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_AUDIT),y)
+ifeq ($(LINGMO_PACKAGE_AUDIT),y)
 LIBVIRT_CONF_OPTS += -Daudit=enabled
 LIBVIRT_DEPENDENCIES += audit
 else
 LIBVIRT_CONF_OPTS += -Daudit=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_BASH_COMPLETION),y)
+ifeq ($(LINGMO_PACKAGE_BASH_COMPLETION),y)
 LIBVIRT_CONF_OPTS += -Dbash_completion=enabled
 LIBVIRT_DEPENDENCIES += bash-completion
 else
 LIBVIRT_CONF_OPTS += -Dbash_completion=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_UTIL_LINUX_LIBBLKID),y)
+ifeq ($(LINGMO_PACKAGE_UTIL_LINUX_LIBBLKID),y)
 LIBVIRT_CONF_OPTS += -Dblkid=enabled
 LIBVIRT_DEPENDENCIES += util-linux
 else
 LIBVIRT_CONF_OPTS += -Dblkid=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCAP_NG),y)
+ifeq ($(LINGMO_PACKAGE_LIBCAP_NG),y)
 LIBVIRT_CONF_OPTS += -Dcapng=enabled
 LIBVIRT_DEPENDENCIES += libcap-ng
 else
 LIBVIRT_CONF_OPTS += -Dcapng=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCURL),y)
+ifeq ($(LINGMO_PACKAGE_LIBCURL),y)
 LIBVIRT_CONF_OPTS += -Dcurl=enabled
 LIBVIRT_DEPENDENCIES += libcurl
 else
 LIBVIRT_CONF_OPTS += -Dcurl=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBFUSE),y)
+ifeq ($(LINGMO_PACKAGE_LIBFUSE),y)
 LIBVIRT_CONF_OPTS += -Dfuse=enabled
 LIBVIRT_DEPENDENCIES += libfuse
 else
 LIBVIRT_CONF_OPTS += -Dfuse=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBISCSI),y)
+ifeq ($(LINGMO_PACKAGE_LIBISCSI),y)
 LIBVIRT_CONF_OPTS += -Dlibiscsi=enabled
 LIBVIRT_DEPENDENCIES += libiscsi
 else
 LIBVIRT_CONF_OPTS += -Dlibiscsi=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBNL),y)
+ifeq ($(LINGMO_PACKAGE_LIBNL),y)
 LIBVIRT_CONF_OPTS += -Dlibnl=enabled
 LIBVIRT_DEPENDENCIES += libnl
 else
 LIBVIRT_CONF_OPTS += -Dlibnl=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBPCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBPCAP),y)
 LIBVIRT_CONF_OPTS += -Dlibpcap=enabled
 LIBVIRT_DEPENDENCIES += libpcap
 else
 LIBVIRT_CONF_OPTS += -Dlibpcap=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_NUMACTL),y)
+ifeq ($(LINGMO_PACKAGE_NUMACTL),y)
 LIBVIRT_CONF_OPTS += -Dnumactl=enabled
 LIBVIRT_DEPENDENCIES += numactl
 else
 LIBVIRT_CONF_OPTS += -Dnumactl=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_POLKIT),y)
+ifeq ($(LINGMO_PACKAGE_POLKIT),y)
 LIBVIRT_CONF_OPTS += -Dpolkit=enabled
 LIBVIRT_DEPENDENCIES += polkit
 else
 LIBVIRT_CONF_OPTS += -Dpolkit=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_READLINE),y)
+ifeq ($(LINGMO_PACKAGE_READLINE),y)
 LIBVIRT_CONF_OPTS += -Dreadline=enabled
 LIBVIRT_DEPENDENCIES += readline
 else
 LIBVIRT_CONF_OPTS += -Dreadline=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSELINUX),y)
+ifeq ($(LINGMO_PACKAGE_LIBSELINUX),y)
 LIBVIRT_CONF_OPTS += -Dselinux=enabled -Dsecdriver_selinux=enabled \
 	-Dselinux_mount=/sys/fs/selinux
 LIBVIRT_DEPENDENCIES += libselinux
@@ -179,28 +179,28 @@ else
 LIBVIRT_CONF_OPTS += -Dselinux=disabled -Dsecdriver_selinux=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LVM2_STANDARD_INSTALL),y)
+ifeq ($(LINGMO_PACKAGE_LVM2_STANDARD_INSTALL),y)
 LIBVIRT_CONF_OPTS += -Dstorage_lvm=enabled
 LIBVIRT_DEPENDENCIES += host-lvm2 lvm2
 else
 LIBVIRT_CONF_OPTS += -Dstorage_lvm=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_YAJL),y)
+ifeq ($(LINGMO_PACKAGE_YAJL),y)
 LIBVIRT_CONF_OPTS += -Dyajl=enabled
 LIBVIRT_DEPENDENCIES += yajl
 else
 LIBVIRT_CONF_OPTS += -Dyajl=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBVIRT_DAEMON),y)
+ifeq ($(LINGMO_PACKAGE_LIBVIRT_DAEMON),y)
 # Network is used by daemon, only
 LIBVIRT_CONF_OPTS += \
 	-Ddriver_interface=enabled \
 	-Ddriver_libvirtd=enabled \
 	-Ddriver_network=enabled
 
-ifeq ($(BR2_PACKAGE_LIBSSH),y)
+ifeq ($(LINGMO_PACKAGE_LIBSSH),y)
 LIBVIRT_CONF_OPTS += -Dlibssh=enabled
 LIBVIRT_DEPENDENCIES += libssh
 else
@@ -208,34 +208,34 @@ LIBVIRT_CONF_OPTS += -Dlibssh=disabled
 endif
 
 # Can't build nss plugin without network or yajl
-ifeq ($(BR2_PACKAGE_LIBNSS)$(BR2_PACKAGE_YAJL),yy)
+ifeq ($(LINGMO_PACKAGE_LIBNSS)$(LINGMO_PACKAGE_YAJL),yy)
 LIBVIRT_CONF_OPTS += -Dnss=enabled
 LIBVIRT_DEPENDENCIES += libnss
 else
 LIBVIRT_CONF_OPTS += -Dnss=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSSH2),y)
+ifeq ($(LINGMO_PACKAGE_LIBSSH2),y)
 LIBVIRT_CONF_OPTS += -Dlibssh2=enabled
 LIBVIRT_DEPENDENCIES += libssh2
 else
 LIBVIRT_CONF_OPTS += -Dlibssh2=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBVIRT_LXC),y)
+ifeq ($(LINGMO_PACKAGE_LIBVIRT_LXC),y)
 LIBVIRT_CONF_OPTS += -Dlogin_shell=enabled -Ddriver_lxc=enabled
 LIBVIRT_DEPENDENCIES += lxc
 else
 LIBVIRT_CONF_OPTS += -Dlogin_shell=disabled -Ddriver_lxc=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBVIRT_QEMU),y)
+ifeq ($(LINGMO_PACKAGE_LIBVIRT_QEMU),y)
 LIBVIRT_CONF_OPTS += -Ddriver_qemu=enabled -Dqemu_user=qemu -Dqemu_group=kvm
 else
 LIBVIRT_CONF_OPTS += -Ddriver_qemu=disabled -Dqemu_user=no -Dqemu_group=no
 endif
 
-else # BR2_PACKAGE_LIBVIRT_DAEMON
+else # LINGMO_PACKAGE_LIBVIRT_DAEMON
 
 LIBVIRT_CONF_OPTS += \
 	-Ddriver_interface=disabled \
@@ -306,13 +306,13 @@ endef
 
 LIBVIRT_PRE_INSTALL_TARGET_HOOKS += LIBVIRT_CREATE_SYMLINKS
 
-ifeq ($(BR2_PACKAGE_LIBVIRT_QEMU),y)
+ifeq ($(LINGMO_PACKAGE_LIBVIRT_QEMU),y)
 define LIBVIRT_USERS
 	qemu -1 kvm -1 * - - - Libvirt qemu/kvm daemon
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_LIBVIRT_DAEMON),y)
+ifeq ($(LINGMO_PACKAGE_LIBVIRT_DAEMON),y)
 define LIBVIRT_INSTALL_INIT_SYSV
 	$(INSTALL) -D -m 0755 package/libvirt/S91virtlogd $(TARGET_DIR)/etc/init.d/S91virtlogd
 	$(INSTALL) -D -m 0755 package/libvirt/S92libvirtd $(TARGET_DIR)/etc/init.d/S92libvirtd

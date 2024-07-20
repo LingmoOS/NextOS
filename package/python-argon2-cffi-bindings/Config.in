@@ -1,9 +1,9 @@
-config BR2_PACKAGE_PYTHON_ARGON2_CFFI_BINDINGS
+config LINGMO_PACKAGE_PYTHON_ARGON2_CFFI_BINDINGS
 	bool "python-argon2-cffi-bindings"
-	depends on BR2_USE_MMU # libargon2
-	depends on !BR2_STATIC_LIBS # libargon2
-	select BR2_PACKAGE_PYTHON_CFFI # runtime
-	select BR2_PACKAGE_LIBARGON2
+	depends on LINGMO_USE_MMU # libargon2
+	depends on !LINGMO_STATIC_LIBS # libargon2
+	select LINGMO_PACKAGE_PYTHON_CFFI # runtime
+	select LINGMO_PACKAGE_LIBARGON2
 	help
 	  Low-level CFFI bindings for Argon2.
 

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_WQY_ZENHEI
+config LINGMO_PACKAGE_WQY_ZENHEI
 	bool "wqy-zenhei"
 	help
 	  "WenQuanYi Zen Hei" is a Hei-Ti Style (sans-serif) Chinese

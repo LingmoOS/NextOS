@@ -1,7 +1,7 @@
-config BR2_PACKAGE_MOST
+config LINGMO_PACKAGE_MOST
 	bool "most"
-	depends on BR2_USE_MMU # slang
-	select BR2_PACKAGE_SLANG
+	depends on LINGMO_USE_MMU # slang
+	select LINGMO_PACKAGE_SLANG
 	help
 	  most is a powerful pager, including features like multi
 	  document support, hex view and unpack on-the-fly.

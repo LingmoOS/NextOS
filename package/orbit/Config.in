@@ -1,9 +1,9 @@
-config BR2_PACKAGE_ORBIT
+config LINGMO_PACKAGE_ORBIT
 	bool "orbit"
-	depends on BR2_PACKAGE_LUA_5_1 || BR2_PACKAGE_LUAJIT
-	select BR2_PACKAGE_LPEG # runtime
-	select BR2_PACKAGE_LUAFILESYSTEM # runtime
-	select BR2_PACKAGE_WSAPI_XAVANTE # runtime
+	depends on LINGMO_PACKAGE_LUA_5_1 || LINGMO_PACKAGE_LUAJIT
+	select LINGMO_PACKAGE_LPEG # runtime
+	select LINGMO_PACKAGE_LUAFILESYSTEM # runtime
+	select LINGMO_PACKAGE_WSAPI_XAVANTE # runtime
 	help
 	  An MVC web framework for Lua. The design is inspired by
 	  lightweight Ruby frameworks such as Camping
@@ -11,5 +11,5 @@ config BR2_PACKAGE_ORBIT
 	  http://keplerproject.github.com/orbit
 
 comment "orbit needs a Lua 5.1 interpreter"
-	depends on !BR2_PACKAGE_LUA_5_1
-	depends on !BR2_PACKAGE_LUAJIT
+	depends on !LINGMO_PACKAGE_LUA_5_1
+	depends on !LINGMO_PACKAGE_LUAJIT

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_MBW
+config LINGMO_PACKAGE_MBW
 	bool "mbw"
 	help
 	  MBW is a memory bandwidth benchmarking tool.

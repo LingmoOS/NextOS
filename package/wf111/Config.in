@@ -1,10 +1,10 @@
-config BR2_PACKAGE_WF111
+config LINGMO_PACKAGE_WF111
 	bool "wf111"
-	depends on BR2_LINUX_KERNEL
-	depends on BR2_ARM_CPU_ARMV5 || BR2_ARM_CPU_ARMV7A || BR2_i386
+	depends on LINGMO_LINUX_KERNEL
+	depends on LINGMO_ARM_CPU_ARMV5 || LINGMO_ARM_CPU_ARMV7A || LINGMO_i386
 	# Binary tools are distributed alongside the driver, and are
 	# dynamically linked against the glibc.
-	depends on BR2_TOOLCHAIN_USES_GLIBC
+	depends on LINGMO_TOOLCHAIN_USES_GLIBC
 	help
 	  Silicon Labs WF111 WiFi driver and utilities.
 
@@ -20,10 +20,10 @@ config BR2_PACKAGE_WF111
 	  https://www.silabs.com/wireless/wi-fi/bluegiga-legacy-modules/device.wf111
 
 comment "wf111 needs a Linux kernel to be built"
-	depends on !BR2_LINUX_KERNEL
-	depends on BR2_ARM_CPU_ARMV5 || BR2_ARM_CPU_ARMV7A || BR2_i386
+	depends on !LINGMO_LINUX_KERNEL
+	depends on LINGMO_ARM_CPU_ARMV5 || LINGMO_ARM_CPU_ARMV7A || LINGMO_i386
 
 comment "wf111 needs a glibc toolchain"
-	depends on BR2_LINUX_KERNEL
-	depends on BR2_ARM_CPU_ARMV5 || BR2_ARM_CPU_ARMV7A || BR2_i386
-	depends on !BR2_TOOLCHAIN_USES_GLIBC
+	depends on LINGMO_LINUX_KERNEL
+	depends on LINGMO_ARM_CPU_ARMV5 || LINGMO_ARM_CPU_ARMV7A || LINGMO_i386
+	depends on !LINGMO_TOOLCHAIN_USES_GLIBC

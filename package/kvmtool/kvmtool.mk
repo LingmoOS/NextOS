@@ -8,13 +8,13 @@ KVMTOOL_VERSION = f77d646ba01d04be5aad9449ac00719c043fe36e
 KVMTOOL_SITE = https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git
 KVMTOOL_SITE_METHOD = git
 KVMTOOL_DEPENDENCIES = \
-	$(if $(BR2_PACKAGE_BINUTILS),binutils) \
-	$(if $(BR2_PACKAGE_DTC),dtc) \
-	$(if $(BR2_PACKAGE_LIBAIO),libaio) \
-	$(if $(BR2_PACKAGE_LIBGTK3),libgtk3) \
-	$(if $(BR2_PACKAGE_LIBVNCSERVER),libvncserver) \
-	$(if $(BR2_PACKAGE_SDL),sdl) \
-	$(if $(BR2_PACKAGE_ZLIB),zlib)
+	$(if $(LINGMO_PACKAGE_BINUTILS),binutils) \
+	$(if $(LINGMO_PACKAGE_DTC),dtc) \
+	$(if $(LINGMO_PACKAGE_LIBAIO),libaio) \
+	$(if $(LINGMO_PACKAGE_LIBGTK3),libgtk3) \
+	$(if $(LINGMO_PACKAGE_LIBVNCSERVER),libvncserver) \
+	$(if $(LINGMO_PACKAGE_SDL),sdl) \
+	$(if $(LINGMO_PACKAGE_ZLIB),zlib)
 KVMTOOL_LICENSE = GPL-2.0
 KVMTOOL_LICENSE_FILES = COPYING
 KVMTOOL_CPE_ID_VALID = YES

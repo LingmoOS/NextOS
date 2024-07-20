@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PURE_EVAL
+config LINGMO_PACKAGE_PYTHON_PURE_EVAL
 	bool "python-pure-eval"
 	help
 	  Safely evaluate AST nodes without side effects.

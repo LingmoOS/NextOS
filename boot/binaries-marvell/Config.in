@@ -1,6 +1,6 @@
-config BR2_TARGET_BINARIES_MARVELL
+config LINGMO_TARGET_BINARIES_MARVELL
 	bool "binaries-marvell"
-	depends on BR2_aarch64
+	depends on LINGMO_aarch64
 	help
 	  Some systems, including Marvell Armada SoC, have a separate
 	  System Control Processor (SCP) for power management, clocks,

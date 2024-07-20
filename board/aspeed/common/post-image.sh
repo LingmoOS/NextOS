@@ -4,8 +4,8 @@ BOARD_DIR="$(dirname $0)"
 mkimage=$HOST_DIR/bin/mkimage
 
 BOARD_DT=$(sed -n \
-           's/^BR2_LINUX_KERNEL_INTREE_DTS_NAME="\([a-z0-9\-]*\).*"$/\1/p' \
-           ${BR2_CONFIG})
+           's/^LINGMO_LINUX_KERNEL_INTREE_DTS_NAME="\([a-z0-9\-]*\).*"$/\1/p' \
+           ${LINGMO_CONFIG})
 
 sed -e "s/%BOARD_DTB%/${BOARD_DT}.dtb/" \
     $BOARD_DIR/image.its.template > $BINARIES_DIR/image.its

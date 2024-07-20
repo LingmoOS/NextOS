@@ -31,31 +31,31 @@ OPENVMTOOLS_DEPENDENCIES = \
 	libdnet \
 	$(TARGET_NLS_DEPENDENCIES)
 
-ifeq ($(BR2_PACKAGE_LIBTIRPC),y)
+ifeq ($(LINGMO_PACKAGE_LIBTIRPC),y)
 OPENVMTOOLS_DEPENDENCIES += libtirpc
 endif
 
 # When libfuse is available, openvmtools can build vmblock-fuse, so
 # make sure that libfuse gets built first
-ifeq ($(BR2_PACKAGE_LIBFUSE),y)
+ifeq ($(LINGMO_PACKAGE_LIBFUSE),y)
 OPENVMTOOLS_DEPENDENCIES += libfuse
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 OPENVMTOOLS_CONF_OPTS += --with-ssl
 OPENVMTOOLS_DEPENDENCIES += openssl
 else
 OPENVMTOOLS_CONF_OPTS += --without-ssl
 endif
 
-ifeq ($(BR2_PACKAGE_OPENVMTOOLS_PAM),y)
+ifeq ($(LINGMO_PACKAGE_OPENVMTOOLS_PAM),y)
 OPENVMTOOLS_CONF_OPTS += --with-pam
 OPENVMTOOLS_DEPENDENCIES += linux-pam
 else
 OPENVMTOOLS_CONF_OPTS += --without-pam
 endif
 
-ifeq ($(BR2_PACKAGE_OPENVMTOOLS_RESOLUTIONKMS),y)
+ifeq ($(LINGMO_PACKAGE_OPENVMTOOLS_RESOLUTIONKMS),y)
 OPENVMTOOLS_CONF_OPTS += --enable-resolutionkms
 OPENVMTOOLS_DEPENDENCIES += libdrm udev
 else

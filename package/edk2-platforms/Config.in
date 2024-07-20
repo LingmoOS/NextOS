@@ -1,4 +1,4 @@
-config BR2_PACKAGE_EDK2_PLATFORMS
+config LINGMO_PACKAGE_EDK2_PLATFORMS
 	bool
 	help
 	  EDK2 description files for all supported platforms.

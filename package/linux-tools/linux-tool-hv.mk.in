@@ -7,9 +7,9 @@
 LINUX_TOOLS += hv
 
 # The programs to build, as known by the kernel:
-HV_PROGS_$(BR2_PACKAGE_LINUX_TOOLS_HV_KVP_DAEMON) += hv_kvp_daemon
-HV_PROGS_$(BR2_PACKAGE_LINUX_TOOLS_HV_FCOPY_DAEMON) += hv_fcopy_daemon
-HV_PROGS_$(BR2_PACKAGE_LINUX_TOOLS_HV_VSS_DAEMON) += hv_vss_daemon
+HV_PROGS_$(LINGMO_PACKAGE_LINUX_TOOLS_HV_KVP_DAEMON) += hv_kvp_daemon
+HV_PROGS_$(LINGMO_PACKAGE_LINUX_TOOLS_HV_FCOPY_DAEMON) += hv_fcopy_daemon
+HV_PROGS_$(LINGMO_PACKAGE_LINUX_TOOLS_HV_VSS_DAEMON) += hv_vss_daemon
 
 # Give each tools the name most distros install them as:
 HV_hv_kvp_daemon = hypervkvpd
@@ -31,7 +31,7 @@ define HV_BUILD_CMDS
 		$(HV_PROGS_y)
 endef
 
-ifeq ($(BR2_PACKAGE_LINUX_TOOLS_HV_KVP_DAEMON),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_TOOLS_HV_KVP_DAEMON),y)
 define HV_KVP_HELPER
 	@mkdir -p $(TARGET_DIR)/usr/libexec/hypervkvpd
 	$(Q)ln -sf /bin/true $(TARGET_DIR)/usr/libexec/hypervkvpd/hv_set_ifconfig

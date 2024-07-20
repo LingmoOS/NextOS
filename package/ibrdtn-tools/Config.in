@@ -1,9 +1,9 @@
-config BR2_PACKAGE_IBRDTN_TOOLS
+config LINGMO_PACKAGE_IBRDTN_TOOLS
 	bool "ibrdtn-tools"
-	depends on BR2_INSTALL_LIBSTDCPP
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	select BR2_PACKAGE_IBRCOMMON
-	select BR2_PACKAGE_IBRDTN
+	depends on LINGMO_INSTALL_LIBSTDCPP
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	select LINGMO_PACKAGE_IBRCOMMON
+	select LINGMO_PACKAGE_IBRDTN
 	help
 	  IBR-DTN is a small dtn application that supports:
 	  Bundle Protocol RFC 5050
@@ -12,4 +12,4 @@ config BR2_PACKAGE_IBRDTN_TOOLS
 	  http://trac.ibr.cs.tu-bs.de/project-cm-2012-ibrdtn
 
 comment "ibrdtn-tools needs a toolchain w/ C++, threads"
-	depends on !BR2_INSTALL_LIBSTDCPP || !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_INSTALL_LIBSTDCPP || !LINGMO_TOOLCHAIN_HAS_THREADS

@@ -1,12 +1,12 @@
-config BR2_PACKAGE_ULOGD
+config LINGMO_PACKAGE_ULOGD
 	bool "ulogd"
-	depends on !BR2_STATIC_LIBS
-	depends on BR2_USE_MMU
-	select BR2_PACKAGE_LIBMNL
-	select BR2_PACKAGE_LIBNETFILTER_ACCT
-	select BR2_PACKAGE_LIBNETFILTER_CONNTRACK
-	select BR2_PACKAGE_LIBNETFILTER_LOG
-	select BR2_PACKAGE_LIBNFNETLINK
+	depends on !LINGMO_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	select LINGMO_PACKAGE_LIBMNL
+	select LINGMO_PACKAGE_LIBNETFILTER_ACCT
+	select LINGMO_PACKAGE_LIBNETFILTER_CONNTRACK
+	select LINGMO_PACKAGE_LIBNETFILTER_LOG
+	select LINGMO_PACKAGE_LIBNFNETLINK
 	help
 	  ulogd is a userspace logging daemon for netfilter/iptables
 	  related logging.
@@ -14,5 +14,5 @@ config BR2_PACKAGE_ULOGD
 	  https://www.netfilter.org/projects/ulogd/
 
 comment "ulogd needs a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
-	depends on BR2_USE_MMU
+	depends on LINGMO_STATIC_LIBS
+	depends on LINGMO_USE_MMU

@@ -18,22 +18,22 @@ LIBASS_DEPENDENCIES = \
 	freetype \
 	harfbuzz \
 	libfribidi \
-	$(if $(BR2_PACKAGE_LIBICONV),libiconv)
+	$(if $(LINGMO_PACKAGE_LIBICONV),libiconv)
 
 # configure: WARNING: Install nasm for a significantly faster libass build.
 # only for Intel archs
-ifeq ($(BR2_i386)$(BR2_x86_64),y)
+ifeq ($(LINGMO_i386)$(LINGMO_x86_64),y)
 LIBASS_DEPENDENCIES += host-nasm
 endif
 
-ifeq ($(BR2_PACKAGE_FONTCONFIG),y)
+ifeq ($(LINGMO_PACKAGE_FONTCONFIG),y)
 LIBASS_DEPENDENCIES += fontconfig
 LIBASS_CONF_OPTS += --enable-fontconfig
 else
 LIBASS_CONF_OPTS += --disable-fontconfig --disable-require-system-font-provider
 endif
 
-ifeq ($(BR2_PACKAGE_LIBUNIBREAK),y)
+ifeq ($(LINGMO_PACKAGE_LIBUNIBREAK),y)
 LIBASS_DEPENDENCIES += libunibreak
 LIBASS_CONF_OPTS += --enable-libunibreak
 else

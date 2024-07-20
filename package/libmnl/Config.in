@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBMNL
+config LINGMO_PACKAGE_LIBMNL
 	bool "libmnl"
 	help
 	  libmnl is a minimalistic user-space library oriented
@@ -6,9 +6,9 @@ config BR2_PACKAGE_LIBMNL
 
 	  http://netfilter.org/projects/libmnl/
 
-if BR2_PACKAGE_LIBMNL
+if LINGMO_PACKAGE_LIBMNL
 
-config BR2_PACKAGE_LIBMNL_EXAMPLES
+config LINGMO_PACKAGE_LIBMNL_EXAMPLES
 	bool "install examples"
 	help
 	  Install binary examples.

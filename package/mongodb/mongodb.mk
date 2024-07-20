@@ -47,7 +47,7 @@ MONGODB_SCONS_OPTS = \
 MONGODB_SCONS_OPTS += MONGO_VERSION=$(MONGODB_VERSION)-
 
 # WiredTiger database storage engine only supported on 64 bits
-ifeq ($(BR2_ARCH_IS_64),y)
+ifeq ($(LINGMO_ARCH_IS_64),y)
 MONGODB_SCONS_OPTS += --wiredtiger=on
 else
 MONGODB_SCONS_OPTS += --wiredtiger=off
@@ -57,14 +57,14 @@ endif
 # x86/x86-64 systems. Mongo target is a shell interface that
 # depends on the javascript engine, so it will also only be
 # built on x86/x86-64 systems.
-ifeq ($(BR2_i386)$(BR2_x86_64),y)
+ifeq ($(LINGMO_i386)$(LINGMO_x86_64),y)
 MONGODB_SCONS_OPTS += --js-engine=mozjs --allocator=tcmalloc
 MONGODB_SCONS_TARGETS += mongo
 else
 MONGODB_SCONS_OPTS += --js-engine=none --allocator=system
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCURL),y)
+ifeq ($(LINGMO_PACKAGE_LIBCURL),y)
 MONGODB_DEPENDENCIES += libcurl
 MONGODB_SCONS_OPTS += \
 	--enable-free-mon=on \
@@ -75,7 +75,7 @@ MONGODB_SCONS_OPTS += \
 	--enable-http-client=off
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 MONGODB_DEPENDENCIES += openssl
 MONGODB_SCONS_OPTS += \
 	--ssl=on \

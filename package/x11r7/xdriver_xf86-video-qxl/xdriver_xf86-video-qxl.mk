@@ -21,14 +21,14 @@ XDRIVER_XF86_VIDEO_QXL_DEPENDENCIES = \
 
 # configure doesn't look for drm headers in the appropiate place, so help it
 # libdrm is only useful with udev for KMS
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 XDRIVER_XF86_VIDEO_QXL_CONF_ENV += REQUIRED_MODULES=libdrm
 XDRIVER_XF86_VIDEO_QXL_DEPENDENCIES += libdrm
 else
 XDRIVER_XF86_VIDEO_QXL_CONF_OPTS += --disable-kms
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXFONT2),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXFONT2),y)
 XDRIVER_XF86_VIDEO_QXL_DEPENDENCIES += xlib_libXfont2
 else
 XDRIVER_XF86_VIDEO_QXL_DEPENDENCIES += xlib_libXfont

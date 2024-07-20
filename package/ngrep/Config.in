@@ -1,7 +1,7 @@
-config BR2_PACKAGE_NGREP
+config LINGMO_PACKAGE_NGREP
 	bool "ngrep"
-	select BR2_PACKAGE_LIBPCAP
-	select BR2_PACKAGE_PCRE
+	select LINGMO_PACKAGE_LIBPCAP
+	select LINGMO_PACKAGE_PCRE
 	help
 	  Network grep.
 

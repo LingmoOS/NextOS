@@ -19,7 +19,7 @@ LIBSNDFILE_CONF_OPTS = \
 	--disable-alsa \
 	--disable-full-suite
 
-ifeq ($(BR2_PACKAGE_FLAC)$(BR2_PACKAGE_LIBVORBIS)$(BR2_PACKAGE_OPUS),yyy)
+ifeq ($(LINGMO_PACKAGE_FLAC)$(LINGMO_PACKAGE_LIBVORBIS)$(LINGMO_PACKAGE_OPUS),yyy)
 LIBSNDFILE_DEPENDENCIES += flac host-pkgconf libvorbis opus
 LIBSNDFILE_CONF_OPTS += --enable-external-libs
 else

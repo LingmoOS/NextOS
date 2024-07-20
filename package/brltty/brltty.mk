@@ -17,7 +17,7 @@ BRLTTY_DEPENDENCIES = \
 	host-autoconf \
 	host-gawk \
 	host-pkgconf \
-	$(if $(BR2_PACKAGE_AT_SPI2_CORE),at-spi2-core)
+	$(if $(LINGMO_PACKAGE_AT_SPI2_CORE),at-spi2-core)
 
 BRLTTY_CONF_ENV = \
 	PKG_CONFIG_FOR_BUILD=$(HOST_DIR)/bin/pkgconf
@@ -45,21 +45,21 @@ endef
 
 BRLTTY_PRE_CONFIGURE_HOOKS += BRLTTY_AUTOCONF
 
-ifeq ($(BR2_PACKAGE_BLUEZ5_UTILS),y)
+ifeq ($(LINGMO_PACKAGE_BLUEZ5_UTILS),y)
 BRLTTY_DEPENDENCIES += bluez5_utils
 BRLTTY_CONF_OPTS += --with-bluetooth-package
 else
 BRLTTY_CONF_OPTS += --without-bluetooth-package
 endif
 
-ifeq ($(BR2_PACKAGE_ESPEAK),y)
+ifeq ($(LINGMO_PACKAGE_ESPEAK),y)
 BRLTTY_DEPENDENCIES += espeak
 BRLTTY_CONF_OPTS += --with-espeak=$(TARGET_DIR)/usr
 else
 BRLTTY_CONF_OPTS += --without-espeak
 endif
 
-ifeq ($(BR2_PACKAGE_EXPAT),y)
+ifeq ($(LINGMO_PACKAGE_EXPAT),y)
 # host-expat is needed by tbl2hex's host program
 BRLTTY_DEPENDENCIES += host-expat expat
 BRLTTY_CONF_OPTS += --enable-expat
@@ -67,58 +67,58 @@ else
 BRLTTY_CONF_OPTS += --disable-expat
 endif
 
-ifeq ($(BR2_PACKAGE_FLITE),y)
+ifeq ($(LINGMO_PACKAGE_FLITE),y)
 BRLTTY_DEPENDENCIES += flite
 BRLTTY_CONF_OPTS += --with-flite=$(STAGING_DIR)/usr
 else
 BRLTTY_CONF_OPTS += --without-flite
 endif
 
-ifeq ($(BR2_PACKAGE_ICU),y)
+ifeq ($(LINGMO_PACKAGE_ICU),y)
 BRLTTY_DEPENDENCIES += icu
 BRLTTY_CONF_OPTS += --enable-icu
 else
 BRLTTY_CONF_OPTS += --disable-icu
 endif
 
-ifeq ($(BR2_PACKAGE_NCURSES),y)
+ifeq ($(LINGMO_PACKAGE_NCURSES),y)
 BRLTTY_DEPENDENCIES += ncurses
 BRLTTY_CONF_OPTS += --with-curses
 else
 BRLTTY_CONF_OPTS += --without-curses
 endif
 
-ifeq ($(BR2_PACKAGE_PCRE2_32),y)
+ifeq ($(LINGMO_PACKAGE_PCRE2_32),y)
 BRLTTY_DEPENDENCIES += pcre2
 BRLTTY_CONF_OPTS += --with-rgx-package
-else ifeq ($(BR2_PACKAGE_PCRE_32),y)
+else ifeq ($(LINGMO_PACKAGE_PCRE_32),y)
 BRLTTY_DEPENDENCIES += pcre
 BRLTTY_CONF_OPTS += --with-rgx-package
 else
 BRLTTY_CONF_OPTS += --without-rgx-package
 endif
 
-ifeq ($(BR2_PACKAGE_POLKIT),y)
+ifeq ($(LINGMO_PACKAGE_POLKIT),y)
 BRLTTY_DEPENDENCIES += polkit
 BRLTTY_CONF_OPTS += --enable-polkit
 else
 BRLTTY_CONF_OPTS += --disable-polkit
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 BRLTTY_DEPENDENCIES += systemd
 BRLTTY_CONF_OPTS += --with-service-package
 else
 BRLTTY_CONF_OPTS += --without-service-package
 endif
 
-ifeq ($(BR2_SYSTEM_ENABLE_NLS),y)
+ifeq ($(LINGMO_SYSTEM_ENABLE_NLS),y)
 BRLTTY_CONF_OPTS += --enable-i18n
 else
 BRLTTY_CONF_OPTS += --disable-i18n
 endif
 
-BRLTTY_TEXT_TABLE = $(call qstrip,$(BR2_PACKAGE_BRLTTY_TEXT_TABLE))
+BRLTTY_TEXT_TABLE = $(call qstrip,$(LINGMO_PACKAGE_BRLTTY_TEXT_TABLE))
 ifneq ($(BRLTTY_TEXT_TABLE),)
 BRLTTY_CONF_OPTS += --with-text-table=$(BRLTTY_TEXT_TABLE)
 endif

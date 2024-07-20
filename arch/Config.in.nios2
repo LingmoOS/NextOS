@@ -1,13 +1,13 @@
-config BR2_ARCH
+config LINGMO_ARCH
 	default "nios2"
 
-config BR2_NORMALIZED_ARCH
+config LINGMO_NORMALIZED_ARCH
 	default "nios2"
 
-config BR2_ENDIAN
+config LINGMO_ENDIAN
 	default "LITTLE"
 
-config BR2_READELF_ARCH_NAME
+config LINGMO_READELF_ARCH_NAME
 	default "Altera Nios II"
 
 # vim: ft=kconfig

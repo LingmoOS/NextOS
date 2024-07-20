@@ -1,12 +1,12 @@
 comment "exim needs a toolchain w/ threads"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS
 
-config BR2_PACKAGE_EXIM
+config LINGMO_PACKAGE_EXIM
 	bool "exim"
-	depends on BR2_USE_MMU # fork()
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	select BR2_PACKAGE_PCRE2
-	select BR2_PACKAGE_BERKELEYDB
+	depends on LINGMO_USE_MMU # fork()
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	select LINGMO_PACKAGE_PCRE2
+	select LINGMO_PACKAGE_BERKELEYDB
 	help
 	  Exim is a message transfer agent (MTA) developed at the
 	  University of Cambridge for use on Unix systems connected to
@@ -14,9 +14,9 @@ config BR2_PACKAGE_EXIM
 
 	  http://www.exim.org/
 
-if BR2_PACKAGE_EXIM
+if LINGMO_PACKAGE_EXIM
 
-config BR2_PACKAGE_EXIM_CUSTOM_CONFIG_FILE
+config LINGMO_PACKAGE_EXIM_CUSTOM_CONFIG_FILE
 	string "Custom configuration file"
 	help
 	  By default, when this option is left empty, Buildroot

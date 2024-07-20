@@ -10,15 +10,15 @@ MRAA_LICENSE = MIT
 MRAA_LICENSE_FILES = COPYING
 MRAA_INSTALL_STAGING = YES
 
-ifeq ($(BR2_i386),y)
+ifeq ($(LINGMO_i386),y)
 MRAA_ARCH = i386
-else ifeq ($(BR2_x86_64),y)
+else ifeq ($(LINGMO_x86_64),y)
 MRAA_ARCH = x86_64
-else ifeq ($(BR2_arm)$(BR2_armeb),y)
+else ifeq ($(LINGMO_arm)$(LINGMO_armeb),y)
 MRAA_ARCH = arm
-else ifeq ($(BR2_aarch64)$(BR2_aarch64_be),y)
+else ifeq ($(LINGMO_aarch64)$(LINGMO_aarch64_be),y)
 MRAA_ARCH = aarch64
-else ifeq ($(BR2_mips)$(BR2_mipsel)$(BR2_mips64)$(BR2_mips64el),y)
+else ifeq ($(LINGMO_mips)$(LINGMO_mipsel)$(LINGMO_mips64)$(LINGMO_mips64el),y)
 MRAA_ARCH = mips
 endif
 
@@ -34,7 +34,7 @@ MRAA_CONF_OPTS += \
 	-DENABLEEXAMPLES=OFF \
 	-DBUILDTESTS=OFF
 
-ifeq ($(BR2_PACKAGE_JSON_C),y)
+ifeq ($(LINGMO_PACKAGE_JSON_C),y)
 MRAA_CONF_OPTS += -DJSONPLAT=ON
 MRAA_DEPENDENCIES += json-c
 else

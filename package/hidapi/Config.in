@@ -1,13 +1,13 @@
-config BR2_PACKAGE_HIDAPI
+config LINGMO_PACKAGE_HIDAPI
 	bool "hidapi"
-	depends on BR2_PACKAGE_HAS_UDEV
-	depends on BR2_TOOLCHAIN_HAS_THREADS_NPTL
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_9 # libusb
-	select BR2_PACKAGE_LIBUSB
-	select BR2_PACKAGE_LIBGUDEV
-	select BR2_PACKAGE_LIBICONV if !BR2_ENABLE_LOCALE
+	depends on LINGMO_PACKAGE_HAS_UDEV
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS_NPTL
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9 # libusb
+	select LINGMO_PACKAGE_LIBUSB
+	select LINGMO_PACKAGE_LIBGUDEV
+	select LINGMO_PACKAGE_LIBICONV if !LINGMO_ENABLE_LOCALE
 	# runtime UTF conversion support
-	select BR2_TOOLCHAIN_GLIBC_GCONV_LIBS_COPY if BR2_TOOLCHAIN_USES_GLIBC
+	select LINGMO_TOOLCHAIN_GLIBC_GCONV_LIBS_COPY if LINGMO_TOOLCHAIN_USES_GLIBC
 	help
 	  HIDAPI is a multi-platform library which allows an application
 	  to interface with USB and Bluetooth HID-Class devices on
@@ -16,6 +16,6 @@ config BR2_PACKAGE_HIDAPI
 	  http://github.com/libusb/hidapi/
 
 comment "hidapi needs udev /dev management and a toolchain w/ NPTL, gcc >= 4.9"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS_NPTL || \
-		!BR2_PACKAGE_HAS_UDEV || \
-		!BR2_TOOLCHAIN_GCC_AT_LEAST_4_9
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS_NPTL || \
+		!LINGMO_PACKAGE_HAS_UDEV || \
+		!LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9

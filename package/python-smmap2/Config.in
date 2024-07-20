@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_SMMAP2
+config LINGMO_PACKAGE_PYTHON_SMMAP2
 	bool "python-smmap2"
 	help
 	  Smmap wraps an interface around mmap and tracks the mapped

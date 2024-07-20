@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBGLOB
+config LINGMO_PACKAGE_LIBGLOB
 	bool "libglob"
 	help
 	  OpenBSD implementation of glob(3).

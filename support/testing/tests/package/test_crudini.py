@@ -12,7 +12,7 @@ other = dont care
 class TestCrudiniBase(TestPythonPackageBase):
     config = TestPythonPackageBase.config + \
         """
-        BR2_PACKAGE_CRUDINI=y
+        LINGMO_PACKAGE_CRUDINI=y
         """
 
     def test_run(self):
@@ -37,5 +37,5 @@ class TestCrudiniPy3(TestCrudiniBase):
     __test__ = True
     config = TestCrudiniBase.config + \
         """
-        BR2_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON3=y
         """

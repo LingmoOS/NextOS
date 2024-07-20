@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PSPLASH
+config LINGMO_PACKAGE_PSPLASH
 	bool "psplash"
-	depends on BR2_USE_WCHAR
+	depends on LINGMO_USE_WCHAR
 	help
 	  PSplash is a userspace graphical boot splash screen for
 	  mainly embedded Linux devices supporting a 16bpp or 32bpp
@@ -27,9 +27,9 @@ config BR2_PACKAGE_PSPLASH
 
 	  http://git.yoctoproject.org/cgit/cgit.cgi/psplash/
 
-if BR2_PACKAGE_PSPLASH
+if LINGMO_PACKAGE_PSPLASH
 
-config BR2_PACKAGE_PSPLASH_IMAGE
+config LINGMO_PACKAGE_PSPLASH_IMAGE
 	string "psplash image"
 	help
 	  Use a personalized png image as boot splash.
@@ -38,4 +38,4 @@ config BR2_PACKAGE_PSPLASH_IMAGE
 endif
 
 comment "psplash needs a toolchain w/ wchar"
-	depends on !BR2_USE_WCHAR
+	depends on !LINGMO_USE_WCHAR

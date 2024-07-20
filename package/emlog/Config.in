@@ -1,6 +1,6 @@
-config BR2_PACKAGE_EMLOG
+config LINGMO_PACKAGE_EMLOG
 	bool "emlog"
-	depends on BR2_LINUX_KERNEL
+	depends on LINGMO_LINUX_KERNEL
 	help
 	  emlog is a Linux kernel module that makes it easy to access
 	  the most recent (and only the most recent) output from a
@@ -14,4 +14,4 @@ config BR2_PACKAGE_EMLOG
 	  https://github.com/nicupavel/emlog
 
 comment "emlog needs a Linux kernel to be built"
-	depends on !BR2_LINUX_KERNEL
+	depends on !LINGMO_LINUX_KERNEL

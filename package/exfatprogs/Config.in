@@ -1,6 +1,6 @@
-config BR2_PACKAGE_EXFATPROGS
+config LINGMO_PACKAGE_EXFATPROGS
 	bool "exfatprogs"
-	depends on BR2_USE_WCHAR
+	depends on LINGMO_USE_WCHAR
 	help
 	  exFAT filesystem userspace utilities.
 
@@ -14,4 +14,4 @@ config BR2_PACKAGE_EXFATPROGS
 	  https://github.com/exfatprogs/exfatprogs
 
 comment "exfatprogs needs a toolchain w/ wchar"
-	depends on !BR2_USE_WCHAR
+	depends on !LINGMO_USE_WCHAR

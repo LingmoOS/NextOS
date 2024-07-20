@@ -1,4 +1,4 @@
-config BR2_PACKAGE_DOTCONF
+config LINGMO_PACKAGE_DOTCONF
 	bool "dotconf"
 	help
 	  Configuration file parser.

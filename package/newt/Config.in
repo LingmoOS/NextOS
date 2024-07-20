@@ -1,10 +1,10 @@
-config BR2_PACKAGE_NEWT
+config LINGMO_PACKAGE_NEWT
 	bool "newt"
-	depends on BR2_USE_WCHAR
-	depends on BR2_USE_MMU # slang
-	depends on !BR2_STATIC_LIBS # unconditionally creates .so
-	select BR2_PACKAGE_SLANG
-	select BR2_PACKAGE_POPT
+	depends on LINGMO_USE_WCHAR
+	depends on LINGMO_USE_MMU # slang
+	depends on !LINGMO_STATIC_LIBS # unconditionally creates .so
+	select LINGMO_PACKAGE_SLANG
+	select LINGMO_PACKAGE_POPT
 	help
 	  Programming library for color text mode, widget based user
 	  interfaces.
@@ -12,5 +12,5 @@ config BR2_PACKAGE_NEWT
 	  http://www.redhat.com/
 
 comment "newt needs a toolchain w/ wchar, dynamic library"
-	depends on BR2_USE_MMU
-	depends on !BR2_USE_WCHAR || BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_USE_WCHAR || LINGMO_STATIC_LIBS

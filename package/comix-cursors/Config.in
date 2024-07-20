@@ -1,4 +1,4 @@
-config BR2_PACKAGE_COMIX_CURSORS
+config LINGMO_PACKAGE_COMIX_CURSORS
 	bool "comix-cursors"
 	help
 	  X11 mouse theme with a comics feeling.

@@ -23,7 +23,7 @@ define ACPID_INSTALL_INIT_SYSV
 		$(TARGET_DIR)/etc/init.d/S02acpid
 endef
 
-ifeq ($(BR2_INIT_SYSV)$(BR2_INIT_SYSTEMD),y)
+ifeq ($(LINGMO_INIT_SYSV)$(LINGMO_INIT_SYSTEMD),y)
 ACPID_POWEROFF_CMD = /sbin/shutdown -hP now
 else
 ACPID_POWEROFF_CMD = /sbin/poweroff

@@ -11,7 +11,7 @@ APITRACE_LICENSE_FILES = LICENSE
 
 APITRACE_DEPENDENCIES = host-python3 libpng
 
-ifeq ($(BR2_PACKAGE_XORG7),y)
+ifeq ($(LINGMO_PACKAGE_XORG7),y)
 APITRACE_DEPENDENCIES += xlib_libX11
 APITRACE_CONF_OPTS += -DENABLE_X11=ON
 else
@@ -24,7 +24,7 @@ APITRACE_CONF_OPTS += -DENABLE_GUI=false
 APITRACE_CFLAGS = $(TARGET_CFLAGS)
 APITRACE_CXXFLAGS = $(TARGET_CXXFLAGS)
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_68485),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_68485),y)
 # This works around embedded Brotli build failure
 APITRACE_CFLAGS += -O0
 # CMakeLists.txt sets CMAKE_CXX_FLAGS_<BUILD_TYPE> depending on
@@ -33,13 +33,13 @@ APITRACE_CFLAGS += -O0
 APITRACE_CONF_OPTS += -DCMAKE_BUILD_TYPE=Buildroot
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_85180),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_85180),y)
 # This works around Apitrace itself build failure
 APITRACE_CXXFLAGS += -O0
 endif
 
 # m68k needs 32-bit offsets in switch tables to build
-ifeq ($(BR2_m68k),y)
+ifeq ($(LINGMO_m68k),y)
 APITRACE_CXXFLAGS += -mlong-jump-table-offsets
 endif
 

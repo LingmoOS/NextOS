@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_MULTIPART
+config LINGMO_PACKAGE_PYTHON_MULTIPART
 	bool "python-multipart"
 	help
 	  A streaming multipart parser for Python.

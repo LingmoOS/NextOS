@@ -36,18 +36,18 @@ WINE_CONF_OPTS = \
 # external toolchains. So, we have to override whatever the gcc
 # wrapper believes what the real gcc is named, and force the tuple of
 # the external toolchain, not the one we compute in GNU_TARGET_NAME.
-ifeq ($(BR2_TOOLCHAIN_EXTERNAL),y)
+ifeq ($(LINGMO_TOOLCHAIN_EXTERNAL),y)
 WINE_CONF_OPTS += TARGETFLAGS="-b $(TOOLCHAIN_EXTERNAL_PREFIX)"
 endif
 
-ifeq ($(BR2_PACKAGE_ALSA_LIB),y)
+ifeq ($(LINGMO_PACKAGE_ALSA_LIB),y)
 WINE_CONF_OPTS += --with-alsa
 WINE_DEPENDENCIES += alsa-lib
 else
 WINE_CONF_OPTS += --without-alsa
 endif
 
-ifeq ($(BR2_PACKAGE_CUPS),y)
+ifeq ($(LINGMO_PACKAGE_CUPS),y)
 WINE_CONF_OPTS += --with-cups
 WINE_DEPENDENCIES += cups
 WINE_CONF_ENV += CUPS_CONFIG=$(STAGING_DIR)/usr/bin/cups-config
@@ -55,14 +55,14 @@ else
 WINE_CONF_OPTS += --without-cups
 endif
 
-ifeq ($(BR2_PACKAGE_DBUS),y)
+ifeq ($(LINGMO_PACKAGE_DBUS),y)
 WINE_CONF_OPTS += --with-dbus
 WINE_DEPENDENCIES += dbus
 else
 WINE_CONF_OPTS += --without-dbus
 endif
 
-ifeq ($(BR2_PACKAGE_FONTCONFIG),y)
+ifeq ($(LINGMO_PACKAGE_FONTCONFIG),y)
 WINE_CONF_OPTS += --with-fontconfig
 WINE_DEPENDENCIES += fontconfig
 else
@@ -70,7 +70,7 @@ WINE_CONF_OPTS += --without-fontconfig
 endif
 
 # To support freetype in wine we also need freetype in host-wine for the cross compiling tools
-ifeq ($(BR2_PACKAGE_FREETYPE),y)
+ifeq ($(LINGMO_PACKAGE_FREETYPE),y)
 WINE_CONF_OPTS += --with-freetype
 HOST_WINE_CONF_OPTS += --with-freetype
 WINE_DEPENDENCIES += freetype
@@ -81,77 +81,77 @@ WINE_CONF_OPTS += --without-freetype
 HOST_WINE_CONF_OPTS += --without-freetype
 endif
 
-ifeq ($(BR2_PACKAGE_GNUTLS),y)
+ifeq ($(LINGMO_PACKAGE_GNUTLS),y)
 WINE_CONF_OPTS += --with-gnutls
 WINE_DEPENDENCIES += gnutls
 else
 WINE_CONF_OPTS += --without-gnutls
 endif
 
-ifeq ($(BR2_PACKAGE_GST1_PLUGINS_BASE),y)
+ifeq ($(LINGMO_PACKAGE_GST1_PLUGINS_BASE),y)
 WINE_CONF_OPTS += --with-gstreamer
 WINE_DEPENDENCIES += gst1-plugins-base
 else
 WINE_CONF_OPTS += --without-gstreamer
 endif
 
-ifeq ($(BR2_PACKAGE_HAS_LIBGL),y)
+ifeq ($(LINGMO_PACKAGE_HAS_LIBGL),y)
 WINE_CONF_OPTS += --with-opengl
 WINE_DEPENDENCIES += libgl
 else
 WINE_CONF_OPTS += --without-opengl
 endif
 
-ifeq ($(BR2_PACKAGE_LIBKRB5),y)
+ifeq ($(LINGMO_PACKAGE_LIBKRB5),y)
 WINE_CONF_OPTS += --with-krb5
 WINE_DEPENDENCIES += libkrb5
 else
 WINE_CONF_OPTS += --without-krb5
 endif
 
-ifeq ($(BR2_PACKAGE_LIBPCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBPCAP),y)
 WINE_CONF_OPTS += --with-pcap
 WINE_DEPENDENCIES += libpcap
 else
 WINE_CONF_OPTS += --without-pcap
 endif
 
-ifeq ($(BR2_PACKAGE_LIBUSB),y)
+ifeq ($(LINGMO_PACKAGE_LIBUSB),y)
 WINE_CONF_OPTS += --with-usb
 WINE_DEPENDENCIES += libusb
 else
 WINE_CONF_OPTS += --without-usb
 endif
 
-ifeq ($(BR2_PACKAGE_LIBV4L),y)
+ifeq ($(LINGMO_PACKAGE_LIBV4L),y)
 WINE_CONF_OPTS += --with-v4l2
 WINE_DEPENDENCIES += libv4l
 else
 WINE_CONF_OPTS += --without-v4l2
 endif
 
-ifeq ($(BR2_PACKAGE_MESA3D_OSMESA_GALLIUM),y)
+ifeq ($(LINGMO_PACKAGE_MESA3D_OSMESA_GALLIUM),y)
 WINE_CONF_OPTS += --with-osmesa
 WINE_DEPENDENCIES += mesa3d
 else
 WINE_CONF_OPTS += --without-osmesa
 endif
 
-ifeq ($(BR2_PACKAGE_PULSEAUDIO),y)
+ifeq ($(LINGMO_PACKAGE_PULSEAUDIO),y)
 WINE_CONF_OPTS += --with-pulse
 WINE_DEPENDENCIES += pulseaudio
 else
 WINE_CONF_OPTS += --without-pulse
 endif
 
-ifeq ($(BR2_PACKAGE_SAMBA4),y)
+ifeq ($(LINGMO_PACKAGE_SAMBA4),y)
 WINE_CONF_OPTS += --with-netapi
 WINE_DEPENDENCIES += samba4
 else
 WINE_CONF_OPTS += --without-netapi
 endif
 
-ifeq ($(BR2_PACKAGE_SANE_BACKENDS),y)
+ifeq ($(LINGMO_PACKAGE_SANE_BACKENDS),y)
 WINE_CONF_OPTS += --with-sane
 WINE_DEPENDENCIES += sane-backends
 WINE_CONF_ENV += SANE_CONFIG=$(STAGING_DIR)/usr/bin/sane-config
@@ -159,77 +159,77 @@ else
 WINE_CONF_OPTS += --without-sane
 endif
 
-ifeq ($(BR2_PACKAGE_SDL2),y)
+ifeq ($(LINGMO_PACKAGE_SDL2),y)
 WINE_CONF_OPTS += --with-sdl
 WINE_DEPENDENCIES += sdl2
 else
 WINE_CONF_OPTS += --without-sdl
 endif
 
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 WINE_CONF_OPTS += --with-udev
 WINE_DEPENDENCIES += udev
 else
 WINE_CONF_OPTS += --without-udev
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBX11),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBX11),y)
 WINE_CONF_OPTS += --with-x
 WINE_DEPENDENCIES += xlib_libX11
 else
 WINE_CONF_OPTS += --without-x
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXCOMPOSITE),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXCOMPOSITE),y)
 WINE_CONF_OPTS += --with-xcomposite
 WINE_DEPENDENCIES += xlib_libXcomposite
 else
 WINE_CONF_OPTS += --without-xcomposite
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXCURSOR),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXCURSOR),y)
 WINE_CONF_OPTS += --with-xcursor
 WINE_DEPENDENCIES += xlib_libXcursor
 else
 WINE_CONF_OPTS += --without-xcursor
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXEXT),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXEXT),y)
 WINE_CONF_OPTS += --with-xshape --with-xshm
 WINE_DEPENDENCIES += xlib_libXext
 else
 WINE_CONF_OPTS += --without-xshape --without-xshm
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXI),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXI),y)
 WINE_CONF_OPTS += --with-xinput --with-xinput2
 WINE_DEPENDENCIES += xlib_libXi
 else
 WINE_CONF_OPTS += --without-xinput --without-xinput2
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXINERAMA),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXINERAMA),y)
 WINE_CONF_OPTS += --with-xinerama
 WINE_DEPENDENCIES += xlib_libXinerama
 else
 WINE_CONF_OPTS += --without-xinerama
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXRANDR),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXRANDR),y)
 WINE_CONF_OPTS += --with-xrandr
 WINE_DEPENDENCIES += xlib_libXrandr
 else
 WINE_CONF_OPTS += --without-xrandr
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXRENDER),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXRENDER),y)
 WINE_CONF_OPTS += --with-xrender
 WINE_DEPENDENCIES += xlib_libXrender
 else
 WINE_CONF_OPTS += --without-xrender
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXXF86VM),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXXF86VM),y)
 WINE_CONF_OPTS += --with-xxf86vm
 WINE_DEPENDENCIES += xlib_libXxf86vm
 else
@@ -237,7 +237,7 @@ WINE_CONF_OPTS += --without-xxf86vm
 endif
 
 # host-gettext is essential for .po file support in host-wine wrc
-ifeq ($(BR2_SYSTEM_ENABLE_NLS),y)
+ifeq ($(LINGMO_SYSTEM_ENABLE_NLS),y)
 HOST_WINE_DEPENDENCIES += host-gettext
 HOST_WINE_CONF_OPTS += --with-gettext --with-gettextpo
 else

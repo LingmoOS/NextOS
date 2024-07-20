@@ -1,7 +1,7 @@
-config BR2_PACKAGE_TSTOOLS
+config LINGMO_PACKAGE_TSTOOLS
 	bool "tstools"
-	depends on BR2_USE_MMU # fork()
-	depends on !BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU # fork()
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  This is a set of cross-platform command line tools for
 	  working with MPEG data.
@@ -18,5 +18,5 @@ config BR2_PACKAGE_TSTOOLS
 	  https://github.com/kynesim/tstools/
 
 comment "tstools needs a toolchain w/ dynamic library"
-	depends on BR2_USE_MMU
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_STATIC_LIBS

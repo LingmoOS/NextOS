@@ -1,4 +1,4 @@
-config BR2_PACKAGE_NETPERF
+config LINGMO_PACKAGE_NETPERF
 	bool "netperf"
 	help
 	  Network performance benchmark tool

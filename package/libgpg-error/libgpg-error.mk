@@ -15,12 +15,12 @@ LIBGPG_ERROR_CONFIG_SCRIPTS = gpg-error-config
 LIBGPG_ERROR_DEPENDENCIES = $(TARGET_NLS_DEPENDENCIES)
 LIBGPG_ERROR_CONF_OPTS = \
 	cross_compiling=yes \
-	--host=$(BR2_PACKAGE_LIBGPG_ERROR_SYSCFG) \
+	--host=$(LINGMO_PACKAGE_LIBGPG_ERROR_SYSCFG) \
 	--enable-install-gpg-error-config \
 	--disable-tests \
 	--disable-languages
 
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS),y)
 LIBGPG_ERROR_CONF_OPTS += --enable-threads
 else
 LIBGPG_ERROR_CONF_OPTS += --disable-threads

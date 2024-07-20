@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_HTTP_MULTIPARTPARSER
+config LINGMO_PACKAGE_PERL_HTTP_MULTIPARTPARSER
 	bool "perl-http-multipartparser"
 	help
 	  HTTP MultiPart Parser.

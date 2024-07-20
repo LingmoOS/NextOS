@@ -6,10 +6,10 @@ class TestPythonPy3Boto3(TestPythonPackageBase):
     __test__ = True
     config = TestPythonPackageBase.config + \
         """
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_PYTHON_BOTO3=y
-        BR2_TARGET_ROOTFS_EXT2=y
-        BR2_TARGET_ROOTFS_EXT2_SIZE="250M"
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON_BOTO3=y
+        LINGMO_TARGET_ROOTFS_EXT2=y
+        LINGMO_TARGET_ROOTFS_EXT2_SIZE="250M"
         """
     sample_scripts = ["tests/package/sample_python_boto3.py"]
     timeout = 10

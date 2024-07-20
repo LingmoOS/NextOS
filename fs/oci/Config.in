@@ -1,6 +1,6 @@
-config BR2_TARGET_ROOTFS_OCI
+config LINGMO_TARGET_ROOTFS_OCI
 	bool "oci image"
-	depends on BR2_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS
+	depends on LINGMO_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS
 	help
 	  Build an OCI (Open Container Initiative) image.
 
@@ -20,23 +20,23 @@ config BR2_TARGET_ROOTFS_OCI
 
 	  $ docker run -it <user>/<image>[:tag]
 
-if BR2_TARGET_ROOTFS_OCI
+if LINGMO_TARGET_ROOTFS_OCI
 
-config BR2_TARGET_ROOTFS_OCI_AUTHOR
+config LINGMO_TARGET_ROOTFS_OCI_AUTHOR
 	string "author name and/or email address"
 	default "Buildroot"
 	help
 	  Name and/or email address of the person which created the
 	  image.
 
-config BR2_TARGET_ROOTFS_OCI_TAG
+config LINGMO_TARGET_ROOTFS_OCI_TAG
 	string "image tag"
 	default "latest"
 	help
 	  Tag to be used in the container image. If empty, 'latest' will
 	  be used by default.
 
-config BR2_TARGET_ROOTFS_OCI_ENTRYPOINT
+config LINGMO_TARGET_ROOTFS_OCI_ENTRYPOINT
 	string "entrypoint"
 	default "sh"
 	help
@@ -50,7 +50,7 @@ config BR2_TARGET_ROOTFS_OCI_ENTRYPOINT
 	  interact together:
 	    https://docs.docker.com/engine/reference/builder/#understand-how-cmd-and-entrypoint-interact
 
-config BR2_TARGET_ROOTFS_OCI_CMD
+config LINGMO_TARGET_ROOTFS_OCI_CMD
 	string "command (or entrypoint arguments)"
 	help
 	  Default command, or entrypoint arguments, of the container.
@@ -63,25 +63,25 @@ config BR2_TARGET_ROOTFS_OCI_CMD
 	  interact together:
 	    https://docs.docker.com/engine/reference/builder/#understand-how-cmd-and-entrypoint-interact
 
-config BR2_TARGET_ROOTFS_OCI_WORKDIR
+config LINGMO_TARGET_ROOTFS_OCI_WORKDIR
 	string "working directory"
 	help
 	  Working directory of the entrypoint process in the
 	  container.
 
-config BR2_TARGET_ROOTFS_OCI_UID
+config LINGMO_TARGET_ROOTFS_OCI_UID
 	string "username or UID"
 	default "0"
 	help
 	  The username or UID of user the process run as.
 
-config BR2_TARGET_ROOTFS_OCI_ENV_VARS
+config LINGMO_TARGET_ROOTFS_OCI_ENV_VARS
 	string "environment variables"
 	help
 	  Default environment variables for the container.
 	  Space-separated list of variable=value assignments.
 
-config BR2_TARGET_ROOTFS_OCI_PORTS
+config LINGMO_TARGET_ROOTFS_OCI_PORTS
 	string "ports"
 	help
 	  Default set of ports to expose from a container running
@@ -90,7 +90,7 @@ config BR2_TARGET_ROOTFS_OCI_PORTS
 
 	  <port>/tcp, <port>/udp, <port> (same as <port>/tcp).
 
-config BR2_TARGET_ROOTFS_OCI_LABELS
+config LINGMO_TARGET_ROOTFS_OCI_LABELS
 	string "labels"
 	help
 	  Metadata in the format KEY=VALUE for the container compliant
@@ -98,7 +98,7 @@ config BR2_TARGET_ROOTFS_OCI_LABELS
 	  be prefixed with "org.opencontainers.image"
 	  (e.g. .url -> org.opencontainers.image.url).
 
-config BR2_TARGET_ROOTFS_OCI_ARCHIVE
+config LINGMO_TARGET_ROOTFS_OCI_ARCHIVE
 	bool "pack oci image into a tar archive"
 	help
 	  Select whether the image should be packed into a TAR archive.

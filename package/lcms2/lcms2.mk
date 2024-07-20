@@ -14,14 +14,14 @@ LCMS2_INSTALL_STAGING = YES
 # tiff is only used by tificc sample
 LCMS2_CONF_OPTS = --without-tiff
 
-ifeq ($(BR2_PACKAGE_JPEG),y)
+ifeq ($(LINGMO_PACKAGE_JPEG),y)
 LCMS2_CONF_OPTS += --with-jpeg
 LCMS2_DEPENDENCIES += jpeg
 else
 LCMS2_CONF_OPTS += --without-jpeg
 endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 LCMS2_CONF_OPTS += --with-zlib
 LCMS2_DEPENDENCIES += zlib
 else

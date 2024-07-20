@@ -1,4 +1,4 @@
-config BR2_PACKAGE_QT5KNX
+config LINGMO_PACKAGE_QT5KNX
 	bool "qt5knx"
 	help
 	  Qt is a cross-platform application and UI framework for

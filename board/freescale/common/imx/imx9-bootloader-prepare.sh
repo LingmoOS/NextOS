@@ -4,7 +4,7 @@ main ()
 {
 	SPL_LOAD_ADDR=0x2049A000
 	ATF_LOAD_ADDR=0x204E0000
-	if grep -Eq "^BR2_PACKAGE_FREESCALE_IMX_PLATFORM_IMX91=y$" "${BR2_CONFIG}"; then
+	if grep -Eq "^LINGMO_PACKAGE_FREESCALE_IMX_PLATFORM_IMX91=y$" "${LINGMO_CONFIG}"; then
 		SPL_LOAD_ADDR=0x204A0000
 		ATF_LOAD_ADDR=0x204C0000
 	fi
@@ -16,7 +16,7 @@ main ()
 	cat "${BINARIES_DIR}/u-boot.bin" "${BINARIES_DIR}/mkimg.commit" > "${BINARIES_DIR}/u-boot-hash.bin"
 	rm -f "${BINARIES_DIR}/mkimg.commit"
 
-	if grep -Eq "^BR2_TARGET_OPTEE_OS=y$" "${BR2_CONFIG}"; then
+	if grep -Eq "^LINGMO_TARGET_OPTEE_OS=y$" "${LINGMO_CONFIG}"; then
 		"${HOST_DIR}/bin/mkimage_imx8" -soc IMX9 -c \
 			-ap "${BINARIES_DIR}/bl31.bin" a35 ${ATF_LOAD_ADDR} \
 			-ap "${BINARIES_DIR}/u-boot-hash.bin" a35 0x80200000 \

@@ -17,14 +17,14 @@ GAUCHE_CONF_OPTS = --with-libatomic-ops=none
 # Enable embedded axTLS
 GAUCHE_TLS_LIBS = axtls
 
-ifeq ($(BR2_PACKAGE_MBEDTLS),y)
+ifeq ($(LINGMO_PACKAGE_MBEDTLS),y)
 GAUCHE_TLS_LIBS += mbedtls
 GAUCHE_DEPENDENCIES += mbedtls
 endif
 
 GAUCHE_CONF_OPTS += --with-tls="$(GAUCHE_TLS_LIBS)"
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 GAUCHE_CONF_OPTS += --with-zlib=$(STAGING_DIR)
 GAUCHE_DEPENDENCIES += zlib
 else

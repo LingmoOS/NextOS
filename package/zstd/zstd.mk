@@ -14,21 +14,21 @@ ZSTD_CPE_ID_PRODUCT = zstandard
 
 ZSTD_OPTS += PREFIX=/usr
 ZSTD_OPTS += ZSTD_LEGACY_SUPPORT=0
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 ZSTD_DEPENDENCIES += zlib
 ZSTD_OPTS += HAVE_ZLIB=1
 else
 ZSTD_OPTS += HAVE_ZLIB=0
 endif
 
-ifeq ($(BR2_PACKAGE_XZ),y)
+ifeq ($(LINGMO_PACKAGE_XZ),y)
 ZSTD_DEPENDENCIES += xz
 ZSTD_OPTS += HAVE_LZMA=1
 else
 ZSTD_OPTS += HAVE_LZMA=0
 endif
 
-ifeq ($(BR2_PACKAGE_LZ4),y)
+ifeq ($(LINGMO_PACKAGE_LZ4),y)
 ZSTD_DEPENDENCIES += lz4
 ZSTD_OPTS += HAVE_LZ4=1
 else
@@ -39,10 +39,10 @@ endif
 ZSTD_OPTS += MOREFLAGS="$(TARGET_OPTIMIZATION)"
 
 ZSTD_BUILD_LIBS_BASENAMES = libzstd.pc
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 ZSTD_BUILD_LIBS_BASENAMES += libzstd.a
 ZSTD_INSTALL_LIBS = install-static
-else ifeq ($(BR2_SHARED_LIBS),y)
+else ifeq ($(LINGMO_SHARED_LIBS),y)
 ZSTD_BUILD_LIBS_BASENAMES += lib
 ZSTD_INSTALL_LIBS = install-shared
 else
@@ -51,7 +51,7 @@ ZSTD_INSTALL_LIBS = install-static install-shared
 endif
 
 # prefer zstd-dll unless no library is available
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 ZSTD_BUILD_PROG_TARGET = zstd-release
 else
 ZSTD_BUILD_PROG_TARGET = zstd-dll
@@ -62,7 +62,7 @@ endif
 # to single-threaded) gives a runtime error when compressing files.
 # The 'lib' makefile provides specific '%-mt' and '%-nomt' targets for this
 # purpose.
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS),y)
 ZSTD_OPTS += HAVE_THREAD=1
 ZSTD_BUILD_LIBS_THREAD_SUFFIX = -mt
 else

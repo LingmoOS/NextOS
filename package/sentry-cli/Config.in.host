@@ -1,7 +1,7 @@
-config BR2_PACKAGE_HOST_SENTRY_CLI
+config LINGMO_PACKAGE_HOST_SENTRY_CLI
 	bool "host sentry-cli"
-	depends on BR2_PACKAGE_HOST_RUSTC_ARCH_SUPPORTS
-	select BR2_PACKAGE_HOST_RUSTC
+	depends on LINGMO_PACKAGE_HOST_RUSTC_ARCH_SUPPORTS
+	select LINGMO_PACKAGE_HOST_RUSTC
 	help
 	  Official Sentry command line interface
 

@@ -1,6 +1,6 @@
-config BR2_PACKAGE_NFACCT
+config LINGMO_PACKAGE_NFACCT
 	bool "nfacct"
-	select BR2_PACKAGE_LIBNETFILTER_ACCT
+	select LINGMO_PACKAGE_LIBNETFILTER_ACCT
 	help
 	  nfacct is the command line tool to create/retrieve/delete
 	  netfilter accounting objects.

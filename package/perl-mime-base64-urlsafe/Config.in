@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_MIME_BASE64_URLSAFE
+config LINGMO_PACKAGE_PERL_MIME_BASE64_URLSAFE
 	bool "perl-mime-base64-urlsafe"
 	help
 	  Perl version of Python's URL-safe base64 codec.

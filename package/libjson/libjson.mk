@@ -13,7 +13,7 @@ LIBJSON_LICENSE_FILES = License.txt
 
 LIBJSON_CXXFLAGS = $(TARGET_CFLAGS) -DNDEBUG -std=c++11
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 LIBJSON_MAKE_OPTS += SHARED=0
 else
 LIBJSON_MAKE_OPTS += SHARED=1
@@ -30,7 +30,7 @@ define LIBJSON_EXTRACT_CMDS
 endef
 
 define LIBJSON_BUILD_CMDS
-	mkdir -p $(@D)/Objects_$(if $(BR2_STATIC_LIBS),static,shared) \
+	mkdir -p $(@D)/Objects_$(if $(LINGMO_STATIC_LIBS),static,shared) \
 		$(@D)/_internal/Source/Dependencies
 	$(TARGET_MAKE_ENV) $(MAKE) $(TARGET_CONFIGURE_OPTS) \
 		$(LIBJSON_MAKE_OPTS) -C $(@D)

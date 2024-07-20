@@ -30,87 +30,87 @@ LIGHTTPD_CONF_OPTS = \
 	-Dbuild_static=false \
 	-Dmoduledir=lib/lighttpd
 
-ifeq ($(BR2_PACKAGE_LIGHTTPD_BROTLI),y)
+ifeq ($(LINGMO_PACKAGE_LIGHTTPD_BROTLI),y)
 LIGHTTPD_DEPENDENCIES += brotli
 LIGHTTPD_CONF_OPTS += -Dwith_brotli=enabled
 else
 LIGHTTPD_CONF_OPTS += -Dwith_brotli=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIGHTTPD_BZIP2),y)
+ifeq ($(LINGMO_PACKAGE_LIGHTTPD_BZIP2),y)
 LIGHTTPD_DEPENDENCIES += bzip2
 LIGHTTPD_CONF_OPTS += -Dwith_bzip=enabled
 else
 LIGHTTPD_CONF_OPTS += -Dwith_bzip=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIGHTTPD_KRB5),y)
+ifeq ($(LINGMO_PACKAGE_LIGHTTPD_KRB5),y)
 LIGHTTPD_DEPENDENCIES += libkrb5
 LIGHTTPD_CONF_OPTS += -Dwith_krb5=enabled
 else
 LIGHTTPD_CONF_OPTS += -Dwith_krb5=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIGHTTPD_LDAP),y)
+ifeq ($(LINGMO_PACKAGE_LIGHTTPD_LDAP),y)
 LIGHTTPD_DEPENDENCIES += openldap
 LIGHTTPD_CONF_OPTS += -Dwith_ldap=enabled
 else
 LIGHTTPD_CONF_OPTS += -Dwith_ldap=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIGHTTPD_LUA),y)
+ifeq ($(LINGMO_PACKAGE_LIGHTTPD_LUA),y)
 LIGHTTPD_DEPENDENCIES += lua
 LIGHTTPD_CONF_OPTS += -Dwith_lua=true
 else
 LIGHTTPD_CONF_OPTS += -Dwith_lua=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIGHTTPD_MAXMINDDB),y)
+ifeq ($(LINGMO_PACKAGE_LIGHTTPD_MAXMINDDB),y)
 LIGHTTPD_DEPENDENCIES += libmaxminddb
 LIGHTTPD_CONF_OPTS += -Dwith_maxminddb=enabled
 else
 LIGHTTPD_CONF_OPTS += -Dwith_maxminddb=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIGHTTPD_MYSQL),y)
+ifeq ($(LINGMO_PACKAGE_LIGHTTPD_MYSQL),y)
 LIGHTTPD_DEPENDENCIES += mariadb
 LIGHTTPD_CONF_OPTS += -Dwith_mysql=enabled
 else
 LIGHTTPD_CONF_OPTS += -Dwith_mysql=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIGHTTPD_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_LIGHTTPD_OPENSSL),y)
 LIGHTTPD_DEPENDENCIES += openssl
 LIGHTTPD_CONF_OPTS += -Dwith_openssl=true
 else
 LIGHTTPD_CONF_OPTS += -Dwith_openssl=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIGHTTPD_PAM),y)
+ifeq ($(LINGMO_PACKAGE_LIGHTTPD_PAM),y)
 LIGHTTPD_DEPENDENCIES += linux-pam
 LIGHTTPD_CONF_OPTS += -Dwith_pam=enabled
 else
 LIGHTTPD_CONF_OPTS += -Dwith_pam=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIGHTTPD_PCRE),y)
+ifeq ($(LINGMO_PACKAGE_LIGHTTPD_PCRE),y)
 LIGHTTPD_DEPENDENCIES += pcre2
 LIGHTTPD_CONF_OPTS += -Dwith_pcre2=true
 else
 LIGHTTPD_CONF_OPTS += -Dwith_pcre2=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIGHTTPD_PGSQL),y)
+ifeq ($(LINGMO_PACKAGE_LIGHTTPD_PGSQL),y)
 LIGHTTPD_DEPENDENCIES += postgresql
 LIGHTTPD_CONF_OPTS += -Dwith_pgsql=enabled
 else
 LIGHTTPD_CONF_OPTS += -Dwith_pgsql=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIGHTTPD_WEBDAV),y)
+ifeq ($(LINGMO_PACKAGE_LIGHTTPD_WEBDAV),y)
 LIGHTTPD_DEPENDENCIES += libxml2 sqlite
 LIGHTTPD_CONF_OPTS += -Dwith_webdav_props=enabled
-ifeq ($(BR2_PACKAGE_UTIL_LINUX_LIBUUID),y)
+ifeq ($(LINGMO_PACKAGE_UTIL_LINUX_LIBUUID),y)
 LIGHTTPD_CONF_OPTS += -Dwith_webdav_locks=enabled
 LIGHTTPD_DEPENDENCIES += util-linux
 else
@@ -120,14 +120,14 @@ else
 LIGHTTPD_CONF_OPTS += -Dwith_webdav_props=disabled -Dwith_webdav_locks=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIGHTTPD_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_LIGHTTPD_ZLIB),y)
 LIGHTTPD_DEPENDENCIES += zlib
 LIGHTTPD_CONF_OPTS += -Dwith_zlib=enabled
 else
 LIGHTTPD_CONF_OPTS += -Dwith_zlib=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIGHTTPD_ZSTD),y)
+ifeq ($(LINGMO_PACKAGE_LIGHTTPD_ZSTD),y)
 LIGHTTPD_DEPENDENCIES += zstd
 LIGHTTPD_CONF_OPTS += -Dwith_zstd=enabled
 else

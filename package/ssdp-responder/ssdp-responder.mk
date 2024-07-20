@@ -13,7 +13,7 @@ SSDP_RESPONDER_CPE_ID_VENDOR = \
 SSDP_RESPONDER_CPE_ID_PRODUCT = simple_service_discovery_protocol_responder
 SSDP_RESPONDER_DEPENDENCIES = host-pkgconf
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 SSDP_RESPONDER_DEPENDENCIES += systemd
 SSDP_RESPONDER_CONF_OPTS += --with-systemd
 else

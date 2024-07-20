@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-ifeq ($(BR2_aarch64),y)
+ifeq ($(LINGMO_aarch64),y)
 IMX_GPU_G2D_VERSION = 6.4.11.p1.2-aarch64
 else
 IMX_GPU_G2D_VERSION = 6.4.11.p1.2-arm

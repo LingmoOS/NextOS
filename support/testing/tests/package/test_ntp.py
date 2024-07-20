@@ -10,12 +10,12 @@ class TestNtp(infra.basetest.BRTest):
         infra.filepath("tests/package/test_ntp/rootfs-overlay")
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         f"""
-        BR2_PACKAGE_NTP=y
-        BR2_PACKAGE_NTP_NTPD=y
-        BR2_PACKAGE_NTP_NTPQ=y
-        BR2_ROOTFS_OVERLAY="{rootfs_overlay}"
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_NTP=y
+        LINGMO_PACKAGE_NTP_NTPD=y
+        LINGMO_PACKAGE_NTP_NTPQ=y
+        LINGMO_ROOTFS_OVERLAY="{rootfs_overlay}"
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def dict_from_ntpq_output(self, output):

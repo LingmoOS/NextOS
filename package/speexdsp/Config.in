@@ -1,4 +1,4 @@
-config BR2_PACKAGE_SPEEXDSP
+config LINGMO_PACKAGE_SPEEXDSP
 	bool "speexdsp"
 	help
 	  DSP library derived from speex.

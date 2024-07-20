@@ -104,9 +104,9 @@ typical packages will therefore only use a few of them.
   necessary to set them in the package's +*.mk+ file unless you want
   to override them:
 
-** +CMAKE_BUILD_TYPE+ is driven by +BR2_ENABLE_RUNTIME_DEBUG+;
+** +CMAKE_BUILD_TYPE+ is driven by +LINGMO_ENABLE_RUNTIME_DEBUG+;
 ** +CMAKE_INSTALL_PREFIX+;
-** +BUILD_SHARED_LIBS+ is driven by +BR2_STATIC_LIBS+;
+** +BUILD_SHARED_LIBS+ is driven by +LINGMO_STATIC_LIBS+;
 ** +BUILD_DOC+, +BUILD_DOCS+ are disabled;
 ** +BUILD_EXAMPLE+, +BUILD_EXAMPLES+ are disabled;
 ** +BUILD_TEST+, +BUILD_TESTS+, +BUILD_TESTING+ are disabled.
@@ -121,7 +121,7 @@ typical packages will therefore only use a few of them.
 
 * +LIBFOO_MAKE+, to specify an alternate +make+ command. This is
   typically useful when parallel make is enabled in the configuration
-  (using +BR2_JLEVEL+) but that this feature should be disabled for
+  (using +LINGMO_JLEVEL+) but that this feature should be disabled for
   the given package, for one reason or another. By default, set to
   +$(MAKE)+. If parallel building is not supported by the package,
   then it should be set to +LIBFOO_MAKE=$(MAKE1)+.

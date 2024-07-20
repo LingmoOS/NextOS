@@ -14,53 +14,53 @@ POCO_INSTALL_STAGING = YES
 POCO_DEPENDENCIES = \
 	pcre2 \
 	zlib \
-	$(if $(BR2_PACKAGE_POCO_CRYPTO),openssl) \
-	$(if $(BR2_PACKAGE_POCO_DATA_MYSQL),mariadb) \
-	$(if $(BR2_PACKAGE_POCO_DATA_SQLITE),sqlite) \
-	$(if $(BR2_PACKAGE_POCO_DATA_PGSQL),postgresql) \
-	$(if $(BR2_PACKAGE_POCO_NETSSL_OPENSSL),openssl) \
-	$(if $(BR2_PACKAGE_POCO_XML),expat)
+	$(if $(LINGMO_PACKAGE_POCO_CRYPTO),openssl) \
+	$(if $(LINGMO_PACKAGE_POCO_DATA_MYSQL),mariadb) \
+	$(if $(LINGMO_PACKAGE_POCO_DATA_SQLITE),sqlite) \
+	$(if $(LINGMO_PACKAGE_POCO_DATA_PGSQL),postgresql) \
+	$(if $(LINGMO_PACKAGE_POCO_NETSSL_OPENSSL),openssl) \
+	$(if $(LINGMO_PACKAGE_POCO_XML),expat)
 
 POCO_OMIT = \
 	Data/ODBC \
 	PageCompiler \
-	$(if $(BR2_PACKAGE_POCO_ACTIVERECORD),,ActiveRecord) \
-	$(if $(BR2_PACKAGE_POCO_CPP_PARSER),,CppParser) \
-	$(if $(BR2_PACKAGE_POCO_CRYPTO),,Crypto) \
-	$(if $(BR2_PACKAGE_POCO_DATA),,Data) \
-	$(if $(BR2_PACKAGE_POCO_DATA_MYSQL),,Data/MySQL) \
-	$(if $(BR2_PACKAGE_POCO_DATA_SQLITE),,Data/SQLite) \
-	$(if $(BR2_PACKAGE_POCO_DATA_PGSQL),,Data/PostgreSQL) \
-	$(if $(BR2_PACKAGE_POCO_JSON),,JSON) \
-	$(if $(BR2_PACKAGE_POCO_JWT),,JWT) \
-	$(if $(BR2_PACKAGE_POCO_MONGODB),,MongoDB) \
-	$(if $(BR2_PACKAGE_POCO_NET),,Net) \
-	$(if $(BR2_PACKAGE_POCO_NETSSL_OPENSSL),,NetSSL_OpenSSL) \
-	$(if $(BR2_PACKAGE_POCO_PDF),,PDF) \
-	$(if $(BR2_PACKAGE_POCO_PROMETHEUS),,Prometheus) \
-	$(if $(BR2_PACKAGE_POCO_REDIS),,Redis) \
-	$(if $(BR2_PACKAGE_POCO_UTIL),,Util) \
-	$(if $(BR2_PACKAGE_POCO_XML),,XML) \
-	$(if $(BR2_PACKAGE_POCO_ZIP),,Zip)
+	$(if $(LINGMO_PACKAGE_POCO_ACTIVERECORD),,ActiveRecord) \
+	$(if $(LINGMO_PACKAGE_POCO_CPP_PARSER),,CppParser) \
+	$(if $(LINGMO_PACKAGE_POCO_CRYPTO),,Crypto) \
+	$(if $(LINGMO_PACKAGE_POCO_DATA),,Data) \
+	$(if $(LINGMO_PACKAGE_POCO_DATA_MYSQL),,Data/MySQL) \
+	$(if $(LINGMO_PACKAGE_POCO_DATA_SQLITE),,Data/SQLite) \
+	$(if $(LINGMO_PACKAGE_POCO_DATA_PGSQL),,Data/PostgreSQL) \
+	$(if $(LINGMO_PACKAGE_POCO_JSON),,JSON) \
+	$(if $(LINGMO_PACKAGE_POCO_JWT),,JWT) \
+	$(if $(LINGMO_PACKAGE_POCO_MONGODB),,MongoDB) \
+	$(if $(LINGMO_PACKAGE_POCO_NET),,Net) \
+	$(if $(LINGMO_PACKAGE_POCO_NETSSL_OPENSSL),,NetSSL_OpenSSL) \
+	$(if $(LINGMO_PACKAGE_POCO_PDF),,PDF) \
+	$(if $(LINGMO_PACKAGE_POCO_PROMETHEUS),,Prometheus) \
+	$(if $(LINGMO_PACKAGE_POCO_REDIS),,Redis) \
+	$(if $(LINGMO_PACKAGE_POCO_UTIL),,Util) \
+	$(if $(LINGMO_PACKAGE_POCO_XML),,XML) \
+	$(if $(LINGMO_PACKAGE_POCO_ZIP),,Zip)
 
-ifeq ($(BR2_TOOLCHAIN_USES_UCLIBC),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_UCLIBC),y)
 POCO_CONF_OPTS += --no-fpenvironment --no-wstring
 endif
 
 # architectures missing some FE_* in their fenv.h
-ifeq ($(BR2_sh4a)$(BR2_nios2),y)
+ifeq ($(LINGMO_sh4a)$(LINGMO_nios2),y)
 POCO_CONF_OPTS += --no-fpenvironment
 endif
 
 # disable fpenvironment for soft floating point configuration
-ifeq ($(BR2_SOFT_FLOAT),y)
+ifeq ($(LINGMO_SOFT_FLOAT),y)
 POCO_CONF_OPTS += --no-fpenvironment
 endif
 
 POCO_MAKE_TARGET = shared_release
 
 POCO_LDFLAGS=$(TARGET_LDFLAGS)
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 POCO_LDFLAGS += -latomic
 endif
 

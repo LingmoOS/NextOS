@@ -1,4 +1,4 @@
-config BR2_PACKAGE_NANOCOM
+config LINGMO_PACKAGE_NANOCOM
 	bool "nanocom"
 	help
 	  Nanocom is based upon microcom (http://microcom.port5.com/)

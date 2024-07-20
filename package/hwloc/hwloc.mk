@@ -14,7 +14,7 @@ HWLOC_DEPENDENCIES = host-pkgconf
 HWLOC_INSTALL_STAGING = YES
 HWLOC_SELINUX_MODULES = hwloc
 
-# ac_cv_prog_cc_c99 is required for BR2_USE_WCHAR=n because the C99 test
+# ac_cv_prog_cc_c99 is required for LINGMO_USE_WCHAR=n because the C99 test
 # provided by autoconf relies on wchar_t.
 HWLOC_CONF_ENV = ac_cv_prog_cc_c99=-std=gnu99
 
@@ -26,32 +26,32 @@ HWLOC_CONF_OPTS = \
 	--disable-cairo \
 	--disable-doxygen
 
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 HWLOC_CONF_OPTS += --enable-libudev
 HWLOC_DEPENDENCIES += udev
 else
 HWLOC_CONF_OPTS += --disable-libudev
 endif
 
-ifeq ($(BR2_PACKAGE_LIBPCIACCESS),y)
+ifeq ($(LINGMO_PACKAGE_LIBPCIACCESS),y)
 HWLOC_CONF_OPTS += --enable-pci
 HWLOC_DEPENDENCIES += libpciaccess
 else
 HWLOC_CONF_OPTS += --disable-pci
 endif
 
-ifeq ($(BR2_PACKAGE_LIBXML2),y)
+ifeq ($(LINGMO_PACKAGE_LIBXML2),y)
 HWLOC_CONF_OPTS += --enable-libxml2
 HWLOC_DEPENDENCIES += libxml2
 else
 HWLOC_CONF_OPTS += --disable-libxml2
 endif
 
-ifeq ($(BR2_PACKAGE_NCURSES),y)
+ifeq ($(LINGMO_PACKAGE_NCURSES),y)
 HWLOC_DEPENDENCIES += ncurses
 endif
 
-ifeq ($(BR2_PACKAGE_NUMACTL),y)
+ifeq ($(LINGMO_PACKAGE_NUMACTL),y)
 HWLOC_DEPENDENCIES += numactl
 endif
 

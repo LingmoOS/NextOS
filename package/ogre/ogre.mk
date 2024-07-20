@@ -42,7 +42,7 @@ OGRE_CONF_OPTS = -DOGRE_BUILD_DEPENDENCIES=OFF \
 	-DCMAKE_CXX_FLAGS="$(OGRE_CXXFLAGS)"
 
 # Enable optional python component if python interpreter is present on the target.
-ifeq ($(BR2_PACKAGE_PYTHON3),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3),y)
 OGRE_DEPENDENCIES += host-swig host-python3
 OGRE_CONF_OPTS += -DOGRE_BUILD_COMPONENT_PYTHON=ON
 else
@@ -50,7 +50,7 @@ OGRE_CONF_OPTS += -DOGRE_BUILD_COMPONENT_PYTHON=OFF
 endif
 
 # Uses __atomic_fetch_add_8
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 OGRE_CXXFLAGS += -latomic
 endif
 

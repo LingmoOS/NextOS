@@ -23,16 +23,16 @@ descriptions related to each kernel tool that will be used and
 displayed in the configuration tool. It would basically look like:
 
 ------------------------------
-01: config BR2_PACKAGE_LINUX_TOOLS_FOO
+01: config LINGMO_PACKAGE_LINUX_TOOLS_FOO
 02: 	bool "foo"
-03: 	select BR2_PACKAGE_LINUX_TOOLS
+03: 	select LINGMO_PACKAGE_LINUX_TOOLS
 04: 	help
 05: 	  This is a comment that explains what foo kernel tool is.
 06:
 07: 	  http://foosoftware.org/foo/
 ------------------------------
 
-The name of the option starts with the prefix +BR2_PACKAGE_LINUX_TOOLS_+,
+The name of the option starts with the prefix +LINGMO_PACKAGE_LINUX_TOOLS_+,
 followed by the uppercase name of the tool (like is done for packages).
 
 .Note
@@ -116,7 +116,7 @@ descriptions related to each kernel extension that will be used and
 displayed in the configuration tool. It would basically look like:
 
 ------------------------------
-01: config BR2_LINUX_KERNEL_EXT_FOO
+01: config LINGMO_LINUX_KERNEL_EXT_FOO
 02: 	bool "foo"
 03: 	help
 04: 	  This is a comment that explains what foo kernel extension is.

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_SEE
+config LINGMO_PACKAGE_PYTHON_SEE
 	bool "python-see"
 	help
 	  dir for humans.

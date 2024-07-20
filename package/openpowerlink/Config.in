@@ -1,12 +1,12 @@
 comment "openpowerlink needs a toolchain w/ C++, threads"
-	depends on BR2_i386 || BR2_x86_64
-	depends on !BR2_INSTALL_LIBSTDCPP || !BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_i386 || LINGMO_x86_64
+	depends on !LINGMO_INSTALL_LIBSTDCPP || !LINGMO_TOOLCHAIN_HAS_THREADS
 
-config BR2_PACKAGE_OPENPOWERLINK
+config LINGMO_PACKAGE_OPENPOWERLINK
 	bool "openpowerlink"
-	depends on BR2_INSTALL_LIBSTDCPP
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_i386 || BR2_x86_64
+	depends on LINGMO_INSTALL_LIBSTDCPP
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_i386 || LINGMO_x86_64
 	help
 	  openPOWERLINK is an Open Source Industrial Ethernet stack
 	  implementing the POWERLINK protocol for Managing Node (MN,
@@ -19,17 +19,17 @@ config BR2_PACKAGE_OPENPOWERLINK
 
 	  http://openpowerlink.sourceforge.net/web/
 
-if BR2_PACKAGE_OPENPOWERLINK
+if LINGMO_PACKAGE_OPENPOWERLINK
 
 choice
 	prompt "MN/CN mode"
 
-config BR2_PACKAGE_OPENPOWERLINK_MN
+config LINGMO_PACKAGE_OPENPOWERLINK_MN
 	bool "Managing Node"
 	help
 	  Enable Managing Node (master) mode
 
-config BR2_PACKAGE_OPENPOWERLINK_CN
+config LINGMO_PACKAGE_OPENPOWERLINK_CN
 	bool "Controlled Node"
 	help
 	  Enable Controlled Node (slave) mode
@@ -38,20 +38,20 @@ endchoice
 
 choice
 	prompt "stack type"
-	default BR2_PACKAGE_OPENPOWERLINK_STACK_KERNEL_STACK_LIB if BR2_PACKAGE_OPENPOWERLINK_KERNEL_MODULE # legacy
-	default BR2_PACKAGE_OPENPOWERLINK_STACK_USERSPACE_DAEMON_LIB if BR2_PACKAGE_OPENPOWERLINK_LIBPCAP # legacy
+	default LINGMO_PACKAGE_OPENPOWERLINK_STACK_KERNEL_STACK_LIB if LINGMO_PACKAGE_OPENPOWERLINK_KERNEL_MODULE # legacy
+	default LINGMO_PACKAGE_OPENPOWERLINK_STACK_USERSPACE_DAEMON_LIB if LINGMO_PACKAGE_OPENPOWERLINK_LIBPCAP # legacy
 
-config BR2_PACKAGE_OPENPOWERLINK_STACK_MONOLITHIC_USER_STACK_LIB
+config LINGMO_PACKAGE_OPENPOWERLINK_STACK_MONOLITHIC_USER_STACK_LIB
 	bool "linked into application"
-	select BR2_PACKAGE_LIBPCAP
+	select LINGMO_PACKAGE_LIBPCAP
 	help
 	  Compile a monolithic openPOWERLINK library. The library
 	  contains an Ethernet driver which is using the PCAP library
 	  for accessing the network. No kernel-side driver is needed.
 
-config BR2_PACKAGE_OPENPOWERLINK_STACK_USERSPACE_DAEMON_LIB
+config LINGMO_PACKAGE_OPENPOWERLINK_STACK_USERSPACE_DAEMON_LIB
 	bool "user-space pcap daemon"
-	select BR2_PACKAGE_LIBPCAP
+	select LINGMO_PACKAGE_LIBPCAP
 	help
 	  Compile openPOWERLINK application library which contains the
 	  interface to a Linux user space driver, and the Linux user
@@ -60,19 +60,19 @@ config BR2_PACKAGE_OPENPOWERLINK_STACK_USERSPACE_DAEMON_LIB
 	  separate Linux user space daemon (i.e. a PCAP based user
 	  space daemon).  No kernel-side stack is needed.
 
-config BR2_PACKAGE_OPENPOWERLINK_STACK_KERNEL_STACK_LIB
+config LINGMO_PACKAGE_OPENPOWERLINK_STACK_KERNEL_STACK_LIB
 	bool "kernel-space driver"
-	depends on BR2_LINUX_KERNEL
+	depends on LINGMO_LINUX_KERNEL
 	help
 	  Compile openPOWERLINK application library which contains the
 	  interface to a Linux kernel space driver. This will also
 	  build and install a Linux kernel module openPOWERLINK
 	  driver.
 
-config BR2_PACKAGE_OPENPOWERLINK_STACK_KERNEL_PCIE_STACK_LIB
+config LINGMO_PACKAGE_OPENPOWERLINK_STACK_KERNEL_PCIE_STACK_LIB
 	bool "kernel-space PCIe driver"
-	depends on BR2_LINUX_KERNEL
-	depends on BR2_PACKAGE_OPENPOWERLINK_MN # MN support only
+	depends on LINGMO_LINUX_KERNEL
+	depends on LINGMO_PACKAGE_OPENPOWERLINK_MN # MN support only
 	help
 	  Compile openPOWERLINK application library which contains the
 	  interface to a Linux kernel PCIe interface driver. The kernel
@@ -82,48 +82,48 @@ config BR2_PACKAGE_OPENPOWERLINK_STACK_KERNEL_PCIE_STACK_LIB
 	  driver.
 
 comment "openpowerlink kernel stack needs a Linux kernel to be built"
-	depends on !BR2_LINUX_KERNEL
+	depends on !LINGMO_LINUX_KERNEL
 
 endchoice
 
-if BR2_PACKAGE_OPENPOWERLINK_STACK_KERNEL_STACK_LIB
+if LINGMO_PACKAGE_OPENPOWERLINK_STACK_KERNEL_STACK_LIB
 
 menu "Ethernet drivers"
 
-config BR2_PACKAGE_OPENPOWERLINK_KERNEL_DRIVER_82573
+config LINGMO_PACKAGE_OPENPOWERLINK_KERNEL_DRIVER_82573
 	bool "Intel 82573"
 	default y
 
-config BR2_PACKAGE_OPENPOWERLINK_KERNEL_DRIVER_8255x
+config LINGMO_PACKAGE_OPENPOWERLINK_KERNEL_DRIVER_8255x
 	bool "Intel 8255x"
 
-config BR2_PACKAGE_OPENPOWERLINK_KERNEL_DRIVER_I210
+config LINGMO_PACKAGE_OPENPOWERLINK_KERNEL_DRIVER_I210
 	bool "Intel I210"
 
-config BR2_PACKAGE_OPENPOWERLINK_KERNEL_DRIVER_RTL8111
+config LINGMO_PACKAGE_OPENPOWERLINK_KERNEL_DRIVER_RTL8111
 	bool "Realtek RTL-8111/8168"
 
-config BR2_PACKAGE_OPENPOWERLINK_KERNEL_DRIVER_RTL8139
+config LINGMO_PACKAGE_OPENPOWERLINK_KERNEL_DRIVER_RTL8139
 	bool "Realtek RTL-8139"
 
 endmenu
 
-endif # BR2_PACKAGE_OPENPOWERLINK_STACK_KERNEL_STACK_LIB
+endif # LINGMO_PACKAGE_OPENPOWERLINK_STACK_KERNEL_STACK_LIB
 
-config BR2_PACKAGE_OPENPOWERLINK_KERNEL_PCIE_DRIVER
+config LINGMO_PACKAGE_OPENPOWERLINK_KERNEL_PCIE_DRIVER
 	bool "PCIe Powerlink Driver"
-	depends on BR2_PACKAGE_OPENPOWERLINK_STACK_KERNEL_PCIE_STACK_LIB
+	depends on LINGMO_PACKAGE_OPENPOWERLINK_STACK_KERNEL_PCIE_STACK_LIB
 
 menu "demos"
 
-config BR2_PACKAGE_OPENPOWERLINK_DEMO_MN_CONSOLE
+config LINGMO_PACKAGE_OPENPOWERLINK_DEMO_MN_CONSOLE
 	bool "console MN demo"
-	depends on BR2_PACKAGE_OPENPOWERLINK_MN
+	depends on LINGMO_PACKAGE_OPENPOWERLINK_MN
 
-config BR2_PACKAGE_OPENPOWERLINK_DEMO_CN_CONSOLE
+config LINGMO_PACKAGE_OPENPOWERLINK_DEMO_CN_CONSOLE
 	bool "console CN demo"
-	depends on BR2_PACKAGE_OPENPOWERLINK_CN
+	depends on LINGMO_PACKAGE_OPENPOWERLINK_CN
 
 endmenu
 
-endif # BR2_PACKAGE_OPENPOWERLINK
+endif # LINGMO_PACKAGE_OPENPOWERLINK

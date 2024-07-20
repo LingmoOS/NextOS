@@ -18,7 +18,7 @@ SWAYBG_CONF_OPTS = \
 	-Dman-pages=disabled \
 	-Dwerror=false
 
-ifeq ($(BR2_PACKAGE_GDK_PIXBUF),y)
+ifeq ($(LINGMO_PACKAGE_GDK_PIXBUF),y)
 SWAYBG_CONF_OPTS += -Dgdk-pixbuf=enabled
 SWAYBG_DEPENDENCIES += gdk-pixbuf
 else

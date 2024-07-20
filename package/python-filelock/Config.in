@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_FILELOCK
+config LINGMO_PACKAGE_PYTHON_FILELOCK
 	bool "python-filelock"
 	help
 	  A platform independent file lock.

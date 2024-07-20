@@ -1,4 +1,4 @@
-config BR2_PACKAGE_MESA3D_HEADERS
+config LINGMO_PACKAGE_MESA3D_HEADERS
 	bool "mh"
 	help
 	  Mesa 3D, an open-source implementation of the OpenGL

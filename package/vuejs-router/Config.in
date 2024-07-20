@@ -1,4 +1,4 @@
-config BR2_PACKAGE_VUEJS_ROUTER
+config LINGMO_PACKAGE_VUEJS_ROUTER
 	bool "vuejs-router"
 	help
 	  The official router for Vue.js.

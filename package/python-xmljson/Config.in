@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_XMLJSON
+config LINGMO_PACKAGE_PYTHON_XMLJSON
 	bool "python-xmljson"
 	help
 	  Converts XML into JSON/Python dicts/arrays and vice-versa.

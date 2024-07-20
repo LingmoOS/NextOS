@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBCOAP
+config LINGMO_PACKAGE_LIBCOAP
 	bool "libcoap"
 	help
 	  libcoap is a C implementation of a lightweight

@@ -1,6 +1,6 @@
-config BR2_PACKAGE_KODI_PVR_NEXTPVR
+config LINGMO_PACKAGE_KODI_PVR_NEXTPVR
 	bool "kodi-pvr-nextpvr"
-	select BR2_PACKAGE_TINYXML2
+	select LINGMO_PACKAGE_TINYXML2
 	help
 	  Kodi's NextPVR client addon
 

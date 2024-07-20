@@ -7,9 +7,9 @@ class TestRootPassword(infra.basetest.BRTest):
     password = "foo"
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_TARGET_ROOTFS_CPIO=y
-        BR2_TARGET_ENABLE_ROOT_LOGIN=y
-        BR2_TARGET_GENERIC_ROOT_PASSWD="{}"
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        LINGMO_TARGET_ENABLE_ROOT_LOGIN=y
+        LINGMO_TARGET_GENERIC_ROOT_PASSWD="{}"
         """.format(password)
 
     def test_run(self):

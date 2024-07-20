@@ -2,7 +2,7 @@
 set -e
 
 # Add hash files for packages with custom versions for
-# BR2_DOWNLOAD_FORCE_CHECK_HASHES=y
+# LINGMO_DOWNLOAD_FORCE_CHECK_HASHES=y
 #
 # Run in a configured Buildroot directory, E.G.
 # make foo_defconfig; ./utils/add-custom-hashes
@@ -50,11 +50,11 @@ command -v jq >/dev/null || die 'Script needs jq'
 
 message Collecting data
 
-eval "$(make -s VARS='TOPDIR DL_DIR BR_NO_CHECK_HASH_FOR BR2_GLOBAL_PATCH_DIR' QUOTED_VARS=YES printvars)"
+eval "$(make -s VARS='TOPDIR DL_DIR BR_NO_CHECK_HASH_FOR LINGMO_GLOBAL_PATCH_DIR' QUOTED_VARS=YES printvars)"
 # global patch dir may already have quotes
-BR2_GLOBAL_PATCH_DIR=$(echo "$BR2_GLOBAL_PATCH_DIR" | tr -d '"')
+LINGMO_GLOBAL_PATCH_DIR=$(echo "$LINGMO_GLOBAL_PATCH_DIR" | tr -d '"')
 
-[ -n "$BR2_GLOBAL_PATCH_DIR" ] || die "No BR2_GLOBAL_PATCH_DIR defined, nothing to do"
+[ -n "$LINGMO_GLOBAL_PATCH_DIR" ] || die "No LINGMO_GLOBAL_PATCH_DIR defined, nothing to do"
 [ -n "$BR_NO_CHECK_HASH_FOR" ] || die "No packages without hashes found, nothing to do"
 
 [ -d "$TOPDIR" ] || die "TOPDIR ($TOPDIR) does not look correct"
@@ -62,34 +62,34 @@ BR2_GLOBAL_PATCH_DIR=$(echo "$BR2_GLOBAL_PATCH_DIR" | tr -d '"')
 
 # patch dir may contain multiple dirs, use the last one
 # shellcheck disable=SC2086 # we need the word splitting
-set -- $BR2_GLOBAL_PATCH_DIR
+set -- $LINGMO_GLOBAL_PATCH_DIR
 if [ $# -gt 1 ]; then
-    BR2_GLOBAL_PATCH_DIR="${!#}";
-    message BR2_GLOBAL_PATCH_DIR contains multiple directories, using "$BR2_GLOBAL_PATCH_DIR"
+    LINGMO_GLOBAL_PATCH_DIR="${!#}";
+    message LINGMO_GLOBAL_PATCH_DIR contains multiple directories, using "$LINGMO_GLOBAL_PATCH_DIR"
 fi
 
 # patch dir may be relative to TOPDIR
-case "$BR2_GLOBAL_PATCH_DIR" in
+case "$LINGMO_GLOBAL_PATCH_DIR" in
     /*) ;;
-    *) BR2_GLOBAL_PATCH_DIR="$TOPDIR/$BR2_GLOBAL_PATCH_DIR"
+    *) LINGMO_GLOBAL_PATCH_DIR="$TOPDIR/$LINGMO_GLOBAL_PATCH_DIR"
        ;;
 esac
 
-[ -d "$BR2_GLOBAL_PATCH_DIR" ] \
-  || die "BR2_GLOBAL_PATCH_DIR ($BR2_GLOBAL_PATCH_DIR) does not look correct"
+[ -d "$LINGMO_GLOBAL_PATCH_DIR" ] \
+  || die "LINGMO_GLOBAL_PATCH_DIR ($LINGMO_GLOBAL_PATCH_DIR) does not look correct"
 
 trap 'rm -f "$JSON"' EXIT
 JSON=$(mktemp)
 make show-info > "$JSON"
 
 # ensure files have been downloaded, but without checking
-make BR2_DOWNLOAD_FORCE_CHECK_HASHES= source
+make LINGMO_DOWNLOAD_FORCE_CHECK_HASHES= source
 
 message Updating hashes
 
 for file in $BR_NO_CHECK_HASH_FOR; do
     for pkg in $(get_pkgs "$JSON" "$file"); do
-        HASHFILE="$BR2_GLOBAL_PATCH_DIR/$pkg/$pkg.hash"
+        HASHFILE="$LINGMO_GLOBAL_PATCH_DIR/$pkg/$pkg.hash"
         PKG_DL_DIR=$(get_pkg_dl_dir "$JSON" "$pkg")
         message "Adding hash for $file to $HASHFILE"
         mkdir -p "${HASHFILE%/*}"
@@ -98,8 +98,8 @@ for file in $BR_NO_CHECK_HASH_FOR; do
 done
 
 # Symlink linux-headers to linux if identical
-linux_hash="$BR2_GLOBAL_PATCH_DIR/linux/linux.hash"
-linux_headers_hash="$BR2_GLOBAL_PATCH_DIR/linux-headers/linux-headers.hash"
+linux_hash="$LINGMO_GLOBAL_PATCH_DIR/linux/linux.hash"
+linux_headers_hash="$LINGMO_GLOBAL_PATCH_DIR/linux-headers/linux-headers.hash"
 if [ -e "$linux_hash" ] && [ -e "$linux_headers_hash" ] \
     && cmp -s "$linux_hash" "$linux_headers_hash"; then
     ln -sf ../linux/linux.hash "$linux_headers_hash"
@@ -108,4 +108,4 @@ fi
 message Verifying hashes
 
 make clean
-make BR2_DOWNLOAD_FORCE_CHECK_HASHES=y source
+make LINGMO_DOWNLOAD_FORCE_CHECK_HASHES=y source

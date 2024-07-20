@@ -1,20 +1,20 @@
-config BR2_PACKAGE_PERL_PLACK
+config LINGMO_PACKAGE_PERL_PLACK
 	bool "perl-plack"
-	depends on !BR2_STATIC_LIBS # perl-http-message -> perl-clone
-	select BR2_PACKAGE_PERL_APACHE_LOGFORMAT_COMPILER # runtime
-	select BR2_PACKAGE_PERL_COOKIE_BAKER # runtime
-	select BR2_PACKAGE_PERL_DEVEL_STACKTRACE # runtime
-	select BR2_PACKAGE_PERL_DEVEL_STACKTRACE_ASHTML # runtime
-	select BR2_PACKAGE_PERL_FILE_SHAREDIR # runtime
-	select BR2_PACKAGE_PERL_FILESYS_NOTIFY_SIMPLE # runtime
-	select BR2_PACKAGE_PERL_HTTP_ENTITY_PARSER # runtime
-	select BR2_PACKAGE_PERL_HTTP_HEADERS_FAST # runtime
-	select BR2_PACKAGE_PERL_HTTP_MESSAGE # runtime
-	select BR2_PACKAGE_PERL_HASH_MULTIVALUE # runtime
-	select BR2_PACKAGE_PERL_STREAM_BUFFERED # runtime
-	select BR2_PACKAGE_PERL_TRY_TINY # runtime
-	select BR2_PACKAGE_PERL_URI # runtime
-	select BR2_PACKAGE_PERL_WWW_FORM_URLENCODED # runtime
+	depends on !LINGMO_STATIC_LIBS # perl-http-message -> perl-clone
+	select LINGMO_PACKAGE_PERL_APACHE_LOGFORMAT_COMPILER # runtime
+	select LINGMO_PACKAGE_PERL_COOKIE_BAKER # runtime
+	select LINGMO_PACKAGE_PERL_DEVEL_STACKTRACE # runtime
+	select LINGMO_PACKAGE_PERL_DEVEL_STACKTRACE_ASHTML # runtime
+	select LINGMO_PACKAGE_PERL_FILE_SHAREDIR # runtime
+	select LINGMO_PACKAGE_PERL_FILESYS_NOTIFY_SIMPLE # runtime
+	select LINGMO_PACKAGE_PERL_HTTP_ENTITY_PARSER # runtime
+	select LINGMO_PACKAGE_PERL_HTTP_HEADERS_FAST # runtime
+	select LINGMO_PACKAGE_PERL_HTTP_MESSAGE # runtime
+	select LINGMO_PACKAGE_PERL_HASH_MULTIVALUE # runtime
+	select LINGMO_PACKAGE_PERL_STREAM_BUFFERED # runtime
+	select LINGMO_PACKAGE_PERL_TRY_TINY # runtime
+	select LINGMO_PACKAGE_PERL_URI # runtime
+	select LINGMO_PACKAGE_PERL_WWW_FORM_URLENCODED # runtime
 	help
 	  Perl Superglue for Web frameworks and Web Servers (PSGI
 	  toolkit).
@@ -22,4 +22,4 @@ config BR2_PACKAGE_PERL_PLACK
 	  https://github.com/plack/Plack
 
 comment "perl-plack needs a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_STATIC_LIBS

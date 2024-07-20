@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_MORE_ITERTOOLS
+config LINGMO_PACKAGE_PYTHON_MORE_ITERTOOLS
 	bool "python-more-itertools"
 	help
 	  More routines for operating on iterables, beyond itertools.

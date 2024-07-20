@@ -1,7 +1,7 @@
-config BR2_PACKAGE_PYTHON_GITDB2
+config LINGMO_PACKAGE_PYTHON_GITDB2
 	bool "python-gitdb2"
-	select BR2_PACKAGE_PYTHON_SMMAP2 # runtime
-	select BR2_PACKAGE_PYTHON3_ZLIB
+	select LINGMO_PACKAGE_PYTHON_SMMAP2 # runtime
+	select LINGMO_PACKAGE_PYTHON3_ZLIB
 	help
 	  GitDB allows you to access bare git repositories for reading
 	  and writing. It aims at allowing full access to loose objects

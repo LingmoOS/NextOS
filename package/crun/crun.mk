@@ -15,36 +15,36 @@ CRUN_CPE_ID_VALID = YES
 CRUN_AUTORECONF = YES
 CRUN_CONF_OPTS = --disable-embedded-yajl
 
-ifeq ($(BR2_PACKAGE_ARGP_STANDALONE),y)
+ifeq ($(LINGMO_PACKAGE_ARGP_STANDALONE),y)
 CRUN_DEPENDENCIES += argp-standalone
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBCAP),y)
 CRUN_DEPENDENCIES += libcap
 CRUN_CONF_OPTS += --enable-caps
 else
 CRUN_CONF_OPTS += --disable-caps
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGCRYPT),y)
+ifeq ($(LINGMO_PACKAGE_LIBGCRYPT),y)
 CRUN_DEPENDENCIES += libgcrypt
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSECCOMP),y)
+ifeq ($(LINGMO_PACKAGE_LIBSECCOMP),y)
 CRUN_DEPENDENCIES += libseccomp
 CRUN_CONF_OPTS += --enable-seccomp
 else
 CRUN_CONF_OPTS += --disable-seccomp
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 CRUN_CONF_OPTS += --enable-systemd
 CRUN_DEPENDENCIES += systemd host-pkgconf
 else
 CRUN_CONF_OPTS += --disable-systemd
 endif
 
-ifeq ($(BR2_PACKAGE_RUNC),)
+ifeq ($(LINGMO_PACKAGE_RUNC),)
 define CRUN_CREATE_SYMLINK
 	ln -sf crun $(TARGET_DIR)/usr/bin/runc
 endef

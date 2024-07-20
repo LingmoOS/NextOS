@@ -1,98 +1,98 @@
 #
 
-mainmenu "NextOS $BR2_VERSION Configuration"
+mainmenu "NextOS $LINGMO_VERSION Configuration"
 
-config BR2_HAVE_DOT_CONFIG
+config LINGMO_HAVE_DOT_CONFIG
 	bool
 	default y
 
-config BR2_VERSION
+config LINGMO_VERSION
 	string
-	option env="BR2_VERSION_FULL"
+	option env="LINGMO_VERSION_FULL"
 
-config BR2_HOSTARCH
+config LINGMO_HOSTARCH
 	string
 	option env="HOSTARCH"
 
-config BR2_BASE_DIR
+config LINGMO_BASE_DIR
 	string
 	option env="BASE_DIR"
 
 # br2-external paths definitions
-source "$BR2_BASE_DIR/.br2-external.in.paths"
+source "$LINGMO_BASE_DIR/.br2-external.in.paths"
 
 # Hidden config symbols for packages to check system gcc version
-config BR2_HOST_GCC_VERSION
+config LINGMO_HOST_GCC_VERSION
 	string
 	option env="HOST_GCC_VERSION"
 
-config BR2_HOST_GCC_AT_LEAST_4_9
+config LINGMO_HOST_GCC_AT_LEAST_4_9
 	bool
-	default y if BR2_HOST_GCC_VERSION = "4 9"
+	default y if LINGMO_HOST_GCC_VERSION = "4 9"
 
-config BR2_HOST_GCC_AT_LEAST_5
+config LINGMO_HOST_GCC_AT_LEAST_5
 	bool
-	default y if BR2_HOST_GCC_VERSION = "5"
-	select BR2_HOST_GCC_AT_LEAST_4_9
+	default y if LINGMO_HOST_GCC_VERSION = "5"
+	select LINGMO_HOST_GCC_AT_LEAST_4_9
 
-config BR2_HOST_GCC_AT_LEAST_6
+config LINGMO_HOST_GCC_AT_LEAST_6
 	bool
-	default y if BR2_HOST_GCC_VERSION = "6"
-	select BR2_HOST_GCC_AT_LEAST_5
+	default y if LINGMO_HOST_GCC_VERSION = "6"
+	select LINGMO_HOST_GCC_AT_LEAST_5
 
-config BR2_HOST_GCC_AT_LEAST_7
+config LINGMO_HOST_GCC_AT_LEAST_7
 	bool
-	default y if BR2_HOST_GCC_VERSION = "7"
-	select BR2_HOST_GCC_AT_LEAST_6
+	default y if LINGMO_HOST_GCC_VERSION = "7"
+	select LINGMO_HOST_GCC_AT_LEAST_6
 
-config BR2_HOST_GCC_AT_LEAST_8
+config LINGMO_HOST_GCC_AT_LEAST_8
 	bool
-	default y if BR2_HOST_GCC_VERSION = "8"
-	select BR2_HOST_GCC_AT_LEAST_7
+	default y if LINGMO_HOST_GCC_VERSION = "8"
+	select LINGMO_HOST_GCC_AT_LEAST_7
 
-config BR2_HOST_GCC_AT_LEAST_9
+config LINGMO_HOST_GCC_AT_LEAST_9
 	bool
-	default y if BR2_HOST_GCC_VERSION = "9"
-	select BR2_HOST_GCC_AT_LEAST_8
+	default y if LINGMO_HOST_GCC_VERSION = "9"
+	select LINGMO_HOST_GCC_AT_LEAST_8
 
-config BR2_HOST_GCC_AT_LEAST_10
+config LINGMO_HOST_GCC_AT_LEAST_10
 	bool
-	default y if BR2_HOST_GCC_VERSION = "10"
-	select BR2_HOST_GCC_AT_LEAST_9
+	default y if LINGMO_HOST_GCC_VERSION = "10"
+	select LINGMO_HOST_GCC_AT_LEAST_9
 
-config BR2_HOST_GCC_AT_LEAST_11
+config LINGMO_HOST_GCC_AT_LEAST_11
 	bool
-	default y if BR2_HOST_GCC_VERSION = "11"
-	select BR2_HOST_GCC_AT_LEAST_10
+	default y if LINGMO_HOST_GCC_VERSION = "11"
+	select LINGMO_HOST_GCC_AT_LEAST_10
 
 # When adding new entries above, be sure to update
 # the HOSTCC_MAX_VERSION variable in the Makefile.
 
 # Hidden boolean selected by packages in need of Java in order to build
 # (example: kodi)
-config BR2_NEEDS_HOST_JAVA
+config LINGMO_NEEDS_HOST_JAVA
 	bool
 
 # Hidden boolean selected by pre-built packages for x86, when they
 # need to run on x86-64 machines (example: pre-built external
 # toolchains, binary tools, etc.).
-config BR2_HOSTARCH_NEEDS_IA32_LIBS
+config LINGMO_HOSTARCH_NEEDS_IA32_LIBS
 	bool
 
 # Hidden boolean selected by packages that need to build 32 bits
 # binaries with the host compiler, even on 64 bits build machines (e.g
 # bootloaders).
-config BR2_HOSTARCH_NEEDS_IA32_COMPILER
+config LINGMO_HOSTARCH_NEEDS_IA32_COMPILER
 	bool
 
 # Hidden boolean selected by packages that need the host to have an
 # UTF8 locale.
-config BR2_NEEDS_HOST_UTF8_LOCALE
+config LINGMO_NEEDS_HOST_UTF8_LOCALE
 	bool
 
 # Hidden boolean selected by packages that need the host to have
 # support for building gcc plugins
-config BR2_NEEDS_HOST_GCC_PLUGIN_SUPPORT
+config LINGMO_NEEDS_HOST_GCC_PLUGIN_SUPPORT
 	bool
 
 source "arch/Config.in"
@@ -103,43 +103,43 @@ menu "Build options"
 
 menu "Commands"
 
-config BR2_WGET
+config LINGMO_WGET
 	string "Wget command"
 	default "wget -nd -t 3"
 
-config BR2_SVN
+config LINGMO_SVN
 	string "Subversion (svn) command"
 	default "svn --non-interactive"
 
-config BR2_BZR
+config LINGMO_BZR
 	string "Bazaar (bzr) command"
 	default "bzr"
 
-config BR2_GIT
+config LINGMO_GIT
 	string "Git command"
 	default "git"
 
-config BR2_CVS
+config LINGMO_CVS
 	string "CVS command"
 	default "cvs"
 
-config BR2_LOCALFILES
+config LINGMO_LOCALFILES
 	string "Local files retrieval command"
 	default "cp"
 
-config BR2_SCP
+config LINGMO_SCP
 	string "Secure copy (scp) command"
 	default "scp"
 
-config BR2_SFTP
+config LINGMO_SFTP
 	string "Secure file transfer (sftp) command"
 	default "sftp"
 
-config BR2_HG
+config LINGMO_HG
 	string "Mercurial (hg) command"
 	default "hg"
 
-config BR2_ZCAT
+config LINGMO_ZCAT
 	string "zcat command"
 	default "gzip -d -c"
 	help
@@ -149,7 +149,7 @@ config BR2_ZCAT
 	  Default is "gzip -d -c"
 	  Other possible values include "gunzip -c" or "zcat".
 
-config BR2_BZCAT
+config LINGMO_BZCAT
 	string "bzcat command"
 	default "bzcat"
 	help
@@ -159,21 +159,21 @@ config BR2_BZCAT
 	  Default is "bzcat"
 	  Other possible values include "bunzip2 -c" or "bzip2 -d -c".
 
-config BR2_XZCAT
+config LINGMO_XZCAT
 	string "xzcat command"
 	default "xzcat"
 	help
 	  Command to be used to extract a xz'ed file to stdout.
 	  Default is "xzcat"
 
-config BR2_LZCAT
+config LINGMO_LZCAT
 	string "lzcat command"
 	default "lzip -d -c"
 	help
 	  Command to be used to extract a lzip'ed file to stdout.
 	  Default is "lzip -d -c"
 
-config BR2_TAR_OPTIONS
+config LINGMO_TAR_OPTIONS
 	string "Tar options"
 	default ""
 	help
@@ -183,24 +183,24 @@ config BR2_TAR_OPTIONS
 
 endmenu
 
-config BR2_DEFCONFIG_FROM_ENV
+config LINGMO_DEFCONFIG_FROM_ENV
 	string
-	option env="BR2_DEFCONFIG"
+	option env="LINGMO_DEFCONFIG"
 
-config BR2_DEFCONFIG
+config LINGMO_DEFCONFIG
 	string "Location to save buildroot config"
-	default BR2_DEFCONFIG_FROM_ENV if BR2_DEFCONFIG_FROM_ENV != ""
+	default LINGMO_DEFCONFIG_FROM_ENV if LINGMO_DEFCONFIG_FROM_ENV != ""
 	default "$(CONFIG_DIR)/defconfig"
 	help
 	  When running 'make savedefconfig', the defconfig file will be
 	  saved in this location.
 
-config BR2_DL_DIR
+config LINGMO_DL_DIR
 	string "Download dir"
 	default "$(TOPDIR)/dl"
 	help
 	  Directory to store all the source files that we need to fetch.
-	  If the Linux shell environment has defined the BR2_DL_DIR
+	  If the Linux shell environment has defined the LINGMO_DL_DIR
 	  environment variable, then this overrides this configuration
 	  item.
 	  The directory is organized with a subdirectory for each
@@ -209,7 +209,7 @@ config BR2_DL_DIR
 
 	  The default is $(TOPDIR)/dl
 
-config BR2_HOST_DIR
+config LINGMO_HOST_DIR
 	string "Host dir"
 	default "$(BASE_DIR)/host"
 	help
@@ -221,7 +221,7 @@ config BR2_HOST_DIR
 
 menu "Mirrors and Download locations"
 
-config BR2_PRIMARY_SITE
+config LINGMO_PRIMARY_SITE
 	string "Primary download site"
 	default ""
 	help
@@ -233,9 +233,9 @@ config BR2_PRIMARY_SITE
 	    - local URIs of the form file://absolutepath
 	    - scp URIs of the form scp://[user@]host:path.
 
-config BR2_PRIMARY_SITE_ONLY
+config LINGMO_PRIMARY_SITE_ONLY
 	bool "Only allow downloads from primary download site"
-	depends on BR2_PRIMARY_SITE != ""
+	depends on LINGMO_PRIMARY_SITE != ""
 	help
 	  If this option is enabled, downloads will only be attempted
 	  from the primary download site. Other locations, like the
@@ -247,9 +247,9 @@ config BR2_PRIMARY_SITE_ONLY
 	  the project can be built even if the upstream tarball
 	  locations disappear.
 
-if !BR2_PRIMARY_SITE_ONLY
+if !LINGMO_PRIMARY_SITE_ONLY
 
-config BR2_BACKUP_SITE
+config LINGMO_BACKUP_SITE
 	string "Backup download site"
 	default "https://sources.buildroot.net"
 	help
@@ -257,7 +257,7 @@ config BR2_BACKUP_SITE
 	  buildroot will fall back to download package sources from here
 	  if the normal location fails.
 
-config BR2_KERNEL_MIRROR
+config LINGMO_KERNEL_MIRROR
 	string "Kernel.org mirror"
 	default "https://cdn.kernel.org/pub"
 	help
@@ -272,7 +272,7 @@ config BR2_KERNEL_MIRROR
 	     http://www.XX.kernel.org/pub (XX = country code)
 	     http://mirror.aarnet.edu.au/pub/ftp.kernel.org
 
-config BR2_GNU_MIRROR
+config LINGMO_GNU_MIRROR
 	string "GNU Software mirror"
 	default "http://ftpmirror.gnu.org"
 	help
@@ -287,7 +287,7 @@ config BR2_GNU_MIRROR
 	     http://ftp.gnu.org/pub/gnu
 	     http://mirror.aarnet.edu.au/pub/gnu
 
-config BR2_LUAROCKS_MIRROR
+config LINGMO_LUAROCKS_MIRROR
 	string "LuaRocks mirror"
 	default "http://rocks.moonscript.org"
 	help
@@ -295,7 +295,7 @@ config BR2_LUAROCKS_MIRROR
 
 	  See http://luarocks.org
 
-config BR2_CPAN_MIRROR
+config LINGMO_CPAN_MIRROR
 	string "CPAN mirror (Perl packages)"
 	default "https://cpan.metacpan.org"
 	help
@@ -311,14 +311,14 @@ endif
 
 endmenu
 
-config BR2_JLEVEL
+config LINGMO_JLEVEL
 	int "Number of jobs to run simultaneously (0 for auto)"
 	default "0"
 	help
 	  Number of jobs to run simultaneously. If 0, determine
 	  automatically according to number of CPUs on the host system.
 
-config BR2_CCACHE
+config LINGMO_CCACHE
 	bool "Enable compiler cache"
 	help
 	  This option will enable the use of ccache, a compiler cache.
@@ -332,18 +332,18 @@ config BR2_CCACHE
 	  configuration, you are responsible for purging the ccache
 	  cache by removing the $HOME/.buildroot-ccache directory.
 
-if BR2_CCACHE
+if LINGMO_CCACHE
 
-config BR2_CCACHE_DIR
+config LINGMO_CCACHE_DIR
 	string "Compiler cache location"
 	default "$(HOME)/.buildroot-ccache"
 	help
 	  Where ccache should store cached files.
-	  If the Linux shell environment has defined the BR2_CCACHE_DIR
+	  If the Linux shell environment has defined the LINGMO_CCACHE_DIR
 	  environment variable, then this overrides this configuration
 	  item.
 
-config BR2_CCACHE_INITIAL_SETUP
+config LINGMO_CCACHE_INITIAL_SETUP
 	string "Compiler cache initial setup"
 	help
 	  Initial ccache settings to apply, such as --max-files or
@@ -360,7 +360,7 @@ config BR2_CCACHE_INITIAL_SETUP
 	  These initial settings are applied after ccache has been
 	  compiled.
 
-config BR2_CCACHE_USE_BASEDIR
+config LINGMO_CCACHE_USE_BASEDIR
 	bool "Use relative paths"
 	default y
 	help
@@ -377,7 +377,7 @@ config BR2_CCACHE_USE_BASEDIR
 	  allows ccache to rewrite absolute paths within the output
 	  directory into relative paths. Note that only paths within the
 	  output directory will be rewritten; therefore, if you change
-	  BR2_HOST_DIR to point outside the output directory and
+	  LINGMO_HOST_DIR to point outside the output directory and
 	  subsequently move it to a different location, this will lead
 	  to cache misses.
 
@@ -389,7 +389,7 @@ config BR2_CCACHE_USE_BASEDIR
 
 endif
 
-config BR2_ENABLE_DEBUG
+config LINGMO_ENABLE_DEBUG
 	bool "build packages with debugging symbols"
 	help
 	  Build packages with debugging symbols enabled. All libraries
@@ -397,16 +397,16 @@ config BR2_ENABLE_DEBUG
 	  symbols, which allows remote debugging even if libraries and
 	  binaries are stripped on the target. Whether libraries and
 	  binaries are stripped on the target is controlled by the
-	  BR2_STRIP_* options below.
+	  LINGMO_STRIP_* options below.
 
-if BR2_ENABLE_DEBUG
+if LINGMO_ENABLE_DEBUG
 choice
 	prompt "gcc debug level"
-	default BR2_DEBUG_2
+	default LINGMO_DEBUG_2
 	help
 	  Set the debug level for gcc
 
-config BR2_DEBUG_1
+config LINGMO_DEBUG_1
 	bool "debug level 1"
 	help
 	  Debug level 1 produces minimal information, enough for making
@@ -415,12 +415,12 @@ config BR2_DEBUG_1
 	  variables, but no information about local variables and no
 	  line numbers.
 
-config BR2_DEBUG_2
+config LINGMO_DEBUG_2
 	bool "debug level 2"
 	help
 	  The default gcc debug level is 2
 
-config BR2_DEBUG_3
+config LINGMO_DEBUG_3
 	bool "debug level 3"
 	help
 	  Level 3 includes extra information, such as all the macro
@@ -429,7 +429,7 @@ config BR2_DEBUG_3
 endchoice
 endif
 
-config BR2_ENABLE_RUNTIME_DEBUG
+config LINGMO_ENABLE_RUNTIME_DEBUG
 	bool "build packages with runtime debugging info"
 	help
 	  Some packages may have runtime assertions, extra traces, and
@@ -442,10 +442,10 @@ config BR2_ENABLE_RUNTIME_DEBUG
 	  Note: disabling this option is not a guarantee that all
 	  packages effectively removed these runtime debugging elements.
 
-config BR2_STRIP_strip
+config LINGMO_STRIP_strip
 	bool "strip target binaries"
 	default y
-	depends on BR2_BINFMT_ELF
+	depends on LINGMO_BINFMT_ELF
 	help
 	  Binaries and libraries in the target filesystem will be
 	  stripped using the normal 'strip' command. This allows to save
@@ -453,18 +453,18 @@ config BR2_STRIP_strip
 	  on the target are needed for native debugging, but not when
 	  remote debugging is used.
 
-config BR2_STRIP_EXCLUDE_FILES
+config LINGMO_STRIP_EXCLUDE_FILES
 	string "executables that should not be stripped"
 	default ""
-	depends on BR2_STRIP_strip
+	depends on LINGMO_STRIP_strip
 	help
 	  You may specify a space-separated list of binaries and
 	  libraries here that should not be stripped on the target.
 
-config BR2_STRIP_EXCLUDE_DIRS
+config LINGMO_STRIP_EXCLUDE_DIRS
 	string "directories that should be skipped when stripping"
 	default ""
-	depends on BR2_STRIP_strip
+	depends on LINGMO_STRIP_strip
 	help
 	  You may specify a space-separated list of directories that
 	  should be skipped when stripping. Binaries and libraries in
@@ -474,16 +474,16 @@ config BR2_STRIP_EXCLUDE_DIRS
 
 choice
 	prompt "gcc optimization level"
-	default BR2_OPTIMIZE_2
+	default LINGMO_OPTIMIZE_2
 	help
 	  Set the optimization level for gcc
 
-config BR2_OPTIMIZE_0
+config LINGMO_OPTIMIZE_0
 	bool "optimization level 0"
 	help
 	  Do not optimize.
 
-config BR2_OPTIMIZE_1
+config LINGMO_OPTIMIZE_1
 	bool "optimization level 1"
 	help
 	  Optimize. Optimizing compilation takes somewhat more time, and
@@ -499,7 +499,7 @@ config BR2_OPTIMIZE_1
 	  also turns on -fomit-frame-pointer on machines where doing so
 	  does not interfere with debugging.
 
-config BR2_OPTIMIZE_2
+config LINGMO_OPTIMIZE_2
 	bool "optimization level 2"
 	help
 	  Optimize even more. GCC performs nearly all supported
@@ -522,16 +522,16 @@ config BR2_OPTIMIZE_2
 	  that use computed gotos.
 	  This is the default.
 
-config BR2_OPTIMIZE_3
+config LINGMO_OPTIMIZE_3
 	bool "optimization level 3"
 	help
 	  Optimize yet more. -O3 turns on all optimizations specified by
 	  -O2 and also turns on the -finline-functions, -funswitch-loops
 	  and -fgcse-after-reload options.
 
-config BR2_OPTIMIZE_G
+config LINGMO_OPTIMIZE_G
 	bool "optimize for debugging"
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_8
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_8
 	help
 	  Optimize for debugging. This enables optimizations that do not
 	  interfere with debugging. It should be the optimization level
@@ -539,7 +539,7 @@ config BR2_OPTIMIZE_G
 	  a reasonable level of optimization while maintaining fast
 	  compilation and a good debugging experience.
 
-config BR2_OPTIMIZE_S
+config LINGMO_OPTIMIZE_S
 	bool "optimize for size"
 	help
 	  Optimize for size. -Os enables all -O2 optimizations that do
@@ -550,9 +550,9 @@ config BR2_OPTIMIZE_S
 	  -freorder-blocks-and-partition -fprefetch-loop-arrays
 	  -ftree-vect-loop-version
 
-config BR2_OPTIMIZE_FAST
+config LINGMO_OPTIMIZE_FAST
 	bool "optimize for fast (may break packages!)"
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_6
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_6
 	help
 	  Optimize for fast. Disregard strict standards
 	  compliance. -Ofast enables all -O3 optimizations. It also
@@ -564,7 +564,7 @@ config BR2_OPTIMIZE_FAST
 
 endchoice
 
-config BR2_ENABLE_LTO
+config LINGMO_ENABLE_LTO
 	bool "build packages with link-time optimisation"
 	help
 	  Enable the link-time optimisation (LTO) option when building
@@ -583,16 +583,16 @@ config BR2_ENABLE_LTO
 	  have an explicit configuration option for it. Other packages
 	  always enable LTO, but most packages never enable LTO.
 
-config BR2_GOOGLE_BREAKPAD_ENABLE
+config LINGMO_GOOGLE_BREAKPAD_ENABLE
 	bool "Enable google-breakpad support"
-	depends on BR2_INSTALL_LIBSTDCPP
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_7 # C++17
-	depends on BR2_USE_WCHAR
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_TOOLCHAIN_USES_GLIBC
-	depends on BR2_PACKAGE_GOOGLE_BREAKPAD_ARCH_SUPPORTS
-	depends on BR2_PACKAGE_HOST_GOOGLE_BREAKPAD_ARCH_SUPPORTS
-	select BR2_PACKAGE_GOOGLE_BREAKPAD
+	depends on LINGMO_INSTALL_LIBSTDCPP
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_7 # C++17
+	depends on LINGMO_USE_WCHAR
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_TOOLCHAIN_USES_GLIBC
+	depends on LINGMO_PACKAGE_GOOGLE_BREAKPAD_ARCH_SUPPORTS
+	depends on LINGMO_PACKAGE_HOST_GOOGLE_BREAKPAD_ARCH_SUPPORTS
+	select LINGMO_PACKAGE_GOOGLE_BREAKPAD
 	help
 	  This option will enable the use of google breakpad, a library
 	  and tool suite that allows you to distribute an application to
@@ -602,9 +602,9 @@ config BR2_GOOGLE_BREAKPAD_ENABLE
 	  minidumps. Breakpad can also write minidumps on request for
 	  programs that have not crashed.
 
-if BR2_GOOGLE_BREAKPAD_ENABLE
+if LINGMO_GOOGLE_BREAKPAD_ENABLE
 
-config BR2_GOOGLE_BREAKPAD_INCLUDE_FILES
+config LINGMO_GOOGLE_BREAKPAD_INCLUDE_FILES
 	string "List of executables and libraries to extract symbols from"
 	default ""
 	help
@@ -622,8 +622,8 @@ endif
 
 choice
 	bool "libraries"
-	default BR2_SHARED_LIBS if BR2_BINFMT_SUPPORTS_SHARED
-	default BR2_STATIC_LIBS if !BR2_BINFMT_SUPPORTS_SHARED
+	default LINGMO_SHARED_LIBS if LINGMO_BINFMT_SUPPORTS_SHARED
+	default LINGMO_STATIC_LIBS if !LINGMO_BINFMT_SUPPORTS_SHARED
 	help
 	  Select the type of libraries you want to use on the target.
 
@@ -631,9 +631,9 @@ choice
 	  target filesystem, except when the architecture and/or the
 	  selected binary format does not support shared libraries.
 
-config BR2_STATIC_LIBS
+config LINGMO_STATIC_LIBS
 	bool "static only"
-	depends on !BR2_TOOLCHAIN_USES_GLIBC
+	depends on !LINGMO_TOOLCHAIN_USES_GLIBC
 	help
 	  Build and use only static libraries. No shared libraries will
 	  be installed on the target. This potentially increases your
@@ -643,18 +643,18 @@ config BR2_STATIC_LIBS
 	  support.
 
 comment "static only needs a toolchain w/ uclibc or musl"
-	depends on BR2_TOOLCHAIN_USES_GLIBC
+	depends on LINGMO_TOOLCHAIN_USES_GLIBC
 
-config BR2_SHARED_LIBS
+config LINGMO_SHARED_LIBS
 	bool "shared only"
-	depends on BR2_BINFMT_SUPPORTS_SHARED
+	depends on LINGMO_BINFMT_SUPPORTS_SHARED
 	help
 	  Build and use only shared libraries. This is the recommended
 	  solution as it saves space and build time.
 
-config BR2_SHARED_STATIC_LIBS
+config LINGMO_SHARED_STATIC_LIBS
 	bool "both static and shared"
-	depends on BR2_BINFMT_SUPPORTS_SHARED
+	depends on LINGMO_BINFMT_SUPPORTS_SHARED
 	help
 	  Build both shared and static libraries, but link executables
 	  dynamically. While building both shared and static libraries
@@ -663,7 +663,7 @@ config BR2_SHARED_STATIC_LIBS
 
 endchoice
 
-config BR2_PACKAGE_OVERRIDE_FILE
+config LINGMO_PACKAGE_OVERRIDE_FILE
 	string "location of a package override file"
 	default "$(CONFIG_DIR)/local.mk"
 	help
@@ -673,7 +673,7 @@ config BR2_PACKAGE_OVERRIDE_FILE
 	  source directory for a particular package. See the Buildroot
 	  documentation for more details on this feature.
 
-config BR2_GLOBAL_PATCH_DIR
+config LINGMO_GLOBAL_PATCH_DIR
 	string "global patch and hash directories"
 	help
 	  You may specify a space separated list of one or more
@@ -685,7 +685,7 @@ config BR2_GLOBAL_PATCH_DIR
 	  applied from the package's directory in Buildroot.
 
 	  Then for every directory - <global-patch-dir> - that exists in
-	  BR2_GLOBAL_PATCH_DIR, if the directory
+	  LINGMO_GLOBAL_PATCH_DIR, if the directory
 	  <global-patch-dir>/<packagename>/<packageversion>/ exists,
 	  then all *.patch files in this directory will be applied.
 
@@ -697,7 +697,7 @@ config BR2_GLOBAL_PATCH_DIR
 
 menu "Advanced"
 
-config BR2_FORCE_HOST_BUILD
+config LINGMO_FORCE_HOST_BUILD
 	bool "Force the building of host dependencies"
 	help
 	  Build all available host dependencies, even if they are
@@ -709,7 +709,7 @@ config BR2_FORCE_HOST_BUILD
 
 	  This option will increase build time.
 
-config BR2_DOWNLOAD_FORCE_CHECK_HASHES
+config LINGMO_DOWNLOAD_FORCE_CHECK_HASHES
 	bool "Force all downloads to have a valid hash"
 	help
 	  Say 'y' here to enforce downloads to have at least one valid
@@ -722,12 +722,12 @@ config BR2_DOWNLOAD_FORCE_CHECK_HASHES
 	  With this option turned on, Buildroot will check hashes of
 	  all packages, including those that use a custom version. In
 	  order to provide hashes for such packages, place additional
-	  hash files in BR2_GLOBAL_PATCH_DIR directories.
+	  hash files in LINGMO_GLOBAL_PATCH_DIR directories.
 
-config BR2_REPRODUCIBLE
+config LINGMO_REPRODUCIBLE
 	bool "Make the build reproducible (experimental)"
 	# SOURCE_DATE_EPOCH support in toolchain-wrapper requires GCC 4.4
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_4
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_4
 	help
 	  This option will remove all sources of non-reproducibility
 	  from the build process. For a given Buildroot configuration,
@@ -743,7 +743,7 @@ config BR2_REPRODUCIBLE
 	  This is labeled as an experimental feature, as not all
 	  packages behave properly to ensure reproducibility.
 
-config BR2_PER_PACKAGE_DIRECTORIES
+config LINGMO_PER_PACKAGE_DIRECTORIES
 	bool "Use per-package directories (experimental)"
 	help
 	  This option will change the build process of Buildroot
@@ -763,9 +763,9 @@ config BR2_PER_PACKAGE_DIRECTORIES
 
 endmenu
 
-config BR2_TIME_BITS_64
+config LINGMO_TIME_BITS_64
 	bool "Build Y2038-ready code"
-	depends on BR2_TOOLCHAIN_USES_GLIBC && !BR2_ARCH_IS_64
+	depends on LINGMO_TOOLCHAIN_USES_GLIBC && !LINGMO_ARCH_IS_64
 	help
 	  This option will pass -D_TIME_BITS=64 in the compiler flags
 	  to ensure the glibc C library uses a 64-bit representation
@@ -779,35 +779,35 @@ config BR2_TIME_BITS_64
 
 comment "Security Hardening Options"
 
-config BR2_PIC_PIE_ARCH_SUPPORTS
+config LINGMO_PIC_PIE_ARCH_SUPPORTS
 	bool
 	default y
 	# Microblaze glibc toolchains don't work with PIC/PIE enabled
-	depends on !BR2_microblaze
+	depends on !LINGMO_microblaze
 	# Nios2 toolchains produce non working binaries with -fPIC
-	depends on !BR2_nios2
+	depends on !LINGMO_nios2
 
-config BR2_PIC_PIE
+config LINGMO_PIC_PIE
 	bool "Build code with PIC/PIE"
 	default y
-	depends on BR2_PIC_PIE_ARCH_SUPPORTS
-	depends on BR2_SHARED_LIBS
-	depends on BR2_TOOLCHAIN_SUPPORTS_PIE
+	depends on LINGMO_PIC_PIE_ARCH_SUPPORTS
+	depends on LINGMO_SHARED_LIBS
+	depends on LINGMO_TOOLCHAIN_SUPPORTS_PIE
 	help
 	  Generate Position-Independent Code (PIC) and link
 	  Position-Independent Executables (PIE).
 
 comment "PIC/PIE needs a toolchain w/ PIE"
-	depends on BR2_PIC_PIE_ARCH_SUPPORTS
-	depends on BR2_SHARED_LIBS
-	depends on !BR2_TOOLCHAIN_SUPPORTS_PIE
+	depends on LINGMO_PIC_PIE_ARCH_SUPPORTS
+	depends on LINGMO_SHARED_LIBS
+	depends on !LINGMO_TOOLCHAIN_SUPPORTS_PIE
 
 choice
 	bool "Stack Smashing Protection"
-	default BR2_SSP_ALL if BR2_ENABLE_SSP # legacy
-	default BR2_SSP_STRONG if BR2_TOOLCHAIN_HAS_SSP_STRONG
-	default BR2_SSP_REGULAR
-	depends on BR2_TOOLCHAIN_HAS_SSP
+	default LINGMO_SSP_ALL if LINGMO_ENABLE_SSP # legacy
+	default LINGMO_SSP_STRONG if LINGMO_TOOLCHAIN_HAS_SSP_STRONG
+	default LINGMO_SSP_REGULAR
+	depends on LINGMO_TOOLCHAIN_HAS_SSP
 	help
 	  Enable stack smashing protection support using GCC's
 	  -fstack-protector option family.
@@ -820,12 +820,12 @@ choice
 	  This is always the case for glibc and eglibc toolchain, but is
 	  optional in uClibc toolchains.
 
-config BR2_SSP_NONE
+config LINGMO_SSP_NONE
 	bool "None"
 	help
 	  Disable stack-smashing protection.
 
-config BR2_SSP_REGULAR
+config LINGMO_SSP_REGULAR
 	bool "-fstack-protector"
 	help
 	  Emit extra code to check for buffer overflows, such as stack
@@ -836,9 +836,9 @@ config BR2_SSP_REGULAR
 	  and then checked when the function exits. If a guard check
 	  fails, an error message is printed and the program exits.
 
-config BR2_SSP_STRONG
+config LINGMO_SSP_STRONG
 	bool "-fstack-protector-strong"
-	depends on BR2_TOOLCHAIN_HAS_SSP_STRONG
+	depends on LINGMO_TOOLCHAIN_HAS_SSP_STRONG
 	help
 	  Like -fstack-protector but includes additional functions to be
 	  protected - those that have local array definitions, or have
@@ -848,7 +848,7 @@ config BR2_SSP_STRONG
 	  some vendors have backported -fstack-protector-strong to older
 	  versions of gcc.
 
-config BR2_SSP_ALL
+config LINGMO_SSP_ALL
 	bool "-fstack-protector-all"
 	help
 	  Like -fstack-protector except that all functions are
@@ -857,67 +857,67 @@ config BR2_SSP_ALL
 
 endchoice
 
-config BR2_SSP_OPTION
+config LINGMO_SSP_OPTION
 	string
-	default "-fstack-protector"        if BR2_SSP_REGULAR
-	default "-fstack-protector-strong" if BR2_SSP_STRONG
-	default "-fstack-protector-all"    if BR2_SSP_ALL
+	default "-fstack-protector"        if LINGMO_SSP_REGULAR
+	default "-fstack-protector-strong" if LINGMO_SSP_STRONG
+	default "-fstack-protector-all"    if LINGMO_SSP_ALL
 
 comment "Stack Smashing Protection needs a toolchain w/ SSP"
-	depends on !BR2_TOOLCHAIN_HAS_SSP
+	depends on !LINGMO_TOOLCHAIN_HAS_SSP
 
 choice
 	bool "RELRO Protection"
-	default BR2_RELRO_FULL if BR2_TOOLCHAIN_SUPPORTS_PIE
-	default BR2_RELRO_PARTIAL
-	depends on BR2_SHARED_LIBS
+	default LINGMO_RELRO_FULL if LINGMO_TOOLCHAIN_SUPPORTS_PIE
+	default LINGMO_RELRO_PARTIAL
+	depends on LINGMO_SHARED_LIBS
 	help
 	  Enable a link-time protection know as RELRO (RELocation Read
 	  Only) which helps to protect from certain type of exploitation
 	  techniques altering the content of some ELF sections.
 
-config BR2_RELRO_NONE
+config LINGMO_RELRO_NONE
 	bool "None"
 	help
 	  Disables Relocation link-time protections.
 
-config BR2_RELRO_PARTIAL
+config LINGMO_RELRO_PARTIAL
 	bool "Partial"
 	help
 	  This option makes the dynamic section not writeable after
 	  initialization (with almost no performance penalty).
 
-config BR2_RELRO_FULL
+config LINGMO_RELRO_FULL
 	bool "Full"
-	depends on BR2_PIC_PIE_ARCH_SUPPORTS
-	depends on BR2_TOOLCHAIN_SUPPORTS_PIE
-	select BR2_PIC_PIE
+	depends on LINGMO_PIC_PIE_ARCH_SUPPORTS
+	depends on LINGMO_TOOLCHAIN_SUPPORTS_PIE
+	select LINGMO_PIC_PIE
 	help
 	  This option includes the partial configuration, but also marks
 	  the GOT as read-only at the cost of initialization time during
 	  program loading, i.e every time an executable is started.
 
 comment "RELRO Full needs a toolchain w/ PIE"
-	depends on BR2_PIC_PIE_ARCH_SUPPORTS
-	depends on !BR2_TOOLCHAIN_SUPPORTS_PIE
+	depends on LINGMO_PIC_PIE_ARCH_SUPPORTS
+	depends on !LINGMO_TOOLCHAIN_SUPPORTS_PIE
 
 endchoice
 
 comment "RELocation Read Only (RELRO) needs shared libraries"
-	depends on !BR2_SHARED_LIBS
+	depends on !LINGMO_SHARED_LIBS
 
-config BR2_FORTIFY_SOURCE_ARCH_SUPPORTS
+config LINGMO_FORTIFY_SOURCE_ARCH_SUPPORTS
 	bool
 	default y
 	# Microblaze glibc toolchains don't work with Fortify Source enabled
-	depends on !BR2_microblaze
+	depends on !LINGMO_microblaze
 
 choice
 	bool "Buffer-overflow Detection (FORTIFY_SOURCE)"
-	default BR2_FORTIFY_SOURCE_1
-	depends on BR2_FORTIFY_SOURCE_ARCH_SUPPORTS
-	depends on BR2_TOOLCHAIN_USES_GLIBC
-	depends on !BR2_OPTIMIZE_0
+	default LINGMO_FORTIFY_SOURCE_1
+	depends on LINGMO_FORTIFY_SOURCE_ARCH_SUPPORTS
+	depends on LINGMO_TOOLCHAIN_USES_GLIBC
+	depends on !LINGMO_OPTIMIZE_0
 	help
 	  Enable the _FORTIFY_SOURCE macro which introduces additional
 	  checks to detect buffer-overflows in the following standard
@@ -929,33 +929,33 @@ choice
 
 	  Support for this feature has been present since GCC 4.x.
 
-config BR2_FORTIFY_SOURCE_NONE
+config LINGMO_FORTIFY_SOURCE_NONE
 	bool "None"
 	help
 	  Disables additional checks to detect buffer-overflows.
 
-config BR2_FORTIFY_SOURCE_1
+config LINGMO_FORTIFY_SOURCE_1
 	bool "Conservative"
 	# gcc bug https://gcc.gnu.org/bugzilla/show_bug.cgi?id=61164
-	depends on !BR2_TOOLCHAIN_BUILDROOT || BR2_TOOLCHAIN_GCC_AT_LEAST_6
+	depends on !LINGMO_TOOLCHAIN_BUILDROOT || LINGMO_TOOLCHAIN_GCC_AT_LEAST_6
 	help
 	  This option sets _FORTIFY_SOURCE to 1 and only introduces
 	  checks that shouldn't change the behavior of conforming
 	  programs.  Adds checks at compile-time only.
 
-config BR2_FORTIFY_SOURCE_2
+config LINGMO_FORTIFY_SOURCE_2
 	bool "Aggressive"
 	# gcc bug https://gcc.gnu.org/bugzilla/show_bug.cgi?id=61164
-	depends on !BR2_TOOLCHAIN_BUILDROOT || BR2_TOOLCHAIN_GCC_AT_LEAST_6
+	depends on !LINGMO_TOOLCHAIN_BUILDROOT || LINGMO_TOOLCHAIN_GCC_AT_LEAST_6
 	help
 	  This option sets _FORTIFY_SOURCES to 2 and some more
 	  checking is added, but some conforming programs might fail.
 	  Also adds checks at run-time (detected buffer overflow
 	  terminates the program)
 
-config BR2_FORTIFY_SOURCE_3
+config LINGMO_FORTIFY_SOURCE_3
 	bool "Extended"
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_12
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_12
 	help
 	  This option sets _FORTIFY_SOURCES to 3 and even more
 	  checking is added compared to level 2. Extends checks at
@@ -965,8 +965,8 @@ config BR2_FORTIFY_SOURCE_3
 endchoice
 
 comment "Fortify Source needs a glibc toolchain and optimization"
-	depends on BR2_FORTIFY_SOURCE_ARCH_SUPPORTS
-	depends on (!BR2_TOOLCHAIN_USES_GLIBC || BR2_OPTIMIZE_0)
+	depends on LINGMO_FORTIFY_SOURCE_ARCH_SUPPORTS
+	depends on (!LINGMO_TOOLCHAIN_USES_GLIBC || LINGMO_OPTIMIZE_0)
 endmenu
 
 source "system/Config.in"
@@ -984,4 +984,4 @@ source "package/Config.in.host"
 source "Config.in.legacy"
 
 # br2-external menus definitions
-source "$BR2_BASE_DIR/.br2-external.in.menus"
+source "$LINGMO_BASE_DIR/.br2-external.in.menus"

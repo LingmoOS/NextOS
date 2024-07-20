@@ -5,7 +5,7 @@
 #
 ################################################################################
 
-ifeq ($(BR2_FORCE_HOST_BUILD),y)
+ifeq ($(LINGMO_FORCE_HOST_BUILD),y)
 # ignore all available host packages
 define suitable-host-package
 endef

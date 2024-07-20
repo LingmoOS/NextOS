@@ -16,7 +16,7 @@ ECRYPTFS_UTILS_CONF_OPTS = --disable-pywrap
 
 ECRYPTFS_UTILS_CONF_ENV = ac_cv_path_POD2MAN=true
 
-ifeq ($(BR2_PACKAGE_LIBGPGME),y)
+ifeq ($(LINGMO_PACKAGE_LIBGPGME),y)
 ECRYPTFS_UTILS_CONF_OPTS += \
 	--enable-gpg \
 	--with-gpgme-prefix=$(STAGING_DIR)/usr
@@ -25,18 +25,18 @@ else
 ECRYPTFS_UTILS_CONF_OPTS += --disable-gpg
 endif
 
-ifeq ($(BR2_PACKAGE_LINUX_PAM),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_PAM),y)
 ECRYPTFS_UTILS_CONF_OPTS += --enable-pam
 ECRYPTFS_UTILS_DEPENDENCIES += linux-pam
 else
 ECRYPTFS_UTILS_CONF_OPTS += --disable-pam
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 ECRYPTFS_UTILS_CONF_OPTS += --enable-openssl
 ECRYPTFS_UTILS_DEPENDENCIES += openssl
 
-ifeq ($(BR2_PACKAGE_PKCS11_HELPER),y)
+ifeq ($(LINGMO_PACKAGE_PKCS11_HELPER),y)
 ECRYPTFS_UTILS_CONF_OPTS += --enable-pkcs11-helper
 ECRYPTFS_UTILS_DEPENDENCIES += pkcs11-helper
 else

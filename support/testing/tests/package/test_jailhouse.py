@@ -17,18 +17,18 @@ class TestJailhouse(infra.basetest.BRTest):
         f"$(call github,siemens,linux,{kernel_ver})/linux-{kernel_ver}.tar.gz"
     config = \
         f"""
-        BR2_aarch64=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
-        BR2_LINUX_KERNEL=y
-        BR2_LINUX_KERNEL_CUSTOM_TARBALL=y
-        BR2_LINUX_KERNEL_CUSTOM_TARBALL_LOCATION="{kernel_url}"
-        BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
-        BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/qemu/aarch64-virt/linux.config"
-        BR2_PACKAGE_JAILHOUSE=y
-        BR2_TARGET_ROOTFS_EXT2=y
-        BR2_TARGET_ROOTFS_EXT2_4=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_aarch64=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
+        LINGMO_LINUX_KERNEL=y
+        LINGMO_LINUX_KERNEL_CUSTOM_TARBALL=y
+        LINGMO_LINUX_KERNEL_CUSTOM_TARBALL_LOCATION="{kernel_url}"
+        LINGMO_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
+        LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/qemu/aarch64-virt/linux.config"
+        LINGMO_PACKAGE_JAILHOUSE=y
+        LINGMO_TARGET_ROOTFS_EXT2=y
+        LINGMO_TARGET_ROOTFS_EXT2_4=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):

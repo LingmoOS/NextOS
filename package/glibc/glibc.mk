@@ -85,7 +85,7 @@ GLIBC_ADD_TOOLCHAIN_DEPENDENCY = NO
 # Before glibc is configured, we must have the first stage
 # cross-compiler and the kernel headers
 GLIBC_DEPENDENCIES = host-gcc-initial linux-headers host-bison host-gawk \
-	$(BR2_MAKE_HOST_DEPENDENCY) $(BR2_PYTHON3_HOST_DEPENDENCY)
+	$(LINGMO_MAKE_HOST_DEPENDENCY) $(LINGMO_PYTHON3_HOST_DEPENDENCY)
 
 GLIBC_SUBDIR = build
 
@@ -94,7 +94,7 @@ GLIBC_INSTALL_STAGING = YES
 GLIBC_INSTALL_STAGING_OPTS = install_root=$(STAGING_DIR) install
 
 # Thumb build is broken, build in ARM mode
-ifeq ($(BR2_ARM_INSTRUCTIONS_THUMB),y)
+ifeq ($(LINGMO_ARM_INSTRUCTIONS_THUMB),y)
 GLIBC_EXTRA_CFLAGS += -marm
 endif
 
@@ -102,18 +102,18 @@ endif
 # we are using a different ABI. OABI32 is also used
 # in MIPS so we pass -mabi=32 in this case as well
 # even though it's not strictly necessary.
-ifeq ($(BR2_MIPS_NABI64),y)
+ifeq ($(LINGMO_MIPS_NABI64),y)
 GLIBC_EXTRA_CFLAGS += -mabi=64
-else ifeq ($(BR2_MIPS_OABI32),y)
+else ifeq ($(LINGMO_MIPS_OABI32),y)
 GLIBC_EXTRA_CFLAGS += -mabi=32
 endif
 
-ifeq ($(BR2_ENABLE_DEBUG),y)
+ifeq ($(LINGMO_ENABLE_DEBUG),y)
 GLIBC_EXTRA_CFLAGS += -g
 endif
 
 # glibc explicitly requires compile barriers between files
-ifeq ($(BR2_TOOLCHAIN_GCC_AT_LEAST_4_7),y)
+ifeq ($(LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_7),y)
 GLIBC_EXTRA_CFLAGS += -fno-lto
 endif
 
@@ -121,7 +121,7 @@ endif
 # needed for the gcc build. An empty stubs.h will work, as explained
 # in http://gcc.gnu.org/ml/gcc/2002-01/msg00900.html. The same trick
 # is used by Crosstool-NG.
-ifeq ($(BR2_TOOLCHAIN_BUILDROOT_GLIBC),y)
+ifeq ($(LINGMO_TOOLCHAIN_BUILDROOT_GLIBC),y)
 define GLIBC_ADD_MISSING_STUB_H
 	mkdir -p $(STAGING_DIR)/usr/include/gnu
 	touch $(STAGING_DIR)/usr/include/gnu/stubs.h
@@ -129,13 +129,13 @@ endef
 endif
 
 GLIBC_CONF_ENV = \
-	ac_cv_path_BASH_SHELL=/bin/$(if $(BR2_PACKAGE_BASH),bash,sh) \
+	ac_cv_path_BASH_SHELL=/bin/$(if $(LINGMO_PACKAGE_BASH),bash,sh) \
 	libc_cv_forced_unwind=yes \
 	libc_cv_ssp=no
 
 # POSIX shell does not support localization, so remove the corresponding
 # syntax from ldd if bash is not selected.
-ifeq ($(BR2_PACKAGE_BASH),)
+ifeq ($(LINGMO_PACKAGE_BASH),)
 define GLIBC_LDD_NO_BASH
 	$(SED) 's/$$"/"/g' $(@D)/elf/ldd.bash.in
 endef
@@ -144,8 +144,8 @@ endif
 
 # Override the default library locations of /lib64/<abi> and
 # /usr/lib64/<abi>/ for RISC-V.
-ifeq ($(BR2_riscv),y)
-ifeq ($(BR2_RISCV_64),y)
+ifeq ($(LINGMO_riscv),y)
+ifeq ($(LINGMO_RISCV_64),y)
 GLIBC_CONF_ENV += libc_cv_slibdir=/lib64 libc_cv_rtlddir=/lib
 else
 GLIBC_CONF_ENV += libc_cv_slibdir=/lib32 libc_cv_rtlddir=/lib
@@ -154,11 +154,11 @@ endif
 
 # glibc requires make >= 4.0 since 2.28 release.
 # https://www.sourceware.org/ml/libc-alpha/2018-08/msg00003.html
-GLIBC_MAKE = $(BR2_MAKE)
-GLIBC_CONF_ENV += ac_cv_prog_MAKE="$(BR2_MAKE)"
+GLIBC_MAKE = $(LINGMO_MAKE)
+GLIBC_CONF_ENV += ac_cv_prog_MAKE="$(LINGMO_MAKE)"
 
-ifeq ($(BR2_PACKAGE_GLIBC_KERNEL_COMPAT),)
-GLIBC_CONF_OPTS += --enable-kernel=$(call qstrip,$(BR2_TOOLCHAIN_HEADERS_AT_LEAST))
+ifeq ($(LINGMO_PACKAGE_GLIBC_KERNEL_COMPAT),)
+GLIBC_CONF_OPTS += --enable-kernel=$(call qstrip,$(LINGMO_TOOLCHAIN_HEADERS_AT_LEAST))
 endif
 
 # Even though we use the autotools-package infrastructure, we have to
@@ -173,17 +173,17 @@ endif
 
 GLIBC_CFLAGS = $(TARGET_OPTIMIZATION)
 # crash in qemu-system-nios2 with -Os
-ifeq ($(BR2_nios2),y)
+ifeq ($(LINGMO_nios2),y)
 GLIBC_CFLAGS += -O2
 endif
 
 # glibc can't be built without optimization
-ifeq ($(BR2_OPTIMIZE_0),y)
+ifeq ($(LINGMO_OPTIMIZE_0),y)
 GLIBC_CFLAGS += -O1
 endif
 
 # glibc can't be built with Optimize for fast
-ifeq ($(BR2_OPTIMIZE_FAST),y)
+ifeq ($(LINGMO_OPTIMIZE_FAST),y)
 GLIBC_CFLAGS += -O2
 endif
 
@@ -201,13 +201,13 @@ define GLIBC_CONFIGURE_CMDS
 		--build=$(GNU_HOST_NAME) \
 		--prefix=/usr \
 		--enable-shared \
-		$(if $(BR2_x86_64),--enable-lock-elision) \
+		$(if $(LINGMO_x86_64),--enable-lock-elision) \
 		--with-pkgversion="Buildroot" \
 		--disable-profile \
 		--disable-werror \
 		--without-gd \
 		--with-headers=$(STAGING_DIR)/usr/include \
-		$(if $(BR2_aarch64)$(BR2_aarch64_be),--enable-mathvec) \
+		$(if $(LINGMO_aarch64)$(LINGMO_aarch64_be),--enable-mathvec) \
 		--enable-crypt \
 		$(GLIBC_CONF_OPTS))
 	$(GLIBC_ADD_MISSING_STUB_H)
@@ -223,14 +223,14 @@ GLIBC_LIBS_LIB = \
 	libm.so.* libpthread.so.* libresolv.so.* librt.so.* \
 	libutil.so.* libnss_files.so.* libnss_dns.so.* libmvec.so.*
 
-ifeq ($(BR2_PACKAGE_GDB),y)
+ifeq ($(LINGMO_PACKAGE_GDB),y)
 GLIBC_LIBS_LIB += libthread_db.so.*
 endif
 
-ifeq ($(BR2_PACKAGE_GLIBC_UTILS),y)
+ifeq ($(LINGMO_PACKAGE_GLIBC_UTILS),y)
 GLIBC_TARGET_UTILS_USR_BIN = posix/getconf elf/ldd
 GLIBC_TARGET_UTILS_SBIN = elf/ldconfig
-ifeq ($(BR2_SYSTEM_ENABLE_NLS),y)
+ifeq ($(LINGMO_SYSTEM_ENABLE_NLS),y)
 GLIBC_TARGET_UTILS_USR_BIN += locale/locale
 endif
 endif

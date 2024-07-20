@@ -13,14 +13,14 @@ TPM2_TOOLS_SELINUX_MODULES = tpm2
 TPM2_TOOLS_DEPENDENCIES = libcurl openssl tpm2-tss host-pkgconf
 
 # -fstack-protector-all and FORTIFY_SOURCE=2 is used by
-# default. Disable that so the BR2_SSP_* / BR2_FORTIFY_SOURCE_* options
+# default. Disable that so the LINGMO_SSP_* / LINGMO_FORTIFY_SOURCE_* options
 # in the toolchain wrapper and CFLAGS are used instead
 TPM2_TOOLS_CONF_OPTS = --disable-hardening
 
 # do not build man pages
 TPM2_TOOLS_CONF_ENV += ac_cv_prog_PANDOC=''
 
-ifeq ($(BR2_PACKAGE_TPM2_TOOLS_FAPI),y)
+ifeq ($(LINGMO_PACKAGE_TPM2_TOOLS_FAPI),y)
 TPM2_TOOLS_CONF_OPTS += --enable-fapi
 else
 TPM2_TOOLS_CONF_OPTS += --disable-fapi

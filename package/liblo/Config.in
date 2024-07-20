@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBLO
+config LINGMO_PACKAGE_LIBLO
 	bool "liblo"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
 	help
 	  liblo is an implementation of the Open Sound Control
 	  protocol for POSIX systems
@@ -8,4 +8,4 @@ config BR2_PACKAGE_LIBLO
 	  http://liblo.sourceforge.net/
 
 comment "liblo needs a toolchain w/ threads"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS

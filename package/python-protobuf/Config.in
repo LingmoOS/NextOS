@@ -1,8 +1,8 @@
-config BR2_PACKAGE_PYTHON_PROTOBUF
+config LINGMO_PACKAGE_PYTHON_PROTOBUF
 	bool "python-protobuf"
 	# host-protobuf only builds on certain architectures
-	depends on BR2_PACKAGE_HOST_PROTOBUF_ARCH_SUPPORTS
-	select BR2_PACKAGE_PYTHON_SIX # runtime
+	depends on LINGMO_PACKAGE_HOST_PROTOBUF_ARCH_SUPPORTS
+	select LINGMO_PACKAGE_PYTHON_SIX # runtime
 	help
 	  Python implementation of the Google Protocol Buffers.
 

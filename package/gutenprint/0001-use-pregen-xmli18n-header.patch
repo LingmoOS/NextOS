@@ -36,12 +36,12 @@ diff -durN gutenprint-5.2.9.orig/src/xml/Makefile.am gutenprint-5.2.9/src/xml/Ma
 -	./extract-strings `cat xml-stamp | sed -e 's;^;$(srcdir)/;'` > $@.tmp
 -	mv $@.tmp $@
 -
-+	if [ -z "$(BR2_USE_PREGEN_XMLI18N_TMP_H)" ]; then \
++	if [ -z "$(LINGMO_USE_PREGEN_XMLI18N_TMP_H)" ]; then \
 +	    rm -f $@ $@.tmp; \
 +	    ./extract-strings `cat xml-stamp | sed -e 's;^;$(srcdir)/;'` > $@.tmp; \
 +	    mv $@.tmp $@; \
 +	else \
-+	    cp $(BR2_USE_PREGEN_XMLI18N_TMP_H) $@; \
++	    cp $(LINGMO_USE_PREGEN_XMLI18N_TMP_H) $@; \
 +	fi
  
  dist-hook: xmli18n-tmp.h xml-stamp

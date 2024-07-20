@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_IOWAIT
+config LINGMO_PACKAGE_PYTHON_IOWAIT
 	bool "python-iowait"
 	help
 	  Platform-independent module for I/O completion events.

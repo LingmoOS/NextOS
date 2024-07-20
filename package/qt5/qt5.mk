@@ -19,7 +19,7 @@ define QT5_INSTALL_QT_CONF
 		$(QT5BASE_PKGDIR)/qt.conf.in > $(HOST_DIR)/bin/qt.conf
 endef
 
-ifeq ($(BR2_PER_PACKAGE_DIRECTORIES),y)
+ifeq ($(LINGMO_PER_PACKAGE_DIRECTORIES),y)
 define QT5_QT_CONF_FIXUP
 	$(QT5_INSTALL_QT_CONF)
 endef

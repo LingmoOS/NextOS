@@ -1,4 +1,4 @@
-config BR2_PACKAGE_DATATABLES
+config LINGMO_PACKAGE_DATATABLES
 	bool "datatables"
 	help
 	  Javascript library providing advanced interaction controls

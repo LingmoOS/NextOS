@@ -31,7 +31,7 @@ LIBPEAS_CONF_OPTS = \
 	-Dpython3=false \
 	-Dvapi=false
 
-ifeq ($(BR2_PACKAGE_LIBPEAS_WIDGETS),y)
+ifeq ($(LINGMO_PACKAGE_LIBPEAS_WIDGETS),y)
 LIBPEAS_DEPENDENCIES += libgtk3
 LIBPEAS_CONF_OPTS += -Dwidgetry=true
 else

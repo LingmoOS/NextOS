@@ -7,9 +7,9 @@ class TestPythonPy3PytestAsyncio(TestPythonPackageBase):
     __test__ = True
     config = TestPythonPackageBase.config + \
         """
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_PYTHON_PYTEST=y
-        BR2_PACKAGE_PYTHON_PYTEST_ASYNCIO=y
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON_PYTEST=y
+        LINGMO_PACKAGE_PYTHON_PYTEST_ASYNCIO=y
         """
     sample_scripts = ["tests/package/sample_python_pytest_asyncio.py"]
 

@@ -8,12 +8,12 @@ class TestGhostscript(infra.basetest.BRTest):
         infra.filepath("tests/package/test_ghostscript/rootfs-overlay")
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         f"""
-        BR2_PACKAGE_GHOSTSCRIPT=y
-        BR2_PACKAGE_TESSERACT_OCR=y
-        BR2_PACKAGE_TESSERACT_OCR_LANG_ENG=y
-        BR2_ROOTFS_OVERLAY="{rootfs_overlay}"
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_GHOSTSCRIPT=y
+        LINGMO_PACKAGE_TESSERACT_OCR=y
+        LINGMO_PACKAGE_TESSERACT_OCR_LANG_ENG=y
+        LINGMO_ROOTFS_OVERLAY="{rootfs_overlay}"
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):

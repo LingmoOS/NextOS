@@ -11,14 +11,14 @@ TMUX_LICENSE_FILES = COPYING
 TMUX_CPE_ID_VALID = YES
 TMUX_DEPENDENCIES = libevent ncurses host-pkgconf
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 TMUX_DEPENDENCIES += systemd
 TMUX_CONF_OPTS += --enable-systemd
 else
 TMUX_CONF_OPTS += --disable-systemd
 endif
 
-ifeq ($(BR2_PACKAGE_UTF8PROC),y)
+ifeq ($(LINGMO_PACKAGE_UTF8PROC),y)
 TMUX_DEPENDENCIES += utf8proc
 TMUX_CONF_OPTS += --enable-utf8proc
 else
@@ -27,7 +27,7 @@ endif
 
 # tmux uses custom --enable-static option, instead of standard libtool
 # directive resulting in a build failure with systemd or utf8proc
-ifeq ($(BR2_SHARED_STATIC_LIBS),y)
+ifeq ($(LINGMO_SHARED_STATIC_LIBS),y)
 TMUX_CONF_OPTS += --disable-static
 endif
 

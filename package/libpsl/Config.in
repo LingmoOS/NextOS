@@ -1,13 +1,13 @@
-config BR2_PACKAGE_LIBPSL
+config LINGMO_PACKAGE_LIBPSL
 	bool "libpsl"
-	depends on BR2_USE_WCHAR # libunistring, icu
-	select BR2_PACKAGE_LIBICONV if !BR2_ENABLE_LOCALE
-	select BR2_PACKAGE_LIBIDN2 if !BR2_PACKAGE_ICU && !BR2_PACKAGE_LIBIDN
-	select BR2_PACKAGE_LIBUNISTRING if !BR2_PACKAGE_ICU
+	depends on LINGMO_USE_WCHAR # libunistring, icu
+	select LINGMO_PACKAGE_LIBICONV if !LINGMO_ENABLE_LOCALE
+	select LINGMO_PACKAGE_LIBIDN2 if !LINGMO_PACKAGE_ICU && !LINGMO_PACKAGE_LIBIDN
+	select LINGMO_PACKAGE_LIBUNISTRING if !LINGMO_PACKAGE_ICU
 	help
 	  C library to handle the Public Suffix List of TLDs.
 
 	  https://github.com/rockdaboot/libpsl
 
 comment "libpsl needs a toolchain w/ wchar"
-	depends on !BR2_USE_WCHAR
+	depends on !LINGMO_USE_WCHAR

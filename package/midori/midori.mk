@@ -28,7 +28,7 @@ MIDORI_DEPENDENCIES = \
 	sqlite \
 	webkitgtk \
 	$(TARGET_NLS_DEPENDENCIES) \
-	$(if $(BR2_PACKAGE_LIBICONV),libiconv)
+	$(if $(LINGMO_PACKAGE_LIBICONV),libiconv)
 
 MIDORI_CONF_OPTS += -DGIR_COMPILER_PATH=$(STAGING_DIR)/usr/bin/g-ir-compiler
 

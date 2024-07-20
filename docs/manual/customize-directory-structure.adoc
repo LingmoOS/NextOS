@@ -100,11 +100,11 @@ layers 'common' and 'fooboard' is:
                 +-- ...
 -----
 
-For example, if the user has the +BR2_GLOBAL_PATCH_DIR+ configuration
+For example, if the user has the +LINGMO_GLOBAL_PATCH_DIR+ configuration
 option set as:
 
 -----
-BR2_GLOBAL_PATCH_DIR="board/<company>/common/patches board/<company>/fooboard/patches"
+LINGMO_GLOBAL_PATCH_DIR="board/<company>/common/patches board/<company>/fooboard/patches"
 -----
 
 then first the patches from the 'common' layer would be applied,

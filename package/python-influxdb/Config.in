@@ -1,10 +1,10 @@
-config BR2_PACKAGE_PYTHON_INFLUXDB
+config LINGMO_PACKAGE_PYTHON_INFLUXDB
 	bool "python-influxdb"
-	select BR2_PACKAGE_PYTHON_DATEUTIL # runtime
-	select BR2_PACKAGE_PYTHON_MSGPACK # runtime
-	select BR2_PACKAGE_PYTHON_PYTZ # runtime
-	select BR2_PACKAGE_PYTHON_REQUESTS # runtime
-	select BR2_PACKAGE_PYTHON_SIX # runtime
+	select LINGMO_PACKAGE_PYTHON_DATEUTIL # runtime
+	select LINGMO_PACKAGE_PYTHON_MSGPACK # runtime
+	select LINGMO_PACKAGE_PYTHON_PYTZ # runtime
+	select LINGMO_PACKAGE_PYTHON_REQUESTS # runtime
+	select LINGMO_PACKAGE_PYTHON_SIX # runtime
 	help
 	  InfluxDB client.
 

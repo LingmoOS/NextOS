@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBCSV
+config LINGMO_PACKAGE_LIBCSV
 	bool "libcsv"
 	help
 	  libcsv is a small, simple and fast CSV library written in

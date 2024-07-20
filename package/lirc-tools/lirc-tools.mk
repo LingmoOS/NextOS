@@ -18,7 +18,7 @@ LIRC_TOOLS_AUTORECONF = YES
 LIRC_TOOLS_CONF_ENV = XSLTPROC=yes HAVE_WORKING_POLL=yes
 LIRC_TOOLS_CONF_OPTS = --without-x --enable-devinput --enable-uinput
 
-ifeq ($(BR2_TOOLCHAIN_HEADERS_AT_LEAST_4_4),y)
+ifeq ($(LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_4_4),y)
 LIRC_TOOLS_CONF_ENV += \
 	DEVINPUT_HEADER=$(STAGING_DIR)/usr/include/linux/input-event-codes.h
 else
@@ -26,27 +26,27 @@ LIRC_TOOLS_CONF_ENV += \
 	DEVINPUT_HEADER=$(STAGING_DIR)/usr/include/linux/input.h
 endif
 
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 LIRC_TOOLS_DEPENDENCIES += udev
 endif
 
-ifeq ($(BR2_PACKAGE_ALSA_LIB),y)
+ifeq ($(LINGMO_PACKAGE_ALSA_LIB),y)
 LIRC_TOOLS_DEPENDENCIES += alsa-lib
 endif
 
-ifeq ($(BR2_PACKAGE_LIBUSB_COMPAT),y)
+ifeq ($(LINGMO_PACKAGE_LIBUSB_COMPAT),y)
 LIRC_TOOLS_DEPENDENCIES += libusb-compat
 endif
 
-ifeq ($(BR2_PACKAGE_PORTAUDIO),y)
+ifeq ($(LINGMO_PACKAGE_PORTAUDIO),y)
 LIRC_TOOLS_DEPENDENCIES += portaudio
 endif
 
-ifeq ($(BR2_PACKAGE_LIBFTDI1),y)
+ifeq ($(LINGMO_PACKAGE_LIBFTDI1),y)
 LIRC_TOOLS_DEPENDENCIES += libftdi1
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON3),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3),y)
 LIRC_TOOLS_DEPENDENCIES += python3 host-python-setuptools
 LIRC_TOOLS_MAKE_ENV += \
 	CC="$(TARGET_CC)" \

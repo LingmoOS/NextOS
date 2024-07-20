@@ -1,8 +1,8 @@
-config BR2_PACKAGE_QT6SERIALBUS
+config LINGMO_PACKAGE_QT6SERIALBUS
 	bool "qt6serialbus"
-	depends on BR2_TOOLCHAIN_HEADERS_AT_LEAST_3_6 # CAN FD
-	select BR2_PACKAGE_QT6SERIALPORT
-	select BR2_PACKAGE_QT6BASE_NETWORK
+	depends on LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_3_6 # CAN FD
+	select LINGMO_PACKAGE_QT6SERIALPORT
+	select LINGMO_PACKAGE_QT6BASE_NETWORK
 	help
 	  Qt is a cross-platform application and UI framework for
 	  developers using C++.
@@ -12,4 +12,4 @@ config BR2_PACKAGE_QT6SERIALBUS
 	  https://doc.qt.io/qt-6/qtserialbus-index.html
 
 comment "qt6serialbus needs headers >= 3.6"
-	depends on !BR2_TOOLCHAIN_HEADERS_AT_LEAST_3_6
+	depends on !LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_3_6

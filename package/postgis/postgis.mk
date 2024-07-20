@@ -19,25 +19,25 @@ POSTGIS_CONF_OPTS += \
 	--with-geosconfig=$(STAGING_DIR)/usr/bin/geos-config \
 	--with-xml2config=$(STAGING_DIR)/usr/bin/xml2-config
 
-ifeq ($(BR2_PACKAGE_JSON_C),y)
+ifeq ($(LINGMO_PACKAGE_JSON_C),y)
 POSTGIS_DEPENDENCIES += json-c
 POSTGIS_CONF_OPTS += --with-json
 else
 POSTGIS_CONF_OPTS += --without-json
 endif
 
-ifeq ($(BR2_PACKAGE_GDAL),y)
+ifeq ($(LINGMO_PACKAGE_GDAL),y)
 POSTGIS_DEPENDENCIES += gdal
 POSTGIS_CONF_OPTS += --with-raster --with-gdalconfig=$(STAGING_DIR)/usr/bin/gdal-config
 else
 POSTGIS_CONF_OPTS += --without-raster
 endif
 
-ifeq ($(BR2_PACKAGE_PCRE),y)
+ifeq ($(LINGMO_PACKAGE_PCRE),y)
 POSTGIS_DEPENDENCIES += pcre
 endif
 
-ifeq ($(BR2_PACKAGE_PROTOBUF_C),y)
+ifeq ($(LINGMO_PACKAGE_PROTOBUF_C),y)
 POSTGIS_DEPENDENCIES += protobuf-c
 POSTGIS_CONF_OPTS += --with-protobuf
 else

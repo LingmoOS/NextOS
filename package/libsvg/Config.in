@@ -1,8 +1,8 @@
-config BR2_PACKAGE_LIBSVG
+config LINGMO_PACKAGE_LIBSVG
 	bool "libsvg"
-	select BR2_PACKAGE_LIBPNG
-	select BR2_PACKAGE_JPEG
-	select BR2_PACKAGE_LIBXML2 if !BR2_PACKAGE_EXPAT
+	select LINGMO_PACKAGE_LIBPNG
+	select LINGMO_PACKAGE_JPEG
+	select LINGMO_PACKAGE_LIBXML2 if !LINGMO_PACKAGE_EXPAT
 	help
 	  Libsvg provides a parser for SVG content in files or buffers.
 	  Libsvg does not do any rendering, but instead provides a

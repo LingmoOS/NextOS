@@ -5,16 +5,16 @@
 ################################################################################
 
 COREUTILS_VERSION = 9.3
-COREUTILS_SITE = $(BR2_GNU_MIRROR)/coreutils
+COREUTILS_SITE = $(LINGMO_GNU_MIRROR)/coreutils
 COREUTILS_SOURCE = coreutils-$(COREUTILS_VERSION).tar.xz
 COREUTILS_LICENSE = GPL-3.0+
 COREUTILS_LICENSE_FILES = COPYING
 COREUTILS_CPE_ID_VENDOR = gnu
 
 COREUTILS_CONF_OPTS = --disable-rpath \
-	$(if $(BR2_TOOLCHAIN_USES_MUSL),--with-included-regex)
+	$(if $(LINGMO_TOOLCHAIN_USES_MUSL),--with-included-regex)
 
-ifeq ($(BR2_PACKAGE_COREUTILS_INDIVIDUAL_BINARIES),y)
+ifeq ($(LINGMO_PACKAGE_COREUTILS_INDIVIDUAL_BINARIES),y)
 COREUTILS_CONF_OPTS += --disable-single-binary
 else
 COREUTILS_CONF_OPTS += --enable-single-binary=symlinks
@@ -56,13 +56,13 @@ COREUTILS_BIN_PROGS = base64 cat chgrp chmod chown cp date dd df dir echo false 
 	kill link ln ls mkdir mknod mktemp mv nice printenv pwd rm rmdir \
 	vdir sleep stty sync touch true uname join
 
-ifeq ($(BR2_PACKAGE_ACL),y)
+ifeq ($(LINGMO_PACKAGE_ACL),y)
 COREUTILS_DEPENDENCIES += acl
 else
 COREUTILS_CONF_OPTS += --disable-acl
 endif
 
-ifeq ($(BR2_PACKAGE_ATTR),y)
+ifeq ($(LINGMO_PACKAGE_ATTR),y)
 COREUTILS_DEPENDENCIES += attr
 else
 COREUTILS_CONF_OPTS += --disable-xattr
@@ -71,34 +71,34 @@ endif
 COREUTILS_DEPENDENCIES += $(TARGET_NLS_DEPENDENCIES)
 
 # It otherwise fails to link properly, not mandatory though
-ifeq ($(BR2_PACKAGE_GETTEXT_PROVIDES_LIBINTL),y)
+ifeq ($(LINGMO_PACKAGE_GETTEXT_PROVIDES_LIBINTL),y)
 COREUTILS_CONF_OPTS += --with-libintl-prefix=$(STAGING_DIR)/usr
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBCAP),y)
 COREUTILS_DEPENDENCIES += libcap
 else
 COREUTILS_CONF_OPTS += --disable-libcap
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSELINUX),y)
+ifeq ($(LINGMO_PACKAGE_LIBSELINUX),y)
 COREUTILS_DEPENDENCIES += libselinux
 COREUTILS_CONF_OPTS += --with-selinux
 else
 COREUTILS_CONF_OPTS += --without-selinux
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 COREUTILS_CONF_OPTS += --with-openssl=yes
 COREUTILS_DEPENDENCIES += openssl
 endif
 
-ifeq ($(BR2_ROOTFS_MERGED_USR),)
+ifeq ($(LINGMO_ROOTFS_MERGED_USR),)
 # We want to move a few binaries from /usr/bin to /bin. In the case of
 # coreutils being built as multi-call binary, we do so by re-creating
 # the corresponding symlinks. If coreutils is built with individual
 # binaries, we actually move the binaries.
-ifeq ($(BR2_PACKAGE_COREUTILS_INDIVIDUAL_BINARIES),y)
+ifeq ($(LINGMO_PACKAGE_COREUTILS_INDIVIDUAL_BINARIES),y)
 define COREUTILS_FIX_BIN_LOCATION
 	$(foreach f,$(COREUTILS_BIN_PROGS), \
 		mv $(TARGET_DIR)/usr/bin/$(f) $(TARGET_DIR)/bin
@@ -116,7 +116,7 @@ endif
 COREUTILS_POST_INSTALL_TARGET_HOOKS += COREUTILS_FIX_BIN_LOCATION
 endif
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 COREUTILS_CONF_OPTS += --enable-no-install-program=stdbuf
 endif
 
@@ -127,7 +127,7 @@ endef
 COREUTILS_POST_INSTALL_TARGET_HOOKS += COREUTILS_CREATE_TEST_SYMLINK
 
 # gnu thinks chroot is in bin, debian thinks it's in sbin
-ifeq ($(BR2_PACKAGE_COREUTILS_INDIVIDUAL_BINARIES),y)
+ifeq ($(LINGMO_PACKAGE_COREUTILS_INDIVIDUAL_BINARIES),y)
 define COREUTILS_FIX_CHROOT_LOCATION
 	mv $(TARGET_DIR)/usr/bin/chroot $(TARGET_DIR)/usr/sbin
 endef

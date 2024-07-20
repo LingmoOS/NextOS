@@ -16,13 +16,13 @@ GNU_EFI_LICENSE_FILES = README.efilib
 # in installing these libraries to the target.
 GNU_EFI_INSTALL_TARGET = NO
 
-ifeq ($(BR2_i386),y)
+ifeq ($(LINGMO_i386),y)
 GNU_EFI_PLATFORM = ia32
-else ifeq ($(BR2_x86_64),y)
+else ifeq ($(LINGMO_x86_64),y)
 GNU_EFI_PLATFORM = x86_64
-else ifeq ($(BR2_arm)$(BR2_armeb),y)
+else ifeq ($(LINGMO_arm)$(LINGMO_armeb),y)
 GNU_EFI_PLATFORM = arm
-else ifeq ($(BR2_aarch64)$(BR2_aarch64_be),y)
+else ifeq ($(LINGMO_aarch64)$(LINGMO_aarch64_be),y)
 GNU_EFI_PLATFORM = aarch64
 endif
 

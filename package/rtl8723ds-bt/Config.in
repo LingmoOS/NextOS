@@ -1,4 +1,4 @@
-config BR2_PACKAGE_RTL8723DS_BT
+config LINGMO_PACKAGE_RTL8723DS_BT
 	bool "rtl8723ds-bt"
 	help
 	  rtl8723ds UART attached Bluetooth module firmware.

@@ -4,9 +4,9 @@
 #
 ################################################################################
 
-ifeq ($(BR2_PACKAGE_LUA_5_4),y)
+ifeq ($(LINGMO_PACKAGE_LUA_5_4),y)
 LUA_VERSION = 5.4.6
-else ifeq ($(BR2_PACKAGE_LUA_5_3),y)
+else ifeq ($(LINGMO_PACKAGE_LUA_5_3),y)
 LUA_VERSION = 5.3.6
 else
 LUA_VERSION = 5.1.5
@@ -14,7 +14,7 @@ endif
 LUA_SITE = https://www.lua.org/ftp
 LUA_INSTALL_STAGING = YES
 LUA_LICENSE = MIT
-ifeq ($(BR2_PACKAGE_LUA_5_3)$(BR2_PACKAGE_LUA_5_4),y)
+ifeq ($(LINGMO_PACKAGE_LUA_5_3)$(LINGMO_PACKAGE_LUA_5_4),y)
 LUA_LICENSE_FILES = doc/readme.html
 else
 LUA_LICENSE_FILES = COPYRIGHT
@@ -25,21 +25,21 @@ LUA_PROVIDES = luainterpreter
 
 LUA_CFLAGS = -Wall -fPIC -DLUA_USE_POSIX
 
-ifeq ($(BR2_PACKAGE_LUA_5_4),y)
+ifeq ($(LINGMO_PACKAGE_LUA_5_4),y)
 LUA_CFLAGS += -DLUA_COMPAT_5_3
-else ifeq ($(BR2_PACKAGE_LUA_5_3),y)
+else ifeq ($(LINGMO_PACKAGE_LUA_5_3),y)
 LUA_CFLAGS += -DLUA_COMPAT_5_2
 endif
 
-ifeq ($(BR2_PACKAGE_LUA_CVT_N2S),)
+ifeq ($(LINGMO_PACKAGE_LUA_CVT_N2S),)
 LUA_CFLAGS += -DLUA_NOCVTN2S
 endif
 
-ifeq ($(BR2_PACKAGE_LUA_CVT_S2N),)
+ifeq ($(LINGMO_PACKAGE_LUA_CVT_S2N),)
 LUA_CFLAGS += -DLUA_NOCVTS2N
 endif
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 LUA_BUILDMODE = static
 else
 LUA_BUILDMODE = dynamic
@@ -47,19 +47,19 @@ LUA_CFLAGS += -DLUA_USE_DLOPEN
 LUA_MYLIBS += -ldl
 endif
 
-ifeq ($(BR2_PACKAGE_LUA_READLINE),y)
+ifeq ($(LINGMO_PACKAGE_LUA_READLINE),y)
 LUA_DEPENDENCIES += readline ncurses
 LUA_MYLIBS += -lreadline -lhistory -lncurses
 LUA_CFLAGS += -DLUA_USE_READLINE
 else
-ifeq ($(BR2_PACKAGE_LUA_LINENOISE),y)
+ifeq ($(LINGMO_PACKAGE_LUA_LINENOISE),y)
 LUA_DEPENDENCIES += linenoise
 LUA_MYLIBS += -llinenoise
 LUA_CFLAGS += -DLUA_USE_LINENOISE
 endif
 endif
 
-ifeq ($(BR2_PACKAGE_LUA_32BITS),y)
+ifeq ($(LINGMO_PACKAGE_LUA_32BITS),y)
 define LUA_32BITS_LUACONF
 	$(SED) 's/\/\* #define LUA_32BITS \*\//#define LUA_32BITS/' $(@D)/src/luaconf.h
 endef
@@ -73,7 +73,7 @@ endef
 HOST_LUA_POST_PATCH_HOOKS += HOST_LUA_LUACONF
 
 HOST_LUA_CFLAGS = -Wall -fPIC -DLUA_USE_DLOPEN -DLUA_USE_POSIX
-ifeq ($(BR2_PACKAGE_LUA_5_3),y)
+ifeq ($(LINGMO_PACKAGE_LUA_5_3),y)
 HOST_LUA_CFLAGS += -DLUA_COMPAT_5_2
 endif
 HOST_LUA_MYLIBS = -ldl

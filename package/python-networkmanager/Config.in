@@ -1,11 +1,11 @@
-config BR2_PACKAGE_PYTHON_NETWORKMANAGER
+config LINGMO_PACKAGE_PYTHON_NETWORKMANAGER
 	bool "python-networkmanager"
-	depends on BR2_PACKAGE_NETWORK_MANAGER # runtime
-	depends on BR2_USE_WCHAR # dbus-python
-	depends on BR2_TOOLCHAIN_HAS_THREADS # dbus-python
-	depends on BR2_PACKAGE_DBUS # dbus-python
-	select BR2_PACKAGE_DBUS_PYTHON # runtime
-	select BR2_PACKAGE_PYTHON_SIX # runtime
+	depends on LINGMO_PACKAGE_NETWORK_MANAGER # runtime
+	depends on LINGMO_USE_WCHAR # dbus-python
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # dbus-python
+	depends on LINGMO_PACKAGE_DBUS # dbus-python
+	select LINGMO_PACKAGE_DBUS_PYTHON # runtime
+	select LINGMO_PACKAGE_PYTHON_SIX # runtime
 	help
 	  python-networkmanager wraps NetworkManagers D-Bus interface
 	  so you can be less verbose when talking to NetworkManager

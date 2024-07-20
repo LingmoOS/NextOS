@@ -6,9 +6,9 @@ import infra.basetest
 class TestMtd(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_PACKAGE_MTD=y
-        # BR2_TARGET_ROOTFS_TAR is not set
-        BR2_TARGET_ROOTFS_CPIO=y
+        LINGMO_PACKAGE_MTD=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
+        LINGMO_TARGET_ROOTFS_CPIO=y
         """
 
     def test_run(self):

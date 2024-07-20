@@ -3,8 +3,8 @@ import infra
 
 BASIC_CONFIG = \
     """
-    BR2_TARGET_ROOTFS_CPIO=y
-    # BR2_TARGET_ROOTFS_TAR is not set
+    LINGMO_TARGET_ROOTFS_CPIO=y
+    # LINGMO_TARGET_ROOTFS_TAR is not set
     """
 
 
@@ -29,7 +29,7 @@ class TestExternalToolchain(infra.basetest.BRTest):
         with open(os.path.join(self.builddir, ".config"), 'r') as configf:
             configlines = [line.strip() for line in configf.readlines()]
 
-        if "BR2_BINFMT_ELF=y" in configlines:
+        if "LINGMO_BINFMT_ELF=y" in configlines:
             interp = infra.get_elf_prog_interpreter(self.builddir,
                                                     self.toolchain_prefix,
                                                     "bin/busybox")
@@ -40,10 +40,10 @@ class TestExternalToolchain(infra.basetest.BRTest):
 class TestExternalToolchainLinaroArm(TestExternalToolchain):
     config = BASIC_CONFIG + \
         """
-        BR2_arm=y
-        BR2_cortex_a8=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_LINARO_ARM=y
+        LINGMO_arm=y
+        LINGMO_cortex_a8=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_LINARO_ARM=y
         """
     toolchain_prefix = "arm-linux-gnueabihf"
 
@@ -72,17 +72,17 @@ class TestExternalToolchainLinaroArm(TestExternalToolchain):
 class TestExternalToolchainBuildrootMusl(TestExternalToolchain):
     config = BASIC_CONFIG + \
         """
-        BR2_arm=y
-        BR2_cortex_a9=y
-        BR2_ARM_ENABLE_VFP=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_CUSTOM=y
-        BR2_TOOLCHAIN_EXTERNAL_DOWNLOAD=y
-        BR2_TOOLCHAIN_EXTERNAL_URL="http://autobuild.buildroot.org/toolchains/tarballs/br-arm-cortex-a9-musl-2017.05-1078-g95b1dae.tar.bz2"
-        BR2_TOOLCHAIN_EXTERNAL_GCC_6=y
-        BR2_TOOLCHAIN_EXTERNAL_HEADERS_4_12=y
-        BR2_TOOLCHAIN_EXTERNAL_CUSTOM_MUSL=y
-        BR2_TOOLCHAIN_EXTERNAL_CXX=y
+        LINGMO_arm=y
+        LINGMO_cortex_a9=y
+        LINGMO_ARM_ENABLE_VFP=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_CUSTOM=y
+        LINGMO_TOOLCHAIN_EXTERNAL_DOWNLOAD=y
+        LINGMO_TOOLCHAIN_EXTERNAL_URL="http://autobuild.buildroot.org/toolchains/tarballs/br-arm-cortex-a9-musl-2017.05-1078-g95b1dae.tar.bz2"
+        LINGMO_TOOLCHAIN_EXTERNAL_GCC_6=y
+        LINGMO_TOOLCHAIN_EXTERNAL_HEADERS_4_12=y
+        LINGMO_TOOLCHAIN_EXTERNAL_CUSTOM_MUSL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_CXX=y
         """
     toolchain_prefix = "arm-linux"
 
@@ -98,18 +98,18 @@ class TestExternalToolchainBuildrootMusl(TestExternalToolchain):
 class TestExternalToolchainCtngMusl(TestExternalToolchain):
     config = BASIC_CONFIG + \
         """
-        BR2_arm=y
-        BR2_cortex_a9=y
-        BR2_ARM_ENABLE_VFP=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_CUSTOM=y
-        BR2_TOOLCHAIN_EXTERNAL_DOWNLOAD=y
-        BR2_TOOLCHAIN_EXTERNAL_URL="http://autobuild.buildroot.net/toolchains/tarballs/arm-ctng-linux-musleabihf.tar.xz"
-        BR2_TOOLCHAIN_EXTERNAL_CUSTOM_PREFIX="arm-ctng-linux-musleabihf"
-        BR2_TOOLCHAIN_EXTERNAL_GCC_7=y
-        BR2_TOOLCHAIN_EXTERNAL_HEADERS_3_10=y
-        BR2_TOOLCHAIN_EXTERNAL_CUSTOM_MUSL=y
-        BR2_TOOLCHAIN_EXTERNAL_CXX=y
+        LINGMO_arm=y
+        LINGMO_cortex_a9=y
+        LINGMO_ARM_ENABLE_VFP=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_CUSTOM=y
+        LINGMO_TOOLCHAIN_EXTERNAL_DOWNLOAD=y
+        LINGMO_TOOLCHAIN_EXTERNAL_URL="http://autobuild.buildroot.net/toolchains/tarballs/arm-ctng-linux-musleabihf.tar.xz"
+        LINGMO_TOOLCHAIN_EXTERNAL_CUSTOM_PREFIX="arm-ctng-linux-musleabihf"
+        LINGMO_TOOLCHAIN_EXTERNAL_GCC_7=y
+        LINGMO_TOOLCHAIN_EXTERNAL_HEADERS_3_10=y
+        LINGMO_TOOLCHAIN_EXTERNAL_CUSTOM_MUSL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_CXX=y
         """
     toolchain_prefix = "arm-ctng-linux-musleabihf"
 
@@ -125,16 +125,16 @@ class TestExternalToolchainCtngMusl(TestExternalToolchain):
 class TestExternalToolchainBuildrootuClibc(TestExternalToolchain):
     config = BASIC_CONFIG + \
         """
-        BR2_arm=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_CUSTOM=y
-        BR2_TOOLCHAIN_EXTERNAL_DOWNLOAD=y
-        BR2_TOOLCHAIN_EXTERNAL_URL="http://autobuild.buildroot.org/toolchains/tarballs/br-arm-full-2017.05-1078-g95b1dae.tar.bz2"
-        BR2_TOOLCHAIN_EXTERNAL_GCC_4_9=y
-        BR2_TOOLCHAIN_EXTERNAL_HEADERS_3_10=y
-        BR2_TOOLCHAIN_EXTERNAL_LOCALE=y
-        # BR2_TOOLCHAIN_EXTERNAL_HAS_THREADS_DEBUG is not set
-        BR2_TOOLCHAIN_EXTERNAL_CXX=y
+        LINGMO_arm=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_CUSTOM=y
+        LINGMO_TOOLCHAIN_EXTERNAL_DOWNLOAD=y
+        LINGMO_TOOLCHAIN_EXTERNAL_URL="http://autobuild.buildroot.org/toolchains/tarballs/br-arm-full-2017.05-1078-g95b1dae.tar.bz2"
+        LINGMO_TOOLCHAIN_EXTERNAL_GCC_4_9=y
+        LINGMO_TOOLCHAIN_EXTERNAL_HEADERS_3_10=y
+        LINGMO_TOOLCHAIN_EXTERNAL_LOCALE=y
+        # LINGMO_TOOLCHAIN_EXTERNAL_HAS_THREADS_DEBUG is not set
+        LINGMO_TOOLCHAIN_EXTERNAL_CXX=y
         """
     toolchain_prefix = "arm-linux"
 
@@ -150,8 +150,8 @@ class TestExternalToolchainBuildrootuClibc(TestExternalToolchain):
 class TestExternalToolchainCCache(TestExternalToolchainBuildrootuClibc):
     extraconfig = \
         """
-        BR2_CCACHE=y
-        BR2_CCACHE_DIR="{builddir}/ccache-dir"
+        LINGMO_CCACHE=y
+        LINGMO_CCACHE_DIR="{builddir}/ccache-dir"
         """
 
     def __init__(self, names):

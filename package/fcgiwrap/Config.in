@@ -1,7 +1,7 @@
-config BR2_PACKAGE_FCGIWRAP
+config LINGMO_PACKAGE_FCGIWRAP
 	bool "fcgiwrap"
-	depends on BR2_USE_MMU # libfcgi
-	select BR2_PACKAGE_LIBFCGI
+	depends on LINGMO_USE_MMU # libfcgi
+	select LINGMO_PACKAGE_LIBFCGI
 	help
 	  fcgiwrap is a simple server for running CGI applications
 	  over FastCGI. It hopes to provide clean CGI support to Nginx

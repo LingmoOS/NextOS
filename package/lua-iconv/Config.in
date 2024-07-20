@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LUA_ICONV
+config LINGMO_PACKAGE_LUA_ICONV
 	bool "lua-iconv"
-	select BR2_PACKAGE_LIBICONV if !BR2_ENABLE_LOCALE
+	select LINGMO_PACKAGE_LIBICONV if !LINGMO_ENABLE_LOCALE
 	help
 	  Lua binding to the POSIX 'iconv' library
 

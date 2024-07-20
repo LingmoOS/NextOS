@@ -1,6 +1,6 @@
-config BR2_PACKAGE_DAQ
+config LINGMO_PACKAGE_DAQ
 	bool "daq"
-	depends on !BR2_STATIC_LIBS # dlfcn.h
+	depends on !LINGMO_STATIC_LIBS # dlfcn.h
 	help
 	  DAQ is a Data Acquisition library for packet I/O from the
 	  Snort project.
@@ -8,4 +8,4 @@ config BR2_PACKAGE_DAQ
 	  https://www.snort.org
 
 comment "daq needs a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_STATIC_LIBS

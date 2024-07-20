@@ -1,7 +1,7 @@
-config BR2_PACKAGE_LIBCDIO_PARANOIA
+config LINGMO_PACKAGE_LIBCDIO_PARANOIA
 	bool "libcdio-paranoia"
-	depends on BR2_USE_MMU # libcdio
-	select BR2_PACKAGE_LIBCDIO
+	depends on LINGMO_USE_MMU # libcdio
+	select LINGMO_PACKAGE_LIBCDIO
 	help
 	  CD paranoia on top of libcdio
 

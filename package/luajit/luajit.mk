@@ -14,7 +14,7 @@ LUAJIT_INSTALL_STAGING = YES
 
 LUAJIT_PROVIDES = luainterpreter
 
-ifeq ($(BR2_PACKAGE_LUAJIT_COMPAT52),y)
+ifeq ($(LINGMO_PACKAGE_LUAJIT_COMPAT52),y)
 LUAJIT_XCFLAGS += -DLUAJIT_ENABLE_LUA52COMPAT
 endif
 
@@ -25,7 +25,7 @@ endif
 # ensure that even on 64 bits build machines, a compiler of the same
 # bitness is used. Of course, this assumes that the 32 bits multilib
 # libraries are installed.
-ifeq ($(BR2_ARCH_IS_64),y)
+ifeq ($(LINGMO_ARCH_IS_64),y)
 LUAJIT_HOST_CC = $(HOSTCC)
 # There is no LUAJIT_ENABLE_GC64 option.
 else

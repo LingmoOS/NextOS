@@ -1,9 +1,9 @@
-config BR2_PACKAGE_OPENPGM
+config LINGMO_PACKAGE_OPENPGM
 	bool "openpgm"
-	depends on BR2_TOOLCHAIN_HAS_SYNC_2
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_USE_WCHAR
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_2
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_WCHAR
 	help
 	  OpenPGM is an open source implementation of the Pragmatic
 	  General Multicast (PGM) specification in RFC 3208 available at
@@ -15,6 +15,6 @@ config BR2_PACKAGE_OPENPGM
 	  https://github.com/steve-o/openpgm/
 
 comment "openpgm needs a toolchain w/ wchar, threads"
-	depends on BR2_TOOLCHAIN_HAS_SYNC_2
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4
-	depends on !(BR2_TOOLCHAIN_HAS_THREADS && BR2_USE_WCHAR)
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_2
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4
+	depends on !(LINGMO_TOOLCHAIN_HAS_THREADS && LINGMO_USE_WCHAR)

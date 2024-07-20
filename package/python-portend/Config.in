@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_PORTEND
+config LINGMO_PACKAGE_PYTHON_PORTEND
 	bool "python-portend"
-	select BR2_PACKAGE_PYTHON_TEMPORA # runtime
+	select LINGMO_PACKAGE_PYTHON_TEMPORA # runtime
 	help
 	  TCP port monitoring utilities.
 

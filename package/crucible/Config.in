@@ -1,6 +1,6 @@
-config BR2_PACKAGE_CRUCIBLE
+config LINGMO_PACKAGE_CRUCIBLE
 	bool "crucible"
-	depends on BR2_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS
+	depends on LINGMO_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS
 	help
 	  Crucible is a One-Time-Programmable (OTP) fusing tool for the
 	  i.MX family.

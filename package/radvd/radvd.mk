@@ -16,7 +16,7 @@ RADVD_LICENSE = BSD-4-Clause-like
 RADVD_LICENSE_FILES = COPYRIGHT
 RADVD_SELINUX_MODULES = radvd
 
-ifeq ($(BR2_TOOLCHAIN_HAS_SSP),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_SSP),y)
 RADVD_CONF_OPTS += --with-stack-protector
 else
 RADVD_CONF_OPTS += --without-stack-protector

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PYDAL
+config LINGMO_PACKAGE_PYTHON_PYDAL
 	bool "python-pydal"
 	help
 	  pyDAL is a pure Python Database Abstraction Layer.  It

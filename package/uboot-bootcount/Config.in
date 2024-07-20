@@ -1,4 +1,4 @@
-config BR2_PACKAGE_UBOOT_BOOTCOUNT
+config LINGMO_PACKAGE_UBOOT_BOOTCOUNT
 	bool "uboot-bootcount"
 	help
 	  U-Boot implements a boot count scheme that can be used to

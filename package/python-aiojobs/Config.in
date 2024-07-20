@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_AIOJOBS
+config LINGMO_PACKAGE_PYTHON_AIOJOBS
 	bool "python-aiojobs"
 	help
 	  Jobs scheduler for managing background task (asyncio).

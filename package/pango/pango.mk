@@ -34,18 +34,18 @@ HOST_PANGO_DEPENDENCIES = \
 	host-fontconfig \
 	host-freetype
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 PANGO_CONF_OPTS += -Dintrospection=enabled
 PANGO_DEPENDENCIES += gobject-introspection
 else
 PANGO_CONF_OPTS += -Dintrospection=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_XORG7),y)
+ifeq ($(LINGMO_PACKAGE_XORG7),y)
 PANGO_DEPENDENCIES += xlib_libX11
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXFT)$(BR2_PACKAGE_XLIB_LIBXRENDER),yy)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXFT)$(LINGMO_PACKAGE_XLIB_LIBXRENDER),yy)
 PANGO_DEPENDENCIES += xlib_libXft xlib_libXrender
 endif
 

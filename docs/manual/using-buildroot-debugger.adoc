@@ -10,12 +10,12 @@ control the execution of the program.
 To achieve this:
 
 * If you are using an _internal toolchain_ (built by Buildroot), you
-  must enable +BR2_PACKAGE_HOST_GDB+, +BR2_PACKAGE_GDB+ and
-  +BR2_PACKAGE_GDB_SERVER+. This ensures that both the cross gdb and
+  must enable +LINGMO_PACKAGE_HOST_GDB+, +LINGMO_PACKAGE_GDB+ and
+  +LINGMO_PACKAGE_GDB_SERVER+. This ensures that both the cross gdb and
   gdbserver get built, and that gdbserver gets installed to your target.
 
 * If you are using an _external toolchain_, you should enable
-  +BR2_TOOLCHAIN_EXTERNAL_GDB_SERVER_COPY+, which will copy the
+  +LINGMO_TOOLCHAIN_EXTERNAL_GDB_SERVER_COPY+, which will copy the
   gdbserver included with the external toolchain to the target. If your
   external toolchain does not have a cross gdb or gdbserver, it is also
   possible to let Buildroot build them, by enabling the same options as

@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LITE
+config LINGMO_PACKAGE_LITE
 	bool "LiTE (toolbox engine)"
-	depends on BR2_PACKAGE_DIRECTFB
+	depends on LINGMO_PACKAGE_DIRECTFB
 	help
 	  LiTE stands for LiTE is a Toolbox Engine.
 	  Its role is to facilitate the functions of DirectFB so that a

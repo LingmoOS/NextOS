@@ -15,7 +15,7 @@ speed up the build process.
 +Enable compiler cache+ in +Build options+. This will automatically
 build +ccache+ and use it for every host and target compilation.
 
-The cache is located in the directory defined by the +BR2_CCACHE_DIR+
+The cache is located in the directory defined by the +LINGMO_CCACHE_DIR+
 configuration option, which defaults to
 +$HOME/.buildroot-ccache+. This default location is outside of
 Buildroot output directory so that it can be shared by separate
@@ -43,7 +43,7 @@ staging directory. Because of this, building in a different output
 directory would lead to many cache misses.
 
 To avoid this issue, buildroot has the +Use relative paths+ option
-(+BR2_CCACHE_USE_BASEDIR+). This will rewrite all absolute paths that
+(+LINGMO_CCACHE_USE_BASEDIR+). This will rewrite all absolute paths that
 point inside the output directory into relative paths. Thus, changing
 the output directory no longer leads to cache misses.
 
@@ -56,14 +56,14 @@ See https://ccache.samba.org/manual.html#_compiling_in_different_directories[the
 ccache manual's section on "Compiling in different directories"] for
 more details about this rewriting of absolute paths.
 
-When +ccache+ is enabled in Buildroot using the +BR2_CCACHE=y+ option:
+When +ccache+ is enabled in Buildroot using the +LINGMO_CCACHE=y+ option:
 
 * +ccache+ is used during the Buildroot build itself
 
 * +ccache+ is not used when building outside of Buildroot, for example
   when directly calling the cross-compiler or using the SDK
 
-One can override this behavior using the +BR2_USE_CCACHE+ environment
+One can override this behavior using the +LINGMO_USE_CCACHE+ environment
 variable: when set to +1+, usage of ccache is enabled (default during
 the Buildroot build), when unset or set to a value different from +1+,
 usage of ccache is disabled.

@@ -18,16 +18,16 @@ MENDER_GRUBENV_MAKE_ENV = \
 	$(TARGET_MAKE_ENV)
 
 MENDER_GRUBENV_DEFINES = \
-	$(or $(call qstrip,$(BR2_PACKAGE_MENDER_GRUBENV_DEFINES)),\
+	$(or $(call qstrip,$(LINGMO_PACKAGE_MENDER_GRUBENV_DEFINES)),\
 		$(@D)/mender_grubenv_defines.example)
 
 # These grub modules must be built in for the grub scripts to work properly.
 # Without them, the system will not boot.
 MENDER_GRUBENV_MANDATORY_MODULES = loadenv hashsum echo halt gcry_sha256 test regexp
 
-ifeq ($(BR2_TARGET_GRUB2_HAS_LEGACY_BOOT),y)
+ifeq ($(LINGMO_TARGET_GRUB2_HAS_LEGACY_BOOT),y)
 MENDER_GRUBENV_MODULES_MISSING_PC = \
-	$(filter-out $(call qstrip,$(BR2_TARGET_GRUB2_BUILTIN_MODULES_PC)),\
+	$(filter-out $(call qstrip,$(LINGMO_TARGET_GRUB2_BUILTIN_MODULES_PC)),\
 		$(MENDER_GRUBENV_MANDATORY_MODULES))
 
 MENDER_GRUBENV_MAKE_ENV += BOOT_DIR=/boot/grub
@@ -40,11 +40,11 @@ define MENDER_GRUBENV_INSTALL_I386_CFG
 		$(TARGET_DIR)/boot/grub/grub-mender-grubenv \
 		$(BINARIES_DIR)/boot-part/
 endef
-endif # BR2_TARGET_GRUB2_HAS_LEGACY_BOOT
+endif # LINGMO_TARGET_GRUB2_HAS_LEGACY_BOOT
 
-ifeq ($(BR2_TARGET_GRUB2_HAS_EFI_BOOT),y)
+ifeq ($(LINGMO_TARGET_GRUB2_HAS_EFI_BOOT),y)
 MENDER_GRUBENV_MODULES_MISSING_EFI = \
-	$(filter-out $(call qstrip,$(BR2_TARGET_GRUB2_BUILTIN_MODULES_EFI)),\
+	$(filter-out $(call qstrip,$(LINGMO_TARGET_GRUB2_BUILTIN_MODULES_EFI)),\
 		$(MENDER_GRUBENV_MANDATORY_MODULES))
 
 MENDER_GRUBENV_MAKE_ENV += BOOT_DIR=/boot/EFI/BOOT
@@ -58,9 +58,9 @@ define MENDER_GRUBENV_INSTALL_EFI_CFG
 	cp -dpfr $(TARGET_DIR)/boot/EFI/BOOT/grub-mender-grubenv \
 		$(BINARIES_DIR)/efi-part/
 endef
-endif # BR2_TARGET_GRUB2_HAS_EFI_BOOT
+endif # LINGMO_TARGET_GRUB2_HAS_EFI_BOOT
 
-ifeq ($(BR2_PACKAGE_MENDER_GRUBENV)$(BR_BUILDING),yy)
+ifeq ($(LINGMO_PACKAGE_MENDER_GRUBENV)$(BR_BUILDING),yy)
 ifneq ($(MENDER_GRUBENV_MODULES_MISSING_EFI),)
 $(error The following missing grub2 efi modules must be enabled for mender-grubenv \
 	to work: $(MENDER_GRUBENV_MODULES_MISSING_EFI))

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_MTDEV
+config LINGMO_PACKAGE_MTDEV
 	bool "mtdev"
 	help
 	  The mtdev is a stand-alone library which transforms all

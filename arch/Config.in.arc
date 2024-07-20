@@ -1,24 +1,24 @@
 choice
 	prompt "Target CPU"
-	default BR2_arc770d
-	depends on BR2_arc
+	default LINGMO_arc770d
+	depends on LINGMO_arc
 	help
 	    Specific CPU to use
 
-config BR2_arc750d
+config LINGMO_arc750d
 	bool "ARC 750D"
 
-config BR2_arc770d
+config LINGMO_arc770d
 	bool "ARC 770D"
 
-config BR2_archs38
+config LINGMO_archs38
 	bool "ARC HS38"
 	help
 	  Generic ARC HS capable of running Linux, i.e. with MMU,
 	  caches and 32-bit multiplier. Also it corresponds to the
 	  default configuration in older GNU toolchain versions.
 
-config BR2_archs38_64mpy
+config LINGMO_archs38_64mpy
 	bool "ARC HS38 with 64-bit mpy"
 	help
 	  Fully featured ARC HS capable of running Linux, i.e. with
@@ -27,7 +27,7 @@ config BR2_archs38_64mpy
 	  If you're not sure which version of ARC HS core you build
 	  for use this one.
 
-config BR2_archs38_full
+config LINGMO_archs38_full
 	bool "ARC HS38 with Quad MAC & FPU"
 	help
 	  Fully featured ARC HS with additional support for
@@ -37,12 +37,12 @@ config BR2_archs38_full
 	  It corresponds to "hs38_slc_full" ARC HS template in
 	  ARChitect.
 
-config BR2_archs4x_rel31
+config LINGMO_archs4x_rel31
 	bool "ARC HS48 rel 31"
 	help
 	   Build for HS48 release 3.1
 
-config BR2_archs4x
+config LINGMO_archs4x
 	bool "ARC HS48"
 	help
 	   Latest release of HS48 processor
@@ -52,44 +52,44 @@ config BR2_archs4x
 endchoice
 
 # Choice of atomic instructions presence
-config BR2_ARC_ATOMIC_EXT
+config LINGMO_ARC_ATOMIC_EXT
 	bool "Atomic extension (LLOCK/SCOND instructions)"
-	default y if BR2_arc770d
-	default y if BR2_archs38 || BR2_archs38_64mpy || BR2_archs38_full
-	default y if BR2_archs4x_rel31 || BR2_archs4x
+	default y if LINGMO_arc770d
+	default y if LINGMO_archs38 || LINGMO_archs38_64mpy || LINGMO_archs38_full
+	default y if LINGMO_archs4x_rel31 || LINGMO_archs4x
 
-config BR2_ARCH
-	default "arc"	if BR2_arcle
-	default "arceb"	if BR2_arceb
+config LINGMO_ARCH
+	default "arc"	if LINGMO_arcle
+	default "arceb"	if LINGMO_arceb
 
-config BR2_NORMALIZED_ARCH
+config LINGMO_NORMALIZED_ARCH
 	default "arc"
 
-config BR2_arc
+config LINGMO_arc
 	bool
-	default y if BR2_arcle || BR2_arceb
+	default y if LINGMO_arcle || LINGMO_arceb
 
-config BR2_ENDIAN
-	default "LITTLE" if BR2_arcle
-	default "BIG"	 if BR2_arceb
+config LINGMO_ENDIAN
+	default "LITTLE" if LINGMO_arcle
+	default "BIG"	 if LINGMO_arceb
 
-config BR2_GCC_TARGET_CPU
-	default "arc700" if BR2_arc750d
-	default "arc700" if BR2_arc770d
-	default "archs"	 if BR2_archs38
-	default "hs38"	 if BR2_archs38_64mpy
-	default "hs38_linux"	 if BR2_archs38_full
-	default "hs4x_rel31"	 if BR2_archs4x_rel31
-	default "hs4x"	 if BR2_archs4x
+config LINGMO_GCC_TARGET_CPU
+	default "arc700" if LINGMO_arc750d
+	default "arc700" if LINGMO_arc770d
+	default "archs"	 if LINGMO_archs38
+	default "hs38"	 if LINGMO_archs38_64mpy
+	default "hs38_linux"	 if LINGMO_archs38_full
+	default "hs4x_rel31"	 if LINGMO_archs4x_rel31
+	default "hs4x"	 if LINGMO_archs4x
 
-config BR2_READELF_ARCH_NAME
-	default "ARCompact"	if BR2_arc750d || BR2_arc770d
-	default "ARCv2"		if BR2_archs38 || BR2_archs38_64mpy || BR2_archs38_full
-	default "ARCv2"		if BR2_archs4x_rel31 || BR2_archs4x
+config LINGMO_READELF_ARCH_NAME
+	default "ARCompact"	if LINGMO_arc750d || LINGMO_arc770d
+	default "ARCv2"		if LINGMO_archs38 || LINGMO_archs38_64mpy || LINGMO_archs38_full
+	default "ARCv2"		if LINGMO_archs4x_rel31 || LINGMO_archs4x
 
 choice
 	prompt "MMU Page Size"
-	default BR2_ARC_PAGE_SIZE_8K
+	default LINGMO_ARC_PAGE_SIZE_8K
 	help
 	  MMU starting from version 3 (found in ARC 770) and now
 	  version 4 (found in ARC HS38) allows the selection of the
@@ -103,27 +103,27 @@ choice
 	  size matching the hardware configuration. Otherwise
 	  user-space applications will fail at runtime.
 
-config BR2_ARC_PAGE_SIZE_4K
+config LINGMO_ARC_PAGE_SIZE_4K
 	bool "4KB"
-	depends on !BR2_arc750d
+	depends on !LINGMO_arc750d
 
-config BR2_ARC_PAGE_SIZE_8K
+config LINGMO_ARC_PAGE_SIZE_8K
 	bool "8KB"
 	help
 	  This is the one and only option available for MMUv2 and
 	  default value for MMU v3 and v4.
 
-config BR2_ARC_PAGE_SIZE_16K
+config LINGMO_ARC_PAGE_SIZE_16K
 	bool "16KB"
-	depends on !BR2_arc750d
+	depends on !LINGMO_arc750d
 
 endchoice
 
-config BR2_ARC_PAGE_SIZE
+config LINGMO_ARC_PAGE_SIZE
 	string
-	default "4K" if BR2_ARC_PAGE_SIZE_4K
-	default "8K" if BR2_ARC_PAGE_SIZE_8K
-	default "16K" if BR2_ARC_PAGE_SIZE_16K
+	default "4K" if LINGMO_ARC_PAGE_SIZE_4K
+	default "8K" if LINGMO_ARC_PAGE_SIZE_8K
+	default "16K" if LINGMO_ARC_PAGE_SIZE_16K
 
 # vim: ft=kconfig
 # -*- mode:kconfig; -*-

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_VERSIONTOOLS
+config LINGMO_PACKAGE_PYTHON_VERSIONTOOLS
 	bool "python-versiontools"
 	help
 	  Smart replacement for plain tuple used in __version__.

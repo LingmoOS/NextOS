@@ -1,4 +1,4 @@
-config BR2_PACKAGE_EXPLORERCANVAS
+config LINGMO_PACKAGE_EXPLORERCANVAS
 	bool "explorercanvas"
 	help
 	  Modern browsers like Firefox, Safari, Chrome and Opera

@@ -15,13 +15,13 @@ BDWGC_DEPENDENCIES = libatomic_ops host-pkgconf
 HOST_BDWGC_DEPENDENCIES = host-libatomic_ops host-pkgconf
 
 BDWGC_CONF_OPTS = CFLAGS_EXTRA="$(BDWGC_CFLAGS_EXTRA)"
-ifeq ($(BR2_sparc),y)
+ifeq ($(LINGMO_sparc),y)
 BDWGC_CFLAGS_EXTRA += -DAO_NO_SPARC_V9
 endif
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 BDWGC_CFLAGS_EXTRA += -DGC_NO_DLOPEN
 endif
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS_NPTL),)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS_NPTL),)
 BDWGC_CFLAGS_EXTRA += -DNO_PTHREAD_GETATTR_NP
 endif
 
@@ -29,7 +29,7 @@ endif
 BDWGC_CONF_OPTS += --with-libatomic-ops=yes
 HOST_BDWGC_CONF_OPTS = --with-libatomic-ops=yes
 
-ifeq ($(BR2_INSTALL_LIBSTDCPP),y)
+ifeq ($(LINGMO_INSTALL_LIBSTDCPP),y)
 BDWGC_CONF_OPTS += --enable-cplusplus
 else
 BDWGC_CONF_OPTS += --disable-cplusplus

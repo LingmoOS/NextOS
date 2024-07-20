@@ -20,12 +20,12 @@ BEECRYPT_CONF_OPTS = \
 	--without-cplusplus
 
 # disable optimized m68k assembly as it doesn't compile for coldfire
-ifeq ($(BR2_m68k_cf),y)
+ifeq ($(LINGMO_m68k_cf),y)
 BEECRYPT_CONF_OPTS += --enable-debug
 endif
 
 # arm asm optimization doesn't work for thumb-only
-ifeq ($(BR2_arm):$(BR2_ARM_CPU_HAS_ARM),y:)
+ifeq ($(LINGMO_arm):$(LINGMO_ARM_CPU_HAS_ARM),y:)
 BEECRYPT_CONF_OPTS += --enable-debug
 endif
 

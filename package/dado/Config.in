@@ -1,4 +1,4 @@
-config BR2_PACKAGE_DADO
+config LINGMO_PACKAGE_DADO
 	bool "dado"
 	help
 	  Database Facilities for LuaSQL.

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_JQ
+config LINGMO_PACKAGE_HOST_JQ
 	bool "host jq"
 	help
 	  jq is like sed for JSON data - you can use it to slice and

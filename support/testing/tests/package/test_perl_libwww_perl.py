@@ -25,8 +25,8 @@ class TestPerllibwwwperl(TestPerlBase):
 
     config = TestPerlBase.config + \
         """
-        BR2_PACKAGE_PERL=y
-        BR2_PACKAGE_PERL_LIBWWW_PERL=y
+        LINGMO_PACKAGE_PERL=y
+        LINGMO_PACKAGE_PERL_LIBWWW_PERL=y
         """
 
     def test_run(self):

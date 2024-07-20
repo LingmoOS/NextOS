@@ -1,1 +1,1 @@
-include $(sort $(wildcard $(BR2_EXTERNAL_SSH_PATH)/package/*/*.mk))
+include $(sort $(wildcard $(LINGMO_EXTERNAL_SSH_PATH)/package/*/*.mk))

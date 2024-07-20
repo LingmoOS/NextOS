@@ -1,10 +1,10 @@
-config BR2_PACKAGE_AUTOFS
+config LINGMO_PACKAGE_AUTOFS
 	bool "autofs"
-	depends on BR2_TOOLCHAIN_HAS_THREADS_NPTL
-	depends on BR2_USE_MMU
-	depends on !BR2_STATIC_LIBS # dlfcn
-	depends on !BR2_TOOLCHAIN_USES_MUSL # nsswitch
-	select BR2_PACKAGE_LIBTIRPC if !BR2_TOOLCHAIN_HAS_NATIVE_RPC
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS_NPTL
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_STATIC_LIBS # dlfcn
+	depends on !LINGMO_TOOLCHAIN_USES_MUSL # nsswitch
+	select LINGMO_PACKAGE_LIBTIRPC if !LINGMO_TOOLCHAIN_HAS_NATIVE_RPC
 	help
 	  Autofs controls the operation of the automount daemons. The
 	  automount daemons automatically mount filesystems when they
@@ -17,6 +17,6 @@ config BR2_PACKAGE_AUTOFS
 	  http://www.linuxfromscratch.org/blfs/view/svn/general/autofs.html
 
 comment "autofs needs a glibc or uClibc toolchain w/ NPTL and dynamic library"
-	depends on BR2_USE_MMU
-	depends on !BR2_TOOLCHAIN_HAS_THREADS_NPTL || BR2_STATIC_LIBS \
-		|| BR2_TOOLCHAIN_USES_MUSL
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS_NPTL || LINGMO_STATIC_LIBS \
+		|| LINGMO_TOOLCHAIN_USES_MUSL

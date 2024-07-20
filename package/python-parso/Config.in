@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PARSO
+config LINGMO_PACKAGE_PYTHON_PARSO
 	bool "python-parso"
 	help
 	  A Python Parser.

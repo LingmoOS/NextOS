@@ -16,18 +16,18 @@ IRSSI_CONF_OPTS = \
 	--disable-glibtest \
 	--without-perl
 
-ifeq ($(BR2_PACKAGE_IRSSI_PROXY),y)
+ifeq ($(LINGMO_PACKAGE_IRSSI_PROXY),y)
 IRSSI_CONF_OPTS += --with-proxy
 # If shared libs are disabled, 'proxy' has to go in the list of built-in
 # modules.
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 IRSSI_CONF_OPTS += --with-modules=proxy
 endif
 else
 IRSSI_CONF_OPTS += --without-proxy
 endif # proxy
 
-ifeq ($(BR2_PACKAGE_IRSSI_TRUE_COLOR),y)
+ifeq ($(LINGMO_PACKAGE_IRSSI_TRUE_COLOR),y)
 IRSSI_CONF_OPTS += --enable-true-color
 else
 IRSSI_CONF_OPTS += --disable-true-color

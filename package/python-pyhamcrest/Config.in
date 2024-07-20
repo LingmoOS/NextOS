@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PYHAMCREST
+config LINGMO_PACKAGE_PYTHON_PYHAMCREST
 	bool "python-pyhamcrest"
 	help
 	  Hamcrest framework for matcher objects.

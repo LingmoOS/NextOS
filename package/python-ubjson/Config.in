@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_UBJSON
+config LINGMO_PACKAGE_PYTHON_UBJSON
 	bool "python-ubjson"
 	help
 	  This is a Python v3.2+ (and 2.7+) Universal Binary JSON

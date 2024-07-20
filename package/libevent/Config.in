@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBEVENT
+config LINGMO_PACKAGE_LIBEVENT
 	bool "libevent"
 	help
 	  Userspace library for handling asynchronous notifications

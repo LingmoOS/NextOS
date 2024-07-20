@@ -10,18 +10,18 @@ LSOF_LICENSE = lsof license
 LSOF_LICENSE_FILES = COPYING
 LSOF_CPE_ID_VALID = YES
 
-ifeq ($(BR2_PACKAGE_LIBTIRPC),y)
+ifeq ($(LINGMO_PACKAGE_LIBTIRPC),y)
 LSOF_DEPENDENCIES += libtirpc
 endif
 
-ifeq ($(BR2_USE_WCHAR),)
+ifeq ($(LINGMO_USE_WCHAR),)
 define LSOF_CONFIGURE_WCHAR_FIXUPS
 	$(SED) 's,^#[[:space:]]*define HASWIDECHAR.*,#undef HASWIDECHAR,' \
 		$(@D)/machine.h
 endef
 endif
 
-ifeq ($(BR2_ENABLE_LOCALE),)
+ifeq ($(LINGMO_ENABLE_LOCALE),)
 define LSOF_CONFIGURE_LOCALE_FIXUPS
 	$(SED) 's,^#[[:space:]]*define HASSETLOCALE.*,#undef HASSETLOCALE,' \
 		$(@D)/machine.h

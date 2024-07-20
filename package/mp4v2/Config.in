@@ -1,15 +1,15 @@
-config BR2_PACKAGE_MP4V2
+config LINGMO_PACKAGE_MP4V2
 	bool "mp4v2"
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	help
 	  The MP4v2 library provides functions to read, create, and
 	  modify mp4 files.
 
 	  https://mp4v2.org/
 
-if BR2_PACKAGE_MP4V2
+if LINGMO_PACKAGE_MP4V2
 
-config BR2_PACKAGE_MP4V2_UTIL
+config LINGMO_PACKAGE_MP4V2_UTIL
 	bool "Install mp4 command line tools"
 	help
 	  Enable to install the mp4 command line tools mp4art,
@@ -19,4 +19,4 @@ config BR2_PACKAGE_MP4V2_UTIL
 endif
 
 comment "mp4v2 needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP

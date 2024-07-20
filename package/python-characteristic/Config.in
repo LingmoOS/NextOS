@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_CHARACTERISTIC
+config LINGMO_PACKAGE_PYTHON_CHARACTERISTIC
 	bool "python-characteristic"
 	help
 	  Python attributes without boilerplate.

@@ -20,10 +20,10 @@
 LUAROCKS_RUN_CMD = $(HOST_DIR)/bin/luarocks
 LUAROCKS_CFLAGS = $(TARGET_CFLAGS) -fPIC
 HOST_LUAROCKS_CFLAGS = $(HOST_CFLAGS) -fPIC
-ifeq ($(BR2_PACKAGE_LUA_5_3),y)
+ifeq ($(LINGMO_PACKAGE_LUA_5_3),y)
 LUAROCKS_CFLAGS += -DLUA_COMPAT_5_2
 HOST_LUAROCKS_CFLAGS += -DLUA_COMPAT_5_2
-else ifeq ($(BR2_PACKAGE_LUA_5_4),y)
+else ifeq ($(LINGMO_PACKAGE_LUA_5_4),y)
 LUAROCKS_CFLAGS += -DLUA_COMPAT_5_3
 HOST_LUAROCKS_CFLAGS += -DLUA_COMPAT_5_3
 endif
@@ -80,7 +80,7 @@ ifndef $(2)_SITE
   ifdef $(3)_SITE
     $(2)_SITE = $($(3)_SITE)
   else
-    $(2)_SITE ?= $$(call qstrip,$$(BR2_LUAROCKS_MIRROR))
+    $(2)_SITE ?= $$(call qstrip,$$(LINGMO_LUAROCKS_MIRROR))
   endif
 endif
 

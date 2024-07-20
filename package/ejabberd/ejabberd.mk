@@ -20,7 +20,7 @@ EJABBERD_DEPENDENCIES = getent openssl erlang-eimp host-erlang-lager \
 EJABBERD_USE_AUTOCONF = YES
 EJABBERD_AUTORECONF = YES
 
-ifeq ($(BR2_PACKAGE_LINUX_PAM),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_PAM),y)
 EJABBERD_DEPENDENCIES += linux-pam
 endif
 

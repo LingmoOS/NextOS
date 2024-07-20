@@ -13,11 +13,11 @@ X264_LICENSE_FILES = COPYING
 X264_INSTALL_STAGING = YES
 X264_CONF_OPTS = --disable-avs --disable-lavf --disable-swscale
 
-ifeq ($(BR2_i386)$(BR2_x86_64),y)
+ifeq ($(LINGMO_i386)$(LINGMO_x86_64),y)
 # nasm needed for assembly files
 X264_DEPENDENCIES += host-nasm
 X264_CONF_ENV += AS="$(HOST_DIR)/bin/nasm"
-else ifeq ($(BR2_ARM_CPU_ARMV7A)$(BR2_aarch64),y)
+else ifeq ($(LINGMO_ARM_CPU_ARMV7A)$(LINGMO_aarch64),y)
 # We need to pass gcc as AS, because the ARM assembly files have to be
 # preprocessed
 X264_CONF_ENV += AS="$(TARGET_CC)"
@@ -25,15 +25,15 @@ else
 X264_CONF_OPTS += --disable-asm
 endif
 
-ifeq ($(BR2_STATIC_LIBS),)
+ifeq ($(LINGMO_STATIC_LIBS),)
 X264_CONF_OPTS += --enable-pic --enable-shared
 endif
 
-ifeq ($(BR2_PACKAGE_X264_CLI),)
+ifeq ($(LINGMO_PACKAGE_X264_CLI),)
 X264_CONF_OPTS += --disable-cli
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS),)
 X264_CONF_OPTS += --disable-thread
 endif
 

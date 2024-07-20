@@ -39,34 +39,34 @@ PIPEWIRE_CONF_OPTS += \
 	-Dlibffado=disabled \
 	-Dflatpak=disabled
 
-ifeq ($(BR2_PACKAGE_DBUS),y)
+ifeq ($(LINGMO_PACKAGE_DBUS),y)
 PIPEWIRE_CONF_OPTS += -Ddbus=enabled
 PIPEWIRE_DEPENDENCIES += dbus
 else
 PIPEWIRE_CONF_OPTS += -Ddbus=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 PIPEWIRE_CONF_OPTS += -Dudev=enabled
 PIPEWIRE_DEPENDENCIES += udev
 else
 PIPEWIRE_CONF_OPTS += -Dudev=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_PIPEWIRE_EXAMPLES),y)
+ifeq ($(LINGMO_PACKAGE_PIPEWIRE_EXAMPLES),y)
 PIPEWIRE_CONF_OPTS += -Dexamples=enabled
 else
 PIPEWIRE_CONF_OPTS += -Dexamples=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_PIPEWIRE_GSTREAMER),y)
+ifeq ($(LINGMO_PACKAGE_PIPEWIRE_GSTREAMER),y)
 PIPEWIRE_CONF_OPTS += -Dgstreamer=enabled
 PIPEWIRE_DEPENDENCIES += libglib2 gstreamer1 gst1-plugins-base
 else
 PIPEWIRE_CONF_OPTS += -Dgstreamer=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 PIPEWIRE_CONF_OPTS += \
 	-Dsystemd=enabled \
 	-Dsystemd-system-service=enabled \
@@ -79,10 +79,10 @@ PIPEWIRE_CONF_OPTS += \
 	-Dsystemd-user-service=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_ALSA_LIB),y)
+ifeq ($(LINGMO_PACKAGE_ALSA_LIB),y)
 PIPEWIRE_CONF_OPTS += -Dpipewire-alsa=enabled
 PIPEWIRE_DEPENDENCIES += alsa-lib
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 PIPEWIRE_CONF_OPTS += -Dalsa=enabled
 else
 PIPEWIRE_CONF_OPTS += -Dalsa=disabled
@@ -91,30 +91,30 @@ else
 PIPEWIRE_CONF_OPTS += -Dalsa=disabled -Dpipewire-alsa=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_AVAHI_LIBAVAHI_CLIENT),y)
+ifeq ($(LINGMO_PACKAGE_AVAHI_LIBAVAHI_CLIENT),y)
 PIPEWIRE_CONF_OPTS += -Davahi=enabled
 PIPEWIRE_DEPENDENCIES += avahi
 else
 PIPEWIRE_CONF_OPTS += -Davahi=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_JACK2),y)
+ifeq ($(LINGMO_PACKAGE_JACK2),y)
 PIPEWIRE_CONF_OPTS += -Dpipewire-jack=enabled -Djack=enabled
 PIPEWIRE_DEPENDENCIES += jack2
 else
 PIPEWIRE_CONF_OPTS += -Dpipewire-jack=disabled -Djack=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_BLUEZ5_UTILS)$(BR2_PACKAGE_SBC),yy)
+ifeq ($(LINGMO_PACKAGE_BLUEZ5_UTILS)$(LINGMO_PACKAGE_SBC),yy)
 PIPEWIRE_CONF_OPTS += -Dbluez5=enabled
 PIPEWIRE_DEPENDENCIES += bluez5_utils sbc
-ifeq ($(BR2_PACKAGE_MODEM_MANAGER),y)
+ifeq ($(LINGMO_PACKAGE_MODEM_MANAGER),y)
 PIPEWIRE_CONF_OPTS += -Dbluez5-backend-native-mm=enabled
 PIPEWIRE_DEPENDENCIES += modem-manager
 else
 PIPEWIRE_CONF_OPTS += -Dbluez5-backend-native-mm=disabled
 endif
-ifeq ($(BR2_PACKAGE_OPUS),y)
+ifeq ($(LINGMO_PACKAGE_OPUS),y)
 PIPEWIRE_CONF_OPTS += -Dbluez5-codec-opus=enabled
 PIPEWIRE_DEPENDENCIES += opus
 else
@@ -124,115 +124,115 @@ else
 PIPEWIRE_CONF_OPTS += -Dbluez5=disabled -Dbluez5-codec-opus=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_FFMPEG),y)
+ifeq ($(LINGMO_PACKAGE_FFMPEG),y)
 PIPEWIRE_CONF_OPTS += -Dffmpeg=enabled -Dpw-cat-ffmpeg=enabled
 PIPEWIRE_DEPENDENCIES += ffmpeg
 else
 PIPEWIRE_CONF_OPTS += -Dffmpeg=disabled -Dpw-cat-ffmpeg=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_NCURSES_WCHAR),y)
+ifeq ($(LINGMO_PACKAGE_NCURSES_WCHAR),y)
 PIPEWIRE_DEPENDENCIES += ncurses
 endif
 
-ifeq ($(BR2_PACKAGE_PIPEWIRE_V4L2),y)
+ifeq ($(LINGMO_PACKAGE_PIPEWIRE_V4L2),y)
 PIPEWIRE_CONF_OPTS += -Dpipewire-v4l2=enabled -Dv4l2=enabled
 else
 PIPEWIRE_CONF_OPTS += -Dpipewire-v4l2=disabled -Dv4l2=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCAMERA)$(BR2_PACKAGE_LIBDRM)$(BR2_PACKAGE_HAS_UDEV),yyy)
+ifeq ($(LINGMO_PACKAGE_LIBCAMERA)$(LINGMO_PACKAGE_LIBDRM)$(LINGMO_PACKAGE_HAS_UDEV),yyy)
 PIPEWIRE_CONF_OPTS += -Dlibcamera=enabled
 PIPEWIRE_DEPENDENCIES += libcamera libdrm
 else
 PIPEWIRE_CONF_OPTS += -Dlibcamera=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LILV),y)
+ifeq ($(LINGMO_PACKAGE_LILV),y)
 PIPEWIRE_CONF_OPTS += -Dlv2=enabled
 PIPEWIRE_DEPENDENCIES += lilv
 else
 PIPEWIRE_CONF_OPTS += -Dlv2=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBX11),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBX11),y)
 PIPEWIRE_CONF_OPTS += -Dx11=enabled
 PIPEWIRE_DEPENDENCIES += xlib_libX11
 else
 PIPEWIRE_CONF_OPTS += -Dx11=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXFIXES),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXFIXES),y)
 PIPEWIRE_CONF_OPTS += -Dx11-xfixes=enabled
 PIPEWIRE_DEPENDENCIES += xlib_libXfixes
 else
 PIPEWIRE_CONF_OPTS += -Dx11-xfixes=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGLIB2),y)
+ifeq ($(LINGMO_PACKAGE_LIBGLIB2),y)
 PIPEWIRE_CONF_OPTS += -Dgsettings=enabled
 PIPEWIRE_DEPENDENCIES += libglib2
 else
 PIPEWIRE_CONF_OPTS += -Dgsettings=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBUSB),y)
+ifeq ($(LINGMO_PACKAGE_LIBUSB),y)
 PIPEWIRE_CONF_OPTS += -Dlibusb=enabled
 PIPEWIRE_DEPENDENCIES += libusb
 else
 PIPEWIRE_CONF_OPTS += -Dlibusb=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSNDFILE),y)
+ifeq ($(LINGMO_PACKAGE_LIBSNDFILE),y)
 PIPEWIRE_CONF_OPTS += -Dpw-cat=enabled -Dsndfile=enabled
 PIPEWIRE_DEPENDENCIES += libsndfile
 else
 PIPEWIRE_CONF_OPTS += -Dpw-cat=disabled -Dsndfile=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_OPUS),y)
+ifeq ($(LINGMO_PACKAGE_OPUS),y)
 PIPEWIRE_CONF_OPTS += -Dopus=enabled
 PIPEWIRE_DEPENDENCIES += opus
 else
 PIPEWIRE_CONF_OPTS += -Dopus=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_PULSEAUDIO),y)
+ifeq ($(LINGMO_PACKAGE_PULSEAUDIO),y)
 PIPEWIRE_CONF_OPTS += -Dlibpulse=enabled
 PIPEWIRE_DEPENDENCIES += pulseaudio
 else
 PIPEWIRE_CONF_OPTS += -Dlibpulse=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_READLINE),y)
+ifeq ($(LINGMO_PACKAGE_READLINE),y)
 PIPEWIRE_CONF_OPTS += -Dreadline=enabled
 PIPEWIRE_DEPENDENCIES += readline
 else
 PIPEWIRE_CONF_OPTS += -Dreadline=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_SDL2),y)
+ifeq ($(LINGMO_PACKAGE_SDL2),y)
 PIPEWIRE_DEPENDENCIES += sdl2
 PIPEWIRE_CONF_OPTS += -Dsdl2=enabled
 else
 PIPEWIRE_CONF_OPTS += -Dsdl2=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_PIPEWIRE_COMPRESS_OFFLOAD),y)
+ifeq ($(LINGMO_PACKAGE_PIPEWIRE_COMPRESS_OFFLOAD),y)
 PIPEWIRE_CONF_OPTS += -Dcompress-offload=enabled
 PIPEWIRE_DEPENDENCIES += tinycompress
 else
 PIPEWIRE_CONF_OPTS += -Dcompress-offload=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_WEBRTC_AUDIO_PROCESSING),y)
+ifeq ($(LINGMO_PACKAGE_WEBRTC_AUDIO_PROCESSING),y)
 PIPEWIRE_CONF_OPTS += -Decho-cancel-webrtc=enabled
 PIPEWIRE_DEPENDENCIES += webrtc-audio-processing
 else
 PIPEWIRE_CONF_OPTS += -Decho-cancel-webrtc=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 PIPEWIRE_CONF_OPTS += -Draop=enabled
 PIPEWIRE_DEPENDENCIES += openssl
 else

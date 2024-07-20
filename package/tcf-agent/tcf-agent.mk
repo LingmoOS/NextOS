@@ -18,7 +18,7 @@ TCF_AGENT_SUBDIR = agent
 # if wont be used (unmodifed) outside the tcf-agent application
 TCF_AGENT_CONF_OPTS = \
 	-DBUILD_SHARED_LIBS=OFF \
-	-DTCF_MACHINE=$(call qstrip,$(BR2_PACKAGE_TCF_AGENT_ARCH))
+	-DTCF_MACHINE=$(call qstrip,$(LINGMO_PACKAGE_TCF_AGENT_ARCH))
 
 define TCF_AGENT_INSTALL_INIT_SYSTEMD
 	$(INSTALL) -D -m 644 package/tcf-agent/tcf-agent.service \

@@ -13,9 +13,9 @@ def boot_armv5_cpio(emulator, builddir):
 class TestNoTimezone(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        # BR2_TARGET_TZ_INFO is not set
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        # LINGMO_TARGET_TZ_INFO is not set
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):
@@ -32,9 +32,9 @@ class TestNoTimezone(infra.basetest.BRTest):
 class TestAllTimezone(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_TARGET_TZ_INFO=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_TARGET_TZ_INFO=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):
@@ -52,11 +52,11 @@ class TestAllTimezone(infra.basetest.BRTest):
 class TestNonDefaultLimitedTimezone(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_TARGET_TZ_INFO=y
-        BR2_TARGET_TZ_ZONELIST="northamerica"
-        BR2_TARGET_LOCALTIME="America/New_York"
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_TARGET_TZ_INFO=y
+        LINGMO_TARGET_TZ_ZONELIST="northamerica"
+        LINGMO_TARGET_LOCALTIME="America/New_York"
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):

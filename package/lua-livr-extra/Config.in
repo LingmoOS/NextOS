@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LUA_LIVR_EXTRA
+config LINGMO_PACKAGE_LUA_LIVR_EXTRA
 	bool "lua-livr-extra"
-	select BR2_PACKAGE_LUA_LIVR # runtime
+	select LINGMO_PACKAGE_LUA_LIVR # runtime
 	help
 	  more LIVR rules.
 

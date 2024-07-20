@@ -13,19 +13,19 @@ RE2_DEPENDENCIES = libabseil-cpp
 
 define RE2_BUILD_CMDS
 	$(TARGET_MAKE_ENV) $(MAKE) $(TARGET_CONFIGURE_OPTS) \
-		-C $(@D) $(if $(BR2_STATIC_LIBS),static)
+		-C $(@D) $(if $(LINGMO_STATIC_LIBS),static)
 endef
 
 define RE2_INSTALL_STAGING_CMDS
 	$(TARGET_MAKE_ENV) $(MAKE) $(TARGET_CONFIGURE_OPTS) \
 		DESTDIR="$(STAGING_DIR)" prefix=/usr -C $(@D) \
-		$(if $(BR2_STATIC_LIBS),static-install,install)
+		$(if $(LINGMO_STATIC_LIBS),static-install,install)
 endef
 
 define RE2_INSTALL_TARGET_CMDS
 	$(TARGET_MAKE_ENV) $(MAKE) $(TARGET_CONFIGURE_OPTS) \
 		DESTDIR="$(TARGET_DIR)" prefix=/usr -C $(@D) \
-		$(if $(BR2_STATIC_LIBS),static-install,install)
+		$(if $(LINGMO_STATIC_LIBS),static-install,install)
 endef
 
 define HOST_RE2_BUILD_CMDS

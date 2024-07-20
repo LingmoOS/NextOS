@@ -20,7 +20,7 @@ HOST_LTTNG_BABELTRACE_CONF_OPTS += --enable-debug-info
 # We're patching tests/lib/Makefile.am
 LTTNG_BABELTRACE_AUTORECONF = YES
 
-ifeq ($(BR2_PACKAGE_ELFUTILS),y)
+ifeq ($(LINGMO_PACKAGE_ELFUTILS),y)
 LTTNG_BABELTRACE_DEPENDENCIES += elfutils
 LTTNG_BABELTRACE_CONF_OPTS += --enable-debug-info
 LTTNG_BABELTRACE_CONF_ENV += bt_cv_lib_elfutils=yes

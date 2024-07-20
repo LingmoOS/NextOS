@@ -1,4 +1,4 @@
-config BR2_PACKAGE_MSMTP
+config LINGMO_PACKAGE_MSMTP
 	bool "msmtp"
 	help
 	  msmtp is an SMTP client. In the default mode, it transmits a

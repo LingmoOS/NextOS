@@ -47,8 +47,8 @@ MENDER_UPDATE_MODULES_FILES = \
 	directory \
 	script \
 	single-file \
-	$(if $(BR2_PACKAGE_DOCKER_CLI),docker) \
-	$(if $(BR2_PACKAGE_RPM),rpm)
+	$(if $(LINGMO_PACKAGE_DOCKER_CLI),docker) \
+	$(if $(LINGMO_PACKAGE_RPM),rpm)
 
 define MENDER_INSTALL_CONFIG_FILES
 	$(INSTALL) -d -m 755 $(TARGET_DIR)/etc/mender/scripts
@@ -82,13 +82,13 @@ endef
 
 MENDER_POST_INSTALL_TARGET_HOOKS += MENDER_INSTALL_CONFIG_FILES
 
-ifeq ($(BR2_PACKAGE_XZ),y)
+ifeq ($(LINGMO_PACKAGE_XZ),y)
 MENDER_DEPENDENCIES += xz
 else
 MENDER_TAGS += nolzma
 endif
 
-ifeq ($(BR2_PACKAGE_DBUS)$(BR2_PACKAGE_LIBGLIB2),yy)
+ifeq ($(LINGMO_PACKAGE_DBUS)$(LINGMO_PACKAGE_LIBGLIB2),yy)
 MENDER_DEPENDENCIES += libglib2
 define MENDER_INSTALL_DBUS_AUTHENTICATION_MANAGER_CONF
 	$(INSTALL) -D -m 0755 $(@D)/support/dbus/io.mender.AuthenticationManager.conf \

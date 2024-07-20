@@ -15,41 +15,41 @@ IPMITOOL_DEPENDENCIES = host-pkgconf
 
 IPMITOOL_CONF_OPTS = --disable-registry-download
 
-ifeq ($(BR2_PACKAGE_FREEIPMI),y)
+ifeq ($(LINGMO_PACKAGE_FREEIPMI),y)
 IPMITOOL_DEPENDENCIES += freeipmi
 IPMITOOL_CONF_OPTS += --enable-intf-free
 else
 IPMITOOL_CONF_OPTS += --disable-intf-free
 endif
 
-ifeq ($(BR2_PACKAGE_IPMITOOL_LANPLUS),y)
+ifeq ($(LINGMO_PACKAGE_IPMITOOL_LANPLUS),y)
 IPMITOOL_DEPENDENCIES += openssl
 IPMITOOL_CONF_OPTS += --enable-intf-lanplus
 else
 IPMITOOL_CONF_OPTS += --disable-intf-lanplus
 endif
 
-ifeq ($(BR2_PACKAGE_IPMITOOL_USB),y)
+ifeq ($(LINGMO_PACKAGE_IPMITOOL_USB),y)
 IPMITOOL_CONF_OPTS += --enable-intf-usb
 else
 IPMITOOL_CONF_OPTS += --disable-intf-usb
 endif
 
-ifeq ($(BR2_PACKAGE_IPMITOOL_IPMISHELL),y)
+ifeq ($(LINGMO_PACKAGE_IPMITOOL_IPMISHELL),y)
 IPMITOOL_DEPENDENCIES += readline
 IPMITOOL_CONF_OPTS += --enable-ipmishell
 else
 IPMITOOL_CONF_OPTS += --disable-ipmishell
 endif
 
-ifeq ($(BR2_PACKAGE_IPMITOOL_IPMIEVD),)
+ifeq ($(LINGMO_PACKAGE_IPMITOOL_IPMIEVD),)
 define IPMITOOL_REMOVE_IPMIEVD
 	$(RM) -f $(TARGET_DIR)/usr/sbin/ipmievd
 endef
 IPMITOOL_POST_INSTALL_TARGET_HOOKS += IPMITOOL_REMOVE_IPMIEVD
 endif
 
-IPMITOOL_PEN_REG_URI = $(call qstrip,$(BR2_PACKAGE_IPMITOOL_PEN_REG_URI))
+IPMITOOL_PEN_REG_URI = $(call qstrip,$(LINGMO_PACKAGE_IPMITOOL_PEN_REG_URI))
 ifneq ($(IPMITOOL_PEN_REG_URI),)
 ifneq ($(findstring ://,$(IPMITOOL_PEN_REG_URI)),)
 IPMITOOL_EXTRA_DOWNLOADS += $(IPMITOOL_PEN_REG_URI)

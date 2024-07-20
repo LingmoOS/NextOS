@@ -13,12 +13,12 @@ RUNC_CPE_ID_VENDOR = linuxfoundation
 RUNC_LDFLAGS = -X main.version=$(RUNC_VERSION)
 RUNC_TAGS = cgo static_build
 
-ifeq ($(BR2_PACKAGE_LIBAPPARMOR),y)
+ifeq ($(LINGMO_PACKAGE_LIBAPPARMOR),y)
 RUNC_DEPENDENCIES += libapparmor
 RUNC_TAGS += apparmor
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSECCOMP),y)
+ifeq ($(LINGMO_PACKAGE_LIBSECCOMP),y)
 RUNC_TAGS += seccomp
 RUNC_DEPENDENCIES += libseccomp host-pkgconf
 endif

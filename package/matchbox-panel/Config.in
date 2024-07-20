@@ -1,6 +1,6 @@
-config BR2_PACKAGE_MATCHBOX_PANEL
+config LINGMO_PACKAGE_MATCHBOX_PANEL
 	bool "matchbox-panel"
-	select BR2_PACKAGE_MATCHBOX_LIB
+	select LINGMO_PACKAGE_MATCHBOX_LIB
 	help
 	  A flexible always present 'window bar' for holding
 	  application launchers.

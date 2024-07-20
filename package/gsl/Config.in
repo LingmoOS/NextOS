@@ -1,4 +1,4 @@
-config BR2_PACKAGE_GSL
+config LINGMO_PACKAGE_GSL
 	bool "gsl"
 	help
 	  The GNU Scientific Library (GSL) is a numerical library for

@@ -6,15 +6,15 @@ import infra.basetest
 class TestOla(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_PACKAGE_OLA=y
-        BR2_PACKAGE_OLA_EXAMPLES=y
-        BR2_PACKAGE_OLA_PLUGIN_DUMMY=y
-        BR2_PACKAGE_OLA_PYTHON_BINDINGS=y
-        BR2_PACKAGE_OLA_WEB=y
-        BR2_PACKAGE_PYTHON3=y
-        BR2_ROOTFS_OVERLAY="{}"
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_OLA=y
+        LINGMO_PACKAGE_OLA_EXAMPLES=y
+        LINGMO_PACKAGE_OLA_PLUGIN_DUMMY=y
+        LINGMO_PACKAGE_OLA_PYTHON_BINDINGS=y
+        LINGMO_PACKAGE_OLA_WEB=y
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_ROOTFS_OVERLAY="{}"
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """.format(
            # overlay to add a script to test ola python bindings
            infra.filepath("tests/package/test_ola/rootfs-overlay"))

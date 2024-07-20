@@ -1,7 +1,7 @@
-config BR2_PACKAGE_MUSEPACK
+config LINGMO_PACKAGE_MUSEPACK
 	bool "musepack"
-	select BR2_PACKAGE_LIBCUEFILE
-	select BR2_PACKAGE_LIBREPLAYGAIN
+	select LINGMO_PACKAGE_LIBCUEFILE
+	select LINGMO_PACKAGE_LIBREPLAYGAIN
 	help
 	  Musepack is an audio compression format with a strong
 	  emphasis on high quality. It's not lossless, but it is

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_PWGEN
+config LINGMO_PACKAGE_HOST_PWGEN
 	bool "host pwgen"
 	help
 	  Pwgen is a small, GPL'ed password generator which creates

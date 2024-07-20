@@ -37,73 +37,73 @@ LIBGTK2_CONF_OPTS += \
 LIBGTK2_DEPENDENCIES += \
 	fontconfig xlib_libX11 xlib_libXext xlib_libXrender
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 LIBGTK2_CONF_OPTS += --enable-introspection
 LIBGTK2_DEPENDENCIES += gobject-introspection
 else
 LIBGTK2_CONF_OPTS += --disable-introspection
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXINERAMA),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXINERAMA),y)
 LIBGTK2_CONF_OPTS += --enable-xinerama
 LIBGTK2_DEPENDENCIES += xlib_libXinerama
 else
 LIBGTK2_CONF_OPTS += --disable-xinerama
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXI),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXI),y)
 LIBGTK2_CONF_OPTS += --with-xinput=yes
 LIBGTK2_DEPENDENCIES += xlib_libXi
 else
 LIBGTK2_CONF_OPTS += --with-xinput=no
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXRANDR),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXRANDR),y)
 LIBGTK2_DEPENDENCIES += xlib_libXrandr
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXCURSOR),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXCURSOR),y)
 LIBGTK2_DEPENDENCIES += xlib_libXcursor
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXFIXES),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXFIXES),y)
 LIBGTK2_DEPENDENCIES += xlib_libXfixes
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXCOMPOSITE),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXCOMPOSITE),y)
 LIBGTK2_DEPENDENCIES += xlib_libXcomposite
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXDAMAGE),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXDAMAGE),y)
 LIBGTK2_DEPENDENCIES += xlib_libXdamage
 endif
 
-ifeq ($(BR2_PACKAGE_LIBPNG),y)
+ifeq ($(LINGMO_PACKAGE_LIBPNG),y)
 LIBGTK2_DEPENDENCIES += libpng
 else
 LIBGTK2_CONF_OPTS += --without-libpng
 endif
 
-ifeq ($(BR2_PACKAGE_JPEG),y)
+ifeq ($(LINGMO_PACKAGE_JPEG),y)
 LIBGTK2_DEPENDENCIES += jpeg
 else
 LIBGTK2_CONF_OPTS += --without-libjpeg
 endif
 
-ifeq ($(BR2_PACKAGE_TIFF),y)
+ifeq ($(LINGMO_PACKAGE_TIFF),y)
 LIBGTK2_DEPENDENCIES += tiff
 else
 LIBGTK2_CONF_OPTS += --without-libtiff
 endif
 
-ifeq ($(BR2_PACKAGE_CUPS),y)
+ifeq ($(LINGMO_PACKAGE_CUPS),y)
 LIBGTK2_CONF_OPTS += CUPS_CONFIG="$(STAGING_DIR)/usr/bin/cups-config"
 LIBGTK2_DEPENDENCIES += cups
 else
 LIBGTK2_CONF_OPTS += --disable-cups
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGTK2_DEMO),)
+ifeq ($(LINGMO_PACKAGE_LIBGTK2_DEMO),)
 define LIBGTK2_POST_INSTALL_TWEAKS
 	rm -rf $(TARGET_DIR)/usr/share/gtk-2.0/demo $(TARGET_DIR)/usr/bin/gtk-demo
 endef

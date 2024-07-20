@@ -15,15 +15,15 @@
 
 define inner-barebox-package
 
-$(1)_VERSION = $$(call qstrip,$$(BR2_TARGET_BAREBOX_VERSION))
+$(1)_VERSION = $$(call qstrip,$$(LINGMO_TARGET_BAREBOX_VERSION))
 
-ifeq ($$(BR2_TARGET_BAREBOX_CUSTOM_TARBALL),y)
+ifeq ($$(LINGMO_TARGET_BAREBOX_CUSTOM_TARBALL),y)
 # Handle custom Barebox tarballs as specified by the configuration
-$(1)_TARBALL = $$(call qstrip,$$(BR2_TARGET_BAREBOX_CUSTOM_TARBALL_LOCATION))
+$(1)_TARBALL = $$(call qstrip,$$(LINGMO_TARGET_BAREBOX_CUSTOM_TARBALL_LOCATION))
 $(1)_SITE = $$(patsubst %/,%,$$(dir $$($(1)_TARBALL)))
 $(1)_SOURCE = $$(notdir $$($(1)_TARBALL))
-else ifeq ($$(BR2_TARGET_BAREBOX_CUSTOM_GIT),y)
-$(1)_SITE = $$(call qstrip,$$(BR2_TARGET_BAREBOX_CUSTOM_GIT_REPO_URL))
+else ifeq ($$(LINGMO_TARGET_BAREBOX_CUSTOM_GIT),y)
+$(1)_SITE = $$(call qstrip,$$(LINGMO_TARGET_BAREBOX_CUSTOM_GIT_REPO_URL))
 $(1)_SITE_METHOD = git
 # Override the default value of _SOURCE to 'barebox-*' so that it is not
 # downloaded a second time for barebox-aux; also alows avoiding the hash
@@ -39,31 +39,31 @@ $(1)_DL_SUBDIR = barebox
 
 $(1)_DEPENDENCIES = host-lzop
 $(1)_LICENSE = GPL-2.0 with exceptions
-ifeq ($(BR2_TARGET_BAREBOX_LATEST_VERSION),y)
+ifeq ($(LINGMO_TARGET_BAREBOX_LATEST_VERSION),y)
 $(1)_LICENSE_FILES = COPYING
 endif
 
-ifeq ($(BR2_TARGET_BAREBOX_NEEDS_OPENSSL),y)
+ifeq ($(LINGMO_TARGET_BAREBOX_NEEDS_OPENSSL),y)
 BAREBOX_DEPENDENCIES += host-openssl host-pkgconf
 endif
 
-ifeq ($(BR2_TARGET_BAREBOX_NEEDS_LIBUSB),y)
+ifeq ($(LINGMO_TARGET_BAREBOX_NEEDS_LIBUSB),y)
 BAREBOX_DEPENDENCIES += host-libusb host-pkgconf
 endif
 
-$(1)_CUSTOM_EMBEDDED_ENV_PATH = $$(call qstrip,$$(BR2_TARGET_$(1)_CUSTOM_EMBEDDED_ENV_PATH))
+$(1)_CUSTOM_EMBEDDED_ENV_PATH = $$(call qstrip,$$(LINGMO_TARGET_$(1)_CUSTOM_EMBEDDED_ENV_PATH))
 
-ifneq ($$(call qstrip,$$(BR2_TARGET_BAREBOX_CUSTOM_PATCH_DIR)),)
+ifneq ($$(call qstrip,$$(LINGMO_TARGET_BAREBOX_CUSTOM_PATCH_DIR)),)
 define $(1)_APPLY_CUSTOM_PATCHES
 	$$(APPLY_PATCHES) $$(@D) \
-		$$(BR2_TARGET_BAREBOX_CUSTOM_PATCH_DIR) \*.patch
+		$$(LINGMO_TARGET_BAREBOX_CUSTOM_PATCH_DIR) \*.patch
 endef
 
 $(1)_POST_PATCH_HOOKS += $(1)_APPLY_CUSTOM_PATCHES
 endif
 
 $(1)_INSTALL_IMAGES = YES
-ifneq ($$(BR2_TARGET_$(1)_BAREBOXENV),y)
+ifneq ($$(LINGMO_TARGET_$(1)_BAREBOXENV),y)
 $(1)_INSTALL_TARGET = NO
 endif
 
@@ -88,33 +88,33 @@ $(1)_MAKE_ENV += \
 	PKG_CONFIG_ALLOW_SYSTEM_LIBS=1 \
 	PKG_CONFIG_LIBDIR="$(HOST_DIR)/lib/pkgconfig:$(HOST_DIR)/share/pkgconfig"
 
-ifeq ($$(BR2_REPRODUCIBLE),y)
+ifeq ($$(LINGMO_REPRODUCIBLE),y)
 $(1)_MAKE_ENV += \
 	KBUILD_BUILD_USER=buildroot \
 	KBUILD_BUILD_HOST=buildroot \
 	KBUILD_BUILD_TIMESTAMP="$$(shell LC_ALL=C TZ='UTC' date -d @$(SOURCE_DATE_EPOCH))"
 endif
 
-ifeq ($$(BR2_TARGET_$(1)_USE_DEFCONFIG),y)
-$(1)_KCONFIG_DEFCONFIG = $$(call qstrip,$$(BR2_TARGET_$(1)_BOARD_DEFCONFIG))_defconfig
-else ifeq ($$(BR2_TARGET_$(1)_USE_CUSTOM_CONFIG),y)
-$(1)_KCONFIG_FILE = $$(call qstrip,$$(BR2_TARGET_$(1)_CUSTOM_CONFIG_FILE))
+ifeq ($$(LINGMO_TARGET_$(1)_USE_DEFCONFIG),y)
+$(1)_KCONFIG_DEFCONFIG = $$(call qstrip,$$(LINGMO_TARGET_$(1)_BOARD_DEFCONFIG))_defconfig
+else ifeq ($$(LINGMO_TARGET_$(1)_USE_CUSTOM_CONFIG),y)
+$(1)_KCONFIG_FILE = $$(call qstrip,$$(LINGMO_TARGET_$(1)_CUSTOM_CONFIG_FILE))
 endif
 
-$(1)_KCONFIG_FRAGMENT_FILES = $$(call qstrip,$$(BR2_TARGET_$(1)_CONFIG_FRAGMENT_FILES))
+$(1)_KCONFIG_FRAGMENT_FILES = $$(call qstrip,$$(LINGMO_TARGET_$(1)_CONFIG_FRAGMENT_FILES))
 $(1)_KCONFIG_EDITORS = menuconfig xconfig gconfig nconfig
 $(1)_KCONFIG_OPTS = $$($(1)_MAKE_FLAGS)
 
 $(1)_KCONFIG_DEPENDENCIES = \
-	$(BR2_BISON_HOST_DEPENDENCY) \
-	$(BR2_FLEX_HOST_DEPENDENCY)
+	$(LINGMO_BISON_HOST_DEPENDENCY) \
+	$(LINGMO_FLEX_HOST_DEPENDENCY)
 
-ifeq ($$(BR2_TARGET_$(1)_CUSTOM_ENV),y)
+ifeq ($$(LINGMO_TARGET_$(1)_CUSTOM_ENV),y)
 $(1)_ENV_NAME = $$(notdir $$(call qstrip,\
-	$$(BR2_TARGET_$(1)_CUSTOM_ENV_PATH)))
+	$$(LINGMO_TARGET_$(1)_CUSTOM_ENV_PATH)))
 define $(1)_BUILD_CUSTOM_ENV
 	$$(@D)/scripts/bareboxenv -s \
-		$$(call qstrip, $$(BR2_TARGET_$(1)_CUSTOM_ENV_PATH)) \
+		$$(call qstrip, $$(LINGMO_TARGET_$(1)_CUSTOM_ENV_PATH)) \
 		$$(@D)/$$($(1)_ENV_NAME)
 endef
 define $(1)_INSTALL_CUSTOM_ENV
@@ -130,7 +130,7 @@ endef
 endif
 
 define $(1)_KCONFIG_FIXUP_BAREBOXENV
-	$$(if $$(BR2_TARGET_$(1)_BAREBOXENV),\
+	$$(if $$(LINGMO_TARGET_$(1)_BAREBOXENV),\
 		$$(call KCONFIG_ENABLE_OPT,CONFIG_BAREBOXENV_TARGET),\
 		$$(call KCONFIG_DISABLE_OPT,CONFIG_BAREBOXENV_TARGET))
 endef
@@ -146,7 +146,7 @@ define $(1)_BUILD_CMDS
 	$$($(1)_BUILD_CUSTOM_ENV)
 endef
 
-$(1)_IMAGE_FILES = $$(call qstrip,$$(BR2_TARGET_$(1)_IMAGE_FILE))
+$(1)_IMAGE_FILES = $$(call qstrip,$$(LINGMO_TARGET_$(1)_IMAGE_FILE))
 
 define $(1)_INSTALL_IMAGES_CMDS
 	if test -n "$$($(1)_IMAGE_FILES)"; then \
@@ -166,7 +166,7 @@ endef
 # toolchain before we can call the configurators.
 $(1)_KCONFIG_DEPENDENCIES += toolchain
 
-ifeq ($$(BR2_TARGET_$(1)_BAREBOXENV),y)
+ifeq ($$(LINGMO_TARGET_$(1)_BAREBOXENV),y)
 define $(1)_INSTALL_TARGET_CMDS
 	cp $$(@D)/scripts/bareboxenv-target $$(TARGET_DIR)/usr/bin/bareboxenv
 endef
@@ -174,12 +174,12 @@ endif
 
 # Checks to give errors that the user can understand
 # Must be before we call to kconfig-package
-ifeq ($$(BR2_TARGET_$(1))$$(BR_BUILDING),yy)
+ifeq ($$(LINGMO_TARGET_$(1))$$(BR_BUILDING),yy)
 # We must use the user-supplied kconfig value, because
 # $(1)_KCONFIG_DEFCONFIG will at least contain the
 # trailing _defconfig
-ifeq ($$(or $$($(1)_KCONFIG_FILE),$$(call qstrip,$$(BR2_TARGET_$(1)_BOARD_DEFCONFIG))),)
-$$(error No Barebox config. Check your BR2_TARGET_$(1)_BOARD_DEFCONFIG or BR2_TARGET_$(1)_CUSTOM_CONFIG_FILE settings)
+ifeq ($$(or $$($(1)_KCONFIG_FILE),$$(call qstrip,$$(LINGMO_TARGET_$(1)_BOARD_DEFCONFIG))),)
+$$(error No Barebox config. Check your LINGMO_TARGET_$(1)_BOARD_DEFCONFIG or LINGMO_TARGET_$(1)_CUSTOM_CONFIG_FILE settings)
 endif
 endif
 
@@ -196,6 +196,6 @@ barebox-package=$(call inner-barebox-package,$(call UPPERCASE,$(pkgname)))
 include boot/barebox/barebox/barebox.mk
 include boot/barebox/barebox-aux/barebox-aux.mk
 
-ifeq ($(BR2_TARGET_BAREBOX)$(BR2_TARGET_BAREBOX_LATEST_VERSION),y)
+ifeq ($(LINGMO_TARGET_BAREBOX)$(LINGMO_TARGET_BAREBOX_LATEST_VERSION),y)
 BR_NO_CHECK_HASH_FOR += $(BAREBOX_SOURCE)
 endif

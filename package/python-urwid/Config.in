@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_URWID
+config LINGMO_PACKAGE_PYTHON_URWID
 	bool "python-urwid"
 	help
 	  Urwid is a console user interface library for Python

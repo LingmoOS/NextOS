@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_MULTIDICT
+config LINGMO_PACKAGE_PYTHON_MULTIDICT
 	bool "python-multidict"
 	help
 	  Multidict is dict-like collection of key-value pairs where a

@@ -79,9 +79,9 @@ endef
 GLOBAL_INSTRUMENTATION_HOOKS += step_check_build_dir
 
 # User-supplied script
-ifneq ($(BR2_INSTRUMENTATION_SCRIPTS),)
+ifneq ($(LINGMO_INSTRUMENTATION_SCRIPTS),)
 define step_user
-	@$(foreach user_hook, $(BR2_INSTRUMENTATION_SCRIPTS), \
+	@$(foreach user_hook, $(LINGMO_INSTRUMENTATION_SCRIPTS), \
 		$(EXTRA_ENV) $(user_hook) "$(1)" "$(2)" "$(3)"$(sep))
 endef
 GLOBAL_INSTRUMENTATION_HOOKS += step_user
@@ -90,7 +90,7 @@ endif
 #######################################
 # Helper functions
 
-ifeq ($(BR2_PER_PACKAGE_DIRECTORIES),y)
+ifeq ($(LINGMO_PER_PACKAGE_DIRECTORIES),y)
 
 define PPD_FIXUP_PATHS
 	$(call ppd-fixup-paths,$(PER_PACKAGE_DIR)/$($(PKG)_NAME))
@@ -146,7 +146,7 @@ define check_bin_arch
 		-l $($(PKG)_DIR)/.files-list.txt \
 		$(foreach i,$($(PKG)_BIN_ARCH_EXCLUDE),-i "$(i)") \
 		-r $(TARGET_READELF) \
-		-a $(BR2_READELF_ARCH_NAME)
+		-a $(LINGMO_READELF_ARCH_NAME)
 endef
 
 # Functions to remove conflicting and useless files
@@ -230,9 +230,9 @@ $(BUILD_DIR)/%/.stamp_rsynced:
 # find the package directory (typically package/<pkgname>) and the
 # prefix of the patches
 #
-# For BR2_GLOBAL_PATCH_DIR, only generate if it is defined
+# For LINGMO_GLOBAL_PATCH_DIR, only generate if it is defined
 $(BUILD_DIR)/%/.stamp_patched: PATCH_BASE_DIRS =  $(PKGDIR)
-$(BUILD_DIR)/%/.stamp_patched: PATCH_BASE_DIRS += $(addsuffix /$(RAWNAME),$(call qstrip,$(BR2_GLOBAL_PATCH_DIR)))
+$(BUILD_DIR)/%/.stamp_patched: PATCH_BASE_DIRS += $(addsuffix /$(RAWNAME),$(call qstrip,$(LINGMO_GLOBAL_PATCH_DIR)))
 $(BUILD_DIR)/%/.stamp_patched:
 	@$(call step_start,patch)
 	@$(call MESSAGE,"Patching")
@@ -253,10 +253,10 @@ $(BUILD_DIR)/%/.stamp_patched:
 	@$(call step_end,patch)
 	$(Q)touch $@
 
-# Check that all directories specified in BR2_GLOBAL_PATCH_DIR exist.
-$(foreach dir,$(call qstrip,$(BR2_GLOBAL_PATCH_DIR)),\
+# Check that all directories specified in LINGMO_GLOBAL_PATCH_DIR exist.
+$(foreach dir,$(call qstrip,$(LINGMO_GLOBAL_PATCH_DIR)),\
 	$(if $(wildcard $(dir)),,\
-		$(error BR2_GLOBAL_PATCH_DIR contains nonexistent directory $(dir))))
+		$(error LINGMO_GLOBAL_PATCH_DIR contains nonexistent directory $(dir))))
 
 # Configure
 $(BUILD_DIR)/%/.stamp_configured:
@@ -311,7 +311,7 @@ $(BUILD_DIR)/%/.stamp_host_installed:
 # @STAGING_DIR@ and @TOOLCHAIN_EXTERNAL_INSTALL_DIR@ respectively.
 #
 # Note that STAGING_DIR can be outside BASE_DIR when the user sets
-# BR2_HOST_DIR to a custom value. Note that TOOLCHAIN_EXTERNAL_INSTALL_DIR
+# LINGMO_HOST_DIR to a custom value. Note that TOOLCHAIN_EXTERNAL_INSTALL_DIR
 # can be under @BASE_DIR@ when it's a downloaded toolchain, and can be
 # empty when we use an internal toolchain.
 #
@@ -372,11 +372,11 @@ $(BUILD_DIR)/%/.stamp_target_installed:
 	@$(call MESSAGE,"Installing to target")
 	$(foreach hook,$($(PKG)_PRE_INSTALL_TARGET_HOOKS),$(call $(hook))$(sep))
 	+$($(PKG)_INSTALL_TARGET_CMDS)
-	$(if $(BR2_INIT_SYSTEMD),\
+	$(if $(LINGMO_INIT_SYSTEMD),\
 		$($(PKG)_INSTALL_INIT_SYSTEMD))
-	$(if $(BR2_INIT_SYSV)$(BR2_INIT_BUSYBOX),\
+	$(if $(LINGMO_INIT_SYSV)$(LINGMO_INIT_BUSYBOX),\
 		$($(PKG)_INSTALL_INIT_SYSV))
-	$(if $(BR2_INIT_OPENRC), \
+	$(if $(LINGMO_INIT_OPENRC), \
 		$(or $($(PKG)_INSTALL_INIT_OPENRC), \
 			$($(PKG)_INSTALL_INIT_SYSV)))
 	$(foreach hook,$($(PKG)_POST_INSTALL_TARGET_HOOKS),$(call $(hook))$(sep))
@@ -398,7 +398,7 @@ $(BUILD_DIR)/%/.stamp_installed:
 
 # Remove package sources
 $(BUILD_DIR)/%/.stamp_dircleaned:
-	$(if $(BR2_PER_PACKAGE_DIRECTORIES),rm -Rf $(PER_PACKAGE_DIR)/$(NAME))
+	$(if $(LINGMO_PER_PACKAGE_DIRECTORIES),rm -Rf $(PER_PACKAGE_DIR)/$(NAME))
 	rm -Rf $(@D)
 
 ################################################################################
@@ -413,8 +413,8 @@ $(BUILD_DIR)/%/.stamp_dircleaned:
 #   $(call virt-provides-single,libegl,LIBEGL,rpi-userland)
 ################################################################################
 define virt-provides-single
-ifneq ($$(call qstrip,$$(BR2_PACKAGE_PROVIDES_$(2))),$(3))
-$$(error Configuration error: both "$(3)" and $$(BR2_PACKAGE_PROVIDES_$(2))\
+ifneq ($$(call qstrip,$$(LINGMO_PACKAGE_PROVIDES_$(2))),$(3))
+$$(error Configuration error: both "$(3)" and $$(LINGMO_PACKAGE_PROVIDES_$(2))\
 are selected as providers for virtual package "$(1)". Only one provider can\
 be selected at a time. Please fix your configuration)
 endif
@@ -423,9 +423,9 @@ endef
 define pkg-graph-depends
 	@$$(INSTALL) -d $$(GRAPHS_DIR)
 	@cd "$$(CONFIG_DIR)"; \
-	$$(TOPDIR)/support/scripts/graph-depends $$(BR2_GRAPH_DEPS_OPTS) \
+	$$(TOPDIR)/support/scripts/graph-depends $$(LINGMO_GRAPH_DEPS_OPTS) \
 		-p $(1) $(2) -o $$(GRAPHS_DIR)/$$(@).dot
-	dot $$(BR2_GRAPH_DOT_OPTS) -T$$(BR_GRAPH_OUT) \
+	dot $$(LINGMO_GRAPH_DOT_OPTS) -T$$(BR_GRAPH_OUT) \
 		-o $$(GRAPHS_DIR)/$$(@).$$(BR_GRAPH_OUT) \
 		$$(GRAPHS_DIR)/$$(@).dot
 endef
@@ -511,7 +511,7 @@ $(2)_VERSION := $$(call sanitize,$$($(2)_DL_VERSION))
 
 $(2)_HASH_FILES = \
 	$$(strip \
-		$$(foreach d, $$($(2)_PKGDIR) $$(addsuffix /$$($(2)_RAWNAME), $$(call qstrip,$$(BR2_GLOBAL_PATCH_DIR))),\
+		$$(foreach d, $$($(2)_PKGDIR) $$(addsuffix /$$($(2)_RAWNAME), $$(call qstrip,$$(LINGMO_GLOBAL_PATCH_DIR))),\
 			$$(if $$(wildcard $$(d)/$$($(2)_VERSION)/$$($(2)_RAWNAME).hash),\
 				$$(d)/$$($(2)_VERSION)/$$($(2)_RAWNAME).hash,\
 				$$(d)/$$($(2)_RAWNAME).hash\
@@ -778,12 +778,12 @@ endif
 
 ifneq ($$(filter cvs git svn,$$($(2)_SITE_METHOD)),)
 $(2)_DOWNLOAD_DEPENDENCIES += \
-	$(BR2_GZIP_HOST_DEPENDENCY) \
-	$(BR2_TAR_HOST_DEPENDENCY)
+	$(LINGMO_GZIP_HOST_DEPENDENCY) \
+	$(LINGMO_TAR_HOST_DEPENDENCY)
 endif
 
 ifeq ($$(filter host-tar host-skeleton host-fakedate,$(1)),)
-$(2)_EXTRACT_DEPENDENCIES += $$(BR2_TAR_HOST_DEPENDENCY)
+$(2)_EXTRACT_DEPENDENCIES += $$(LINGMO_TAR_HOST_DEPENDENCY)
 endif
 
 ifeq ($$(filter host-tar host-skeleton host-xz host-lzip host-fakedate,$(1)),)
@@ -792,13 +792,13 @@ $(2)_EXTRACT_DEPENDENCIES += \
 		$$(call extractor-pkg-dependency,$$(notdir $$(dl))))
 endif
 
-ifeq ($$(BR2_CCACHE),y)
+ifeq ($$(LINGMO_CCACHE),y)
 ifeq ($$(filter host-tar host-skeleton host-xz host-lzip host-fakedate host-ccache host-cmake host-hiredis host-pkgconf host-zstd,$(1)),)
 $(2)_DEPENDENCIES += host-ccache
 endif
 endif
 
-ifeq ($$(BR2_REPRODUCIBLE),y)
+ifeq ($$(LINGMO_REPRODUCIBLE),y)
 ifeq ($$(filter host-skeleton host-fakedate,$(1)),)
 $(2)_DEPENDENCIES += host-fakedate
 endif
@@ -1096,15 +1096,15 @@ $$($(2)_TARGET_DIRCLEAN):		NAME=$(1)
 # Compute the name of the Kconfig option that correspond to the
 # package being enabled.
 ifeq ($(1),linux)
-$(2)_KCONFIG_VAR = BR2_LINUX_KERNEL
-else ifneq ($$(filter boot/% $$(foreach dir,$$(BR2_EXTERNAL_DIRS),$$(dir)/boot/%),$(pkgdir)),)
-$(2)_KCONFIG_VAR = BR2_TARGET_$(2)
-else ifneq ($$(filter toolchain/% $$(foreach dir,$$(BR2_EXTERNAL_DIRS),$$(dir)/toolchain/%),$(pkgdir)),)
-$(2)_KCONFIG_VAR = BR2_$(2)
+$(2)_KCONFIG_VAR = LINGMO_LINUX_KERNEL
+else ifneq ($$(filter boot/% $$(foreach dir,$$(LINGMO_EXTERNAL_DIRS),$$(dir)/boot/%),$(pkgdir)),)
+$(2)_KCONFIG_VAR = LINGMO_TARGET_$(2)
+else ifneq ($$(filter toolchain/% $$(foreach dir,$$(LINGMO_EXTERNAL_DIRS),$$(dir)/toolchain/%),$(pkgdir)),)
+$(2)_KCONFIG_VAR = LINGMO_$(2)
 else ifeq ($$($(2)_IS_VIRTUAL),YES)
-$(2)_KCONFIG_VAR = BR2_PACKAGE_HAS_$(2)
+$(2)_KCONFIG_VAR = LINGMO_PACKAGE_HAS_$(2)
 else
-$(2)_KCONFIG_VAR = BR2_PACKAGE_$(2)
+$(2)_KCONFIG_VAR = LINGMO_PACKAGE_$(2)
 endif
 
 # legal-info: declare dependencies and set values used later for the manifest
@@ -1233,7 +1233,7 @@ ifneq ($$($(2)_SELINUX_MODULES),)
 PACKAGES_SELINUX_MODULES += $$($(2)_SELINUX_MODULES)
 endif
 
-ifeq ($(BR2_PACKAGE_REFPOLICY_UPSTREAM_VERSION),y)
+ifeq ($(LINGMO_PACKAGE_REFPOLICY_UPSTREAM_VERSION),y)
 PACKAGES_SELINUX_EXTRA_MODULES_DIRS += \
 	$$(if $$(wildcard $$($(2)_PKGDIR)/selinux),$$($(2)_PKGDIR)/selinux)
 endif

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_ENCODE_LOCALE
+config LINGMO_PACKAGE_PERL_ENCODE_LOCALE
 	bool "perl-encode-locale"
 	help
 	  Determine the locale encoding.

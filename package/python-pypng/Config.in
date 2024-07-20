@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_PYPNG
+config LINGMO_PACKAGE_PYTHON_PYPNG
 	bool "python-pypng"
-	select BR2_PACKAGE_PYTHON3_ZLIB # runtime
+	select LINGMO_PACKAGE_PYTHON3_ZLIB # runtime
 	help
 	  Pure Python library for saving and loading PNG images.
 

@@ -21,20 +21,20 @@ DMALLOC_CFLAGS = $(TARGET_CFLAGS)
 # production library, so we do not care that much that it has SSP.
 DMALLOC_CFLAGS += -fno-stack-protector
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 DMALLOC_CONF_OPTS += --disable-shlib
 else
 DMALLOC_CONF_OPTS += --enable-shlib
 DMALLOC_CFLAGS += -fPIC
 endif
 
-ifeq ($(BR2_INSTALL_LIBSTDCPP),y)
+ifeq ($(LINGMO_INSTALL_LIBSTDCPP),y)
 DMALLOC_CONF_OPTS += --enable-cxx
 else
 DMALLOC_CONF_OPTS += --disable-cxx
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS),y)
 DMALLOC_CONF_OPTS += --enable-threads
 else
 DMALLOC_CONF_OPTS += --disable-threads
@@ -43,11 +43,11 @@ endif
 # dmalloc has some assembly function that are not present in thumb1 mode:
 # Error: lo register required -- `str lr,[sp,#4]'
 # so, we desactivate thumb mode
-ifeq ($(BR2_ARM_INSTRUCTIONS_THUMB),y)
+ifeq ($(LINGMO_ARM_INSTRUCTIONS_THUMB),y)
 DMALLOC_CFLAGS += -marm
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_63261),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_63261),y)
 DMALLOC_CFLAGS += -O0
 endif
 
@@ -67,7 +67,7 @@ define DMALLOC_INSTALL_STAGING_CMDS
 		-C $(@D) install
 endef
 
-ifeq ($(BR2_STATIC_LIBS),)
+ifeq ($(LINGMO_STATIC_LIBS),)
 define DMALLOC_INSTALL_SHARED_LIB
 	cp -dpf $(STAGING_DIR)/usr/lib/libdmalloc*.so $(TARGET_DIR)/usr/lib
 endef

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBUNIBREAK
+config LINGMO_PACKAGE_LIBUNIBREAK
 	bool "libunibreak"
 	help
 	  libunibreak is an implementation of the line breaking and word

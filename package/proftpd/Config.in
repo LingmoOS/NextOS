@@ -1,63 +1,63 @@
-config BR2_PACKAGE_PROFTPD
+config LINGMO_PACKAGE_PROFTPD
 	bool "proftpd"
-	depends on BR2_USE_MMU # fork()
-	depends on !BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU # fork()
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  ProFTPD, a highly configurable FTP server.
 
 	  http://www.proftpd.org/
 
-if BR2_PACKAGE_PROFTPD
+if LINGMO_PACKAGE_PROFTPD
 
-config BR2_PACKAGE_PROFTPD_MOD_CAP
+config LINGMO_PACKAGE_PROFTPD_MOD_CAP
 	bool "mod_cap support"
-	select BR2_PACKAGE_LIBCAP
+	select LINGMO_PACKAGE_LIBCAP
 	help
 	  Compile ProFTPD with mod_cap support
 
-config BR2_PACKAGE_PROFTPD_MOD_REWRITE
+config LINGMO_PACKAGE_PROFTPD_MOD_REWRITE
 	bool "mod_rewrite support"
 	help
 	  Compile ProFTPD with mod_rewrite support
 
-config BR2_PACKAGE_PROFTPD_MOD_REDIS
+config LINGMO_PACKAGE_PROFTPD_MOD_REDIS
 	bool "mod_redis support"
-	select BR2_PACKAGE_HIREDIS
+	select LINGMO_PACKAGE_HIREDIS
 	help
 	  The mod_redis module enables ProFTPD support for caching
 	  data in Redis servers, using the hiredis client library.
 
-config BR2_PACKAGE_PROFTPD_MOD_SFTP
+config LINGMO_PACKAGE_PROFTPD_MOD_SFTP
 	bool "mod_sftp support"
-	select BR2_PACKAGE_OPENSSL
-	select BR2_PACKAGE_OPENSSL_FORCE_LIBOPENSSL
-	select BR2_PACKAGE_LIBOPENSSL_ENABLE_RMD160
+	select LINGMO_PACKAGE_OPENSSL
+	select LINGMO_PACKAGE_OPENSSL_FORCE_LIBOPENSSL
+	select LINGMO_PACKAGE_LIBOPENSSL_ENABLE_RMD160
 	help
 	  Compile ProFTPD with mod_sftp support
 
-config BR2_PACKAGE_PROFTPD_MOD_SQL
+config LINGMO_PACKAGE_PROFTPD_MOD_SQL
 	bool "mod_sql support"
 	help
 	  Compile ProFTPD with mod_sql support.
 
-if BR2_PACKAGE_PROFTPD_MOD_SQL
+if LINGMO_PACKAGE_PROFTPD_MOD_SQL
 
-config BR2_PACKAGE_PROFTPD_MOD_SQL_SQLITE
+config LINGMO_PACKAGE_PROFTPD_MOD_SQL_SQLITE
 	bool "mod_sql_sqlite support"
-	select BR2_PACKAGE_SQLITE
+	select LINGMO_PACKAGE_SQLITE
 	help
 	  Compile ProFTPD with mod_sql_sqlite support.
 
 endif
 
-config BR2_PACKAGE_PROFTPD_MOD_SFTP_SQL
+config LINGMO_PACKAGE_PROFTPD_MOD_SFTP_SQL
 	bool "mod_sftp_sql support"
-	select BR2_PACKAGE_PROFTPD_MOD_SQL
-	select BR2_PACKAGE_PROFTPD_MOD_SFTP
+	select LINGMO_PACKAGE_PROFTPD_MOD_SQL
+	select LINGMO_PACKAGE_PROFTPD_MOD_SFTP
 	help
 	  Compile ProFTPD with mod_sftp_sql support
 
-config BR2_PACKAGE_PROFTPD_MOD_QUOTATAB
+config LINGMO_PACKAGE_PROFTPD_MOD_QUOTATAB
 	bool "mod_quotatab support"
 	help
 	  Compile ProFTPD with mod_quotatab support. This module
@@ -67,32 +67,32 @@ config BR2_PACKAGE_PROFTPD_MOD_QUOTATAB
 	        3. mod_quotatab_radius
 	        4. mod_quotatab_sql
 
-if BR2_PACKAGE_PROFTPD_MOD_QUOTATAB
+if LINGMO_PACKAGE_PROFTPD_MOD_QUOTATAB
 
-config BR2_PACKAGE_PROFTPD_MOD_QUOTATAB_FILE
+config LINGMO_PACKAGE_PROFTPD_MOD_QUOTATAB_FILE
 	bool "mod_quotatab_file table support"
 	help
 	  Compile mod_quotatab with mod_quotatab_file table.
 
-config BR2_PACKAGE_PROFTPD_MOD_QUOTATAB_LDAP
+config LINGMO_PACKAGE_PROFTPD_MOD_QUOTATAB_LDAP
 	bool "mod_quotatab_ldap table support"
 	help
 	  Compile mod_quotatab with mod_quotatab_ldap table.
 
-config BR2_PACKAGE_PROFTPD_MOD_QUOTATAB_RADIUS
+config LINGMO_PACKAGE_PROFTPD_MOD_QUOTATAB_RADIUS
 	bool "mod_quotatab_radius table support"
 	help
 	  Compile mod_quotatab with mod_quotatab_radius table.
 
-config BR2_PACKAGE_PROFTPD_MOD_QUOTATAB_SQL
+config LINGMO_PACKAGE_PROFTPD_MOD_QUOTATAB_SQL
 	bool "mod_quotatab_sql table support"
-	select BR2_PACKAGE_PROFTPD_MOD_SQL
+	select LINGMO_PACKAGE_PROFTPD_MOD_SQL
 	help
 	  Compile mod_quotatab with mod_quotatab_sql table.
 
 endif
 
-config BR2_PACKAGE_PROFTPD_BUFFER_SIZE
+config LINGMO_PACKAGE_PROFTPD_BUFFER_SIZE
 	int "buffer size in bytes (0 for default)"
 	default "0"
 	help
@@ -107,5 +107,5 @@ config BR2_PACKAGE_PROFTPD_BUFFER_SIZE
 endif
 
 comment "proftpd needs a toolchain w/ dynamic library"
-	depends on BR2_USE_MMU
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_STATIC_LIBS

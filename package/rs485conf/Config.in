@@ -1,4 +1,4 @@
-config BR2_PACKAGE_RS485CONF
+config LINGMO_PACKAGE_RS485CONF
 	bool "rs485conf"
 	help
 	  rs485conf is intended to be used on embedded boards with RS485

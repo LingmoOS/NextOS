@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-ifeq ($(BR2_ROOTFS_DEVICE_CREATION_STATIC),y)
+ifeq ($(LINGMO_ROOTFS_DEVICE_CREATION_STATIC),y)
 
 define ROOTFS_CPIO_ADD_INIT
 	if [ ! -e $(TARGET_DIR)/init ]; then \
@@ -25,18 +25,18 @@ define ROOTFS_CPIO_ADD_INIT
 	mknod -m 0622 $(TARGET_DIR)/dev/console c 5 1
 endef
 
-endif # BR2_ROOTFS_DEVICE_CREATION_STATIC
+endif # LINGMO_ROOTFS_DEVICE_CREATION_STATIC
 
 ROOTFS_CPIO_PRE_GEN_HOOKS += ROOTFS_CPIO_ADD_INIT
 
 # --reproducible option was introduced in cpio v2.12, which may not be
 # available in some old distributions, so we build host-cpio
-ifeq ($(BR2_REPRODUCIBLE),y)
+ifeq ($(LINGMO_REPRODUCIBLE),y)
 ROOTFS_CPIO_DEPENDENCIES += host-cpio
 ROOTFS_CPIO_OPTS += --reproducible
 endif
 
-ifeq ($(BR2_TARGET_ROOTFS_CPIO_FULL),y)
+ifeq ($(LINGMO_TARGET_ROOTFS_CPIO_FULL),y)
 
 define ROOTFS_CPIO_CMD
 	cd $(TARGET_DIR) && \
@@ -46,28 +46,28 @@ define ROOTFS_CPIO_CMD
 	> $@
 endef
 
-else ifeq ($(BR2_TARGET_ROOTFS_CPIO_DRACUT),y)
+else ifeq ($(LINGMO_TARGET_ROOTFS_CPIO_DRACUT),y)
 
 ROOTFS_CPIO_DEPENDENCIES += host-dracut
 
-ROOTFS_CPIO_DRACUT_MODULES = $(call qstrip,$(BR2_TARGET_ROOTFS_CPIO_DRACUT_MODULES))
+ROOTFS_CPIO_DRACUT_MODULES = $(call qstrip,$(LINGMO_TARGET_ROOTFS_CPIO_DRACUT_MODULES))
 ifeq ($(BR_BUILDING),y)
 ifneq ($(words $(ROOTFS_CPIO_DRACUT_MODULES)),$(words $(sort $(notdir $(ROOTFS_CPIO_DRACUT_MODULES)))))
-$(error No two dracut modules can have the same basename, check your BR2_TARGET_ROOTFS_CPIO_DRACUT_MODULES setting)
+$(error No two dracut modules can have the same basename, check your LINGMO_TARGET_ROOTFS_CPIO_DRACUT_MODULES setting)
 endif
 endif
 
-ROOTFS_CPIO_DRACUT_CONF_FILES = $(call qstrip,$(BR2_TARGET_ROOTFS_CPIO_DRACUT_CONF_FILES))
+ROOTFS_CPIO_DRACUT_CONF_FILES = $(call qstrip,$(LINGMO_TARGET_ROOTFS_CPIO_DRACUT_CONF_FILES))
 ifeq ($(BR_BUILDING),y)
 ifeq ($(ROOTFS_CPIO_DRACUT_CONF_FILES),)
-$(error No dracut config file name specified, check your BR2_TARGET_ROOTFS_CPIO_DRACUT_CONF_FILES setting)
+$(error No dracut config file name specified, check your LINGMO_TARGET_ROOTFS_CPIO_DRACUT_CONF_FILES setting)
 endif
 ifneq ($(words $(ROOTFS_CPIO_DRACUT_CONF_FILES)),$(words $(sort $(notdir $(ROOTFS_CPIO_DRACUT_CONF_FILES)))))
-$(error No two dracut config files can have the same basename, check your BR2_TARGET_ROOTFS_CPIO_DRACUT_CONF_FILES setting)
+$(error No two dracut config files can have the same basename, check your LINGMO_TARGET_ROOTFS_CPIO_DRACUT_CONF_FILES setting)
 endif
 endif
 
-ifeq ($(BR2_LINUX_KERNEL),y)
+ifeq ($(LINGMO_LINUX_KERNEL),y)
 ROOTFS_CPIO_DEPENDENCIES += linux
 ROOTFS_CPIO_OPTS += --kver $(LINUX_VERSION_PROBED)
 else
@@ -95,9 +95,9 @@ define ROOTFS_CPIO_CMD
 		$@
 endef
 
-endif #BR2_TARGET_ROOTFS_CPIO_DRACUT
+endif #LINGMO_TARGET_ROOTFS_CPIO_DRACUT
 
-ifeq ($(BR2_TARGET_ROOTFS_CPIO_UIMAGE),y)
+ifeq ($(LINGMO_TARGET_ROOTFS_CPIO_UIMAGE),y)
 ROOTFS_CPIO_DEPENDENCIES += host-uboot-tools
 define ROOTFS_CPIO_UBOOT_MKIMAGE
 	$(MKIMAGE) -A $(MKIMAGE_ARCH) -T ramdisk \

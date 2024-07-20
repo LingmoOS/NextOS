@@ -34,7 +34,7 @@ IRRLICHT_CONF_OPTS = $(TARGET_CONFIGURE_OPTS)
 
 # Build a static library OR a shared library, otherwise we need to compile with -fPIC
 # "relocation R_X86_64_32S can not be used when making a shared object; recompile with -fPIC"
-ifeq ($(BR2_STATIC_LIBS),)
+ifeq ($(LINGMO_STATIC_LIBS),)
 IRRLICHT_CONF_OPTS += sharedlib
 endif
 

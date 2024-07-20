@@ -13,10 +13,10 @@ POWERPC_UTILS_LICENSE_FILES = COPYING
 POWERPC_UTILS_CPE_ID_VALID = YES
 
 POWERPC_UTILS_CONF_ENV = \
-	ax_cv_check_cflags___fstack_protector_all=$(if $(BR2_TOOLCHAIN_HAS_SSP),yes,no)
+	ax_cv_check_cflags___fstack_protector_all=$(if $(LINGMO_TOOLCHAIN_HAS_SSP),yes,no)
 POWERPC_UTILS_CONF_OPTS = --disable-werror
 
-ifeq ($(BR2_PACKAGE_POWERPC_UTILS_RTAS),y)
+ifeq ($(LINGMO_PACKAGE_POWERPC_UTILS_RTAS),y)
 POWERPC_UTILS_DEPENDENCIES += librtas
 POWERPC_UTILS_CONF_OPTS += --with-librtas
 else

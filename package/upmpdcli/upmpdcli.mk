@@ -11,7 +11,7 @@ UPMPDCLI_LICENSE_FILES = COPYING
 UPMPDCLI_DEPENDENCIES = host-pkgconf libmpdclient libupnpp libmicrohttpd jsoncpp
 
 # Disable spotify plugin which requires dlfcn.h
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 UPMPDCLI_CONF_OPTS += --disable-spotify
 endif
 

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBCGI
+config LINGMO_PACKAGE_LIBCGI
 	bool "libcgi"
 	help
 	  LibCGI is a library written from scratch to easily make

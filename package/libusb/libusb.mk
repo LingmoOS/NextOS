@@ -18,13 +18,13 @@ LIBUSB_INSTALL_STAGING = YES
 HOST_LIBUSB_CONF_OPTS = --disable-udev
 HOST_LIBUSB_DEPENDENCIES = host-pkgconf
 
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 LIBUSB_DEPENDENCIES += udev
 else
 LIBUSB_CONF_OPTS += --disable-udev
 endif
 
-ifeq ($(BR2_PACKAGE_LIBUSB_EXAMPLES),y)
+ifeq ($(LINGMO_PACKAGE_LIBUSB_EXAMPLES),y)
 LIBUSB_CONF_OPTS += --enable-examples-build
 define LIBUSB_INSTALL_TARGET_EXAMPLES
 	$(foreach example,listdevs xusb fxload hotplugtest testlibusb dpfp dpfp_threaded sam3u_benchmark,

@@ -1,16 +1,16 @@
-config BR2_PACKAGE_GST1_VAAPI
+config LINGMO_PACKAGE_GST1_VAAPI
 	bool "gst1-vaapi"
-	depends on !BR2_STATIC_LIBS # dlopen(), libva
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libva, libdrm
-	depends on BR2_INSTALL_LIBSTDCPP # gst1-plugins-bad
-	depends on BR2_PACKAGE_HAS_UDEV
-	select BR2_PACKAGE_LIBVA
-	select BR2_PACKAGE_LIBDRM
-	select BR2_PACKAGE_GST1_PLUGINS_BASE
-	select BR2_PACKAGE_GST1_PLUGINS_BAD # gstreamer-codecparsers
-	select BR2_PACKAGE_WAYLAND_PROTOCOLS if BR2_PACKAGE_WAYLAND
-	select BR2_PACKAGE_XLIB_LIBX11 if BR2_PACKAGE_XORG7
-	select BR2_PACKAGE_XLIB_LIBXRANDR if BR2_PACKAGE_XORG7
+	depends on !LINGMO_STATIC_LIBS # dlopen(), libva
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libva, libdrm
+	depends on LINGMO_INSTALL_LIBSTDCPP # gst1-plugins-bad
+	depends on LINGMO_PACKAGE_HAS_UDEV
+	select LINGMO_PACKAGE_LIBVA
+	select LINGMO_PACKAGE_LIBDRM
+	select LINGMO_PACKAGE_GST1_PLUGINS_BASE
+	select LINGMO_PACKAGE_GST1_PLUGINS_BAD # gstreamer-codecparsers
+	select LINGMO_PACKAGE_WAYLAND_PROTOCOLS if LINGMO_PACKAGE_WAYLAND
+	select LINGMO_PACKAGE_XLIB_LIBX11 if LINGMO_PACKAGE_XORG7
+	select LINGMO_PACKAGE_XLIB_LIBXRANDR if LINGMO_PACKAGE_XORG7
 	help
 	  gstreamer-vaapi consists in a collection of VA-API based
 	  plugins for GStreamer and helper libraries.
@@ -42,13 +42,13 @@ config BR2_PACKAGE_GST1_VAAPI
 
 	  https://cgit.freedesktop.org/gstreamer/gstreamer-vaapi
 
-if BR2_PACKAGE_GST1_VAAPI
+if LINGMO_PACKAGE_GST1_VAAPI
 
-config BR2_PACKAGE_GST1_VAAPI_ENCODERS
+config LINGMO_PACKAGE_GST1_VAAPI_ENCODERS
 	bool "enable encoders"
 
 endif
 
 comment "gst1-vaapi needs udev /dev management and a toolchain w/ threads, dynamic library, C++"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS || \
-		!BR2_PACKAGE_HAS_UDEV || !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS || \
+		!LINGMO_PACKAGE_HAS_UDEV || !LINGMO_INSTALL_LIBSTDCPP

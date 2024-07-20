@@ -5,12 +5,12 @@
 ################################################################################
 
 LIBICONV_VERSION = 1.15
-LIBICONV_SITE = $(BR2_GNU_MIRROR)/libiconv
+LIBICONV_SITE = $(LINGMO_GNU_MIRROR)/libiconv
 LIBICONV_INSTALL_STAGING = YES
 LIBICONV_LICENSE = GPL-3.0+ (iconv program), LGPL-2.0+ (library)
 LIBICONV_LICENSE_FILES = COPYING COPYING.LIB
 
-ifeq ($(BR2_PACKAGE_LIBICONV_EXTRA_ENCODINGS),y)
+ifeq ($(LINGMO_PACKAGE_LIBICONV_EXTRA_ENCODINGS),y)
 LIBICONV_CONF_OPTS += --enable-extra-encodings
 endif
 
@@ -27,6 +27,6 @@ $(eval $(autotools-package))
 # Configurations where the toolchain supports locales and the libiconv
 # package is enabled are incorrect, because the toolchain already
 # provides libiconv functionality, and having both confuses packages.
-ifeq ($(BR2_PACKAGE_LIBICONV)$(BR2_ENABLE_LOCALE),yy)
+ifeq ($(LINGMO_PACKAGE_LIBICONV)$(LINGMO_ENABLE_LOCALE),yy)
 $(error Libiconv should never be enabled when the toolchain supports locales. Report this failure to Buildroot developers)
 endif

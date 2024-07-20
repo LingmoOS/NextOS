@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_CRC16
+config LINGMO_PACKAGE_PYTHON_CRC16
 	bool "python-crc16"
 	help
 	  This library calculates only CRC16 (16-bit codes) and the

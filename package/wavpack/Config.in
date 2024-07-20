@@ -1,6 +1,6 @@
-config BR2_PACKAGE_WAVPACK
+config LINGMO_PACKAGE_WAVPACK
 	bool "wavpack"
-	select BR2_PACKAGE_LIBICONV if !BR2_ENABLE_LOCALE
+	select LINGMO_PACKAGE_LIBICONV if !LINGMO_ENABLE_LOCALE
 	help
 	  WavPack is a completely open audio compression format
 	  providing lossless, high-quality lossy, and a unique

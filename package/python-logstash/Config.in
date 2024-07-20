@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_LOGSTASH
+config LINGMO_PACKAGE_PYTHON_LOGSTASH
 	bool "python-logstash"
 	help
 	  Python logging handler for Logstash.

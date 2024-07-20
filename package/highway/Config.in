@@ -1,19 +1,19 @@
-config BR2_PACKAGE_HIGHWAY
+config LINGMO_PACKAGE_HIGHWAY
 	bool "highway"
-	depends on BR2_TOOLCHAIN_HAS_ATOMIC
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_TOOLCHAIN_HAS_ATOMIC
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	# For gcc bug 58969, see:
 	# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=58969
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_7 # C++11, GCC_BUG_58969
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_7 # C++11, GCC_BUG_58969
 	help
 	  Highway is a C++ library that provides portable SIMD/vector
 	  intrinsics.
 
 	  https://github.com/google/highway
 
-if BR2_PACKAGE_HIGHWAY
+if LINGMO_PACKAGE_HIGHWAY
 
-config BR2_PACKAGE_HIGHWAY_CONTRIB
+config LINGMO_PACKAGE_HIGHWAY_CONTRIB
 	bool "Enable Contrib"
 	help
 	  Build Highway contrib library which contains extra
@@ -22,7 +22,7 @@ config BR2_PACKAGE_HIGHWAY_CONTRIB
 	  trigonometry), and functions for computing dot products and
 	  sorting.
 
-config BR2_PACKAGE_HIGHWAY_EXAMPLES
+config LINGMO_PACKAGE_HIGHWAY_EXAMPLES
 	bool "Enable Examples"
 	help
 	  Build Highway examples
@@ -30,5 +30,5 @@ config BR2_PACKAGE_HIGHWAY_EXAMPLES
 endif
 
 comment "highway needs a toolchain w/ C++, gcc >= 7"
-	depends on BR2_TOOLCHAIN_HAS_ATOMIC
-	depends on !BR2_INSTALL_LIBSTDCPP || !BR2_TOOLCHAIN_GCC_AT_LEAST_7
+	depends on LINGMO_TOOLCHAIN_HAS_ATOMIC
+	depends on !LINGMO_INSTALL_LIBSTDCPP || !LINGMO_TOOLCHAIN_GCC_AT_LEAST_7

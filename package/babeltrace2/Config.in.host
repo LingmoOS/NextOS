@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_BABELTRACE2
+config LINGMO_PACKAGE_HOST_BABELTRACE2
 	bool "host babeltrace2"
 	help
 	  Babeltrace 2 is an open-source trace manipulation toolkit.

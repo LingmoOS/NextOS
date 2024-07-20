@@ -18,15 +18,15 @@ LIBCOAP_AUTORECONF = YES
 # 0001-coap_oscore-c-Fix-parsing-OSCORE-configuration-information.patch
 LIBCOAP_IGNORE_CVES += CVE-2024-0962
 
-ifeq ($(BR2_PACKAGE_GNUTLS),y)
+ifeq ($(LINGMO_PACKAGE_GNUTLS),y)
 LIBCOAP_DEPENDENCIES += gnutls
 LIBCOAP_CONF_OPTS += \
 	--enable-dtls --with-gnutls --without-mbedtls --without-openssl
-else ifeq ($(BR2_PACKAGE_LIBOPENSSL),y)
+else ifeq ($(LINGMO_PACKAGE_LIBOPENSSL),y)
 LIBCOAP_DEPENDENCIES += openssl
 LIBCOAP_CONF_OPTS += \
 	--enable-dtls --without-gnutls --without-mbedtls --with-openssl
-else ifeq ($(BR2_PACKAGE_MBEDTLS),y)
+else ifeq ($(LINGMO_PACKAGE_MBEDTLS),y)
 LIBCOAP_DEPENDENCIES += mbedtls
 LIBCOAP_CONF_OPTS += \
 	--enable-dtls --without-gnutls --with-mbedtls --without-openssl

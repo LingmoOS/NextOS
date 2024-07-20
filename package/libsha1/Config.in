@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBSHA1
+config LINGMO_PACKAGE_LIBSHA1
 	bool "libsha1"
 	help
 	  libsha1 is a tiny library providing SHA1 implementation,

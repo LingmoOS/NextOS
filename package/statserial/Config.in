@@ -1,6 +1,6 @@
-config BR2_PACKAGE_STATSERIAL
+config LINGMO_PACKAGE_STATSERIAL
 	bool "statserial"
-	select BR2_PACKAGE_NCURSES
+	select LINGMO_PACKAGE_NCURSES
 	help
 	  Displays a table of the signals on a standard
 	  9-pin or 25-pin serial port, and indicates the

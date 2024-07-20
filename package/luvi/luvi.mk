@@ -12,24 +12,24 @@ LUVI_LICENSE_FILES = LICENSE.txt
 LUVI_DEPENDENCIES = libuv luajit luv host-luajit host-pkgconf
 
 # Dispatch all architectures of LuaJIT
-ifeq ($(BR2_i386),y)
+ifeq ($(LINGMO_i386),y)
 LUVI_TARGET_ARCH = x86
-else ifeq ($(BR2_x86_64),y)
+else ifeq ($(LINGMO_x86_64),y)
 LUVI_TARGET_ARCH = x64
-else ifeq ($(BR2_powerpc),y)
+else ifeq ($(LINGMO_powerpc),y)
 LUVI_TARGET_ARCH = ppc
-else ifeq ($(BR2_arm)$(BR2_armeb),y)
+else ifeq ($(LINGMO_arm)$(LINGMO_armeb),y)
 LUVI_TARGET_ARCH = arm
-else ifeq ($(BR2_aarch64),y)
+else ifeq ($(LINGMO_aarch64),y)
 LUVI_TARGET_ARCH = arm64
-else ifeq ($(BR2_aarch64_be),y)
+else ifeq ($(LINGMO_aarch64_be),y)
 LUVI_TARGET_ARCH = arm64be
-else ifeq ($(BR2_mips),y)
+else ifeq ($(LINGMO_mips),y)
 LUVI_TARGET_ARCH = mips
-else ifeq ($(BR2_mipsel),y)
+else ifeq ($(LINGMO_mipsel),y)
 LUVI_TARGET_ARCH = mipsel
 else
-LUVI_TARGET_ARCH = $(BR2_ARCH)
+LUVI_TARGET_ARCH = $(LINGMO_ARCH)
 endif
 
 # LUAJIT_VERSION and the luajit installation path may not use the
@@ -45,7 +45,7 @@ LUVI_CONF_OPTS = \
 	-DLUA_PATH=$(HOST_DIR)/share/luajit-$(LUVI_LUAJIT_MAJVER).$(LUVI_LUAJIT_MINVER)/?.lua
 
 # Add "rex" module (PCRE via bundled lrexlib)
-ifeq ($(BR2_PACKAGE_PCRE),y)
+ifeq ($(LINGMO_PACKAGE_PCRE),y)
 LUVI_DEPENDENCIES += pcre
 LUVI_CONF_OPTS += -DWithPCRE=ON -DWithSharedPCRE=ON
 else
@@ -53,7 +53,7 @@ LUVI_CONF_OPTS += -DWithPCRE=OFF -DWithSharedPCRE=OFF
 endif
 
 # Add "ssl" module (via bundled lua-openssl)
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 LUVI_DEPENDENCIES += openssl
 LUVI_CONF_OPTS += -DWithOpenSSL=ON -DWithOpenSSLASM=ON -DWithSharedOpenSSL=ON
 else
@@ -61,7 +61,7 @@ LUVI_CONF_OPTS += -DWithOpenSSL=OFF -DWithOpenSSLASM=OFF -DWithSharedOpenSSL=OFF
 endif
 
 # Add "zlib" module (via bundled lua-zlib)
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 LUVI_DEPENDENCIES += zlib
 LUVI_CONF_OPTS += -DWithZLIB=ON -DWithSharedZLIB=ON
 else

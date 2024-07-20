@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_JEDI
+config LINGMO_PACKAGE_PYTHON_JEDI
 	bool "python-jedi"
-	select BR2_PACKAGE_PYTHON_PARSO # runtime
+	select LINGMO_PACKAGE_PYTHON_PARSO # runtime
 	help
 	  An autocompletion tool for Python that can be used for text
 	  editors.

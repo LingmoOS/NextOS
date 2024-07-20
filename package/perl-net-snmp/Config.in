@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_NET_SNMP
+config LINGMO_PACKAGE_PERL_NET_SNMP
 	bool "perl-net-snmp"
 	help
 	  Object oriented interface to SNMP.

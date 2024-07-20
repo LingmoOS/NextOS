@@ -1,6 +1,6 @@
-config BR2_PACKAGE_HOST_DELVE
+config LINGMO_PACKAGE_HOST_DELVE
 	bool "host delve"
-	depends on BR2_PACKAGE_HOST_GO_HOST_ARCH_SUPPORTS
+	depends on LINGMO_PACKAGE_HOST_GO_HOST_ARCH_SUPPORTS
 	help
 	  Delve is a debugger for the Go programming language.
 

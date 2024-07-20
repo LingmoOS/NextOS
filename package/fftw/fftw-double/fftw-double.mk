@@ -17,6 +17,6 @@ FFTW_DOUBLE_CONF_ENV = $(FFTW_COMMON_CONF_ENV)
 FFTW_DOUBLE_CONF_OPTS = \
 	$(FFTW_COMMON_CONF_OPTS) \
 	CFLAGS="$(FFTW_COMMON_CFLAGS)" \
-	$(if $(BR2_X86_CPU_HAS_SSE2),--enable,--disable)-sse2
+	$(if $(LINGMO_X86_CPU_HAS_SSE2),--enable,--disable)-sse2
 
 $(eval $(autotools-package))

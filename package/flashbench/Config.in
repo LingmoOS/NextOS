@@ -1,4 +1,4 @@
-config BR2_PACKAGE_FLASHBENCH
+config LINGMO_PACKAGE_FLASHBENCH
 	bool "flashbench"
 	help
 	  Flashbench - Identify characteristics of flash media.

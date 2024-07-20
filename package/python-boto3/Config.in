@@ -1,8 +1,8 @@
-config BR2_PACKAGE_PYTHON_BOTO3
+config LINGMO_PACKAGE_PYTHON_BOTO3
 	bool "python-boto3"
-	select BR2_PACKAGE_PYTHON_BOTOCORE # runtime
-	select BR2_PACKAGE_PYTHON_JMESPATH # runtime
-	select BR2_PACKAGE_PYTHON_S3TRANSFER # runtime
+	select LINGMO_PACKAGE_PYTHON_BOTOCORE # runtime
+	select LINGMO_PACKAGE_PYTHON_JMESPATH # runtime
+	select LINGMO_PACKAGE_PYTHON_S3TRANSFER # runtime
 	help
 	  The AWS SDK for Python.
 

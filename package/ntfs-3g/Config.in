@@ -1,9 +1,9 @@
-config BR2_PACKAGE_NTFS_3G
+config LINGMO_PACKAGE_NTFS_3G
 	bool "ntfs-3g"
-	depends on BR2_USE_WCHAR
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_USE_MMU
-	depends on !BR2_STATIC_LIBS
+	depends on LINGMO_USE_WCHAR
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  The NTFS-3G driver is an open source, freely available
 	  read/write NTFS driver for Linux, FreeBSD, Mac OS X, NetBSD,
@@ -14,17 +14,17 @@ config BR2_PACKAGE_NTFS_3G
 
 	  http://www.ntfs-3g.org/
 
-if BR2_PACKAGE_NTFS_3G
+if LINGMO_PACKAGE_NTFS_3G
 
-config BR2_PACKAGE_NTFS_3G_ENCRYPTED
+config LINGMO_PACKAGE_NTFS_3G_ENCRYPTED
 	bool "encrypted volumes"
-	depends on BR2_PACKAGE_LIBGPG_ERROR_ARCH_SUPPORTS # libgcrypt
-	select BR2_PACKAGE_GNUTLS
-	select BR2_PACKAGE_LIBGCRYPT
+	depends on LINGMO_PACKAGE_LIBGPG_ERROR_ARCH_SUPPORTS # libgcrypt
+	select LINGMO_PACKAGE_GNUTLS
+	select LINGMO_PACKAGE_LIBGCRYPT
 	help
 	  Enable support for NTFS encrypted volumes.
 
-config BR2_PACKAGE_NTFS_3G_NTFSPROGS
+config LINGMO_PACKAGE_NTFS_3G_NTFSPROGS
 	bool "ntfsprogs"
 	help
 	  Install NTFS utilities.
@@ -32,5 +32,5 @@ config BR2_PACKAGE_NTFS_3G_NTFSPROGS
 endif
 
 comment "ntfs-3g needs a toolchain w/ wchar, threads, dynamic library"
-	depends on BR2_USE_MMU
-	depends on !BR2_USE_WCHAR || !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_USE_WCHAR || !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS

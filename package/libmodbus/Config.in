@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBMODBUS
+config LINGMO_PACKAGE_LIBMODBUS
 	bool "libmodbus"
 	help
 	  libmodbus is a free software library to send/receive data

@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_URWID_READLINE
+config LINGMO_PACKAGE_PYTHON_URWID_READLINE
 	bool "python-urwid-readline"
-	select BR2_PACKAGE_PYTHON_URWID # runtime
+	select LINGMO_PACKAGE_PYTHON_URWID # runtime
 	help
 	  A textbox edit widget for urwid that supports readline
 	  shortcuts.

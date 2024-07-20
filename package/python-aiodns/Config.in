@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_AIODNS
+config LINGMO_PACKAGE_PYTHON_AIODNS
 	bool "python-aiodns"
-	select BR2_PACKAGE_PYTHON_PYCARES # runtime
+	select LINGMO_PACKAGE_PYTHON_PYCARES # runtime
 	help
 	  Simple DNS resolver for asyncio.
 

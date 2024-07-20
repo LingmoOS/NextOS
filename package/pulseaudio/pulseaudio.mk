@@ -25,70 +25,70 @@ PULSEAUDIO_DEPENDENCIES = \
 
 PULSEAUDIO_LDFLAGS = $(TARGET_LDFLAGS) $(TARGET_NLS_LIBS)
 
-ifeq ($(BR2_PACKAGE_AVAHI_LIBAVAHI_CLIENT),y)
+ifeq ($(LINGMO_PACKAGE_AVAHI_LIBAVAHI_CLIENT),y)
 PULSEAUDIO_CONF_OPTS += -Davahi=enabled
 PULSEAUDIO_DEPENDENCIES += avahi
 else
 PULSEAUDIO_CONF_OPTS += -Davahi=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_DBUS),y)
+ifeq ($(LINGMO_PACKAGE_DBUS),y)
 PULSEAUDIO_CONF_OPTS += -Ddbus=enabled
 PULSEAUDIO_DEPENDENCIES += dbus
 else
 PULSEAUDIO_CONF_OPTS += -Ddbus=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_FFTW_SINGLE),y)
+ifeq ($(LINGMO_PACKAGE_FFTW_SINGLE),y)
 PULSEAUDIO_CONF_OPTS += -Dfftw=enabled
 PULSEAUDIO_DEPENDENCIES += fftw-single
 else
 PULSEAUDIO_CONF_OPTS += -Dfftw=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSAMPLERATE),y)
+ifeq ($(LINGMO_PACKAGE_LIBSAMPLERATE),y)
 PULSEAUDIO_CONF_OPTS += -Dsamplerate=enabled
 PULSEAUDIO_DEPENDENCIES += libsamplerate
 else
 PULSEAUDIO_CONF_OPTS += -Dsamplerate=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_GDBM),y)
+ifeq ($(LINGMO_PACKAGE_GDBM),y)
 PULSEAUDIO_CONF_OPTS += -Ddatabase=gdbm
 PULSEAUDIO_DEPENDENCIES += gdbm
 else
 PULSEAUDIO_CONF_OPTS += -Ddatabase=simple
 endif
 
-ifeq ($(BR2_PACKAGE_JACK2),y)
+ifeq ($(LINGMO_PACKAGE_JACK2),y)
 PULSEAUDIO_CONF_OPTS += -Djack=enabled
 PULSEAUDIO_DEPENDENCIES += jack2
 else
 PULSEAUDIO_CONF_OPTS += -Djack=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBATOMIC_OPS),y)
+ifeq ($(LINGMO_PACKAGE_LIBATOMIC_OPS),y)
 PULSEAUDIO_DEPENDENCIES += libatomic_ops
-ifeq ($(BR2_sparc_v8)$(BR2_sparc_leon3),y)
+ifeq ($(LINGMO_sparc_v8)$(LINGMO_sparc_leon3),y)
 PULSEAUDIO_CFLAGS = $(TARGET_CFLAGS) -DAO_NO_SPARC_V9
 endif
 endif
 
-ifeq ($(BR2_PACKAGE_LIRC_TOOLS),y)
+ifeq ($(LINGMO_PACKAGE_LIRC_TOOLS),y)
 PULSEAUDIO_DEPENDENCIES += lirc-tools
 PULSEAUDIO_CONF_OPTS += -Dlirc=enabled
 else
 PULSEAUDIO_CONF_OPTS += -Dlirc=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 PULSEAUDIO_CONF_OPTS += -Dopenssl=enabled
 PULSEAUDIO_DEPENDENCIES += openssl
 else
 PULSEAUDIO_CONF_OPTS += -Dopenssl=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_ORC),y)
+ifeq ($(LINGMO_PACKAGE_ORC),y)
 PULSEAUDIO_DEPENDENCIES += orc
 PULSEAUDIO_CONF_ENV += ORCC=$(HOST_DIR)/bin/orcc
 PULSEAUDIO_CONF_OPTS += -Dorc=enabled
@@ -96,40 +96,40 @@ else
 PULSEAUDIO_CONF_OPTS += -Dorc=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBCAP),y)
 PULSEAUDIO_DEPENDENCIES += libcap
 endif
 
 # gtk3 support needs X11 backend
-ifeq ($(BR2_PACKAGE_LIBGTK3_X11),y)
+ifeq ($(LINGMO_PACKAGE_LIBGTK3_X11),y)
 PULSEAUDIO_DEPENDENCIES += libgtk3
 PULSEAUDIO_CONF_OPTS += -Dgtk=enabled
 else
 PULSEAUDIO_CONF_OPTS += -Dgtk=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSOXR),y)
+ifeq ($(LINGMO_PACKAGE_LIBSOXR),y)
 PULSEAUDIO_CONF_OPTS += -Dsoxr=enabled
 PULSEAUDIO_DEPENDENCIES += libsoxr
 else
 PULSEAUDIO_CONF_OPTS += -Dsoxr=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_BLUEZ5_UTILS)$(BR2_PACKAGE_SBC),yy)
+ifeq ($(LINGMO_PACKAGE_BLUEZ5_UTILS)$(LINGMO_PACKAGE_SBC),yy)
 PULSEAUDIO_CONF_OPTS += -Dbluez5=enabled
 PULSEAUDIO_DEPENDENCIES += bluez5_utils sbc
 else
 PULSEAUDIO_CONF_OPTS += -Dbluez5=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 PULSEAUDIO_CONF_OPTS += -Dudev=enabled
 PULSEAUDIO_DEPENDENCIES += udev
 else
 PULSEAUDIO_CONF_OPTS += -Dudev=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_WEBRTC_AUDIO_PROCESSING),y)
+ifeq ($(LINGMO_PACKAGE_WEBRTC_AUDIO_PROCESSING),y)
 PULSEAUDIO_CONF_OPTS += -Dwebrtc-aec=enabled
 PULSEAUDIO_DEPENDENCIES += webrtc-audio-processing
 else
@@ -138,19 +138,19 @@ endif
 
 # our Config.in makes sure that all needed alsa-lib features are
 # enabled
-ifeq ($(BR2_PACKAGE_ALSA_LIB),y)
+ifeq ($(LINGMO_PACKAGE_ALSA_LIB),y)
 PULSEAUDIO_DEPENDENCIES += alsa-lib
 PULSEAUDIO_CONF_OPTS += -Dalsa=enabled
 else
 PULSEAUDIO_CONF_OPTS += -Dalsa=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBXCB)$(BR2_PACKAGE_XLIB_LIBSM)$(BR2_PACKAGE_XLIB_LIBXTST),yyy)
+ifeq ($(LINGMO_PACKAGE_LIBXCB)$(LINGMO_PACKAGE_XLIB_LIBSM)$(LINGMO_PACKAGE_XLIB_LIBXTST),yyy)
 PULSEAUDIO_DEPENDENCIES += libxcb xlib_libSM xlib_libXtst
 
 # .desktop file generation needs nls support, so fake it for !locale builds
 # https://bugs.freedesktop.org/show_bug.cgi?id=54658
-ifeq ($(BR2_SYSTEM_ENABLE_NLS),)
+ifeq ($(LINGMO_SYSTEM_ENABLE_NLS),)
 define PULSEAUDIO_FIXUP_DESKTOP_FILES
 	cp $(@D)/src/daemon/pulseaudio.desktop.in \
 		$(@D)/src/daemon/pulseaudio.desktop
@@ -164,21 +164,21 @@ endif
 
 # This is not a mistake: the option is called speex, but what it
 # really needs is speexdsp
-ifeq ($(BR2_PACKAGE_SPEEXDSP),y)
+ifeq ($(LINGMO_PACKAGE_SPEEXDSP),y)
 PULSEAUDIO_CONF_OPTS += -Dspeex=enabled
 PULSEAUDIO_DEPENDENCIES += speexdsp
 else
 PULSEAUDIO_CONF_OPTS += -Dspeex=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 PULSEAUDIO_CONF_OPTS += -Dsystemd=enabled
 PULSEAUDIO_DEPENDENCIES += systemd
 else
 PULSEAUDIO_CONF_OPTS += -Dsystemd=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_VALGRIND),y)
+ifeq ($(LINGMO_PACKAGE_VALGRIND),y)
 PULSEAUDIO_CONF_OPTS += -Dvalgrind=enabled
 PULSEAUDIO_DEPENDENCIES += valgrind
 else
@@ -197,7 +197,7 @@ endef
 PULSEAUDIO_POST_INSTALL_TARGET_HOOKS += PULSEAUDIO_REMOVE_VALA \
 	PULSEAUDIO_REMOVE_CONSOLE_KIT
 
-ifeq ($(BR2_PACKAGE_PULSEAUDIO_DAEMON),y)
+ifeq ($(LINGMO_PACKAGE_PULSEAUDIO_DAEMON),y)
 define PULSEAUDIO_USERS
 	pulse -1 pulse -1 * /var/run/pulse - audio,pulse-access
 endef

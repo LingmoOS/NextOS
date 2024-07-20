@@ -14,7 +14,7 @@ LIBMAXMINDDB_CPE_ID_VENDOR = maxmind
 LIBMAXMINDDB_CONF_OPTS = --disable-tests
 
 # mmdblookup binary depends on pthreads
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS),y)
 LIBMAXMINDDB_CONF_OPTS += --enable-binaries
 else
 LIBMAXMINDDB_CONF_OPTS += --disable-binaries

@@ -1,11 +1,11 @@
-config BR2_PACKAGE_FWUP
+config LINGMO_PACKAGE_FWUP
 	bool "fwup"
-	depends on BR2_USE_MMU
-	depends on BR2_USE_WCHAR
-	select BR2_PACKAGE_LIBARCHIVE
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_USE_WCHAR
+	select LINGMO_PACKAGE_LIBARCHIVE
 	# required by libarchive to include zip compression
-	select BR2_PACKAGE_ZLIB
-	select BR2_PACKAGE_LIBCONFUSE
+	select LINGMO_PACKAGE_ZLIB
+	select LINGMO_PACKAGE_LIBCONFUSE
 	help
 	  Fwup is a scriptable embedded Linux firmware update creator
 	  and runner.
@@ -13,5 +13,5 @@ config BR2_PACKAGE_FWUP
 	  https://github.com/fhunleth/fwup
 
 comment "fwup needs a toolchain w/ wchar"
-	depends on BR2_USE_MMU
-	depends on !BR2_USE_WCHAR
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_USE_WCHAR

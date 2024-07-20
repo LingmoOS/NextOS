@@ -1,10 +1,10 @@
 comment "zeromq needs a toolchain w/ C++, threads"
-	depends on !(BR2_INSTALL_LIBSTDCPP && BR2_TOOLCHAIN_HAS_THREADS)
+	depends on !(LINGMO_INSTALL_LIBSTDCPP && LINGMO_TOOLCHAIN_HAS_THREADS)
 
-config BR2_PACKAGE_ZEROMQ
+config LINGMO_PACKAGE_ZEROMQ
 	bool "zeromq"
-	depends on BR2_INSTALL_LIBSTDCPP
-	depends on BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_INSTALL_LIBSTDCPP
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
 	help
 	  ØMQ (ZeroMQ, 0MQ, zmq) looks like an embeddable networking
 	  library but acts like a concurrency framework. It gives you
@@ -21,43 +21,43 @@ config BR2_PACKAGE_ZEROMQ
 
 	  http://www.zeromq.org/
 
-if BR2_PACKAGE_ZEROMQ
+if LINGMO_PACKAGE_ZEROMQ
 
 comment "norm support needs a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_STATIC_LIBS
 
-config BR2_PACKAGE_ZEROMQ_NORM
+config LINGMO_PACKAGE_ZEROMQ_NORM
 	bool "NORM support"
-	depends on !BR2_STATIC_LIBS
-	select BR2_PACKAGE_NORM
+	depends on !LINGMO_STATIC_LIBS
+	select LINGMO_PACKAGE_NORM
 	help
 	  Add support for NACK-Oriented Reliable Multicast (RFC 5740)
 	  protocol.
 
 comment "PGM/EPGM support needs a toolchain w/ wchar"
-	depends on BR2_TOOLCHAIN_HAS_SYNC_2
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4
-	depends on !BR2_USE_WCHAR
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_2
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4
+	depends on !LINGMO_USE_WCHAR
 
-config BR2_PACKAGE_ZEROMQ_PGM
+config LINGMO_PACKAGE_ZEROMQ_PGM
 	bool "PGM/EPGM support"
-	depends on BR2_TOOLCHAIN_HAS_SYNC_2
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4
-	depends on BR2_USE_WCHAR # openpgm
-	select BR2_PACKAGE_OPENPGM
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_2
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4
+	depends on LINGMO_USE_WCHAR # openpgm
+	select LINGMO_PACKAGE_OPENPGM
 	help
 	  Add support for Pragmatic General Multicast protocol (RFC
 	  3208) implemented either over raw IP packets or UDP
 	  datagrams (encapsulated PGM).
 
-config BR2_PACKAGE_ZEROMQ_DRAFTS
+config LINGMO_PACKAGE_ZEROMQ_DRAFTS
 	bool "Draft APIs support"
 	help
 	  Enable unstable draft ZeroMQ APIs
 
 	  https://pyzmq.readthedocs.io/en/latest/draft.html
 
-config BR2_PACKAGE_ZEROMQ_WEBSOCKET
+config LINGMO_PACKAGE_ZEROMQ_WEBSOCKET
 	bool "WebSocket support"
 	help
 	  Enable WebSocket transport

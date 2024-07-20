@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-ifeq ($(BR2_aarch64),y)
+ifeq ($(LINGMO_aarch64),y)
 IMX_GPU_VIV_VERSION = 6.4.11.p1.2-aarch64-1e0c396
 else
 IMX_GPU_VIV_VERSION = 6.4.11.p1.2-aarch32-1e0c396
@@ -20,14 +20,14 @@ IMX_GPU_VIV_REDISTRIBUTE = NO
 
 IMX_GPU_VIV_PROVIDES = libegl libgles libopencl libopenvg
 
-ifeq ($(BR2_aarch64),y)
+ifeq ($(LINGMO_aarch64),y)
 IMX_GPU_VIV_PROVIDES += libgbm
 endif
 
-IMX_GPU_VIV_LIB_TARGET = $(call qstrip,$(BR2_PACKAGE_IMX_GPU_VIV_OUTPUT))
+IMX_GPU_VIV_LIB_TARGET = $(call qstrip,$(LINGMO_PACKAGE_IMX_GPU_VIV_OUTPUT))
 
 # Libraries are linked against libdrm, except framebuffer output on ARM
-ifneq ($(IMX_GPU_VIV_LIB_TARGET)$(BR2_arm),fby)
+ifneq ($(IMX_GPU_VIV_LIB_TARGET)$(LINGMO_arm),fby)
 IMX_GPU_VIV_DEPENDENCIES += libdrm
 endif
 
@@ -49,7 +49,7 @@ define IMX_GPU_VIV_FIXUP_PKGCONFIG
 endef
 endif
 
-IMX_GPU_VIV_PLATFORM_DIR = $(call qstrip,$(BR2_PACKAGE_IMX_GPU_VIV_PLATFORM))
+IMX_GPU_VIV_PLATFORM_DIR = $(call qstrip,$(LINGMO_PACKAGE_IMX_GPU_VIV_PLATFORM))
 ifneq ($(IMX_GPU_VIV_PLATFORM_DIR),)
 define IMX_GPU_VIV_COPY_PLATFORM
 	cp -dpfr $(@D)/gpu-core/usr/lib/$(IMX_GPU_VIV_PLATFORM_DIR)/* $(@D)/gpu-core/usr/lib/
@@ -75,14 +75,14 @@ define IMX_GPU_VIV_INSTALL_STAGING_CMDS
 	cp -r $(@D)/gpu-core/usr/* $(STAGING_DIR)/usr
 endef
 
-ifeq ($(BR2_PACKAGE_IMX_GPU_VIV_EXAMPLES),y)
+ifeq ($(LINGMO_PACKAGE_IMX_GPU_VIV_EXAMPLES),y)
 define IMX_GPU_VIV_INSTALL_EXAMPLES
 	mkdir -p $(TARGET_DIR)/usr/share/examples/
 	cp -r $(@D)/gpu-demos/opt/* $(TARGET_DIR)/usr/share/examples/
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_IMX_GPU_VIV_GMEM_INFO),y)
+ifeq ($(LINGMO_PACKAGE_IMX_GPU_VIV_GMEM_INFO),y)
 define IMX_GPU_VIV_INSTALL_GMEM_INFO
 	cp -dpfr $(@D)/gpu-tools/gmem-info/usr/bin/* $(TARGET_DIR)/usr/bin/
 endef

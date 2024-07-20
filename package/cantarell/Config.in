@@ -1,4 +1,4 @@
-config BR2_PACKAGE_CANTARELL
+config LINGMO_PACKAGE_CANTARELL
 	bool "cantarell"
 	help
 	  The Cantarell font family is a contemporary Humanist

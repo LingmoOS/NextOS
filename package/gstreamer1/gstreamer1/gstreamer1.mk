@@ -17,17 +17,17 @@ GSTREAMER1_CONF_OPTS = \
 	-Dexamples=disabled \
 	-Dtests=disabled \
 	-Dbenchmarks=disabled \
-	-Dtools=$(if $(BR2_PACKAGE_GSTREAMER1_INSTALL_TOOLS),enabled,disabled) \
+	-Dtools=$(if $(LINGMO_PACKAGE_GSTREAMER1_INSTALL_TOOLS),enabled,disabled) \
 	-Dgobject-cast-checks=disabled \
 	-Dglib-asserts=disabled \
 	-Dglib-checks=disabled \
 	-Dextra-checks=disabled \
-	-Dcheck=$(if $(BR2_PACKAGE_GSTREAMER1_CHECK),enabled,disabled) \
-	-Dtracer_hooks=$(if $(BR2_PACKAGE_GSTREAMER1_TRACE),true,false) \
-	-Doption-parsing=$(if $(BR2_PACKAGE_GSTREAMER1_PARSE),true,false) \
-	-Dgst_debug=$(if $(BR2_PACKAGE_GSTREAMER1_GST_DEBUG),true,false) \
+	-Dcheck=$(if $(LINGMO_PACKAGE_GSTREAMER1_CHECK),enabled,disabled) \
+	-Dtracer_hooks=$(if $(LINGMO_PACKAGE_GSTREAMER1_TRACE),true,false) \
+	-Doption-parsing=$(if $(LINGMO_PACKAGE_GSTREAMER1_PARSE),true,false) \
+	-Dgst_debug=$(if $(LINGMO_PACKAGE_GSTREAMER1_GST_DEBUG),true,false) \
 	-Dgst_parse=true \
-	-Dregistry=$(if $(BR2_PACKAGE_GSTREAMER1_PLUGIN_REGISTRY),true,false) \
+	-Dregistry=$(if $(LINGMO_PACKAGE_GSTREAMER1_PLUGIN_REGISTRY),true,false) \
 	-Ddoc=disabled
 
 GSTREAMER1_DEPENDENCIES = \
@@ -35,11 +35,11 @@ GSTREAMER1_DEPENDENCIES = \
 	host-flex \
 	host-pkgconf \
 	libglib2 \
-	$(if $(BR2_PACKAGE_LIBUNWIND),libunwind) \
-	$(if $(BR2_PACKAGE_VALGRIND),valgrind) \
+	$(if $(LINGMO_PACKAGE_LIBUNWIND),libunwind) \
+	$(if $(LINGMO_PACKAGE_VALGRIND),valgrind) \
 	$(TARGET_NLS_DEPENDENCIES)
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 GSTREAMER1_CONF_OPTS += -Dintrospection=enabled
 GSTREAMER1_DEPENDENCIES += gobject-introspection
 else

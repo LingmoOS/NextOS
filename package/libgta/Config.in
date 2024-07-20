@@ -1,8 +1,8 @@
-config BR2_PACKAGE_LIBGTA
+config LINGMO_PACKAGE_LIBGTA
 	bool "libgta"
-	select BR2_PACKAGE_BZIP2
-	select BR2_PACKAGE_ZLIB
-	select BR2_PACKAGE_XZ
+	select LINGMO_PACKAGE_BZIP2
+	select LINGMO_PACKAGE_ZLIB
+	select LINGMO_PACKAGE_XZ
 	help
 	  Libgta is a portable library that implements the Generic
 	  Tagged Array (GTA) file format.

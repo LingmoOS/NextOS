@@ -1,9 +1,9 @@
-config BR2_PACKAGE_UNBOUND
+config LINGMO_PACKAGE_UNBOUND
 	bool "unbound"
-	depends on !BR2_STATIC_LIBS
-	select BR2_PACKAGE_EXPAT
-	select BR2_PACKAGE_LIBEVENT
-	select BR2_PACKAGE_OPENSSL
+	depends on !LINGMO_STATIC_LIBS
+	select LINGMO_PACKAGE_EXPAT
+	select LINGMO_PACKAGE_LIBEVENT
+	select LINGMO_PACKAGE_OPENSSL
 	help
 	  Unbound is a validating, recursive, and caching DNS resolver.
 	  It supports DNSSEC, QNAME minimisation, DNS-over-TLS and
@@ -11,10 +11,10 @@ config BR2_PACKAGE_UNBOUND
 
 	  https://www.unbound.net
 
-if BR2_PACKAGE_UNBOUND
-config BR2_PACKAGE_UNBOUND_DNSCRYPT
+if LINGMO_PACKAGE_UNBOUND
+config LINGMO_PACKAGE_UNBOUND_DNSCRYPT
 	bool "enable DNSCrypt"
-	select BR2_PACKAGE_LIBSODIUM
+	select LINGMO_PACKAGE_LIBSODIUM
 	help
 	  DNSCrypt wraps unmodified DNS queries between a client and
 	  a DNS resolver. Default port used is 443 and like with
@@ -35,4 +35,4 @@ config BR2_PACKAGE_UNBOUND_DNSCRYPT
 endif
 
 comment "unbound needs a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_STATIC_LIBS

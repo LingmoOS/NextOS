@@ -22,7 +22,7 @@ LIBVPX_CONF_OPTS = \
 	--disable-unit-tests
 
 # vp8/ratectrl_rtc.cc vp9/ratectrl_rtc.cc
-ifeq ($(BR2_INSTALL_LIBSTDCPP),y)
+ifeq ($(LINGMO_INSTALL_LIBSTDCPP),y)
 LIBVPX_CONF_OPTS += --enable-vp8-encoder --enable-vp9-encoder
 else
 LIBVPX_CONF_OPTS += --disable-vp8-encoder --disable-vp9-encoder

@@ -2,5 +2,5 @@
 # to provide 'ln --relative' and 'realpath'.
 
 ifeq (,$(call suitable-host-package,coreutils))
-BR2_COREUTILS_HOST_DEPENDENCY = host-coreutils
+LINGMO_COREUTILS_HOST_DEPENDENCY = host-coreutils
 endif

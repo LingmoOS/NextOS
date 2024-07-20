@@ -1,13 +1,13 @@
-config BR2_PACKAGE_GVFS
+config LINGMO_PACKAGE_GVFS
 	bool "gvfs"
-	depends on BR2_USE_WCHAR # glib2
-	depends on BR2_USE_MMU # dbus, glib2
-	depends on BR2_TOOLCHAIN_HAS_THREADS # dbus, glib2
-	depends on !BR2_STATIC_LIBS
-	select BR2_PACKAGE_GSETTINGS_DESKTOP_SCHEMAS
-	select BR2_PACKAGE_LIBGLIB2
-	select BR2_PACKAGE_DBUS
-	select BR2_PACKAGE_SHARED_MIME_INFO
+	depends on LINGMO_USE_WCHAR # glib2
+	depends on LINGMO_USE_MMU # dbus, glib2
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # dbus, glib2
+	depends on !LINGMO_STATIC_LIBS
+	select LINGMO_PACKAGE_GSETTINGS_DESKTOP_SCHEMAS
+	select LINGMO_PACKAGE_LIBGLIB2
+	select LINGMO_PACKAGE_DBUS
+	select LINGMO_PACKAGE_SHARED_MIME_INFO
 	help
 	  gvfs is a userspace virtual filesystem where mount runs as a
 	  separate processes which you talk to via D-Bus. It also
@@ -18,6 +18,6 @@ config BR2_PACKAGE_GVFS
 	  https://wiki.gnome.org/action/show/Projects/gvfs
 
 comment "gvfs needs a toolchain w/ wchar, threads, dynamic library"
-	depends on BR2_USE_MMU
-	depends on !BR2_USE_WCHAR || !BR2_TOOLCHAIN_HAS_THREADS || \
-		BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_USE_WCHAR || !LINGMO_TOOLCHAIN_HAS_THREADS || \
+		LINGMO_STATIC_LIBS

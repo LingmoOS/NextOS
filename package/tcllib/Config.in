@@ -1,4 +1,4 @@
-config BR2_PACKAGE_TCLLIB
+config LINGMO_PACKAGE_TCLLIB
 	bool "tcllib"
 	help
 	  Tcllib is a collection of utility modules for Tcl. These

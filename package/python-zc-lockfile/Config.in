@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_ZC_LOCKFILE
+config LINGMO_PACKAGE_PYTHON_ZC_LOCKFILE
 	bool "python-zc-lockfile"
 	help
 	  Basic inter-process locks.

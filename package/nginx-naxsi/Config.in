@@ -1,8 +1,8 @@
-config BR2_PACKAGE_NGINX_NAXSI
+config LINGMO_PACKAGE_NGINX_NAXSI
 	bool "nginx-naxsi"
-	depends on BR2_PACKAGE_NGINX_HTTP
+	depends on LINGMO_PACKAGE_NGINX_HTTP
 	# uses pcre2, so nginx needs to be built with pcre2 support
-	select BR2_PACKAGE_PCRE2
+	select LINGMO_PACKAGE_PCRE2
 	help
 	  NAXSI means Nginx Anti XSS & SQL Injection.
 

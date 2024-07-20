@@ -6,8 +6,8 @@ import infra.basetest
 class TestLuaBase(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def login(self):
@@ -37,7 +37,7 @@ class TestLuaBase(infra.basetest.BRTest):
 class TestLua(TestLuaBase):
     config = TestLuaBase.config + \
         """
-        BR2_PACKAGE_LUA=y
+        LINGMO_PACKAGE_LUA=y
         """
 
     def test_run(self):
@@ -49,7 +49,7 @@ class TestLua(TestLuaBase):
 class TestLuajit(TestLuaBase):
     config = TestLuaBase.config + \
         """
-        BR2_PACKAGE_LUAJIT=y
+        LINGMO_PACKAGE_LUAJIT=y
         """
 
     def test_run(self):

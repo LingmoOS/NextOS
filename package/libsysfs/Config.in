@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBSYSFS
+config LINGMO_PACKAGE_LIBSYSFS
 	bool "libsysfs"
 	help
 	  These are a set of utilities built upon sysfs, a filesystem in

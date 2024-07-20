@@ -1,8 +1,8 @@
-config BR2_PACKAGE_LIBPAGEKITE
+config LINGMO_PACKAGE_LIBPAGEKITE
 	bool "libpagekite"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	select BR2_PACKAGE_LIBEV
-	select BR2_PACKAGE_OPENSSL
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	select LINGMO_PACKAGE_LIBEV
+	select LINGMO_PACKAGE_OPENSSL
 	help
 	  PageKite is a protocol for dynamic, tunneled reverse proxying
 	  of arbitrary TCP byte streams. It is particularly well suited
@@ -21,4 +21,4 @@ config BR2_PACKAGE_LIBPAGEKITE
 	  https://github.com/pagekite/libpagekite
 
 comment "libpagekite needs a toolchain with threads"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS

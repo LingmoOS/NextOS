@@ -13,7 +13,7 @@ IPERF3_CPE_ID_VENDOR = es
 
 IPERF3_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) -D_GNU_SOURCE"
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 # We intentionally don't pass --with-openssl, otherwise pkg-config is
 # not used, and indirect libraries are not picked up when static
 # linking.

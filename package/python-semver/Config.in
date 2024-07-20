@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_SEMVER
+config LINGMO_PACKAGE_PYTHON_SEMVER
 	bool "python-semver"
 	help
 	  Python helper for Semantic Versioning (https://semver.org).

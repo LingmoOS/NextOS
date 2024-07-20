@@ -6,10 +6,10 @@ class TestPythonPahoMQTT(TestPythonPackageBase):
     __test__ = True
     config = TestPythonPackageBase.config + \
         """
-        BR2_PACKAGE_MOSQUITTO=y
-        BR2_PACKAGE_MOSQUITTO_BROKER=y
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_PYTHON_PAHO_MQTT=y
+        LINGMO_PACKAGE_MOSQUITTO=y
+        LINGMO_PACKAGE_MOSQUITTO_BROKER=y
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON_PAHO_MQTT=y
         """
     sample_scripts = ["tests/package/sample_python_paho_mqtt.py"]
 

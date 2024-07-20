@@ -12,11 +12,11 @@ TPM_TOOLS_DEPENDENCIES = trousers openssl $(TARGET_NLS_DEPENDENCIES)
 
 TPM_TOOLS_CONF_OPTS = --disable-pkcs11-support
 
-ifeq ($(BR2_PACKAGE_LIBICONV),y)
+ifeq ($(LINGMO_PACKAGE_LIBICONV),y)
 TPM_TOOLS_CONF_ENV += LIBS='-liconv'
 endif
 
-ifeq ($(BR2_arc770d)$(BR2_arc750d),y)
+ifeq ($(LINGMO_arc770d)$(LINGMO_arc750d),y)
 TPM_TOOLS_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) -mno-compact-casesi"
 endif
 

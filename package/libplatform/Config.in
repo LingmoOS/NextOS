@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBPLATFORM
+config LINGMO_PACKAGE_LIBPLATFORM
 	bool
 	help
 	  Platform support library used by libCEC and binary add-ons for

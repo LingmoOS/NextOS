@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBOSIP2
+config LINGMO_PACKAGE_LIBOSIP2
 	bool "libosip2"
 	help
 	  GNU SIP (Session Initiation Protocol)

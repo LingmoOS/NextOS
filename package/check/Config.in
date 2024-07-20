@@ -1,4 +1,4 @@
-config BR2_PACKAGE_CHECK
+config LINGMO_PACKAGE_CHECK
 	bool "check"
 	help
 	  Check is a unit testing framework for C.

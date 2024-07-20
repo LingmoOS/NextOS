@@ -5,15 +5,15 @@
 ################################################################################
 
 NVIDIA_DRIVER_VERSION = 390.151
-NVIDIA_DRIVER_SUFFIX = $(if $(BR2_x86_64),_64)
+NVIDIA_DRIVER_SUFFIX = $(if $(LINGMO_x86_64),_64)
 NVIDIA_DRIVER_SITE = http://download.nvidia.com/XFree86/Linux-x86$(NVIDIA_DRIVER_SUFFIX)/$(NVIDIA_DRIVER_VERSION)
-NVIDIA_DRIVER_SOURCE = NVIDIA-Linux-x86$(NVIDIA_DRIVER_SUFFIX)-$(NVIDIA_DRIVER_VERSION)$(if $(BR2_x86_64),-no-compat32).run
+NVIDIA_DRIVER_SOURCE = NVIDIA-Linux-x86$(NVIDIA_DRIVER_SUFFIX)-$(NVIDIA_DRIVER_VERSION)$(if $(LINGMO_x86_64),-no-compat32).run
 NVIDIA_DRIVER_LICENSE = NVIDIA Software License
 NVIDIA_DRIVER_LICENSE_FILES = LICENSE
 NVIDIA_DRIVER_REDISTRIBUTE = NO
 NVIDIA_DRIVER_INSTALL_STAGING = YES
 
-ifeq ($(BR2_PACKAGE_NVIDIA_DRIVER_XORG),y)
+ifeq ($(LINGMO_PACKAGE_NVIDIA_DRIVER_XORG),y)
 
 # Since nvidia-driver are binary blobs, the below dependencies are not
 # strictly speaking build dependencies of nvidia-driver. However, they
@@ -85,7 +85,7 @@ endef
 # NVidia to develop code for those libs. There seems to be no restriction
 # on using those libraries (e.g. if the user has such an agreement, or
 # wants to run a third-party program developed under such an agreement).
-ifeq ($(BR2_PACKAGE_NVIDIA_DRIVER_PRIVATE_LIBS),y)
+ifeq ($(LINGMO_PACKAGE_NVIDIA_DRIVER_PRIVATE_LIBS),y)
 NVIDIA_DRIVER_LIBS += \
 	libnvidia-ifr.so.$(NVIDIA_DRIVER_VERSION) \
 	libnvidia-fbc.so.$(NVIDIA_DRIVER_VERSION)
@@ -104,7 +104,7 @@ endef
 
 endif # X drivers
 
-ifeq ($(BR2_PACKAGE_NVIDIA_DRIVER_CUDA),y)
+ifeq ($(LINGMO_PACKAGE_NVIDIA_DRIVER_CUDA),y)
 NVIDIA_DRIVER_LIBS += \
 	libcuda.so.$(NVIDIA_DRIVER_VERSION) \
 	libnvidia-compiler.so.$(NVIDIA_DRIVER_VERSION) \
@@ -112,12 +112,12 @@ NVIDIA_DRIVER_LIBS += \
 	libnvidia-fatbinaryloader.so.$(NVIDIA_DRIVER_VERSION) \
 	libnvidia-ptxjitcompiler.so.$(NVIDIA_DRIVER_VERSION) \
 	libnvidia-encode.so.$(NVIDIA_DRIVER_VERSION)
-ifeq ($(BR2_PACKAGE_NVIDIA_DRIVER_CUDA_PROGS),y)
+ifeq ($(LINGMO_PACKAGE_NVIDIA_DRIVER_CUDA_PROGS),y)
 NVIDIA_DRIVER_PROGS = nvidia-cuda-mps-control nvidia-cuda-mps-server
 endif
 endif
 
-ifeq ($(BR2_PACKAGE_NVIDIA_DRIVER_OPENCL),y)
+ifeq ($(LINGMO_PACKAGE_NVIDIA_DRIVER_OPENCL),y)
 NVIDIA_DRIVER_LIBS += \
 	libOpenCL.so.1.0.0 \
 	libnvidia-opencl.so.$(NVIDIA_DRIVER_VERSION)
@@ -126,10 +126,10 @@ NVIDIA_DRIVER_PROVIDES += libopencl
 endif
 
 # Build and install the kernel modules if needed
-ifeq ($(BR2_PACKAGE_NVIDIA_DRIVER_MODULE),y)
+ifeq ($(LINGMO_PACKAGE_NVIDIA_DRIVER_MODULE),y)
 
 NVIDIA_DRIVER_MODULES = nvidia nvidia-modeset nvidia-drm
-ifeq ($(BR2_x86_64),y)
+ifeq ($(LINGMO_x86_64),y)
 NVIDIA_DRIVER_MODULES += nvidia-uvm
 endif
 
@@ -146,7 +146,7 @@ NVIDIA_DRIVER_MODULE_SUBDIRS = kernel
 
 $(eval $(kernel-module))
 
-endif # BR2_PACKAGE_NVIDIA_DRIVER_MODULE == y
+endif # LINGMO_PACKAGE_NVIDIA_DRIVER_MODULE == y
 
 # The downloaded archive is in fact an auto-extract script. So, it can run
 # virtually everywhere, and it is fine enough to provide useful options.

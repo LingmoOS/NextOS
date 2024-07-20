@@ -1,4 +1,4 @@
-config BR2_PACKAGE_VO_AACENC
+config LINGMO_PACKAGE_VO_AACENC
 	bool "vo-aacenc"
 	help
 	  This library contains an encoder implementation of the

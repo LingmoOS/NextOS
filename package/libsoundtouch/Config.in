@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBSOUNDTOUCH
+config LINGMO_PACKAGE_LIBSOUNDTOUCH
 	bool "libsoundtouch"
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	help
 	  SoundTouch is an open-source audio processing library for
 	  changing the Tempo, Pitch and Playback Rates of audio streams
@@ -9,4 +9,4 @@ config BR2_PACKAGE_LIBSOUNDTOUCH
 	  http://www.surina.net/soundtouch
 
 comment "libsoundtouch needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP

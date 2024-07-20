@@ -1,4 +1,4 @@
-config BR2_PACKAGE_MOBILE_BROADBAND_PROVIDER_INFO
+config LINGMO_PACKAGE_MOBILE_BROADBAND_PROVIDER_INFO
 	bool "mobile-broadband-provider-info"
 	help
 	  Mobile broadband provider database.

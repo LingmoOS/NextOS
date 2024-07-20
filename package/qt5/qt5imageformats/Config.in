@@ -1,6 +1,6 @@
-config BR2_PACKAGE_QT5IMAGEFORMATS
+config LINGMO_PACKAGE_QT5IMAGEFORMATS
 	bool "qt5imageformats"
-	select BR2_PACKAGE_QT5BASE_GUI
+	select LINGMO_PACKAGE_QT5BASE_GUI
 	help
 	  Qt is a cross-platform application and UI framework for
 	  developers using C++.

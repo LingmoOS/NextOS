@@ -13,20 +13,20 @@ DRBD_UTILS_DEPENDENCIES = host-flex
 
 DRBD_UTILS_CONF_OPTS = --with-distro=generic --without-manual
 
-ifeq ($(BR2_INIT_SYSTEMD),y)
+ifeq ($(LINGMO_INIT_SYSTEMD),y)
 DRBD_UTILS_CONF_OPTS += --with-initscripttype=systemd
 DRBD_UTILS_DEPENDENCIES += systemd
 else
 DRBD_UTILS_CONF_OPTS += --with-initscripttype=sysv
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS),y)
 DRBD_UTILS_CONF_OPTS += --with-drbdmon
 else
 DRBD_UTILS_CONF_OPTS += --without-drbdmon
 endif
 
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 DRBD_UTILS_CONF_OPTS += --with-udev=yes
 DRBD_UTILS_DEPENDENCIES += udev
 else

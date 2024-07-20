@@ -186,7 +186,7 @@ Keep in mind that the items inside a menu should be in alphabetical order.
 Please keep in mind that you'll most likely have to manually check the
 package for any mistakes as there are things that cannot be guessed by
 the generator (e.g.  dependencies on any of the python core modules
-such as BR2_PACKAGE_PYTHON_ZLIB).  Also, please take note that the
+such as LINGMO_PACKAGE_PYTHON_ZLIB).  Also, please take note that the
 license and license files are guessed and must be checked. You also
 need to manually add the package to the +package/Config.in+ file.
 
@@ -220,12 +220,12 @@ Such a package should:
 
  * add +python-cffi+ as a runtime dependency in order to install the
 compiled C library wrapper on the target. This is achieved by adding
-+select BR2_PACKAGE_PYTHON_CFFI+ to the package +Config.in+.
++select LINGMO_PACKAGE_PYTHON_CFFI+ to the package +Config.in+.
 
 ------------------------
-config BR2_PACKAGE_PYTHON_FOO
+config LINGMO_PACKAGE_PYTHON_FOO
         bool "python-foo"
-        select BR2_PACKAGE_PYTHON_CFFI # runtime
+        select LINGMO_PACKAGE_PYTHON_CFFI # runtime
 ------------------------
 
  * add +host-python-cffi+ as a build-time dependency in order to

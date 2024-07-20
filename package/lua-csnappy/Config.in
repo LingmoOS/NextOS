@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUA_CSNAPPY
+config LINGMO_PACKAGE_LUA_CSNAPPY
 	bool "lua-csnappy"
 	help
 	  lua-csnappy is a binding of the csnappy library

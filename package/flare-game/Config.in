@@ -1,6 +1,6 @@
-config BR2_PACKAGE_FLARE_GAME
+config LINGMO_PACKAGE_FLARE_GAME
 	bool "flare-game"
-	depends on BR2_PACKAGE_FLARE_ENGINE
+	depends on LINGMO_PACKAGE_FLARE_ENGINE
 	help
 	  Flare is an open source, 2D action RPG licensed under the
 	  GPL3 license. Its game play can be likened to the games in

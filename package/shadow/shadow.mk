@@ -22,13 +22,13 @@ SHADOW_CONF_OPTS = \
 	--without-su \
 	--without-tcb
 
-ifeq ($(BR2_PACKAGE_SHADOW_SHADOWGRP),y)
+ifeq ($(LINGMO_PACKAGE_SHADOW_SHADOWGRP),y)
 SHADOW_CONF_OPTS += --enable-shadowgrp
 else
 SHADOW_CONF_OPTS += --disable-shadowgrp
 endif
 
-ifeq ($(BR2_PACKAGE_SHADOW_ACCOUNT_TOOLS_SETUID),y)
+ifeq ($(LINGMO_PACKAGE_SHADOW_ACCOUNT_TOOLS_SETUID),y)
 SHADOW_CONF_OPTS += --enable-account-tools-setuid
 define SHADOW_ACCOUNT_TOOLS_SETUID_PERMISSIONS
 	/usr/sbin/chgpasswd f 4755 0 0 - - - - -
@@ -45,7 +45,7 @@ else
 SHADOW_CONF_OPTS += --disable-account-tools-setuid
 endif
 
-ifeq ($(BR2_PACKAGE_SHADOW_SUBORDINATE_IDS),y)
+ifeq ($(LINGMO_PACKAGE_SHADOW_SUBORDINATE_IDS),y)
 SHADOW_CONF_OPTS += --enable-subordinate-ids
 define SHADOW_SUBORDINATE_IDS_PERMISSIONS
 	/usr/bin/newuidmap f 4755 0 0 - - - - -
@@ -55,35 +55,35 @@ else
 SHADOW_CONF_OPTS += --disable-subordinate-ids
 endif
 
-ifeq ($(BR2_PACKAGE_ACL),y)
+ifeq ($(LINGMO_PACKAGE_ACL),y)
 SHADOW_CONF_OPTS += --with-acl
 SHADOW_DEPENDENCIES += acl
 else
 SHADOW_CONF_OPTS += --without-acl
 endif
 
-ifeq ($(BR2_PACKAGE_ATTR),y)
+ifeq ($(LINGMO_PACKAGE_ATTR),y)
 SHADOW_CONF_OPTS += --with-attr
 SHADOW_DEPENDENCIES += attr
 else
 SHADOW_CONF_OPTS += --without-attr
 endif
 
-ifeq ($(BR2_PACKAGE_AUDIT),y)
+ifeq ($(LINGMO_PACKAGE_AUDIT),y)
 SHADOW_CONF_OPTS += --with-audit
 SHADOW_DEPENDENCIES += audit
 else
 SHADOW_CONF_OPTS += --without-audit
 endif
 
-ifeq ($(BR2_PACKAGE_CRACKLIB),y)
+ifeq ($(LINGMO_PACKAGE_CRACKLIB),y)
 SHADOW_CONF_OPTS += --with-libcrack
 SHADOW_DEPENDENCIES += cracklib
 else
 SHADOW_CONF_OPTS += --without-libcrack
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSELINUX)$(BR2_PACKAGE_LIBSEMANAGE),yy)
+ifeq ($(LINGMO_PACKAGE_LIBSELINUX)$(LINGMO_PACKAGE_LIBSEMANAGE),yy)
 SHADOW_CONF_OPTS += --with-selinux
 SHADOW_DEPENDENCIES += libselinux libsemanage
 else
@@ -91,32 +91,32 @@ SHADOW_CONF_OPTS += --without-selinux
 endif
 
 # linux-pam is also used without account-tools-setuid enabled
-ifeq ($(BR2_PACKAGE_LINUX_PAM),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_PAM),y)
 SHADOW_CONF_OPTS += --with-libpam
 SHADOW_DEPENDENCIES += linux-pam
 else
 SHADOW_CONF_OPTS += --without-libpam
 endif
 
-ifeq ($(BR2_PACKAGE_SHADOW_SHA_CRYPT),y)
+ifeq ($(LINGMO_PACKAGE_SHADOW_SHA_CRYPT),y)
 SHADOW_CONF_OPTS += --with-sha-crypt
 else
 SHADOW_CONF_OPTS += --without-sha-crypt
 endif
 
-ifeq ($(BR2_PACKAGE_SHADOW_BCRYPT),y)
+ifeq ($(LINGMO_PACKAGE_SHADOW_BCRYPT),y)
 SHADOW_CONF_OPTS += --with-bcrypt
 else
 SHADOW_CONF_OPTS += --without-bcrypt
 endif
 
-ifeq ($(BR2_PACKAGE_SHADOW_YESCRYPT),y)
+ifeq ($(LINGMO_PACKAGE_SHADOW_YESCRYPT),y)
 SHADOW_CONF_OPTS += --with-yescrypt
 else
 SHADOW_CONF_OPTS += --without-yescrypt
 endif
 
-ifeq ($(BR2_PACKAGE_LIBBSD),y)
+ifeq ($(LINGMO_PACKAGE_LIBBSD),y)
 SHADOW_CONF_OPTS += --with-libbsd
 SHADOW_DEPENDENCIES += libbsd
 else

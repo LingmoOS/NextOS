@@ -1,4 +1,4 @@
-config BR2_PACKAGE_GMP
+config LINGMO_PACKAGE_GMP
 	bool "gmp"
 	help
 	  GNU Multiple Precision Arithmetic Library.

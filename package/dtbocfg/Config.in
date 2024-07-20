@@ -1,6 +1,6 @@
-config BR2_PACKAGE_DTBOCFG
+config LINGMO_PACKAGE_DTBOCFG
 	bool "dtbocfg"
-	depends on BR2_LINUX_KERNEL
+	depends on LINGMO_LINUX_KERNEL
 	help
 	  dtbocfg, which stands for Device Tree Blob Overlay
 	  Configuration File System, was developed to serve
@@ -9,4 +9,4 @@ config BR2_PACKAGE_DTBOCFG
 	  https://github.com/ikwzm/dtbocfg
 
 comment "dtbocfg needs a Linux kernel to be built"
-	depends on !BR2_LINUX_KERNEL
+	depends on !LINGMO_LINUX_KERNEL

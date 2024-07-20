@@ -1,16 +1,16 @@
-config BR2_PACKAGE_KMOD
+config LINGMO_PACKAGE_KMOD
 	bool "kmod"
-	depends on !BR2_STATIC_LIBS
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  handle kernel modules
 
 	  http://git.kernel.org/?p=utils/kernel/kmod/kmod.git
 
-if BR2_PACKAGE_KMOD
+if LINGMO_PACKAGE_KMOD
 
-config BR2_PACKAGE_KMOD_TOOLS
+config LINGMO_PACKAGE_KMOD_TOOLS
 	bool "kmod utilities"
-	depends on BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
+	depends on LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS
 	help
 	  Install kmod module utilities (depmod, insmod, lsmod,
 	  modinfo, modprobe, rmmod).
@@ -18,4 +18,4 @@ config BR2_PACKAGE_KMOD_TOOLS
 endif
 
 comment "kmod needs a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_STATIC_LIBS

@@ -10,12 +10,12 @@ INADYN_LICENSE = GPL-2.0+
 INADYN_LICENSE_FILES = COPYING
 INADYN_DEPENDENCIES = host-pkgconf libconfuse
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 INADYN_CONF_OPTS += --enable-openssl
 INADYN_DEPENDENCIES += openssl
-else ifeq ($(BR2_PACKAGE_GNUTLS),y)
+else ifeq ($(LINGMO_PACKAGE_GNUTLS),y)
 INADYN_DEPENDENCIES += gnutls
-else ifeq ($BR2_PACKAGE_MBEDTLS, y)
+else ifeq ($LINGMO_PACKAGE_MBEDTLS, y)
 INADYN_DEPENDENCIES += mbedtls
 else
 INADYN_CONF_OPTS += --disable-ssl

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_CLASS_METHOD_MODIFIERS
+config LINGMO_PACKAGE_PERL_CLASS_METHOD_MODIFIERS
 	bool "perl-class-method-modifiers"
 	help
 	  Provides Moose-like method modifiers.

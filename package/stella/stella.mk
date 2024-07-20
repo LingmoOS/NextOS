@@ -17,14 +17,14 @@ STELLA_CONF_OPTS = \
 	--prefix=/usr \
 	--with-sdl-prefix=$(STAGING_DIR)/usr
 
-ifeq ($(BR2_PACKAGE_LIBPNG),y)
+ifeq ($(LINGMO_PACKAGE_LIBPNG),y)
 STELLA_CONF_OPTS += --enable-png
 STELLA_DEPENDENCIES += libpng
 else
 STELLA_CONF_OPTS += --disable-png
 endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 STELLA_CONF_OPTS += --enable-zip
 STELLA_DEPENDENCIES += zlib
 else

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_MAWK
+config LINGMO_PACKAGE_MAWK
 	bool "mawk"
 	help
 	  Interpreter for the AWK Programming Language.

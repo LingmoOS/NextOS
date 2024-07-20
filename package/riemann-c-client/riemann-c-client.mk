@@ -15,7 +15,7 @@ RIEMANN_C_CLIENT_MAKE = $(MAKE1)
 RIEMANN_C_CLIENT_AUTORECONF = YES
 RIEMANN_C_CLIENT_DEPENDENCIES = \
 	host-pkgconf protobuf-c \
-	$(if $(BR2_PACKAGE_GNUTLS),gnutls) \
-	$(if $(BR2_PACKAGE_JSON_C),json-c)
+	$(if $(LINGMO_PACKAGE_GNUTLS),gnutls) \
+	$(if $(LINGMO_PACKAGE_JSON_C),json-c)
 
 $(eval $(autotools-package))

@@ -1,7 +1,7 @@
-config BR2_PACKAGE_PURE_FTPD
+config LINGMO_PACKAGE_PURE_FTPD
 	bool "pure-ftpd"
-	depends on BR2_USE_MMU # fork()
-	select BR2_PACKAGE_LIBICONV if !BR2_ENABLE_LOCALE
+	depends on LINGMO_USE_MMU # fork()
+	select LINGMO_PACKAGE_LIBICONV if !LINGMO_ENABLE_LOCALE
 	help
 	  Pure-FTPd is a free (BSD), secure, production-quality and
 	  standard- conformant FTP server. It doesn't provide useless
@@ -12,9 +12,9 @@ config BR2_PACKAGE_PURE_FTPD
 
 	  http://www.pureftpd.org
 
-if BR2_PACKAGE_PURE_FTPD
+if LINGMO_PACKAGE_PURE_FTPD
 
-config BR2_PACKAGE_PURE_FTPD_FTPWHO
+config LINGMO_PACKAGE_PURE_FTPD_FTPWHO
 	bool "ftpwho"
 	help
 	  Enable the pure-ftpd command.  Pure-ftpwho shows current
@@ -22,7 +22,7 @@ config BR2_PACKAGE_PURE_FTPD_FTPWHO
 	  may run this.  Output can be text (default), HTML, XML data
 	  and parser-optimized.
 
-config BR2_PACKAGE_PURE_FTPD_QUOTAS
+config LINGMO_PACKAGE_PURE_FTPD_QUOTAS
 	bool "quotas"
 	help
 	  Enable virtual quotas. With virtual quotas, restrictions can
@@ -30,7 +30,7 @@ config BR2_PACKAGE_PURE_FTPD_QUOTAS
 	  his account. In addition, restrictions can also be placed on
 	  the total size.
 
-config BR2_PACKAGE_PURE_FTPD_UPLOADSCRIPT
+config LINGMO_PACKAGE_PURE_FTPD_UPLOADSCRIPT
 	bool "uploadscript"
 	help
 	  Enable pure-upload script. Automatically run an external

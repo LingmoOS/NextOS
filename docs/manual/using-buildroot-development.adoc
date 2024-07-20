@@ -31,7 +31,7 @@ file, which allows the user to tell Buildroot the location of the
 source for certain packages.
 
 The default location of the override file is +$(CONFIG_DIR)/local.mk+,
-as defined by the +BR2_PACKAGE_OVERRIDE_FILE+ configuration option.
+as defined by the +LINGMO_PACKAGE_OVERRIDE_FILE+ configuration option.
 +$(CONFIG_DIR)+ is the location of the Buildroot +.config+ file, so
 +local.mk+ by default lives side-by-side with the +.config+ file,
 which means:
@@ -42,7 +42,7 @@ which means:
   +O=+ is used)
 
 If a different location than these defaults is required, it can be
-specified through the +BR2_PACKAGE_OVERRIDE_FILE+ configuration
+specified through the +LINGMO_PACKAGE_OVERRIDE_FILE+ configuration
 option.
 
 In this _override_ file, Buildroot expects to find lines of the form:

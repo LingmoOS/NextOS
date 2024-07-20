@@ -1,4 +1,4 @@
-config BR2_PACKAGE_JBIG2DEC
+config LINGMO_PACKAGE_JBIG2DEC
 	bool "jbig2dec"
 	help
 	  jbig2dec is a decoder implementation of the JBIG2

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_X264
+config LINGMO_PACKAGE_X264
 	bool "x264"
 	help
 	  x264 is a free software library and application for
@@ -8,9 +8,9 @@ config BR2_PACKAGE_X264
 
 	  https://www.videolan.org/developers/x264.html
 
-if BR2_PACKAGE_X264
+if LINGMO_PACKAGE_X264
 
-config BR2_PACKAGE_X264_CLI
+config LINGMO_PACKAGE_X264_CLI
 	bool "CLI"
 	help
 	  Command-line tool to encode video streams into the

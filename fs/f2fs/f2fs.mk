@@ -4,31 +4,31 @@
 #
 ################################################################################
 
-F2FS_SIZE = $(call qstrip,$(BR2_TARGET_ROOTFS_F2FS_SIZE))
-ifeq ($(BR2_TARGET_ROOTFS_F2FS)-$(F2FS_SIZE),y-)
-$(error BR2_TARGET_ROOTFS_F2FS_SIZE cannot be empty)
+F2FS_SIZE = $(call qstrip,$(LINGMO_TARGET_ROOTFS_F2FS_SIZE))
+ifeq ($(LINGMO_TARGET_ROOTFS_F2FS)-$(F2FS_SIZE),y-)
+$(error LINGMO_TARGET_ROOTFS_F2FS_SIZE cannot be empty)
 endif
 
 # qstrip results in stripping consecutive spaces into a single one. So the
 # variable is not qstrip-ed to preserve the integrity of the string value.
-F2FS_LABEL = $(subst ",,$(BR2_TARGET_ROOTFS_F2FS_LABEL))
+F2FS_LABEL = $(subst ",,$(LINGMO_TARGET_ROOTFS_F2FS_LABEL))
 # ")
-F2FS_COLD_FILES = $(call qstrip,$(BR2_TARGET_ROOTFS_F2FS_COLD_FILES))
-F2FS_HOT_FILES = $(call qstrip,$(BR2_TARGET_ROOTFS_F2FS_HOT_FILES))
+F2FS_COLD_FILES = $(call qstrip,$(LINGMO_TARGET_ROOTFS_F2FS_COLD_FILES))
+F2FS_HOT_FILES = $(call qstrip,$(LINGMO_TARGET_ROOTFS_F2FS_HOT_FILES))
 
-ifeq ($(BR2_TARGET_ROOTFS_F2FS_DISCARD),y)
+ifeq ($(LINGMO_TARGET_ROOTFS_F2FS_DISCARD),y)
 F2FS_DISCARD = 1
 else
 F2FS_DISCARD = 0
 endif
 
-F2FS_FEATURES = $(call qstrip,$(BR2_TARGET_ROOTFS_F2FS_FEATURES))
+F2FS_FEATURES = $(call qstrip,$(LINGMO_TARGET_ROOTFS_F2FS_FEATURES))
 
 F2FS_OPTS = \
 	-f \
 	-l "$(F2FS_LABEL)" \
 	-t $(F2FS_DISCARD) \
-	-o $(BR2_TARGET_ROOTFS_F2FS_OVERPROVISION) \
+	-o $(LINGMO_TARGET_ROOTFS_F2FS_OVERPROVISION) \
 	$(if $(F2FS_COLD_FILES),-e "$(F2FS_COLD_FILES)") \
 	$(if $(F2FS_HOT_FILES),-E "$(F2FS_HOT_FILES)") \
 	$(if $(F2FS_FEATURES),-O "$(F2FS_FEATURES)")

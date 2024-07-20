@@ -11,7 +11,7 @@ INIH_LICENSE = BSD-3-Clause
 INIH_LICENSE_FILES = LICENSE.txt
 INIH_CONF_OPTS = -Ddistro_install=true
 
-ifeq ($(BR2_INSTALL_LIBSTDCPP),y)
+ifeq ($(LINGMO_INSTALL_LIBSTDCPP),y)
 INIH_CONF_OPTS += -Dwith_INIReader=true
 else
 INIH_CONF_OPTS += -Dwith_INIReader=false

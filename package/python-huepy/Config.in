@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_HUEPY
+config LINGMO_PACKAGE_PYTHON_HUEPY
 	bool "python-huepy"
 	help
 	  Hue will help you to print awesomely in terminals.

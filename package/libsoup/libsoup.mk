@@ -32,21 +32,21 @@ LIBSOUP_CONF_OPTS = \
 	-Dtls_check=false \
 	-Dvapi=disabled
 
-ifeq ($(BR2_PACKAGE_BROTLI),y)
+ifeq ($(LINGMO_PACKAGE_BROTLI),y)
 LIBSOUP_CONF_OPTS += -Dbrotli=enabled
 LIBSOUP_DEPENDENCIES += brotli
 else
 LIBSOUP_CONF_OPTS += -Dbrotli=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 LIBSOUP_CONF_OPTS += -Dintrospection=enabled
 LIBSOUP_DEPENDENCIES += gobject-introspection
 else
 LIBSOUP_CONF_OPTS += -Dintrospection=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBKRB5),y)
+ifeq ($(LINGMO_PACKAGE_LIBKRB5),y)
 LIBSOUP_CONF_OPTS += \
 	-Dgssapi=enabled \
 	-Dkrb5_config=$(STAGING_DIR)/usr/bin/krb5-config
@@ -55,7 +55,7 @@ else
 LIBSOUP_CONF_OPTS += -Dgssapi=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSOUP_GNOME),y)
+ifeq ($(LINGMO_PACKAGE_LIBSOUP_GNOME),y)
 LIBSOUP_CONF_OPTS += -Dgnome=true
 else
 LIBSOUP_CONF_OPTS += -Dgnome=false

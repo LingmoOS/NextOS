@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBSOXR
+config LINGMO_PACKAGE_LIBSOXR
 	bool "libsoxr"
 	help
 	  The SoX Resampler library `libsoxr' performs one-dimensional

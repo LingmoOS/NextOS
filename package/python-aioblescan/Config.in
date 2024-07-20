@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_AIOBLESCAN
+config LINGMO_PACKAGE_PYTHON_AIOBLESCAN
 	bool "python-aioblescan"
 	help
 	  Scanning Bluetooth for advertised info with asyncio.

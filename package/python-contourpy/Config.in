@@ -1,7 +1,7 @@
-config BR2_PACKAGE_PYTHON_CONTOURPY
+config LINGMO_PACKAGE_PYTHON_CONTOURPY
 	bool "python-contourpy"
-	depends on BR2_INSTALL_LIBSTDCPP
-	select BR2_PACKAGE_PYTHON_PYBIND
+	depends on LINGMO_INSTALL_LIBSTDCPP
+	select LINGMO_PACKAGE_PYTHON_PYBIND
 	help
 	  Python library for calculating contours of 2D quadrilateral
 	  grids.
@@ -9,4 +9,4 @@ config BR2_PACKAGE_PYTHON_CONTOURPY
 	  https://github.com/contourpy/contourpy
 
 comment "python-contourpy needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP

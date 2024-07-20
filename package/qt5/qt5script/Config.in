@@ -1,6 +1,6 @@
-config BR2_PACKAGE_QT5SCRIPT
+config LINGMO_PACKAGE_QT5SCRIPT
 	bool "qt5script"
-	depends on BR2_PACKAGE_QT5_JSCORE_AVAILABLE
+	depends on LINGMO_PACKAGE_QT5_JSCORE_AVAILABLE
 	help
 	  Qt is a cross-platform application and UI framework for
 	  developers using C++.

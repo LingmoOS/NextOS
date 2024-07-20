@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_MOSQUITTO
+config LINGMO_PACKAGE_HOST_MOSQUITTO
 	bool "host mosquitto (mosquitto_passwd)"
 	help
 	  Only installs mosquitto_passwd.

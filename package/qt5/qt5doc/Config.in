@@ -1,9 +1,9 @@
-config BR2_PACKAGE_QT5DOC
+config LINGMO_PACKAGE_QT5DOC
 	bool "qt5doc (includes quick demos)"
-	depends on BR2_PACKAGE_QT5_JSCORE_AVAILABLE # qt5declarative
-	select BR2_PACKAGE_QT5BASE_EXAMPLES
-	select BR2_PACKAGE_QT5DECLARATIVE
-	select BR2_PACKAGE_QT5DECLARATIVE_QUICK
+	depends on LINGMO_PACKAGE_QT5_JSCORE_AVAILABLE # qt5declarative
+	select LINGMO_PACKAGE_QT5BASE_EXAMPLES
+	select LINGMO_PACKAGE_QT5DECLARATIVE
+	select LINGMO_PACKAGE_QT5DECLARATIVE_QUICK
 	help
 	  Qt is a cross-platform application and UI framework for
 	  developers using C++.

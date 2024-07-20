@@ -1,18 +1,18 @@
-config BR2_PACKAGE_UFTRACE_ARCH_SUPPORTS
+config LINGMO_PACKAGE_UFTRACE_ARCH_SUPPORTS
 	bool
-	default y if BR2_ARM_CPU_ARMV6 || BR2_ARM_CPU_ARMV7A
-	default y if BR2_aarch64
-	default y if BR2_i386
-	default y if BR2_x86_64
+	default y if LINGMO_ARM_CPU_ARMV6 || LINGMO_ARM_CPU_ARMV7A
+	default y if LINGMO_aarch64
+	default y if LINGMO_i386
+	default y if LINGMO_x86_64
 
-config BR2_PACKAGE_UFTRACE
+config LINGMO_PACKAGE_UFTRACE
 	bool "uftrace"
-	depends on BR2_PACKAGE_UFTRACE_ARCH_SUPPORTS
-	depends on BR2_TOOLCHAIN_HAS_THREADS_NPTL # pthread_setname_np()
-	depends on !BR2_STATIC_LIBS
-	select BR2_PACKAGE_ARGP_STANDALONE if \
-	       BR2_TOOLCHAIN_USES_UCLIBC || \
-	       BR2_TOOLCHAIN_USES_MUSL
+	depends on LINGMO_PACKAGE_UFTRACE_ARCH_SUPPORTS
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS_NPTL # pthread_setname_np()
+	depends on !LINGMO_STATIC_LIBS
+	select LINGMO_PACKAGE_ARGP_STANDALONE if \
+	       LINGMO_TOOLCHAIN_USES_UCLIBC || \
+	       LINGMO_TOOLCHAIN_USES_MUSL
 	help
 	  The uftrace tool is to trace and analyze execution of a
 	  program written in C/C++. It was heavily inspired by the
@@ -24,5 +24,5 @@ config BR2_PACKAGE_UFTRACE
 	  https://github.com/namhyung/uftrace
 
 comment "uftrace needs a toolchain w/ NPTL, dynamic library"
-	depends on BR2_PACKAGE_UFTRACE_ARCH_SUPPORTS
-	depends on !BR2_TOOLCHAIN_HAS_THREADS_NPTL || BR2_STATIC_LIBS
+	depends on LINGMO_PACKAGE_UFTRACE_ARCH_SUPPORTS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS_NPTL || LINGMO_STATIC_LIBS

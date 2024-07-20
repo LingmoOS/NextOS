@@ -1,16 +1,16 @@
 comment "hiawatha needs a toolchain w/ threads, dynamic library"
-	depends on BR2_USE_MMU
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS
 
-config BR2_PACKAGE_HIAWATHA
+config LINGMO_PACKAGE_HIAWATHA
 	bool "hiawatha"
 	# needs fork()
-	depends on BR2_USE_MMU
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4 # __sync_*_4 intrisics
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on !BR2_STATIC_LIBS
-	select BR2_PACKAGE_ZLIB
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4 # __sync_*_4 intrisics
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_STATIC_LIBS
+	select LINGMO_PACKAGE_ZLIB
 	help
 	  Hiawatha is a webserver for Unix and has been built with
 	  security in mind. This resulted in a highly secure
@@ -28,9 +28,9 @@ config BR2_PACKAGE_HIAWATHA
 
 	  http://www.hiawatha-webserver.org/
 
-if BR2_PACKAGE_HIAWATHA
+if LINGMO_PACKAGE_HIAWATHA
 
-config BR2_PACKAGE_HIAWATHA_SSL
+config LINGMO_PACKAGE_HIAWATHA_SSL
 	bool "hiawatha TLS support"
 
 endif

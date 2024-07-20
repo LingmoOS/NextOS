@@ -5,7 +5,7 @@
 ################################################################################
 
 HOST_BINUTILS_BARE_METAL_VERSION = 2.42
-HOST_BINUTILS_BARE_METAL_SITE = $(BR2_GNU_MIRROR)/binutils
+HOST_BINUTILS_BARE_METAL_SITE = $(LINGMO_GNU_MIRROR)/binutils
 HOST_BINUTILS_BARE_METAL_SOURCE = binutils-$(HOST_BINUTILS_BARE_METAL_VERSION).tar.xz
 
 HOST_BINUTILS_BARE_METAL_LICENSE = GPL-3.0+, libiberty LGPL-2.1+

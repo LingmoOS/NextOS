@@ -1,8 +1,8 @@
-config BR2_PACKAGE_SYSKLOGD
+config LINGMO_PACKAGE_SYSKLOGD
 	bool "sysklogd"
-	depends on BR2_USE_MMU # fork()
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
+	depends on LINGMO_USE_MMU # fork()
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS
 	help
 	  The continuation of the original sysklogd package, based on
 	  the original Berkeley syslog daemon. Now with kernel
@@ -13,9 +13,9 @@ config BR2_PACKAGE_SYSKLOGD
 
 	  https://github.com/troglobit/sysklogd/
 
-if BR2_PACKAGE_SYSKLOGD
+if LINGMO_PACKAGE_SYSKLOGD
 
-config BR2_PACKAGE_SYSKLOGD_REMOTE_DELAY
+config LINGMO_PACKAGE_SYSKLOGD_REMOTE_DELAY
 	int "Retry delay (sec)"
 	default "180"
 	help
@@ -28,7 +28,7 @@ config BR2_PACKAGE_SYSKLOGD_REMOTE_DELAY
 
 	  Default: 180 seconds
 
-config BR2_PACKAGE_SYSKLOGD_LOGGER
+config LINGMO_PACKAGE_SYSKLOGD_LOGGER
 	bool "logger tool"
 	help
 	  Generate log messages from scripts or from the command line.
@@ -43,6 +43,6 @@ config BR2_PACKAGE_SYSKLOGD_LOGGER
 endif
 
 comment "sysklogd needs a toolchain w/ threads"
-	depends on BR2_USE_MMU
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS

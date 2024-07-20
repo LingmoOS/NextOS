@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PYJWT
+config LINGMO_PACKAGE_PYTHON_PYJWT
 	bool "python-pyjwt"
 	help
 	  JSON Web Token implementation in Python.

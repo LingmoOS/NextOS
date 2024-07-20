@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_IWLIB
+config LINGMO_PACKAGE_PYTHON_IWLIB
 	bool "python-iwlib"
-	depends on BR2_PACKAGE_WIRELESS_TOOLS_LIB
+	depends on LINGMO_PACKAGE_WIRELESS_TOOLS_LIB
 	help
 	  python-iwlib is a package for interfacing with iwlib,
 	  providing an implementation to the wireless tools in Linux.

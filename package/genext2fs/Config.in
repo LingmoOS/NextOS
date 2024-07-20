@@ -1,4 +1,4 @@
-config BR2_PACKAGE_GENEXT2FS
+config LINGMO_PACKAGE_GENEXT2FS
 	bool "genext2fs"
 	help
 	  genext2fs generates an ext2 filesystem as a normal (non-root)

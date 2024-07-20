@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_AIOHTTP_REMOTES
+config LINGMO_PACKAGE_PYTHON_AIOHTTP_REMOTES
 	bool "python-aiohttp-remotes"
-	select BR2_PACKAGE_PYTHON_AIOHTTP # runtime
+	select LINGMO_PACKAGE_PYTHON_AIOHTTP # runtime
 	help
 	  Control remote side information.
 

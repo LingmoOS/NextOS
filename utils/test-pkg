@@ -71,7 +71,7 @@ main() {
 
     if [ -z "${cfg}" ]; then
         pkg_br_name="${pkg//-/_}"
-        pkg_br_name="BR2_PACKAGE_${pkg_br_name^^}"
+        pkg_br_name="LINGMO_PACKAGE_${pkg_br_name^^}"
         TEMP_CONF="$(mktemp /tmp/test-"${pkg}"-config.XXXXXX)"
         echo "${pkg_br_name}=y" > "${TEMP_CONF}"
         cfg="${TEMP_CONF}"
@@ -290,11 +290,11 @@ Options:
 Example:
 
     Testing libcec would require a config snippet that contains:
-        BR2_PACKAGE_LIBCEC=y
+        LINGMO_PACKAGE_LIBCEC=y
 
     Testing libcurl with openSSL support would require a snippet such as:
-        BR2_PACKAGE_OPENSSL=y
-        BR2_PACKAGE_LIBCURL=y
+        LINGMO_PACKAGE_OPENSSL=y
+        LINGMO_PACKAGE_LIBCURL=y
 
 _EOF_
 }

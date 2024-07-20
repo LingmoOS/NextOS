@@ -54,21 +54,21 @@ endef
 OLA_CONF_ENV = PYTHONPATH=$(TARGET_DIR)/usr/lib/python$(PYTHON3_VERSION_MAJOR)/site-packages
 OLA_MAKE_ENV = PYTHONPATH=$(TARGET_DIR)/usr/lib/python$(PYTHON3_VERSION_MAJOR)/site-packages
 
-ifeq ($(BR2_PACKAGE_LIBEXECINFO),y)
+ifeq ($(LINGMO_PACKAGE_LIBEXECINFO),y)
 OLA_DEPENDENCIES += libexecinfo
 OLA_CONF_ENV += LDFLAGS="$(TARGET_LDFLAGS) -lexecinfo"
 endif
 
 ## OLA Bindings and Interface selections
 
-ifeq ($(BR2_PACKAGE_OLA_WEB),y)
+ifeq ($(LINGMO_PACKAGE_OLA_WEB),y)
 OLA_CONF_OPTS += --enable-http
 OLA_DEPENDENCIES += libmicrohttpd
 else
 OLA_CONF_OPTS += --disable-http
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PYTHON_BINDINGS),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PYTHON_BINDINGS),y)
 OLA_CONF_OPTS += --enable-python-libs
 OLA_DEPENDENCIES += python3 python-protobuf
 else
@@ -77,14 +77,14 @@ endif
 
 ## OLA Examples and Tests
 
-ifeq ($(BR2_PACKAGE_OLA_EXAMPLES),y)
+ifeq ($(LINGMO_PACKAGE_OLA_EXAMPLES),y)
 OLA_CONF_OPTS += --enable-examples
 OLA_DEPENDENCIES += ncurses
 else
 OLA_CONF_OPTS += --disable-examples
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_RDM_TESTS),y)
+ifeq ($(LINGMO_PACKAGE_OLA_RDM_TESTS),y)
 OLA_CONF_OPTS += --enable-rdm-tests
 OLA_DEPENDENCIES += python-numpy
 # needed as numpy builds some shared libraries and ola checks for
@@ -97,131 +97,131 @@ endif
 
 ## OLA Plugin selections
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_ARTNET),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_ARTNET),y)
 OLA_CONF_OPTS += --enable-artnet
 else
 OLA_CONF_OPTS += --disable-artnet
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_DUMMY),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_DUMMY),y)
 OLA_CONF_OPTS += --enable-dummy
 else
 OLA_CONF_OPTS += --disable-dummy
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_E131),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_E131),y)
 OLA_CONF_OPTS += --enable-e131
 else
 OLA_CONF_OPTS += --disable-e131
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_ESPNET),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_ESPNET),y)
 OLA_CONF_OPTS += --enable-espnet
 else
 OLA_CONF_OPTS += --disable-espnet
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_FTDIDMX),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_FTDIDMX),y)
 OLA_CONF_OPTS += --enable-ftdidmx
 OLA_DEPENDENCIES += libftdi1
 else
 OLA_CONF_OPTS += --disable-ftdidmx
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_GPIO),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_GPIO),y)
 OLA_CONF_OPTS += --enable-gpio
 else
 OLA_CONF_OPTS += --disable-gpio
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_KARATE),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_KARATE),y)
 OLA_CONF_OPTS += --enable-karate
 else
 OLA_CONF_OPTS += --disable-karate
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_KINET),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_KINET),y)
 OLA_CONF_OPTS += --enable-kinet
 else
 OLA_CONF_OPTS += --disable-kinet
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_MILINT),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_MILINT),y)
 OLA_CONF_OPTS += --enable-milinst
 else
 OLA_CONF_OPTS += --disable-milinst
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_OPENDMX),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_OPENDMX),y)
 OLA_CONF_OPTS += --enable-opendmx
 else
 OLA_CONF_OPTS += --disable-opendmx
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_OPENPIXELCONTROL),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_OPENPIXELCONTROL),y)
 OLA_CONF_OPTS += --enable-openpixelcontrol
 else
 OLA_CONF_OPTS += --disable-openpixelcontrol
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_OSC),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_OSC),y)
 OLA_CONF_OPTS += --enable-osc
 OLA_DEPENDENCIES += liblo
 else
 OLA_CONF_OPTS += --disable-osc
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_PATHPORT),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_PATHPORT),y)
 OLA_CONF_OPTS += --enable-pathport
 else
 OLA_CONF_OPTS += --disable-pathport
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_RENARD),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_RENARD),y)
 OLA_CONF_OPTS += --enable-renard
 else
 OLA_CONF_OPTS += --disable-renard
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_SANDNET),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_SANDNET),y)
 OLA_CONF_OPTS += --enable-sandnet
 else
 OLA_CONF_OPTS += --disable-sandnet
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_SHOWNET),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_SHOWNET),y)
 OLA_CONF_OPTS += --enable-shownet
 else
 OLA_CONF_OPTS += --disable-shownet
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_SPI),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_SPI),y)
 OLA_CONF_OPTS += --enable-spi
 else
 OLA_CONF_OPTS += --disable-spi
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_STAGEPROFI),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_STAGEPROFI),y)
 OLA_CONF_OPTS += --enable-stageprofi --enable-libusb
 OLA_DEPENDENCIES += libusb
 else
 OLA_CONF_OPTS += --disable-stageprofi
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_UARTDMX),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_UARTDMX),y)
 OLA_CONF_OPTS += --enable-uartdmx
 else
 OLA_CONF_OPTS += --disable-uartdmx
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_USBDMX),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_USBDMX),y)
 OLA_CONF_OPTS += --enable-usbdmx --enable-libusb
 OLA_DEPENDENCIES += libusb
 else
 OLA_CONF_OPTS += --disable-usbdmx
 endif
 
-ifeq ($(BR2_PACKAGE_OLA_PLUGIN_USBPRO),y)
+ifeq ($(LINGMO_PACKAGE_OLA_PLUGIN_USBPRO),y)
 OLA_CONF_OPTS += --enable-usbpro --enable-libusb
 OLA_DEPENDENCIES += libusb
 else

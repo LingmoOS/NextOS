@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBNETFILTER_ACCT
+config LINGMO_PACKAGE_LIBNETFILTER_ACCT
 	bool "libnetfilter_acct"
-	select BR2_PACKAGE_LIBMNL
+	select LINGMO_PACKAGE_LIBMNL
 	help
 	  libnetfilter_acct is the userspace library providing interface
 	  to extended accounting infrastructure.

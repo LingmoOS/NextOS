@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBVORBIS
+config LINGMO_PACKAGE_LIBVORBIS
 	bool "libvorbis"
-	select BR2_PACKAGE_LIBOGG
+	select LINGMO_PACKAGE_LIBOGG
 	help
 	  Library for the Vorbis open source audio decoder
 	  Ogg Vorbis is a fully open, non-proprietary,

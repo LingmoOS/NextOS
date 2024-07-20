@@ -5,7 +5,7 @@
 ################################################################################
 
 BRIDGE_UTILS_VERSION = 1.7.1
-BRIDGE_UTILS_SITE = $(BR2_KERNEL_MIRROR)/linux/utils/net/bridge-utils
+BRIDGE_UTILS_SITE = $(LINGMO_KERNEL_MIRROR)/linux/utils/net/bridge-utils
 BRIDGE_UTILS_SOURCE = bridge-utils-$(BRIDGE_UTILS_VERSION).tar.xz
 BRIDGE_UTILS_AUTORECONF = YES
 BRIDGE_UTILS_LICENSE = GPL-2.0+

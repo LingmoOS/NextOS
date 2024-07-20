@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PYPHEN
+config LINGMO_PACKAGE_PYTHON_PYPHEN
 	bool "python-pyphen"
 	help
 	  Pure Python module to hyphenate text.

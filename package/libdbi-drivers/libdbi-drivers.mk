@@ -15,7 +15,7 @@ LIBDBI_DRIVERS_AUTORECONF = YES
 
 LIBDBI_DRIVERS_CONF_OPTS = --with-dbi-libdir=$(STAGING_DIR)/usr/lib
 
-ifeq ($(BR2_PACKAGE_MARIADB),y)
+ifeq ($(LINGMO_PACKAGE_MARIADB),y)
 LIBDBI_DRIVERS_DEPENDENCIES += mariadb
 LIBDBI_DRIVERS_CONF_OPTS += --with-mysql
 LIBDBI_DRIVERS_CONF_ENV += MYSQL_CONFIG="$(STAGING_DIR)/usr/bin/mysql_config"
@@ -23,7 +23,7 @@ else
 LIBDBI_DRIVERS_CONF_OPTS += --without-mysql
 endif
 
-ifeq ($(BR2_PACKAGE_POSTGRESQL),y)
+ifeq ($(LINGMO_PACKAGE_POSTGRESQL),y)
 LIBDBI_DRIVERS_DEPENDENCIES += postgresql
 LIBDBI_DRIVERS_CONF_OPTS += --with-pgsql
 else
@@ -31,7 +31,7 @@ LIBDBI_DRIVERS_CONF_OPTS += --without-pgsql
 endif
 
 LIBDBI_DRIVERS_CONF_OPTS += --without-sqlite
-ifeq ($(BR2_PACKAGE_SQLITE),y)
+ifeq ($(LINGMO_PACKAGE_SQLITE),y)
 LIBDBI_DRIVERS_DEPENDENCIES += sqlite
 LIBDBI_DRIVERS_CONF_OPTS += --with-sqlite3
 else

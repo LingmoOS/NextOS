@@ -1,12 +1,12 @@
-config BR2_PACKAGE_BIND
+config LINGMO_PACKAGE_BIND
 	bool "bind"
-	depends on BR2_USE_MMU # fork(), libuv
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4 # libuv
-	depends on BR2_TOOLCHAIN_HAS_THREADS_NPTL # libuv
-	depends on !BR2_STATIC_LIBS # libuv
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_9 # libuv
-	select BR2_PACKAGE_LIBUV
-	select BR2_PACKAGE_OPENSSL
+	depends on LINGMO_USE_MMU # fork(), libuv
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4 # libuv
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS_NPTL # libuv
+	depends on !LINGMO_STATIC_LIBS # libuv
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9 # libuv
+	select LINGMO_PACKAGE_LIBUV
+	select LINGMO_PACKAGE_OPENSSL
 	help
 	  BIND (Berkeley Internet Name Domain) is an
 	  implementation of the Domain Name System (DNS) protocols
@@ -30,14 +30,14 @@ config BR2_PACKAGE_BIND
 
 	  https://www.isc.org/bind/
 
-if BR2_PACKAGE_BIND
+if LINGMO_PACKAGE_BIND
 
-config BR2_PACKAGE_BIND_SERVER
+config LINGMO_PACKAGE_BIND_SERVER
 	bool "Install server components"
 	help
 	  Install server components (named, lwresd)
 
-config BR2_PACKAGE_BIND_TOOLS
+config LINGMO_PACKAGE_BIND_TOOLS
 	bool "Install tools"
 	help
 	  Install tools (dig, host, nslookup, nsupdate)
@@ -45,7 +45,7 @@ config BR2_PACKAGE_BIND_TOOLS
 endif
 
 comment "bind needs a toolchain w/ NPTL, dynamic library, gcc >= 4.9"
-	depends on BR2_USE_MMU
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4
-	depends on !BR2_TOOLCHAIN_HAS_THREADS_NPTL || BR2_STATIC_LIBS \
-		|| !BR2_TOOLCHAIN_GCC_AT_LEAST_4_9
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS_NPTL || LINGMO_STATIC_LIBS \
+		|| !LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9

@@ -19,8 +19,8 @@ class TestPerlMailDKIM(TestPerlBase):
 
     config = TestPerlBase.config + \
         """
-        BR2_PACKAGE_PERL=y
-        BR2_PACKAGE_PERL_MAIL_DKIM=y
+        LINGMO_PACKAGE_PERL=y
+        LINGMO_PACKAGE_PERL_MAIL_DKIM=y
         """
 
     def test_run(self):

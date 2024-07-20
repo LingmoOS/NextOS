@@ -84,25 +84,25 @@ to +make+ or set in the environment:
   configuration interface, so through the Buildroot +.config+ file; this
   is the recommended way of setting it.
   +
-* +BR2_CCACHE_DIR+ to override the directory where
+* +LINGMO_CCACHE_DIR+ to override the directory where
   Buildroot stores the cached files when using ccache.
   +
-* +BR2_DL_DIR+ to override the directory in which
+* +LINGMO_DL_DIR+ to override the directory in which
   Buildroot stores/retrieves downloaded files.
   +
   Note that the Buildroot download directory can also be set from the
   configuration interface, so through the Buildroot +.config+ file. See
   xref:download-location[] for more details on how you can set the download
   directory.
-* +BR2_GRAPH_ALT+, if set and non-empty, to use an alternate color-scheme in
+* +LINGMO_GRAPH_ALT+, if set and non-empty, to use an alternate color-scheme in
   build-time graphs
-* +BR2_GRAPH_OUT+ to set the filetype of generated graphs, either +pdf+ (the
+* +LINGMO_GRAPH_OUT+ to set the filetype of generated graphs, either +pdf+ (the
   default), or +png+.
-* +BR2_GRAPH_DEPS_OPTS+ to pass extra options to the dependency graph; see
+* +LINGMO_GRAPH_DEPS_OPTS+ to pass extra options to the dependency graph; see
   xref:graph-depends[] for the accepted options
-* +BR2_GRAPH_DOT_OPTS+ is passed verbatim as options to the +dot+ utility to
+* +LINGMO_GRAPH_DOT_OPTS+ is passed verbatim as options to the +dot+ utility to
   draw the dependency graph.
-* +BR2_GRAPH_SIZE_OPTS+ to pass extra options to the size graph; see
+* +LINGMO_GRAPH_SIZE_OPTS+ to pass extra options to the size graph; see
   xref:graph-size[] for the acepted options
 
 An example that uses config files located in the toplevel directory and
@@ -222,17 +222,17 @@ system to use this feature. In most distributions, it is available as
 the +graphviz+ package.
 
 By default, the dependency graphs are generated in the PDF
-format. However, by passing the +BR2_GRAPH_OUT+ environment variable, you
+format. However, by passing the +LINGMO_GRAPH_OUT+ environment variable, you
 can switch to other output formats, such as PNG, PostScript or
 SVG. All formats supported by the +-T+ option of the +dot+ tool are
 supported.
 
 --------------------------------
-BR2_GRAPH_OUT=svg make graph-depends
+LINGMO_GRAPH_OUT=svg make graph-depends
 --------------------------------
 
 The +graph-depends+ behaviour can be controlled by setting options in the
-+BR2_GRAPH_DEPS_OPTS+ environment variable. The accepted options are:
++LINGMO_GRAPH_DEPS_OPTS+ environment variable. The accepted options are:
 
 * +--depth N+, +-d N+, to limit the dependency depth to +N+ levels. The
   default, +0+, means no limit.
@@ -254,7 +254,7 @@ The +graph-depends+ behaviour can be controlled by setting options in the
   (+H+). Defaults to: +lightblue,grey,gainsboro+
 
 --------------------------------
-BR2_GRAPH_DEPS_OPTS='-d 3 --no-transitive --colors=red,green,blue' make graph-depends
+LINGMO_GRAPH_DEPS_OPTS='-d 3 --no-transitive --colors=red,green,blue' make graph-depends
 --------------------------------
 
 === Graphing the build duration
@@ -296,11 +296,11 @@ Python version older than 2.7 (+python-argparse+ on most
 distributions).
 
 By default, the output format for the graph is PDF, but a different
-format can be selected using the +BR2_GRAPH_OUT+ environment variable. The
+format can be selected using the +LINGMO_GRAPH_OUT+ environment variable. The
 only other format supported is PNG:
 
 ----------------
-BR2_GRAPH_OUT=png make graph-build
+LINGMO_GRAPH_OUT=png make graph-build
 ----------------
 
 [[graph-size]]
@@ -336,11 +336,11 @@ installed (+python-matplotlib+ on most distributions), and also the
 +argparse+ module if you're using a Python version older than 2.7
 (+python-argparse+ on most distributions).
 
-Just like for the duration graph, a +BR2_GRAPH_OUT+ environment variable
+Just like for the duration graph, a +LINGMO_GRAPH_OUT+ environment variable
 is supported to adjust the output file format. See xref:graph-depends[]
 for details about this environment variable.
 
-Additionally, one may set the environment variable +BR2_GRAPH_SIZE_OPTS+
+Additionally, one may set the environment variable +LINGMO_GRAPH_SIZE_OPTS+
 to further control the generated graph. Accepted options are:
 
 * `--size-limit X`, `-l X`, will group all packages which individual
@@ -381,7 +381,7 @@ Buildroot has always been capable of using parallel build on a per
 package basis: each package is built by Buildroot using +make -jN+ (or
 the equivalent invocation for non-make-based build systems). The level
 of parallelism is by default number of CPUs + 1, but it can be
-adjusted using the +BR2_JLEVEL+ configuration option.
+adjusted using the +LINGMO_JLEVEL+ configuration option.
 
 Until 2020.02, Buildroot was however building packages in a serial
 fashion: each package was built one after the other, without
@@ -393,12 +393,12 @@ however marked as experimental and is known not to work in some cases.
 
 In order to use top-level parallel build, one must:
 
-. Enable the option +BR2_PER_PACKAGE_DIRECTORIES+ in the Buildroot
+. Enable the option +LINGMO_PER_PACKAGE_DIRECTORIES+ in the Buildroot
 configuration
 
 . Use +make -jN+ when starting the Buildroot build
 
-Internally, the +BR2_PER_PACKAGE_DIRECTORIES+ will enable a mechanism
+Internally, the +LINGMO_PER_PACKAGE_DIRECTORIES+ will enable a mechanism
 called *per-package directories*, which will have the following
 effects:
 

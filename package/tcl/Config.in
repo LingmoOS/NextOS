@@ -1,24 +1,24 @@
 comment "tcl needs a toolchain w/ threads, dynamic library"
-	depends on BR2_USE_MMU
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS
 
-config BR2_PACKAGE_TCL
+config LINGMO_PACKAGE_TCL
 	bool "tcl"
 	# fork()
-	depends on BR2_USE_MMU
-	depends on BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
 	# See this mailing list thread:
 	# http://lists.busybox.net/pipermail/buildroot/2015-March/121198.html
-	depends on !BR2_STATIC_LIBS
-	select BR2_PACKAGE_ZLIB
+	depends on !LINGMO_STATIC_LIBS
+	select LINGMO_PACKAGE_ZLIB
 	help
 	  TCL (Tool Command Language) is a simple textual language.
 
 	  http://www.tcl.tk
 
-if BR2_PACKAGE_TCL
+if LINGMO_PACKAGE_TCL
 
-config BR2_PACKAGE_TCL_DEL_ENCODINGS
+config LINGMO_PACKAGE_TCL_DEL_ENCODINGS
 	bool "delete encodings (saves 1.6Mb)"
 	default y
 	help
@@ -28,7 +28,7 @@ config BR2_PACKAGE_TCL_DEL_ENCODINGS
 
 	  It saves approx. 1.6 Mb of space.
 
-config BR2_PACKAGE_TCL_SHLIB_ONLY
+config LINGMO_PACKAGE_TCL_SHLIB_ONLY
 	bool "install only shared library"
 	default y
 	help

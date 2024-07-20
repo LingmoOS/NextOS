@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_PKGCONF
+config LINGMO_PACKAGE_HOST_PKGCONF
 	bool "host pkgconf"
 	help
 	  pkgconf is a program which helps to configure compiler and

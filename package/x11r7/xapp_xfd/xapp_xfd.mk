@@ -18,7 +18,7 @@ XAPP_XFD_DEPENDENCIES = \
 XAPP_XFD_CONF_OPTS = --with-appdefaultdir=/usr/share/X11/app-defaults
 XAPP_XFD_CONF_ENV = LIBS=$(TARGET_NLS_LIBS)
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXKBFILE),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXKBFILE),y)
 XAPP_XFD_CONF_OPTS += --with-xkb
 XAPP_XFD_DEPENDENCIES += xlib_libxkbfile
 else

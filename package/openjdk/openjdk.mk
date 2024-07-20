@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-ifeq ($(BR2_PACKAGE_OPENJDK_VERSION_21),y)
+ifeq ($(LINGMO_PACKAGE_OPENJDK_VERSION_21),y)
 OPENJDK_VERSION_MAJOR = 21
 OPENJDK_VERSION_MINOR = 0.1+12
 else
@@ -41,18 +41,18 @@ OPENJDK_DEPENDENCIES = \
 	zlib
 
 # JVM variants
-ifeq ($(BR2_PACKAGE_OPENJDK_JVM_VARIANT_CLIENT),y)
+ifeq ($(LINGMO_PACKAGE_OPENJDK_JVM_VARIANT_CLIENT),y)
 OPENJDK_JVM_VARIANT = client
 endif
-ifeq ($(BR2_PACKAGE_OPENJDK_JVM_VARIANT_SERVER),y)
+ifeq ($(LINGMO_PACKAGE_OPENJDK_JVM_VARIANT_SERVER),y)
 OPENJDK_JVM_VARIANT = server
 endif
-ifeq ($(BR2_PACKAGE_OPENJDK_JVM_VARIANT_ZERO),y)
+ifeq ($(LINGMO_PACKAGE_OPENJDK_JVM_VARIANT_ZERO),y)
 OPENJDK_JVM_VARIANT = zero
 OPENJDK_DEPENDENCIES += libffi
 endif
 
-ifeq ($(BR2_PACKAGE_OPENJDK_FULL_JDK),y)
+ifeq ($(LINGMO_PACKAGE_OPENJDK_FULL_JDK),y)
 OPENJDK_VARIANT = jdk
 OPENJDK_MAKE_TARGET = jdk-image
 else
@@ -110,14 +110,14 @@ OPENJDK_CONF_OPTS = \
 	--with-version-string="$(OPENJDK_VERSION_MAJOR)"
 
 # If building for AArch64, use the provided CPU port.
-ifeq ($(BR2_aarch64),y)
+ifeq ($(LINGMO_aarch64),y)
 OPENJDK_CONF_OPTS += --with-abi-profile=aarch64
 endif
 
-ifeq ($(BR2_CCACHE),y)
+ifeq ($(LINGMO_CCACHE),y)
 OPENJDK_CONF_OPTS += \
 	--enable-ccache \
-	--with-ccache-dir=$(BR2_CCACHE_DIR)
+	--with-ccache-dir=$(LINGMO_CCACHE_DIR)
 endif
 
 # Autogen and configure are performed in a single step.
@@ -148,7 +148,7 @@ define OPENJDK_INSTALL_STAGING_CMDS
 endef
 
 # Demos and includes are not needed on the target
-ifeq ($(BR2_PACKAGE_OPENJDK_FULL_JDK),y)
+ifeq ($(LINGMO_PACKAGE_OPENJDK_FULL_JDK),y)
 define OPENJDK_REMOVE_UNEEDED_JDK_DIRECTORIES
 	$(RM) -r $(TARGET_DIR)$(OPENJDK_INSTALL_BASE)/include/
 	$(RM) -r $(TARGET_DIR)$(OPENJDK_INSTALL_BASE)/demo/

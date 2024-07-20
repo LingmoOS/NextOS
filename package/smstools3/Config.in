@@ -1,8 +1,8 @@
-config BR2_PACKAGE_SMSTOOLS3
+config LINGMO_PACKAGE_SMSTOOLS3
 	bool "smstools3"
-	depends on BR2_USE_MMU # fork()
-	depends on BR2_USE_WCHAR
-	depends on BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU # fork()
+	depends on LINGMO_USE_WCHAR
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
 	help
 	  The SMS Server Tools 3 is a SMS Gateway software which can
 	  send and receive short messages through GSM modems and
@@ -10,9 +10,9 @@ config BR2_PACKAGE_SMSTOOLS3
 
 	  http://smstools3.kekekasvi.com/
 
-if BR2_PACKAGE_SMSTOOLS3
+if LINGMO_PACKAGE_SMSTOOLS3
 
-config BR2_PACKAGE_SMSTOOLS3_NB_MODEMS
+config LINGMO_PACKAGE_SMSTOOLS3_NB_MODEMS
 	int "Number of modems to support"
 	default 1
 	help
@@ -23,5 +23,5 @@ config BR2_PACKAGE_SMSTOOLS3_NB_MODEMS
 endif
 
 comment "smstools3 needs a toolchain w/ wchar, threads"
-	depends on !BR2_USE_WCHAR || !BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_USE_MMU
+	depends on !LINGMO_USE_WCHAR || !LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU

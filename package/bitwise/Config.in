@@ -1,7 +1,7 @@
-config BR2_PACKAGE_BITWISE
+config LINGMO_PACKAGE_BITWISE
 	bool "bitwise"
-	select BR2_PACKAGE_NCURSES
-	select BR2_PACKAGE_READLINE
+	select LINGMO_PACKAGE_NCURSES
+	select LINGMO_PACKAGE_READLINE
 	help
 	  Bitwise is multi base interactive calculator
 	  supporting dynamic base conversion and bit manipulation.

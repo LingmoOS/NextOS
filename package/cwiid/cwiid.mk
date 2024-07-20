@@ -19,7 +19,7 @@ CWIID_DEPENDENCIES = host-pkgconf host-bison host-flex bluez5_utils
 #   - cwiid Python module
 CWIID_CONF_OPTS = --without-python --disable-ldconfig
 
-ifeq ($(BR2_PACKAGE_CWIID_WMGUI),y)
+ifeq ($(LINGMO_PACKAGE_CWIID_WMGUI),y)
 CWIID_DEPENDENCIES += libgtk2 libglib2
 CWIID_CONF_OPTS += --enable-wmgui
 else

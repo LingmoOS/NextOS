@@ -12,6 +12,6 @@ CURLFTPFS_LICENSE_FILES = COPYING
 CURLFTPFS_DEPENDENCIES = \
 	libglib2 libfuse openssl libcurl \
 	$(TARGET_NLS_DEPENDENCIES) \
-	$(if $(BR2_ENABLE_LOCALE),,libiconv)
+	$(if $(LINGMO_ENABLE_LOCALE),,libiconv)
 
 $(eval $(autotools-package))

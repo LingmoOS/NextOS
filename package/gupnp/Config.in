@@ -1,13 +1,13 @@
-config BR2_PACKAGE_GUPNP
+config LINGMO_PACKAGE_GUPNP
 	bool "gupnp"
-	depends on BR2_USE_WCHAR # glib2, gssdp
-	depends on BR2_TOOLCHAIN_HAS_THREADS # glib2, gssdp
-	depends on BR2_USE_MMU # glib2, gssdp
-	select BR2_PACKAGE_LIBGLIB2
-	select BR2_PACKAGE_GSSDP
-	select BR2_PACKAGE_LIBXML2
-	select BR2_PACKAGE_UTIL_LINUX
-	select BR2_PACKAGE_UTIL_LINUX_LIBUUID
+	depends on LINGMO_USE_WCHAR # glib2, gssdp
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # glib2, gssdp
+	depends on LINGMO_USE_MMU # glib2, gssdp
+	select LINGMO_PACKAGE_LIBGLIB2
+	select LINGMO_PACKAGE_GSSDP
+	select LINGMO_PACKAGE_LIBXML2
+	select LINGMO_PACKAGE_UTIL_LINUX
+	select LINGMO_PACKAGE_UTIL_LINUX_LIBUUID
 	help
 	  GUPnP implements the UPnP specification: resource announcement
 	  and discovery, description, control, event notification, and
@@ -16,5 +16,5 @@ config BR2_PACKAGE_GUPNP
 	  http://www.gupnp.org/
 
 comment "gupnp needs a toolchain w/ wchar, threads"
-	depends on BR2_USE_MMU
-	depends on !BR2_USE_WCHAR || !BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_USE_WCHAR || !LINGMO_TOOLCHAIN_HAS_THREADS

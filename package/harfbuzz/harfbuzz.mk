@@ -44,21 +44,21 @@ HOST_HARFBUZZ_CONF_OPTS = \
 	-Dexperimental_api=false \
 	-Dfuzzer_ldflags=""
 
-ifeq ($(BR2_PACKAGE_CAIRO),y)
+ifeq ($(LINGMO_PACKAGE_CAIRO),y)
 HARFBUZZ_DEPENDENCIES += cairo
 HARFBUZZ_CONF_OPTS += -Dcairo=enabled
 else
 HARFBUZZ_CONF_OPTS += -Dcairo=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_FREETYPE),y)
+ifeq ($(LINGMO_PACKAGE_FREETYPE),y)
 HARFBUZZ_DEPENDENCIES += freetype
 HARFBUZZ_CONF_OPTS += -Dfreetype=enabled
 else
 HARFBUZZ_CONF_OPTS += -Dfreetype=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 HARFBUZZ_DEPENDENCIES += gobject-introspection
 HARFBUZZ_CONF_OPTS += \
 	-Dgobject=enabled \
@@ -69,32 +69,32 @@ HARFBUZZ_CONF_OPTS += \
 	-Dintrospection=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_GRAPHITE2),y)
+ifeq ($(LINGMO_PACKAGE_GRAPHITE2),y)
 HARFBUZZ_DEPENDENCIES += graphite2
 HARFBUZZ_CONF_OPTS += -Dgraphite=enabled
 else
 HARFBUZZ_CONF_OPTS += -Dgraphite=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGLIB2),y)
+ifeq ($(LINGMO_PACKAGE_LIBGLIB2),y)
 HARFBUZZ_DEPENDENCIES += libglib2
 HARFBUZZ_CONF_OPTS += -Dglib=enabled
 else
 HARFBUZZ_CONF_OPTS += -Dglib=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_ICU),y)
+ifeq ($(LINGMO_PACKAGE_ICU),y)
 HARFBUZZ_DEPENDENCIES += icu
 HARFBUZZ_CONF_OPTS += -Dicu=enabled
 else
 HARFBUZZ_CONF_OPTS += -Dicu=disabled
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS),)
 HARFBUZZ_CXXFLAGS += $(TARGET_CXXFLAGS) -DHB_NO_MT
 endif
 
-ifeq ($(BR2_GCC_VERSION_ARC),y)
+ifeq ($(LINGMO_GCC_VERSION_ARC),y)
 HARFBUZZ_CXXFLAGS += -O0
 endif
 

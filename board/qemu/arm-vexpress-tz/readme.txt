@@ -39,7 +39,7 @@ QEMU natively hosts and loads in RAM the QEMU ARM target device tree. OP-TEE
 reads and modifies its content according to OP-TEE configuration.
 
 Enable TF-A traces from LOG_LEVEL (I.e LOG_LEVEL=40) from
-BR2_TARGET_ARM_TRUSTED_FIRMWARE_ADDITIONAL_VARIABLES.
+LINGMO_TARGET_ARM_TRUSTED_FIRMWARE_ADDITIONAL_VARIABLES.
 
 
 -- OP-TEE Traces --
@@ -128,8 +128,8 @@ qemu-system-arm command line option -S.
 Note: To build the GDB server, the following extra options have to be added to
 the Buildroot configuration:
 
-    BR2_ENABLE_DEBUG=y
-    BR2_PACKAGE_GDB=y
-    BR2_PACKAGE_HOST_GDB=y
-    BR2_TOOLCHAIN_BUILDROOT_CXX=y
-    BR2_TOOLCHAIN_BUILDROOT_GLIBC=y
+    LINGMO_ENABLE_DEBUG=y
+    LINGMO_PACKAGE_GDB=y
+    LINGMO_PACKAGE_HOST_GDB=y
+    LINGMO_TOOLCHAIN_BUILDROOT_CXX=y
+    LINGMO_TOOLCHAIN_BUILDROOT_GLIBC=y

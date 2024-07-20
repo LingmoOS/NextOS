@@ -7,11 +7,11 @@ import infra.basetest
 class TestTcl(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         f"""
-        BR2_PACKAGE_TCL=y
-        # BR2_PACKAGE_TCL_SHLIB_ONLY is not set
-        BR2_ROOTFS_OVERLAY="{infra.filepath("tests/package/test_tcl/rootfs-overlay")}"
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_TCL=y
+        # LINGMO_PACKAGE_TCL_SHLIB_ONLY is not set
+        LINGMO_ROOTFS_OVERLAY="{infra.filepath("tests/package/test_tcl/rootfs-overlay")}"
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):

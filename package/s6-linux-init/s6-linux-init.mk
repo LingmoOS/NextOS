@@ -18,7 +18,7 @@ S6_LINUX_INIT_CONF_OPTS = \
 	--with-lib=$(STAGING_DIR)/lib/execline \
 	--with-lib=$(STAGING_DIR)/lib/s6 \
 	--with-lib=$(STAGING_DIR)/lib/skalibs \
-	$(if $(BR2_STATIC_LIBS),,--disable-allstatic) \
+	$(if $(LINGMO_STATIC_LIBS),,--disable-allstatic) \
 	$(SHARED_STATIC_LIBS_OPTS)
 
 define S6_LINUX_INIT_CONFIGURE_CMDS

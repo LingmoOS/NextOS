@@ -1,9 +1,9 @@
-config BR2_PACKAGE_X265
+config LINGMO_PACKAGE_X265
 	bool "x265"
-	depends on BR2_INSTALL_LIBSTDCPP
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on !BR2_STATIC_LIBS # dlfcn
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4
+	depends on LINGMO_INSTALL_LIBSTDCPP
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_STATIC_LIBS # dlfcn
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4
 	help
 	  x265 is an open source free software and library for
 	  encoding video using the High Efficiency Video Coding
@@ -13,9 +13,9 @@ config BR2_PACKAGE_X265
 
 	  https://bitbucket.org/multicoreware/x265_git/wiki/Home
 
-if BR2_PACKAGE_X265
+if LINGMO_PACKAGE_X265
 
-config BR2_PACKAGE_X265_CLI
+config LINGMO_PACKAGE_X265_CLI
 	bool "CLI"
 	help
 	  Command-line tool to encode video streams into the
@@ -24,6 +24,6 @@ config BR2_PACKAGE_X265_CLI
 endif
 
 comment "x265 needs a toolchain w/ C++, threads, dynamic library"
-	depends on !BR2_INSTALL_LIBSTDCPP || BR2_STATIC_LIBS || \
-		!BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4
+	depends on !LINGMO_INSTALL_LIBSTDCPP || LINGMO_STATIC_LIBS || \
+		!LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4

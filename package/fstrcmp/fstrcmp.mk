@@ -17,7 +17,7 @@ FSTRCMP_MAKE_OPTS = all-bin libdir/pkgconfig/fstrcmp.pc
 
 # fstrcmp does not carry and use the usual ltmain.sh wrappers, so it does not
 # inherit from our libtool patches to make -static behave like -all-static.
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 FSTRCMP_MAKE_OPTS += LDFLAGS="$(TARGET_LDFLAGS) -all-static"
 endif
 

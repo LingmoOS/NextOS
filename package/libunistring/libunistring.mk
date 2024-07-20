@@ -5,7 +5,7 @@
 ################################################################################
 
 LIBUNISTRING_VERSION = 1.1
-LIBUNISTRING_SITE = $(BR2_GNU_MIRROR)/libunistring
+LIBUNISTRING_SITE = $(LINGMO_GNU_MIRROR)/libunistring
 LIBUNISTRING_SOURCE = libunistring-$(LIBUNISTRING_VERSION).tar.xz
 LIBUNISTRING_INSTALL_STAGING = YES
 LIBUNISTRING_LICENSE = LGPL-3.0+ or GPL-2.0

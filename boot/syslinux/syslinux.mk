@@ -6,7 +6,7 @@
 
 SYSLINUX_VERSION = 6.03
 SYSLINUX_SOURCE = syslinux-$(SYSLINUX_VERSION).tar.xz
-SYSLINUX_SITE = $(BR2_KERNEL_MIRROR)/linux/utils/boot/syslinux
+SYSLINUX_SITE = $(LINGMO_KERNEL_MIRROR)/linux/utils/boot/syslinux
 
 SYSLINUX_LICENSE = GPL-2.0+
 SYSLINUX_LICENSE_FILES = COPYING
@@ -21,7 +21,7 @@ SYSLINUX_DEPENDENCIES = \
 	host-util-linux \
 	util-linux
 
-ifeq ($(BR2_TARGET_SYSLINUX_LEGACY_BIOS),y)
+ifeq ($(LINGMO_TARGET_SYSLINUX_LEGACY_BIOS),y)
 SYSLINUX_TARGET += bios
 endif
 
@@ -29,8 +29,8 @@ endif
 # package by setting EFIINC, LIBDIR and LIBEFI. Otherwise, it uses its
 # own copy of gnu-efi included in syslinux's sources since 6.03
 # release.
-ifeq ($(BR2_TARGET_SYSLINUX_EFI),y)
-ifeq ($(BR2_ARCH_IS_64),y)
+ifeq ($(LINGMO_TARGET_SYSLINUX_EFI),y)
+ifeq ($(LINGMO_ARCH_IS_64),y)
 SYSLINUX_EFI_BITS = efi64
 else
 SYSLINUX_EFI_BITS = efi32
@@ -92,12 +92,12 @@ define SYSLINUX_POST_INSTALL_CLEANUP
 endef
 SYSLINUX_POST_INSTALL_TARGET_HOOKS += SYSLINUX_POST_INSTALL_CLEANUP
 
-SYSLINUX_IMAGES-$(BR2_TARGET_SYSLINUX_ISOLINUX) += bios/core/isolinux.bin
-SYSLINUX_IMAGES-$(BR2_TARGET_SYSLINUX_PXELINUX) += bios/core/pxelinux.bin
-SYSLINUX_IMAGES-$(BR2_TARGET_SYSLINUX_MBR) += bios/mbr/mbr.bin
-SYSLINUX_IMAGES-$(BR2_TARGET_SYSLINUX_EFI) += $(SYSLINUX_EFI_BITS)/efi/syslinux.efi
+SYSLINUX_IMAGES-$(LINGMO_TARGET_SYSLINUX_ISOLINUX) += bios/core/isolinux.bin
+SYSLINUX_IMAGES-$(LINGMO_TARGET_SYSLINUX_PXELINUX) += bios/core/pxelinux.bin
+SYSLINUX_IMAGES-$(LINGMO_TARGET_SYSLINUX_MBR) += bios/mbr/mbr.bin
+SYSLINUX_IMAGES-$(LINGMO_TARGET_SYSLINUX_EFI) += $(SYSLINUX_EFI_BITS)/efi/syslinux.efi
 
-SYSLINUX_C32 = $(call qstrip,$(BR2_TARGET_SYSLINUX_C32))
+SYSLINUX_C32 = $(call qstrip,$(LINGMO_TARGET_SYSLINUX_C32))
 
 # We install the c32 modules from the host-installed tree, where they
 # are all neatly installed in a single location, while they are

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_MPD2
+config LINGMO_PACKAGE_PYTHON_MPD2
 	bool "python-mpd2"
 	help
 	  A Python MPD client library.

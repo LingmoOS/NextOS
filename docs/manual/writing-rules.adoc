@@ -24,10 +24,10 @@ Buildroot.
 An entry has the following pattern:
 
 ---------------------
-config BR2_PACKAGE_LIBFOO
+config LINGMO_PACKAGE_LIBFOO
 	bool "libfoo"
-	depends on BR2_PACKAGE_LIBBAZ
-	select BR2_PACKAGE_LIBBAR
+	depends on LINGMO_PACKAGE_LIBBAZ
+	select LINGMO_PACKAGE_LIBBAR
 	help
 	  This is a comment that explains what libfoo is. The help text
 	  should be wrapped.
@@ -93,7 +93,7 @@ so _make_ recognizes them as commands.
 YES:
 +
 ---------------------
-ifeq ($(BR2_PACKAGE_PYTHON3),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3),y)
 LIBFOO_CONF_OPTS += --with-python-support
 LIBFOO_DEPENDENCIES += python3
 else
@@ -104,8 +104,8 @@ endif
 NO:
 +
 ---------------------
-LIBFOO_CONF_OPTS += --with$(if $(BR2_PACKAGE_PYTHON3),,out)-python-support
-LIBFOO_DEPENDENCIES += $(if $(BR2_PACKAGE_PYTHON3),python3,)
+LIBFOO_CONF_OPTS += --with$(if $(LINGMO_PACKAGE_PYTHON3),,out)-python-support
+LIBFOO_DEPENDENCIES += $(if $(LINGMO_PACKAGE_PYTHON3),python3,)
 ---------------------
 
 ** Keep configure options and dependencies close together.
@@ -116,7 +116,7 @@ LIBFOO_DEPENDENCIES += $(if $(BR2_PACKAGE_PYTHON3),python3,)
 YES:
 +
 ---------------------
-ifneq ($(BR2_LIBFOO_INSTALL_DATA),y)
+ifneq ($(LINGMO_LIBFOO_INSTALL_DATA),y)
 define LIBFOO_REMOVE_DATA
 	$(RM) -r $(TARGET_DIR)/usr/share/libfoo/data
 endef
@@ -131,7 +131,7 @@ define LIBFOO_REMOVE_DATA
 	$(RM) -r $(TARGET_DIR)/usr/share/libfoo/data
 endef
 
-ifneq ($(BR2_LIBFOO_INSTALL_DATA),y)
+ifneq ($(LINGMO_LIBFOO_INSTALL_DATA),y)
 LIBFOO_POST_INSTALL_TARGET_HOOKS += LIBFOO_REMOVE_DATA
 endif
 ---------------------

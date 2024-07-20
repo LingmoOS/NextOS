@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_ATTRS
+config LINGMO_PACKAGE_PYTHON_ATTRS
 	bool "python-attrs"
 	help
 	  attrs is the Python package that will bring back the joy of

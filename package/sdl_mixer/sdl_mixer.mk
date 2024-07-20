@@ -28,7 +28,7 @@ SDL_MIXER_CONF_OPTS = \
 	--disable-music-mp3 \
 	--disable-music-flac # configure script fails when cross compiling
 
-ifeq ($(BR2_PACKAGE_FLUIDSYNTH),y)
+ifeq ($(LINGMO_PACKAGE_FLUIDSYNTH),y)
 SDL_MIXER_DEPENDENCIES += fluidsynth
 SDL_MIXER_CONF_OPTS += \
 	--enable-music-midi \
@@ -36,7 +36,7 @@ SDL_MIXER_CONF_OPTS += \
 SDL_MIXER_HAS_MIDI = YES
 endif
 
-ifeq ($(BR2_PACKAGE_SDL_MIXER_MIDI_TIMIDITY),y)
+ifeq ($(LINGMO_PACKAGE_SDL_MIXER_MIDI_TIMIDITY),y)
 SDL_MIXER_CONF_OPTS += \
 	--enable-music-midi \
 	--enable-music-timidity-midi
@@ -47,24 +47,24 @@ ifneq ($(SDL_MIXER_HAS_MIDI),YES)
 SDL_MIXER_CONF_OPTS += --disable-music-midi
 endif
 
-ifeq ($(BR2_PACKAGE_LIBMAD),y)
+ifeq ($(LINGMO_PACKAGE_LIBMAD),y)
 SDL_MIXER_CONF_OPTS += --enable-music-mp3-mad-gpl
 SDL_MIXER_DEPENDENCIES += libmad
 else
 SDL_MIXER_CONF_OPTS += --disable-music-mp3-mad-gpl
 endif
 
-ifeq ($(BR2_PACKAGE_LIBMODPLUG),y)
+ifeq ($(LINGMO_PACKAGE_LIBMODPLUG),y)
 SDL_MIXER_CONF_OPTS += --enable-music-mod-modplug
 SDL_MIXER_DEPENDENCIES += host-pkgconf libmodplug
 else
 SDL_MIXER_CONF_OPTS += --disable-music-mod-modplug
 endif
 
-ifeq ($(BR2_PACKAGE_TREMOR),y)
+ifeq ($(LINGMO_PACKAGE_TREMOR),y)
 SDL_MIXER_CONF_OPTS += --enable-music-ogg-tremor
 SDL_MIXER_DEPENDENCIES += tremor
-else ifeq ($(BR2_PACKAGE_LIBVORBIS),y)
+else ifeq ($(LINGMO_PACKAGE_LIBVORBIS),y)
 SDL_MIXER_CONF_OPTS += --enable-music-ogg
 SDL_MIXER_DEPENDENCIES += libvorbis
 else

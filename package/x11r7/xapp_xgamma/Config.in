@@ -1,5 +1,5 @@
-config BR2_PACKAGE_XAPP_XGAMMA
+config LINGMO_PACKAGE_XAPP_XGAMMA
 	bool "xgamma"
-	select BR2_PACKAGE_XLIB_LIBXXF86VM
+	select LINGMO_PACKAGE_XLIB_LIBXXF86VM
 	help
 	  Alter a monitor's gamma correction through the X server

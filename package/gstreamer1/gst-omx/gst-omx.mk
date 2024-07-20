@@ -17,7 +17,7 @@ GST_OMX_CONF_OPTS = \
 	-Dtools=disabled \
 	-Ddoc=disabled
 
-ifeq ($(BR2_PACKAGE_RPI_USERLAND),y)
+ifeq ($(LINGMO_PACKAGE_RPI_USERLAND),y)
 GST_OMX_VARIANT = rpi
 GST_OMX_CONF_OPTS += -Dheader_path=$(STAGING_DIR)/usr/include/IL
 else

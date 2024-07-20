@@ -1,13 +1,13 @@
-config BR2_PACKAGE_HOST_TI_CGT_PRU_ARCH_SUPPORTS
+config LINGMO_PACKAGE_HOST_TI_CGT_PRU_ARCH_SUPPORTS
 	bool
 	default y
-	depends on BR2_HOSTARCH = "x86_64" || BR2_HOSTARCH = "x86"
-	depends on BR2_arm
+	depends on LINGMO_HOSTARCH = "x86_64" || LINGMO_HOSTARCH = "x86"
+	depends on LINGMO_arm
 
-config BR2_PACKAGE_HOST_TI_CGT_PRU
+config LINGMO_PACKAGE_HOST_TI_CGT_PRU
 	bool "host ti-cgt-pru"
-	depends on BR2_PACKAGE_HOST_TI_CGT_PRU_ARCH_SUPPORTS
-	select BR2_HOSTARCH_NEEDS_IA32_LIBS
+	depends on LINGMO_PACKAGE_HOST_TI_CGT_PRU_ARCH_SUPPORTS
+	select LINGMO_HOSTARCH_NEEDS_IA32_LIBS
 	help
 	  This package provides the Code Generation Tools for the PRU
 	  unit found on some TI processors e.g. AM3358.

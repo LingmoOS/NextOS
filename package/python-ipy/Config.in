@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_IPY
+config LINGMO_PACKAGE_PYTHON_IPY
 	bool "python-ipy"
 	help
 	  IPy - class and tools for handling of IPv4 and

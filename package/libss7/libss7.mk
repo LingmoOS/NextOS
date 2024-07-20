@@ -15,14 +15,14 @@ LIBSS7_INSTALL_STAGING = YES
 
 # The Makefile default rule will always try to generate both libraries.
 # So we need to explicitly build only what we can.
-ifneq ($(BR2_SHARED_LIBS),y)
+ifneq ($(LINGMO_SHARED_LIBS),y)
 LIBSS7_LIBS = libss7.a
 define LIBSS7_INSTALL_A
 	$(INSTALL) -D -m 0644 $(@D)/libss7.a $(1)/usr/lib/libss7.a
 endef
 endif
 
-ifneq ($(BR2_STATIC_LIBS),y)
+ifneq ($(LINGMO_STATIC_LIBS),y)
 LIBSS7_LIBS += libss7.so.2.0
 define LIBSS7_INSTALL_SO
 	$(INSTALL) -D -m 0644 $(@D)/libss7.so.2.0 $(1)/usr/lib/libss7.so.2.0

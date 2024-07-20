@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PYSENDFILE
+config LINGMO_PACKAGE_PYTHON_PYSENDFILE
 	bool "python-pysendfile"
 	help
 	  A Python interface to sendfile(2) syscall

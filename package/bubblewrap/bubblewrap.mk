@@ -20,7 +20,7 @@ BUBBLEWRAP_CONF_OPTS = \
 	-Drequire_userns=false \
 	-Dtests=false
 
-ifeq ($(BR2_PACKAGE_BASH_COMPLETION),y)
+ifeq ($(LINGMO_PACKAGE_BASH_COMPLETION),y)
 BUBBLEWRAP_CONF_OPTS += \
 	-Dbash_completion=enabled \
 	-Dbash_completion_dir=/usr/share/bash-completion/completions
@@ -28,7 +28,7 @@ else
 BUBBLEWRAP_CONF_OPTS += -Dbash_completion=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSELINUX),y)
+ifeq ($(LINGMO_PACKAGE_LIBSELINUX),y)
 BUBBLEWRAP_CONF_OPTS += -Dselinux=enabled
 BUBBLEWRAP_DEPENDENCIES += libselinux
 else

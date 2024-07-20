@@ -17,7 +17,7 @@ RPCBIND_CONF_ENV += \
 RPCBIND_DEPENDENCIES += libtirpc host-pkgconf
 RPCBIND_CONF_OPTS += --with-rpcuser=root
 
-ifeq ($(BR2_INIT_SYSTEMD),y)
+ifeq ($(LINGMO_INIT_SYSTEMD),y)
 RPCBIND_CONF_OPTS += --enable-warmstarts \
 	--with-systemdsystemunitdir=/usr/lib/systemd/system
 RPCBIND_DEPENDENCIES += systemd

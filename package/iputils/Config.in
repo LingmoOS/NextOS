@@ -1,6 +1,6 @@
-config BR2_PACKAGE_IPUTILS
+config LINGMO_PACKAGE_IPUTILS
 	bool "iputils"
-	depends on BR2_USE_MMU # fork()
+	depends on LINGMO_USE_MMU # fork()
 	help
 	  This package is set of small useful utilities for Linux
 	  networking. It includes complete versions of ping, arping,
@@ -8,33 +8,33 @@ config BR2_PACKAGE_IPUTILS
 
 	  https://github.com/iputils/iputils
 
-if BR2_PACKAGE_IPUTILS
+if LINGMO_PACKAGE_IPUTILS
 
-config BR2_PACKAGE_IPUTILS_ARPING
+config LINGMO_PACKAGE_IPUTILS_ARPING
 	bool "arping"
 	default y
 	help
 	  Installs arping.
 
-config BR2_PACKAGE_IPUTILS_CLOCKDIFF
+config LINGMO_PACKAGE_IPUTILS_CLOCKDIFF
 	bool "clockdiff"
 	default y
 	help
 	  Installs clockdiff.
 
-config BR2_PACKAGE_IPUTILS_PING
+config LINGMO_PACKAGE_IPUTILS_PING
 	bool "ping"
 	default y
 	help
 	  Installs ping.
 
-config BR2_PACKAGE_IPUTILS_TRACEPATH
+config LINGMO_PACKAGE_IPUTILS_TRACEPATH
 	bool "tracepath"
 	default y
 	help
 	  Installs tracepath.
 
 comment "ninfod needs a toolchain w/ threads"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS
 
 endif

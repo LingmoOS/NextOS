@@ -10,11 +10,11 @@ there are a few other ways to customize the resulting target filesystem.
 The two recommended methods, which can co-exist, are root filesystem
 overlay(s) and post build script(s).
 
-Root filesystem overlays (+BR2_ROOTFS_OVERLAY+)::
+Root filesystem overlays (+LINGMO_ROOTFS_OVERLAY+)::
 +
 A filesystem overlay is a tree of files that is copied directly
   over the target filesystem after it has been built. To enable this
-  feature, set config option +BR2_ROOTFS_OVERLAY+ (in the +System
+  feature, set config option +LINGMO_ROOTFS_OVERLAY+ (in the +System
   configuration+ menu) to the root of the overlay. You can even specify
   multiple overlays, space-separated. If you specify a relative path,
   it will be relative to the root of the Buildroot tree. Hidden
@@ -22,7 +22,7 @@ A filesystem overlay is a tree of files that is copied directly
   etc., files called +.empty+ and files ending in +~+ are excluded from
   the copy.
 +
-When +BR2_ROOTFS_MERGED_USR+ is enabled, then the overlay must not
+When +LINGMO_ROOTFS_MERGED_USR+ is enabled, then the overlay must not
   contain the '/bin', '/lib' or '/sbin' directories, as Buildroot will
   create them as symbolic links to the relevant folders in '/usr'.  In
   such a situation, should the overlay have any programs or libraries,
@@ -31,12 +31,12 @@ When +BR2_ROOTFS_MERGED_USR+ is enabled, then the overlay must not
 As shown in xref:customize-dir-structure[], the recommended path for
   this overlay is +board/<company>/<boardname>/rootfs-overlay+.
 
-Post-build scripts (+BR2_ROOTFS_POST_BUILD_SCRIPT+)::
+Post-build scripts (+LINGMO_ROOTFS_POST_BUILD_SCRIPT+)::
 +
 Post-build scripts are shell scripts called 'after' Buildroot builds
   all the selected software, but 'before' the rootfs images are
   assembled. To enable this feature, specify a space-separated list of
-  post-build scripts in config option +BR2_ROOTFS_POST_BUILD_SCRIPT+ (in
+  post-build scripts in config option +LINGMO_ROOTFS_POST_BUILD_SCRIPT+ (in
   the +System configuration+ menu). If you specify a relative path, it
   will be relative to the root of the Buildroot tree.
 +
@@ -52,14 +52,14 @@ As shown in xref:customize-dir-structure[], the recommended path for
 The post-build scripts are run with the main Buildroot tree as current
   working directory. The path to the target filesystem is passed as the
   first argument to each script. If the config option
-  +BR2_ROOTFS_POST_SCRIPT_ARGS+ is not empty, these arguments will be
+  +LINGMO_ROOTFS_POST_SCRIPT_ARGS+ is not empty, these arguments will be
   passed to the script too. All the scripts will be passed the exact
   same set of arguments, it is not possible to pass different sets of
   arguments to each script.
 +
 In addition, you may also use these environment variables:
 
-  - +BR2_CONFIG+: the path to the Buildroot .config file
+  - +LINGMO_CONFIG+: the path to the Buildroot .config file
   - +CONFIG_DIR+: the directory containing the .config file, and
     therefore the top-level Buildroot Makefile to use (which is
     correct for both in-tree and out-of-tree builds)
@@ -89,7 +89,7 @@ This method allows you to do anything to the target filesystem, but if
   that they will persist after a +make clean+, using a root filesystem
   overlay or a post-build script.
 
-Custom target skeleton (+BR2_ROOTFS_SKELETON_CUSTOM+)::
+Custom target skeleton (+LINGMO_ROOTFS_SKELETON_CUSTOM+)::
 +
 The root filesystem image is created from a target skeleton, on top of
   which all packages install their files. The skeleton is copied to the
@@ -104,14 +104,14 @@ If the default skeleton (available under +system/skeleton+) does not
   more suitable.
 +
 To enable this feature, enable config option
-  +BR2_ROOTFS_SKELETON_CUSTOM+ and set +BR2_ROOTFS_SKELETON_CUSTOM_PATH+
+  +LINGMO_ROOTFS_SKELETON_CUSTOM+ and set +LINGMO_ROOTFS_SKELETON_CUSTOM_PATH+
   to the path of your custom skeleton. Both options are available in the
   +System configuration+ menu. If you specify a relative path, it will
   be relative to the root of the Buildroot tree.
 +
 Custom skeletons don't need to contain the '/bin', '/lib' or '/sbin'
   directories, since they are created automatically during the build.
-  When +BR2_ROOTFS_MERGED_USR+ is enabled, then the custom skeleton must
+  When +LINGMO_ROOTFS_MERGED_USR+ is enabled, then the custom skeleton must
   not contain the '/bin', '/lib' or '/sbin' directories, as Buildroot
   will create them as symbolic links to the relevant folders in '/usr'.
   In such a situation, should the skeleton have any programs or
@@ -122,7 +122,7 @@ This method is not recommended because it duplicates the entire
   skeleton, which prevents taking advantage of the fixes or improvements
   brought to the default skeleton in later Buildroot releases.
 
-Post-fakeroot scripts (+BR2_ROOTFS_POST_FAKEROOT_SCRIPT+)::
+Post-fakeroot scripts (+LINGMO_ROOTFS_POST_FAKEROOT_SCRIPT+)::
 +
 When aggregating the final images, some parts of the process requires
   root rights: creating device nodes in `/dev`, setting permissions or

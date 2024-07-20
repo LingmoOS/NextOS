@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_REQUEST_ID
+config LINGMO_PACKAGE_PYTHON_REQUEST_ID
 	bool "python-request-id"
-	select BR2_PACKAGE_PYTHON_WEBOB # runtime
+	select LINGMO_PACKAGE_PYTHON_WEBOB # runtime
 	help
 	  Attach a unique identifier to every WSGI request.
 

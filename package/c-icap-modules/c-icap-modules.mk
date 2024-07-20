@@ -15,7 +15,7 @@ C_ICAP_MODULES_CONF_OPTS = \
 	--with-c-icap=$(STAGING_DIR)/usr/ \
 	--without-clamav
 
-ifeq ($(BR2_PACKAGE_BERKELEYDB),y)
+ifeq ($(LINGMO_PACKAGE_BERKELEYDB),y)
 C_ICAP_MODULES_CONF_OPTS += --with-bdb
 C_ICAP_MODULES_DEPENDENCIES += berkeleydb
 else

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_IFMETRIC
+config LINGMO_PACKAGE_IFMETRIC
 	bool "ifmetric"
 	help
 	  Ifmetric is a Linux tool for setting the metrics of all IPv4

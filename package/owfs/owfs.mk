@@ -21,7 +21,7 @@ OWFS_CONF_OPTS += --disable-owphp --without-php
 # Skip man pages processing
 OWFS_CONF_ENV += ac_cv_path_SOELIM=true
 
-ifeq ($(BR2_PACKAGE_LIBFUSE),y)
+ifeq ($(LINGMO_PACKAGE_LIBFUSE),y)
 OWFS_DEPENDENCIES += libfuse
 OWFS_CONF_OPTS += \
 	--enable-owfs \
@@ -39,12 +39,12 @@ else
 OWFS_CONF_OPTS += --disable-owfs
 endif
 
-ifeq ($(BR2_PACKAGE_LIBFTDI1),y)
+ifeq ($(LINGMO_PACKAGE_LIBFTDI1),y)
 OWFS_CONF_OPTS += \
 	--enable-ftdi \
 	--with-libftdi-config=$(STAGING_DIR)/usr/bin/libftdi1-config
 OWFS_DEPENDENCIES += libftdi1
-else ifeq ($(BR2_PACKAGE_LIBFTDI),y)
+else ifeq ($(LINGMO_PACKAGE_LIBFTDI),y)
 OWFS_CONF_OPTS += \
 	--enable-ftdi \
 	--with-libftdi-config=$(STAGING_DIR)/usr/bin/libftdi-config
@@ -53,14 +53,14 @@ else
 OWFS_CONF_OPTS += --disable-ftdi
 endif
 
-ifeq ($(BR2_PACKAGE_LIBUSB),y)
+ifeq ($(LINGMO_PACKAGE_LIBUSB),y)
 OWFS_CONF_OPTS += --enable-usb
 OWFS_DEPENDENCIES += libusb
 else
 OWFS_CONF_OPTS += --disable-usb
 endif
 
-ifeq ($(BR2_PACKAGE_AVAHI),y)
+ifeq ($(LINGMO_PACKAGE_AVAHI),y)
 OWFS_CONF_OPTS += --enable-avahi
 OWFS_DEPENDENCIES += avahi
 else
@@ -70,7 +70,7 @@ endif
 # python2 only (https://github.com/owfs/owfs/pull/32)
 OWFS_CONF_OPTS += --disable-owpython --without-python
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 # zeroconf support uses dlopen()
 OWFS_CONF_OPTS += --disable-zero
 endif

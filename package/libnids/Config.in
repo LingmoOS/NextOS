@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBNIDS
+config LINGMO_PACKAGE_LIBNIDS
 	bool "libnids"
-	select BR2_PACKAGE_LIBPCAP
+	select LINGMO_PACKAGE_LIBPCAP
 	help
 	  Libnids is an implementation of an E-component of Network
 	  Intrusion Detection System.

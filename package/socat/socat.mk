@@ -13,13 +13,13 @@ SOCAT_CPE_ID_VENDOR = dest-unreach
 
 SOCAT_CONF_ENV = ac_cv_have_c99_snprintf=yes
 
-ifeq ($(BR2_TOOLCHAIN_USES_GLIBC)$(BR2_TOOLCHAIN_USES_UCLIBC),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_GLIBC)$(LINGMO_TOOLCHAIN_USES_UCLIBC),y)
 SOCAT_CONF_ENV += ac_cv_have_z_modifier=yes
 else
 SOCAT_CONF_ENV += ac_cv_have_z_modifier=no
 endif
 
-ifeq ($(BR2_powerpc)$(BR2_powerpc64)$(BR2_powerpc64le),y)
+ifeq ($(LINGMO_powerpc)$(LINGMO_powerpc64)$(LINGMO_powerpc64le),y)
 SOCAT_CONF_ENV += \
 	sc_cv_sys_crdly_shift=12 \
 	sc_cv_sys_tabdly_shift=10 \
@@ -39,7 +39,7 @@ SOCAT_DEPENDENCIES = host-autoconf
 # incompatibile license (GPL-3.0+)
 SOCAT_CONF_OPTS = --disable-readline
 
-ifeq ($(BR2_PACKAGE_LIBOPENSSL):$(BR2_STATIC_LIBS),y:)
+ifeq ($(LINGMO_PACKAGE_LIBOPENSSL):$(LINGMO_STATIC_LIBS),y:)
 SOCAT_DEPENDENCIES += openssl
 else
 SOCAT_CONF_OPTS += --disable-openssl

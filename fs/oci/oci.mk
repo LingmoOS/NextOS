@@ -27,53 +27,53 @@ OCI_SLOCI_IMAGE_OPTS += $(and $(GO_GOARM),--arch-variant v$(GO_GOARM))
 # where each item is single-quoted and prefixed with the appropriate
 # option string:
 OCI_SLOCI_IMAGE_OPTS += \
-	$(shell eval printf -- "--entrypoint\ \'%s\'\ " $(BR2_TARGET_ROOTFS_OCI_ENTRYPOINT)) \
-	$(shell eval printf -- "--cmd\ \'%s\'\ " $(BR2_TARGET_ROOTFS_OCI_CMD))
+	$(shell eval printf -- "--entrypoint\ \'%s\'\ " $(LINGMO_TARGET_ROOTFS_OCI_ENTRYPOINT)) \
+	$(shell eval printf -- "--cmd\ \'%s\'\ " $(LINGMO_TARGET_ROOTFS_OCI_CMD))
 
 # author
-OCI_AUTHOR = $(call qstrip,$(BR2_TARGET_ROOTFS_OCI_AUTHOR))
+OCI_AUTHOR = $(call qstrip,$(LINGMO_TARGET_ROOTFS_OCI_AUTHOR))
 ifneq ($(OCI_AUTHOR),)
 OCI_SLOCI_IMAGE_OPTS += --author "$(OCI_AUTHOR)"
 endif
 
 # username or UID
-OCI_UID = $(call qstrip,$(BR2_TARGET_ROOTFS_OCI_UID))
+OCI_UID = $(call qstrip,$(LINGMO_TARGET_ROOTFS_OCI_UID))
 ifneq ($(OCI_UID),)
 OCI_SLOCI_IMAGE_OPTS += --user "$(OCI_UID)"
 endif
 
 # labels
-OCI_LABELS = $(call qstrip,$(BR2_TARGET_ROOTFS_OCI_LABELS))
+OCI_LABELS = $(call qstrip,$(LINGMO_TARGET_ROOTFS_OCI_LABELS))
 ifneq ($(OCI_LABELS),)
 OCI_SLOCI_IMAGE_OPTS += \
 	$(foreach label,$(OCI_LABELS),--label "$(label)")
 endif
 
 # environment variables
-OCI_ENV_VARS = $(call qstrip,$(BR2_TARGET_ROOTFS_OCI_ENV_VARS))
+OCI_ENV_VARS = $(call qstrip,$(LINGMO_TARGET_ROOTFS_OCI_ENV_VARS))
 ifneq ($(OCI_ENV_VARS),)
 OCI_SLOCI_IMAGE_OPTS += \
 	$(foreach var,$(OCI_ENV_VARS),--env "$(var)")
 endif
 
 # working directory
-OCI_WORKDIR = $(call qstrip,$(BR2_TARGET_ROOTFS_OCI_WORKDIR))
+OCI_WORKDIR = $(call qstrip,$(LINGMO_TARGET_ROOTFS_OCI_WORKDIR))
 ifneq ($(OCI_WORKDIR),)
 OCI_SLOCI_IMAGE_OPTS += --working-dir "$(OCI_WORKDIR)"
 endif
 
 # ports
-OCI_PORTS = $(call qstrip,$(BR2_TARGET_ROOTFS_OCI_PORTS))
+OCI_PORTS = $(call qstrip,$(LINGMO_TARGET_ROOTFS_OCI_PORTS))
 ifneq ($(OCI_PORTS),)
 OCI_SLOCI_IMAGE_OPTS += \
 	$(foreach port,$(OCI_PORTS),--port "$(port)")
 endif
 
 # tag
-OCI_TAG = $(or $(call qstrip,$(BR2_TARGET_ROOTFS_OCI_TAG)),latest)
+OCI_TAG = $(or $(call qstrip,$(LINGMO_TARGET_ROOTFS_OCI_TAG)),latest)
 
 # enable tar archive
-ifeq ($(BR2_TARGET_ROOTFS_OCI_ARCHIVE),y)
+ifeq ($(LINGMO_TARGET_ROOTFS_OCI_ARCHIVE),y)
 OCI_SLOCI_IMAGE_OPTS += --tar
 endif
 

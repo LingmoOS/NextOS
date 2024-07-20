@@ -35,8 +35,8 @@ class TestCompressorBase(infra.basetest.BRTest):
     __test__ = False
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     compress_cmd = "compressor-unknown"
     decompress_cmd = None

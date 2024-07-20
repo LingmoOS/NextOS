@@ -6,15 +6,15 @@ HOSTMAKE = $(MAKE)
 endif
 HOSTMAKE := $(shell which $(HOSTMAKE) || type -p $(HOSTMAKE) || echo make)
 
-# If BR2_JLEVEL is 0, scale the maximum concurrency with the number of
+# If LINGMO_JLEVEL is 0, scale the maximum concurrency with the number of
 # CPUs. An additional job is used in order to keep processors busy
 # while waiting on I/O.
 # If the number of processors is not available, assume one.
-ifeq ($(BR2_JLEVEL),0)
+ifeq ($(LINGMO_JLEVEL),0)
 PARALLEL_JOBS := $(shell echo \
 	$$((1 + `getconf _NPROCESSORS_ONLN 2>/dev/null || echo 1`)))
 else
-PARALLEL_JOBS := $(BR2_JLEVEL)
+PARALLEL_JOBS := $(LINGMO_JLEVEL)
 endif
 
 # Only build one job at a time, *and* to not randomise goals and
@@ -23,18 +23,18 @@ MAKE1 := $(HOSTMAKE) -j1 $(if $(findstring --shuffle,$(MAKEFLAGS)),--shuffle=non
 override MAKE = $(HOSTMAKE) \
 	$(if $(findstring j,$(filter-out --%,$(MAKEFLAGS))),,-j$(PARALLEL_JOBS))
 
-ifeq ($(BR2_TOOLCHAIN_BUILDROOT),y)
-TARGET_VENDOR = $(call qstrip,$(BR2_TOOLCHAIN_BUILDROOT_VENDOR))
+ifeq ($(LINGMO_TOOLCHAIN_BUILDROOT),y)
+TARGET_VENDOR = $(call qstrip,$(LINGMO_TOOLCHAIN_BUILDROOT_VENDOR))
 else
 TARGET_VENDOR = buildroot
 endif
 
 # Sanity checks
 ifeq ($(TARGET_VENDOR),)
-$(error BR2_TOOLCHAIN_BUILDROOT_VENDOR is not allowed to be empty)
+$(error LINGMO_TOOLCHAIN_BUILDROOT_VENDOR is not allowed to be empty)
 endif
 ifeq ($(TARGET_VENDOR),unknown)
-$(error BR2_TOOLCHAIN_BUILDROOT_VENDOR cannot be 'unknown'. \
+$(error LINGMO_TOOLCHAIN_BUILDROOT_VENDOR cannot be 'unknown'. \
 	It might be confused with the native toolchain)
 endif
 
@@ -43,17 +43,17 @@ GNU_TARGET_NAME = $(ARCH)-$(TARGET_VENDOR)-$(TARGET_OS)-$(LIBC)$(ABI)
 
 # FLAT binary format needs uclinux, except RISC-V 64-bits which needs
 # the regular linux name.
-ifeq ($(BR2_BINFMT_FLAT):$(BR2_RISCV_64),y:)
+ifeq ($(LINGMO_BINFMT_FLAT):$(LINGMO_RISCV_64),y:)
 TARGET_OS = uclinux
 else
 TARGET_OS = linux
 endif
 
-ifeq ($(BR2_TOOLCHAIN_USES_UCLIBC),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_UCLIBC),y)
 LIBC = uclibc
-else ifeq ($(BR2_TOOLCHAIN_USES_MUSL),y)
+else ifeq ($(LINGMO_TOOLCHAIN_USES_MUSL),y)
 LIBC = musl
-else ifeq ($(BR2_TOOLCHAIN_USES_GLIBC),y)
+else ifeq ($(LINGMO_TOOLCHAIN_USES_GLIBC),y)
 LIBC = gnu
 else ifeq ($(BR_BUILDING),y)
 # This happens if there is a bug in Buildroot that allows an
@@ -65,29 +65,29 @@ endif
 # -uclibcgnueabi for uClibc EABI, and -gnueabi for glibc EABI.
 # This means that the LIBC and ABI aren't strictly orthogonal,
 # which explains why we need the test on LIBC below.
-ifeq ($(BR2_arm)$(BR2_armeb),y)
+ifeq ($(LINGMO_arm)$(LINGMO_armeb),y)
 ifeq ($(LIBC),uclibc)
 ABI = gnueabi
 else
 ABI = eabi
 endif
 
-ifeq ($(BR2_ARM_EABIHF),y)
+ifeq ($(LINGMO_ARM_EABIHF),y)
 ABI := $(ABI)hf
 endif
 endif
 
 # For FSL PowerPC there's SPE
-ifeq ($(BR2_POWERPC_CPU_HAS_SPE),y)
+ifeq ($(LINGMO_POWERPC_CPU_HAS_SPE),y)
 ABI = spe
 # MPC8540s are e500v1 with single precision FP
-ifeq ($(BR2_powerpc_8540),y)
+ifeq ($(LINGMO_powerpc_8540),y)
 TARGET_ABI += -mabi=spe -mfloat-gprs=single -Wa,-me500
 endif
-ifeq ($(BR2_powerpc_8548),y)
+ifeq ($(LINGMO_powerpc_8548),y)
 TARGET_ABI += -mabi=spe -mfloat-gprs=double -Wa,-me500x2
 endif
-ifeq ($(BR2_powerpc_e500mc),y)
+ifeq ($(LINGMO_powerpc_e500mc),y)
 TARGET_ABI += -mabi=spe -mfloat-gprs=double -Wa,-me500mc
 endif
 endif
@@ -106,48 +106,48 @@ endif
 # separate section breaks build of huge source files, because l32r
 # instruction can only access literals in 256 KBytes range.
 #
-ifeq ($(BR2_xtensa),y)
+ifeq ($(LINGMO_xtensa),y)
 TARGET_ABI += -mlongcalls -mauto-litpools
 endif
 
 STAGING_SUBDIR = $(GNU_TARGET_NAME)/sysroot
 STAGING_DIR    = $(HOST_DIR)/$(STAGING_SUBDIR)
 
-ifeq ($(BR2_OPTIMIZE_0),y)
+ifeq ($(LINGMO_OPTIMIZE_0),y)
 TARGET_OPTIMIZATION = -O0
 endif
-ifeq ($(BR2_OPTIMIZE_1),y)
+ifeq ($(LINGMO_OPTIMIZE_1),y)
 TARGET_OPTIMIZATION = -O1
 endif
-ifeq ($(BR2_OPTIMIZE_2),y)
+ifeq ($(LINGMO_OPTIMIZE_2),y)
 TARGET_OPTIMIZATION = -O2
 endif
-ifeq ($(BR2_OPTIMIZE_3),y)
+ifeq ($(LINGMO_OPTIMIZE_3),y)
 TARGET_OPTIMIZATION = -O3
 endif
-ifeq ($(BR2_OPTIMIZE_G),y)
+ifeq ($(LINGMO_OPTIMIZE_G),y)
 TARGET_OPTIMIZATION = -Og
 endif
-ifeq ($(BR2_OPTIMIZE_S),y)
+ifeq ($(LINGMO_OPTIMIZE_S),y)
 TARGET_OPTIMIZATION = -Os
 endif
-ifeq ($(BR2_OPTIMIZE_FAST),y)
+ifeq ($(LINGMO_OPTIMIZE_FAST),y)
 TARGET_OPTIMIZATION = -Ofast
 endif
-ifeq ($(BR2_ENABLE_DEBUG),)
+ifeq ($(LINGMO_ENABLE_DEBUG),)
 TARGET_DEBUGGING = -g0
 endif
-ifeq ($(BR2_DEBUG_1),y)
+ifeq ($(LINGMO_DEBUG_1),y)
 TARGET_DEBUGGING = -g1
 endif
-ifeq ($(BR2_DEBUG_2),y)
+ifeq ($(LINGMO_DEBUG_2),y)
 TARGET_DEBUGGING = -g2
 endif
-ifeq ($(BR2_DEBUG_3),y)
+ifeq ($(LINGMO_DEBUG_3),y)
 TARGET_DEBUGGING = -g3
 endif
 
-TARGET_LDFLAGS = $(call qstrip,$(BR2_TARGET_LDFLAGS))
+TARGET_LDFLAGS = $(call qstrip,$(LINGMO_TARGET_LDFLAGS))
 
 # By design, _FORTIFY_SOURCE requires gcc optimization to be enabled.
 # Therefore, we need to pass _FORTIFY_SOURCE and the optimization level
@@ -158,16 +158,16 @@ TARGET_LDFLAGS = $(call qstrip,$(BR2_TARGET_LDFLAGS))
 # are enforced: this would cause _FORTIFY_SOURCE to be used without any
 # optimization level, leading to a build / configure failure. So we keep
 # passing _FORTIFY_SOURCE and the optimization level both through CFLAGS.
-ifeq ($(BR2_FORTIFY_SOURCE_1),y)
+ifeq ($(LINGMO_FORTIFY_SOURCE_1),y)
 TARGET_HARDENED += -D_FORTIFY_SOURCE=1
-else ifeq ($(BR2_FORTIFY_SOURCE_2),y)
+else ifeq ($(LINGMO_FORTIFY_SOURCE_2),y)
 TARGET_HARDENED += -D_FORTIFY_SOURCE=2
-else ifeq ($(BR2_FORTIFY_SOURCE_3),y)
+else ifeq ($(LINGMO_FORTIFY_SOURCE_3),y)
 TARGET_HARDENED += -D_FORTIFY_SOURCE=3
 endif
 
 TARGET_CPPFLAGS += -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
-ifeq ($(BR2_TIME_BITS_64),y)
+ifeq ($(LINGMO_TIME_BITS_64),y)
 TARGET_CPPFLAGS += -D_TIME_BITS=64
 endif
 TARGET_CFLAGS = $(TARGET_CPPFLAGS) $(TARGET_ABI) $(TARGET_OPTIMIZATION) $(TARGET_DEBUGGING) $(TARGET_HARDENED)
@@ -175,16 +175,16 @@ TARGET_CXXFLAGS = $(TARGET_CFLAGS)
 TARGET_FCFLAGS = $(TARGET_ABI) $(TARGET_OPTIMIZATION) $(TARGET_DEBUGGING)
 
 # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=79509
-ifeq ($(BR2_m68k_cf),y)
+ifeq ($(LINGMO_m68k_cf),y)
 TARGET_CFLAGS += -fno-dwarf2-cfi-asm
 TARGET_CXXFLAGS += -fno-dwarf2-cfi-asm
 endif
 
-ifeq ($(BR2_BINFMT_FLAT),y)
-ifeq ($(BR2_RISCV_64),y)
+ifeq ($(LINGMO_BINFMT_FLAT),y)
+ifeq ($(LINGMO_RISCV_64),y)
 TARGET_CFLAGS += -fPIC
 endif
-ifeq ($(BR2_BINFMT_FLAT_ONE),y)
+ifeq ($(LINGMO_BINFMT_FLAT_ONE),y)
 ELF2FLT_FLAGS = $(if $($(PKG)_FLAT_STACKSIZE),\
 	-Wl$(comma)-elf2flt="-r -s$($(PKG)_FLAT_STACKSIZE)",\
         -Wl$(comma)-elf2flt=-r)
@@ -199,14 +199,14 @@ TARGET_FCFLAGS += $(ELF2FLT_FLAGS)
 TARGET_LDFLAGS += $(ELF2FLT_FLAGS)
 endif
 
-ifeq ($(BR2_BINFMT_FLAT_SHARED),y)
+ifeq ($(LINGMO_BINFMT_FLAT_SHARED),y)
 TARGET_LDFLAGS += -mid-shared-library -mshared-library-id=0
 TARGET_CFLAGS += -mid-shared-library -mshared-library-id=0
 TARGET_FCFLAGS += -mid-shared-library -mshared-library-id=0
 TARGET_CXXFLAGS += -mid-shared-library -mshared-library-id=0
 endif
 
-ifeq ($(BR2_TOOLCHAIN_BUILDROOT),y)
+ifeq ($(LINGMO_TOOLCHAIN_BUILDROOT),y)
 TARGET_CROSS = $(HOST_DIR)/bin/$(GNU_TARGET_NAME)-
 else
 TARGET_CROSS = $(HOST_DIR)/bin/$(TOOLCHAIN_EXTERNAL_PREFIX)-
@@ -215,7 +215,7 @@ endif
 # gcc-4.7 and later ships with wrappers that will automatically pass
 # arguments to the binutils tools. Those are paths to necessary linker
 # plugins.
-ifeq ($(BR2_TOOLCHAIN_GCC_AT_LEAST_4_7),y)
+ifeq ($(LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_7),y)
 TARGET_GCC_WRAPPERS_PREFIX = gcc-
 endif
 
@@ -233,7 +233,7 @@ TARGET_READELF  = $(TARGET_CROSS)readelf
 TARGET_OBJCOPY  = $(TARGET_CROSS)objcopy
 TARGET_OBJDUMP  = $(TARGET_CROSS)objdump
 
-ifeq ($(BR2_STRIP_strip),y)
+ifeq ($(LINGMO_STRIP_strip),y)
 STRIP_STRIP_DEBUG := --strip-debug
 TARGET_STRIP = $(TARGET_CROSS)strip
 STRIPCMD = $(TARGET_CROSS)strip --remove-section=.comment --remove-section=.note
@@ -341,7 +341,7 @@ HOST_CONFIGURE_OPTS = \
 # post-images)
 EXTRA_ENV = \
 	PATH=$(BR_PATH) \
-	BR2_DL_DIR=$(BR2_DL_DIR) \
+	LINGMO_DL_DIR=$(LINGMO_DL_DIR) \
 	BUILD_DIR=$(BUILD_DIR) \
 	CONFIG_DIR=$(CONFIG_DIR) \
 	O=$(CANONICAL_O)
@@ -350,24 +350,24 @@ EXTRA_ENV = \
 # settings we need to pass to configure
 
 # does unaligned access trap?
-BR2_AC_CV_TRAP_CHECK = ac_cv_lbl_unaligned_fail=yes
-ifeq ($(BR2_i386),y)
-BR2_AC_CV_TRAP_CHECK = ac_cv_lbl_unaligned_fail=no
+LINGMO_AC_CV_TRAP_CHECK = ac_cv_lbl_unaligned_fail=yes
+ifeq ($(LINGMO_i386),y)
+LINGMO_AC_CV_TRAP_CHECK = ac_cv_lbl_unaligned_fail=no
 endif
-ifeq ($(BR2_x86_64),y)
-BR2_AC_CV_TRAP_CHECK = ac_cv_lbl_unaligned_fail=no
+ifeq ($(LINGMO_x86_64),y)
+LINGMO_AC_CV_TRAP_CHECK = ac_cv_lbl_unaligned_fail=no
 endif
-ifeq ($(BR2_m68k),y)
-BR2_AC_CV_TRAP_CHECK = ac_cv_lbl_unaligned_fail=no
+ifeq ($(LINGMO_m68k),y)
+LINGMO_AC_CV_TRAP_CHECK = ac_cv_lbl_unaligned_fail=no
 endif
-ifeq ($(BR2_powerpc)$(BR2_powerpc64)$(BR2_powerpc64le),y)
-BR2_AC_CV_TRAP_CHECK = ac_cv_lbl_unaligned_fail=no
+ifeq ($(LINGMO_powerpc)$(LINGMO_powerpc64)$(LINGMO_powerpc64le),y)
+LINGMO_AC_CV_TRAP_CHECK = ac_cv_lbl_unaligned_fail=no
 endif
 
-ifeq ($(BR2_ENDIAN),"BIG")
-BR2_AC_CV_C_BIGENDIAN = ac_cv_c_bigendian=yes
+ifeq ($(LINGMO_ENDIAN),"BIG")
+LINGMO_AC_CV_C_BIGENDIAN = ac_cv_c_bigendian=yes
 else
-BR2_AC_CV_C_BIGENDIAN = ac_cv_c_bigendian=no
+LINGMO_AC_CV_C_BIGENDIAN = ac_cv_c_bigendian=no
 endif
 
 # AM_GNU_GETTEXT misdetects musl gettext support.
@@ -378,14 +378,14 @@ endif
 # gettext implementation of musl is used. When the full blown
 # implementation provided by gettext libintl is used, auto-detection
 # works fine, and pre-seeding those values is actually wrong.
-ifeq ($(BR2_TOOLCHAIN_USES_MUSL):$(BR2_PACKAGE_GETTEXT_PROVIDES_LIBINTL),y:)
-BR2_GT_CV_FUNC_GNUGETTEXT_LIBC = \
+ifeq ($(LINGMO_TOOLCHAIN_USES_MUSL):$(LINGMO_PACKAGE_GETTEXT_PROVIDES_LIBINTL),y:)
+LINGMO_GT_CV_FUNC_GNUGETTEXT_LIBC = \
 	gt_cv_func_gnugettext1_libc=yes \
 	gt_cv_func_gnugettext2_libc=yes
 endif
 
 TARGET_CONFIGURE_ARGS = \
-	$(BR2_AC_CV_TRAP_CHECK) \
+	$(LINGMO_AC_CV_TRAP_CHECK) \
 	ac_cv_func_mmap_fixed_mapped=yes \
 	ac_cv_func_memcmp_working=yes \
 	ac_cv_have_decl_malloc=yes \
@@ -394,15 +394,15 @@ TARGET_CONFIGURE_ARGS = \
 	ac_cv_func_calloc_0_nonnull=yes \
 	ac_cv_func_realloc_0_nonnull=yes \
 	lt_cv_sys_lib_search_path_spec="" \
-	$(BR2_AC_CV_C_BIGENDIAN) \
-	$(BR2_GT_CV_FUNC_GNUGETTEXT_LIBC)
+	$(LINGMO_AC_CV_C_BIGENDIAN) \
+	$(LINGMO_GT_CV_FUNC_GNUGETTEXT_LIBC)
 
 ################################################################################
 
-ifeq ($(BR2_SYSTEM_ENABLE_NLS),y)
+ifeq ($(LINGMO_SYSTEM_ENABLE_NLS),y)
 NLS_OPTS = --enable-nls
 TARGET_NLS_DEPENDENCIES = host-gettext
-ifeq ($(BR2_PACKAGE_GETTEXT_PROVIDES_LIBINTL),y)
+ifeq ($(LINGMO_PACKAGE_GETTEXT_PROVIDES_LIBINTL),y)
 TARGET_NLS_DEPENDENCIES += gettext
 TARGET_NLS_LIBS += -lintl
 endif
@@ -418,19 +418,19 @@ endif
 # invalid C++ compiler, and thus will cause detection of C++ to fail (which is
 # expected and what we want), while at the same time taming libtool into
 # silence.
-ifneq ($(BR2_INSTALL_LIBSTDCPP),y)
+ifneq ($(LINGMO_INSTALL_LIBSTDCPP),y)
 TARGET_CONFIGURE_OPTS += CXX=no
 endif
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 SHARED_STATIC_LIBS_OPTS = --enable-static --disable-shared
 TARGET_CFLAGS += -static
 TARGET_CXXFLAGS += -static
 TARGET_FCFLAGS += -static
 TARGET_LDFLAGS += -static
-else ifeq ($(BR2_SHARED_LIBS),y)
+else ifeq ($(LINGMO_SHARED_LIBS),y)
 SHARED_STATIC_LIBS_OPTS = --disable-static --enable-shared
-else ifeq ($(BR2_SHARED_STATIC_LIBS),y)
+else ifeq ($(LINGMO_SHARED_STATIC_LIBS),y)
 SHARED_STATIC_LIBS_OPTS = --enable-static --enable-shared
 endif
 

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBMHASH
+config LINGMO_PACKAGE_LIBMHASH
 	bool "libmhash"
 	help
 	  Mhash is a free (under GNU Lesser GPL) library which provides

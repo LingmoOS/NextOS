@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_LOCKFILE
+config LINGMO_PACKAGE_PYTHON_LOCKFILE
 	bool "python-lockfile"
 	help
 	  The lockfile package exports a LockFile class which provides a

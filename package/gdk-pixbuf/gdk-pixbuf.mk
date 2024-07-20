@@ -14,7 +14,7 @@ GDK_PIXBUF_CPE_ID_VENDOR = gnome
 GDK_PIXBUF_INSTALL_STAGING = YES
 GDK_PIXBUF_DEPENDENCIES = \
 	host-gdk-pixbuf host-libglib2 host-pkgconf \
-	libglib2 $(if $(BR2_ENABLE_LOCALE),,libiconv)
+	libglib2 $(if $(LINGMO_ENABLE_LOCALE),,libiconv)
 HOST_GDK_PIXBUF_DEPENDENCIES = host-libpng host-pkgconf host-libglib2
 
 GDK_PIXBUF_CONF_OPTS = \
@@ -31,25 +31,25 @@ HOST_GDK_PIXBUF_CONF_OPTS = \
 	-Drelocatable=true \
 	-Dman=false
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 GDK_PIXBUF_CONF_OPTS += -Dbuiltin_loaders=all
 endif
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 GDK_PIXBUF_CONF_OPTS += -Dintrospection=enabled
 GDK_PIXBUF_DEPENDENCIES += gobject-introspection
 else
 GDK_PIXBUF_CONF_OPTS += -Dintrospection=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBPNG),y)
+ifeq ($(LINGMO_PACKAGE_LIBPNG),y)
 GDK_PIXBUF_CONF_OPTS += -Dpng=enabled
 GDK_PIXBUF_DEPENDENCIES += libpng
 else
 GDK_PIXBUF_CONF_OPTS += -Dpng=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_JPEG),y)
+ifeq ($(LINGMO_PACKAGE_JPEG),y)
 GDK_PIXBUF_CONF_OPTS += -Djpeg=enabled
 HOST_GDK_PIXBUF_CONF_OPTS += -Djpeg=enabled
 GDK_PIXBUF_DEPENDENCIES += jpeg
@@ -59,7 +59,7 @@ GDK_PIXBUF_CONF_OPTS += -Djpeg=disabled
 HOST_GDK_PIXBUF_CONF_OPTS += -Djpeg=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_TIFF),y)
+ifeq ($(LINGMO_PACKAGE_TIFF),y)
 GDK_PIXBUF_CONF_OPTS += -Dtiff=enabled
 HOST_GDK_PIXBUF_CONF_OPTS += -Dtiff=enabled
 GDK_PIXBUF_DEPENDENCIES += tiff
@@ -74,7 +74,7 @@ endif
 # here after building and installing to target.
 # And since the cache file will contain relative host directory names we
 # need to prepend them with /usr/.
-ifeq ($(BR2_STATIC_LIBS),)
+ifeq ($(LINGMO_STATIC_LIBS),)
 define GDK_PIXBUF_UPDATE_CACHE
 	GDK_PIXBUF_MODULEDIR=$(HOST_DIR)/lib/gdk-pixbuf-2.0/2.10.0/loaders \
 		$(HOST_DIR)/bin/gdk-pixbuf-query-loaders \

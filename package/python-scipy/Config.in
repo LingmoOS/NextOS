@@ -1,18 +1,18 @@
-config BR2_PACKAGE_PYTHON_SCIPY
+config LINGMO_PACKAGE_PYTHON_SCIPY
 	bool "python-scipy"
-	depends on BR2_PACKAGE_PYTHON_NUMPY_ARCH_SUPPORTS # python-numpy
-	depends on BR2_PACKAGE_LAPACK_ARCH_SUPPORTS # lapack
-	depends on BR2_PACKAGE_OPENBLAS_ARCH_SUPPORTS # openblas
-	depends on BR2_TOOLCHAIN_USES_GLIBC || BR2_TOOLCHAIN_USES_MUSL # python-numpy
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_9 # python-numpy
-	depends on BR2_HOST_GCC_AT_LEAST_9 # host-python-numpy
-	depends on BR2_TOOLCHAIN_HAS_FORTRAN # lapack
-	depends on BR2_INSTALL_LIBSTDCPP
-	select BR2_PACKAGE_LAPACK
-	select BR2_PACKAGE_OPENBLAS
-	select BR2_PACKAGE_PYTHON3_ZLIB # runtime scipy::io
-	select BR2_PACKAGE_PYTHON_NUMPY # runtime
-	select BR2_PACKAGE_PYTHON_PYBIND
+	depends on LINGMO_PACKAGE_PYTHON_NUMPY_ARCH_SUPPORTS # python-numpy
+	depends on LINGMO_PACKAGE_LAPACK_ARCH_SUPPORTS # lapack
+	depends on LINGMO_PACKAGE_OPENBLAS_ARCH_SUPPORTS # openblas
+	depends on LINGMO_TOOLCHAIN_USES_GLIBC || LINGMO_TOOLCHAIN_USES_MUSL # python-numpy
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_9 # python-numpy
+	depends on LINGMO_HOST_GCC_AT_LEAST_9 # host-python-numpy
+	depends on LINGMO_TOOLCHAIN_HAS_FORTRAN # lapack
+	depends on LINGMO_INSTALL_LIBSTDCPP
+	select LINGMO_PACKAGE_LAPACK
+	select LINGMO_PACKAGE_OPENBLAS
+	select LINGMO_PACKAGE_PYTHON3_ZLIB # runtime scipy::io
+	select LINGMO_PACKAGE_PYTHON_NUMPY # runtime
+	select LINGMO_PACKAGE_PYTHON_PYBIND
 	help
 	  The SciPy library is one of the core packages that make up the
 	  SciPy stack. It provides many user-friendly and efficient
@@ -22,10 +22,10 @@ config BR2_PACKAGE_PYTHON_SCIPY
 	  https://www.scipy.org/scipylib/
 
 comment "python-scipy needs glibc or musl toolchain w/ fortran, c++, gcc >= 9, host gcc >= 9"
-	depends on BR2_PACKAGE_PYTHON_NUMPY_ARCH_SUPPORTS
-	depends on BR2_PACKAGE_LAPACK_ARCH_SUPPORTS
-	depends on BR2_PACKAGE_OPENBLAS_ARCH_SUPPORTS
-	depends on !BR2_TOOLCHAIN_HAS_FORTRAN || \
-		!BR2_INSTALL_LIBSTDCPP || !BR2_HOST_GCC_AT_LEAST_9 || \
-		!BR2_TOOLCHAIN_GCC_AT_LEAST_9 || \
-		(!BR2_TOOLCHAIN_USES_GLIBC && !BR2_TOOLCHAIN_USES_MUSL)
+	depends on LINGMO_PACKAGE_PYTHON_NUMPY_ARCH_SUPPORTS
+	depends on LINGMO_PACKAGE_LAPACK_ARCH_SUPPORTS
+	depends on LINGMO_PACKAGE_OPENBLAS_ARCH_SUPPORTS
+	depends on !LINGMO_TOOLCHAIN_HAS_FORTRAN || \
+		!LINGMO_INSTALL_LIBSTDCPP || !LINGMO_HOST_GCC_AT_LEAST_9 || \
+		!LINGMO_TOOLCHAIN_GCC_AT_LEAST_9 || \
+		(!LINGMO_TOOLCHAIN_USES_GLIBC && !LINGMO_TOOLCHAIN_USES_MUSL)

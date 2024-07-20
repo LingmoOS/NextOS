@@ -6,15 +6,15 @@ class TestPythonPy3Gobject(TestPythonPackageBase):
     __test__ = True
     config = \
         """
-        BR2_arm=y
-        BR2_ARM_ENABLE_VFP=y
-        BR2_cortex_a9=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_PACKAGE_GOBJECT_INTROSPECTION=y
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_PYTHON_GOBJECT=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_ARM_ENABLE_VFP=y
+        LINGMO_cortex_a9=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_PACKAGE_GOBJECT_INTROSPECTION=y
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON_GOBJECT=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def login(self):

@@ -1,5 +1,5 @@
-config BR2_PACKAGE_XAPP_RGB
+config LINGMO_PACKAGE_XAPP_RGB
 	bool "rgb"
-	select BR2_PACKAGE_XORGPROTO
+	select LINGMO_PACKAGE_XORGPROTO
 	help
 	  uncompile an rgb color-name database

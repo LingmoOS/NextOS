@@ -22,11 +22,11 @@ SNORT_CONF_OPTS = \
 	--with-libpcap-includes=$(STAGING_DIR)/usr/include/pcap \
 	--disable-static-daq
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_85180),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_85180),y)
 SNORT_CFLAGS += -O0
 endif
 
-ifeq ($(BR2_PACKAGE_LIBTIRPC),y)
+ifeq ($(LINGMO_PACKAGE_LIBTIRPC),y)
 SNORT_DEPENDENCIES += libtirpc
 SNORT_CFLAGS += `$(PKG_CONFIG_HOST_BINARY) --cflags libtirpc`
 SNORT_LIBS += `$(PKG_CONFIG_HOST_BINARY) --libs libtirpc`
@@ -34,7 +34,7 @@ endif
 
 # luajit and openssl should be enabled to build with
 # OpenAppID support
-ifeq ($(BR2_PACKAGE_LUAJIT)$(BR2_PACKAGE_OPENSSL),yy)
+ifeq ($(LINGMO_PACKAGE_LUAJIT)$(LINGMO_PACKAGE_OPENSSL),yy)
 SNORT_DEPENDENCIES += luajit openssl
 SNORT_CONF_OPTS += --enable-open-appid
 else

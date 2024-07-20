@@ -1,6 +1,6 @@
-config BR2_PACKAGE_HOST_SDBUSPLUS
+config LINGMO_PACKAGE_HOST_SDBUSPLUS
 	bool "host-sdbusplus"
-	select BR2_PACKAGE_HOST_PKGCONF
+	select LINGMO_PACKAGE_HOST_PKGCONF
 	help
 	  A C++ library for sd-bus with a bindings and doc generator.
 

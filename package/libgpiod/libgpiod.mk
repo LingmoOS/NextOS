@@ -18,19 +18,19 @@ LIBGPIOD_AUTORECONF = YES
 LIBGPIOD_AUTORECONF_OPTS = --include=$(HOST_DIR)/share/autoconf-archive
 LIBGPIOD_CONF_OPTS = --disable-tests --disable-examples
 
-ifeq ($(BR2_PACKAGE_LIBGPIOD_TOOLS),y)
+ifeq ($(LINGMO_PACKAGE_LIBGPIOD_TOOLS),y)
 LIBGPIOD_CONF_OPTS += --enable-tools
 else
 LIBGPIOD_CONF_OPTS += --disable-tools
 endif
 
-ifeq ($(BR2_INSTALL_LIBSTDCPP),y)
+ifeq ($(LINGMO_INSTALL_LIBSTDCPP),y)
 LIBGPIOD_CONF_OPTS += --enable-bindings-cxx
 else
 LIBGPIOD_CONF_OPTS += --disable-bindings-cxx
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON3),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3),y)
 LIBGPIOD_CONF_OPTS += --enable-bindings-python
 LIBGPIOD_DEPENDENCIES += python3
 LIBGPIOD_CONF_ENV += \

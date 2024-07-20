@@ -384,7 +384,7 @@ comment "Graphic libraries"
 comment "Other GUIs"
 	source "package/qt5/Config.in"
 	source "package/qt6/Config.in"
-if BR2_PACKAGE_QT5 || BR2_PACKAGE_QT6
+if LINGMO_PACKAGE_QT5 || LINGMO_PACKAGE_QT6
 comment "QT libraries and helper libraries"
 	source "package/cutelyst/Config.in"
 	source "package/grantlee/Config.in"
@@ -400,7 +400,7 @@ endif
 	source "package/x11r7/Config.in"
 
 comment "X applications"
-	depends on BR2_PACKAGE_XORG7
+	depends on LINGMO_PACKAGE_XORG7
 
 	source "package/alsamixergui/Config.in"
 	source "package/apitrace/Config.in"
@@ -425,13 +425,13 @@ comment "X applications"
 	source "package/yad/Config.in"
 
 comment "X libraries and helper libraries"
-	depends on BR2_PACKAGE_XORG7
+	depends on LINGMO_PACKAGE_XORG7
 
 	source "package/libsexy/Config.in"
 	source "package/x11r7/xkeyboard-config/Config.in"
 
 comment "X window managers"
-	depends on BR2_PACKAGE_XORG7
+	depends on LINGMO_PACKAGE_XORG7
 
 	source "package/enlightenment/Config.in"
 	source "package/fluxbox/Config.in"
@@ -662,7 +662,7 @@ menu "Interpreter languages and scripting"
 	source "package/4th/Config.in"
 	source "package/enscript/Config.in"
 	source "package/erlang/Config.in"
-if BR2_PACKAGE_ERLANG
+if LINGMO_PACKAGE_ERLANG
 menu "Erlang libraries/modules"
 	source "package/erlang-base64url/Config.in"
 	source "package/erlang-eimp/Config.in"
@@ -698,7 +698,7 @@ endif
 	source "package/lua/Config.in"
 	source "package/luainterpreter/Config.in"
 	source "package/luajit/Config.in"
-if BR2_PACKAGE_HAS_LUAINTERPRETER && !BR2_STATIC_LIBS
+if LINGMO_PACKAGE_HAS_LUAINTERPRETER && !LINGMO_STATIC_LIBS
 # lua modules are dynamically loaded, so not available on static builds
 menu "Lua libraries/modules"
 # When adding lua packages, make sure the name start with "lua". If the
@@ -799,7 +799,7 @@ endif
 	source "package/micropython/Config.in"
 	source "package/moarvm/Config.in"
 	source "package/mono/Config.in"
-if BR2_PACKAGE_MONO
+if LINGMO_PACKAGE_MONO
 menu "Mono libraries/modules"
 	source "package/mono-gtksharp3/Config.in"
 endmenu
@@ -808,7 +808,7 @@ endif
 	source "package/octave/Config.in"
 	source "package/openjdk/Config.in"
 	source "package/perl/Config.in"
-if BR2_PACKAGE_PERL
+if LINGMO_PACKAGE_PERL
 menu "Perl libraries/modules"
 	source "package/perl-apache-logformat-compiler/Config.in"
 	source "package/perl-appconfig/Config.in"
@@ -929,8 +929,8 @@ menu "Perl libraries/modules"
 endmenu
 endif
 	source "package/php/Config.in"
-if BR2_PACKAGE_PHP
-if !BR2_STATIC_LIBS
+if LINGMO_PACKAGE_PHP
+if !LINGMO_STATIC_LIBS
 menu "External php extensions"
 	source "package/php-amqp/Config.in"
 	source "package/php-apcu/Config.in"
@@ -947,12 +947,12 @@ menu "External php extensions"
 	source "package/php-zmq/Config.in"
 endmenu
 endif
-if BR2_STATIC_LIBS
+if LINGMO_STATIC_LIBS
 comment "External PHP extensions need a toolchain w/ dynamic library"
 endif
 endif
 	source "package/python3/Config.in"
-if BR2_PACKAGE_PYTHON3
+if LINGMO_PACKAGE_PYTHON3
 menu "External python modules"
 	source "package/python-aenum/Config.in"
 	source "package/python-aexpect/Config.in"
@@ -1443,7 +1443,7 @@ endif
 	source "package/quickjs/Config.in"
 	source "package/ruby/Config.in"
 	source "package/tcl/Config.in"
-if BR2_PACKAGE_TCL
+if LINGMO_PACKAGE_TCL
 menu "Tcl libraries/modules"
 	source "package/expect/Config.in"
 	source "package/tcllib/Config.in"
@@ -1590,7 +1590,7 @@ menu "Database"
 	source "package/mariadb/Config.in"
 	source "package/mongodb/Config.in"
 	source "package/postgresql/Config.in"
-if BR2_PACKAGE_POSTGRESQL
+if LINGMO_PACKAGE_POSTGRESQL
 	source "package/osm2pgsql/Config.in"
 	source "package/postgis/Config.in"
 endif
@@ -1793,7 +1793,7 @@ endmenu
 
 menu "Javascript"
 	source "package/angularjs/Config.in"
-if BR2_PACKAGE_ANGULARJS
+if LINGMO_PACKAGE_ANGULARJS
 menu "External AngularJS plugins"
 	source "package/angular-websocket/Config.in"
 endmenu
@@ -1809,7 +1809,7 @@ endif
 	source "package/flot/Config.in"
 	source "package/forge/Config.in"
 	source "package/jquery/Config.in"
-if BR2_PACKAGE_JQUERY
+if LINGMO_PACKAGE_JQUERY
 menu "External jQuery plugins"
 	source "package/jquery-datetimepicker/Config.in"
 	source "package/jquery-keyboard/Config.in"
@@ -1828,7 +1828,7 @@ endif
 	source "package/popperjs/Config.in"
 	source "package/vis-network/Config.in"
 	source "package/vuejs/Config.in"
-if BR2_PACKAGE_VUEJS
+if LINGMO_PACKAGE_VUEJS
 comment "External Vue.js plugins"
 	source "package/vuejs-router/Config.in"
 endif
@@ -2195,7 +2195,7 @@ menu "Other"
 	source "package/libuv/Config.in"
 	source "package/lightning/Config.in"
 	source "package/linux-pam/Config.in"
-if BR2_PACKAGE_LINUX_PAM
+if LINGMO_PACKAGE_LINUX_PAM
 comment "linux-pam plugins"
 	source "package/libpam-nfc/Config.in"
 	source "package/libpam-radius-auth/Config.in"
@@ -2332,7 +2332,7 @@ menu "Networking applications"
 	source "package/alfred/Config.in"
 	source "package/aoetools/Config.in"
 	source "package/apache/Config.in"
-if BR2_PACKAGE_APACHE
+if LINGMO_PACKAGE_APACHE
 menu "External Apache modules"
 	source "package/modsecurity2/Config.in"
 endmenu
@@ -2488,7 +2488,7 @@ endif
 	source "package/nfacct/Config.in"
 	source "package/nftables/Config.in"
 	source "package/nginx/Config.in"
-if BR2_PACKAGE_NGINX
+if LINGMO_PACKAGE_NGINX
 menu "External nginx modules"
 	source "package/nginx-dav-ext/Config.in"
 	source "package/nginx-modsecurity/Config.in"

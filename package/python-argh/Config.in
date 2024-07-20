@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_ARGH
+config LINGMO_PACKAGE_PYTHON_ARGH
 	bool "python-argh"
 	help
 	  An unobtrusive argparse wrapper with natural syntax.

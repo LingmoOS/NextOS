@@ -1,8 +1,8 @@
-config BR2_PACKAGE_LIBRSYNC
+config LINGMO_PACKAGE_LIBRSYNC
 	bool "librsync"
-	select BR2_PACKAGE_ZLIB
-	select BR2_PACKAGE_BZIP2
-	select BR2_PACKAGE_POPT
+	select LINGMO_PACKAGE_ZLIB
+	select LINGMO_PACKAGE_BZIP2
+	select LINGMO_PACKAGE_POPT
 	help
 	  librsync implements the rolling-checksum algorithm of
 	  remote file synchronization that was popularized by the

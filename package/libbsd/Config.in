@@ -1,18 +1,18 @@
-config BR2_PACKAGE_LIBBSD_ARCH_SUPPORTS
+config LINGMO_PACKAGE_LIBBSD_ARCH_SUPPORTS
 	bool
 	default y
 	# libbsd does not support those architectures (see src/local-elf.h)
-	depends on !BR2_microblaze
-	depends on !BR2_arc
-	depends on !BR2_xtensa
+	depends on !LINGMO_microblaze
+	depends on !LINGMO_arc
+	depends on !LINGMO_xtensa
 
-config BR2_PACKAGE_LIBBSD
+config LINGMO_PACKAGE_LIBBSD
 	bool "libbsd"
-	depends on BR2_PACKAGE_LIBBSD_ARCH_SUPPORTS
-	depends on !BR2_STATIC_LIBS
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_USE_WCHAR
-	select BR2_PACKAGE_LIBMD
+	depends on LINGMO_PACKAGE_LIBBSD_ARCH_SUPPORTS
+	depends on !LINGMO_STATIC_LIBS
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_WCHAR
+	select LINGMO_PACKAGE_LIBMD
 	help
 	  This library provides useful functions commonly found on BSD
 	  systems, and lacking on others like GNU systems, thus making
@@ -23,6 +23,6 @@ config BR2_PACKAGE_LIBBSD
 	  http://libbsd.freedesktop.org/
 
 comment "libbsd needs a toolchain w/ dynamic library, threads, wchar"
-	depends on BR2_PACKAGE_LIBBSD_ARCH_SUPPORTS
-	depends on BR2_STATIC_LIBS || !BR2_TOOLCHAIN_HAS_THREADS || \
-		!BR2_USE_WCHAR
+	depends on LINGMO_PACKAGE_LIBBSD_ARCH_SUPPORTS
+	depends on LINGMO_STATIC_LIBS || !LINGMO_TOOLCHAIN_HAS_THREADS || \
+		!LINGMO_USE_WCHAR

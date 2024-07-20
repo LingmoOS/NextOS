@@ -1,10 +1,10 @@
-config BR2_PACKAGE_KF5_NETWORKMANAGER_QT
+config LINGMO_PACKAGE_KF5_NETWORKMANAGER_QT
 	bool "kf5-networkmanager-qt"
-	depends on BR2_USE_MMU # qt5dbus
-	depends on BR2_TOOLCHAIN_HAS_THREADS # qt5dbus
-	depends on BR2_PACKAGE_NETWORK_MANAGER
-	select BR2_PACKAGE_QT5BASE_DBUS
-	select BR2_PACKAGE_KF5_EXTRA_CMAKE_MODULES
+	depends on LINGMO_USE_MMU # qt5dbus
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # qt5dbus
+	depends on LINGMO_PACKAGE_NETWORK_MANAGER
+	select LINGMO_PACKAGE_QT5BASE_DBUS
+	select LINGMO_PACKAGE_KF5_EXTRA_CMAKE_MODULES
 	help
 	  KF5 is a set of Qt framework addons, extending Qt in various
 	  ways, not only restricted in helping integration in KDE.
@@ -15,6 +15,6 @@ config BR2_PACKAGE_KF5_NETWORKMANAGER_QT
 	  https://api.kde.org/frameworks/networkmanager-qt/html/index.html
 
 comment "kf5-networkmanager-qt needs toolchain w/ threads"
-	depends on BR2_USE_MMU
-	depends on BR2_PACKAGE_NETWORK_MANAGER
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_PACKAGE_NETWORK_MANAGER
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS

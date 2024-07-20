@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PERL
+config LINGMO_PACKAGE_PERL
 	bool "perl"
-	depends on BR2_USE_MMU # fork()
+	depends on LINGMO_USE_MMU # fork()
 	help
 	  Larry Wall's Practical Extraction and Report Language
 	  An interpreted scripting language, known among some as
@@ -8,9 +8,9 @@ config BR2_PACKAGE_PERL
 
 	  http://www.perl.org/
 
-if BR2_PACKAGE_PERL
+if LINGMO_PACKAGE_PERL
 
-config BR2_PACKAGE_PERL_MODULES
+config LINGMO_PACKAGE_PERL_MODULES
 	string "custom module selection"
 	help
 	  List of space-separated perl modules (without .pm) to copy
@@ -24,9 +24,9 @@ config BR2_PACKAGE_PERL_MODULES
 	  Leave empty for all modules (as far as the external libraries
 	  are available).
 
-config BR2_PACKAGE_PERL_THREADS
+config LINGMO_PACKAGE_PERL_THREADS
 	bool "thread support"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
 	help
 	  Enable use of threads in Perl scripts
 

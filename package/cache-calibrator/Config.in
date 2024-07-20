@@ -1,4 +1,4 @@
-config BR2_PACKAGE_CACHE_CALIBRATOR
+config LINGMO_PACKAGE_CACHE_CALIBRATOR
 	bool "cache-calibrator"
 	help
 	  Cache calibrator is a small C program that is supposed to

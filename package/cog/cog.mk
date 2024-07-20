@@ -16,35 +16,35 @@ COG_CONF_OPTS = \
 	-Dmanpages=false \
 	-Dprograms=true \
 	-Dwpe_api=2.0 \
-	-Dcog_home_uri='$(call qstrip,$(BR2_PACKAGE_COG_PROGRAMS_HOME_URI))' \
+	-Dcog_home_uri='$(call qstrip,$(LINGMO_PACKAGE_COG_PROGRAMS_HOME_URI))' \
 	-Dplatforms='$(subst $(space),$(comma),$(strip $(COG_PLATFORMS_LIST)))'
 
 COG_PLATFORMS_LIST = headless
 
-ifeq ($(BR2_PACKAGE_WESTON),y)
+ifeq ($(LINGMO_PACKAGE_WESTON),y)
 COG_CONF_OPTS += -Dwayland_weston_direct_display=true
 COG_DEPENDENCIES += weston
 else
 COG_CONF_OPTS += -Dwayland_weston_direct_display=false
 endif
 
-ifeq ($(BR2_PACKAGE_COG_PLATFORM_FDO),y)
+ifeq ($(LINGMO_PACKAGE_COG_PLATFORM_FDO),y)
 COG_PLATFORMS_LIST += wayland
 COG_DEPENDENCIES += libxkbcommon wayland-protocols
 endif
 
-ifeq ($(BR2_PACKAGE_COG_PLATFORM_DRM),y)
+ifeq ($(LINGMO_PACKAGE_COG_PLATFORM_DRM),y)
 COG_PLATFORMS_LIST += drm
 COG_DEPENDENCIES += libdrm libinput libgbm libegl udev
 endif
 
-ifeq ($(BR2_PACKAGE_COG_USE_SYSTEM_DBUS),y)
+ifeq ($(LINGMO_PACKAGE_COG_USE_SYSTEM_DBUS),y)
 COG_CONF_OPTS += -Dcog_dbus_control=system
 else
 COG_CONF_OPTS += -Dcog_dbus_control=user
 endif
 
-ifeq ($(BR2_PACKAGE_LIBMANETTE),y)
+ifeq ($(LINGMO_PACKAGE_LIBMANETTE),y)
 COG_DEPENDENCIES += libmanette
 endif
 

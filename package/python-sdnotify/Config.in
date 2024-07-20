@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_SDNOTIFY
+config LINGMO_PACKAGE_PYTHON_SDNOTIFY
 	bool "python-sdnotify"
 	help
 	  A pure Python implementation of systemd's service notification

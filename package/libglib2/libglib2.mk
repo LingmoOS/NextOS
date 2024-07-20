@@ -18,7 +18,7 @@ LIBGLIB2_CFLAGS = $(TARGET_CFLAGS)
 LIBGLIB2_LDFLAGS = $(TARGET_LDFLAGS) $(TARGET_NLS_LIBS)
 
 # glib/valgrind.h contains inline asm not compatible with thumb1
-ifeq ($(BR2_ARM_INSTRUCTIONS_THUMB),y)
+ifeq ($(LINGMO_ARM_INSTRUCTIONS_THUMB),y)
 LIBGLIB2_CFLAGS += -marm
 endif
 
@@ -60,15 +60,15 @@ LIBGLIB2_MESON_EXTRA_PROPERTIES = \
 	have_c99_snprintf=true \
 	have_unix98_printf=true
 
-ifeq ($(BR2_PACKAGE_ELFUTILS),y)
+ifeq ($(LINGMO_PACKAGE_ELFUTILS),y)
 LIBGLIB2_DEPENDENCIES += elfutils
 endif
 
-ifeq ($(BR2_PACKAGE_LIBICONV),y)
+ifeq ($(LINGMO_PACKAGE_LIBICONV),y)
 LIBGLIB2_DEPENDENCIES += libiconv
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSELINUX),y)
+ifeq ($(LINGMO_PACKAGE_LIBSELINUX),y)
 LIBGLIB2_CONF_OPTS += -Dselinux=enabled -Dxattr=true
 LIBGLIB2_DEPENDENCIES += libselinux
 else
@@ -76,15 +76,15 @@ LIBGLIB2_CONF_OPTS += -Dselinux=disabled -Dxattr=false
 endif
 
 # Purge gdb-related files
-ifneq ($(BR2_PACKAGE_GDB),y)
+ifneq ($(LINGMO_PACKAGE_GDB),y)
 define LIBGLIB2_REMOVE_GDB_FILES
 	rm -rf $(TARGET_DIR)/usr/share/glib-2.0/gdb
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_UTIL_LINUX_LIBMOUNT),y)
+ifeq ($(LINGMO_PACKAGE_UTIL_LINUX_LIBMOUNT),y)
 LIBGLIB2_CONF_OPTS += -Dlibmount=enabled
-ifeq ($(BR2_PACKAGE_UTIL_LINUX_LIBS),y)
+ifeq ($(LINGMO_PACKAGE_UTIL_LINUX_LIBS),y)
 LIBGLIB2_DEPENDENCIES += util-linux-libs
 else
 LIBGLIB2_DEPENDENCIES += util-linux

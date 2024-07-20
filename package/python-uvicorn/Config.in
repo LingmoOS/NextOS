@@ -1,8 +1,8 @@
-config BR2_PACKAGE_PYTHON_UVICORN
+config LINGMO_PACKAGE_PYTHON_UVICORN
 	bool "python-uvicorn"
-	select BR2_PACKAGE_PYTHON_CLICK # runtime
-	select BR2_PACKAGE_PYTHON_H11 # runtime
-	select BR2_PACKAGE_PYTHON3_SSL # runtime
+	select LINGMO_PACKAGE_PYTHON_CLICK # runtime
+	select LINGMO_PACKAGE_PYTHON_H11 # runtime
+	select LINGMO_PACKAGE_PYTHON3_SSL # runtime
 	help
 	  The lightning-fast ASGI server.
 

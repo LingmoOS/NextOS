@@ -16,14 +16,14 @@ LIBFUSE_AUTORECONF = YES
 # add host-gettext for AM_ICONV macro
 LIBFUSE_DEPENDENCIES = \
 	host-gettext \
-	$(if $(BR2_PACKAGE_LIBICONV),libiconv)
+	$(if $(LINGMO_PACKAGE_LIBICONV),libiconv)
 LIBFUSE_CONF_OPTS = \
 	--disable-example \
 	--enable-lib \
 	--enable-util \
 	UDEV_RULES_PATH=/lib/udev/rules.d
 
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 define LIBFUSE_INSTALL_UDEV
 	mkdir -p $(TARGET_DIR)/lib/udev/rules.d
 	cp $(STAGING_DIR)/lib/udev/rules.d/*-fuse.rules $(TARGET_DIR)/lib/udev/rules.d

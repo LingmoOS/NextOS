@@ -1,11 +1,11 @@
-config BR2_PACKAGE_LIBSHAIRPLAY
+config LINGMO_PACKAGE_LIBSHAIRPLAY
 	bool "libshairplay"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_USE_MMU # avahi
-	depends on !BR2_STATIC_LIBS # avahi
-	select BR2_PACKAGE_AVAHI
-	select BR2_PACKAGE_AVAHI_DAEMON
-	select BR2_PACKAGE_AVAHI_LIBDNSSD_COMPATIBILITY # runtime
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU # avahi
+	depends on !LINGMO_STATIC_LIBS # avahi
+	select LINGMO_PACKAGE_AVAHI
+	select LINGMO_PACKAGE_AVAHI_DAEMON
+	select LINGMO_PACKAGE_AVAHI_LIBDNSSD_COMPATIBILITY # runtime
 	help
 	  libshairplay is a client library that emulates an airplay
 	  server.
@@ -13,5 +13,5 @@ config BR2_PACKAGE_LIBSHAIRPLAY
 	  https://github.com/juhovh/shairplay
 
 comment "libshairplay needs a toolchain w/ threads, dynamic library"
-	depends on BR2_USE_MMU
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS

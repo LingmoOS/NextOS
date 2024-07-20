@@ -25,8 +25,8 @@ using the following rules:
   +foo-bar_boo+);
 
 * the config entry is the upper case _package name_ with `.` and `-`
-  characters substituted with `_`, prefixed with +BR2_PACKAGE_+ (e.g.:
-  +BR2_PACKAGE_FOO_BAR_BOO+);
+  characters substituted with `_`, prefixed with +LINGMO_PACKAGE_+ (e.g.:
+  +LINGMO_PACKAGE_FOO_BAR_BOO+);
 
 * the +*.mk+ file variable prefix is the upper case _package name_
   with `.` and `-` characters substituted with `_` (e.g.:
@@ -88,7 +88,7 @@ option. For example, let's create a config snippet that just enables
 
 ----
 $ cat libcurl.config
-BR2_PACKAGE_LIBCURL=y
+LINGMO_PACKAGE_LIBCURL=y
 ----
 
 If your package needs more configuration options, you can add them to the
@@ -97,9 +97,9 @@ config snippet. For example, here's how you would test +libcurl+ with
 
 ----
 $ cat libcurl.config
-BR2_PACKAGE_LIBCURL=y
-BR2_PACKAGE_LIBCURL_CURL=y
-BR2_PACKAGE_OPENSSL=y
+LINGMO_PACKAGE_LIBCURL=y
+LINGMO_PACKAGE_LIBCURL_CURL=y
+LINGMO_PACKAGE_OPENSSL=y
 ----
 
 Then run the +test-pkg+ script, by telling it what config snippet to use
@@ -141,7 +141,7 @@ The results mean:
 * `SKIPPED`: one or more configuration options listed in the config
   snippet were not present in the final configuration. This is due to
   options having dependencies not satisfied by the toolchain, such as
-  for example a package that +depends on BR2_USE_MMU+ with a noMMU
+  for example a package that +depends on LINGMO_USE_MMU+ with a noMMU
   toolchain. The missing options are reported in +missing.config+ in
   the output build directory (+~/br-test-pkg/TOOLCHAIN_NAME/+ by
   default).

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_ERLANG_P1_UTILS
+config LINGMO_PACKAGE_ERLANG_P1_UTILS
 	bool "erlang-p1-utils"
 	help
 	  Set of small Erlang libraries

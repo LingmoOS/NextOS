@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_TIMEDATE
+config LINGMO_PACKAGE_PERL_TIMEDATE
 	bool "perl-timedate"
 	help
 	  miscellaneous timezone manipulations routines.

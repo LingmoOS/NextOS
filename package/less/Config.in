@@ -1,7 +1,7 @@
-config BR2_PACKAGE_LESS
+config LINGMO_PACKAGE_LESS
 	bool "less"
-	depends on BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
-	select BR2_PACKAGE_NCURSES
+	depends on LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS
+	select LINGMO_PACKAGE_NCURSES
 	help
 	  Excellent text file viewer.
 

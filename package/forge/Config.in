@@ -1,4 +1,4 @@
-config BR2_PACKAGE_FORGE
+config LINGMO_PACKAGE_FORGE
 	bool "forge"
 	help
 	  A native implementation of TLS (and various other

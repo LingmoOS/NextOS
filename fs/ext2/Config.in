@@ -1,53 +1,53 @@
-config BR2_TARGET_ROOTFS_EXT2
+config LINGMO_TARGET_ROOTFS_EXT2
 	bool "ext2/3/4 root filesystem"
-	select BR2_PACKAGE_HOST_E2FSPROGS
+	select LINGMO_PACKAGE_HOST_E2FSPROGS
 	help
 	  Build an ext2/3/4 root filesystem
 
-if BR2_TARGET_ROOTFS_EXT2
+if LINGMO_TARGET_ROOTFS_EXT2
 
-config BR2_TARGET_ROOTFS_EXT2_2
+config LINGMO_TARGET_ROOTFS_EXT2_2
 	bool
 
 choice
 	bool "ext2/3/4 variant"
-	default BR2_TARGET_ROOTFS_EXT2_2r1
+	default LINGMO_TARGET_ROOTFS_EXT2_2r1
 
-config BR2_TARGET_ROOTFS_EXT2_2r0
+config LINGMO_TARGET_ROOTFS_EXT2_2r0
 	bool "ext2 (rev0)"
-	select BR2_TARGET_ROOTFS_EXT2_2
+	select LINGMO_TARGET_ROOTFS_EXT2_2
 
-config BR2_TARGET_ROOTFS_EXT2_2r1
+config LINGMO_TARGET_ROOTFS_EXT2_2r1
 	bool "ext2 (rev1)"
-	select BR2_TARGET_ROOTFS_EXT2_2
+	select LINGMO_TARGET_ROOTFS_EXT2_2
 
-config BR2_TARGET_ROOTFS_EXT2_3
+config LINGMO_TARGET_ROOTFS_EXT2_3
 	bool "ext3"
 
-config BR2_TARGET_ROOTFS_EXT2_4
+config LINGMO_TARGET_ROOTFS_EXT2_4
 	bool "ext4"
 
 endchoice
 
-config BR2_TARGET_ROOTFS_EXT2_GEN
+config LINGMO_TARGET_ROOTFS_EXT2_GEN
 	int
-	default 2 if BR2_TARGET_ROOTFS_EXT2_2
-	default 3 if BR2_TARGET_ROOTFS_EXT2_3
-	default 4 if BR2_TARGET_ROOTFS_EXT2_4
+	default 2 if LINGMO_TARGET_ROOTFS_EXT2_2
+	default 3 if LINGMO_TARGET_ROOTFS_EXT2_3
+	default 4 if LINGMO_TARGET_ROOTFS_EXT2_4
 
 # All ext generations are revision 1, except ext2r0, which is revision 0
-config BR2_TARGET_ROOTFS_EXT2_REV
+config LINGMO_TARGET_ROOTFS_EXT2_REV
 	int
-	default 0   if BR2_TARGET_ROOTFS_EXT2_2r0
-	default 1   if !BR2_TARGET_ROOTFS_EXT2_2r0
+	default 0   if LINGMO_TARGET_ROOTFS_EXT2_2r0
+	default 1   if !LINGMO_TARGET_ROOTFS_EXT2_2r0
 
-config BR2_TARGET_ROOTFS_EXT2_LABEL
+config LINGMO_TARGET_ROOTFS_EXT2_LABEL
 	string "filesystem label"
 	default "rootfs"
 
-config BR2_TARGET_ROOTFS_EXT2_SIZE
+config LINGMO_TARGET_ROOTFS_EXT2_SIZE
 	string "exact size"
-	default BR2_TARGET_ROOTFS_EXT2_BLOCKS if BR2_TARGET_ROOTFS_EXT2_BLOCKS_WRAP # legacy 2017.08
+	default LINGMO_TARGET_ROOTFS_EXT2_BLOCKS if LINGMO_TARGET_ROOTFS_EXT2_BLOCKS_WRAP # legacy 2017.08
 	default "60M"
 	help
 	  The size of the filesystem image. If it does not have a
@@ -56,11 +56,11 @@ config BR2_TARGET_ROOTFS_EXT2_SIZE
 	  lower-case), then it is interpreted in power-of-two kilobytes,
 	  megabytes, gigabytes, terabytes, etc.
 
-config BR2_TARGET_ROOTFS_EXT2_INODES
+config LINGMO_TARGET_ROOTFS_EXT2_INODES
 	int "exact number of inodes (leave at 0 for auto calculation)"
 	default 0
 
-config BR2_TARGET_ROOTFS_EXT2_INODE_SIZE
+config LINGMO_TARGET_ROOTFS_EXT2_INODE_SIZE
 	int "inode size"
 	default 256
 	help
@@ -73,7 +73,7 @@ config BR2_TARGET_ROOTFS_EXT2_INODE_SIZE
 	  Note: 128-byte inodes suffer of the Y2K38 problem, and can't
 	  store timestamps beyond 2038-01-19 03:14:07Z.
 
-config BR2_TARGET_ROOTFS_EXT2_RESBLKS
+config LINGMO_TARGET_ROOTFS_EXT2_RESBLKS
 	int "reserved blocks percentage"
 	default 5
 	help
@@ -83,7 +83,7 @@ config BR2_TARGET_ROOTFS_EXT2_RESBLKS
 	  still default to reserving 5% when creating a new ext
 	  filesystem.
 
-config BR2_TARGET_ROOTFS_EXT2_MKFS_OPTIONS
+config LINGMO_TARGET_ROOTFS_EXT2_MKFS_OPTIONS
 	string "additional mke2fs options"
 	default "-O ^64bit"
 	help
@@ -104,51 +104,51 @@ config BR2_TARGET_ROOTFS_EXT2_MKFS_OPTIONS
 
 choice
 	prompt "Compression method"
-	default BR2_TARGET_ROOTFS_EXT2_NONE
+	default LINGMO_TARGET_ROOTFS_EXT2_NONE
 	help
 	  Select compressor for ext2/3/4 filesystem of the root
 	  filesystem
 
-config BR2_TARGET_ROOTFS_EXT2_NONE
+config LINGMO_TARGET_ROOTFS_EXT2_NONE
 	bool "no compression"
 	help
 	  Do not compress the ext2/3/4 filesystem.
 
-config BR2_TARGET_ROOTFS_EXT2_GZIP
+config LINGMO_TARGET_ROOTFS_EXT2_GZIP
 	bool "gzip"
 	help
 	  Do compress the ext2/3/4 filesystem with gzip.
 
-config BR2_TARGET_ROOTFS_EXT2_BZIP2
+config LINGMO_TARGET_ROOTFS_EXT2_BZIP2
 	bool "bzip2"
 	help
 	  Do compress the ext2/3/4 filesystem with bzip2.
 
-config BR2_TARGET_ROOTFS_EXT2_LZ4
+config LINGMO_TARGET_ROOTFS_EXT2_LZ4
 	bool "lz4"
 	help
 	  Do compress the ext2 filesystem with lz4.
 
-config BR2_TARGET_ROOTFS_EXT2_LZMA
+config LINGMO_TARGET_ROOTFS_EXT2_LZMA
 	bool "lzma"
 	help
 	  Do compress the ext2/3/4 filesystem with lzma.
 
-config BR2_TARGET_ROOTFS_EXT2_LZO
+config LINGMO_TARGET_ROOTFS_EXT2_LZO
 	bool "lzo"
 	help
 	  Do compress the ext2 filesystem with lzop.
 
-config BR2_TARGET_ROOTFS_EXT2_XZ
+config LINGMO_TARGET_ROOTFS_EXT2_XZ
 	bool "xz"
 	help
 	  Do compress the ext2 filesystem with xz.
 
-config BR2_TARGET_ROOTFS_EXT2_ZSTD
+config LINGMO_TARGET_ROOTFS_EXT2_ZSTD
 	bool "zstd"
 	help
 	  Do compress the ext2 filesystem with zstd.
 
 endchoice
 
-endif # BR2_TARGET_ROOTFS_EXT2
+endif # LINGMO_TARGET_ROOTFS_EXT2

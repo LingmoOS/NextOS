@@ -1,4 +1,4 @@
-config BR2_PACKAGE_FBV
+config LINGMO_PACKAGE_FBV
 	bool "fbv"
 	help
 	  fbv is a very simple graphic file viewer for the framebuffer
@@ -7,27 +7,27 @@ config BR2_PACKAGE_FBV
 
 	  http://freshmeat.net/projects/fbv/
 
-if BR2_PACKAGE_FBV
+if LINGMO_PACKAGE_FBV
 
-config BR2_PACKAGE_FBV_PNG
+config LINGMO_PACKAGE_FBV_PNG
 	bool "PNG support"
 	default y
-	select BR2_PACKAGE_LIBPNG
+	select LINGMO_PACKAGE_LIBPNG
 	help
 	  Enable support for PNG using libpng.
 
-config BR2_PACKAGE_FBV_JPEG
+config LINGMO_PACKAGE_FBV_JPEG
 	bool "JPEG support"
 	default y
-	select BR2_PACKAGE_JPEG
+	select LINGMO_PACKAGE_JPEG
 	help
 	  Enable support for JPEG using IJG's libjpeg.
 
-config BR2_PACKAGE_FBV_GIF
+config LINGMO_PACKAGE_FBV_GIF
 	bool "GIF support"
 	default y
-	select BR2_PACKAGE_GIFLIB
+	select LINGMO_PACKAGE_GIFLIB
 	help
 	  Enable support for GIF using giflib.
 
-endif # BR2_PACKAGE_FBV
+endif # LINGMO_PACKAGE_FBV

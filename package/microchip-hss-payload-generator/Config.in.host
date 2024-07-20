@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_MICROCHIP_HSS_PAYLOAD_GENERATOR
+config LINGMO_PACKAGE_HOST_MICROCHIP_HSS_PAYLOAD_GENERATOR
 	bool "host microchip-hss-payload-generator"
 	help
 	  Microchip PolarFire SoC Payload Generator. This tool creates

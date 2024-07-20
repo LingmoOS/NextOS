@@ -1,7 +1,7 @@
-config BR2_PACKAGE_GLOOX
+config LINGMO_PACKAGE_GLOOX
 	bool "gloox"
-	depends on BR2_INSTALL_LIBSTDCPP
-	select BR2_PACKAGE_MPC
+	depends on LINGMO_INSTALL_LIBSTDCPP
+	select LINGMO_PACKAGE_MPC
 	help
 	  gloox is a portable high-level Jabber/XMPP library for C++. It
 	  is fully compliant with the XMPP RFCs, supports all of the
@@ -13,4 +13,4 @@ config BR2_PACKAGE_GLOOX
 	  https://camaya.net/gloox/
 
 comment "gloox needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP

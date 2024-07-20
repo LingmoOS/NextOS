@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_VALIDATORS
+config LINGMO_PACKAGE_PYTHON_VALIDATORS
 	bool "python-validators"
 	help
 	  Python Data Validation for Humans.

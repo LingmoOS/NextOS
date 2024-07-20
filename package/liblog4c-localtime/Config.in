@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBLOG4C_LOCALTIME
+config LINGMO_PACKAGE_LIBLOG4C_LOCALTIME
 	bool "liblog4c-localtime"
-	select BR2_PACKAGE_EXPAT
+	select LINGMO_PACKAGE_EXPAT
 	help
 	  Log4c is a library of C for flexible logging to files, syslog
 	  and other destinations.

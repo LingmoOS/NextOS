@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_DOCOPT
+config LINGMO_PACKAGE_PYTHON_DOCOPT
 	bool "python-docopt"
 	help
 	  docopt helps you create most beautiful command-line

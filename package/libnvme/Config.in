@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBNVME
+config LINGMO_PACKAGE_LIBNVME
 	bool "libnvme"
 	help
 	  libnvme provides type definitions for NVMe specification

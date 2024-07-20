@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBNETFILTER_CTHELPER
+config LINGMO_PACKAGE_LIBNETFILTER_CTHELPER
 	bool "libnetfilter_cthelper"
-	select BR2_PACKAGE_LIBMNL
+	select LINGMO_PACKAGE_LIBMNL
 	help
 	  libnetfilter_cthelper is the userspace library that provides
 	  the programming interface to the user-space helper

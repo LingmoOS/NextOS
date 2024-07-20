@@ -1,5 +1,5 @@
-config BR2_PACKAGE_XFONT_FONT_WINITZKI_CYRILLIC
+config LINGMO_PACKAGE_XFONT_FONT_WINITZKI_CYRILLIC
 	bool "font-winitzki-cyrillic"
-	select BR2_PACKAGE_XFONT_FONT_UTIL
+	select LINGMO_PACKAGE_XFONT_FONT_UTIL
 	help
 	  No description available

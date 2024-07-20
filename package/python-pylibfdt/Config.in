@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PYLIBFDT
+config LINGMO_PACKAGE_PYTHON_PYLIBFDT
 	bool "python-pylibfdt"
 	help
 	  Python bindings for the Device Tree Compiler (dtc) toolchain.

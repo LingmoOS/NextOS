@@ -15,7 +15,7 @@ BELR_CONF_OPTS = \
 	-DENABLE_TESTS=OFF \
 	-DENABLE_TOOLS=OFF
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 BELR_CONF_OPTS += -DENABLE_SHARED=OFF -DENABLE_STATIC=ON
 else
 # cannot build static and shared together

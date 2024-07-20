@@ -48,6 +48,6 @@ define LUAROCKS_FINALIZE_TARGET
 endef
 
 # Apply to global variable directly, as pkg-generic does not
-ifneq ($(BR2_PACKAGE_LUAJIT)$(BR2_PACKAGE_LUA),)
+ifneq ($(LINGMO_PACKAGE_LUAJIT)$(LINGMO_PACKAGE_LUA),)
 TARGET_FINALIZE_HOOKS += LUAROCKS_FINALIZE_TARGET
 endif

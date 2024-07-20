@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_AIORWLOCK
+config LINGMO_PACKAGE_PYTHON_AIORWLOCK
 	bool "python-aiorwlock"
 	help
 	  Read write lock for asyncio.

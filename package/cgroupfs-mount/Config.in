@@ -1,6 +1,6 @@
-config BR2_PACKAGE_CGROUPFS_MOUNT
+config LINGMO_PACKAGE_CGROUPFS_MOUNT
 	bool "cgroupfs-mount"
-	depends on !BR2_INIT_SYSTEMD
+	depends on !LINGMO_INIT_SYSTEMD
 	help
 	  cgroupfs mount and umount scripts.
 

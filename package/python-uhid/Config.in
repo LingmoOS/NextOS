@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_UHID
+config LINGMO_PACKAGE_PYTHON_UHID
 	bool "python-uhid"
 	help
 	  Pure Python typed UHID wrapper.

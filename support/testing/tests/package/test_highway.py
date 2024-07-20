@@ -6,10 +6,10 @@ import infra.basetest
 class TestHighway(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_PACKAGE_HIGHWAY=y
-        BR2_PACKAGE_HIGHWAY_EXAMPLES=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_HIGHWAY=y
+        LINGMO_PACKAGE_HIGHWAY_EXAMPLES=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):

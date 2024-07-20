@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUALOGGING
+config LINGMO_PACKAGE_LUALOGGING
 	bool "lualogging"
 	help
 	  LuaLogging provides a simple API to use logging features in

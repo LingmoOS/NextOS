@@ -1,12 +1,12 @@
 comment "aufs-util needs a linux kernel and a toolchain w/ threads"
-	depends on BR2_USE_MMU
-	depends on !BR2_LINUX_KERNEL || !BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_LINUX_KERNEL || !LINGMO_TOOLCHAIN_HAS_THREADS
 
-config BR2_PACKAGE_AUFS_UTIL
+config LINGMO_PACKAGE_AUFS_UTIL
 	bool "aufs-util"
-	depends on BR2_USE_MMU
-	depends on BR2_LINUX_KERNEL
-	depends on BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_LINUX_KERNEL
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
 	help
 	  Aufs command line utilities.
 
@@ -15,9 +15,9 @@ config BR2_PACKAGE_AUFS_UTIL
 
 	  http://sourceforge.net/p/aufs/aufs-util/
 
-if BR2_PACKAGE_AUFS_UTIL
+if LINGMO_PACKAGE_AUFS_UTIL
 
-config BR2_PACKAGE_AUFS_UTIL_VERSION
+config LINGMO_PACKAGE_AUFS_UTIL_VERSION
 	string "aufs-util version"
 	default ""
 	help

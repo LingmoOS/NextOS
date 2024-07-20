@@ -1,12 +1,12 @@
-config BR2_PACKAGE_LIBSEMANAGE
+config LINGMO_PACKAGE_LIBSEMANAGE
 	bool "libsemanage"
-	depends on BR2_PACKAGE_AUDIT_ARCH_SUPPORTS
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on !BR2_STATIC_LIBS
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_5 # libselinux -> libsepol
-	select BR2_PACKAGE_AUDIT
-	select BR2_PACKAGE_LIBSELINUX
-	select BR2_PACKAGE_BZIP2
+	depends on LINGMO_PACKAGE_AUDIT_ARCH_SUPPORTS
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_STATIC_LIBS
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_5 # libselinux -> libsepol
+	select LINGMO_PACKAGE_AUDIT
+	select LINGMO_PACKAGE_LIBSELINUX
+	select LINGMO_PACKAGE_BZIP2
 	help
 	  libsemanage is the policy management library. It uses
 	  libsepol for binary policy manipulation and libselinux for
@@ -19,6 +19,6 @@ config BR2_PACKAGE_LIBSEMANAGE
 	  http://selinuxproject.org/page/Main_Page
 
 comment "libsemanage needs a toolchain w/ threads, dynamic library, gcc >= 5"
-	depends on BR2_PACKAGE_AUDIT_ARCH_SUPPORTS
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS || \
-		!BR2_TOOLCHAIN_GCC_AT_LEAST_5
+	depends on LINGMO_PACKAGE_AUDIT_ARCH_SUPPORTS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS || \
+		!LINGMO_TOOLCHAIN_GCC_AT_LEAST_5

@@ -46,7 +46,7 @@ AVAHI_CONF_OPTS = \
 	--disable-introspection \
 	--with-distro=none \
 	--disable-manpages \
-	$(if $(BR2_PACKAGE_AVAHI_AUTOIPD),--enable,--disable)-autoipd \
+	$(if $(LINGMO_PACKAGE_AVAHI_AUTOIPD),--enable,--disable)-autoipd \
 	--with-avahi-user=avahi \
 	--with-avahi-group=avahi \
 	--with-autoipd-user=avahi \
@@ -56,54 +56,54 @@ AVAHI_DEPENDENCIES = host-pkgconf $(TARGET_NLS_DEPENDENCIES)
 
 AVAHI_CFLAGS = $(TARGET_CFLAGS)
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 AVAHI_CONF_OPTS += --with-systemdsystemunitdir=/usr/lib/systemd/system
 else
 AVAHI_CONF_OPTS += --with-systemdsystemunitdir=no
 AVAHI_CFLAGS += -DDISABLE_SYSTEMD
 endif
 
-ifneq ($(BR2_PACKAGE_AVAHI_DAEMON)$(BR2_PACKAGE_AVAHI_AUTOIPD),)
+ifneq ($(LINGMO_PACKAGE_AVAHI_DAEMON)$(LINGMO_PACKAGE_AVAHI_AUTOIPD),)
 AVAHI_DEPENDENCIES += libdaemon
 else
 AVAHI_CONF_OPTS += --disable-libdaemon
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBCAP),y)
 AVAHI_DEPENDENCIES += libcap
 endif
 
-ifeq ($(BR2_PACKAGE_AVAHI_DAEMON),y)
+ifeq ($(LINGMO_PACKAGE_AVAHI_DAEMON),y)
 AVAHI_DEPENDENCIES += expat
 AVAHI_CONF_OPTS += --with-xml=expat
 else
 AVAHI_CONF_OPTS += --with-xml=none
 endif
 
-ifeq ($(BR2_PACKAGE_AVAHI_LIBDNSSD_COMPATIBILITY),y)
+ifeq ($(LINGMO_PACKAGE_AVAHI_LIBDNSSD_COMPATIBILITY),y)
 AVAHI_CONF_OPTS += --enable-compat-libdns_sd
 endif
 
-ifeq ($(BR2_PACKAGE_DBUS),y)
+ifeq ($(LINGMO_PACKAGE_DBUS),y)
 AVAHI_DEPENDENCIES += dbus
 AVAHI_CONF_OPTS += --with-dbus-sys=/usr/share/dbus-1/system.d
 else
 AVAHI_CONF_OPTS += --disable-dbus
 endif
 
-ifeq ($(BR2_PACKAGE_LIBEVENT),y)
+ifeq ($(LINGMO_PACKAGE_LIBEVENT),y)
 AVAHI_DEPENDENCIES += libevent
 else
 AVAHI_CONF_OPTS += --disable-libevent
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGLIB2),y)
+ifeq ($(LINGMO_PACKAGE_LIBGLIB2),y)
 AVAHI_DEPENDENCIES += libglib2
 else
 AVAHI_CONF_OPTS += --disable-glib --disable-gobject
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON3),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3),y)
 AVAHI_CONF_ENV += \
 	am_cv_pathless_PYTHON=python3 \
 	am_cv_python_version=$(PYTHON3_VERSION) \
@@ -118,7 +118,7 @@ else
 AVAHI_CONF_OPTS += --disable-python
 endif
 
-ifeq ($(BR2_PACKAGE_DBUS_PYTHON),y)
+ifeq ($(LINGMO_PACKAGE_DBUS_PYTHON),y)
 AVAHI_CONF_OPTS += --enable-python-dbus
 AVAHI_CONF_ENV += py_cv_mod_dbus_=yes
 AVAHI_DEPENDENCIES += dbus-python
@@ -126,7 +126,7 @@ else
 AVAHI_CONF_OPTS += --disable-python-dbus
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON_GOBJECT),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON_GOBJECT),y)
 AVAHI_CONF_OPTS += --enable-pygobject
 AVAHI_DEPENDENCIES += python-gobject
 else
@@ -147,7 +147,7 @@ endef
 
 AVAHI_POST_INSTALL_TARGET_HOOKS += AVAHI_REMOVE_INITSCRIPT
 
-ifeq ($(BR2_PACKAGE_AVAHI_AUTOIPD),y)
+ifeq ($(LINGMO_PACKAGE_AVAHI_AUTOIPD),y)
 define AVAHI_INSTALL_AUTOIPD
 	rm -f $(TARGET_DIR)/var/lib/avahi-autoipd
 	$(INSTALL) -d -m 0755 $(TARGET_DIR)/var/lib
@@ -161,9 +161,9 @@ endef
 AVAHI_POST_INSTALL_TARGET_HOOKS += AVAHI_INSTALL_AUTOIPD
 endif
 
-ifeq ($(BR2_PACKAGE_AVAHI_DAEMON),y)
+ifeq ($(LINGMO_PACKAGE_AVAHI_DAEMON),y)
 
-ifeq ($(BR2_PACKAGE_SYSTEMD_SYSUSERS),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD_SYSUSERS),y)
 define AVAHI_INSTALL_SYSTEMD_SYSUSERS
 	$(INSTALL) -D -m 644 package/avahi/avahi_sysusers.conf \
 		$(TARGET_DIR)/usr/lib/sysusers.d/avahi.conf
@@ -188,7 +188,7 @@ define AVAHI_INSTALL_INIT_SYSV
 	$(AVAHI_INSTALL_DAEMON_INIT_SYSV)
 endef
 
-ifeq ($(BR2_PACKAGE_AVAHI_LIBDNSSD_COMPATIBILITY),y)
+ifeq ($(LINGMO_PACKAGE_AVAHI_LIBDNSSD_COMPATIBILITY),y)
 # applications expects to be able to #include <dns_sd.h>
 define AVAHI_STAGING_INSTALL_LIBDNSSD_LINK
 	ln -sf avahi-compat-libdns_sd/dns_sd.h \
@@ -198,7 +198,7 @@ endef
 AVAHI_POST_INSTALL_STAGING_HOOKS += AVAHI_STAGING_INSTALL_LIBDNSSD_LINK
 endif
 
-ifeq ($(BR2_PACKAGE_AVAHI_DEFAULT_SERVICES),)
+ifeq ($(LINGMO_PACKAGE_AVAHI_DEFAULT_SERVICES),)
 define AVAHI_REMOVE_DEFAULT_SERVICES
 	$(foreach service,ssh sftp-ssh, \
 		$(RM) -f $(TARGET_DIR)/etc/avahi/services/$(service).service

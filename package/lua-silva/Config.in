@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUA_SILVA
+config LINGMO_PACKAGE_LUA_SILVA
 	bool "lua-silva"
 	help
 	  your string matcher expert.

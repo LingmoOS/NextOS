@@ -10,7 +10,7 @@ BUSTLE_LICENSE = LGPL-2.1+
 BUSTLE_LICENSE_FILES = LICENSE
 BUSTLE_DEPENDENCIES = libglib2 libpcap host-pkgconf
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 BUSTLE_MAKE_OPTS += PCAP_CONFIG="$(STAGING_DIR)/usr/bin/pcap-config --static"
 else
 BUSTLE_MAKE_OPTS += PCAP_CONFIG="$(STAGING_DIR)/usr/bin/pcap-config"

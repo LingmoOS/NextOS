@@ -13,21 +13,21 @@ I2C_TOOLS_CPE_ID_VALID = YES
 I2C_TOOLS_MAKE_OPTS = EXTRA=eeprog
 I2C_TOOLS_INSTALL_STAGING = YES
 
-ifeq ($(BR2_PACKAGE_PYTHON3),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3),y)
 I2C_TOOLS_DEPENDENCIES += host-python-setuptools python3
 endif
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 I2C_TOOLS_MAKE_OPTS += BUILD_DYNAMIC_LIB=0 USE_STATIC_LIB=1
 endif
 
-ifeq ($(BR2_SHARED_LIBS),y)
+ifeq ($(LINGMO_SHARED_LIBS),y)
 I2C_TOOLS_MAKE_OPTS += BUILD_STATIC_LIB=0
 endif
 
 # Build/install steps mirror the distutil python package type in the python package
 # infrastructure
-ifeq ($(BR2_PACKAGE_PYTHON3),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3),y)
 # BASE_ENV taken from PKG_PYTHON_SETUPTOOLS_ENV in package/pkg-python.mk
 I2C_TOOLS_PYTHON_BASE_ENV = \
 	$(PKG_PYTHON_SETUPTOOLS_ENV) \
@@ -47,7 +47,7 @@ define I2C_TOOLS_INSTALL_PYSMBUS
 		--root=$(TARGET_DIR))
 endef
 
-endif # BR2_PACKAGE_PYTHON3
+endif # LINGMO_PACKAGE_PYTHON3
 
 define I2C_TOOLS_BUILD_CMDS
 	$(MAKE) $(TARGET_CONFIGURE_OPTS) $(I2C_TOOLS_MAKE_OPTS) -C $(@D)

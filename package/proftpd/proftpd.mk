@@ -27,36 +27,36 @@ PROFTPD_CONF_OPTS = \
 	--with-gnu-ld \
 	--without-openssl-cmdline
 
-ifeq ($(BR2_PACKAGE_LIBIDN2),y)
+ifeq ($(LINGMO_PACKAGE_LIBIDN2),y)
 PROFTPD_DEPENDENCIES += libidn2
 endif
 
-ifeq ($(BR2_PACKAGE_PCRE2),y)
+ifeq ($(LINGMO_PACKAGE_PCRE2),y)
 PROFTPD_CONF_OPTS += --enable-pcre2
 PROFTPD_DEPENDENCIES += pcre2
 else
 PROFTPD_CONF_OPTS += --disable-pcre2
 endif
 
-ifeq ($(BR2_PACKAGE_PROFTPD_MOD_CAP),y)
+ifeq ($(LINGMO_PACKAGE_PROFTPD_MOD_CAP),y)
 PROFTPD_CONF_OPTS += --enable-cap
 PROFTPD_DEPENDENCIES += libcap
 else
 PROFTPD_CONF_OPTS += --disable-cap
 endif
 
-ifeq ($(BR2_PACKAGE_PROFTPD_MOD_REWRITE),y)
+ifeq ($(LINGMO_PACKAGE_PROFTPD_MOD_REWRITE),y)
 PROFTPD_MODULES += mod_rewrite
 endif
 
-ifeq ($(BR2_PACKAGE_PROFTPD_MOD_REDIS),y)
+ifeq ($(LINGMO_PACKAGE_PROFTPD_MOD_REDIS),y)
 PROFTPD_CONF_OPTS += --enable-redis
 PROFTPD_DEPENDENCIES += hiredis
 else
 PROFTPD_CONF_OPTS += --disable-redis
 endif
 
-ifeq ($(BR2_PACKAGE_PROFTPD_MOD_SFTP),y)
+ifeq ($(LINGMO_PACKAGE_PROFTPD_MOD_SFTP),y)
 PROFTPD_CONF_OPTS += --enable-openssl
 PROFTPD_MODULES += mod_sftp
 PROFTPD_DEPENDENCIES += openssl
@@ -64,36 +64,36 @@ else
 PROFTPD_CONF_OPTS += --disable-openssl
 endif
 
-ifeq ($(BR2_PACKAGE_PROFTPD_MOD_SQL),y)
+ifeq ($(LINGMO_PACKAGE_PROFTPD_MOD_SQL),y)
 PROFTPD_MODULES += mod_sql
 endif
 
-ifeq ($(BR2_PACKAGE_PROFTPD_MOD_SQL_SQLITE),y)
+ifeq ($(LINGMO_PACKAGE_PROFTPD_MOD_SQL_SQLITE),y)
 PROFTPD_MODULES += mod_sql_sqlite
 PROFTPD_DEPENDENCIES += sqlite
 endif
 
-ifeq ($(BR2_PACKAGE_PROFTPD_MOD_SFTP_SQL),y)
+ifeq ($(LINGMO_PACKAGE_PROFTPD_MOD_SFTP_SQL),y)
 PROFTPD_MODULES += mod_sftp_sql
 endif
 
-ifeq ($(BR2_PACKAGE_PROFTPD_MOD_QUOTATAB),y)
+ifeq ($(LINGMO_PACKAGE_PROFTPD_MOD_QUOTATAB),y)
 PROFTPD_MODULES += mod_quotatab
 endif
 
-ifeq ($(BR2_PACKAGE_PROFTPD_MOD_QUOTATAB_FILE),y)
+ifeq ($(LINGMO_PACKAGE_PROFTPD_MOD_QUOTATAB_FILE),y)
 PROFTPD_MODULES += mod_quotatab_file
 endif
 
-ifeq ($(BR2_PACKAGE_PROFTPD_MOD_QUOTATAB_LDAP),y)
+ifeq ($(LINGMO_PACKAGE_PROFTPD_MOD_QUOTATAB_LDAP),y)
 PROFTPD_MODULES += mod_quotatab_ldap
 endif
 
-ifeq ($(BR2_PACKAGE_PROFTPD_MOD_QUOTATAB_RADIUS),y)
+ifeq ($(LINGMO_PACKAGE_PROFTPD_MOD_QUOTATAB_RADIUS),y)
 PROFTPD_MODULES += mod_quotatab_radius
 endif
 
-ifeq ($(BR2_PACKAGE_PROFTPD_MOD_QUOTATAB_SQL),y)
+ifeq ($(LINGMO_PACKAGE_PROFTPD_MOD_QUOTATAB_SQL),y)
 PROFTPD_MODULES += mod_quotatab_sql
 endif
 
@@ -112,8 +112,8 @@ PROFTPD_PRE_CONFIGURE_HOOKS += PROFTPD_USE_LLU
 PROFTPD_MAKE = $(MAKE1)
 
 # install Perl based scripts in target
-ifeq ($(BR2_PACKAGE_PERL),y)
-ifeq ($(BR2_PACKAGE_PROFTPD_MOD_QUOTATAB),y)
+ifeq ($(LINGMO_PACKAGE_PERL),y)
+ifeq ($(LINGMO_PACKAGE_PROFTPD_MOD_QUOTATAB),y)
 define PROFTPD_INSTALL_FTPQUOTA
 	$(INSTALL) -D -m 0755 $(@D)/contrib/ftpquota $(TARGET_DIR)/usr/sbin/ftpquota
 endef
@@ -143,8 +143,8 @@ define PROFTPD_INSTALL_INIT_SYSTEMD
 		$(TARGET_DIR)/usr/lib/systemd/system/proftpd.service
 endef
 
-ifneq ($(BR2_PACKAGE_PROFTPD_BUFFER_SIZE),0)
-PROFTPD_CONF_OPTS += --enable-buffer-size=$(BR2_PACKAGE_PROFTPD_BUFFER_SIZE)
+ifneq ($(LINGMO_PACKAGE_PROFTPD_BUFFER_SIZE),0)
+PROFTPD_CONF_OPTS += --enable-buffer-size=$(LINGMO_PACKAGE_PROFTPD_BUFFER_SIZE)
 endif
 
 $(eval $(autotools-package))

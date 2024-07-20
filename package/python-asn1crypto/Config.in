@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_ASN1CRYPTO
+config LINGMO_PACKAGE_PYTHON_ASN1CRYPTO
 	bool "python-asn1crypto"
 	help
 	  Fast ASN.1 parser and serializer with definitions for

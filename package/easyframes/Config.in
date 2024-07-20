@@ -1,7 +1,7 @@
-config BR2_PACKAGE_EASYFRAMES
+config LINGMO_PACKAGE_EASYFRAMES
 	bool "easyframes"
-	depends on BR2_USE_MMU # fork()
-	select BR2_PACKAGE_LIBPCAP
+	depends on LINGMO_USE_MMU # fork()
+	select LINGMO_PACKAGE_LIBPCAP
 	help
 	  This is a small and simple command-line tool for network
 	  testing.  The tool makes it simple to compose a frame,

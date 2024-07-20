@@ -16,7 +16,7 @@ WOFF2_CONF_OPTS = \
 # The CMake build files for woff2 manually set some RPATH handling options
 # which make the installation steps fail with static builds, so pass this
 # to prevent any attempt of mangling RPATH that CMake would do.
-ifneq ($(BR2_SHARED_LIBS),y)
+ifneq ($(LINGMO_SHARED_LIBS),y)
 WOFF2_CONF_OPTS += -DCMAKE_SKIP_RPATH=ON
 endif
 

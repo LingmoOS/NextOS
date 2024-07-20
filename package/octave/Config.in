@@ -1,9 +1,9 @@
-config BR2_PACKAGE_OCTAVE
+config LINGMO_PACKAGE_OCTAVE
 	bool "octave"
-	depends on BR2_PACKAGE_OPENBLAS_ARCH_SUPPORTS
-	depends on BR2_INSTALL_LIBSTDCPP
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_8 # C++11
-	depends on BR2_TOOLCHAIN_HAS_FORTRAN
+	depends on LINGMO_PACKAGE_OPENBLAS_ARCH_SUPPORTS
+	depends on LINGMO_INSTALL_LIBSTDCPP
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_8 # C++11
+	depends on LINGMO_TOOLCHAIN_HAS_FORTRAN
 	# Some Bootlin x86_64 toolchains (like version
 	# bleeding-edge-2021.11-1) has a file
 	# "x86_64-buildroot-linux-gnu/lib64/libgfortran.la" including
@@ -11,9 +11,9 @@ config BR2_PACKAGE_OCTAVE
 	# to linquadmath.la on the bootlin build host. This breaks
 	# builds using libtool with libgfortran. Those toolchains are
 	# used by the "utils/test-pkg" script.
-	depends on !BR2_TOOLCHAIN_EXTERNAL_BOOTLIN || !BR2_x86_64
-	select BR2_PACKAGE_OPENBLAS
-	select BR2_PACKAGE_PCRE2
+	depends on !LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN || !LINGMO_x86_64
+	select LINGMO_PACKAGE_OPENBLAS
+	select LINGMO_PACKAGE_PCRE2
 	help
 	  GNU Octave is a high-level language, primarily intended for
 	  numerical computations. It provides a convenient command
@@ -33,6 +33,6 @@ config BR2_PACKAGE_OCTAVE
 	  https://www.octave.org/
 
 comment "octave needs a toolchain w/ C++ and fortran, gcc >= 4.8"
-	depends on !BR2_INSTALL_LIBSTDCPP || \
-		!BR2_TOOLCHAIN_GCC_AT_LEAST_4_8 || \
-		!BR2_TOOLCHAIN_HAS_FORTRAN
+	depends on !LINGMO_INSTALL_LIBSTDCPP || \
+		!LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_8 || \
+		!LINGMO_TOOLCHAIN_HAS_FORTRAN

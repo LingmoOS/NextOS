@@ -1,7 +1,7 @@
-config BR2_PACKAGE_UNSCD
+config LINGMO_PACKAGE_UNSCD
 	bool "unscd"
-	depends on !BR2_RISCV_32
-	depends on BR2_TOOLCHAIN_USES_GLIBC
+	depends on !LINGMO_RISCV_32
+	depends on LINGMO_TOOLCHAIN_USES_GLIBC
 	help
 	  Micro Name Service Caching Daemon
 
@@ -23,5 +23,5 @@ config BR2_PACKAGE_UNSCD
 	  http://busybox.net/~vda/unscd
 
 comment "unscd needs a glibc toolchain"
-	depends on !BR2_RISCV_32
-	depends on !BR2_TOOLCHAIN_USES_GLIBC
+	depends on !LINGMO_RISCV_32
+	depends on !LINGMO_TOOLCHAIN_USES_GLIBC

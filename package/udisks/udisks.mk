@@ -39,7 +39,7 @@ UDISKS_CONF_OPTS = \
 	--disable-vdo \
 	--disable-zram
 
-ifeq ($(BR2_PACKAGE_UDISKS_FHS_MEDIA),y)
+ifeq ($(LINGMO_PACKAGE_UDISKS_FHS_MEDIA),y)
 UDISKS_CONF_OPTS += --enable-fhs-media
 else
 UDISKS_CONF_OPTS += --disable-fhs-media

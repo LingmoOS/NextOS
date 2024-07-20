@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PERL_MOJOLICIOUS_PLUGIN_SECURITYHEADER
+config LINGMO_PACKAGE_PERL_MOJOLICIOUS_PLUGIN_SECURITYHEADER
 	bool "perl-mojolicious-plugin-securityheader"
-	select BR2_PACKAGE_PERL_MOJOLICIOUS # runtime
+	select LINGMO_PACKAGE_PERL_MOJOLICIOUS # runtime
 	help
 	  Mojolicious Plugin.
 

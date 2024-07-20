@@ -1,11 +1,11 @@
-config BR2_PACKAGE_FSWEBCAM
+config LINGMO_PACKAGE_FSWEBCAM
 	bool "fswebcam"
-	depends on BR2_USE_MMU # fork()
-	depends on !BR2_STATIC_LIBS
-	select BR2_PACKAGE_GD
-	select BR2_PACKAGE_FREETYPE
-	select BR2_PACKAGE_JPEG
-	select BR2_PACKAGE_LIBPNG
+	depends on LINGMO_USE_MMU # fork()
+	depends on !LINGMO_STATIC_LIBS
+	select LINGMO_PACKAGE_GD
+	select LINGMO_PACKAGE_FREETYPE
+	select LINGMO_PACKAGE_JPEG
+	select LINGMO_PACKAGE_LIBPNG
 	help
 	  fswebcam is a neat and simple webcam app. It captures images
 	  from a V4L1/V4L2 compatible device or file, averages them to
@@ -18,5 +18,5 @@ config BR2_PACKAGE_FSWEBCAM
 	  https://www.sanslogic.co.uk/fswebcam/
 
 comment "fswebcam needs a toolchain w/ dynamic library"
-	depends on BR2_USE_MMU
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_STATIC_LIBS

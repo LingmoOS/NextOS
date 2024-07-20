@@ -1,6 +1,6 @@
-config BR2_PACKAGE_ARPTABLES
+config LINGMO_PACKAGE_ARPTABLES
 	bool "arptables-legacy"
-	depends on BR2_USE_MMU # needs fork()
+	depends on LINGMO_USE_MMU # needs fork()
 	help
 	  Legacy tool to set up, maintain, and inspect the tables of ARP
 	  rules.

@@ -1,17 +1,17 @@
-config BR2_TARGET_ROOTFS_EROFS
+config LINGMO_TARGET_ROOTFS_EROFS
 	bool "erofs root filesystem"
-	select BR2_PACKAGE_HOST_EROFS_UTILS
+	select LINGMO_PACKAGE_HOST_EROFS_UTILS
 	help
 	  Build a EROFS root filesystem.
 
-if BR2_TARGET_ROOTFS_EROFS
+if LINGMO_TARGET_ROOTFS_EROFS
 
-config BR2_TARGET_ROOTFS_EROFS_LZ4HC
+config LINGMO_TARGET_ROOTFS_EROFS_LZ4HC
 	bool "lz4hc compression"
 	help
 	  Use lz4 high-compression to compress data in the filesystem.
 
-config BR2_TARGET_ROOTFS_EROFS_PCLUSTERSIZE
+config LINGMO_TARGET_ROOTFS_EROFS_PCLUSTERSIZE
 	int "pcluster size"
 	default 0
 	help
@@ -21,4 +21,4 @@ config BR2_TARGET_ROOTFS_EROFS_PCLUSTERSIZE
 	  read performance for common storage devices), which has been
 	  introduced since Linux 5.13.
 
-endif # BR2_TARGET_ROOTFS_EROFS
+endif # LINGMO_TARGET_ROOTFS_EROFS

@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LUAEXPAT
+config LINGMO_PACKAGE_LUAEXPAT
 	bool "luaexpat"
-	select BR2_PACKAGE_EXPAT
+	select LINGMO_PACKAGE_EXPAT
 	help
 	  LuaExpat is a SAX XML parser based on the Expat library.
 

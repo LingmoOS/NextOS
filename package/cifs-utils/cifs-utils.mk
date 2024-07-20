@@ -15,13 +15,13 @@ CIFS_UTILS_AUTORECONF = YES
 CIFS_UTILS_DEPENDENCIES = host-pkgconf
 
 # Let's disable PIE unconditionally. We want PIE to be enabled only by
-# the global BR2_RELRO_FULL option.
+# the global LINGMO_RELRO_FULL option.
 CIFS_UTILS_CONF_OPTS = --disable-pie --disable-man
 
 # uses C11 code in smbinfo.c and mtab.c
 CIFS_UTILS_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) -std=gnu11"
 
-ifeq ($(BR2_PACKAGE_KEYUTILS),y)
+ifeq ($(LINGMO_PACKAGE_KEYUTILS),y)
 CIFS_UTILS_DEPENDENCIES += keyutils
 endif
 
@@ -31,7 +31,7 @@ endef
 
 CIFS_UTILS_POST_PATCH_HOOKS += CIFS_UTILS_NO_WERROR
 
-ifeq ($(BR2_PACKAGE_CIFS_UTILS_SMBTOOLS),)
+ifeq ($(LINGMO_PACKAGE_CIFS_UTILS_SMBTOOLS),)
 define CIFS_UTILS_REMOVE_SMBTOOLS
 	rm -f $(TARGET_DIR)/usr/bin/smbinfo
 	rm -f $(TARGET_DIR)/usr/bin/smb2-quota

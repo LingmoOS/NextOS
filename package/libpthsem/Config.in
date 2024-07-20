@@ -1,15 +1,15 @@
-config BR2_PACKAGE_LIBPTHSEM
+config LINGMO_PACKAGE_LIBPTHSEM
 	bool "libpthsem"
-	depends on BR2_USE_MMU # fork()
+	depends on LINGMO_USE_MMU # fork()
 	help
 	  GNU pth is a user mode multi threading library. pthsem is an
 	  extend version, with support for semaphores added.
 
 	  http://www.auto.tuwien.ac.at/~mkoegler/pth/
 
-if BR2_PACKAGE_LIBPTHSEM
+if LINGMO_PACKAGE_LIBPTHSEM
 
-config BR2_PACKAGE_LIBPTHSEM_COMPAT
+config LINGMO_PACKAGE_LIBPTHSEM_COMPAT
 	bool "libpth compatibility"
 	help
 	  This option enables the compatibility with the original

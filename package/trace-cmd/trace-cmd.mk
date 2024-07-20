@@ -14,11 +14,11 @@ TRACE_CMD_LICENSE_FILES = COPYING COPYING.LIB LICENSES/GPL-2.0 LICENSES/LGPL-2.1
 TRACE_CMD_DEPENDENCIES = host-pkgconf libtraceevent libtracefs
 TRACE_CMD_MAKE_OPTS = prefix=/usr etcdir=/etc
 
-ifeq ($(BR2_PACKAGE_AUDIT),y)
+ifeq ($(LINGMO_PACKAGE_AUDIT),y)
 TRACE_CMD_DEPENDENCIES += audit
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON3),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3),y)
 TRACE_CMD_DEPENDENCIES += python3 host-swig
 TRACE_CMD_MAKE_OPTS += PYTHON_VERS=python3
 else
@@ -30,7 +30,7 @@ endif
 TRACE_CMD_CFLAGS = $(filter-out -D_LARGEFILE64_SOURCE,$(TARGET_CFLAGS))
 
 # Sparc64 needs -fPIC
-ifeq ($(BR2_sparc64),y)
+ifeq ($(LINGMO_sparc64),y)
 TRACE_CMD_CFLAGS += -fPIC
 endif
 

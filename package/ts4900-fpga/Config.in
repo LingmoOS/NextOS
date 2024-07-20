@@ -1,6 +1,6 @@
-config BR2_PACKAGE_TS4900_FPGA
+config LINGMO_PACKAGE_TS4900_FPGA
 	bool "ts4900-fpga"
-	depends on BR2_arm
+	depends on LINGMO_arm
 	help
 	  TS-4900's FPGA implements clocks, UART MUX, and GPIOs. One
 	  of these GPIOs is used to enable the wifi module.

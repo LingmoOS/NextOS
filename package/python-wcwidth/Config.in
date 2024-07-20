@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_WCWIDTH
+config LINGMO_PACKAGE_PYTHON_WCWIDTH
 	bool "python-wcwidth"
 	help
 	  This library measures number of Terminal column cells of

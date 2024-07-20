@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_CYCLER
+config LINGMO_PACKAGE_PYTHON_CYCLER
 	bool "python-cycler"
 	help
 	  Creates a Cycler objects much like cycler, but

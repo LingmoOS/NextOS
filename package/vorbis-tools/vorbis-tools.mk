@@ -15,15 +15,15 @@ VORBIS_TOOLS_CONF_OPTS = --program-transform-name=''
 # ogg123 calls math functions but forgets to link with libm
 VORBIS_TOOLS_CONF_ENV = LIBS=-lm
 
-ifeq ($(BR2_PACKAGE_FLAC),y)
+ifeq ($(LINGMO_PACKAGE_FLAC),y)
 VORBIS_TOOLS_DEPENDENCIES += flac
 endif
 
-ifeq ($(BR2_PACKAGE_OPUSFILE),y)
+ifeq ($(LINGMO_PACKAGE_OPUSFILE),y)
 VORBIS_TOOLS_DEPENDENCIES += opusfile
 endif
 
-ifeq ($(BR2_PACKAGE_SPEEX),y)
+ifeq ($(LINGMO_PACKAGE_SPEEX),y)
 VORBIS_TOOLS_DEPENDENCIES += speex
 endif
 

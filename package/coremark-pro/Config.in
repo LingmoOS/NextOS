@@ -1,7 +1,7 @@
-config BR2_PACKAGE_COREMARK_PRO
+config LINGMO_PACKAGE_COREMARK_PRO
 	bool "coremark-pro"
-	depends on BR2_USE_MMU # perl uses fork()
-	select BR2_PACKAGE_PERL
+	depends on LINGMO_USE_MMU # perl uses fork()
+	select LINGMO_PACKAGE_PERL
 	help
 	  CoreMark-PRO is a comprehensive, advanced processor benchmark.
 

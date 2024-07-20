@@ -12,8 +12,8 @@ class TestPerlGDGraph(TestPerlBase):
 
     config = TestPerlBase.config + \
         """
-        BR2_PACKAGE_PERL=y
-        BR2_PACKAGE_PERL_GDGRAPH=y
+        LINGMO_PACKAGE_PERL=y
+        LINGMO_PACKAGE_PERL_GDGRAPH=y
         """
 
     def test_run(self):

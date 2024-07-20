@@ -41,20 +41,20 @@ FLUTTER_ENGINE_DEPENDENCIES = \
 # Dispatch all architectures of flutter
 # FLUTTER_ENGINE_TARGET_TRIPPLE must match the directory name found in
 # buildtools/linux-x64/clang/lib/clang/*/lib
-ifeq ($(BR2_aarch64),y)
+ifeq ($(LINGMO_aarch64),y)
 FLUTTER_ENGINE_TARGET_ARCH = arm64
 FLUTTER_ENGINE_TARGET_TRIPPLE = aarch64-unknown-linux-gnu
-else ifeq ($(BR2_arm)$(BR2_armeb),y)
+else ifeq ($(LINGMO_arm)$(LINGMO_armeb),y)
 FLUTTER_ENGINE_TARGET_ARCH = arm
 FLUTTER_ENGINE_TARGET_TRIPPLE = armv7-unknown-linux-gnueabihf
-else ifeq ($(BR2_x86_64),y)
+else ifeq ($(LINGMO_x86_64),y)
 FLUTTER_ENGINE_TARGET_ARCH = x64
 FLUTTER_ENGINE_TARGET_TRIPPLE = x86_64-unknown-linux-gnu
 endif
 
 ifeq ($(FLUTTER_ENGINE_RUNTIME_MODE_PROFILE),y)
 FLUTTER_ENGINE_RUNTIME_MODE=profile
-else ifeq ($(BR2_ENABLE_RUNTIME_DEBUG),y)
+else ifeq ($(LINGMO_ENABLE_RUNTIME_DEBUG),y)
 FLUTTER_ENGINE_RUNTIME_MODE=debug
 else
 FLUTTER_ENGINE_RUNTIME_MODE=release
@@ -85,15 +85,15 @@ FLUTTER_ENGINE_CONF_OPTS = \
 	--target-toolchain $(FLUTTER_ENGINE_CLANG_PATH) \
 	--target-triple $(FLUTTER_ENGINE_TARGET_TRIPPLE)
 
-ifeq ($(BR2_arm)$(BR2_armeb),y)
+ifeq ($(LINGMO_arm)$(LINGMO_armeb),y)
 FLUTTER_ENGINE_CONF_OPTS += \
-	--arm-float-abi $(call qstrip,$(BR2_GCC_TARGET_FLOAT_ABI))
+	--arm-float-abi $(call qstrip,$(LINGMO_GCC_TARGET_FLOAT_ABI))
 endif
 
 # We must specify a full path to ccache and a full path to the flutter-engine
 # provided clang in order to use ccache, or else flutter-engine will error out
 # attempting to find ccache in the target-toolchain provided path.
-ifeq ($(BR2_CCACHE),y)
+ifeq ($(LINGMO_CCACHE),y)
 define FLUTTER_ENGINE_COMPILER_PATH_FIXUP
 	$(SED) "s%cc =.*%cc = \"$(HOST_DIR)/bin/ccache $(FLUTTER_ENGINE_CLANG_PATH)/bin/clang\""%g \
 		$(@D)/build/toolchain/custom/BUILD.gn
@@ -104,39 +104,39 @@ endef
 FLUTTER_ENGINE_PRE_CONFIGURE_HOOKS += FLUTTER_ENGINE_COMPILER_PATH_FIXUP
 endif
 
-ifeq ($(BR2_ENABLE_LTO),y)
+ifeq ($(LINGMO_ENABLE_LTO),y)
 FLUTTER_ENGINE_CONF_OPTS += --lto
 else
 FLUTTER_ENGINE_CONF_OPTS += --no-lto
 endif
 
-ifeq ($(BR2_OPTIMIZE_0),y)
+ifeq ($(LINGMO_OPTIMIZE_0),y)
 FLUTTER_ENGINE_CONF_OPTS += --unoptimized
 endif
 
 # There is no --disable-fontconfig option.
-ifeq ($(BR2_PACKAGE_FONTCONFIG),y)
+ifeq ($(LINGMO_PACKAGE_FONTCONFIG),y)
 FLUTTER_ENGINE_DEPENDENCIES += fontconfig
 FLUTTER_ENGINE_CONF_OPTS += --enable-fontconfig
 endif
 
-ifeq ($(BR2_PACKAGE_HAS_LIBGL),y)
+ifeq ($(LINGMO_PACKAGE_HAS_LIBGL),y)
 FLUTTER_ENGINE_DEPENDENCIES += libgl
 endif
 
-ifeq ($(BR2_PACKAGE_HAS_LIBGLES),y)
+ifeq ($(LINGMO_PACKAGE_HAS_LIBGLES),y)
 FLUTTER_ENGINE_DEPENDENCIES += libgles
 FLUTTER_ENGINE_CONF_OPTS += --enable-impeller-opengles
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGLFW),y)
+ifeq ($(LINGMO_PACKAGE_LIBGLFW),y)
 FLUTTER_ENGINE_DEPENDENCIES += libglfw
 FLUTTER_ENGINE_CONF_OPTS += --build-glfw-shell
 else
 FLUTTER_ENGINE_CONF_OPTS += --no-build-glfw-shell
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGTK3),y)
+ifeq ($(LINGMO_PACKAGE_LIBGTK3),y)
 FLUTTER_ENGINE_DEPENDENCIES += libgtk3
 FLUTTER_ENGINE_INSTALL_FILES += libflutter_linux_gtk.so
 else
@@ -144,11 +144,11 @@ FLUTTER_ENGINE_CONF_OPTS += --disable-desktop-embeddings
 endif
 
 # There is no --disable-vulkan option
-ifeq ($(BR2_PACKAGE_MESA3D_VULKAN_DRIVER),y)
+ifeq ($(LINGMO_PACKAGE_MESA3D_VULKAN_DRIVER),y)
 FLUTTER_ENGINE_CONF_OPTS += --enable-vulkan --enable-impeller-vulkan
 endif
 
-ifeq ($(BR2_PACKAGE_XORG7)$(BR2_PACKAGE_LIBXCB),yy)
+ifeq ($(LINGMO_PACKAGE_XORG7)$(LINGMO_PACKAGE_LIBXCB),yy)
 FLUTTER_ENGINE_DEPENDENCIES += libxcb
 else
 define FLUTTER_ENGINE_VULKAN_X11_SUPPORT_FIXUP
@@ -158,7 +158,7 @@ endef
 FLUTTER_ENGINE_PRE_CONFIGURE_HOOKS += FLUTTER_ENGINE_VULKAN_X11_SUPPORT_FIXUP
 endif
 
-ifeq ($(BR2_PACKAGE_WAYLAND),y)
+ifeq ($(LINGMO_PACKAGE_WAYLAND),y)
 FLUTTER_ENGINE_DEPENDENCIES += wayland
 else
 define FLUTTER_ENGINE_VULKAN_WAYLAND_SUPPORT_FIXUP

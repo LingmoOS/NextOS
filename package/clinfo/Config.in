@@ -1,6 +1,6 @@
-config BR2_PACKAGE_CLINFO
+config LINGMO_PACKAGE_CLINFO
 	bool "clinfo"
-	depends on BR2_PACKAGE_HAS_LIBOPENCL
+	depends on LINGMO_PACKAGE_HAS_LIBOPENCL
 	help
 	  clinfo is a simple command-line application that enumerates
 	  all possible (known) properties of the OpenCL platform and
@@ -9,4 +9,4 @@ config BR2_PACKAGE_CLINFO
 	  https://github.com/Oblomov/clinfo
 
 comment "clinfo needs an OpenCL provider"
-	depends on !BR2_PACKAGE_HAS_LIBOPENCL
+	depends on !LINGMO_PACKAGE_HAS_LIBOPENCL

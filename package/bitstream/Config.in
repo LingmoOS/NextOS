@@ -1,4 +1,4 @@
-config BR2_PACKAGE_BITSTREAM
+config LINGMO_PACKAGE_BITSTREAM
 	bool "bitstream"
 	help
 	  biTStream is a set of C headers allowing a simpler access to

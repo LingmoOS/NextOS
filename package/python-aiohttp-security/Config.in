@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_AIOHTTP_SECURITY
+config LINGMO_PACKAGE_PYTHON_AIOHTTP_SECURITY
 	bool "python-aiohttp-security"
-	select BR2_PACKAGE_PYTHON_AIOHTTP # runtime
+	select LINGMO_PACKAGE_PYTHON_AIOHTTP # runtime
 	help
 	  Security for aiohttp.web.
 

@@ -31,23 +31,23 @@ CRIU_MAKE_ENV =\
 	WERROR=0
 
 # Remap to match the used in criu.
-ifeq ($(BR2_NORMALIZED_ARCH),"x86_64")
+ifeq ($(LINGMO_NORMALIZED_ARCH),"x86_64")
 CRIU_MAKE_ENV += ARCH=x86
-else ifeq ($(BR2_NORMALIZED_ARCH),"powerpc")
+else ifeq ($(LINGMO_NORMALIZED_ARCH),"powerpc")
 CRIU_MAKE_ENV += ARCH=ppc64
-else ifeq ($(BR2_NORMALIZED_ARCH),"arm64")
+else ifeq ($(LINGMO_NORMALIZED_ARCH),"arm64")
 CRIU_MAKE_ENV += ARCH=aarch64
 else
-CRIU_MAKE_ENV += ARCH=$(BR2_NORMALIZED_ARCH)
+CRIU_MAKE_ENV += ARCH=$(LINGMO_NORMALIZED_ARCH)
 endif
 
-ifeq ($(BR2_ARM_CPU_ARMV6),y)
+ifeq ($(LINGMO_ARM_CPU_ARMV6),y)
 CRIU_MAKE_ENV += SUBARCH=armv6
-else ifeq ($(BR2_ARM_CPU_ARMV7A),y)
+else ifeq ($(LINGMO_ARM_CPU_ARMV7A),y)
 CRIU_MAKE_ENV += SUBARCH=armv7
-else ifeq ($(BR2_ARM_CPU_ARMV7M),y)
+else ifeq ($(LINGMO_ARM_CPU_ARMV7M),y)
 CRIU_MAKE_ENV += SUBARCH=armv7
-else ifeq ($(BR2_ARM_CPU_ARMV8A),y)
+else ifeq ($(LINGMO_ARM_CPU_ARMV8A),y)
 CRIU_MAKE_ENV += SUBARCH=armv8
 endif
 

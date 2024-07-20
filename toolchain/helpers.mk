@@ -169,7 +169,7 @@ copy_toolchain_sysroot = \
 #
 check_kernel_headers_version = \
 	if ! support/scripts/check-kernel-headers.sh $(1) $(2) $(3) \
-		$(if $(BR2_TOOLCHAIN_HEADERS_LATEST),$(4),strict); \
+		$(if $(LINGMO_TOOLCHAIN_HEADERS_LATEST),$(4),strict); \
 	then \
 		exit 1; \
 	fi
@@ -215,12 +215,12 @@ check_glibc_feature = \
 #
 check_glibc_rpc_feature = \
 	IS_IN_LIBC=`test -f $(1)/usr/include/rpc/rpc.h && echo y` ; \
-	if [ "$(BR2_TOOLCHAIN_HAS_NATIVE_RPC)" != "y" -a "$${IS_IN_LIBC}" = "y" ] ; then \
-		echo "RPC support available in C library, please enable BR2_TOOLCHAIN_EXTERNAL_INET_RPC" ; \
+	if [ "$(LINGMO_TOOLCHAIN_HAS_NATIVE_RPC)" != "y" -a "$${IS_IN_LIBC}" = "y" ] ; then \
+		echo "RPC support available in C library, please enable LINGMO_TOOLCHAIN_EXTERNAL_INET_RPC" ; \
 		exit 1 ; \
 	fi ; \
-	if [ "$(BR2_TOOLCHAIN_HAS_NATIVE_RPC)" = "y" -a "$${IS_IN_LIBC}" != "y" ] ; then \
-		echo "RPC support not available in C library, please disable BR2_TOOLCHAIN_EXTERNAL_INET_RPC" ; \
+	if [ "$(LINGMO_TOOLCHAIN_HAS_NATIVE_RPC)" = "y" -a "$${IS_IN_LIBC}" != "y" ] ; then \
+		echo "RPC support not available in C library, please disable LINGMO_TOOLCHAIN_EXTERNAL_INET_RPC" ; \
 		exit 1 ; \
 	fi
 
@@ -239,7 +239,7 @@ check_glibc = \
 		echo "Incorrect selection of the C library"; \
 		exit -1; \
 	fi; \
-	$(call check_glibc_feature,BR2_USE_MMU,MMU support) ;\
+	$(call check_glibc_feature,LINGMO_USE_MMU,MMU support) ;\
 	$(call check_glibc_rpc_feature,$${SYSROOT_DIR})
 
 #
@@ -303,15 +303,15 @@ check_uclibc = \
 		exit -1; \
 	fi; \
 	UCLIBC_CONFIG_FILE=$${SYSROOT_DIR}/usr/include/bits/uClibc_config.h ; \
-	$(call check_uclibc_feature,__ARCH_USE_MMU__,BR2_USE_MMU,$${UCLIBC_CONFIG_FILE},MMU support) ;\
+	$(call check_uclibc_feature,__ARCH_USE_MMU__,LINGMO_USE_MMU,$${UCLIBC_CONFIG_FILE},MMU support) ;\
 	$(call check_uclibc_feature,__UCLIBC_HAS_LFS__,,$${UCLIBC_CONFIG_FILE},Large file support) ;\
 	$(call check_uclibc_feature,__UCLIBC_HAS_IPV6__,,$${UCLIBC_CONFIG_FILE},IPv6 support) ;\
-	$(call check_uclibc_feature,__UCLIBC_HAS_RPC__,BR2_TOOLCHAIN_HAS_NATIVE_RPC,$${UCLIBC_CONFIG_FILE},RPC support) ;\
-	$(call check_uclibc_feature,__UCLIBC_HAS_XLOCALE__,BR2_ENABLE_LOCALE,$${UCLIBC_CONFIG_FILE},Locale support) ;\
-	$(call check_uclibc_feature,__UCLIBC_HAS_WCHAR__,BR2_USE_WCHAR,$${UCLIBC_CONFIG_FILE},Wide char support) ;\
-	$(call check_uclibc_feature,__UCLIBC_HAS_THREADS__,BR2_TOOLCHAIN_HAS_THREADS,$${UCLIBC_CONFIG_FILE},Thread support) ;\
-	$(call check_uclibc_feature,__PTHREADS_DEBUG_SUPPORT__,BR2_TOOLCHAIN_HAS_THREADS_DEBUG,$${UCLIBC_CONFIG_FILE},Thread debugging support) ;\
-	$(call check_uclibc_feature,__UCLIBC_HAS_THREADS_NATIVE__,BR2_TOOLCHAIN_HAS_THREADS_NPTL,$${UCLIBC_CONFIG_FILE},NPTL thread support)
+	$(call check_uclibc_feature,__UCLIBC_HAS_RPC__,LINGMO_TOOLCHAIN_HAS_NATIVE_RPC,$${UCLIBC_CONFIG_FILE},RPC support) ;\
+	$(call check_uclibc_feature,__UCLIBC_HAS_XLOCALE__,LINGMO_ENABLE_LOCALE,$${UCLIBC_CONFIG_FILE},Locale support) ;\
+	$(call check_uclibc_feature,__UCLIBC_HAS_WCHAR__,LINGMO_USE_WCHAR,$${UCLIBC_CONFIG_FILE},Wide char support) ;\
+	$(call check_uclibc_feature,__UCLIBC_HAS_THREADS__,LINGMO_TOOLCHAIN_HAS_THREADS,$${UCLIBC_CONFIG_FILE},Thread support) ;\
+	$(call check_uclibc_feature,__PTHREADS_DEBUG_SUPPORT__,LINGMO_TOOLCHAIN_HAS_THREADS_DEBUG,$${UCLIBC_CONFIG_FILE},Thread debugging support) ;\
+	$(call check_uclibc_feature,__UCLIBC_HAS_THREADS_NATIVE__,LINGMO_TOOLCHAIN_HAS_THREADS_NPTL,$${UCLIBC_CONFIG_FILE},NPTL thread support)
 
 #
 # Check that the Buildroot configuration of the ABI matches the
@@ -329,8 +329,8 @@ check_arm_abi = \
 	fi ; \
 	if ! echo 'int main(void) {}' | $${__CROSS_CC} -x c -o $(BUILD_DIR)/.br-toolchain-test.tmp - ; then \
 		rm -f $(BUILD_DIR)/.br-toolchain-test.tmp*; \
-		abistr_$(BR2_ARM_EABI)='EABI'; \
-		abistr_$(BR2_ARM_EABIHF)='EABIhf'; \
+		abistr_$(LINGMO_ARM_EABI)='EABI'; \
+		abistr_$(LINGMO_ARM_EABIHF)='EABIhf'; \
 		echo "Incorrect ABI setting: $${abistr_y} selected, but toolchain is incompatible"; \
 		exit 1 ; \
 	fi ; \
@@ -344,10 +344,10 @@ check_arm_abi = \
 check_cplusplus = \
 	__CROSS_CXX=$(strip $1) ; \
 	__HAS_CXX=`$${__CROSS_CXX} -v > /dev/null 2>&1 && echo y`; \
-	if [ "$${__HAS_CXX}" != "y" -a "$(BR2_INSTALL_LIBSTDCPP)" = y ] ; then \
+	if [ "$${__HAS_CXX}" != "y" -a "$(LINGMO_INSTALL_LIBSTDCPP)" = y ] ; then \
 		echo "C++ support is selected but is not available in external toolchain" ; \
 		exit 1 ; \
-	elif [ "$${__HAS_CXX}" = "y" -a "$(BR2_INSTALL_LIBSTDCPP)" != y ] ; then \
+	elif [ "$${__HAS_CXX}" = "y" -a "$(LINGMO_INSTALL_LIBSTDCPP)" != y ] ; then \
 		echo "C++ support is not selected but is available in external toolchain" ; \
 		exit 1 ; \
 	fi \
@@ -364,10 +364,10 @@ check_dlang = \
 	__HAS_DLANG=`printf 'import std.stdio;\nvoid main() { writeln("Hello World!"); }\n' | \
 		$${__CROSS_GDC} -x d -o $${__o} - >/dev/null 2>&1 && echo y`; \
 	rm -f $${__o}* ; \
-	if [ "$${__HAS_DLANG}" != "y" -a "$(BR2_TOOLCHAIN_HAS_DLANG)" = y ] ; then \
+	if [ "$${__HAS_DLANG}" != "y" -a "$(LINGMO_TOOLCHAIN_HAS_DLANG)" = y ] ; then \
 		echo "D language support is selected but is not available in external toolchain" ; \
 		exit 1 ; \
-	elif [ "$${__HAS_DLANG}" = "y" -a "$(BR2_TOOLCHAIN_HAS_DLANG)" != y ] ; then \
+	elif [ "$${__HAS_DLANG}" = "y" -a "$(LINGMO_TOOLCHAIN_HAS_DLANG)" != y ] ; then \
 		echo "D language support is not selected but is available in external toolchain" ; \
 		exit 1 ; \
 	fi \
@@ -384,10 +384,10 @@ check_fortran = \
 	__HAS_FORTRAN=`printf 'program hello\n\tprint *, "Hello Fortran!\\\n"\nend program hello\n' | \
 		$${__CROSS_FC} -x f95 -ffree-form -o $${__o} - 2>/dev/null && echo y`; \
 	rm -f $${__o}* ; \
-	if [ "$${__HAS_FORTRAN}" != "y" -a "$(BR2_TOOLCHAIN_HAS_FORTRAN)" = y ] ; then \
+	if [ "$${__HAS_FORTRAN}" != "y" -a "$(LINGMO_TOOLCHAIN_HAS_FORTRAN)" = y ] ; then \
 		echo "Fortran support is selected but is not available in external toolchain" ; \
 		exit 1 ; \
-	elif [ "$${__HAS_FORTRAN}" = "y" -a "$(BR2_TOOLCHAIN_HAS_FORTRAN)" != y ] ; then \
+	elif [ "$${__HAS_FORTRAN}" = "y" -a "$(LINGMO_TOOLCHAIN_HAS_FORTRAN)" != y ] ; then \
 		echo "Fortran support is not selected but is available in external toolchain" ; \
 		exit 1 ; \
 	fi \
@@ -404,10 +404,10 @@ check_openmp = \
 	__HAS_OPENMP=`printf '\#include <omp.h>\nint main(void) { return omp_get_thread_num(); }' | \
 		$${__CROSS_CC} -fopenmp -x c -o $${__o} - >/dev/null 2>&1 && echo y` ; \
 	rm -f $${__o}* ; \
-	if [ "$${__HAS_OPENMP}" != "y" -a "$(BR2_TOOLCHAIN_HAS_OPENMP)" = y ] ; then \
+	if [ "$${__HAS_OPENMP}" != "y" -a "$(LINGMO_TOOLCHAIN_HAS_OPENMP)" = y ] ; then \
 		echo "OpenMP support is selected but is not available in external toolchain"; \
 		exit 1 ; \
-	elif [ "$${__HAS_OPENMP}" = "y" -a "$(BR2_TOOLCHAIN_HAS_OPENMP)" != y ] ; then \
+	elif [ "$${__HAS_OPENMP}" = "y" -a "$(LINGMO_TOOLCHAIN_HAS_OPENMP)" != y ] ; then \
 		echo "OpenMP support is not selected but is available in external toolchain"; \
 		exit 1 ; \
 	fi \
@@ -484,12 +484,12 @@ check_unusable_toolchain = \
 check_toolchain_ssp = \
 	__CROSS_CC=$(strip $1) ; \
 	__HAS_SSP=`echo 'int main(){}' | $${__CROSS_CC} -Werror -fstack-protector -x c - -o $(BUILD_DIR)/.br-toolchain-test.tmp >/dev/null 2>&1 && echo y` ; \
-	if [ "$(BR2_TOOLCHAIN_HAS_SSP)" != "y" -a "$${__HAS_SSP}" = "y" ] ; then \
-		echo "SSP support available in this toolchain, please enable BR2_TOOLCHAIN_EXTERNAL_HAS_SSP" ; \
+	if [ "$(LINGMO_TOOLCHAIN_HAS_SSP)" != "y" -a "$${__HAS_SSP}" = "y" ] ; then \
+		echo "SSP support available in this toolchain, please enable LINGMO_TOOLCHAIN_EXTERNAL_HAS_SSP" ; \
 		exit 1 ; \
 	fi ; \
-	if [ "$(BR2_TOOLCHAIN_HAS_SSP)" = "y" -a "$${__HAS_SSP}" != "y" ] ; then \
-		echo "SSP support not available in this toolchain, please disable BR2_TOOLCHAIN_EXTERNAL_HAS_SSP" ; \
+	if [ "$(LINGMO_TOOLCHAIN_HAS_SSP)" = "y" -a "$${__HAS_SSP}" != "y" ] ; then \
+		echo "SSP support not available in this toolchain, please disable LINGMO_TOOLCHAIN_EXTERNAL_HAS_SSP" ; \
 		exit 1 ; \
 	fi ; \
 	__SSP_OPTION=$(2); \

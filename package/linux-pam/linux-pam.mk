@@ -17,7 +17,7 @@ LINUX_PAM_CONF_OPTS = \
 	--enable-securedir=/lib/security \
 	--libdir=/lib
 LINUX_PAM_DEPENDENCIES = flex host-flex host-pkgconf \
-	$(if $(BR2_PACKAGE_LIBXCRYPT),libxcrypt) \
+	$(if $(LINGMO_PACKAGE_LIBXCRYPT),libxcrypt) \
 	$(TARGET_NLS_DEPENDENCIES)
 LINUX_PAM_LICENSE = BSD-3-Clause
 LINUX_PAM_LICENSE_FILES = Copyright
@@ -25,11 +25,11 @@ LINUX_PAM_LIBS = $(TARGET_NLS_LIBS)
 LINUX_PAM_MAKE_OPTS += LIBS="$(LINUX_PAM_LIBS)"
 LINUX_PAM_CPE_ID_VENDOR = linux-pam
 
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 LINUX_PAM_LIBS += -latomic
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSELINUX),y)
+ifeq ($(LINGMO_PACKAGE_LIBSELINUX),y)
 LINUX_PAM_CONF_OPTS += --enable-selinux
 LINUX_PAM_DEPENDENCIES += libselinux
 define LINUX_PAM_SELINUX_PAMFILE_TWEAK
@@ -40,14 +40,14 @@ else
 LINUX_PAM_CONF_OPTS += --disable-selinux
 endif
 
-ifeq ($(BR2_PACKAGE_AUDIT),y)
+ifeq ($(LINGMO_PACKAGE_AUDIT),y)
 LINUX_PAM_CONF_OPTS += --enable-audit
 LINUX_PAM_DEPENDENCIES += audit
 else
 LINUX_PAM_CONF_OPTS += --disable-audit
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 LINUX_PAM_CONF_OPTS += --enable-openssl
 LINUX_PAM_DEPENDENCIES += openssl
 else

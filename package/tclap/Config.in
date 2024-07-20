@@ -1,9 +1,9 @@
 comment "tclap needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP
 
-config BR2_PACKAGE_TCLAP
+config LINGMO_PACKAGE_TCLAP
 	bool "tclap"
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	help
 	  This is a small, flexible library that provides a simple
 	  interface for defining and accessing command line

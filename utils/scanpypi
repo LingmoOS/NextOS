@@ -675,7 +675,7 @@ class BuildrootPackage():
         path_to_config = os.path.join(self.pkg_dir, 'Config.in')
         print('Creating {file}...'.format(file=path_to_config))
         lines = []
-        config_line = 'config BR2_PACKAGE_{name}\n'.format(
+        config_line = 'config LINGMO_PACKAGE_{name}\n'.format(
             name=self.mk_name)
         lines.append(config_line)
 
@@ -684,7 +684,7 @@ class BuildrootPackage():
         if self.pkg_req:
             self.pkg_req.sort()
             for dep in self.pkg_req:
-                dep_line = '\tselect BR2_PACKAGE_{req} # runtime\n'.format(
+                dep_line = '\tselect LINGMO_PACKAGE_{req} # runtime\n'.format(
                     req=dep.upper().replace('-', '_'))
                 lines.append(dep_line)
 

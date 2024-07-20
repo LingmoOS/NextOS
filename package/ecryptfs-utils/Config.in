@@ -1,18 +1,18 @@
-config BR2_PACKAGE_ECRYPTFS_UTILS
+config LINGMO_PACKAGE_ECRYPTFS_UTILS
 	bool "ecryptfs-utils"
-	depends on BR2_USE_WCHAR # gettext
-	depends on BR2_USE_MMU # keyutils
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libnss -> libnspr
-	depends on BR2_PACKAGE_LIBNSPR_ARCH_SUPPORT # libnss -> libnspr
-	depends on !BR2_MIPS_NABI32 # libnss
-	depends on !BR2_STATIC_LIBS # libnss, keyutils
-	select BR2_PACKAGE_KEYUTILS
-	select BR2_PACKAGE_LIBNSS
+	depends on LINGMO_USE_WCHAR # gettext
+	depends on LINGMO_USE_MMU # keyutils
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libnss -> libnspr
+	depends on LINGMO_PACKAGE_LIBNSPR_ARCH_SUPPORT # libnss -> libnspr
+	depends on !LINGMO_MIPS_NABI32 # libnss
+	depends on !LINGMO_STATIC_LIBS # libnss, keyutils
+	select LINGMO_PACKAGE_KEYUTILS
+	select LINGMO_PACKAGE_LIBNSS
 	# runtime dependency only, some scripts are using the
 	# 'gettext' program to get translations
-	select BR2_PACKAGE_GETTEXT
+	select LINGMO_PACKAGE_GETTEXT
 	# runtime dependency only
-	select BR2_PACKAGE_GETENT
+	select LINGMO_PACKAGE_GETENT
 	help
 	  eCryptfs is a POSIX-compliant enterprise cryptographic
 	  filesystem for Linux. It is stacked on top of any other
@@ -29,7 +29,7 @@ config BR2_PACKAGE_ECRYPTFS_UTILS
 	  http://ecryptfs.org
 
 comment "ecryptfs-utils needs a toolchain w/ threads, wchar, dynamic library"
-	depends on BR2_PACKAGE_LIBNSPR_ARCH_SUPPORT
-	depends on BR2_USE_MMU
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || !BR2_USE_WCHAR || \
-		BR2_STATIC_LIBS
+	depends on LINGMO_PACKAGE_LIBNSPR_ARCH_SUPPORT
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || !LINGMO_USE_WCHAR || \
+		LINGMO_STATIC_LIBS

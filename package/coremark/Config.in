@@ -1,4 +1,4 @@
-config BR2_PACKAGE_COREMARK
+config LINGMO_PACKAGE_COREMARK
 	bool "coremark"
 	help
 	  CoreMark is a benchmark that measures the performance of

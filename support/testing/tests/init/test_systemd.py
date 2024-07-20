@@ -13,19 +13,19 @@ from tests.init.base import InitSystemBase as InitSystemBase
 class InitSystemSystemdBase(InitSystemBase):
     config = \
         """
-        BR2_arm=y
-        BR2_cortex_a9=y
-        BR2_ARM_ENABLE_VFP=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_INIT_SYSTEMD=y
-        BR2_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
-        # BR2_TARGET_ROOTFS_TAR is not set
-        BR2_PER_PACKAGE_DIRECTORIES=y
+        LINGMO_arm=y
+        LINGMO_cortex_a9=y
+        LINGMO_ARM_ENABLE_VFP=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_INIT_SYSTEMD=y
+        LINGMO_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
+        # LINGMO_TARGET_ROOTFS_TAR is not set
+        LINGMO_PER_PACKAGE_DIRECTORIES=y
         """
 
     def check_systemd(self, fs):
-        if "BR2_LINUX_KERNEL=y" in self.config:
+        if "LINGMO_LINUX_KERNEL=y" in self.config:
             self.start_emulator(fs, "zImage", "vexpress-v2p-ca9")
         else:
             self.start_emulator(fs)
@@ -49,9 +49,9 @@ class InitSystemSystemdBase(InitSystemBase):
 class TestInitSystemSystemdRoNetworkd(InitSystemSystemdBase):
     config = InitSystemSystemdBase.config + \
         """
-        BR2_SYSTEM_DHCP="eth0"
-        # BR2_TARGET_GENERIC_REMOUNT_ROOTFS_RW is not set
-        BR2_TARGET_ROOTFS_SQUASHFS=y
+        LINGMO_SYSTEM_DHCP="eth0"
+        # LINGMO_TARGET_GENERIC_REMOUNT_ROOTFS_RW is not set
+        LINGMO_TARGET_ROOTFS_SQUASHFS=y
         """
 
     def test_run(self):
@@ -61,8 +61,8 @@ class TestInitSystemSystemdRoNetworkd(InitSystemSystemdBase):
 class TestInitSystemSystemdRwNetworkd(InitSystemSystemdBase):
     config = InitSystemSystemdBase.config + \
         """
-        BR2_SYSTEM_DHCP="eth0"
-        BR2_TARGET_ROOTFS_EXT2=y
+        LINGMO_SYSTEM_DHCP="eth0"
+        LINGMO_TARGET_ROOTFS_EXT2=y
         """
 
     def test_run(self):
@@ -72,10 +72,10 @@ class TestInitSystemSystemdRwNetworkd(InitSystemSystemdBase):
 class TestInitSystemSystemdRoIfupdown(InitSystemSystemdBase):
     config = InitSystemSystemdBase.config + \
         """
-        BR2_SYSTEM_DHCP="eth0"
-        # BR2_PACKAGE_SYSTEMD_NETWORKD is not set
-        # BR2_TARGET_GENERIC_REMOUNT_ROOTFS_RW is not set
-        BR2_TARGET_ROOTFS_SQUASHFS=y
+        LINGMO_SYSTEM_DHCP="eth0"
+        # LINGMO_PACKAGE_SYSTEMD_NETWORKD is not set
+        # LINGMO_TARGET_GENERIC_REMOUNT_ROOTFS_RW is not set
+        LINGMO_TARGET_ROOTFS_SQUASHFS=y
         """
 
     def test_run(self):
@@ -85,7 +85,7 @@ class TestInitSystemSystemdRoIfupdown(InitSystemSystemdBase):
 class TestInitSystemSystemdRoIfupdownDbusbroker(TestInitSystemSystemdRoIfupdown):
     config = TestInitSystemSystemdRoIfupdown.config + \
         """
-        BR2_PACKAGE_DBUS_BROKER=y
+        LINGMO_PACKAGE_DBUS_BROKER=y
         """
 
     def test_run(self):
@@ -101,16 +101,16 @@ class TestInitSystemSystemdRoIfupdownDbusbroker(TestInitSystemSystemdRoIfupdown)
 class TestInitSystemSystemdRoIfupdownDbusbrokerDbus(TestInitSystemSystemdRoIfupdownDbusbroker):
     config = TestInitSystemSystemdRoIfupdownDbusbroker.config + \
         """
-        BR2_PACKAGE_DBUS=y
+        LINGMO_PACKAGE_DBUS=y
         """
 
 
 class TestInitSystemSystemdRwIfupdown(InitSystemSystemdBase):
     config = InitSystemSystemdBase.config + \
         """
-        BR2_SYSTEM_DHCP="eth0"
-        # BR2_PACKAGE_SYSTEMD_NETWORKD is not set
-        BR2_TARGET_ROOTFS_EXT2=y
+        LINGMO_SYSTEM_DHCP="eth0"
+        # LINGMO_PACKAGE_SYSTEMD_NETWORKD is not set
+        LINGMO_TARGET_ROOTFS_EXT2=y
         """
 
     def test_run(self):
@@ -120,7 +120,7 @@ class TestInitSystemSystemdRwIfupdown(InitSystemSystemdBase):
 class TestInitSystemSystemdRwIfupdownDbusbroker(TestInitSystemSystemdRwIfupdown):
     config = TestInitSystemSystemdRwIfupdown.config + \
         """
-        BR2_PACKAGE_DBUS_BROKER=y
+        LINGMO_PACKAGE_DBUS_BROKER=y
         """
 
     def test_run(self):
@@ -136,33 +136,33 @@ class TestInitSystemSystemdRwIfupdownDbusbroker(TestInitSystemSystemdRwIfupdown)
 class TestInitSystemSystemdRwIfupdownDbusbrokerDbus(TestInitSystemSystemdRwIfupdownDbusbroker):
     config = TestInitSystemSystemdRwIfupdownDbusbroker.config + \
         """
-        BR2_PACKAGE_DBUS=y
+        LINGMO_PACKAGE_DBUS=y
         """
 
 
 class TestInitSystemSystemdRoFull(InitSystemSystemdBase):
     config = InitSystemSystemdBase.config + \
         """
-        BR2_SYSTEM_DHCP="eth0"
-        # BR2_TARGET_GENERIC_REMOUNT_ROOTFS_RW is not set
-        BR2_PACKAGE_SYSTEMD_JOURNAL_REMOTE=y
-        BR2_PACKAGE_SYSTEMD_BACKLIGHT=y
-        BR2_PACKAGE_SYSTEMD_BINFMT=y
-        BR2_PACKAGE_SYSTEMD_COREDUMP=y
-        BR2_PACKAGE_SYSTEMD_FIRSTBOOT=y
-        BR2_PACKAGE_SYSTEMD_HIBERNATE=y
-        BR2_PACKAGE_SYSTEMD_IMPORTD=y
-        BR2_PACKAGE_SYSTEMD_LOCALED=y
-        BR2_PACKAGE_SYSTEMD_LOGIND=y
-        BR2_PACKAGE_SYSTEMD_MACHINED=y
-        BR2_PACKAGE_SYSTEMD_POLKIT=y
-        BR2_PACKAGE_SYSTEMD_QUOTACHECK=y
-        BR2_PACKAGE_SYSTEMD_RANDOMSEED=y
-        BR2_PACKAGE_SYSTEMD_RFKILL=y
-        BR2_PACKAGE_SYSTEMD_SMACK_SUPPORT=y
-        BR2_PACKAGE_SYSTEMD_SYSUSERS=y
-        BR2_PACKAGE_SYSTEMD_VCONSOLE=y
-        BR2_TARGET_ROOTFS_SQUASHFS=y
+        LINGMO_SYSTEM_DHCP="eth0"
+        # LINGMO_TARGET_GENERIC_REMOUNT_ROOTFS_RW is not set
+        LINGMO_PACKAGE_SYSTEMD_JOURNAL_REMOTE=y
+        LINGMO_PACKAGE_SYSTEMD_BACKLIGHT=y
+        LINGMO_PACKAGE_SYSTEMD_BINFMT=y
+        LINGMO_PACKAGE_SYSTEMD_COREDUMP=y
+        LINGMO_PACKAGE_SYSTEMD_FIRSTBOOT=y
+        LINGMO_PACKAGE_SYSTEMD_HIBERNATE=y
+        LINGMO_PACKAGE_SYSTEMD_IMPORTD=y
+        LINGMO_PACKAGE_SYSTEMD_LOCALED=y
+        LINGMO_PACKAGE_SYSTEMD_LOGIND=y
+        LINGMO_PACKAGE_SYSTEMD_MACHINED=y
+        LINGMO_PACKAGE_SYSTEMD_POLKIT=y
+        LINGMO_PACKAGE_SYSTEMD_QUOTACHECK=y
+        LINGMO_PACKAGE_SYSTEMD_RANDOMSEED=y
+        LINGMO_PACKAGE_SYSTEMD_RFKILL=y
+        LINGMO_PACKAGE_SYSTEMD_SMACK_SUPPORT=y
+        LINGMO_PACKAGE_SYSTEMD_SYSUSERS=y
+        LINGMO_PACKAGE_SYSTEMD_VCONSOLE=y
+        LINGMO_TARGET_ROOTFS_SQUASHFS=y
         """
 
     def test_run(self):
@@ -172,25 +172,25 @@ class TestInitSystemSystemdRoFull(InitSystemSystemdBase):
 class TestInitSystemSystemdRwFull(InitSystemSystemdBase):
     config = InitSystemSystemdBase.config + \
         """
-        BR2_SYSTEM_DHCP="eth0"
-        BR2_PACKAGE_SYSTEMD_JOURNAL_REMOTE=y
-        BR2_PACKAGE_SYSTEMD_BACKLIGHT=y
-        BR2_PACKAGE_SYSTEMD_BINFMT=y
-        BR2_PACKAGE_SYSTEMD_COREDUMP=y
-        BR2_PACKAGE_SYSTEMD_FIRSTBOOT=y
-        BR2_PACKAGE_SYSTEMD_HIBERNATE=y
-        BR2_PACKAGE_SYSTEMD_IMPORTD=y
-        BR2_PACKAGE_SYSTEMD_LOCALED=y
-        BR2_PACKAGE_SYSTEMD_LOGIND=y
-        BR2_PACKAGE_SYSTEMD_MACHINED=y
-        BR2_PACKAGE_SYSTEMD_POLKIT=y
-        BR2_PACKAGE_SYSTEMD_QUOTACHECK=y
-        BR2_PACKAGE_SYSTEMD_RANDOMSEED=y
-        BR2_PACKAGE_SYSTEMD_RFKILL=y
-        BR2_PACKAGE_SYSTEMD_SMACK_SUPPORT=y
-        BR2_PACKAGE_SYSTEMD_SYSUSERS=y
-        BR2_PACKAGE_SYSTEMD_VCONSOLE=y
-        BR2_TARGET_ROOTFS_EXT2=y
+        LINGMO_SYSTEM_DHCP="eth0"
+        LINGMO_PACKAGE_SYSTEMD_JOURNAL_REMOTE=y
+        LINGMO_PACKAGE_SYSTEMD_BACKLIGHT=y
+        LINGMO_PACKAGE_SYSTEMD_BINFMT=y
+        LINGMO_PACKAGE_SYSTEMD_COREDUMP=y
+        LINGMO_PACKAGE_SYSTEMD_FIRSTBOOT=y
+        LINGMO_PACKAGE_SYSTEMD_HIBERNATE=y
+        LINGMO_PACKAGE_SYSTEMD_IMPORTD=y
+        LINGMO_PACKAGE_SYSTEMD_LOCALED=y
+        LINGMO_PACKAGE_SYSTEMD_LOGIND=y
+        LINGMO_PACKAGE_SYSTEMD_MACHINED=y
+        LINGMO_PACKAGE_SYSTEMD_POLKIT=y
+        LINGMO_PACKAGE_SYSTEMD_QUOTACHECK=y
+        LINGMO_PACKAGE_SYSTEMD_RANDOMSEED=y
+        LINGMO_PACKAGE_SYSTEMD_RFKILL=y
+        LINGMO_PACKAGE_SYSTEMD_SMACK_SUPPORT=y
+        LINGMO_PACKAGE_SYSTEMD_SYSUSERS=y
+        LINGMO_PACKAGE_SYSTEMD_VCONSOLE=y
+        LINGMO_TARGET_ROOTFS_EXT2=y
         """
 
     def test_run(self):
@@ -207,8 +207,8 @@ class TestInitSystemSystemdRwFull(InitSystemSystemdBase):
 class InitSystemSystemdBaseFactory():
     config = \
         """
-        # BR2_INIT_SYSTEMD_POPULATE_TMPFILES is not set
-        BR2_ROOTFS_OVERLAY="{}"
+        # LINGMO_INIT_SYSTEMD_POPULATE_TMPFILES is not set
+        LINGMO_ROOTFS_OVERLAY="{}"
         """.format(infra.filepath("tests/init/systemd-factory"))
 
     def test_run(self):
@@ -281,16 +281,16 @@ class TestInitSystemSystemdRoFullFactory(
 class InitSystemSystemdBaseOverlayfs():
     config = \
         """
-        # BR2_INIT_SYSTEMD_VAR_FACTORY is not set
-        BR2_INIT_SYSTEMD_VAR_OVERLAYFS=y
-        BR2_ROOTFS_OVERLAY="{}"
-        BR2_LINUX_KERNEL=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE="5.10.202"
-        BR2_LINUX_KERNEL_DEFCONFIG="vexpress"
-        BR2_LINUX_KERNEL_CONFIG_FRAGMENT_FILES="{}"
-        BR2_LINUX_KERNEL_DTS_SUPPORT=y
-        BR2_LINUX_KERNEL_INTREE_DTS_NAME="vexpress-v2p-ca9"
+        # LINGMO_INIT_SYSTEMD_VAR_FACTORY is not set
+        LINGMO_INIT_SYSTEMD_VAR_OVERLAYFS=y
+        LINGMO_ROOTFS_OVERLAY="{}"
+        LINGMO_LINUX_KERNEL=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION_VALUE="5.10.202"
+        LINGMO_LINUX_KERNEL_DEFCONFIG="vexpress"
+        LINGMO_LINUX_KERNEL_CONFIG_FRAGMENT_FILES="{}"
+        LINGMO_LINUX_KERNEL_DTS_SUPPORT=y
+        LINGMO_LINUX_KERNEL_INTREE_DTS_NAME="vexpress-v2p-ca9"
         """.format(infra.filepath("tests/init/systemd-factory"),
                    infra.filepath("conf/overlayfs-kernel-fragment.config"))
 
@@ -372,8 +372,8 @@ class InitSystemSystemdBaseOverlayfsVarBacking(InitSystemBase):
     @classmethod
     def gen_config(cls, overlaydir: str) -> str:
         return re.sub(
-            r'^\s*BR2_ROOTFS_OVERLAY="(.*)"$',
-            'BR2_ROOTFS_OVERLAY="\\1 {}"'.format(infra.filepath(overlaydir)),
+            r'^\s*LINGMO_ROOTFS_OVERLAY="(.*)"$',
+            'LINGMO_ROOTFS_OVERLAY="\\1 {}"'.format(infra.filepath(overlaydir)),
             TestInitSystemSystemdRoFullOverlayfs.config,
             flags=re.MULTILINE,
         )

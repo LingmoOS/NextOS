@@ -1,7 +1,7 @@
-config BR2_PACKAGE_GPM
+config LINGMO_PACKAGE_GPM
 	bool "gpm"
-	depends on !BR2_STATIC_LIBS
-	depends on BR2_USE_MMU # fork()
+	depends on !LINGMO_STATIC_LIBS
+	depends on LINGMO_USE_MMU # fork()
 	help
 	  "gpm" means general purpose mouse (server) and provides mouse
 	  support for Linux virtual consoles.
@@ -11,9 +11,9 @@ config BR2_PACKAGE_GPM
 
 	  http://www.nico.schottelius.org/software/gpm/
 
-if BR2_PACKAGE_GPM
+if LINGMO_PACKAGE_GPM
 
-config BR2_PACKAGE_GPM_INSTALL_TEST_TOOLS
+config LINGMO_PACKAGE_GPM_INSTALL_TEST_TOOLS
 	bool "install test tools"
 	help
 	  Install gpm test tools (get-versions, mev, hltest, mouse-test,
@@ -22,5 +22,5 @@ config BR2_PACKAGE_GPM_INSTALL_TEST_TOOLS
 endif
 
 comment "gpm mouse server needs a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
-	depends on BR2_USE_MMU
+	depends on LINGMO_STATIC_LIBS
+	depends on LINGMO_USE_MMU

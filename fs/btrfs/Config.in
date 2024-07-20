@@ -1,16 +1,16 @@
-config BR2_TARGET_ROOTFS_BTRFS
+config LINGMO_TARGET_ROOTFS_BTRFS
 	bool "btrfs root filesystem"
-	select BR2_PACKAGE_HOST_BTRFS_PROGS
+	select LINGMO_PACKAGE_HOST_BTRFS_PROGS
 	help
 	  Build a btrfs root filesystem. If you enable this option, you
 	  probably want to enable the btrfs-progs package too.
 
-if BR2_TARGET_ROOTFS_BTRFS
+if LINGMO_TARGET_ROOTFS_BTRFS
 
-config BR2_TARGET_ROOTFS_BTRFS_LABEL
+config LINGMO_TARGET_ROOTFS_BTRFS_LABEL
 	string "filesystem label"
 
-config BR2_TARGET_ROOTFS_BTRFS_SIZE
+config LINGMO_TARGET_ROOTFS_BTRFS_SIZE
 	string "filesystem size"
 	default "100m"
 	help
@@ -18,7 +18,7 @@ config BR2_TARGET_ROOTFS_BTRFS_SIZE
 	  Suffix with k, m, g or t for power-of-two kilo-, mega-, giga-
 	  or terabytes.
 
-config BR2_TARGET_ROOTFS_BTRFS_SIZE_SECTOR
+config LINGMO_TARGET_ROOTFS_BTRFS_SIZE_SECTOR
 	string "sector size"
 	default "4096"
 	help
@@ -30,7 +30,7 @@ config BR2_TARGET_ROOTFS_BTRFS_SIZE_SECTOR
 	  4096. Unless you know that your kernel uses a different page
 	  size.  Suffix with k for power-of-two kilobytes.
 
-config BR2_TARGET_ROOTFS_BTRFS_SIZE_NODE
+config LINGMO_TARGET_ROOTFS_BTRFS_SIZE_NODE
 	string "btree node size"
 	default "16384"
 	help
@@ -39,7 +39,7 @@ config BR2_TARGET_ROOTFS_BTRFS_SIZE_NODE
 	  than 64KiB (65536).
 	  Suffix with k for power-of-two kilobytes.
 
-config BR2_TARGET_ROOTFS_BTRFS_FEATURES
+config LINGMO_TARGET_ROOTFS_BTRFS_FEATURES
 	string "Filesystem Features"
 	help
 	  A comma separated string of features that can be enabled
@@ -47,4 +47,4 @@ config BR2_TARGET_ROOTFS_BTRFS_FEATURES
 	  For a list of available options, use:
 	    `.../host/bin/mkfs.btrfs -O list-all`
 
-endif # BR2_TARGET_ROOTFS_BTRFS
+endif # LINGMO_TARGET_ROOTFS_BTRFS

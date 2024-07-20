@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_JSON_TINY
+config LINGMO_PACKAGE_PERL_JSON_TINY
 	bool "perl-json-tiny"
 	help
 	  Minimalistic JSON. No dependencies.

@@ -1,6 +1,6 @@
-config BR2_PACKAGE_SDL2_IMAGE
+config LINGMO_PACKAGE_SDL2_IMAGE
 	bool "sdl2_image"
-	depends on BR2_PACKAGE_SDL2
+	depends on LINGMO_PACKAGE_SDL2
 	help
 	  SDL2_image is an image file loading library. It loads images
 	  as SDL surfaces, and supports the following formats: BMP,

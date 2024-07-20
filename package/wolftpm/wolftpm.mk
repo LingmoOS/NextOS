@@ -26,7 +26,7 @@ define WOLFTPM_TOUCH_CONFIG_RPATH
 endef
 WOLFTPM_PRE_CONFIGURE_HOOKS += WOLFTPM_TOUCH_CONFIG_RPATH
 
-ifeq ($(BR2_PACKAGE_WOLFTPM_WOLFCRYPT),y)
+ifeq ($(LINGMO_PACKAGE_WOLFTPM_WOLFCRYPT),y)
 WOLFTPM_CONF_OPTS += \
 	--enable-wolfcrypt \
 	--with-wolfcrypt=$(STAGING_DIR)/usr
@@ -35,19 +35,19 @@ else
 WOLFTPM_CONF_OPTS += --disable-wolfcrypt
 endif
 
-ifeq ($(BR2_PACKAGE_WOLFTPM_ST33),y)
+ifeq ($(LINGMO_PACKAGE_WOLFTPM_ST33),y)
 WOLFTPM_CONF_OPTS += --enable-st33
 else
 WOLFTPM_CONF_OPTS += --disable-st33
 endif
 
-ifeq ($(BR2_PACKAGE_WOLFTPM_NUVOTON),y)
+ifeq ($(LINGMO_PACKAGE_WOLFTPM_NUVOTON),y)
 WOLFTPM_CONF_OPTS += --enable-nuvoton
 else
 WOLFTPM_CONF_OPTS += --disable-nuvoton
 endif
 
-ifeq ($(BR2_PACKAGE_WOLFTPM_DEBUG),y)
+ifeq ($(LINGMO_PACKAGE_WOLFTPM_DEBUG),y)
 WOLFTPM_CONF_OPTS += --enable-debug
 else
 WOLFTPM_CONF_OPTS += --disable-debug

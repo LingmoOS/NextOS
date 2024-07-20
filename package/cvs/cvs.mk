@@ -21,12 +21,12 @@ CVS_CONF_ENV = \
 CVS_CONF_OPTS = \
 	--disable-old-info-format-support \
 	--with-editor=/bin/vi
-ifeq ($(BR2_PACKAGE_CVS_SERVER),y)
+ifeq ($(LINGMO_PACKAGE_CVS_SERVER),y)
 CVS_CONF_OPTS += --enable-server
 else
 CVS_CONF_OPTS += --disable-server
 endif
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 CVS_CONF_OPTS += --with-external-zlib
 endif
 

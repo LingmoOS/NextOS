@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_AIOCOAP
+config LINGMO_PACKAGE_PYTHON_AIOCOAP
 	bool "python-aiocoap"
 	help
 	  Python CoAP library.

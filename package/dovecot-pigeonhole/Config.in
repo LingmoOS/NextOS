@@ -1,4 +1,4 @@
-config BR2_PACKAGE_DOVECOT_PIGEONHOLE
+config LINGMO_PACKAGE_DOVECOT_PIGEONHOLE
 	bool "dovecot-pigeonhole"
 	help
 	  Pigeonhole is the name of the project that adds support for

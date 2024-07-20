@@ -9,7 +9,7 @@ import infra
 class GitTestBase(infra.basetest.BRConfigTest):
     config = \
         """
-        BR2_BACKUP_SITE=""
+        LINGMO_BACKUP_SITE=""
         """
     gitremotedir = infra.filepath("tests/download/git-remote")
     gitremote = None
@@ -28,7 +28,7 @@ class GitTestBase(infra.basetest.BRConfigTest):
     def check_hash(self, package):
         # store downloaded tarball inside the output dir so the test infra
         # cleans it up at the end
-        env = {"BR2_DL_DIR": os.path.join(self.builddir, "dl"),
+        env = {"LINGMO_DL_DIR": os.path.join(self.builddir, "dl"),
                "GITREMOTE_PORT_NUMBER": str(self.gitremote.port)}
         self.b.build(["{}-dirclean".format(package),
                       "{}-source".format(package)],
@@ -41,7 +41,7 @@ class GitTestBase(infra.basetest.BRConfigTest):
         # enforce we test the download
         if os.path.exists(dl_dir):
             shutil.rmtree(dl_dir)
-        env = {"BR2_DL_DIR": dl_dir,
+        env = {"LINGMO_DL_DIR": dl_dir,
                "GITREMOTE_PORT_NUMBER": str(self.gitremote.port)}
         self.b.build(["{}-dirclean".format(package),
                       "{}-legal-info".format(package)],

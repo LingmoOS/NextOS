@@ -15,10 +15,10 @@ called "crates".
 The +Config.in+ file of Cargo-based package 'foo' should contain:
 
 ---------------------------
-01: config BR2_PACKAGE_FOO
+01: config LINGMO_PACKAGE_FOO
 02: 	bool "foo"
-03: 	depends on BR2_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
-04: 	select BR2_PACKAGE_HOST_RUSTC
+03: 	depends on LINGMO_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
+04: 	select LINGMO_PACKAGE_HOST_RUSTC
 05: 	help
 06: 	  This is a comment that explains what foo is.
 07:

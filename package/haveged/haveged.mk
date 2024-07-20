@@ -20,11 +20,11 @@ HAVEGED_CONF_OPTS = \
 	--disable-olt \
 	--enable-tune
 
-ifeq ($(BR2_sparc_v8)$(BR2_sparc_leon3),y)
+ifeq ($(LINGMO_sparc_v8)$(LINGMO_sparc_leon3),y)
 HAVEGED_CONF_OPTS += --enable-clock_gettime
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS),y)
 HAVEGED_CONF_OPTS += --enable-threads
 else
 HAVEGED_CONF_OPTS += --disable-threads

@@ -21,23 +21,23 @@ GCR_LICENSE = LGPL-2.1+
 GCR_LICENSE_FILES = COPYING
 GCR_LDFLAGS = $(TARGET_LDFLAGS) $(TARGET_NLS_LIBS)
 
-ifeq ($(BR2_PACKAGE_GNUPG2),y)
+ifeq ($(LINGMO_PACKAGE_GNUPG2),y)
 GCR_CONF_OPTS += -Dgpg_path=/usr/bin/gpg2
 else
 GCR_CONF_OPTS += -Dgpg_path=/usr/bin/gpg
 endif
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 GCR_DEPENDENCIES += gobject-introspection host-libxslt host-vala
 GCR_CONF_OPTS += -Dintrospection=true
 else
 GCR_CONF_OPTS += -Dintrospection=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGTK3_X11),y)
+ifeq ($(LINGMO_PACKAGE_LIBGTK3_X11),y)
 GCR_DEPENDENCIES += libgtk3
 GCR_CONF_OPTS += -Dgtk=true
-else ifeq ($(BR2_PACKAGE_LIBGTK3_WAYLAND),y)
+else ifeq ($(LINGMO_PACKAGE_LIBGTK3_WAYLAND),y)
 GCR_DEPENDENCIES += libgtk3
 GCR_CONF_OPTS += -Dgtk=true
 else

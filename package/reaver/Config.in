@@ -1,7 +1,7 @@
-config BR2_PACKAGE_REAVER
+config LINGMO_PACKAGE_REAVER
 	bool "reaver"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	select BR2_PACKAGE_LIBPCAP
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	select LINGMO_PACKAGE_LIBPCAP
 	help
 	  Reaver is a tool to audit networks against brute WPS pins
 	  attacks. It is complementary to "Aircrack-ng".
@@ -10,4 +10,4 @@ config BR2_PACKAGE_REAVER
 	  https://github.com/t6x/reaver-wps-fork-t6x
 
 comment "reaver needs a toolchain w/ threads"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS

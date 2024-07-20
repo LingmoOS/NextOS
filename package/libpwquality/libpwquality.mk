@@ -14,7 +14,7 @@ LIBPWQUALITY_LICENSE_FILES = COPYING
 # We're patching python/Makefile.am
 LIBPWQUALITY_AUTORECONF = YES
 
-ifeq ($(BR2_PACKAGE_PYTHON3),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3),y)
 LIBPWQUALITY_CONF_OPTS += --enable-python-bindings
 LIBPWQUALITY_DEPENDENCIES += python3 host-python-setuptools
 LIBPWQUALITY_MAKE_ENV += $(PKG_PYTHON_SETUPTOOLS_ENV)
@@ -22,7 +22,7 @@ else
 LIBPWQUALITY_CONF_OPTS += --disable-python-bindings
 endif
 
-ifeq ($(BR2_PACKAGE_LINUX_PAM),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_PAM),y)
 LIBPWQUALITY_CONF_OPTS += --enable-pam
 LIBPWQUALITY_DEPENDENCIES += linux-pam
 else
@@ -30,11 +30,11 @@ LIBPWQUALITY_CONF_OPTS += --disable-pam
 endif
 
 # Static link with cracklib requires -lz if zlib is enabled
-ifeq ($(BR2_STATIC_LIBS)$(BR2_PACKAGE_ZLIB),yy)
+ifeq ($(LINGMO_STATIC_LIBS)$(LINGMO_PACKAGE_ZLIB),yy)
 LIBPWQUALITY_CONF_ENV += LIBS="-lz"
 endif
 
-ifeq ($(BR2_PACKAGE_LIBPWQUALITY_TOOLS),)
+ifeq ($(LINGMO_PACKAGE_LIBPWQUALITY_TOOLS),)
 define LIBPWQUALITY_REMOVE_TOOLS
 	rm -f $(TARGET_DIR)/usr/bin/pwmake
 	rm -f $(TARGET_DIR)/usr/bin/pwscore

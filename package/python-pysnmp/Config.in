@@ -1,8 +1,8 @@
-config BR2_PACKAGE_PYTHON_PYSNMP
+config LINGMO_PACKAGE_PYTHON_PYSNMP
 	bool "python-pysnmp"
-	select BR2_PACKAGE_PYTHON_PYSMI # runtime
-	select BR2_PACKAGE_PYTHON_PYCRYPTODOMEX # runtime
-	select BR2_PACKAGE_PYTHON_PYASN1 # runtime
+	select LINGMO_PACKAGE_PYTHON_PYSMI # runtime
+	select LINGMO_PACKAGE_PYTHON_PYCRYPTODOMEX # runtime
+	select LINGMO_PACKAGE_PYTHON_PYASN1 # runtime
 	help
 	  PySNMP is a cross-platform, pure-Python SNMP engine
 	  implementation.

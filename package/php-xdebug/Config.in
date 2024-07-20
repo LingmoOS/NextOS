@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PHP_XDEBUG
+config LINGMO_PACKAGE_PHP_XDEBUG
 	bool "php-xdebug"
 	help
 	  Extension for PHP to assist with debugging and development.

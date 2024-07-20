@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUA_MESSAGEPACK
+config LINGMO_PACKAGE_LUA_MESSAGEPACK
 	bool "lua-messagepack"
 	help
 	  A pure Lua implementation of the MessagePack serialization

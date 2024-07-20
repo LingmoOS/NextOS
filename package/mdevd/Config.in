@@ -1,7 +1,7 @@
-config BR2_PACKAGE_MDEVD
+config LINGMO_PACKAGE_MDEVD
 	bool "mdevd"
-	depends on BR2_USE_MMU # skalibs
-	select BR2_PACKAGE_SKALIBS
+	depends on LINGMO_USE_MMU # skalibs
+	select LINGMO_PACKAGE_SKALIBS
 	help
 	  mdevd is a small daemon managing kernel hotplug events,
 	  similarly to udevd.

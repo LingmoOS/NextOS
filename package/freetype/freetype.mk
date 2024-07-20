@@ -31,28 +31,28 @@ HOST_FREETYPE_CONF_OPTS = \
 FREETYPE_CONF_OPTS += --enable-freetype-config
 HOST_FREETYPE_CONF_OPTS += --enable-freetype-config
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 FREETYPE_DEPENDENCIES += zlib
 FREETYPE_CONF_OPTS += --with-zlib
 else
 FREETYPE_CONF_OPTS += --without-zlib
 endif
 
-ifeq ($(BR2_PACKAGE_BROTLI),y)
+ifeq ($(LINGMO_PACKAGE_BROTLI),y)
 FREETYPE_DEPENDENCIES += brotli
 FREETYPE_CONF_OPTS += --with-brotli
 else
 FREETYPE_CONF_OPTS += --without-brotli
 endif
 
-ifeq ($(BR2_PACKAGE_BZIP2),y)
+ifeq ($(LINGMO_PACKAGE_BZIP2),y)
 FREETYPE_DEPENDENCIES += bzip2
 FREETYPE_CONF_OPTS += --with-bzip2
 else
 FREETYPE_CONF_OPTS += --without-bzip2
 endif
 
-ifeq ($(BR2_PACKAGE_LIBPNG),y)
+ifeq ($(LINGMO_PACKAGE_LIBPNG),y)
 FREETYPE_DEPENDENCIES += libpng
 FREETYPE_CONF_OPTS += --with-png
 else

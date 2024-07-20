@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_MOZILLA_CA
+config LINGMO_PACKAGE_PERL_MOZILLA_CA
 	bool "perl-mozilla-ca"
 	help
 	  Mozilla's CA cert bundle in PEM format.

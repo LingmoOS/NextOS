@@ -1,12 +1,12 @@
 comment "opkg needs a toolchain w/ wchar"
-	depends on BR2_USE_MMU
-	depends on !BR2_USE_WCHAR
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_USE_WCHAR
 
-config BR2_PACKAGE_OPKG
+config LINGMO_PACKAGE_OPKG
 	bool "opkg"
-	depends on BR2_USE_MMU # fork()
-	depends on BR2_USE_WCHAR # libarchive
-	select BR2_PACKAGE_LIBARCHIVE
+	depends on LINGMO_USE_MMU # fork()
+	depends on LINGMO_USE_WCHAR # libarchive
+	select LINGMO_PACKAGE_LIBARCHIVE
 	help
 	  Opkg is a lightweight package management system, based on
 	  ipkg. It is written in C and resembles apt/dpkg in
@@ -19,13 +19,13 @@ config BR2_PACKAGE_OPKG
 
 	  https://code.google.com/archive/p/opkg/
 
-if BR2_PACKAGE_OPKG
+if LINGMO_PACKAGE_OPKG
 
-config BR2_PACKAGE_OPKG_GPG_SIGN
+config LINGMO_PACKAGE_OPKG_GPG_SIGN
 	bool "gnupg support"
-	depends on BR2_PACKAGE_LIBGPG_ERROR_ARCH_SUPPORTS # libgpg-error
-	select BR2_PACKAGE_LIBGPGME
-	select BR2_PACKAGE_LIBGPG_ERROR
+	depends on LINGMO_PACKAGE_LIBGPG_ERROR_ARCH_SUPPORTS # libgpg-error
+	select LINGMO_PACKAGE_LIBGPGME
+	select LINGMO_PACKAGE_LIBGPG_ERROR
 	help
 	  Enable opkg package signature checking support using
 	  gnupg/libgpgme.

@@ -1,8 +1,8 @@
-config BR2_PACKAGE_GAWK
+config LINGMO_PACKAGE_GAWK
 	bool "gawk"
-	depends on BR2_USE_WCHAR
-	depends on BR2_USE_MMU # fork()
-	depends on BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
+	depends on LINGMO_USE_WCHAR
+	depends on LINGMO_USE_MMU # fork()
+	depends on LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS
 	help
 	  A special-purpose programming language which is data driven
 	  rather than procedural. Allows for simple data-reformatting
@@ -11,6 +11,6 @@ config BR2_PACKAGE_GAWK
 	  http://www.gnu.org/software/gawk/
 
 comment "gawk needs a toolchain w/ wchar"
-	depends on BR2_USE_MMU
-	depends on !BR2_USE_WCHAR
-	depends on BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_USE_WCHAR
+	depends on LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS

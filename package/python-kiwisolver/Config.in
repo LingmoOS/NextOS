@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_KIWISOLVER
+config LINGMO_PACKAGE_PYTHON_KIWISOLVER
 	bool "python-kiwisolver"
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	help
 	  Kiwi is an efficient C++ implementation of the Cassowary
 	  constraint solving algorithm. Kiwi is an implementation of
@@ -14,4 +14,4 @@ config BR2_PACKAGE_PYTHON_KIWISOLVER
 	  https://github.com/nucleic/kiwi
 
 comment "python-kiwisolver needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP

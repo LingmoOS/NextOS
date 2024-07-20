@@ -30,39 +30,39 @@ NINJA		= PYTHONNOUSERSITE=y $(HOST_DIR)/bin/ninja
 NINJA_OPTS	= $(if $(VERBOSE),-v)
 
 # https://mesonbuild.com/Reference-tables.html#cpu-families
-ifeq ($(BR2_arcle)$(BR2_arceb),y)
+ifeq ($(LINGMO_arcle)$(LINGMO_arceb),y)
 PKG_MESON_TARGET_CPU_FAMILY = arc
-else ifeq ($(BR2_arm)$(BR2_armeb),y)
+else ifeq ($(LINGMO_arm)$(LINGMO_armeb),y)
 PKG_MESON_TARGET_CPU_FAMILY = arm
-else ifeq ($(BR2_aarch64)$(BR2_aarch64_be),y)
+else ifeq ($(LINGMO_aarch64)$(LINGMO_aarch64_be),y)
 PKG_MESON_TARGET_CPU_FAMILY = aarch64
-else ifeq ($(BR2_i386),y)
+else ifeq ($(LINGMO_i386),y)
 PKG_MESON_TARGET_CPU_FAMILY = x86
-else ifeq ($(BR2_m68k),y)
+else ifeq ($(LINGMO_m68k),y)
 PKG_MESON_TARGET_CPU_FAMILY = m68k
-else ifeq ($(BR2_microblazeel)$(BR2_microblazebe),y)
+else ifeq ($(LINGMO_microblazeel)$(LINGMO_microblazebe),y)
 PKG_MESON_TARGET_CPU_FAMILY = microblaze
-else ifeq ($(BR2_mips)$(BR2_mipsel),y)
+else ifeq ($(LINGMO_mips)$(LINGMO_mipsel),y)
 PKG_MESON_TARGET_CPU_FAMILY = mips
-else ifeq ($(BR2_mips64)$(BR2_mips64el),y)
+else ifeq ($(LINGMO_mips64)$(LINGMO_mips64el),y)
 PKG_MESON_TARGET_CPU_FAMILY = mips64
-else ifeq ($(BR2_powerpc),y)
+else ifeq ($(LINGMO_powerpc),y)
 PKG_MESON_TARGET_CPU_FAMILY = ppc
-else ifeq ($(BR2_powerpc64)$(BR2_powerpc64le),y)
+else ifeq ($(LINGMO_powerpc64)$(LINGMO_powerpc64le),y)
 PKG_MESON_TARGET_CPU_FAMILY = ppc64
-else ifeq ($(BR2_riscv)$(BR2_RISCV_32),yy)
+else ifeq ($(LINGMO_riscv)$(LINGMO_RISCV_32),yy)
 PKG_MESON_TARGET_CPU_FAMILY = riscv32
-else ifeq ($(BR2_riscv)$(BR2_RISCV_64),yy)
+else ifeq ($(LINGMO_riscv)$(LINGMO_RISCV_64),yy)
 PKG_MESON_TARGET_CPU_FAMILY = riscv64
-else ifeq ($(BR2_s390x),y)
+else ifeq ($(LINGMO_s390x),y)
 PKG_MESON_TARGET_CPU_FAMILY = s390x
-else ifeq ($(BR2_sh4)$(BR2_sh4eb)$(BR2_sh4a)$(BR2_sh4aeb),y)
+else ifeq ($(LINGMO_sh4)$(LINGMO_sh4eb)$(LINGMO_sh4a)$(LINGMO_sh4aeb),y)
 PKG_MESON_TARGET_CPU_FAMILY = sh4
-else ifeq ($(BR2_sparc),y)
+else ifeq ($(LINGMO_sparc),y)
 PKG_MESON_TARGET_CPU_FAMILY = sparc
-else ifeq ($(BR2_sparc64),y)
+else ifeq ($(LINGMO_sparc64),y)
 PKG_MESON_TARGET_CPU_FAMILY = sparc64
-else ifeq ($(BR2_x86_64),y)
+else ifeq ($(LINGMO_x86_64),y)
 PKG_MESON_TARGET_CPU_FAMILY = x86_64
 else
 PKG_MESON_TARGET_CPU_FAMILY = $(ARCH)
@@ -70,13 +70,13 @@ endif
 
 # To avoid populating the cross-file with non existing compilers,
 # we tie them to /bin/false
-ifeq ($(BR2_INSTALL_LIBSTDCPP),y)
+ifeq ($(LINGMO_INSTALL_LIBSTDCPP),y)
 PKG_MESON_TARGET_CXX = $(TARGET_CXX)
 else
 PKG_MESON_TARGET_CXX = /bin/false
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_FORTRAN),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_FORTRAN),y)
 PKG_MESON_TARGET_FC = $(TARGET_FC)
 else
 PKG_MESON_TARGET_FC = /bin/false
@@ -94,16 +94,16 @@ define PKG_MESON_CROSSCONFIG_SED
         -e "s%@TARGET_STRIP@%$(TARGET_STRIP)%g" \
         -e "s%@TARGET_ARCH@%$(PKG_MESON_TARGET_CPU_FAMILY)%g" \
         -e "s%@TARGET_CPU@%$(GCC_TARGET_CPU)%g" \
-        -e "s%@TARGET_ENDIAN@%$(call qstrip,$(call LOWERCASE,$(BR2_ENDIAN)))%g" \
+        -e "s%@TARGET_ENDIAN@%$(call qstrip,$(call LOWERCASE,$(LINGMO_ENDIAN)))%g" \
         -e "s%@TARGET_FCFLAGS@%$(call make-sq-comma-list,$($(strip $(4))))%g" \
         -e "s%@TARGET_CFLAGS@%$(call make-sq-comma-list,$($(strip $(1))))%g" \
         -e "s%@TARGET_LDFLAGS@%$(call make-sq-comma-list,$($(strip $(3))))%g" \
         -e "s%@TARGET_CXXFLAGS@%$(call make-sq-comma-list,$($(strip $(2))))%g" \
-        -e "s%@BR2_CMAKE@%$(BR2_CMAKE)%g" \
+        -e "s%@LINGMO_CMAKE@%$(LINGMO_CMAKE)%g" \
         -e "s%@PKGCONF_HOST_BINARY@%$(HOST_DIR)/bin/pkgconf%g" \
         -e "s%@HOST_DIR@%$(HOST_DIR)%g" \
         -e "s%@STAGING_DIR@%$(STAGING_DIR)%g" \
-        -e "s%@STATIC@%$(if $(BR2_STATIC_LIBS),true,false)%g" \
+        -e "s%@STATIC@%$(if $(LINGMO_STATIC_LIBS),true,false)%g" \
         $(TOPDIR)/support/misc/cross-compilation.conf.in
 endef
 
@@ -152,11 +152,11 @@ define $(2)_CONFIGURE_CMDS
 	$$(MESON) setup \
 		--prefix=/usr \
 		--libdir=lib \
-		--default-library=$(if $(BR2_STATIC_LIBS),static,shared) \
-		--buildtype=$(if $(BR2_ENABLE_RUNTIME_DEBUG),debug,release) \
+		--default-library=$(if $(LINGMO_STATIC_LIBS),static,shared) \
+		--buildtype=$(if $(LINGMO_ENABLE_RUNTIME_DEBUG),debug,release) \
 		--cross-file=$$($$(PKG)_SRCDIR)/build/cross-compilation.conf \
 		-Db_pie=false \
-		-Db_staticpic=$(if $(BR2_m68k_cf),false,true) \
+		-Db_staticpic=$(if $(LINGMO_m68k_cf),false,true) \
 		-Dstrip=false \
 		-Dbuild.pkg_config_path=$$(HOST_DIR)/lib/pkgconfig \
 		-Dbuild.cmake_prefix_path=$$(HOST_DIR)/lib/cmake \

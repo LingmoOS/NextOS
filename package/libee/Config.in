@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBEE
+config LINGMO_PACKAGE_LIBEE
 	bool "libee"
-	select BR2_PACKAGE_LIBESTR
+	select LINGMO_PACKAGE_LIBESTR
 	help
 	  An Event Expression Library inspired by CEE.
 

@@ -1,8 +1,8 @@
-config BR2_PACKAGE_IFTOP
+config LINGMO_PACKAGE_IFTOP
 	bool "iftop"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	select BR2_PACKAGE_NCURSES
-	select BR2_PACKAGE_LIBPCAP
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	select LINGMO_PACKAGE_NCURSES
+	select LINGMO_PACKAGE_LIBPCAP
 	help
 	  iftop does for network usage what top(1) does for CPU usage.
 	  It listens to network traffic on a named interface and
@@ -13,4 +13,4 @@ config BR2_PACKAGE_IFTOP
 	  http://www.ex-parrot.com/pdw/iftop/
 
 comment "iftop needs a toolchain w/ threads"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS

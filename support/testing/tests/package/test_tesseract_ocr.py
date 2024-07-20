@@ -6,13 +6,13 @@ import infra.basetest
 class TestTesseractOcr(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_PACKAGE_FREETYPE=y
-        BR2_PACKAGE_GHOSTSCRIPT_FONTS=y
-        BR2_PACKAGE_GRAPHICSMAGICK=y
-        BR2_PACKAGE_TESSERACT_OCR=y
-        BR2_PACKAGE_TESSERACT_OCR_LANG_ENG=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_FREETYPE=y
+        LINGMO_PACKAGE_GHOSTSCRIPT_FONTS=y
+        LINGMO_PACKAGE_GRAPHICSMAGICK=y
+        LINGMO_PACKAGE_TESSERACT_OCR=y
+        LINGMO_PACKAGE_TESSERACT_OCR_LANG_ENG=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):

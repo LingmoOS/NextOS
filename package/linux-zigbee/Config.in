@@ -1,12 +1,12 @@
 comment "linux-zigbee needs a toolchain w/ threads"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_USE_MMU
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU
 
-config BR2_PACKAGE_LINUX_ZIGBEE
+config LINGMO_PACKAGE_LINUX_ZIGBEE
 	bool "linux-zigbee"
-	depends on BR2_USE_MMU # fork()
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libnl
-	select BR2_PACKAGE_LIBNL
+	depends on LINGMO_USE_MMU # fork()
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libnl
+	select LINGMO_PACKAGE_LIBNL
 	help
 	  IEEE 802.15.4 is a standard for communication in small
 	  low-rate wireless personal area networks (WPAN). While
@@ -32,15 +32,15 @@ config BR2_PACKAGE_LINUX_ZIGBEE
 
 	  http://sourceforge.net/apps/trac/linux-zigbee/
 
-if BR2_PACKAGE_LINUX_ZIGBEE
+if LINGMO_PACKAGE_LINUX_ZIGBEE
 
-config BR2_PACKAGE_LINUX_ZIGBEE_TESTS
+config LINGMO_PACKAGE_LINUX_ZIGBEE_TESTS
 	bool "tests programs"
 	help
 	  Enable this option to install the Linux-ZigBee test programs
 	  to the target.
 
-config BR2_PACKAGE_LINUX_ZIGBEE_OLD_KERNEL_COMPAT
+config LINGMO_PACKAGE_LINUX_ZIGBEE_OLD_KERNEL_COMPAT
 	bool "compatibility with older kernels"
 	help
 	  Enable this option to get compatibility of the Linux-ZigBee
@@ -48,7 +48,7 @@ config BR2_PACKAGE_LINUX_ZIGBEE_OLD_KERNEL_COMPAT
 	  802.15.4 line discipline as N_IEEE802154 with the value 25,
 	  but some older kernels had it with the values 22 or 19.
 
-config BR2_PACKAGE_LINUX_ZIGBEE_LEASEFILE
+config LINGMO_PACKAGE_LINUX_ZIGBEE_LEASEFILE
 	string "path for persistent lease storage"
 	default "/var/run/izcoordinator.leases"
 

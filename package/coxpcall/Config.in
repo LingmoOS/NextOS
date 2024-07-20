@@ -1,4 +1,4 @@
-config BR2_PACKAGE_COXPCALL
+config LINGMO_PACKAGE_COXPCALL
 	bool "coxpcall"
 	help
 	  Coxpcall encapsulates the protected calls with a coroutine

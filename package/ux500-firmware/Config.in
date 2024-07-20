@@ -1,4 +1,4 @@
-config BR2_PACKAGE_UX500_FIRMWARE
+config LINGMO_PACKAGE_UX500_FIRMWARE
 	bool "ux500-firmware"
 	help
 	  This package provides various binary firmware files (closed

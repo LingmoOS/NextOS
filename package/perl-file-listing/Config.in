@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PERL_FILE_LISTING
+config LINGMO_PACKAGE_PERL_FILE_LISTING
 	bool "perl-file-listing"
-	select BR2_PACKAGE_PERL_HTTP_DATE # runtime
+	select LINGMO_PACKAGE_PERL_HTTP_DATE # runtime
 	help
 	  Parse directory listing.
 

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBPAM_TACPLUS
+config LINGMO_PACKAGE_LIBPAM_TACPLUS
 	bool "libpam-tacplus"
 	help
 	  TACACS+ protocol client library and PAM module in C. This

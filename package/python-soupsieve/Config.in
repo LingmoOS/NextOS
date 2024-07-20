@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_SOUPSIEVE
+config LINGMO_PACKAGE_PYTHON_SOUPSIEVE
 	bool "python-soupsieve"
 	help
 	  A modern CSS selector implementation for Beautiful Soup.

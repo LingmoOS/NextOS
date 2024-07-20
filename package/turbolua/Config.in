@@ -1,6 +1,6 @@
-config BR2_PACKAGE_TURBOLUA
+config LINGMO_PACKAGE_TURBOLUA
 	bool "turbolua"
-	depends on BR2_PACKAGE_LUAJIT
+	depends on LINGMO_PACKAGE_LUAJIT
 	help
 	  Turbo.lua is a framework built for LuaJIT 2 to simplify the
 	  task of building fast and scalable network applications. It
@@ -15,4 +15,4 @@ config BR2_PACKAGE_TURBOLUA
 	  http://www.turbolua.org
 
 comment "turbolua needs LuaJIT"
-	depends on !BR2_PACKAGE_LUAJIT
+	depends on !LINGMO_PACKAGE_LUAJIT

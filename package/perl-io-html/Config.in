@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_IO_HTML
+config LINGMO_PACKAGE_PERL_IO_HTML
 	bool "perl-io-html"
 	help
 	  Open an HTML file with automatic charset detection.

@@ -27,21 +27,21 @@ GNUPLOT_CONF_OPTS = \
 	--without-qt
 
 # relocation truncated to fit: R_68K_GOT16O
-ifeq ($(BR2_m68k_cf),y)
+ifeq ($(LINGMO_m68k_cf),y)
 GNUPLOT_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) -mxgot"
 endif
 
-ifeq ($(BR2_PACKAGE_GD)$(BR2_PACKAGE_LIBPNG),yy)
+ifeq ($(LINGMO_PACKAGE_GD)$(LINGMO_PACKAGE_LIBPNG),yy)
 GNUPLOT_CONF_OPTS += --with-gd
 GNUPLOT_DEPENDENCIES += host-pkgconf gd
 else
 GNUPLOT_CONF_OPTS += --without-gd
 endif
 
-ifeq ($(BR2_PACKAGE_READLINE),y)
+ifeq ($(LINGMO_PACKAGE_READLINE),y)
 GNUPLOT_CONF_OPTS += --with-readline=gnu
 GNUPLOT_DEPENDENCIES += readline
-else ifeq ($(BR2_PACKAGE_LIBEDIT),y)
+else ifeq ($(LINGMO_PACKAGE_LIBEDIT),y)
 GNUPLOT_CONF_OPTS += --with-readline=bsd
 GNUPLOT_DEPENDENCIES += libedit
 endif

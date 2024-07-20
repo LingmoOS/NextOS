@@ -14,16 +14,16 @@ LAME_LICENSE = LGPL-2.0+
 LAME_LICENSE_FILES = COPYING
 LAME_CPE_ID_VALID = YES
 
-ifeq ($(BR2_PACKAGE_LIBSNDFILE),y)
+ifeq ($(LINGMO_PACKAGE_LIBSNDFILE),y)
 LAME_DEPENDENCIES += libsndfile
 LAME_CONF_OPTS += --with-fileio=sndfile
 endif
 
-ifeq ($(BR2_PACKAGE_NCURSES),y)
+ifeq ($(LINGMO_PACKAGE_NCURSES),y)
 LAME_DEPENDENCIES += ncurses
 endif
 
-ifeq ($(BR2_ENDIAN),"BIG")
+ifeq ($(LINGMO_ENDIAN),"BIG")
 define LAME_BIGENDIAN_ARCH
 	echo "#define WORDS_BIGENDIAN 1" >>$(@D)/config.h
 endef

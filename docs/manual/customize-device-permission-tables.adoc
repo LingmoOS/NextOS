@@ -11,14 +11,14 @@ such changes from there unless you use an explicit fakeroot from the
 post-build script.
 
 Instead, Buildroot provides support for so-called _permission tables_.
-To use this feature, set config option +BR2_ROOTFS_DEVICE_TABLE+ to a
+To use this feature, set config option +LINGMO_ROOTFS_DEVICE_TABLE+ to a
 space-separated list of permission tables, regular text files following
 the xref:makedev-syntax[makedev syntax].
 
 If you are using a static device table (i.e. not using +devtmpfs+,
 +mdev+, or +(e)udev+) then you can add device nodes using the same
 syntax, in so-called _device tables_. To use this feature, set config
-option +BR2_ROOTFS_STATIC_DEVICE_TABLE+ to a space-separated list of
+option +LINGMO_ROOTFS_STATIC_DEVICE_TABLE+ to a space-separated list of
 device tables.
 
 As shown in xref:customize-dir-structure[], the recommended location for

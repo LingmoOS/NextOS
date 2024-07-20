@@ -90,9 +90,10 @@ all:
 .PHONY: all
 
 # Set and export the version string
-export BR2_VERSION := 2024.02.4
+export LINGMO_VERSION := 2024.02.4
+export SYS_BUILD_ID := $(shell date +%Y%m%d%H%M)
 # Actual time the release is cut (for reproducible builds)
-BR2_VERSION_EPOCH = 1720873000
+LINGMO_VERSION_EPOCH = 1720873000
 
 # Save running make version since it's clobbered by the make package
 RUNNING_MAKE_VERSION := $(MAKE_VERSION)
@@ -112,11 +113,11 @@ DATE := $(shell date +%Y%m%d)
 # Compute the full local version string so packages can use it as-is
 # Need to export it, so it can be got from environment in children (eg. mconf)
 
-BR2_LOCALVERSION := $(shell $(TOPDIR)/support/scripts/setlocalversion)
-ifeq ($(BR2_LOCALVERSION),)
-export BR2_VERSION_FULL := $(BR2_VERSION)
+LINGMO_LOCALVERSION := $(shell $(TOPDIR)/support/scripts/setlocalversion)
+ifeq ($(LINGMO_LOCALVERSION),)
+export LINGMO_VERSION_FULL := $(LINGMO_VERSION)
 else
-export BR2_VERSION_FULL := $(BR2_LOCALVERSION)
+export LINGMO_VERSION_FULL := $(LINGMO_LOCALVERSION)
 endif
 
 # List of targets and target patterns for which .config doesn't need to be read in
@@ -175,21 +176,21 @@ BASE_DIR := $(CANONICAL_O)
 $(if $(BASE_DIR),, $(error output directory "$(O)" does not exist))
 
 
-# Handling of BR2_EXTERNAL.
+# Handling of LINGMO_EXTERNAL.
 #
-# The value of BR2_EXTERNAL is stored in .br-external in the output directory.
+# The value of LINGMO_EXTERNAL is stored in .br-external in the output directory.
 # The location of the external.mk makefile fragments is computed in that file.
-# On subsequent invocations of make, this file is read in. BR2_EXTERNAL can
+# On subsequent invocations of make, this file is read in. LINGMO_EXTERNAL can
 # still be overridden on the command line, therefore the file is re-created
 # every time make is run.
 
-BR2_EXTERNAL_FILE = $(BASE_DIR)/.br2-external.mk
--include $(BR2_EXTERNAL_FILE)
-$(shell support/scripts/br2-external -d '$(BASE_DIR)' $(BR2_EXTERNAL))
-BR2_EXTERNAL_ERROR =
-include $(BR2_EXTERNAL_FILE)
-ifneq ($(BR2_EXTERNAL_ERROR),)
-$(error $(BR2_EXTERNAL_ERROR))
+LINGMO_EXTERNAL_FILE = $(BASE_DIR)/.br2-external.mk
+-include $(LINGMO_EXTERNAL_FILE)
+$(shell support/scripts/br2-external -d '$(BASE_DIR)' $(LINGMO_EXTERNAL))
+LINGMO_EXTERNAL_ERROR =
+include $(LINGMO_EXTERNAL_FILE)
+ifneq ($(LINGMO_EXTERNAL_ERROR),)
+$(error $(LINGMO_EXTERNAL_ERROR))
 endif
 
 # Workaround bug in make-4.3: https://savannah.gnu.org/bugs/?57676
@@ -197,16 +198,16 @@ $(BASE_DIR)/.br2-external.mk:;
 
 # To make sure that the environment variable overrides the .config option,
 # set this before including .config.
-ifneq ($(BR2_DL_DIR),)
-DL_DIR := $(BR2_DL_DIR)
+ifneq ($(LINGMO_DL_DIR),)
+DL_DIR := $(LINGMO_DL_DIR)
 endif
-ifneq ($(BR2_CCACHE_DIR),)
-BR_CACHE_DIR := $(BR2_CCACHE_DIR)
+ifneq ($(LINGMO_CCACHE_DIR),)
+BR_CACHE_DIR := $(LINGMO_CCACHE_DIR)
 endif
 
 # Need that early, before we scan packages
 # Avoids doing the $(or...) everytime
-BR_GRAPH_OUT := $(or $(BR2_GRAPH_OUT),pdf)
+BR_GRAPH_OUT := $(or $(LINGMO_GRAPH_OUT),pdf)
 
 BUILD_DIR := $(BASE_DIR)/build
 BINARIES_DIR := $(BASE_DIR)/images
@@ -227,14 +228,14 @@ LEGAL_MANIFEST_CSV_HOST = $(LEGAL_INFO_DIR)/host-manifest.csv
 LEGAL_WARNINGS = $(LEGAL_INFO_DIR)/.warnings
 LEGAL_REPORT = $(LEGAL_INFO_DIR)/README
 
-BR2_CONFIG = $(CONFIG_DIR)/.config
+LINGMO_CONFIG = $(CONFIG_DIR)/.config
 
 # Pull in the user's configuration file
 ifeq ($(filter $(noconfig_targets),$(MAKECMDGOALS)),)
--include $(BR2_CONFIG)
+-include $(LINGMO_CONFIG)
 endif
 
-ifeq ($(BR2_PER_PACKAGE_DIRECTORIES),)
+ifeq ($(LINGMO_PER_PACKAGE_DIRECTORIES),)
 # Disable top-level parallel build if per-package directories is not
 # used. Indeed, per-package directories is necessary to guarantee
 # determinism and reproducibility with top-level parallel build.
@@ -242,7 +243,7 @@ ifeq ($(BR2_PER_PACKAGE_DIRECTORIES),)
 endif
 
 # timezone and locale may affect build output
-ifeq ($(BR2_REPRODUCIBLE),y)
+ifeq ($(LINGMO_REPRODUCIBLE),y)
 export TZ = UTC
 export LANG = C
 export LC_ALL = C
@@ -363,7 +364,7 @@ ifneq ($(firstword $(HOSTCC_VERSION)),4)
 HOSTCC_VERSION := $(firstword $(HOSTCC_VERSION))
 endif
 
-ifeq ($(BR2_NEEDS_HOST_UTF8_LOCALE),y)
+ifeq ($(LINGMO_NEEDS_HOST_UTF8_LOCALE),y)
 # First, we try to use the user's configured locale (as that's the
 # language they'd expect messages to be displayed), then we favour
 # a non language-specific locale like C.UTF-8 if one is available,
@@ -398,7 +399,7 @@ unexport PERL_MM_OPT
 include package/pkg-utils.mk
 include package/doc-asciidoc.mk
 
-ifeq ($(BR2_HAVE_DOT_CONFIG),y)
+ifeq ($(LINGMO_HAVE_DOT_CONFIG),y)
 
 ################################################################################
 #
@@ -436,21 +437,21 @@ PACKAGES_ALL :=
 QUIET := $(if $(findstring s,$(filter-out --%,$(MAKEFLAGS))),-q)
 
 # Strip off the annoying quoting
-ARCH := $(call qstrip,$(BR2_ARCH))
-NORMALIZED_ARCH := $(call qstrip,$(BR2_NORMALIZED_ARCH))
-KERNEL_ARCH := $(call qstrip,$(BR2_NORMALIZED_ARCH))
+ARCH := $(call qstrip,$(LINGMO_ARCH))
+NORMALIZED_ARCH := $(call qstrip,$(LINGMO_NORMALIZED_ARCH))
+KERNEL_ARCH := $(call qstrip,$(LINGMO_NORMALIZED_ARCH))
 
-ZCAT := $(call qstrip,$(BR2_ZCAT))
-BZCAT := $(call qstrip,$(BR2_BZCAT))
-XZCAT := $(call qstrip,$(BR2_XZCAT))
-LZCAT := $(call qstrip,$(BR2_LZCAT))
-TAR_OPTIONS = $(call qstrip,$(BR2_TAR_OPTIONS)) -xf
+ZCAT := $(call qstrip,$(LINGMO_ZCAT))
+BZCAT := $(call qstrip,$(LINGMO_BZCAT))
+XZCAT := $(call qstrip,$(LINGMO_XZCAT))
+LZCAT := $(call qstrip,$(LINGMO_LZCAT))
+TAR_OPTIONS = $(call qstrip,$(LINGMO_TAR_OPTIONS)) -xf
 
-ifeq ($(BR2_PER_PACKAGE_DIRECTORIES),y)
-HOST_DIR = $(if $(PKG),$(PER_PACKAGE_DIR)/$($(PKG)_NAME)/host,$(call qstrip,$(BR2_HOST_DIR)))
+ifeq ($(LINGMO_PER_PACKAGE_DIRECTORIES),y)
+HOST_DIR = $(if $(PKG),$(PER_PACKAGE_DIR)/$($(PKG)_NAME)/host,$(call qstrip,$(LINGMO_HOST_DIR)))
 TARGET_DIR = $(if $(ROOTFS),$(ROOTFS_$(ROOTFS)_TARGET_DIR),$(if $(PKG),$(PER_PACKAGE_DIR)/$($(PKG)_NAME)/target,$(BASE_TARGET_DIR)))
 else
-HOST_DIR := $(call qstrip,$(BR2_HOST_DIR))
+HOST_DIR := $(call qstrip,$(LINGMO_HOST_DIR))
 TARGET_DIR = $(if $(ROOTFS),$(ROOTFS_$(ROOTFS)_TARGET_DIR),$(BASE_TARGET_DIR))
 endif
 
@@ -471,19 +472,19 @@ BR_PATH = "$(HOST_DIR)/bin:$(HOST_DIR)/sbin:$(PATH)"
 # should not be used as the root filesystem.
 TARGET_DIR_WARNING_FILE = $(TARGET_DIR)/THIS_IS_NOT_YOUR_ROOT_FILESYSTEM
 
-ifeq ($(BR2_CCACHE),y)
+ifeq ($(LINGMO_CCACHE),y)
 CCACHE = $(HOST_DIR)/bin/ccache
-BR_CACHE_DIR ?= $(call qstrip,$(BR2_CCACHE_DIR))
+BR_CACHE_DIR ?= $(call qstrip,$(LINGMO_CCACHE_DIR))
 export BR_CACHE_DIR
 HOSTCC = $(CCACHE) $(HOSTCC_NOCCACHE)
 HOSTCXX = $(CCACHE) $(HOSTCXX_NOCCACHE)
-export BR2_USE_CCACHE ?= 1
+export LINGMO_USE_CCACHE ?= 1
 endif
 
 # Scripts in support/ or post-build scripts may need to reference
 # these locations, so export them so it is easier to use
-export BR2_CONFIG
-export BR2_REPRODUCIBLE
+export LINGMO_CONFIG
+export LINGMO_REPRODUCIBLE
 export TARGET_DIR
 export STAGING_DIR
 export HOST_DIR
@@ -513,17 +514,17 @@ include support/dependencies/dependencies.mk
 include $(sort $(wildcard toolchain/*.mk))
 include $(sort $(wildcard toolchain/*/*.mk))
 
-ifeq ($(BR2_REPRODUCIBLE),y)
+ifeq ($(LINGMO_REPRODUCIBLE),y)
 # If SOURCE_DATE_EPOCH has not been set then use the commit date, or the last
 # release date if the source tree is not within a Git repository.
 # See: https://reproducible-builds.org/specs/source-date-epoch/
-BR2_VERSION_GIT_EPOCH := $(shell $(GIT) log -1 --format=%at 2> /dev/null)
-export SOURCE_DATE_EPOCH ?= $(or $(BR2_VERSION_GIT_EPOCH),$(BR2_VERSION_EPOCH))
+LINGMO_VERSION_GIT_EPOCH := $(shell $(GIT) log -1 --format=%at 2> /dev/null)
+export SOURCE_DATE_EPOCH ?= $(or $(LINGMO_VERSION_GIT_EPOCH),$(LINGMO_VERSION_EPOCH))
 endif
 
 # Include the package override file if one has been provided in the
 # configuration.
-PACKAGE_OVERRIDE_FILE = $(call qstrip,$(BR2_PACKAGE_OVERRIDE_FILE))
+PACKAGE_OVERRIDE_FILE = $(call qstrip,$(LINGMO_PACKAGE_OVERRIDE_FILE))
 ifneq ($(PACKAGE_OVERRIDE_FILE),)
 -include $(PACKAGE_OVERRIDE_FILE)
 endif
@@ -534,15 +535,15 @@ include boot/common.mk
 include linux/linux.mk
 include fs/common.mk
 
-# If using a br2-external tree, the BR2_EXTERNAL_$(NAME)_PATH variables
+# If using a br2-external tree, the LINGMO_EXTERNAL_$(NAME)_PATH variables
 # are also present in the .config file. Since .config is included after
 # we defined them in the Makefile, the values for those variables are
 # quoted. We just include the generated Makefile fragment .br2-external.mk
 # a third time, which will set those variables to the un-quoted values.
-include $(BR2_EXTERNAL_FILE)
+include $(LINGMO_EXTERNAL_FILE)
 
-# Nothing to include if no BR2_EXTERNAL tree in use
-include $(BR2_EXTERNAL_MKS)
+# Nothing to include if no LINGMO_EXTERNAL tree in use
+include $(LINGMO_EXTERNAL_MKS)
 
 # Now we are sure we have all the packages scanned and defined. We now
 # check for each package in the list of enabled packages, that all its
@@ -577,14 +578,14 @@ $(foreach pkg,$(call UPPERCASE,$(PACKAGES)),\
 
 endif
 
-$(BUILD_DIR)/buildroot-config/auto.conf: $(BR2_CONFIG)
+$(BUILD_DIR)/buildroot-config/auto.conf: $(LINGMO_CONFIG)
 	$(MAKE1) $(EXTRAMAKEARGS) HOSTCC="$(HOSTCC_NOCCACHE)" HOSTCXX="$(HOSTCXX_NOCCACHE)" syncconfig
 
 .PHONY: prepare
 prepare: $(BUILD_DIR)/buildroot-config/auto.conf
-	@$(foreach s, $(call qstrip,$(BR2_ROOTFS_PRE_BUILD_SCRIPT)), \
+	@$(foreach s, $(call qstrip,$(LINGMO_ROOTFS_PRE_BUILD_SCRIPT)), \
 		$(call MESSAGE,"Executing pre-build script $(s)"); \
-		$(EXTRA_ENV) $(s) $(TARGET_DIR) $(call qstrip,$(BR2_ROOTFS_POST_SCRIPT_ARGS))$(sep))
+		$(EXTRA_ENV) $(s) $(TARGET_DIR) $(call qstrip,$(LINGMO_ROOTFS_POST_SCRIPT_ARGS))$(sep))
 
 .PHONY: world
 world: target-post-image
@@ -603,31 +604,31 @@ prepare-sdk: world
 	mkdir -p $(HOST_DIR)/share/buildroot
 	echo $(HOST_DIR) > $(HOST_DIR)/share/buildroot/sdk-location
 
-BR2_SDK_PREFIX ?= $(GNU_TARGET_NAME)_sdk-buildroot
+LINGMO_SDK_PREFIX ?= $(GNU_TARGET_NAME)_sdk-buildroot
 .PHONY: sdk
-sdk: prepare-sdk $(BR2_TAR_HOST_DEPENDENCY)
+sdk: prepare-sdk $(LINGMO_TAR_HOST_DEPENDENCY)
 	@$(call MESSAGE,"Generating SDK tarball")
-	$(if $(BR2_SDK_PREFIX),,$(error BR2_SDK_PREFIX can not be empty))
+	$(if $(LINGMO_SDK_PREFIX),,$(error LINGMO_SDK_PREFIX can not be empty))
 	$(Q)mkdir -p $(BINARIES_DIR)
-	$(TAR) czf "$(BINARIES_DIR)/$(BR2_SDK_PREFIX).tar.gz" \
+	$(TAR) czf "$(BINARIES_DIR)/$(LINGMO_SDK_PREFIX).tar.gz" \
 		--owner=0 --group=0 --numeric-owner \
-		--transform='s#^$(patsubst /%,%,$(HOST_DIR))#$(BR2_SDK_PREFIX)#' \
+		--transform='s#^$(patsubst /%,%,$(HOST_DIR))#$(LINGMO_SDK_PREFIX)#' \
 		-C / $(patsubst /%,%,$(HOST_DIR))
 
 RSYNC_VCS_EXCLUSIONS = \
 	--exclude .svn --exclude .git --exclude .hg --exclude .bzr \
 	--exclude CVS
 
-# When stripping, obey to BR2_STRIP_EXCLUDE_DIRS and
-# BR2_STRIP_EXCLUDE_FILES
+# When stripping, obey to LINGMO_STRIP_EXCLUDE_DIRS and
+# LINGMO_STRIP_EXCLUDE_FILES
 STRIP_FIND_COMMON_CMD = \
 	find $(TARGET_DIR) \
-	$(if $(call qstrip,$(BR2_STRIP_EXCLUDE_DIRS)), \
-		\( $(call finddirclauses,$(TARGET_DIR),$(call qstrip,$(BR2_STRIP_EXCLUDE_DIRS))) \) \
+	$(if $(call qstrip,$(LINGMO_STRIP_EXCLUDE_DIRS)), \
+		\( $(call finddirclauses,$(TARGET_DIR),$(call qstrip,$(LINGMO_STRIP_EXCLUDE_DIRS))) \) \
 		-prune -o \
 	) \
-	$(if $(call qstrip,$(BR2_STRIP_EXCLUDE_FILES)), \
-		-not \( $(call findfileclauses,$(call qstrip,$(BR2_STRIP_EXCLUDE_FILES))) \) )
+	$(if $(call qstrip,$(LINGMO_STRIP_EXCLUDE_FILES)), \
+		-not \( $(call findfileclauses,$(call qstrip,$(LINGMO_STRIP_EXCLUDE_FILES))) \) )
 
 # Regular stripping for everything, except libpthread, ld-*.so and
 # kernel modules:
@@ -651,14 +652,14 @@ STRIP_FIND_SPECIAL_LIBS_CMD = \
 	-print0
 
 # Generate locale data.
-ifeq ($(BR2_TOOLCHAIN_USES_GLIBC),y)
-GLIBC_GENERATE_LOCALES = $(call qstrip,$(BR2_GENERATE_LOCALE))
+ifeq ($(LINGMO_TOOLCHAIN_USES_GLIBC),y)
+GLIBC_GENERATE_LOCALES = $(call qstrip,$(LINGMO_GENERATE_LOCALE))
 ifneq ($(GLIBC_GENERATE_LOCALES),)
 PACKAGES += host-localedef
 
 define GENERATE_GLIBC_LOCALES
 	+$(MAKE) -f support/misc/gen-glibc-locales.mk \
-		ENDIAN=$(call LOWERCASE,$(BR2_ENDIAN)) \
+		ENDIAN=$(call LOWERCASE,$(LINGMO_ENDIAN)) \
 		LOCALES="$(GLIBC_GENERATE_LOCALES)" \
 		Q=$(Q)
 endef
@@ -666,9 +667,9 @@ TARGET_FINALIZE_HOOKS += GENERATE_GLIBC_LOCALES
 endif
 endif
 
-ifeq ($(BR2_ENABLE_LOCALE_PURGE),y)
+ifeq ($(LINGMO_ENABLE_LOCALE_PURGE),y)
 LOCALE_WHITELIST = $(BUILD_DIR)/locales.nopurge
-LOCALE_NOPURGE = $(call qstrip,$(BR2_ENABLE_LOCALE_WHITELIST))
+LOCALE_NOPURGE = $(call qstrip,$(LINGMO_ENABLE_LOCALE_WHITELIST))
 
 # This piece of junk does the following:
 # First collect the whitelist in a file.
@@ -732,14 +733,14 @@ target-finalize: $(PACKAGES) $(TARGET_DIR) host-finalize
 	find $(TARGET_DIR)/usr/{lib,share}/ -name '*.cmake' -print0 | xargs -0 rm -f
 	find $(TARGET_DIR)/lib/ $(TARGET_DIR)/usr/lib/ $(TARGET_DIR)/usr/libexec/ \
 		\( -name '*.a' -o -name '*.la' -o -name '*.prl' \) -print0 | xargs -0 rm -f
-ifneq ($(BR2_PACKAGE_GDB),y)
+ifneq ($(LINGMO_PACKAGE_GDB),y)
 	rm -rf $(TARGET_DIR)/usr/share/gdb
 endif
-ifneq ($(BR2_PACKAGE_BASH),y)
+ifneq ($(LINGMO_PACKAGE_BASH),y)
 	rm -rf $(TARGET_DIR)/usr/share/bash-completion
 	rm -rf $(TARGET_DIR)/etc/bash_completion.d
 endif
-ifneq ($(BR2_PACKAGE_ZSH),y)
+ifneq ($(LINGMO_PACKAGE_ZSH),y)
 	rm -rf $(TARGET_DIR)/usr/share/zsh
 endif
 	rm -rf $(TARGET_DIR)/usr/man $(TARGET_DIR)/usr/share/man
@@ -747,7 +748,7 @@ endif
 	rm -rf $(TARGET_DIR)/usr/doc $(TARGET_DIR)/usr/share/doc
 	rm -rf $(TARGET_DIR)/usr/share/gtk-doc
 	rmdir $(TARGET_DIR)/usr/share 2>/dev/null || true
-ifneq ($(BR2_ENABLE_DEBUG):$(BR2_STRIP_strip),y:)
+ifneq ($(LINGMO_ENABLE_DEBUG):$(LINGMO_STRIP_strip),y:)
 	rm -rf $(TARGET_DIR)/lib/debug $(TARGET_DIR)/usr/lib/debug
 endif
 	$(STRIP_FIND_CMD) | xargs -0 $(STRIPCMD) 2>/dev/null || true
@@ -759,11 +760,18 @@ endif
 		{ echo "ERROR: we shouldn't have a /etc/ld.so.conf.d directory"; exit 1; } || true
 	mkdir -p $(TARGET_DIR)/etc
 	( \
-		echo "NAME=Buildroot"; \
-		echo "VERSION=$(BR2_VERSION_FULL)"; \
-		echo "ID=buildroot"; \
-		echo "VERSION_ID=$(BR2_VERSION)"; \
-		echo "PRETTY_NAME=\"Buildroot $(BR2_VERSION)\"" \
+		echo "PRETTY_NAME="Lingmo NextOS (non-release)""; \
+		echo "NAME="Lingmo OS""; \
+		echo "RELEASE="NON-RELEASE""; \
+		echo "VERSION_ID="3.x""; \
+		echo "VERSION="3.x (NEXT)""; \
+		echo "VERSION_CODENAME=next"; \
+		echo "VERSION_BUILD=${SYS_BUILD_ID}"; \
+		echo "VERSION_TYPE="unstable""; \
+		echo "ID=lingmo"; \
+		echo "HOME_URL="https://lingmo.org""; \
+		echo "SUPPORT_URL="https://bbs.lingmo.org/""; \
+		echo "COMMUNITY_URL="https://bbs.lingmo.org/""; \
 	) >  $(TARGET_DIR)/usr/lib/os-release
 	ln -sf ../usr/lib/os-release $(TARGET_DIR)/etc
 
@@ -774,9 +782,9 @@ endif
 
 # For a merged /usr, ensure that /lib, /bin and /sbin and their /usr
 # counterparts are appropriately setup as symlinks ones to the others.
-ifeq ($(BR2_ROOTFS_MERGED_USR),y)
+ifeq ($(LINGMO_ROOTFS_MERGED_USR),y)
 
-	$(foreach d, $(call qstrip,$(BR2_ROOTFS_OVERLAY)), \
+	$(foreach d, $(call qstrip,$(LINGMO_ROOTFS_OVERLAY)), \
 		@$(call MESSAGE,"Sanity check in overlay $(d)")$(sep) \
 		$(Q)not_merged_dirs="$$(support/scripts/check-merged-usr.sh $(d))"; \
 		test -n "$$not_merged_dirs" && { \
@@ -788,7 +796,7 @@ ifeq ($(BR2_ROOTFS_MERGED_USR),y)
 
 endif # merged /usr
 
-	$(foreach d, $(call qstrip,$(BR2_ROOTFS_OVERLAY)), \
+	$(foreach d, $(call qstrip,$(LINGMO_ROOTFS_OVERLAY)), \
 		@$(call MESSAGE,"Copying overlay $(d)")$(sep) \
 		$(Q)$(call SYSTEM_RSYNC,$(d),$(TARGET_DIR))$(sep))
 
@@ -799,9 +807,9 @@ endif # merged /usr
 	$(Q)$(if $(STAGING_DIR_FILES_LISTS), \
 		cat $(STAGING_DIR_FILES_LISTS)) > $(BUILD_DIR)/packages-file-list-staging.txt
 
-	$(foreach s, $(call qstrip,$(BR2_ROOTFS_POST_BUILD_SCRIPT)), \
+	$(foreach s, $(call qstrip,$(LINGMO_ROOTFS_POST_BUILD_SCRIPT)), \
 		@$(call MESSAGE,"Executing post-build script $(s)")$(sep) \
-		$(Q)$(EXTRA_ENV) $(s) $(TARGET_DIR) $(call qstrip,$(BR2_ROOTFS_POST_SCRIPT_ARGS))$(sep))
+		$(Q)$(EXTRA_ENV) $(s) $(TARGET_DIR) $(call qstrip,$(LINGMO_ROOTFS_POST_SCRIPT_ARGS))$(sep))
 
 	touch $(TARGET_DIR)/usr
 
@@ -817,9 +825,9 @@ ROOTFS_PRE_CMD_HOOKS += ROOTFS_RM_HWDB_DATA
 target-post-image: $(TARGETS_ROOTFS) target-finalize staging-finalize
 	@rm -f $(ROOTFS_COMMON_TAR)
 	$(Q)mkdir -p $(BINARIES_DIR)
-	@$(foreach s, $(call qstrip,$(BR2_ROOTFS_POST_IMAGE_SCRIPT)), \
+	@$(foreach s, $(call qstrip,$(LINGMO_ROOTFS_POST_IMAGE_SCRIPT)), \
 		$(call MESSAGE,"Executing post-image script $(s)"); \
-		$(EXTRA_ENV) $(s) $(BINARIES_DIR) $(call qstrip,$(BR2_ROOTFS_POST_SCRIPT_ARGS))$(sep))
+		$(EXTRA_ENV) $(s) $(BINARIES_DIR) $(call qstrip,$(LINGMO_ROOTFS_POST_SCRIPT_ARGS))$(sep))
 
 .PHONY: source
 source: $(foreach p,$(PACKAGES),$(p)-all-source)
@@ -835,13 +843,13 @@ legal-info-clean:
 
 .PHONY: legal-info-prepare
 legal-info-prepare: $(LEGAL_INFO_DIR)
-	@$(call MESSAGE,"Buildroot $(BR2_VERSION_FULL) Collecting legal info")
+	@$(call MESSAGE,"Buildroot $(LINGMO_VERSION_FULL) Collecting legal info")
 	@$(call legal-license-file,HOST,buildroot,buildroot,COPYING,COPYING,support/legal-info/buildroot.hash)
 	@$(call legal-manifest,TARGET,PACKAGE,VERSION,LICENSE,LICENSE FILES,SOURCE ARCHIVE,SOURCE SITE,DEPENDENCIES WITH LICENSES)
 	@$(call legal-manifest,HOST,PACKAGE,VERSION,LICENSE,LICENSE FILES,SOURCE ARCHIVE,SOURCE SITE,DEPENDENCIES WITH LICENSES)
-	@$(call legal-manifest,HOST,buildroot,$(BR2_VERSION_FULL),GPL-2.0+,COPYING,not saved,not saved)
+	@$(call legal-manifest,HOST,buildroot,$(LINGMO_VERSION_FULL),GPL-2.0+,COPYING,not saved,not saved)
 	@$(call legal-warning,the Buildroot source code has not been saved)
-	@cp $(BR2_CONFIG) $(LEGAL_INFO_DIR)/buildroot.config
+	@cp $(LINGMO_CONFIG) $(LEGAL_INFO_DIR)/buildroot.config
 
 .PHONY: legal-info
 legal-info: legal-info-clean legal-info-prepare $(foreach p,$(PACKAGES),$(p)-all-legal-info) \
@@ -871,14 +879,14 @@ graph-build: $(O)/build/build-time.log
 	$(foreach o,name build duration,./support/scripts/graph-build-time \
 					--type=histogram --order=$(o) --input=$(<) \
 					--output=$(GRAPHS_DIR)/build.hist-$(o).$(BR_GRAPH_OUT) \
-					$(if $(BR2_GRAPH_ALT),--alternate-colors)$(sep))
+					$(if $(LINGMO_GRAPH_ALT),--alternate-colors)$(sep))
 	$(foreach t,packages steps,./support/scripts/graph-build-time \
 				   --type=pie-$(t) --input=$(<) \
 				   --output=$(GRAPHS_DIR)/build.pie-$(t).$(BR_GRAPH_OUT) \
-				   $(if $(BR2_GRAPH_ALT),--alternate-colors)$(sep))
+				   $(if $(LINGMO_GRAPH_ALT),--alternate-colors)$(sep))
 	./support/scripts/graph-build-time --type=timeline --input=$(<) \
 		--output=$(GRAPHS_DIR)/build.timeline.$(BR_GRAPH_OUT) \
-		$(if $(BR2_GRAPH_ALT),--alternate-colors)
+		$(if $(LINGMO_GRAPH_ALT),--alternate-colors)
 
 .PHONY: graph-depends-requirements
 graph-depends-requirements:
@@ -889,9 +897,9 @@ graph-depends-requirements:
 graph-depends: graph-depends-requirements
 	@$(INSTALL) -d $(GRAPHS_DIR)
 	@cd "$(CONFIG_DIR)"; \
-	$(TOPDIR)/support/scripts/graph-depends $(BR2_GRAPH_DEPS_OPTS) \
+	$(TOPDIR)/support/scripts/graph-depends $(LINGMO_GRAPH_DEPS_OPTS) \
 		--direct -o $(GRAPHS_DIR)/$(@).dot
-	dot $(BR2_GRAPH_DOT_OPTS) -T$(BR_GRAPH_OUT) \
+	dot $(LINGMO_GRAPH_DOT_OPTS) -T$(BR_GRAPH_OUT) \
 		-o $(GRAPHS_DIR)/$(@).$(BR_GRAPH_OUT) \
 		$(GRAPHS_DIR)/$(@).dot
 
@@ -902,7 +910,7 @@ graph-size:
 		--graph $(GRAPHS_DIR)/graph-size.$(BR_GRAPH_OUT) \
 		--file-size-csv $(GRAPHS_DIR)/file-size-stats.csv \
 		--package-size-csv $(GRAPHS_DIR)/package-size-stats.csv \
-		$(BR2_GRAPH_SIZE_OPTS)
+		$(LINGMO_GRAPH_SIZE_OPTS)
 
 .PHONY: check-dependencies
 check-dependencies:
@@ -932,7 +940,7 @@ pkg-stats:
 		--html $(O)/pkg-stats.html \
 		--nvd-path $(DL_DIR)/buildroot-nvd
 
-else # ifeq ($(BR2_HAVE_DOT_CONFIG),y)
+else # ifeq ($(LINGMO_HAVE_DOT_CONFIG),y)
 
 # Some subdirectories are also package names. To avoid that "make linux"
 # on an unconfigured tree produces "Nothing to be done", add an explicit
@@ -943,7 +951,7 @@ linux toolchain all: outputmakefile
 	$(error Please configure Buildroot first (e.g. "make menuconfig"))
 	@exit 1
 
-endif # ifeq ($(BR2_HAVE_DOT_CONFIG),y)
+endif # ifeq ($(LINGMO_HAVE_DOT_CONFIG),y)
 
 # configuration
 # ---------------------------------------------------------------------------
@@ -956,16 +964,16 @@ $(BUILD_DIR)/buildroot-config/%onf:
 	PKG_CONFIG_PATH="$(HOST_PKG_CONFIG_PATH)" $(MAKE) CC="$(HOSTCC_NOCCACHE)" HOSTCC="$(HOSTCC_NOCCACHE)" \
 	    obj=$(@D) -C $(CONFIG) -f Makefile.br $(@F)
 
-DEFCONFIG = $(call qstrip,$(BR2_DEFCONFIG))
+DEFCONFIG = $(call qstrip,$(LINGMO_DEFCONFIG))
 
-# We don't want to fully expand BR2_DEFCONFIG here, so Kconfig will
+# We don't want to fully expand LINGMO_DEFCONFIG here, so Kconfig will
 # recognize that if it's still at its default $(CONFIG_DIR)/defconfig
 COMMON_CONFIG_ENV = \
-	BR2_DEFCONFIG='$(call qstrip,$(value BR2_DEFCONFIG))' \
+	LINGMO_DEFCONFIG='$(call qstrip,$(value LINGMO_DEFCONFIG))' \
 	KCONFIG_AUTOCONFIG=$(BUILD_DIR)/buildroot-config/auto.conf \
 	KCONFIG_AUTOHEADER=$(BUILD_DIR)/buildroot-config/autoconf.h \
 	KCONFIG_TRISTATE=$(BUILD_DIR)/buildroot-config/tristate.config \
-	BR2_CONFIG=$(BR2_CONFIG) \
+	LINGMO_CONFIG=$(LINGMO_CONFIG) \
 	HOST_GCC_VERSION="$(HOSTCC_VERSION)" \
 	BASE_DIR=$(BASE_DIR) \
 	SKIP_LEGACY=
@@ -995,7 +1003,7 @@ randconfig allyesconfig alldefconfig allnoconfig: $(BUILD_DIR)/buildroot-config/
 	@$(COMMON_CONFIG_ENV) $< --olddefconfig $(CONFIG_CONFIG_IN) >/dev/null
 
 randpackageconfig allyespackageconfig allnopackageconfig: $(BUILD_DIR)/buildroot-config/conf outputmakefile
-	@grep -v BR2_PACKAGE_ $(BR2_CONFIG) > $(CONFIG_DIR)/.config.nopkg
+	@grep -v LINGMO_PACKAGE_ $(LINGMO_CONFIG) > $(CONFIG_DIR)/.config.nopkg
 	@$(COMMON_CONFIG_ENV) SKIP_LEGACY=y \
 		KCONFIG_ALLCONFIG=$(CONFIG_DIR)/.config.nopkg \
 		$< --$(subst package,,$@) $(CONFIG_CONFIG_IN)
@@ -1012,13 +1020,13 @@ defconfig: $(BUILD_DIR)/buildroot-config/conf outputmakefile
 	@defconfig=$(or \
 		$(firstword \
 			$(foreach d, \
-				$(call reverse,$(TOPDIR) $(BR2_EXTERNAL_DIRS)), \
+				$(call reverse,$(TOPDIR) $(LINGMO_EXTERNAL_DIRS)), \
 				$(wildcard $(d)/configs/$@) \
 			) \
 		), \
 		$(error "Can't find $@") \
 	); \
-	$(COMMON_CONFIG_ENV) BR2_DEFCONFIG=$${defconfig} \
+	$(COMMON_CONFIG_ENV) LINGMO_DEFCONFIG=$${defconfig} \
 		$< --defconfig=$${defconfig} $(CONFIG_CONFIG_IN)
 
 update-defconfig: savedefconfig
@@ -1027,7 +1035,7 @@ savedefconfig: $(BUILD_DIR)/buildroot-config/conf outputmakefile
 	@$(COMMON_CONFIG_ENV) $< \
 		--savedefconfig=$(if $(DEFCONFIG),$(DEFCONFIG),$(CONFIG_DIR)/defconfig) \
 		$(CONFIG_CONFIG_IN)
-	@$(SED) '/^BR2_DEFCONFIG=/d' $(if $(DEFCONFIG),$(DEFCONFIG),$(CONFIG_DIR)/defconfig)
+	@$(SED) '/^LINGMO_DEFCONFIG=/d' $(if $(DEFCONFIG),$(DEFCONFIG),$(CONFIG_DIR)/defconfig)
 
 .PHONY: defconfig savedefconfig update-defconfig
 
@@ -1109,7 +1117,7 @@ distclean: clean
 ifeq ($(O),$(CURDIR)/output)
 	rm -rf $(O)
 endif
-	rm -rf $(TOPDIR)/dl $(BR2_CONFIG) $(CONFIG_DIR)/.config.old $(CONFIG_DIR)/..config.tmp \
+	rm -rf $(TOPDIR)/dl $(LINGMO_CONFIG) $(CONFIG_DIR)/.config.old $(CONFIG_DIR)/..config.tmp \
 		$(CONFIG_DIR)/.auto.deps $(BASE_DIR)/.br2-external.*
 
 .PHONY: help
@@ -1133,8 +1141,8 @@ help:
 	@echo '  olddefconfig           - Same as syncconfig but sets new symbols to their default value'
 	@echo '  randconfig             - New config with random answer to all options'
 	@echo '  defconfig              - New config with default answer to all options;'
-	@echo '                             BR2_DEFCONFIG, if set on the command line, is used as input'
-	@echo '  savedefconfig          - Save current config to BR2_DEFCONFIG (minimal config)'
+	@echo '                             LINGMO_DEFCONFIG, if set on the command line, is used as input'
+	@echo '  savedefconfig          - Save current config to LINGMO_DEFCONFIG (minimal config)'
 	@echo '  update-defconfig       - Same as savedefconfig'
 	@echo '  allyesconfig           - New config where all options are accepted with yes'
 	@echo '  allnoconfig            - New config where all options are answered with no'
@@ -1219,16 +1227,16 @@ define list-defconfigs
 	$${first} || printf "\n"
 endef
 
-# We iterate over BR2_EXTERNAL_NAMES rather than BR2_EXTERNAL_DIRS,
+# We iterate over LINGMO_EXTERNAL_NAMES rather than LINGMO_EXTERNAL_DIRS,
 # because we want to display the name of the br2-external tree.
 .PHONY: list-defconfigs
 list-defconfigs:
 	$(call list-defconfigs,$(TOPDIR))
-	$(foreach name,$(BR2_EXTERNAL_NAMES),\
-		$(call list-defconfigs,$(BR2_EXTERNAL_$(name)_PATH),\
-			$(BR2_EXTERNAL_$(name)_DESC))$(sep))
+	$(foreach name,$(LINGMO_EXTERNAL_NAMES),\
+		$(call list-defconfigs,$(LINGMO_EXTERNAL_$(name)_PATH),\
+			$(LINGMO_EXTERNAL_$(name)_DESC))$(sep))
 
-release: OUT = buildroot-$(BR2_VERSION)
+release: OUT = buildroot-$(LINGMO_VERSION)
 
 # Create release tarballs. We need to fiddle a bit to add the generated
 # documentation to the git output
@@ -1242,7 +1250,7 @@ release:
 	rm -rf $(OUT) $(OUT).tar
 
 print-version:
-	@echo $(BR2_VERSION_FULL)
+	@echo $(LINGMO_VERSION_FULL)
 
 check-package:
 	$(Q)./utils/check-package `git ls-tree -r --name-only HEAD` \
@@ -1254,7 +1262,7 @@ check-package:
 		> .checkpackageignore
 
 include docs/manual/manual.mk
--include $(foreach dir,$(BR2_EXTERNAL_DIRS),$(sort $(wildcard $(dir)/docs/*/*.mk)))
+-include $(foreach dir,$(LINGMO_EXTERNAL_DIRS),$(sort $(wildcard $(dir)/docs/*/*.mk)))
 
 .PHONY: $(noconfig_targets)
 

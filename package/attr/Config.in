@@ -1,4 +1,4 @@
-config BR2_PACKAGE_ATTR
+config LINGMO_PACKAGE_ATTR
 	bool "attr"
 	help
 	  Commands for Manipulating Filesystem Extended Attributes.

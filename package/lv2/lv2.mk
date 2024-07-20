@@ -16,19 +16,19 @@ LV2_CONF_OPTS += \
 	-Ddocs=disabled \
 	-Dtests=disabled
 
-ifeq ($(BR2_PACKAGE_CAIRO),y)
+ifeq ($(LINGMO_PACKAGE_CAIRO),y)
 LV2_DEPENDENCIES += cairo
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSNDFILE),y)
+ifeq ($(LINGMO_PACKAGE_LIBSNDFILE),y)
 LV2_DEPENDENCIES += libsndfile
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGTK2),y)
+ifeq ($(LINGMO_PACKAGE_LIBGTK2),y)
 LV2_DEPENDENCIES += libgtk2
 endif
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 LV2_CONF_OPTS += -Dplugins=disabled
 endif
 

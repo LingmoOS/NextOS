@@ -1,6 +1,6 @@
-config BR2_PACKAGE_V4L2LOOPBACK
+config LINGMO_PACKAGE_V4L2LOOPBACK
 	bool "v4l2loopback"
-	depends on BR2_LINUX_KERNEL
+	depends on LINGMO_LINUX_KERNEL
 	help
 	  This module allows you to create "virtual video devices".
 	  Normal (v4l2) applications will read these devices as if
@@ -10,14 +10,14 @@ config BR2_PACKAGE_V4L2LOOPBACK
 
 	  https://github.com/umlaeute/v4l2loopback
 
-if BR2_PACKAGE_V4L2LOOPBACK
+if LINGMO_PACKAGE_V4L2LOOPBACK
 
-config BR2_PACKAGE_V4L2LOOPBACK_UTILS
+config LINGMO_PACKAGE_V4L2LOOPBACK_UTILS
 	bool "utils"
-	depends on BR2_USE_MMU # bash
-	select BR2_PACKAGE_BUSYBOX_SHOW_OTHERS # bash
-	select BR2_PACKAGE_BASH # runtime dependency
-	select BR2_PACKAGE_SUDO # runtime dependency
+	depends on LINGMO_USE_MMU # bash
+	select LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS # bash
+	select LINGMO_PACKAGE_BASH # runtime dependency
+	select LINGMO_PACKAGE_SUDO # runtime dependency
 	help
 	  Install applications to interact with v4l2-loopback devices
 	  ("virtual video devices").  Currently there is only a single
@@ -27,4 +27,4 @@ config BR2_PACKAGE_V4L2LOOPBACK_UTILS
 endif
 
 comment "v4l2loopback needs a Linux kernel to be built"
-	depends on !BR2_LINUX_KERNEL
+	depends on !LINGMO_LINUX_KERNEL

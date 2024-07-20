@@ -33,7 +33,7 @@ define PCM_TOOLS_BUILD_CMDS
 		$(foreach f,$(PCM_TOOLS_EXE_FILES),$(f).x)
 endef
 
-ifeq ($(BR2_PACKAGE_PCM_TOOLS_PMU_QUERY),y)
+ifeq ($(LINGMO_PACKAGE_PCM_TOOLS_PMU_QUERY),y)
 define PCM_TOOLS_INSTALL_PMU_QUERY
 	$(INSTALL) -D -m 755 $(@D)/pmu-query.py $(TARGET_DIR)/usr/bin/pmu-query
 endef

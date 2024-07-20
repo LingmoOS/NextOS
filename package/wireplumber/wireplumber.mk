@@ -16,18 +16,18 @@ WIREPLUMBER_CONF_OPTS = \
 	-Dsystem-lua=true \
 	-Dsystem-lua-version=
 
-ifeq ($(BR2_PACKAGE_DBUS),y)
+ifeq ($(LINGMO_PACKAGE_DBUS),y)
 WIREPLUMBER_DEPENDENCIES += dbus
 endif
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 WIREPLUMBER_DEPENDENCIES += host-doxygen host-python-lxml gobject-introspection
 WIREPLUMBER_CONF_OPTS += -Dintrospection=enabled
 else
 WIREPLUMBER_CONF_OPTS += -Dintrospection=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 WIREPLUMBER_DEPENDENCIES += systemd
 WIREPLUMBER_CONF_OPTS += \
 	-Dsystemd=enabled \

@@ -21,7 +21,7 @@
 ################################################################################
 
 # Set compiler variables.
-ifeq ($(BR2_CCACHE),y)
+ifeq ($(LINGMO_CCACHE),y)
 CMAKE_HOST_C_COMPILER = $(HOSTCC_NOCCACHE)
 CMAKE_HOST_CXX_COMPILER = $(HOSTCXX_NOCCACHE)
 CMAKE_HOST_C_COMPILER_LAUNCHER = $(HOST_DIR)/bin/ccache
@@ -102,7 +102,7 @@ define $(2)_CONFIGURE_CMDS
 	cd $$($$(PKG)_BUILDDIR) && \
 	rm -f CMakeCache.txt && \
 	PATH=$$(BR_PATH) \
-	$$($$(PKG)_CONF_ENV) $$(BR2_CMAKE) $$($$(PKG)_SRCDIR) \
+	$$($$(PKG)_CONF_ENV) $$(LINGMO_CMAKE) $$($$(PKG)_SRCDIR) \
 		-G$$($$(PKG)_GENERATOR) \
 		-DCMAKE_MAKE_PROGRAM="$$($$(PKG)_GENERATOR_PROGRAM)" \
 		-DCMAKE_TOOLCHAIN_FILE="$$(HOST_DIR)/share/buildroot/toolchainfile.cmake" \
@@ -116,7 +116,7 @@ define $(2)_CONFIGURE_CMDS
 		-DBUILD_TEST=OFF \
 		-DBUILD_TESTS=OFF \
 		-DBUILD_TESTING=OFF \
-		-DBUILD_SHARED_LIBS=$$(if $$(BR2_STATIC_LIBS),OFF,ON) \
+		-DBUILD_SHARED_LIBS=$$(if $$(LINGMO_STATIC_LIBS),OFF,ON) \
 		$$(CMAKE_QUIET) \
 		$$($$(PKG)_CONF_OPTS) \
 	)
@@ -134,7 +134,7 @@ define $(2)_CONFIGURE_CMDS
 	PKG_CONFIG_LIBDIR="$$(HOST_DIR)/lib/pkgconfig:$$(HOST_DIR)/share/pkgconfig" \
 	PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=1 \
 	PKG_CONFIG_ALLOW_SYSTEM_LIBS=1 \
-	$$($$(PKG)_CONF_ENV) $$(BR2_CMAKE) $$($$(PKG)_SRCDIR) \
+	$$($$(PKG)_CONF_ENV) $$(LINGMO_CMAKE) $$($$(PKG)_SRCDIR) \
 		-G$$($$(PKG)_GENERATOR) \
 		-DCMAKE_MAKE_PROGRAM="$$($$(PKG)_GENERATOR_PROGRAM)" \
 		-DCMAKE_INSTALL_SO_NO_EXE=0 \
@@ -174,7 +174,7 @@ endif
 # primitives to find {C,LD}FLAGS, add it to the dependency list.
 $(2)_DEPENDENCIES += host-pkgconf
 
-$(2)_DEPENDENCIES += $(BR2_CMAKE_HOST_DEPENDENCY)
+$(2)_DEPENDENCIES += $(LINGMO_CMAKE_HOST_DEPENDENCY)
 
 #
 # Build step. Only define it if not already defined by the package .mk
@@ -183,11 +183,11 @@ $(2)_DEPENDENCIES += $(BR2_CMAKE_HOST_DEPENDENCY)
 ifndef $(2)_BUILD_CMDS
 ifeq ($(4),target)
 define $(2)_BUILD_CMDS
-	$$(TARGET_MAKE_ENV) $$($$(PKG)_BUILD_ENV) $$(BR2_CMAKE) --build $$($$(PKG)_BUILDDIR) -j$(PARALLEL_JOBS) $$($$(PKG)_BUILD_OPTS)
+	$$(TARGET_MAKE_ENV) $$($$(PKG)_BUILD_ENV) $$(LINGMO_CMAKE) --build $$($$(PKG)_BUILDDIR) -j$(PARALLEL_JOBS) $$($$(PKG)_BUILD_OPTS)
 endef
 else
 define $(2)_BUILD_CMDS
-	$$(HOST_MAKE_ENV) $$($$(PKG)_BUILD_ENV) $$(BR2_CMAKE) --build $$($$(PKG)_BUILDDIR) -j$(PARALLEL_JOBS) $$($$(PKG)_BUILD_OPTS)
+	$$(HOST_MAKE_ENV) $$($$(PKG)_BUILD_ENV) $$(LINGMO_CMAKE) --build $$($$(PKG)_BUILDDIR) -j$(PARALLEL_JOBS) $$($$(PKG)_BUILD_OPTS)
 endef
 endif
 endif
@@ -198,7 +198,7 @@ endif
 #
 ifndef $(2)_INSTALL_CMDS
 define $(2)_INSTALL_CMDS
-	$$(HOST_MAKE_ENV) $$($$(PKG)_BUILD_ENV) $$(BR2_CMAKE) --install $$($$(PKG)_BUILDDIR) $$($$(PKG)_INSTALL_OPTS)
+	$$(HOST_MAKE_ENV) $$($$(PKG)_BUILD_ENV) $$(LINGMO_CMAKE) --install $$($$(PKG)_BUILDDIR) $$($$(PKG)_INSTALL_OPTS)
 endef
 endif
 
@@ -208,7 +208,7 @@ endif
 #
 ifndef $(2)_INSTALL_STAGING_CMDS
 define $(2)_INSTALL_STAGING_CMDS
-	$$(TARGET_MAKE_ENV) $$($$(PKG)_BUILD_ENV) DESTDIR=$$(STAGING_DIR) $$(BR2_CMAKE) --install $$($$(PKG)_BUILDDIR) $$($$(PKG)_INSTALL_STAGING_OPTS)
+	$$(TARGET_MAKE_ENV) $$($$(PKG)_BUILD_ENV) DESTDIR=$$(STAGING_DIR) $$(LINGMO_CMAKE) --install $$($$(PKG)_BUILDDIR) $$($$(PKG)_INSTALL_STAGING_OPTS)
 endef
 endif
 
@@ -218,7 +218,7 @@ endif
 #
 ifndef $(2)_INSTALL_TARGET_CMDS
 define $(2)_INSTALL_TARGET_CMDS
-	$$(TARGET_MAKE_ENV) $$($$(PKG)_BUILD_ENV) DESTDIR=$$(TARGET_DIR) $$(BR2_CMAKE) --install $$($$(PKG)_BUILDDIR) $$($$(PKG)_INSTALL_TARGET_OPTS)
+	$$(TARGET_MAKE_ENV) $$($$(PKG)_BUILD_ENV) DESTDIR=$$(TARGET_DIR) $$(LINGMO_CMAKE) --install $$($$(PKG)_BUILDDIR) $$($$(PKG)_INSTALL_TARGET_OPTS)
 endef
 endif
 
@@ -240,28 +240,28 @@ host-cmake-package = $(call inner-cmake-package,host-$(pkgname),$(call UPPERCASE
 ################################################################################
 
 # CMAKE_SYSTEM_PROCESSOR should match uname -m
-ifeq ($(BR2_ARM_CPU_ARMV4),y)
+ifeq ($(LINGMO_ARM_CPU_ARMV4),y)
 CMAKE_SYSTEM_PROCESSOR_ARM_VARIANT = armv4
-else ifeq ($(BR2_ARM_CPU_ARMV5),y)
+else ifeq ($(LINGMO_ARM_CPU_ARMV5),y)
 CMAKE_SYSTEM_PROCESSOR_ARM_VARIANT = armv5
-else ifeq ($(BR2_ARM_CPU_ARMV6),y)
+else ifeq ($(LINGMO_ARM_CPU_ARMV6),y)
 CMAKE_SYSTEM_PROCESSOR_ARM_VARIANT = armv6
-else ifeq ($(BR2_ARM_CPU_ARMV7A),y)
+else ifeq ($(LINGMO_ARM_CPU_ARMV7A),y)
 CMAKE_SYSTEM_PROCESSOR_ARM_VARIANT = armv7
-else ifeq ($(BR2_ARM_CPU_ARMV8A),y)
+else ifeq ($(LINGMO_ARM_CPU_ARMV8A),y)
 CMAKE_SYSTEM_PROCESSOR_ARM_VARIANT = armv8
 endif
 
-ifeq ($(BR2_arm),y)
+ifeq ($(LINGMO_arm),y)
 CMAKE_SYSTEM_PROCESSOR = $(CMAKE_SYSTEM_PROCESSOR_ARM_VARIANT)l
-else ifeq ($(BR2_armeb),y)
+else ifeq ($(LINGMO_armeb),y)
 CMAKE_SYSTEM_PROCESSOR = $(CMAKE_SYSTEM_PROCESSOR_ARM_VARIANT)b
-else ifeq ($(call qstrip,$(BR2_ARCH)),powerpc64)
+else ifeq ($(call qstrip,$(LINGMO_ARCH)),powerpc64)
 CMAKE_SYSTEM_PROCESSOR = ppc64
-else ifeq ($(call qstrip,$(BR2_ARCH)),powerpc64le)
+else ifeq ($(call qstrip,$(LINGMO_ARCH)),powerpc64le)
 CMAKE_SYSTEM_PROCESSOR = ppc64le
 else
-CMAKE_SYSTEM_PROCESSOR = $(BR2_ARCH)
+CMAKE_SYSTEM_PROCESSOR = $(LINGMO_ARCH)
 endif
 
 # In order to allow the toolchain to be relocated, we calculate the HOST_DIR
@@ -280,9 +280,9 @@ define TOOLCHAIN_CMAKE_INSTALL_FILES
 		-e 's#@@TARGET_CXX@@#$(subst $(HOST_DIR)/,,$(call qstrip,$(TARGET_CXX)))#' \
 		-e 's#@@TARGET_FC@@#$(subst $(HOST_DIR)/,,$(call qstrip,$(TARGET_FC)))#' \
 		-e 's#@@CMAKE_SYSTEM_PROCESSOR@@#$(call qstrip,$(CMAKE_SYSTEM_PROCESSOR))#' \
-		-e 's#@@TOOLCHAIN_HAS_CXX@@#$(if $(BR2_INSTALL_LIBSTDCPP),1,0)#' \
-		-e 's#@@TOOLCHAIN_HAS_FORTRAN@@#$(if $(BR2_TOOLCHAIN_HAS_FORTRAN),1,0)#' \
-		-e 's#@@CMAKE_BUILD_TYPE@@#$(if $(BR2_ENABLE_RUNTIME_DEBUG),Debug,Release)#' \
+		-e 's#@@TOOLCHAIN_HAS_CXX@@#$(if $(LINGMO_INSTALL_LIBSTDCPP),1,0)#' \
+		-e 's#@@TOOLCHAIN_HAS_FORTRAN@@#$(if $(LINGMO_TOOLCHAIN_HAS_FORTRAN),1,0)#' \
+		-e 's#@@CMAKE_BUILD_TYPE@@#$(if $(LINGMO_ENABLE_RUNTIME_DEBUG),Debug,Release)#' \
 		$(TOPDIR)/support/misc/toolchainfile.cmake.in \
 		> $(HOST_DIR)/share/buildroot/toolchainfile.cmake
 	$(Q)$(INSTALL) -D -m 0644 support/misc/Buildroot.cmake \

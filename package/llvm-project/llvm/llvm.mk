@@ -29,8 +29,8 @@ HOST_LLVM_CONF_OPTS += -DCMAKE_ASM_COMPILER="$(CMAKE_HOST_C_COMPILER)"
 HOST_LLVM_CONF_OPTS += -DLLVM_ENABLE_PROJECTS=""
 LLVM_CONF_OPTS += -DLLVM_ENABLE_PROJECTS=""
 
-HOST_LLVM_CONF_OPTS += -DLLVM_CCACHE_BUILD=$(if $(BR2_CCACHE),ON,OFF)
-LLVM_CONF_OPTS += -DLLVM_CCACHE_BUILD=$(if $(BR2_CCACHE),ON,OFF)
+HOST_LLVM_CONF_OPTS += -DLLVM_CCACHE_BUILD=$(if $(LINGMO_CCACHE),ON,OFF)
+LLVM_CONF_OPTS += -DLLVM_CCACHE_BUILD=$(if $(LINGMO_CCACHE),ON,OFF)
 
 # This option prevents AddLLVM.cmake from adding $ORIGIN/../lib to
 # binaries. Otherwise, llvm-config (host variant installed in STAGING)
@@ -38,7 +38,7 @@ LLVM_CONF_OPTS += -DLLVM_CCACHE_BUILD=$(if $(BR2_CCACHE),ON,OFF)
 HOST_LLVM_CONF_OPTS += -DCMAKE_INSTALL_RPATH="$(HOST_DIR)/lib"
 
 # Get target architecture
-LLVM_TARGET_ARCH = $(call qstrip,$(BR2_PACKAGE_LLVM_TARGET_ARCH))
+LLVM_TARGET_ARCH = $(call qstrip,$(LINGMO_PACKAGE_LLVM_TARGET_ARCH))
 
 # Build backend for target architecture. This include backends like
 # AMDGPU. We need to special case RISCV.
@@ -62,12 +62,12 @@ LLVM_CONF_OPTS += -DLLVM_TARGET_ARCH=$(LLVM_TARGET_ARCH)
 # llvm-config --targets built (host variant installed in STAGING) will
 # output only $(LLVM_TARGET_ARCH) if not, and mesa3d won't build as
 # it thinks AMDGPU backend is not installed on the target.
-ifeq ($(BR2_PACKAGE_LLVM_AMDGPU),y)
+ifeq ($(LINGMO_PACKAGE_LLVM_AMDGPU),y)
 LLVM_TARGETS_TO_BUILD += AMDGPU
 endif
 
 # Build BPF backend
-ifeq ($(BR2_PACKAGE_LLVM_BPF),y)
+ifeq ($(LINGMO_PACKAGE_LLVM_BPF),y)
 LLVM_TARGETS_TO_BUILD += BPF
 endif
 
@@ -220,7 +220,7 @@ HOST_LLVM_CONF_OPTS += \
 LLVM_CONF_OPTS += \
 	-DLLVM_INCLUDE_TOOLS=ON
 
-ifeq ($(BR2_PACKAGE_LLVM_RTTI),y)
+ifeq ($(LINGMO_PACKAGE_LLVM_RTTI),y)
 HOST_LLVM_CONF_OPTS += -DLLVM_ENABLE_RTTI=ON
 LLVM_CONF_OPTS += -DLLVM_ENABLE_RTTI=ON
 else
@@ -229,7 +229,7 @@ LLVM_CONF_OPTS += -DLLVM_ENABLE_RTTI=OFF
 endif
 
 HOST_LLVM_CONF_OPTS += -DLLVM_ENABLE_DUMP=OFF
-ifeq ($(BR2_PACKAGE_LLVM_DUMP),y)
+ifeq ($(LINGMO_PACKAGE_LLVM_DUMP),y)
 LLVM_CONF_OPTS += -DLLVM_ENABLE_DUMP=ON
 else
 LLVM_CONF_OPTS += -DLLVM_ENABLE_DUMP=OFF
@@ -301,7 +301,7 @@ HOST_LLVM_POST_INSTALL_HOOKS = LLVM_COPY_LLVM_CONFIG_TO_STAGING_DIR
 # If we set -DLLVM_BUILD_TOOLS=ON this will also install the llvm-config
 # target binary to STAGING_DIR, which means we can no longer run it.
 # Therefore, overwrite it again with the host llvm-config.
-ifeq ($(BR2_PACKAGE_COMPILER_RT),y)
+ifeq ($(LINGMO_PACKAGE_COMPILER_RT),y)
 LLVM_CONF_OPTS += \
 	-DLLVM_BUILD_TOOLS=ON
 LLVM_POST_INSTALL_STAGING_HOOKS = LLVM_COPY_LLVM_CONFIG_TO_STAGING_DIR

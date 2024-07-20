@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_ASYNC_TIMEOUT
+config LINGMO_PACKAGE_PYTHON_ASYNC_TIMEOUT
 	bool "python-async-timeout"
-	select BR2_PACKAGE_PYTHON_TYPING_EXTENSIONS # runtime
+	select LINGMO_PACKAGE_PYTHON_TYPING_EXTENSIONS # runtime
 	help
 	  asyncio-compatible timeout context manager.
 

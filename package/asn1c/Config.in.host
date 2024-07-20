@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_ASN1C
+config LINGMO_PACKAGE_HOST_ASN1C
 	bool "host asn1c"
 	help
 	  ASN.1 stands for Abstract Syntax Notation One and allows

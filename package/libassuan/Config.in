@@ -1,8 +1,8 @@
-config BR2_PACKAGE_LIBASSUAN
+config LINGMO_PACKAGE_LIBASSUAN
 	bool "libassuan"
-	depends on BR2_PACKAGE_LIBGPG_ERROR_ARCH_SUPPORTS # libgpg-error
-	depends on BR2_USE_MMU # fork()
-	select BR2_PACKAGE_LIBGPG_ERROR
+	depends on LINGMO_PACKAGE_LIBGPG_ERROR_ARCH_SUPPORTS # libgpg-error
+	depends on LINGMO_USE_MMU # fork()
+	select LINGMO_PACKAGE_LIBGPG_ERROR
 	help
 	  Libassuan is a small library implementing the so-called
 	  Assuan protocol.

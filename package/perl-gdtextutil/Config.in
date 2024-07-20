@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_GDTEXTUTIL
+config LINGMO_PACKAGE_PERL_GDTEXTUTIL
 	bool "perl-gdtextutil"
 	help
 	  Text utilities for use with GD.

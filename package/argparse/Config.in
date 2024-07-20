@@ -1,4 +1,4 @@
-config BR2_PACKAGE_ARGPARSE
+config LINGMO_PACKAGE_ARGPARSE
 	bool "argparse"
 	help
 	  Argparse is a feature-rich command line parser for Lua

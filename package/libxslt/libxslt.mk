@@ -21,7 +21,7 @@ LIBXSLT_CONFIG_SCRIPTS = xslt-config
 LIBXSLT_DEPENDENCIES = host-pkgconf libxml2
 
 # If we have enabled libgcrypt then use it, else disable crypto support.
-ifeq ($(BR2_PACKAGE_LIBGCRYPT),y)
+ifeq ($(LINGMO_PACKAGE_LIBGCRYPT),y)
 LIBXSLT_DEPENDENCIES += libgcrypt
 LIBXSLT_CONF_ENV += LIBGCRYPT_CONFIG=$(STAGING_DIR)/usr/bin/libgcrypt-config
 else

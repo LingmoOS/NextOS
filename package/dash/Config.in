@@ -1,7 +1,7 @@
-config BR2_PACKAGE_DASH
+config LINGMO_PACKAGE_DASH
 	bool "dash"
-	depends on BR2_USE_MMU # fork()
-	depends on BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
+	depends on LINGMO_USE_MMU # fork()
+	depends on LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS
 	help
 	  DASH is a POSIX-compliant implementation of /bin/sh that
 	  aims to be as small as possible. It does this without

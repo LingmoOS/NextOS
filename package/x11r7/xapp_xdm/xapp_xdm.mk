@@ -23,7 +23,7 @@ XAPP_XDM_CONF_OPTS = \
 	--with-utmp-file=/var/adm/utmpx \
 	--with-wtmp-file=/var/adm/wtmpx
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXINERAMA),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXINERAMA),y)
 XAPP_XDM_CONF_OPTS += --with-xinerama
 XAPP_XDM_DEPENDENCIES += xlib_libXinerama
 else

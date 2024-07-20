@@ -1,8 +1,8 @@
-config BR2_PACKAGE_PYTHON_RAVEN
+config LINGMO_PACKAGE_PYTHON_RAVEN
 	bool "python-raven"
-	select BR2_PACKAGE_PYTHON3_ZLIB
-	select BR2_PACKAGE_PYTHON3_SSL
-	select BR2_PACKAGE_PYTHON3_UNICODEDATA
+	select LINGMO_PACKAGE_PYTHON3_ZLIB
+	select LINGMO_PACKAGE_PYTHON3_SSL
+	select LINGMO_PACKAGE_PYTHON3_UNICODEDATA
 	help
 	  Raven is a client for Sentry (https://getsentry.com).
 

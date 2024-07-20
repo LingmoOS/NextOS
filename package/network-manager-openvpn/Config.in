@@ -1,7 +1,7 @@
-config BR2_PACKAGE_NETWORK_MANAGER_OPENVPN
+config LINGMO_PACKAGE_NETWORK_MANAGER_OPENVPN
 	bool "network-manager-openvpn"
-	depends on BR2_PACKAGE_NETWORK_MANAGER
-	depends on BR2_PACKAGE_OPENVPN
+	depends on LINGMO_PACKAGE_NETWORK_MANAGER
+	depends on LINGMO_PACKAGE_OPENVPN
 	help
 	  OpenVPN support for NetworkManager
 

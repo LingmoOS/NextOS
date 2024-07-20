@@ -21,8 +21,8 @@ TREMOR_DEPENDENCIES = libogg
 # code unconditionally for all arm triplets by defining _ARM_ASSEM_.
 # We are overriding this by undefining this macro for the ARM
 # architectures not supporting ARM instructions.
-ifeq ($(BR2_arm),y)
-ifeq ($(BR2_ARM_CPU_HAS_ARM),y)
+ifeq ($(LINGMO_arm),y)
+ifeq ($(LINGMO_ARM_CPU_HAS_ARM),y)
 TREMOR_CONF_ENV = CFLAGS="$(TARGET_CFLAGS) -marm"
 else
 TREMOR_CONF_ENV = CFLAGS="$(TARGET_CFLAGS) -U_ARM_ASSEM_"

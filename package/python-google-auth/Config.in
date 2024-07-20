@@ -1,8 +1,8 @@
-config BR2_PACKAGE_PYTHON_GOOGLE_AUTH
+config LINGMO_PACKAGE_PYTHON_GOOGLE_AUTH
 	bool "python-google-auth"
-	select BR2_PACKAGE_PYTHON_CACHETOOLS # runtime
-	select BR2_PACKAGE_PYTHON_PYASN1_MODULES # runtime
-	select BR2_PACKAGE_PYTHON_RSA # runtime
+	select LINGMO_PACKAGE_PYTHON_CACHETOOLS # runtime
+	select LINGMO_PACKAGE_PYTHON_PYASN1_MODULES # runtime
+	select LINGMO_PACKAGE_PYTHON_RSA # runtime
 	help
 	  Google Authentication Library.
 

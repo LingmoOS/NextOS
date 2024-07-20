@@ -15,7 +15,7 @@ LIBMNL_CPE_ID_VENDOR = netfilter
 # 0002-include-cache-copy-of-can.h-and-can-netlink.h.patch patches configure.ac
 LIBMNL_AUTORECONF = YES
 
-ifeq ($(BR2_PACKAGE_LIBMNL_EXAMPLES),y)
+ifeq ($(LINGMO_PACKAGE_LIBMNL_EXAMPLES),y)
 define LIBMNL_EXAMPLES_BUILD_CMDS
 	$(TARGET_MAKE_ENV) $(MAKE) check -C $(@D)
 endef

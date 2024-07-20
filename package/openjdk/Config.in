@@ -1,77 +1,77 @@
-config BR2_PACKAGE_HOST_OPENJDK_BIN_ARCH_SUPPORTS
+config LINGMO_PACKAGE_HOST_OPENJDK_BIN_ARCH_SUPPORTS
 	bool
-	default y if BR2_HOSTARCH = "x86_64"
-	default y if BR2_HOSTARCH = "aarch64"
+	default y if LINGMO_HOSTARCH = "x86_64"
+	default y if LINGMO_HOSTARCH = "aarch64"
 
 # Taken from make/autoconf/platform.m4
-config BR2_PACKAGE_OPENJDK_ARCH_SUPPORTS
+config LINGMO_PACKAGE_OPENJDK_ARCH_SUPPORTS
 	bool
-	default y if BR2_aarch64
-	default y if BR2_arc && !(BR2_arc750d || BR2_arc770d)
-	default y if BR2_arm
-	default y if BR2_i386 || BR2_x86_64
-	default y if BR2_m68k
-	default y if BR2_powerpc || BR2_powerpc64 || BR2_powerpc64le
-	default y if BR2_sh
+	default y if LINGMO_aarch64
+	default y if LINGMO_arc && !(LINGMO_arc750d || LINGMO_arc770d)
+	default y if LINGMO_arm
+	default y if LINGMO_i386 || LINGMO_x86_64
+	default y if LINGMO_m68k
+	default y if LINGMO_powerpc || LINGMO_powerpc64 || LINGMO_powerpc64le
+	default y if LINGMO_sh
 
-config BR2_PACKAGE_OPENJDK
+config LINGMO_PACKAGE_OPENJDK
 	bool "openjdk"
-	depends on BR2_PACKAGE_HOST_OPENJDK_BIN_ARCH_SUPPORTS
-	depends on BR2_PACKAGE_OPENJDK_ARCH_SUPPORTS
-	depends on !BR2_SOFT_FLOAT
-	depends on !BR2_STATIC_LIBS # glibc
-	depends on BR2_INSTALL_LIBSTDCPP # cups
-	depends on BR2_TOOLCHAIN_HAS_THREADS # alsa-lib, cups, libusb
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_9 # libusb, C++14 for OpenJDK17
+	depends on LINGMO_PACKAGE_HOST_OPENJDK_BIN_ARCH_SUPPORTS
+	depends on LINGMO_PACKAGE_OPENJDK_ARCH_SUPPORTS
+	depends on !LINGMO_SOFT_FLOAT
+	depends on !LINGMO_STATIC_LIBS # glibc
+	depends on LINGMO_INSTALL_LIBSTDCPP # cups
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # alsa-lib, cups, libusb
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9 # libusb, C++14 for OpenJDK17
 	# Strictly needed only for OpenJDK17, but to keep dependencies
 	# simple with ARC supported only with OpenJDK17, we make this
 	# dependency apply to OpenJDK as a whole.
-	depends on BR2_HOST_GCC_AT_LEAST_4_9 # C++14
-	depends on BR2_TOOLCHAIN_USES_GLIBC
-	depends on BR2_USE_MMU # cups
-	depends on BR2_PACKAGE_XORG7
-	select BR2_PACKAGE_ALSA_LIB
-	select BR2_PACKAGE_ALSA_LIB_MIXER
-	select BR2_PACKAGE_ALSA_LIB_PCM
-	select BR2_PACKAGE_ALSA_LIB_RAWMIDI
-	select BR2_PACKAGE_ALSA_LIB_SEQ
-	select BR2_PACKAGE_CUPS
-	select BR2_PACKAGE_FONTCONFIG
-	select BR2_PACKAGE_GIFLIB
-	select BR2_PACKAGE_JPEG
-	select BR2_PACKAGE_LCMS2
-	select BR2_PACKAGE_LIBPNG
-	select BR2_PACKAGE_LIBUSB
-	select BR2_PACKAGE_XLIB_LIBXRANDR
-	select BR2_PACKAGE_XLIB_LIBXRENDER
-	select BR2_PACKAGE_XLIB_LIBXT
-	select BR2_PACKAGE_XLIB_LIBXTST
-	select BR2_PACKAGE_ZLIB
+	depends on LINGMO_HOST_GCC_AT_LEAST_4_9 # C++14
+	depends on LINGMO_TOOLCHAIN_USES_GLIBC
+	depends on LINGMO_USE_MMU # cups
+	depends on LINGMO_PACKAGE_XORG7
+	select LINGMO_PACKAGE_ALSA_LIB
+	select LINGMO_PACKAGE_ALSA_LIB_MIXER
+	select LINGMO_PACKAGE_ALSA_LIB_PCM
+	select LINGMO_PACKAGE_ALSA_LIB_RAWMIDI
+	select LINGMO_PACKAGE_ALSA_LIB_SEQ
+	select LINGMO_PACKAGE_CUPS
+	select LINGMO_PACKAGE_FONTCONFIG
+	select LINGMO_PACKAGE_GIFLIB
+	select LINGMO_PACKAGE_JPEG
+	select LINGMO_PACKAGE_LCMS2
+	select LINGMO_PACKAGE_LIBPNG
+	select LINGMO_PACKAGE_LIBUSB
+	select LINGMO_PACKAGE_XLIB_LIBXRANDR
+	select LINGMO_PACKAGE_XLIB_LIBXRENDER
+	select LINGMO_PACKAGE_XLIB_LIBXT
+	select LINGMO_PACKAGE_XLIB_LIBXTST
+	select LINGMO_PACKAGE_ZLIB
 	help
 	  OpenJDK is a free and open-source implementation of the
 	  Java Platform.
 
 	  http://openjdk.java.net/
 
-if BR2_PACKAGE_OPENJDK
+if LINGMO_PACKAGE_OPENJDK
 
 choice
 	prompt "openjdk version"
-	default BR2_PACKAGE_OPENJDK_VERSION_17 if BR2_OPENJDK_VERSION_LTS # legacy
-	default BR2_PACKAGE_OPENJDK_VERSION_21 if BR2_OPENJDK_VERSION_LATEST # legacy
-	default BR2_PACKAGE_OPENJDK_VERSION_21
+	default LINGMO_PACKAGE_OPENJDK_VERSION_17 if LINGMO_OPENJDK_VERSION_LTS # legacy
+	default LINGMO_PACKAGE_OPENJDK_VERSION_21 if LINGMO_OPENJDK_VERSION_LATEST # legacy
+	default LINGMO_PACKAGE_OPENJDK_VERSION_21
 	help
 	  Select the version of OpenJDK you wish to use.
 
-config BR2_PACKAGE_OPENJDK_VERSION_17
+config LINGMO_PACKAGE_OPENJDK_VERSION_17
 	bool "OpenJDK 17"
 
-config BR2_PACKAGE_OPENJDK_VERSION_21
+config LINGMO_PACKAGE_OPENJDK_VERSION_21
 	bool "OpenJDK 21"
 
 endchoice
 
-config BR2_PACKAGE_OPENJDK_FULL_JDK
+config LINGMO_PACKAGE_OPENJDK_FULL_JDK
 	bool "Build the full JDK"
 	help
 	  Install the full JDK instead of just the run time.
@@ -127,25 +127,25 @@ config BR2_PACKAGE_OPENJDK_FULL_JDK
 
 choice
 	prompt "openjdk variant"
-	default BR2_PACKAGE_OPENJDK_JVM_VARIANT_SERVER if !(BR2_powerpc || BR2_arc)
-	default BR2_PACKAGE_OPENJDK_JVM_VARIANT_ZERO if BR2_powerpc
-	default BR2_PACKAGE_OPENJDK_JVM_VARIANT_ZERO if BR2_arc
+	default LINGMO_PACKAGE_OPENJDK_JVM_VARIANT_SERVER if !(LINGMO_powerpc || LINGMO_arc)
+	default LINGMO_PACKAGE_OPENJDK_JVM_VARIANT_ZERO if LINGMO_powerpc
+	default LINGMO_PACKAGE_OPENJDK_JVM_VARIANT_ZERO if LINGMO_arc
 
-config BR2_PACKAGE_OPENJDK_JVM_VARIANT_CLIENT
+config LINGMO_PACKAGE_OPENJDK_JVM_VARIANT_CLIENT
 	bool "client"
-	depends on !(BR2_powerpc || BR2_arc)
+	depends on !(LINGMO_powerpc || LINGMO_arc)
 	help
 	  Quick loading, but slower run-time performance.
 
-config BR2_PACKAGE_OPENJDK_JVM_VARIANT_SERVER
+config LINGMO_PACKAGE_OPENJDK_JVM_VARIANT_SERVER
 	bool "server"
-	depends on !(BR2_powerpc || BR2_arc)
+	depends on !(LINGMO_powerpc || LINGMO_arc)
 	help
 	  Slower loading, but faster run-time performance.
 
-config BR2_PACKAGE_OPENJDK_JVM_VARIANT_ZERO
+config LINGMO_PACKAGE_OPENJDK_JVM_VARIANT_ZERO
 	bool "zero"
-	select BR2_PACKAGE_LIBFFI
+	select LINGMO_PACKAGE_LIBFFI
 	help
 	  A non-assembler variant with wide arch support, however
 	  performance is less then client/server.
@@ -156,23 +156,23 @@ endchoice
 endif
 
 comment "openjdk needs X.Org"
-	depends on BR2_PACKAGE_OPENJDK_ARCH_SUPPORTS
-	depends on BR2_PACKAGE_HOST_OPENJDK_BIN_ARCH_SUPPORTS
-	depends on BR2_USE_MMU
-	depends on !BR2_PACKAGE_XORG7
+	depends on LINGMO_PACKAGE_OPENJDK_ARCH_SUPPORTS
+	depends on LINGMO_PACKAGE_HOST_OPENJDK_BIN_ARCH_SUPPORTS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_PACKAGE_XORG7
 
 comment "openjdk needs glibc, and a toolchain w/ wchar, dynamic library, threads, C++, gcc >= 4.9, host gcc >= 4.9"
-	depends on BR2_USE_MMU
-	depends on BR2_PACKAGE_OPENJDK_ARCH_SUPPORTS
-	depends on BR2_PACKAGE_HOST_OPENJDK_BIN_ARCH_SUPPORTS
-	depends on BR2_STATIC_LIBS || !BR2_INSTALL_LIBSTDCPP || \
-		!BR2_TOOLCHAIN_HAS_THREADS || \
-		!BR2_TOOLCHAIN_USES_GLIBC || \
-		!BR2_TOOLCHAIN_GCC_AT_LEAST_4_9 || \
-		!BR2_HOST_GCC_AT_LEAST_4_9
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_PACKAGE_OPENJDK_ARCH_SUPPORTS
+	depends on LINGMO_PACKAGE_HOST_OPENJDK_BIN_ARCH_SUPPORTS
+	depends on LINGMO_STATIC_LIBS || !LINGMO_INSTALL_LIBSTDCPP || \
+		!LINGMO_TOOLCHAIN_HAS_THREADS || \
+		!LINGMO_TOOLCHAIN_USES_GLIBC || \
+		!LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9 || \
+		!LINGMO_HOST_GCC_AT_LEAST_4_9
 
 comment "openjdk does not support soft float configurations"
-	depends on BR2_PACKAGE_OPENJDK_ARCH_SUPPORTS
-	depends on BR2_PACKAGE_HOST_OPENJDK_BIN_ARCH_SUPPORTS
-	depends on BR2_USE_MMU
-	depends on BR2_SOFT_FLOAT
+	depends on LINGMO_PACKAGE_OPENJDK_ARCH_SUPPORTS
+	depends on LINGMO_PACKAGE_HOST_OPENJDK_BIN_ARCH_SUPPORTS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_SOFT_FLOAT

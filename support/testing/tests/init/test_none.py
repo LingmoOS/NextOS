@@ -7,9 +7,9 @@ from tests.init.base import InitSystemBase as InitSystemBase
 class TestInitSystemNone(InitSystemBase):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_INIT_NONE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
-        BR2_TARGET_ROOTFS_SQUASHFS=y
+        LINGMO_INIT_NONE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
+        LINGMO_TARGET_ROOTFS_SQUASHFS=y
         """
 
     def test_run(self):

@@ -522,7 +522,7 @@ int main(int argc, char **argv)
 				bb_error_msg_and_die("can't set cap %s on file %s\n", xattr, full_name);
 #else
 			bb_error_msg_and_die("line %d not supported: '%s'\nDid you forget to enable "
-					     "BR2_ROOTFS_DEVICE_TABLE_SUPPORTS_EXTENDED_ATTRIBUTES?\n",
+					     "LINGMO_ROOTFS_DEVICE_TABLE_SUPPORTS_EXTENDED_ATTRIBUTES?\n",
 					     linenum, line);
 #endif /* EXTENDED_ATTRIBUTES */
 			continue;

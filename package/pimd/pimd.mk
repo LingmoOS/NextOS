@@ -10,7 +10,7 @@ PIMD_SITE = https://github.com/troglobit/pimd/releases/download/$(PIMD_VERSION)
 PIMD_LICENSE = BSD-3-Clause
 PIMD_LICENSE_FILES = LICENSE LICENSE.mrouted
 
-ifeq ($(BR2_TOOLCHAIN_USES_UCLIBC)$(BR2_TOOLCHAIN_USES_MUSL),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_UCLIBC)$(LINGMO_TOOLCHAIN_USES_MUSL),y)
 PIMD_CONF_OPTS += --embedded-libc
 endif
 

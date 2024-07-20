@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_LARK
+config LINGMO_PACKAGE_PYTHON_LARK
 	bool "python-lark"
 	help
 	  Lark is a parsing toolkit for Python, built with a focus

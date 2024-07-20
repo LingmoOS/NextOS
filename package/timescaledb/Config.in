@@ -1,6 +1,6 @@
-config BR2_PACKAGE_TIMESCALEDB
+config LINGMO_PACKAGE_TIMESCALEDB
 	bool "timescaledb"
-	depends on BR2_PACKAGE_POSTGRESQL
+	depends on LINGMO_PACKAGE_POSTGRESQL
 	help
 	  TimescaleDB is an open-source database designed
 	  to make SQL scalable for time-series data.

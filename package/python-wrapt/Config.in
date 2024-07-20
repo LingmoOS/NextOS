@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_WRAPT
+config LINGMO_PACKAGE_PYTHON_WRAPT
 	bool "python-wrapt"
 	help
 	  Module for decorators, wrappers and monkey patching.

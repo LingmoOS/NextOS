@@ -62,11 +62,11 @@ $ echo 'name: NAME_OF_YOUR_TREE' >external.desc
 Be careful when choosing a name: It has to be unique and be made
 with only ASCII characters from the set +[A-Za-z0-9_]+.
 
- * Then, change every occurence of +BR2_EXTERNAL+ in your br2-external
+ * Then, change every occurence of +LINGMO_EXTERNAL+ in your br2-external
    tree with the new variable:
 +
 ----
-$ find . -type f | xargs sed -i 's/BR2_EXTERNAL/BR2_EXTERNAL_NAME_OF_YOUR_TREE_PATH/g'
+$ find . -type f | xargs sed -i 's/LINGMO_EXTERNAL/LINGMO_EXTERNAL_NAME_OF_YOUR_TREE_PATH/g'
 ----
 
 Now, your br2-external tree can be used with Buildroot 2016.11 onward.

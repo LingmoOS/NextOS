@@ -11,12 +11,12 @@ HASERL_LICENSE_FILES = COPYING
 HASERL_CPE_ID_VALID = YES
 HASERL_DEPENDENCIES = host-pkgconf
 
-ifeq ($(BR2_PACKAGE_HASERL_WITH_LUA),y)
+ifeq ($(LINGMO_PACKAGE_HASERL_WITH_LUA),y)
 HASERL_CONF_OPTS += --with-lua
 HASERL_DEPENDENCIES += lua
 
 # liblua uses dlopen when dynamically linked
-ifneq ($(BR2_STATIC_LIBS),y)
+ifneq ($(LINGMO_STATIC_LIBS),y)
 HASERL_CONF_ENV += LIBS="-ldl"
 endif
 

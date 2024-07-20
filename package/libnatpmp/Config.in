@@ -1,7 +1,7 @@
-config BR2_PACKAGE_LIBNATPMP
+config LINGMO_PACKAGE_LIBNATPMP
 	bool "libnatpmp"
-	depends on !BR2_BINFMT_FLAT
-	depends on !BR2_STATIC_LIBS
+	depends on !LINGMO_BINFMT_FLAT
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  libnatpmp is an attempt to make a portable and fully compliant
 	  implementation of the NAT-PMP protocol for the client side. It
@@ -12,5 +12,5 @@ config BR2_PACKAGE_LIBNATPMP
 	  http://miniupnp.free.fr/libnatpmp.html
 
 comment "libnatpmp needs a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
-	depends on !BR2_BINFMT_FLAT
+	depends on LINGMO_STATIC_LIBS
+	depends on !LINGMO_BINFMT_FLAT

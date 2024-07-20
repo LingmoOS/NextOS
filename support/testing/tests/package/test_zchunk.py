@@ -5,8 +5,8 @@ class TestZchunk(TestCompressorBase):
     __test__ = True
     config = TestCompressorBase.config + \
         """
-        BR2_PACKAGE_ZCHUNK=y
-        BR2_PACKAGE_ZSTD=y
+        LINGMO_PACKAGE_ZCHUNK=y
+        LINGMO_PACKAGE_ZSTD=y
         """
     compress_cmd = "zck"
 

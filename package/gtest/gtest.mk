@@ -25,11 +25,11 @@ GTEST_CONF_OPTS = -DBUILD_SHARED_LIBS=OFF
 # Ensure that GTest is compiled with -fPIC to allow linking the static
 # libraries with dynamically linked programs. This is not a requirement
 # for most architectures but is mandatory for ARM.
-ifeq ($(BR2_STATIC_LIBS),)
+ifeq ($(LINGMO_STATIC_LIBS),)
 GTEST_CONF_OPTS += -DCMAKE_POSITION_INDEPENDENT_CODE=ON
 endif
 
-ifeq ($(BR2_PACKAGE_GTEST_GMOCK),y)
+ifeq ($(LINGMO_PACKAGE_GTEST_GMOCK),y)
 GTEST_CONF_OPTS += -DBUILD_GMOCK=ON
 else
 GTEST_CONF_OPTS += -DBUILD_GMOCK=OFF

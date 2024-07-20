@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_SQLPARSE
+config LINGMO_PACKAGE_PYTHON_SQLPARSE
 	bool "python-sqlparse"
 	help
 	  sqlparse is a non-validating SQL parser for Python.

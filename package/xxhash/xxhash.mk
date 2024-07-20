@@ -16,12 +16,12 @@ XXHASH_INSTALL_TARGETS = \
 	install_libxxhash.pc \
 	install_xxhsum
 
-ifeq ($(BR2_STATIC_LIBS)$(BR2_SHARED_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS)$(LINGMO_SHARED_STATIC_LIBS),y)
 XXHASH_TARGETS += libxxhash.a
 XXHASH_INSTALL_TARGETS += install_libxxhash.a
 endif
 
-ifeq ($(BR2_SHARED_LIBS)$(BR2_SHARED_STATIC_LIBS),y)
+ifeq ($(LINGMO_SHARED_LIBS)$(LINGMO_SHARED_STATIC_LIBS),y)
 XXHASH_TARGETS += libxxhash
 XXHASH_INSTALL_TARGETS += install_libxxhash
 endif

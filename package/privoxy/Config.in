@@ -1,9 +1,9 @@
-config BR2_PACKAGE_PRIVOXY
+config LINGMO_PACKAGE_PRIVOXY
 	bool "privoxy"
-	depends on BR2_USE_MMU # fork()
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	select BR2_PACKAGE_PCRE
-	select BR2_PACKAGE_ZLIB
+	depends on LINGMO_USE_MMU # fork()
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	select LINGMO_PACKAGE_PCRE
+	select LINGMO_PACKAGE_ZLIB
 	help
 	  A non-caching web proxy with advanced filtering capabilities
 	  for enhancing privacy, modifying web page data and HTTP
@@ -13,5 +13,5 @@ config BR2_PACKAGE_PRIVOXY
 	  http://www.privoxy.org/
 
 comment "privoxy needs a toolchain w/ threads"
-	depends on BR2_USE_MMU
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS

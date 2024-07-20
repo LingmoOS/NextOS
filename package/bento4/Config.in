@@ -1,6 +1,6 @@
-config BR2_PACKAGE_BENTO4
+config LINGMO_PACKAGE_BENTO4
 	bool "bento4"
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	help
 	  Bento4 is a C++ class library designed to read and write
 	  ISO-MP4 files.
@@ -8,4 +8,4 @@ config BR2_PACKAGE_BENTO4
 	  https://www.bento4.com/
 
 comment "bento4 support needs a toolchain with C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP

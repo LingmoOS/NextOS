@@ -7,11 +7,11 @@
 TZ_DEPENDENCIES = host-tzdata host-tzdump
 TZ_LICENSE = Public domain
 
-TZ_LOCALTIME = $(call qstrip,$(BR2_TARGET_LOCALTIME))
+TZ_LOCALTIME = $(call qstrip,$(LINGMO_TARGET_LOCALTIME))
 ifneq ($(TZ_LOCALTIME),)
 define TZ_SET_LOCALTIME
 	if [ ! -f $(TARGET_DIR)/usr/share/zoneinfo/uclibc/$(TZ_LOCALTIME) ]; then \
-		printf "Error: '%s' is not a valid timezone, check your BR2_TARGET_LOCALTIME setting\n" \
+		printf "Error: '%s' is not a valid timezone, check your LINGMO_TARGET_LOCALTIME setting\n" \
 			"$(TZ_LOCALTIME)"; \
 		exit 1; \
 	fi

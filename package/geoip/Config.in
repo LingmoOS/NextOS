@@ -1,4 +1,4 @@
-config BR2_PACKAGE_GEOIP
+config LINGMO_PACKAGE_GEOIP
 	bool "geoip"
 	help
 	  GeoIP is a C library that enables the user to find

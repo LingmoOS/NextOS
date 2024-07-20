@@ -16,7 +16,7 @@ LTRIS_CONF_ENV = \
 	SDL_CONFIG="$(STAGING_DIR)/usr/bin/sdl-config" \
 	LIBS="$(LTRIS_LIBS)"
 
-ifeq ($(BR2_PACKAGE_LTRIS_AUDIO),y)
+ifeq ($(LINGMO_PACKAGE_LTRIS_AUDIO),y)
 LTRIS_DEPENDENCIES += sdl_mixer host-pkgconf
 # configure script does NOT use pkg-config to figure out how to link
 # with sdl_mixer, breaking static linking as sdl_mixer can use libmad

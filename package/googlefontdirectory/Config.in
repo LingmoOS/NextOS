@@ -1,13 +1,13 @@
-config BR2_PACKAGE_GOOGLEFONTDIRECTORY
+config LINGMO_PACKAGE_GOOGLEFONTDIRECTORY
 	bool "Google font directory"
 	help
 	  Font files available from Google Fonts
 
 	  https://github.com/google/fonts
 
-if BR2_PACKAGE_GOOGLEFONTDIRECTORY
+if LINGMO_PACKAGE_GOOGLEFONTDIRECTORY
 
-config BR2_PACKAGE_GOOGLEFONTDIRECTORY_FONTS
+config LINGMO_PACKAGE_GOOGLEFONTDIRECTORY_FONTS
 	string "List of fonts to install"
 	default "ufl/ubuntu"
 	help

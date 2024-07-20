@@ -1,12 +1,12 @@
-config BR2_PACKAGE_LTTNG_BABELTRACE
+config LINGMO_PACKAGE_LTTNG_BABELTRACE
 	bool "lttng-babeltrace"
-	depends on BR2_USE_WCHAR # libglib2
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libglib2
-	depends on BR2_USE_MMU # libglib2
-	select BR2_PACKAGE_UTIL_LINUX
-	select BR2_PACKAGE_UTIL_LINUX_LIBUUID
-	select BR2_PACKAGE_LIBGLIB2
-	select BR2_PACKAGE_POPT
+	depends on LINGMO_USE_WCHAR # libglib2
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libglib2
+	depends on LINGMO_USE_MMU # libglib2
+	select LINGMO_PACKAGE_UTIL_LINUX
+	select LINGMO_PACKAGE_UTIL_LINUX_LIBUUID
+	select LINGMO_PACKAGE_LIBGLIB2
+	select LINGMO_PACKAGE_POPT
 	help
 	  The Babeltrace project provides trace read and write
 	  libraries, as well as a trace converter application. Plugins
@@ -31,5 +31,5 @@ config BR2_PACKAGE_LTTNG_BABELTRACE
 	  http://diamon.org/babeltrace
 
 comment "lttng-babeltrace needs a toolchain w/ wchar, threads"
-	depends on BR2_USE_MMU
-	depends on !BR2_USE_WCHAR || !BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_USE_WCHAR || !LINGMO_TOOLCHAIN_HAS_THREADS

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_JQUERY_SPARKLINE
+config LINGMO_PACKAGE_JQUERY_SPARKLINE
 	bool "jquery-sparkline"
 	help
 	  This jQuery plugin generates sparklines (small inline

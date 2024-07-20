@@ -20,7 +20,7 @@ endef
 RTL8821AU_MODULE_MAKE_OPTS = \
 	CONFIG_RTL8812AU_8821AU=m \
 	KVER=$(LINUX_VERSION_PROBED) \
-	USER_EXTRA_CFLAGS="-DCONFIG_$(call qstrip,$(BR2_ENDIAN))_ENDIAN \
+	USER_EXTRA_CFLAGS="-DCONFIG_$(call qstrip,$(LINGMO_ENDIAN))_ENDIAN \
 		-Wno-error"
 
 $(eval $(kernel-module))

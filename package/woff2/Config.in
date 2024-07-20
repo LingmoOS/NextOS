@@ -1,7 +1,7 @@
-config BR2_PACKAGE_WOFF2
+config LINGMO_PACKAGE_WOFF2
 	bool "woff2"
-	depends on BR2_INSTALL_LIBSTDCPP
-	select BR2_PACKAGE_BROTLI
+	depends on LINGMO_INSTALL_LIBSTDCPP
+	select LINGMO_PACKAGE_BROTLI
 	help
 	  Reference implementation for the WOFF2 font file format,
 	  typically used for Web fonts
@@ -9,4 +9,4 @@ config BR2_PACKAGE_WOFF2
 	  https://github.com/google/woff2
 
 comment "woff2 needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP

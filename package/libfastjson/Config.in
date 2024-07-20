@@ -1,7 +1,7 @@
-config BR2_PACKAGE_LIBFASTJSON
+config LINGMO_PACKAGE_LIBFASTJSON
 	bool "libfastjson"
 	# uses the __sync_*_4 intrisics, or pthreads to emulate atomicity
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4 || BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4 || LINGMO_TOOLCHAIN_HAS_THREADS
 	help
 	  Libfastjson - A fast json library for C
 

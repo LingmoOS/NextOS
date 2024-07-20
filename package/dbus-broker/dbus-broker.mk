@@ -27,7 +27,7 @@ DBUS_BROKER_CPE_ID_VALID = YES
 DBUS_BROKER_DEPENDENCIES = expat systemd
 DBUS_BROKER_CONF_OPTS = -Dlauncher=true
 
-ifeq ($(BR2_PACKAGE_AUDIT),y)
+ifeq ($(LINGMO_PACKAGE_AUDIT),y)
 # libcap-ng selected from Config.in
 DBUS_BROKER_DEPENDENCIES += audit libcap-ng
 DBUS_BROKER_CONF_OPTS += -Daudit=true
@@ -35,7 +35,7 @@ else
 DBUS_BROKER_CONF_OPTS += -Daudit=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSELINUX),y)
+ifeq ($(LINGMO_PACKAGE_LIBSELINUX),y)
 DBUS_BROKER_DEPENDENCIES += libselinux
 DBUS_BROKER_CONF_OPTS += -Dselinux=true
 else
@@ -51,7 +51,7 @@ define DBUS_BROKER_USERS
 endef
 
 # We overwrite some files from dbus, so add a dependency.
-ifeq ($(BR2_PACKAGE_DBUS),y)
+ifeq ($(LINGMO_PACKAGE_DBUS),y)
 DBUS_BROKER_DEPENDENCIES += dbus
 endif
 

@@ -16,7 +16,7 @@ XAPP_XEYES_DEPENDENCIES = \
 	xlib_libXmu \
 	xlib_libXt
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXRENDER),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXRENDER),y)
 XAPP_XEYES_DEPENDENCIES += xlib_libXrender
 XAPP_XEYES_CONF_OPTS += --with-xrender
 else

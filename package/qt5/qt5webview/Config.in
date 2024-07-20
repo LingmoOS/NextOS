@@ -1,6 +1,6 @@
-config BR2_PACKAGE_QT5WEBVIEW
+config LINGMO_PACKAGE_QT5WEBVIEW
 	bool "qt5webview"
-	depends on BR2_PACKAGE_QT5WEBENGINE
+	depends on LINGMO_PACKAGE_QT5WEBENGINE
 	help
 	  Qt is a cross-platform application and UI framework for
 	  developers using C++.
@@ -13,4 +13,4 @@ config BR2_PACKAGE_QT5WEBVIEW
 	  https://doc.qt.io/qt-5/qtwebview-index.html
 
 comment "qt5webview needs qt5webengine module"
-	depends on !BR2_PACKAGE_QT5WEBENGINE
+	depends on !LINGMO_PACKAGE_QT5WEBENGINE

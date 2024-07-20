@@ -1,11 +1,11 @@
-config BR2_PACKAGE_BUSTLE
+config LINGMO_PACKAGE_BUSTLE
 	bool "bustle"
-	depends on BR2_USE_WCHAR # libglib2
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libglib2
-	depends on BR2_USE_MMU # libglib2
-	depends on BR2_PACKAGE_DBUS # runtime
-	select BR2_PACKAGE_LIBPCAP
-	select BR2_PACKAGE_LIBGLIB2
+	depends on LINGMO_USE_WCHAR # libglib2
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libglib2
+	depends on LINGMO_USE_MMU # libglib2
+	depends on LINGMO_PACKAGE_DBUS # runtime
+	select LINGMO_PACKAGE_LIBPCAP
+	select LINGMO_PACKAGE_LIBGLIB2
 	help
 	  Bustle is a better dbus-monitor! It records and draws
 	  sequence diagrams of D-Bus activity, showing signal
@@ -21,6 +21,6 @@ config BR2_PACKAGE_BUSTLE
 	  https://gitlab.freedesktop.org/bustle/bustle/
 
 comment "bustle needs a toolchain w/ wchar, threads"
-	depends on BR2_USE_MMU
-	depends on BR2_PACKAGE_DBUS
-	depends on !BR2_USE_WCHAR || !BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_PACKAGE_DBUS
+	depends on !LINGMO_USE_WCHAR || !LINGMO_TOOLCHAIN_HAS_THREADS

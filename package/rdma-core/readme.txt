@@ -34,9 +34,9 @@ For setting up a software RoCE link, the "rdma" program is needed. It
 is provided by the "iproute2" package, when "libmnl" is also
 selected. Make sure to have in your Buildroot configuration:
 
-    BR2_PACKAGE_IPROUTE2=y
-    BR2_PACKAGE_LIBMNL=y
-    BR2_PACKAGE_RDMA_CORE=y
+    LINGMO_PACKAGE_IPROUTE2=y
+    LINGMO_PACKAGE_LIBMNL=y
+    LINGMO_PACKAGE_RDMA_CORE=y
 
 
 Setting up the rdma link

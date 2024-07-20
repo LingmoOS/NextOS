@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBB64
+config LINGMO_PACKAGE_LIBB64
 	bool "libb64"
 	help
 	  libb64 is a library of ANSI C routines for fast encoding

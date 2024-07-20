@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBCLI
+config LINGMO_PACKAGE_LIBCLI
 	bool "libcli"
 	help
 	  Libcli provides a shared library for including a Cisco-like

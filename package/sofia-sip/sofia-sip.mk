@@ -15,14 +15,14 @@ SOFIA_SIP_LICENSE_FILES = COPYING COPYRIGHTS
 SOFIA_SIP_CPE_ID_VENDOR = signalwire
 SOFIA_SIP_CONF_OPTS = --with-doxygen=no
 
-ifeq ($(BR2_PACKAGE_LIBGLIB2),y)
+ifeq ($(LINGMO_PACKAGE_LIBGLIB2),y)
 SOFIA_SIP_CONF_OPTS += --with-glib
 SOFIA_SIP_DEPENDENCIES += libglib2
 else
 SOFIA_SIP_CONF_OPTS += --without-glib
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 SOFIA_SIP_CONF_OPTS += \
 	--enable-nth \
 	--with-openssl=pkg-config

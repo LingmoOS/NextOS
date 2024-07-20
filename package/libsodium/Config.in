@@ -1,13 +1,13 @@
-config BR2_PACKAGE_LIBSODIUM
+config LINGMO_PACKAGE_LIBSODIUM
 	bool "libsodium"
 	help
 	  A modern and easy-to-use crypto library.
 
 	  http://libsodium.org/
 
-if BR2_PACKAGE_LIBSODIUM
+if LINGMO_PACKAGE_LIBSODIUM
 
-config BR2_PACKAGE_LIBSODIUM_FULL
+config LINGMO_PACKAGE_LIBSODIUM_FULL
 	bool "all functions"
 	default y
 	help

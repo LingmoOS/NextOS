@@ -1,4 +1,4 @@
-config BR2_PACKAGE_FAAD2
+config LINGMO_PACKAGE_FAAD2
 	bool "faad2"
 	help
 	  FAAD2 is an open source MPEG-4 and MPEG-2 AAC decoder,

@@ -24,7 +24,7 @@ endif
 
 LIBNSS_CFLAGS = $(TARGET_CFLAGS)
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_85862),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_85862),y)
 LIBNSS_CFLAGS += -O0
 endif
 
@@ -38,7 +38,7 @@ LIBNSS_PRE_CONFIGURE_HOOKS += LIBNSS_FIXUP_LINUX_MK
 
 # --gc-sections triggers binutils ld segfault
 # https://sourceware.org/bugzilla/show_bug.cgi?id=21180
-ifeq ($(BR2_microblaze),y)
+ifeq ($(LINGMO_microblaze),y)
 define LIBNSS_DROP_GC_SECTIONS
 	sed -i 's:-Wl,--gc-sections::g' $(@D)/nss/coreconf/Linux.mk
 endef
@@ -56,28 +56,28 @@ LIBNSS_BUILD_VARS = \
 	NATIVE_CC="$(HOSTCC)" \
 	OS_ARCH="Linux" \
 	OS_RELEASE="2.6" \
-	OS_TEST=$(BR2_PACKAGE_LIBNSS_ARCH) \
+	OS_TEST=$(LINGMO_PACKAGE_LIBNSS_ARCH) \
 	NSS_ENABLE_WERROR=0
 
-ifeq ($(BR2_POWERPC_CPU_HAS_ALTIVEC),)
+ifeq ($(LINGMO_POWERPC_CPU_HAS_ALTIVEC),)
 # Disable Altivec if not supported
 LIBNSS_BUILD_VARS += NSS_DISABLE_ALTIVEC=1
 endif
 
-ifeq ($(BR2_POWERPC_CPU_HAS_VSX),)
+ifeq ($(LINGMO_POWERPC_CPU_HAS_VSX),)
 # Disable VSX if not supported
 LIBNSS_BUILD_VARS += NSS_DISABLE_CRYPTO_VSX=1
 endif
 
-ifeq ($(BR2_ARM_CPU_HAS_NEON),)
+ifeq ($(LINGMO_ARM_CPU_HAS_NEON),)
 # Disable arm32-neon if neon is not supported
 LIBNSS_BUILD_VARS += NSS_DISABLE_ARM32_NEON=1
 endif
 
-ifeq ($(BR2_ARCH_IS_64),y)
+ifeq ($(LINGMO_ARCH_IS_64),y)
 # MIPS64 n32 is treated as a 32-bit architecture by libnss.
 # See: https://bugzilla.mozilla.org/show_bug.cgi?id=1010730
-ifeq ($(BR2_MIPS_NABI32),)
+ifeq ($(LINGMO_MIPS_NABI32),)
 LIBNSS_BUILD_VARS += USE_64=1
 endif
 endif

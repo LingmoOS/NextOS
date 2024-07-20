@@ -1,6 +1,6 @@
-config BR2_TARGET_AT91BOOTSTRAP
+config LINGMO_TARGET_AT91BOOTSTRAP
 	bool "AT91 Bootstrap"
-	depends on BR2_arm926t
+	depends on LINGMO_arm926t
 	help
 	  AT91Bootstrap is a first level bootloader for the Atmel AT91
 	  devices. It integrates algorithms for:
@@ -10,9 +10,9 @@ config BR2_TARGET_AT91BOOTSTRAP
 	  - Physical media algorithm such as DataFlash, NandFlash, NOR
 	    Flash...
 
-if	BR2_TARGET_AT91BOOTSTRAP
+if	LINGMO_TARGET_AT91BOOTSTRAP
 
-config BR2_TARGET_AT91BOOTSTRAP_CUSTOM_PATCH_DIR
+config LINGMO_TARGET_AT91BOOTSTRAP_CUSTOM_PATCH_DIR
 	string "custom patch dir"
 	help
 	  If your board requires custom patches, add the path to the
@@ -21,7 +21,7 @@ config BR2_TARGET_AT91BOOTSTRAP_CUSTOM_PATCH_DIR
 
 	  Most users may leave this empty
 
-config BR2_TARGET_AT91BOOTSTRAP_BOARD
+config LINGMO_TARGET_AT91BOOTSTRAP_BOARD
 	string "Bootstrap board"
 	default ""
 	help
@@ -29,21 +29,21 @@ config BR2_TARGET_AT91BOOTSTRAP_BOARD
 
 choice
 	prompt "Boot Memory"
-	default BR2_TARGET_AT91BOOTSTRAP_DATAFLASH
+	default LINGMO_TARGET_AT91BOOTSTRAP_DATAFLASH
 	help
 	  Select Chip for which AT91 bootstrap should be built
 
-config BR2_TARGET_AT91BOOTSTRAP_DATAFLASH
+config LINGMO_TARGET_AT91BOOTSTRAP_DATAFLASH
 	bool "Data Flash"
 
-config BR2_TARGET_AT91BOOTSTRAP_NANDFLASH
+config LINGMO_TARGET_AT91BOOTSTRAP_NANDFLASH
 	bool "NAND Flash"
 
 endchoice
 
-config BR2_TARGET_AT91BOOTSTRAP_MEMORY
+config LINGMO_TARGET_AT91BOOTSTRAP_MEMORY
 	string
-	default	"dataflash"	if	BR2_TARGET_AT91BOOTSTRAP_DATAFLASH
-	default	"nandflash"	if	BR2_TARGET_AT91BOOTSTRAP_NANDFLASH
+	default	"dataflash"	if	LINGMO_TARGET_AT91BOOTSTRAP_DATAFLASH
+	default	"nandflash"	if	LINGMO_TARGET_AT91BOOTSTRAP_NANDFLASH
 
 endif

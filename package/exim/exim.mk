@@ -39,7 +39,7 @@ define exim-config-add # variable-name, variable-value
 endef
 
 define EXIM_USE_CUSTOM_CONFIG_FILE
-	$(INSTALL) -m 0644 $(BR2_PACKAGE_EXIM_CUSTOM_CONFIG_FILE) \
+	$(INSTALL) -m 0644 $(LINGMO_PACKAGE_EXIM_CUSTOM_CONFIG_FILE) \
 		$(@D)/Local/Makefile
 endef
 
@@ -61,21 +61,21 @@ define EXIM_USE_DEFAULT_CONFIG_FILE
 	$(call exim-config-unset,SUPPORT_DANE)
 endef
 
-ifeq ($(BR2_PACKAGE_DOVECOT),y)
+ifeq ($(LINGMO_PACKAGE_DOVECOT),y)
 EXIM_DEPENDENCIES += dovecot
 define EXIM_USE_DEFAULT_CONFIG_FILE_DOVECOT
 	$(call exim-config-change,AUTH_DOVECOT,yes)
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_CLAMAV),y)
+ifeq ($(LINGMO_PACKAGE_CLAMAV),y)
 EXIM_DEPENDENCIES += clamav
 define EXIM_USE_DEFAULT_CONFIG_FILE_CLAMAV
 	$(call exim-config-change,WITH_CONTENT_SCAN,yes)
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 EXIM_DEPENDENCIES += host-openssl openssl
 define EXIM_USE_DEFAULT_CONFIG_FILE_OPENSSL
 	$(call exim-config-change,USE_OPENSSL,yes)
@@ -89,7 +89,7 @@ endif
 
 # musl does not provide struct ip_options nor struct ip_opts (but it is
 # available with both glibc and uClibc)
-ifeq ($(BR2_TOOLCHAIN_USES_MUSL),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_MUSL),y)
 define EXIM_FIX_IP_OPTIONS_FOR_MUSL
 	$(SED) 's/#define GLIBC_IP_OPTIONS/#define DARWIN_IP_OPTIONS/' \
 		$(@D)/OS/os.h-Linux
@@ -107,7 +107,7 @@ define EXIM_CONFIGURE_TOOLCHAIN
 	$(EXIM_FIX_IP_OPTIONS_FOR_MUSL)
 endef
 
-ifneq ($(call qstrip,$(BR2_PACKAGE_EXIM_CUSTOM_CONFIG_FILE)),)
+ifneq ($(call qstrip,$(LINGMO_PACKAGE_EXIM_CUSTOM_CONFIG_FILE)),)
 define EXIM_CONFIGURE_CMDS
 	$(EXIM_USE_CUSTOM_CONFIG_FILE)
 	$(EXIM_CONFIGURE_TOOLCHAIN)
@@ -123,14 +123,14 @@ endef
 endif # CUSTOM_CONFIG
 
 # exim needs a bit of love to build statically
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 EXIM_STATIC_FLAGS = LFLAGS="-pthread --static"
 endif
 
-ifeq ($(BR2_PACKAGE_LIBEXECINFO),y)
+ifeq ($(LINGMO_PACKAGE_LIBEXECINFO),y)
 EXIM_DEPENDENCIES += libexecinfo
 EXIM_EXTRALIBS += -lexecinfo
-else ifeq ($(BR2_TOOLCHAIN_USES_GLIBC),)
+else ifeq ($(LINGMO_TOOLCHAIN_USES_GLIBC),)
 EXIM_CFLAGS = -DNO_EXECINFO
 endif
 

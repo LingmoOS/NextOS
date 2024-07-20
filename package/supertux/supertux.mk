@@ -20,8 +20,8 @@ SUPERTUX_DEPENDENCIES = host-pkgconf boost freetype glm libcurl libgl libglew \
 
 # CMAKE_BUILD_TYPE=Release: disable profiling code (-pg)
 # ENABLE_BOOST_STATIC_LIBS=OFF: use boost shared libraries since supertux
-# depends on !BR2_STATIC_LIBS and boost provide only shared libraries with
-# BR2_SHARED_LIBS.
+# depends on !LINGMO_STATIC_LIBS and boost provide only shared libraries with
+# LINGMO_SHARED_LIBS.
 # ENABLE_OPENGL=ON: Can be disabled but will make SuperTux unplayable slow.
 # GLBINDING_ENABLED=OFF: use GLEW (default) instead of glbinding.
 # Install the game directly in /usr/bin and game data in /usr/share/supertux2.
@@ -43,7 +43,7 @@ SUPERTUX_CONF_OPTS += \
 # Avoid incompatible posix_memalign declaration on x86 and x86_64 with
 # musl.
 # https://gcc.gnu.org/ml/gcc-patches/2015-05/msg01425.html
-ifeq ($(BR2_TOOLCHAIN_USES_MUSL):$(BR2_i386)$(BR2_x86_64),y:y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_MUSL):$(LINGMO_i386)$(LINGMO_x86_64),y:y)
 define SUPERTUX_REMOVE_PEDANTIC
 	$(SED) 's% -pedantic%%' $(@D)/CMakeLists.txt
 	$(SED) 's%CHECK_CXX_FLAG(pedantic)%%' $(@D)/external/tinygettext/CMakeLists.txt
@@ -63,7 +63,7 @@ endif
 # as context sensitive keywords is not part of the C++11 standard".
 # So use gnu++11 instead of c++11 only for altivec system.
 # [1] https://gcc.gnu.org/bugzilla/show_bug.cgi?id=58241#c3
-ifeq ($(BR2_POWERPC_CPU_HAS_ALTIVEC),y)
+ifeq ($(LINGMO_POWERPC_CPU_HAS_ALTIVEC),y)
 define SUPERTUX_FIX_ALTIVEC_ISSUE
 	$(SED) 's%std=c++0x%std=gnu++0x%' $(@D)/external/tinygettext/CMakeLists.txt
 endef

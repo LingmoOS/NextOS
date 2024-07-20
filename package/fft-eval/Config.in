@@ -1,4 +1,4 @@
-config BR2_PACKAGE_FFT_EVAL
+config LINGMO_PACKAGE_FFT_EVAL
 	bool "fft-eval"
 	help
 	  Program to aid open source spectrum analyzer development for

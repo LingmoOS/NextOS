@@ -23,14 +23,14 @@ POLKIT_CONF_OPTS = \
 	-Dsession_tracking=ConsoleKit \
 	-Djs_engine=duktape
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 POLKIT_CONF_OPTS += -Dintrospection=true
 POLKIT_DEPENDENCIES += gobject-introspection
 else
 POLKIT_CONF_OPTS += -Dintrospection=false
 endif
 
-ifeq ($(BR2_PACKAGE_LINUX_PAM),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_PAM),y)
 POLKIT_DEPENDENCIES += linux-pam
 POLKIT_CONF_OPTS += -Dauthfw=pam
 else

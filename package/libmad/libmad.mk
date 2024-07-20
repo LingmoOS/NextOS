@@ -34,7 +34,7 @@ LIBMAD_AUTORECONF = YES
 # libmad has some assembly function that is not present in Thumb mode:
 # Error: selected processor does not support `smull r6,r7,r3,r1' in Thumb mode
 # so, we desactivate Thumb mode
-ifeq ($(BR2_ARM_INSTRUCTIONS_THUMB),y)
+ifeq ($(LINGMO_ARM_INSTRUCTIONS_THUMB),y)
 LIBMAD_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) -marm"
 endif
 
@@ -47,10 +47,10 @@ LIBMAD_POST_INSTALL_STAGING_HOOKS += LIBMAD_INSTALL_STAGING_PC
 
 LIBMAD_CONF_OPTS = \
 	--disable-debugging \
-	$(if $(BR2_PACKAGE_LIBMAD_OPTIMIZATION_SPEED),--enable-speed) \
-	$(if $(BR2_PACKAGE_LIBMAD_OPTIMIZATION_ACCURACY),--enable-accuracy) \
-	--$(if $(BR2_PACKAGE_LIBMAD_SSO),enable,disable)-sso \
-	--$(if $(BR2_PACKAGE_LIBMAD_ASO),enable,disable)-aso \
-	--$(if $(BR2_PACKAGE_LIBMAD_STRICT_ISO),enable,disable)-strict-iso
+	$(if $(LINGMO_PACKAGE_LIBMAD_OPTIMIZATION_SPEED),--enable-speed) \
+	$(if $(LINGMO_PACKAGE_LIBMAD_OPTIMIZATION_ACCURACY),--enable-accuracy) \
+	--$(if $(LINGMO_PACKAGE_LIBMAD_SSO),enable,disable)-sso \
+	--$(if $(LINGMO_PACKAGE_LIBMAD_ASO),enable,disable)-aso \
+	--$(if $(LINGMO_PACKAGE_LIBMAD_STRICT_ISO),enable,disable)-strict-iso
 
 $(eval $(autotools-package))

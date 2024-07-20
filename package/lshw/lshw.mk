@@ -22,14 +22,14 @@ LSHW_MAKE_ENV = \
 	$(TARGET_MAKE_ENV) \
 	LIBS=$(TARGET_NLS_LIBS)
 
-ifeq ($(BR2_PACKAGE_SQLITE),y)
+ifeq ($(LINGMO_PACKAGE_SQLITE),y)
 LSHW_DEPENDENCIES += host-pkgconf sqlite
 LSHW_MAKE_OPTS += SQLITE=1
 else
 LSHW_MAKE_OPTS += SQLITE=0
 endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 LSHW_DEPENDENCIES += host-pkgconf zlib
 LSHW_MAKE_OPTS += ZLIB=1
 else

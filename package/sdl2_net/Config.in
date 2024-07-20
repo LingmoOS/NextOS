@@ -1,6 +1,6 @@
-config BR2_PACKAGE_SDL2_NET
+config LINGMO_PACKAGE_SDL2_NET
 	bool "sdl2_net"
-	depends on BR2_PACKAGE_SDL2
+	depends on LINGMO_PACKAGE_SDL2
 	help
 	  This is a small sample cross-platform networking library,
 	  with a sample chat client and server application. The chat

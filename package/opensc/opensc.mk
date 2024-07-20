@@ -13,14 +13,14 @@ OPENSC_DEPENDENCIES = pcsc-lite
 OPENSC_INSTALL_STAGING = YES
 OPENSC_CONF_OPTS = --disable-cmocka --disable-strict --disable-tests
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 OPENSC_DEPENDENCIES += openssl
 OPENSC_CONF_OPTS += --enable-openssl
 else
 OPENSC_CONF_OPTS += --disable-openssl
 endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 OPENSC_DEPENDENCIES += zlib
 OPENSC_CONF_OPTS += --enable-zlib
 else

@@ -1,9 +1,9 @@
-config BR2_PACKAGE_XORRISO
+config LINGMO_PACKAGE_XORRISO
 	bool "xorriso"
-	depends on BR2_USE_WCHAR
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_USE_MMU # fork()
-	select BR2_PACKAGE_LIBICONV if !BR2_ENABLE_LOCALE
+	depends on LINGMO_USE_WCHAR
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU # fork()
+	select LINGMO_PACKAGE_LIBICONV if !LINGMO_ENABLE_LOCALE
 	help
 	  xorriso copies file objects from POSIX compliant
 	  filesystems into Rock Ridge enhanced ISO 9660 filesystems
@@ -18,5 +18,5 @@ config BR2_PACKAGE_XORRISO
 	  https://www.gnu.org/software/xorriso
 
 comment "xorriso needs a toolchain w/ wchar, threads"
-	depends on BR2_USE_MMU
-	depends on !BR2_USE_WCHAR || !BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_USE_WCHAR || !LINGMO_TOOLCHAIN_HAS_THREADS

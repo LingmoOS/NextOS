@@ -20,7 +20,7 @@ LIBATOMIC_OPS_CPE_ID_VALID = YES
 
 LIBATOMIC_OPS_INSTALL_STAGING = YES
 
-ifeq ($(BR2_sparc_v8)$(BR2_sparc_leon3),y)
+ifeq ($(LINGMO_sparc_v8)$(LINGMO_sparc_leon3),y)
 LIBATOMIC_OPS_CONF_ENV = CFLAGS="$(TARGET_CFLAGS) -DAO_NO_SPARC_V9"
 endif
 

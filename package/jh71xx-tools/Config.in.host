@@ -1,6 +1,6 @@
-config BR2_PACKAGE_HOST_JH71XX_TOOLS
+config LINGMO_PACKAGE_HOST_JH71XX_TOOLS
 	bool "host jh71xx-tools"
-	depends on BR2_riscv
+	depends on LINGMO_riscv
 	help
 	  Bootloader recovery and updater tool for StarFive JH7100 SoCs.
 

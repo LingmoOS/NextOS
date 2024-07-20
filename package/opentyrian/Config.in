@@ -1,7 +1,7 @@
-config BR2_PACKAGE_OPENTYRIAN
+config LINGMO_PACKAGE_OPENTYRIAN
 	bool "OpenTyrian"
-	select BR2_PACKAGE_SDL
-	select BR2_PACKAGE_OPENTYRIAN_DATA
+	select LINGMO_PACKAGE_SDL
+	select LINGMO_PACKAGE_OPENTYRIAN_DATA
 	help
 	  OpenTyrian is a port of the DOS shoot-em-up Tyrian. It uses
 	  SDL, making it easily cross-platform.
@@ -12,12 +12,12 @@ config BR2_PACKAGE_OPENTYRIAN
 
 	  https://bitbucket.org/opentyrian/opentyrian/wiki/Home
 
-if BR2_PACKAGE_OPENTYRIAN
+if LINGMO_PACKAGE_OPENTYRIAN
 
-config BR2_PACKAGE_OPENTYRIAN_NET
+config LINGMO_PACKAGE_OPENTYRIAN_NET
 	bool "network support"
 	default y
-	select BR2_PACKAGE_SDL_NET
+	select LINGMO_PACKAGE_SDL_NET
 	help
 	  Activates network support in OpenTyrian. Will add SDL_net.
 

@@ -7,11 +7,11 @@
 LLDPD_VERSION = 1.0.17
 LLDPD_SITE = https://media.luffy.cx/files/lldpd
 LLDPD_DEPENDENCIES = \
-	$(if $(BR2_PACKAGE_CHECK),check) \
+	$(if $(LINGMO_PACKAGE_CHECK),check) \
 	host-pkgconf \
-	$(if $(BR2_PACKAGE_LIBCAP),libcap) \
+	$(if $(LINGMO_PACKAGE_LIBCAP),libcap) \
 	libevent \
-	$(if $(BR2_PACKAGE_VALGRIND),valgrind)
+	$(if $(LINGMO_PACKAGE_VALGRIND),valgrind)
 LLDPD_LICENSE = ISC
 LLDPD_LICENSE_FILES = LICENSE
 LLDPD_CPE_ID_VALID = YES
@@ -29,23 +29,23 @@ LLDPD_CONF_OPTS = \
 	--without-libbsd \
 	--disable-hardening \
 	--disable-privsep \
-	$(if $(BR2_PACKAGE_LLDPD_CDP),--enable-cdp,--disable-cdp) \
-	$(if $(BR2_PACKAGE_LLDPD_FDP),--enable-fdp,--disable-fdp) \
-	$(if $(BR2_PACKAGE_LLDPD_EDP),--enable-edp,--disable-edp) \
-	$(if $(BR2_PACKAGE_LLDPD_SONMP),--enable-sonmp,--disable-sonmp) \
-	$(if $(BR2_PACKAGE_LLDPD_LLDPMED),--enable-lldpmed,--disable-lldpmed) \
-	$(if $(BR2_PACKAGE_LLDPD_DOT1),--enable-dot1,--disable-dot1) \
-	$(if $(BR2_PACKAGE_LLDPD_DOT3),--enable-dot3,--disable-dot3) \
-	$(if $(BR2_PACKAGE_LLDPD_CUSTOM_TLV),--enable-custom,--disable-custom)
+	$(if $(LINGMO_PACKAGE_LLDPD_CDP),--enable-cdp,--disable-cdp) \
+	$(if $(LINGMO_PACKAGE_LLDPD_FDP),--enable-fdp,--disable-fdp) \
+	$(if $(LINGMO_PACKAGE_LLDPD_EDP),--enable-edp,--disable-edp) \
+	$(if $(LINGMO_PACKAGE_LLDPD_SONMP),--enable-sonmp,--disable-sonmp) \
+	$(if $(LINGMO_PACKAGE_LLDPD_LLDPMED),--enable-lldpmed,--disable-lldpmed) \
+	$(if $(LINGMO_PACKAGE_LLDPD_DOT1),--enable-dot1,--disable-dot1) \
+	$(if $(LINGMO_PACKAGE_LLDPD_DOT3),--enable-dot3,--disable-dot3) \
+	$(if $(LINGMO_PACKAGE_LLDPD_CUSTOM_TLV),--enable-custom,--disable-custom)
 
-ifeq ($(BR2_PACKAGE_LIBXML2),y)
+ifeq ($(LINGMO_PACKAGE_LIBXML2),y)
 LLDPD_CONF_OPTS += --with-xml
 LLDPD_DEPENDENCIES += libxml2
 else
 LLDPD_CONF_OPTS += --without-xml
 endif
 
-ifeq ($(BR2_PACKAGE_NETSNMP),y)
+ifeq ($(LINGMO_PACKAGE_NETSNMP),y)
 LLDPD_CONF_OPTS += --with-snmp
 LLDPD_DEPENDENCIES += netsnmp
 LLDPD_CONF_ENV += \
@@ -54,7 +54,7 @@ else
 LLDPD_CONF_OPTS += --without-snmp
 endif
 
-ifeq ($(BR2_PACKAGE_READLINE),y)
+ifeq ($(LINGMO_PACKAGE_READLINE),y)
 LLDPD_CONF_OPTS += --with-readline
 LLDPD_DEPENDENCIES += readline
 else

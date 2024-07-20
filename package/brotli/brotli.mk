@@ -17,13 +17,13 @@ BROTLI_CONF_OPTS = \
 
 BROTLI_CFLAGS = $(TARGET_CFLAGS)
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_68485),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_68485),y)
 BROTLI_CFLAGS += -O0
 endif
 
 # Workaround "Error: value -1234 out of range" assembler issues
 # when building with optimizations.
-ifeq ($(BR2_m68k),y)
+ifeq ($(LINGMO_m68k),y)
 BROTLI_CFLAGS += -Os
 endif
 

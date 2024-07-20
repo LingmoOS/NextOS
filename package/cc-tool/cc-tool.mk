@@ -19,11 +19,11 @@ CC_TOOL_CONF_ENV = LIBS="$(CC_TOOL_LIBS)"
 
 # Help boost.m4 find the Boost Regex library, which needs the pthread
 # library, but isn't detected using a modern (pkg-config) mechanism.
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 CC_TOOL_LIBS += -lpthread
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 CC_TOOL_LIBS += -latomic
 endif
 

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PYGMENTS
+config LINGMO_PACKAGE_PYTHON_PYGMENTS
 	bool "python-pygments"
 	help
 	  Pygments is a syntax highlighting package written in Python.

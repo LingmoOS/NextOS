@@ -5,7 +5,7 @@
 ################################################################################
 
 GREP_VERSION = 3.11
-GREP_SITE = $(BR2_GNU_MIRROR)/grep
+GREP_SITE = $(LINGMO_GNU_MIRROR)/grep
 GREP_SOURCE = grep-$(GREP_VERSION).tar.xz
 GREP_LICENSE = GPL-3.0+
 GREP_LICENSE_FILES = COPYING
@@ -14,7 +14,7 @@ GREP_DEPENDENCIES = $(TARGET_NLS_DEPENDENCIES)
 # install into /bin like busybox grep
 GREP_CONF_OPTS = --exec-prefix=/
 
-ifeq ($(BR2_SYSTEM_BIN_SH_NONE),y)
+ifeq ($(LINGMO_SYSTEM_BIN_SH_NONE),y)
 
 define GREP_REMOVE_ALIAS
 	$(RM) $(TARGET_DIR)/bin/[fe]grep
@@ -32,13 +32,13 @@ GREP_POST_INSTALL_TARGET_HOOKS += GREP_FIXUP_SHEBANG
 endif
 
 # link with iconv if enabled
-ifeq ($(BR2_PACKAGE_LIBICONV),y)
+ifeq ($(LINGMO_PACKAGE_LIBICONV),y)
 GREP_CONF_ENV += LIBS=-liconv
 GREP_DEPENDENCIES += libiconv
 endif
 
 # link with pcre if enabled
-ifeq ($(BR2_PACKAGE_PCRE2),y)
+ifeq ($(LINGMO_PACKAGE_PCRE2),y)
 GREP_CONF_OPTS += --enable-perl-regexp
 GREP_DEPENDENCIES += pcre2
 else

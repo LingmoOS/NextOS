@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBNDP
+config LINGMO_PACKAGE_LIBNDP
 	bool "libndp"
 	help
 	  This package contains a library which provides a wrapper

@@ -1,19 +1,19 @@
-config BR2_PACKAGE_NETWORK_MANAGER
+config LINGMO_PACKAGE_NETWORK_MANAGER
 	bool "network-manager"
-	depends on !BR2_STATIC_LIBS # gnutls
-	depends on BR2_USE_MMU # dbus
-	depends on BR2_PACKAGE_HAS_UDEV
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_9
-	depends on BR2_TOOLCHAIN_HEADERS_AT_LEAST_4_6
-	depends on BR2_TOOLCHAIN_USES_GLIBC || BR2_TOOLCHAIN_USES_MUSL
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libglib2
-	depends on BR2_USE_WCHAR # libglib2
-	select BR2_PACKAGE_DBUS
-	select BR2_PACKAGE_GNUTLS if !BR2_PACKAGE_LIBNSS
-	select BR2_PACKAGE_LIBGLIB2
-	select BR2_PACKAGE_LIBNDP
-	select BR2_PACKAGE_UTIL_LINUX
-	select BR2_PACKAGE_UTIL_LINUX_LIBUUID
+	depends on !LINGMO_STATIC_LIBS # gnutls
+	depends on LINGMO_USE_MMU # dbus
+	depends on LINGMO_PACKAGE_HAS_UDEV
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9
+	depends on LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_4_6
+	depends on LINGMO_TOOLCHAIN_USES_GLIBC || LINGMO_TOOLCHAIN_USES_MUSL
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libglib2
+	depends on LINGMO_USE_WCHAR # libglib2
+	select LINGMO_PACKAGE_DBUS
+	select LINGMO_PACKAGE_GNUTLS if !LINGMO_PACKAGE_LIBNSS
+	select LINGMO_PACKAGE_LIBGLIB2
+	select LINGMO_PACKAGE_LIBNDP
+	select LINGMO_PACKAGE_UTIL_LINUX
+	select LINGMO_PACKAGE_UTIL_LINUX_LIBUUID
 	help
 	  NetworkManager is a set of co-operative tools that make
 	  networking simple and straightforward. Whether WiFi, wired,
@@ -24,46 +24,46 @@ config BR2_PACKAGE_NETWORK_MANAGER
 
 	  http://projects.gnome.org/NetworkManager/
 
-if BR2_PACKAGE_NETWORK_MANAGER
+if LINGMO_PACKAGE_NETWORK_MANAGER
 
-config BR2_PACKAGE_NETWORK_MANAGER_TUI
+config LINGMO_PACKAGE_NETWORK_MANAGER_TUI
 	bool "nmtui support"
-	select BR2_PACKAGE_NEWT
+	select LINGMO_PACKAGE_NEWT
 	help
 	  This option enables terminal based UI
 
-config BR2_PACKAGE_NETWORK_MANAGER_CLI
+config LINGMO_PACKAGE_NETWORK_MANAGER_CLI
 	bool "nmcli support"
-	select BR2_PACKAGE_READLINE
+	select LINGMO_PACKAGE_READLINE
 	help
 	  This option enables support for the NetworkManager Command
 	  Line Interface
 
-config BR2_PACKAGE_NETWORK_MANAGER_MODEM_MANAGER
+config LINGMO_PACKAGE_NETWORK_MANAGER_MODEM_MANAGER
 	bool "modem-manager support"
-	select BR2_PACKAGE_MODEM_MANAGER
-	select BR2_PACKAGE_MOBILE_BROADBAND_PROVIDER_INFO
+	select LINGMO_PACKAGE_MODEM_MANAGER
+	select LINGMO_PACKAGE_MOBILE_BROADBAND_PROVIDER_INFO
 	help
 	  This option enables support for ModemManager
 
-config BR2_PACKAGE_NETWORK_MANAGER_PPPD
+config LINGMO_PACKAGE_NETWORK_MANAGER_PPPD
 	bool "pppd support"
-	select BR2_PACKAGE_PPPD
+	select LINGMO_PACKAGE_PPPD
 	help
 	  This option enables support for PPPD daemon
 
-config BR2_PACKAGE_NETWORK_MANAGER_OVS
+config LINGMO_PACKAGE_NETWORK_MANAGER_OVS
 	bool "OpenVSwitch support"
-	select BR2_PACKAGE_JANSSON
+	select LINGMO_PACKAGE_JANSSON
 	help
 	  This option enables support for OpenVSwitch
 endif
 
 comment "NetworkManager needs udev /dev management and a glibc or musl toolchain w/ headers >= 4.6, dynamic library, wchar, threads, gcc >= 4.9"
-	depends on BR2_USE_MMU
-	depends on !BR2_PACKAGE_HAS_UDEV || \
-		!BR2_TOOLCHAIN_HEADERS_AT_LEAST_4_6 || \
-		!(BR2_TOOLCHAIN_USES_GLIBC || BR2_TOOLCHAIN_USES_MUSL) || \
-		BR2_STATIC_LIBS || \
-		!BR2_USE_WCHAR || !BR2_TOOLCHAIN_HAS_THREADS || \
-		!BR2_TOOLCHAIN_GCC_AT_LEAST_4_9
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_PACKAGE_HAS_UDEV || \
+		!LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_4_6 || \
+		!(LINGMO_TOOLCHAIN_USES_GLIBC || LINGMO_TOOLCHAIN_USES_MUSL) || \
+		LINGMO_STATIC_LIBS || \
+		!LINGMO_USE_WCHAR || !LINGMO_TOOLCHAIN_HAS_THREADS || \
+		!LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9

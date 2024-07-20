@@ -1,8 +1,8 @@
-config BR2_PACKAGE_LIBEDIT
+config LINGMO_PACKAGE_LIBEDIT
 	bool "libedit"
-	depends on BR2_USE_WCHAR
-	depends on BR2_USE_MMU # fork()
-	select BR2_PACKAGE_NCURSES
+	depends on LINGMO_USE_WCHAR
+	depends on LINGMO_USE_MMU # fork()
+	select LINGMO_PACKAGE_NCURSES
 	help
 	  The editline library (from BSD) provides generic line editing
 	  and history functions. It slightly resembles GNU readline.
@@ -17,5 +17,5 @@ config BR2_PACKAGE_LIBEDIT
 	  http://www.thrysoee.dk/editline
 
 comment "libedit needs a toolchain w/ wchar"
-	depends on BR2_USE_MMU
-	depends on !BR2_USE_WCHAR
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_USE_WCHAR

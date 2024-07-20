@@ -15,21 +15,21 @@ AT_SPI2_CORE_DEPENDENCIES = host-pkgconf dbus libglib2 libxml2 \
 	$(TARGET_NLS_DEPENDENCIES)
 AT_SPI2_CORE_CONF_OPTS = -Ddbus_daemon=/usr/bin/dbus-daemon
 
-ifeq ($(BR2_PACKAGE_XORG7),y)
+ifeq ($(LINGMO_PACKAGE_XORG7),y)
 AT_SPI2_CORE_CONF_OPTS += -Dx11=enabled
 AT_SPI2_CORE_DEPENDENCIES += xlib_libXtst
 else
 AT_SPI2_CORE_CONF_OPTS += -Dx11=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 AT_SPI2_CORE_CONF_OPTS += -Dintrospection=enabled
 AT_SPI2_CORE_DEPENDENCIES += gobject-introspection
 else
 AT_SPI2_CORE_CONF_OPTS += -Dintrospection=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 AT_SPI2_CORE_CONF_OPTS += -Duse_systemd=true
 AT_SPI2_CORE_DEPENDENCIES += systemd
 else

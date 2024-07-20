@@ -13,11 +13,11 @@ PTPD2_AUTORECONF = YES
 PTPD2_LICENSE = BSD-2-Clause
 PTPD2_LICENSE_FILES = COPYRIGHT
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 PTPD2_CONF_OPTS += LIBS="`$(STAGING_DIR)/usr/bin/pcap-config --static --additional-libs`"
 endif
 
-ifeq ($(BR2_PACKAGE_NETSNMP),y)
+ifeq ($(LINGMO_PACKAGE_NETSNMP),y)
 PTPD2_CONF_ENV += ac_cv_path_PATH_NET_SNMP_CONFIG=$(STAGING_DIR)/usr/bin/net-snmp-config
 PTPD2_DEPENDENCIES += netsnmp
 else

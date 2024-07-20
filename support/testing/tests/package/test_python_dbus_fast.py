@@ -8,9 +8,9 @@ class TestPythonPy3DBusFast(TestPythonPackageBase):
     __test__ = True
     config = TestPythonPackageBase.config + \
         """
-        BR2_PACKAGE_DBUS=y
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_PYTHON_DBUS_FAST=y
+        LINGMO_PACKAGE_DBUS=y
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON_DBUS_FAST=y
         """
     sample_scripts = ["tests/package/sample_python_dbus_fast.py"]
 

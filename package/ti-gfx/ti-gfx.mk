@@ -6,7 +6,7 @@
 
 # SDK 5_01_01_01 only support EABIhf so we downgrade to 5_01_00_01 if EABIhf is
 # not available.
-ifeq ($(BR2_ARM_EABIHF),y)
+ifeq ($(LINGMO_ARM_EABIHF),y)
 TI_GFX_VERSION = 5_01_01_02
 TI_GFX_SOURCE = Graphics_SDK_setuplinux_hardfp_$(TI_GFX_VERSION).bin
 else
@@ -24,24 +24,24 @@ TI_GFX_DEPENDENCIES = linux
 
 TI_GFX_PROVIDES = libegl libgles powervr
 
-ifeq ($(BR2_PACKAGE_TI_GFX_ES3),y)
+ifeq ($(LINGMO_PACKAGE_TI_GFX_ES3),y)
 TI_GFX_OMAPES = 3.x
 TI_GFX_PLATFORM = omap3
 endif
-ifeq ($(BR2_PACKAGE_TI_GFX_ES5),y)
+ifeq ($(LINGMO_PACKAGE_TI_GFX_ES5),y)
 TI_GFX_OMAPES = 5.x
 TI_GFX_PLATFORM = omap3630
 endif
-ifeq ($(BR2_PACKAGE_TI_GFX_ES6),y)
+ifeq ($(LINGMO_PACKAGE_TI_GFX_ES6),y)
 TI_GFX_OMAPES = 6.x
 TI_GFX_PLATFORM = ti81xx
 endif
-ifeq ($(BR2_PACKAGE_TI_GFX_ES8),y)
+ifeq ($(LINGMO_PACKAGE_TI_GFX_ES8),y)
 TI_GFX_OMAPES = 8.x
 TI_GFX_PLATFORM = ti335x
 endif
 
-ifeq ($(BR2_PACKAGE_TI_GFX_DEBUG),y)
+ifeq ($(LINGMO_PACKAGE_TI_GFX_DEBUG),y)
 TI_GFX_DEBUG_LIB = dbg
 TI_GFX_DEBUG_KM = debug
 else
@@ -69,7 +69,7 @@ TI_GFX_DEMO_MAKE_OPTS = \
 # The only required binary is pvrsrvctl all others are optional
 TI_GFX_BIN = pvrsrvctl
 
-ifeq ($(BR2_PACKAGE_TI_GFX_DEBUG),y)
+ifeq ($(LINGMO_PACKAGE_TI_GFX_DEBUG),y)
 TI_GFX_BIN += \
 	eglinfo ews_server ews_server_es2 ews_test_gles1 ews_test_gles2 \
 	ews_test_swrender gles1test1 gles2test1 pvr2d_test services_test \
@@ -104,7 +104,7 @@ define TI_GFX_BUILD_KM_CMDS
 	$(TARGET_MAKE_ENV) $(MAKE) $(TI_GFX_KM_MAKE_OPTS) -C $(@D)/GFX_Linux_KM all
 endef
 
-ifeq ($(BR2_PACKAGE_TI_GFX_DEMOS),y)
+ifeq ($(LINGMO_PACKAGE_TI_GFX_DEMOS),y)
 define TI_GFX_BUILD_DEMO_CMDS
 	$(foreach demo, $(TI_GFX_DEMOS), \
 		$(TARGET_MAKE_ENV) $(MAKE1) -C \
@@ -129,7 +129,7 @@ define TI_GFX_INSTALL_LIBS
 			$(1)/usr/lib/$(lib).so
 	)
 	$(foreach lib,$(TI_GFX_EGLIMAGE_LIBS),
-		$(if $(BR2_PACKAGE_TI_GFX_EGLIMAGE),
+		$(if $(LINGMO_PACKAGE_TI_GFX_EGLIMAGE),
 			$(INSTALL) -D -m 0644 $(@D)/$(TI_GFX_BIN_PATH)/$(lib)_eglimage.so \
 				$(1)/usr/lib/$(lib).so.$(TI_GFX_SO_VERSION);
 		,
@@ -164,7 +164,7 @@ define TI_GFX_INSTALL_BINS_CMDS
 		$(INSTALL) -D -m 0755 $(@D)/$(TI_GFX_BIN_PATH)/$(bin) \
 			$(TARGET_DIR)/usr/bin/$(bin)
 	)
-	$(if $(BR2_PACKAGE_TI_GFX_DEBUG),
+	$(if $(LINGMO_PACKAGE_TI_GFX_DEBUG),
 		$(INSTALL) -D -m 0755 package/ti-gfx/esrev.sh \
 			$(TARGET_DIR)/usr/sbin/esrev
 	)
@@ -176,7 +176,7 @@ define TI_GFX_INSTALL_CONF_CMDS
 		$(TARGET_DIR)/etc/powervr.ini
 endef
 
-ifeq ($(BR2_PACKAGE_TI_GFX_DEMOS),y)
+ifeq ($(LINGMO_PACKAGE_TI_GFX_DEMOS),y)
 define TI_GFX_INSTALL_DEMOS_CMDS
 	$(foreach demo,$(TI_GFX_DEMOS),
 		$(INSTALL) -D -m 0755 \

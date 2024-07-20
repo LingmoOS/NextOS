@@ -1,4 +1,4 @@
-config BR2_PACKAGE_SPICE_PROTOCOL
+config LINGMO_PACKAGE_SPICE_PROTOCOL
 	bool "spice protocol"
 	help
 	  The Spice project aims to provide a complete open source

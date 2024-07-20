@@ -14,17 +14,17 @@ PRBOOM_AUTORECONF = YES
 
 PRBOOM_CFLAGS = $(TARGET_CFLAGS)
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_85180),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_85180),y)
 PRBOOM_CFLAGS += -O0
 endif
 
 PRBOOM_CONF_ENV += CFLAGS="$(PRBOOM_CFLAGS)"
 
-ifeq ($(BR2_PACKAGE_LIBPNG),y)
+ifeq ($(LINGMO_PACKAGE_LIBPNG),y)
 PRBOOM_DEPENDENCIES += libpng
 endif
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 # SDL_mixer uses symbols from SDL, but ends up after it on the link
 # cmdline. Fix it by forcing the SDL libs at the very end
 PRBOOM_CONF_ENV += LIBS="`$(STAGING_DIR)/usr/bin/sdl-config --static-libs`"
@@ -44,7 +44,7 @@ define PRBOOM_BIG_ENDIAN_FIXUP
 		$(PRBOOM_DIR)/config.h
 endef
 
-ifeq ($(BR2_ENDIAN),"BIG")
+ifeq ($(LINGMO_ENDIAN),"BIG")
 PRBOOM_POST_CONFIGURE_HOOKS += PRBOOM_BIG_ENDIAN_FIXUP
 endif
 

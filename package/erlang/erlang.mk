@@ -60,21 +60,21 @@ HOST_ERLANG_CONF_OPTS = --without-javac --with-ssl=$(HOST_DIR)
 
 HOST_ERLANG_CONF_OPTS += --without-termcap
 
-ifeq ($(BR2_PACKAGE_NCURSES),y)
+ifeq ($(LINGMO_PACKAGE_NCURSES),y)
 ERLANG_CONF_OPTS += --with-termcap
 ERLANG_DEPENDENCIES += ncurses
 else
 ERLANG_CONF_OPTS += --without-termcap
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 ERLANG_CONF_OPTS += --with-ssl
 ERLANG_DEPENDENCIES += openssl
 else
 ERLANG_CONF_OPTS += --without-ssl
 endif
 
-ifeq ($(BR2_PACKAGE_UNIXODBC),y)
+ifeq ($(LINGMO_PACKAGE_UNIXODBC),y)
 ERLANG_DEPENDENCIES += unixodbc
 ERLANG_CONF_OPTS += --with-odbc
 else
@@ -88,7 +88,7 @@ ERLANG_DEPENDENCIES += zlib
 # Remove source, example, gs and wx files from staging and target.
 ERLANG_REMOVE_PACKAGES = gs wx
 
-ifneq ($(BR2_PACKAGE_ERLANG_MEGACO),y)
+ifneq ($(LINGMO_PACKAGE_ERLANG_MEGACO),y)
 ERLANG_REMOVE_PACKAGES += megaco
 endif
 

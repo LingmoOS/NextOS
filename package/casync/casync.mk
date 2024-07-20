@@ -12,49 +12,49 @@ CASYNC_DEPENDENCIES = acl libcurl openssl
 
 CASYNC_CONF_OPTS = -Dman=false -Doss-fuzz=false -Dllvm-fuzz=false
 
-ifeq ($(BR2_PACKAGE_BASH_COMPLETION),y)
+ifeq ($(LINGMO_PACKAGE_BASH_COMPLETION),y)
 CASYNC_DEPENDENCIES += bash-completion
 # The default path is correct, leave it as-is
 else
 CASYNC_CONF_OPTS += -Dbashcompletiondir=no
 endif
 
-ifeq ($(BR2_PACKAGE_LIBFUSE),y)
+ifeq ($(LINGMO_PACKAGE_LIBFUSE),y)
 CASYNC_DEPENDENCIES += libfuse
 CASYNC_CONF_OPTS += -Dfuse=true
 else
 CASYNC_CONF_OPTS += -Dfuse=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSELINUX),y)
+ifeq ($(LINGMO_PACKAGE_LIBSELINUX),y)
 CASYNC_DEPENDENCIES += libselinux
 CASYNC_CONF_OPTS += -Dselinux=true
 else
 CASYNC_CONF_OPTS += -Dselinux=false
 endif
 
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 CASYNC_DEPENDENCIES += udev
 CASYNC_CONF_OPTS += -Dudev=true
 else
 CASYNC_CONF_OPTS += -Dudev=false
 endif
 
-ifeq ($(BR2_PACKAGE_ZSTD),y)
+ifeq ($(LINGMO_PACKAGE_ZSTD),y)
 CASYNC_DEPENDENCIES += zstd
 CASYNC_CONF_OPTS += -Dlibzstd=enabled
 else
 CASYNC_CONF_OPTS += -Dlibzstd=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_XZ),y)
+ifeq ($(LINGMO_PACKAGE_XZ),y)
 CASYNC_DEPENDENCIES += xz
 CASYNC_CONF_OPTS += -Dliblzma=enabled
 else
 CASYNC_CONF_OPTS += -Dliblzma=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 CASYNC_DEPENDENCIES += zlib
 CASYNC_CONF_OPTS += -Dlibz=enabled
 else

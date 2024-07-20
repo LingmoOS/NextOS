@@ -1,9 +1,9 @@
 comment "lzip needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP
 
-config BR2_PACKAGE_LZIP
+config LINGMO_PACKAGE_LZIP
 	bool "lzip"
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	help
 	  Lzip is a lossless data compressor with a user interface
 	  similar to the one of gzip or bzip2.

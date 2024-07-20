@@ -8,27 +8,27 @@ class TestDockerCompose(infra.basetest.BRTest):
                "tests/package/sample_python_docker.py"]
     config = \
         """
-        BR2_x86_64=y
-        BR2_x86_corei7=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_CORE_I7_GLIBC_STABLE=y
-        BR2_SYSTEM_DHCP="eth0"
-        BR2_ROOTFS_POST_BUILD_SCRIPT="{}"
-        BR2_ROOTFS_POST_SCRIPT_ARGS="{}"
-        BR2_LINUX_KERNEL=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE="4.19.262"
-        BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
-        BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE="{}"
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_PYTHON_DOCKER=y
-        BR2_PACKAGE_CA_CERTIFICATES=y
-        BR2_PACKAGE_DOCKER_CLI=y
-        BR2_PACKAGE_DOCKER_COMPOSE=y
-        BR2_PACKAGE_DOCKER_ENGINE=y
-        BR2_TARGET_ROOTFS_EXT2=y
-        BR2_TARGET_ROOTFS_EXT2_SIZE="512M"
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_corei7=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_CORE_I7_GLIBC_STABLE=y
+        LINGMO_SYSTEM_DHCP="eth0"
+        LINGMO_ROOTFS_POST_BUILD_SCRIPT="{}"
+        LINGMO_ROOTFS_POST_SCRIPT_ARGS="{}"
+        LINGMO_LINUX_KERNEL=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION_VALUE="4.19.262"
+        LINGMO_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
+        LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE="{}"
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON_DOCKER=y
+        LINGMO_PACKAGE_CA_CERTIFICATES=y
+        LINGMO_PACKAGE_DOCKER_CLI=y
+        LINGMO_PACKAGE_DOCKER_COMPOSE=y
+        LINGMO_PACKAGE_DOCKER_ENGINE=y
+        LINGMO_TARGET_ROOTFS_EXT2=y
+        LINGMO_TARGET_ROOTFS_EXT2_SIZE="512M"
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """.format(
             infra.filepath("tests/package/copy-sample-script-to-target.sh"),
             " ".join([infra.filepath(i) for i in scripts]),

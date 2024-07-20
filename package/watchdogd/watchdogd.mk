@@ -18,43 +18,43 @@ WATCHDOGD_CONF_OPTS = \
 	--disable-examples \
 	--disable-test-mode
 
-ifneq ($(BR2_PACKAGE_WATCHDOGD_TEST_SUITE),y)
+ifneq ($(LINGMO_PACKAGE_WATCHDOGD_TEST_SUITE),y)
 WATCHDOGD_CONF_OPTS += --disable-builtin-tests
 else
 WATCHDOGD_CONF_OPTS += --enable-builtin-tests
 endif
 
-ifneq ($(BR2_PACKAGE_WATCHDOGD_GENERIC),y)
+ifneq ($(LINGMO_PACKAGE_WATCHDOGD_GENERIC),y)
 WATCHDOGD_CONF_OPTS += --without-generic
 else
 WATCHDOGD_CONF_OPTS += --with-generic
 endif
 
-ifneq ($(BR2_PACKAGE_WATCHDOGD_LOADAVG),y)
+ifneq ($(LINGMO_PACKAGE_WATCHDOGD_LOADAVG),y)
 WATCHDOGD_CONF_OPTS += --without-loadavg
 else
 WATCHDOGD_CONF_OPTS += --with-loadavg
 endif
 
-ifneq ($(BR2_PACKAGE_WATCHDOGD_FILENR),y)
+ifneq ($(LINGMO_PACKAGE_WATCHDOGD_FILENR),y)
 WATCHDOGD_CONF_OPTS += --without-filenr
 else
 WATCHDOGD_CONF_OPTS += --with-filenr
 endif
 
-ifneq ($(BR2_PACKAGE_WATCHDOGD_MEMINFO),y)
+ifneq ($(LINGMO_PACKAGE_WATCHDOGD_MEMINFO),y)
 WATCHDOGD_CONF_OPTS += --without-meminfo
 else
 WATCHDOGD_CONF_OPTS += --with-meminfo
 endif
 
-ifneq ($(BR2_PACKAGE_WATCHDOGD_FSMON),y)
+ifneq ($(LINGMO_PACKAGE_WATCHDOGD_FSMON),y)
 WATCHDOGD_CONF_OPTS += --without-fsmon
 else
 WATCHDOGD_CONF_OPTS += --with-fsmon
 endif
 
-ifneq ($(BR2_PACKAGE_WATCHDOGD_TEMPMON),y)
+ifneq ($(LINGMO_PACKAGE_WATCHDOGD_TEMPMON),y)
 WATCHDOGD_CONF_OPTS += --without-tempmon
 else
 WATCHDOGD_CONF_OPTS += --with-tempmon

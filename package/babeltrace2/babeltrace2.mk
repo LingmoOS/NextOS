@@ -19,7 +19,7 @@ BABELTRACE2_DEPENDENCIES = libglib2 host-pkgconf
 HOST_BABELTRACE2_DEPENDENCIES = host-libglib2 host-pkgconf host-elfutils
 HOST_BABELTRACE2_CONF_OPTS += --disable-man-pages --enable-debug-info
 
-ifeq ($(BR2_PACKAGE_ELFUTILS),y)
+ifeq ($(LINGMO_PACKAGE_ELFUTILS),y)
 BABELTRACE2_DEPENDENCIES += elfutils
 BABELTRACE2_CONF_OPTS += --enable-debug-info
 BABELTRACE2_CONF_ENV += bt_cv_lib_elfutils=yes
@@ -27,7 +27,7 @@ else
 BABELTRACE2_CONF_OPTS += --disable-debug-info
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 BABELTRACE2_CONF_ENV += LIBS=-latomic
 endif
 

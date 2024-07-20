@@ -26,7 +26,7 @@ UPOWER_CONF_OPTS = \
 	-Dudevhwdbdir=/lib/udev/hwdb.d \
 	-Dudevrulesdir=/lib/udev/rules.d
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 UPOWER_CONF_OPTS += -Dintrospection=enabled
 UPOWER_DEPENDENCIES += gobject-introspection
 else

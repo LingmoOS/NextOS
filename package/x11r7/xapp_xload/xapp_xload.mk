@@ -13,12 +13,12 @@ XAPP_XLOAD_DEPENDENCIES = xlib_libXaw $(TARGET_NLS_DEPENDENCIES)
 XAPP_XLOAD_CONF_OPTS = --with-appdefaultdir=/usr/share/X11/app-defaults
 XAPP_XLOAD_CONF_ENV = LIBS=$(TARGET_NLS_LIBS)
 
-ifeq ($(BR2_TOOLCHAIN_USES_MUSL),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_MUSL),y)
 # musl doesn't have rwhod.h, but xload can replace it with stubs
 XAPP_XLOAD_CONF_OPTS += CFLAGS="$(TARGET_CFLAGS) -DRLOADSTUB"
 endif
 
-ifeq ($(BR2_SYSTEM_ENABLE_NLS),)
+ifeq ($(LINGMO_SYSTEM_ENABLE_NLS),)
 XAPP_XLOAD_CONF_ENV += ac_cv_search_gettext=no
 endif
 

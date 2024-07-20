@@ -28,118 +28,118 @@ SOX_CONF_OPTS = \
 
 SOX_CFLAGS = $(TARGET_CFLAGS)
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_68485),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_68485),y)
 SOX_CFLAGS += -O0
 endif
 
 SOX_CONF_ENV += CFLAGS="$(SOX_CFLAGS)"
 
-ifeq ($(BR2_PACKAGE_ALSA_LIB_PCM),y)
+ifeq ($(LINGMO_PACKAGE_ALSA_LIB_PCM),y)
 SOX_DEPENDENCIES += alsa-lib
 SOX_CONF_OPTS += --enable-alsa
 else
 SOX_CONF_OPTS += --disable-alsa
 endif
 
-ifeq ($(BR2_PACKAGE_FILE),y)
+ifeq ($(LINGMO_PACKAGE_FILE),y)
 SOX_DEPENDENCIES += file
 SOX_CONF_OPTS += --enable-magic
 else
 SOX_CONF_OPTS += --disable-magic
 endif
 
-ifeq ($(BR2_PACKAGE_FLAC),y)
+ifeq ($(LINGMO_PACKAGE_FLAC),y)
 SOX_DEPENDENCIES += flac
 SOX_CONF_OPTS += --enable-flac
 else
 SOX_CONF_OPTS += --disable-flac
 endif
 
-ifeq ($(BR2_PACKAGE_LAME),y)
+ifeq ($(LINGMO_PACKAGE_LAME),y)
 SOX_DEPENDENCIES += lame
 SOX_CONF_OPTS += --with-lame
 else
 SOX_CONF_OPTS += --without-lame
 endif
 
-ifeq ($(BR2_PACKAGE_LIBAO),y)
+ifeq ($(LINGMO_PACKAGE_LIBAO),y)
 SOX_DEPENDENCIES += libao
 SOX_CONF_OPTS += --enable-ao
 else
 SOX_CONF_OPTS += --disable-ao
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGSM),y)
+ifeq ($(LINGMO_PACKAGE_LIBGSM),y)
 SOX_DEPENDENCIES += libgsm
 SOX_CONF_OPTS += --enable-gsm
 else
 SOX_CONF_OPTS += --disable-gsm
 endif
 
-ifeq ($(BR2_PACKAGE_LIBID3TAG),y)
+ifeq ($(LINGMO_PACKAGE_LIBID3TAG),y)
 SOX_DEPENDENCIES += libid3tag
 SOX_CONF_OPTS += --with-id3tag
 else
 SOX_CONF_OPTS += --without-id3tag
 endif
 
-ifeq ($(BR2_PACKAGE_LIBMAD),y)
+ifeq ($(LINGMO_PACKAGE_LIBMAD),y)
 SOX_DEPENDENCIES += libmad
 SOX_CONF_OPTS += --with-mad
 else
 SOX_CONF_OPTS += --without-mad
 endif
 
-ifeq ($(BR2_PACKAGE_LIBPNG),y)
+ifeq ($(LINGMO_PACKAGE_LIBPNG),y)
 SOX_DEPENDENCIES += libpng
 SOX_CONF_OPTS += --with-png
 else
 SOX_CONF_OPTS += --without-png
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSNDFILE),y)
+ifeq ($(LINGMO_PACKAGE_LIBSNDFILE),y)
 SOX_DEPENDENCIES += libsndfile
 SOX_CONF_OPTS += --enable-sndfile
 else
 SOX_CONF_OPTS += --disable-sndfile
 endif
 
-ifeq ($(BR2_PACKAGE_LIBVORBIS),y)
+ifeq ($(LINGMO_PACKAGE_LIBVORBIS),y)
 SOX_DEPENDENCIES += libvorbis
 SOX_CONF_OPTS += --enable-oggvorbis
 else
 SOX_CONF_OPTS += --disable-oggvorbis
 endif
 
-ifeq ($(BR2_PACKAGE_OPENCORE_AMR),y)
+ifeq ($(LINGMO_PACKAGE_OPENCORE_AMR),y)
 SOX_DEPENDENCIES += opencore-amr
 SOX_CONF_OPTS += --enable-amrwb --enable-amrnb
 else
 SOX_CONF_OPTS += --disable-amrwb --disable-amrnb
 endif
 
-ifeq ($(BR2_PACKAGE_OPUSFILE),y)
+ifeq ($(LINGMO_PACKAGE_OPUSFILE),y)
 SOX_DEPENDENCIES += opusfile
 SOX_CONF_OPTS += --enable-opus
 else
 SOX_CONF_OPTS += --disable-opus
 endif
 
-ifeq ($(BR2_PACKAGE_PULSEAUDIO),y)
+ifeq ($(LINGMO_PACKAGE_PULSEAUDIO),y)
 SOX_DEPENDENCIES += pulseaudio
 SOX_CONF_OPTS += --enable-pulseaudio
 else
 SOX_CONF_OPTS += --disable-pulseaudio
 endif
 
-ifeq ($(BR2_PACKAGE_TWOLAME),y)
+ifeq ($(LINGMO_PACKAGE_TWOLAME),y)
 SOX_DEPENDENCIES += twolame
 SOX_CONF_OPTS += --with-twolame
 else
 SOX_CONF_OPTS += --without-twolame
 endif
 
-ifeq ($(BR2_PACKAGE_WAVPACK),y)
+ifeq ($(LINGMO_PACKAGE_WAVPACK),y)
 SOX_DEPENDENCIES += wavpack
 SOX_CONF_OPTS += --enable-wavpack
 else

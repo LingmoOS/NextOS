@@ -18,15 +18,15 @@ LINUX_ZIGBEE_AUTORECONF = YES
 LINUX_ZIGBEE_CONF_OPTS = \
 	--disable-manpages \
 	--disable-werror \
-	--with-leasefile="$(call qstrip,$(BR2_PACKAGE_LINUX_ZIGBEE_LEASEFILE))"
+	--with-leasefile="$(call qstrip,$(LINGMO_PACKAGE_LINUX_ZIGBEE_LEASEFILE))"
 
-ifeq ($(BR2_PACKAGE_LINUX_ZIGBEE_TESTS),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_ZIGBEE_TESTS),y)
 LINUX_ZIGBEE_CONF_OPTS += --with-zbtestdir='/usr/sbin/'
 else
 LINUX_ZIGBEE_CONF_OPTS += --with-zbtestdir=''
 endif
 
-ifeq ($(BR2_PACKAGE_LINUX_ZIGBEE_OLD_KERNEL_COMPAT),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_ZIGBEE_OLD_KERNEL_COMPAT),y)
 LINUX_ZIGBEE_CONF_OPTS += --enable-kernel-compat
 endif
 

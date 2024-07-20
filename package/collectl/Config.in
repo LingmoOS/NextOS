@@ -1,7 +1,7 @@
-config BR2_PACKAGE_COLLECTL
+config LINGMO_PACKAGE_COLLECTL
 	bool "collectl"
-	depends on BR2_USE_MMU # perl
-	select BR2_PACKAGE_PERL # runtime
+	depends on LINGMO_USE_MMU # perl
+	select LINGMO_PACKAGE_PERL # runtime
 	help
 	  Collectl is a performance monitoring and benchmark tool that
 	  tries to do it all. You can choose to monitor any of a broad

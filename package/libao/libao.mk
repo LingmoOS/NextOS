@@ -19,7 +19,7 @@ LIBAO_CONF_OPTS = \
 	--disable-pulse \
 	--disable-broken-oss
 
-ifeq ($(BR2_PACKAGE_ALSA_LIB),y)
+ifeq ($(LINGMO_PACKAGE_ALSA_LIB),y)
 LIBAO_DEPENDENCIES += alsa-lib
 LIBAO_CONF_OPTS += --enable-alsa --enable-alsa-mmap
 

@@ -1,7 +1,7 @@
-config BR2_PACKAGE_WILC_DRIVER
+config LINGMO_PACKAGE_WILC_DRIVER
 	bool "wilc kernel module"
-	depends on !BR2_s390x
-	depends on BR2_LINUX_KERNEL
+	depends on !LINGMO_s390x
+	depends on LINGMO_LINUX_KERNEL
 	help
 	  External kernel module for WILC1000/3000 devices.
 
@@ -18,9 +18,9 @@ config BR2_PACKAGE_WILC_DRIVER
 
 	  https://github.com/embeddedTS/wilc3000-external-module
 
-if BR2_PACKAGE_WILC_DRIVER
+if LINGMO_PACKAGE_WILC_DRIVER
 
-config BR2_PACKAGE_WILC_DRIVER_SPI
+config LINGMO_PACKAGE_WILC_DRIVER_SPI
 	bool "SPI"
 	help
 	  This module adds support for the SPI interface of adapters
@@ -32,7 +32,7 @@ config BR2_PACKAGE_WILC_DRIVER_SPI
 	  following reset when pin 9 (SDIO_SPI_CFG) is tied to VDDIO.
 	  Select this if your platform is using the SPI bus.
 
-config BR2_PACKAGE_WILC_DRIVER_SDIO
+config LINGMO_PACKAGE_WILC_DRIVER_SDIO
 	bool "SDIO"
 	help
 	  This module adds support for the SDIO interface of adapters
@@ -45,9 +45,9 @@ config BR2_PACKAGE_WILC_DRIVER_SDIO
 	  interface, pin9 (SDIO_SPI_CFG) must be grounded. Select this
 	  if your platform is using the SDIO bus.
 
-if BR2_PACKAGE_WILC_DRIVER_SDIO
+if LINGMO_PACKAGE_WILC_DRIVER_SDIO
 
-config BR2_PACKAGE_WILC_DRIVER_SDIO_OOB
+config LINGMO_PACKAGE_WILC_DRIVER_SDIO_OOB
 	bool "Enable out-of-band interrupt"
 	help
 	  This option enables out-of-band interrupt support for the
@@ -60,5 +60,5 @@ endif
 endif
 
 comment "wilc kernel module needs a Linux kernel to be built"
-	depends on !BR2_s390x
-	depends on !BR2_LINUX_KERNEL
+	depends on !LINGMO_s390x
+	depends on !LINGMO_LINUX_KERNEL

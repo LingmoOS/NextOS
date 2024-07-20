@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUA_STD_DEBUG
+config LINGMO_PACKAGE_LUA_STD_DEBUG
 	bool "lua-std-debug"
 	help
 	  Manage an overall debug state, and associated hint

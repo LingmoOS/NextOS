@@ -22,8 +22,8 @@ GESFTPSERVER_CONF_ENV = \
 
 # overwrite openssh version if enabled
 GESFTPSERVER_DEPENDENCIES += \
-	$(if $(BR2_ENABLE_LOCALE),,libiconv) \
-	$(if $(BR2_PACKAGE_OPENSSH),openssh)
+	$(if $(LINGMO_ENABLE_LOCALE),,libiconv) \
+	$(if $(LINGMO_PACKAGE_OPENSSH),openssh)
 
 # Python on the host is only used for tests, which we don't use in
 # Buildroot

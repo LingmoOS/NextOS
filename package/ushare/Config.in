@@ -1,11 +1,11 @@
-config BR2_PACKAGE_USHARE
+config LINGMO_PACKAGE_USHARE
 	bool "ushare"
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libupnp
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libupnp
 	# ushare has a completely custom configure script that does
 	# broken things with library ordering, which breaks static
 	# linking.
-	depends on !BR2_STATIC_LIBS
-	select BR2_PACKAGE_LIBUPNP
+	depends on !LINGMO_STATIC_LIBS
+	select LINGMO_PACKAGE_LIBUPNP
 	help
 	  uShare is a UPnP (TM) A/V & DLNA Media Server.
 	  It implements the server component that provides UPnP media
@@ -14,4 +14,4 @@ config BR2_PACKAGE_USHARE
 	  http://ushare.geexbox.org/
 
 comment "ushare needs a toolchain w/ threads, dynamic library"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS

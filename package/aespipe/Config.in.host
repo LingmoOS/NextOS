@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_AESPIPE
+config LINGMO_PACKAGE_HOST_AESPIPE
 	bool "host aespipe"
 	help
 	  aespipe program is AES encrypting or decrypting pipe. It

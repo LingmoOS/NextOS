@@ -1,6 +1,6 @@
-config BR2_PACKAGE_DATATABLES_RESPONSIVE
+config LINGMO_PACKAGE_DATATABLES_RESPONSIVE
 	bool "datatables-responsive"
-	depends on BR2_PACKAGE_DATATABLES
+	depends on LINGMO_PACKAGE_DATATABLES
 	help
 	  In the modern world of responsive web design tables can often
 	  cause a particular problem for designers due to their row

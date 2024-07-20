@@ -6,14 +6,14 @@ import infra.basetest
 class TestDtbocfg(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_LINUX_KERNEL=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION=y
-        BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE="5.10.202"
-        BR2_LINUX_KERNEL_USE_DEFCONFIG=y
-        BR2_LINUX_KERNEL_DEFCONFIG="vexpress"
-        BR2_PACKAGE_DTBOCFG=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_LINUX_KERNEL=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION=y
+        LINGMO_LINUX_KERNEL_CUSTOM_VERSION_VALUE="5.10.202"
+        LINGMO_LINUX_KERNEL_USE_DEFCONFIG=y
+        LINGMO_LINUX_KERNEL_DEFCONFIG="vexpress"
+        LINGMO_PACKAGE_DTBOCFG=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def test_run(self):

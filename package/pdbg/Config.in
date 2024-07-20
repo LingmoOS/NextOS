@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PDBG
+config LINGMO_PACKAGE_PDBG
 	bool "pdbg"
 	help
 	  PowerPC FSI Debugger, for low level debugging of a IBM

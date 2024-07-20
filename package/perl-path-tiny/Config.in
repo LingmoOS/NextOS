@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_PATH_TINY
+config LINGMO_PACKAGE_PERL_PATH_TINY
 	bool "perl-path-tiny"
 	help
 	  File path utility.

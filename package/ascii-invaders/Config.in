@@ -1,6 +1,6 @@
-config BR2_PACKAGE_ASCII_INVADERS
+config LINGMO_PACKAGE_ASCII_INVADERS
 	bool "ascii_invaders"
-	select BR2_PACKAGE_NCURSES
+	select LINGMO_PACKAGE_NCURSES
 	help
 	  An ASCII-art game like Space Invaders using ncurses.
 

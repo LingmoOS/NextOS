@@ -1,8 +1,8 @@
-config BR2_PACKAGE_LIBAACS
+config LINGMO_PACKAGE_LIBAACS
 	bool "libaacs"
-	depends on BR2_PACKAGE_LIBGPG_ERROR_ARCH_SUPPORTS # libgcrypt
-	depends on !BR2_STATIC_LIBS
-	select BR2_PACKAGE_LIBGCRYPT
+	depends on LINGMO_PACKAGE_LIBGPG_ERROR_ARCH_SUPPORTS # libgcrypt
+	depends on !LINGMO_STATIC_LIBS
+	select LINGMO_PACKAGE_LIBGCRYPT
 	help
 	  libaacs is a research project to implement the Advanced Access
 	  Content System specification.
@@ -12,4 +12,4 @@ config BR2_PACKAGE_LIBAACS
 	  http://www.videolan.org/developers/libaacs.html
 
 comment "libaacs needs a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_STATIC_LIBS

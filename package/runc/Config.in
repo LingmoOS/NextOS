@@ -1,9 +1,9 @@
-config BR2_PACKAGE_RUNC
+config LINGMO_PACKAGE_RUNC
 	bool "runc"
-	depends on BR2_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS
-	depends on BR2_PACKAGE_HOST_GO_TARGET_CGO_LINKING_SUPPORTS
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on !BR2_TOOLCHAIN_USES_UCLIBC # no fexecve
+	depends on LINGMO_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS
+	depends on LINGMO_PACKAGE_HOST_GO_TARGET_CGO_LINKING_SUPPORTS
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_TOOLCHAIN_USES_UCLIBC # no fexecve
 	help
 	  runC is a CLI tool for spawning and running containers
 	  according to the OCI specification.
@@ -11,6 +11,6 @@ config BR2_PACKAGE_RUNC
 	  https://github.com/opencontainers/runc
 
 comment "runc needs a glibc or musl toolchain w/ threads"
-	depends on BR2_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS && \
-		BR2_PACKAGE_HOST_GO_TARGET_CGO_LINKING_SUPPORTS
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_TOOLCHAIN_USES_UCLIBC
+	depends on LINGMO_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS && \
+		LINGMO_PACKAGE_HOST_GO_TARGET_CGO_LINKING_SUPPORTS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_TOOLCHAIN_USES_UCLIBC

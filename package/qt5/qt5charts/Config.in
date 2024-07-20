@@ -1,7 +1,7 @@
-config BR2_PACKAGE_QT5CHARTS
+config LINGMO_PACKAGE_QT5CHARTS
 	bool "qt5charts"
-	select BR2_PACKAGE_QT5BASE_GUI
-	select BR2_PACKAGE_QT5BASE_WIDGETS
+	select LINGMO_PACKAGE_QT5BASE_GUI
+	select LINGMO_PACKAGE_QT5BASE_WIDGETS
 	help
 	  Qt is a cross-platform application and UI framework for
 	  developers using C++.

@@ -1,11 +1,11 @@
-config BR2_PACKAGE_LIBNSS
+config LINGMO_PACKAGE_LIBNSS
 	bool "libnss"
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libnspr
-	depends on BR2_PACKAGE_LIBNSPR_ARCH_SUPPORT # libnspr
-	depends on !BR2_STATIC_LIBS
-	select BR2_PACKAGE_LIBNSPR
-	select BR2_PACKAGE_SQLITE
-	select BR2_PACKAGE_ZLIB
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libnspr
+	depends on LINGMO_PACKAGE_LIBNSPR_ARCH_SUPPORT # libnspr
+	depends on !LINGMO_STATIC_LIBS
+	select LINGMO_PACKAGE_LIBNSPR
+	select LINGMO_PACKAGE_SQLITE
+	select LINGMO_PACKAGE_ZLIB
 	help
 	  Network Security Services (NSS) is a set of libraries designed
 	  to support development of security-enabled client and server
@@ -15,18 +15,18 @@ config BR2_PACKAGE_LIBNSS
 
 	  http://www.mozilla.org/projects/security/pki/nss/
 
-if BR2_PACKAGE_LIBNSS
+if LINGMO_PACKAGE_LIBNSS
 
-config BR2_PACKAGE_LIBNSS_ARCH
+config LINGMO_PACKAGE_LIBNSS_ARCH
 	string
-	default "aarch64" if BR2_aarch64_be
-	default "ppc"     if BR2_powerpc
-	default "ppc64"   if BR2_powerpc64
-	default "ppc64le" if BR2_powerpc64le
-	default BR2_ARCH
+	default "aarch64" if LINGMO_aarch64_be
+	default "ppc"     if LINGMO_powerpc
+	default "ppc64"   if LINGMO_powerpc64
+	default "ppc64le" if LINGMO_powerpc64le
+	default LINGMO_ARCH
 
 endif
 
 comment "libnss needs a toolchain w/ threads, dynamic library"
-	depends on BR2_PACKAGE_LIBNSPR_ARCH_SUPPORT
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on LINGMO_PACKAGE_LIBNSPR_ARCH_SUPPORT
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS

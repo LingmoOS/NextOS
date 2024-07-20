@@ -1,21 +1,21 @@
-config BR2_PACKAGE_AVAHI
+config LINGMO_PACKAGE_AVAHI
 	bool "avahi"
 	# libdaemon uses fork()
-	depends on BR2_USE_MMU
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on !BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  Avahi is a system which facilitates service
 	  discovery on a local network.
 
 	  http://www.avahi.org/
 
-if BR2_PACKAGE_AVAHI
+if LINGMO_PACKAGE_AVAHI
 
-config BR2_PACKAGE_AVAHI_AUTOIPD
+config LINGMO_PACKAGE_AVAHI_AUTOIPD
 	bool "IPv4LL network address configuration daemon"
 	default y
-	select BR2_PACKAGE_LIBDAEMON
+	select LINGMO_PACKAGE_LIBDAEMON
 	help
 	  Avahi-autoipd implements IPv4LL, "Dynamic Configuration of
 	  IPv4 Link-Local Addresses" (IETF RFC3927), a protocol for
@@ -24,10 +24,10 @@ config BR2_PACKAGE_AVAHI_AUTOIPD
 	  It is primarily intended to be used in ad-hoc networks which
 	  lack a DHCP server.
 
-config BR2_PACKAGE_AVAHI_DAEMON
+config LINGMO_PACKAGE_AVAHI_DAEMON
 	bool "mDNS/DNS-SD daemon"
-	select BR2_PACKAGE_LIBDAEMON
-	select BR2_PACKAGE_EXPAT
+	select LINGMO_PACKAGE_LIBDAEMON
+	select LINGMO_PACKAGE_EXPAT
 	help
 	  The Avahi mDNS/DNS-SD daemon implementing Apple's ZeroConf
 	  architecture (also known as "Rendezvous" or "Bonjour").
@@ -36,21 +36,21 @@ config BR2_PACKAGE_AVAHI_DAEMON
 
 # This hidden option allows packages that need the libavahi-client to
 # more easily determine if it's available or not.
-config BR2_PACKAGE_AVAHI_LIBAVAHI_CLIENT
+config LINGMO_PACKAGE_AVAHI_LIBAVAHI_CLIENT
 	bool
-	default y if BR2_PACKAGE_DBUS
+	default y if LINGMO_PACKAGE_DBUS
 
-config BR2_PACKAGE_AVAHI_LIBDNSSD_COMPATIBILITY
+config LINGMO_PACKAGE_AVAHI_LIBDNSSD_COMPATIBILITY
 	bool "libdns_sd compatibility (Bonjour)"
-	depends on BR2_PACKAGE_AVAHI_DAEMON
-	select BR2_PACKAGE_DBUS
+	depends on LINGMO_PACKAGE_AVAHI_DAEMON
+	select LINGMO_PACKAGE_DBUS
 	help
 	  Enable the libdns_sd (Bonjour) compatibility library support
 	  for legacy applications.
 
-config BR2_PACKAGE_AVAHI_DEFAULT_SERVICES
+config LINGMO_PACKAGE_AVAHI_DEFAULT_SERVICES
 	bool "install default service definitions"
-	depends on BR2_PACKAGE_AVAHI_DAEMON
+	depends on LINGMO_PACKAGE_AVAHI_DAEMON
 	help
 	  Install the SSH/SFTP service definitions included with the
 	  Avahi daemon by default.
@@ -58,5 +58,5 @@ config BR2_PACKAGE_AVAHI_DEFAULT_SERVICES
 endif
 
 comment "avahi needs a toolchain w/ threads"
-	depends on BR2_USE_MMU
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS

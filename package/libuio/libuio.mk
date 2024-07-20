@@ -20,7 +20,7 @@ LIBUIO_AUTORECONF = YES
 # Avoid build issue when makeinfo is missing
 LIBUIO_CONF_ENV += MAKEINFO=true
 
-ifeq ($(BR2_PACKAGE_ARGP_STANDALONE),y)
+ifeq ($(LINGMO_PACKAGE_ARGP_STANDALONE),y)
 LIBUIO_DEPENDENCIES += argp-standalone
 LIBUIO_LIBS += -largp
 endif

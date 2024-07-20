@@ -1,10 +1,10 @@
 comment "libnftnl needs a toolchain w/ headers >= 3.12"
-	depends on !BR2_TOOLCHAIN_HEADERS_AT_LEAST_3_12
+	depends on !LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_3_12
 
-config BR2_PACKAGE_LIBNFTNL
+config LINGMO_PACKAGE_LIBNFTNL
 	bool "libnftnl"
-	depends on BR2_TOOLCHAIN_HEADERS_AT_LEAST_3_12
-	select BR2_PACKAGE_LIBMNL
+	depends on LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_3_12
+	select LINGMO_PACKAGE_LIBMNL
 	help
 	  libnftnl is a userspace library providing a low-level
 	  netlink programming interface (API) to the in-kernel

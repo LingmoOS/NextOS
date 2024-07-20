@@ -14,30 +14,30 @@ CHRONY_DEPENDENCIES = host-pkgconf libcap
 
 CHRONY_CONF_OPTS = \
 	--host-system=Linux \
-	--host-machine=$(BR2_ARCH) \
+	--host-machine=$(LINGMO_ARCH) \
 	--prefix=/usr \
 	--without-tomcrypt \
 	--with-user=chrony \
-	$(if $(BR2_PACKAGE_CHRONY_DEBUG_LOGGING),--enable-debug,--disable-debug)
+	$(if $(LINGMO_PACKAGE_CHRONY_DEBUG_LOGGING),--enable-debug,--disable-debug)
 
 define CHRONY_USERS
 	chrony -1 chrony -1 * /run/chrony - - Time daemon
 endef
 
-ifeq ($(BR2_PACKAGE_LIBNSS),y)
+ifeq ($(LINGMO_PACKAGE_LIBNSS),y)
 CHRONY_DEPENDENCIES += libnss
 else
 CHRONY_CONF_OPTS += --without-nss
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSECCOMP),y)
+ifeq ($(LINGMO_PACKAGE_LIBSECCOMP),y)
 CHRONY_CONF_OPTS += --enable-scfilter
 CHRONY_DEPENDENCIES += libseccomp
 else
 CHRONY_CONF_OPTS += --without-seccomp
 endif
 
-ifeq ($(BR2_PACKAGE_LIBEDIT),y)
+ifeq ($(LINGMO_PACKAGE_LIBEDIT),y)
 CHRONY_DEPENDENCIES += libedit
 else
 CHRONY_CONF_OPTS += --without-editline --disable-readline
@@ -45,17 +45,17 @@ endif
 
 # If pps-tools is available, build it before so the package can use it
 # (HAVE_SYS_TIMEPPS_H).
-ifeq ($(BR2_PACKAGE_PPS_TOOLS),y)
+ifeq ($(LINGMO_PACKAGE_PPS_TOOLS),y)
 CHRONY_DEPENDENCIES += pps-tools
 endif
 
-ifeq ($(BR2_PACKAGE_GNUTLS),y)
+ifeq ($(LINGMO_PACKAGE_GNUTLS),y)
 CHRONY_DEPENDENCIES += gnutls
 else
 CHRONY_CONF_OPTS += --without-gnutls
 endif
 
-ifeq ($(BR2_PACKAGE_NETTLE),y)
+ifeq ($(LINGMO_PACKAGE_NETTLE),y)
 CHRONY_DEPENDENCIES += nettle
 else
 CHRONY_CONF_OPTS += --without-nettle

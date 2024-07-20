@@ -37,10 +37,10 @@ PERL_POST_EXTRACT_HOOKS += PERL_CROSS_EXTRACT
 # autotools infrastructure.
 PERL_POST_PATCH_HOOKS += UPDATE_CONFIG_HOOK
 
-ifeq ($(BR2_PACKAGE_BERKELEYDB),y)
+ifeq ($(LINGMO_PACKAGE_BERKELEYDB),y)
 PERL_DEPENDENCIES += berkeleydb
 endif
-ifeq ($(BR2_PACKAGE_GDBM),y)
+ifeq ($(LINGMO_PACKAGE_GDBM),y)
 PERL_DEPENDENCIES += gdbm
 endif
 
@@ -55,7 +55,7 @@ PERL_CONF_OPTS = \
 	-Dldflags="$(TARGET_LDFLAGS) -lm $(TARGET_NLS_LIBS)" \
 	-Dmydomain="" \
 	-Dmyhostname="noname" \
-	-Dmyuname="Buildroot $(BR2_VERSION_FULL)" \
+	-Dmyuname="Buildroot $(LINGMO_VERSION_FULL)" \
 	-Dosname=linux \
 	-Dosvers=$(LINUX_VERSION) \
 	-Dperladmin=root
@@ -64,15 +64,15 @@ ifeq ($(shell expr $(PERL_VERSION_MAJOR) % 2), 1)
 PERL_CONF_OPTS += -Dusedevel
 endif
 
-ifeq ($(BR2_PACKAGE_PERL_THREADS),y)
+ifeq ($(LINGMO_PACKAGE_PERL_THREADS),y)
 PERL_CONF_OPTS += -Dusethreads
 endif
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 PERL_CONF_OPTS += --all-static --no-dynaloader
 endif
 
-PERL_MODULES = $(call qstrip,$(BR2_PACKAGE_PERL_MODULES))
+PERL_MODULES = $(call qstrip,$(LINGMO_PACKAGE_PERL_MODULES))
 ifneq ($(PERL_MODULES),)
 PERL_CONF_OPTS += --only-mod=$(subst $(space),$(comma),$(PERL_MODULES))
 endif
@@ -80,7 +80,7 @@ endif
 define PERL_CONFIGURE_CMDS
 	(cd $(@D); $(TARGET_MAKE_ENV) HOSTCC='$(HOSTCC_NOCCACHE)' \
 		./configure $(PERL_CONF_OPTS))
-	$(SED) 's/UNKNOWN-/Buildroot $(subst /,\/,$(BR2_VERSION_FULL)) /' $(@D)/patchlevel.h
+	$(SED) 's/UNKNOWN-/Buildroot $(subst /,\/,$(LINGMO_VERSION_FULL)) /' $(@D)/patchlevel.h
 endef
 
 define PERL_BUILD_CMDS

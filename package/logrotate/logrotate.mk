@@ -14,14 +14,14 @@ LOGROTATE_DEPENDENCIES = popt host-pkgconf
 LOGROTATE_SELINUX_MODULES = logrotate
 LOGROTATE_CONF_ENV = LIBS="`$(PKG_CONFIG_HOST_BINARY) --libs popt`"
 
-ifeq ($(BR2_PACKAGE_LIBSELINUX),y)
+ifeq ($(LINGMO_PACKAGE_LIBSELINUX),y)
 LOGROTATE_CONF_OPTS += --with-selinux
 LOGROTATE_DEPENDENCIES += libselinux
 else
 LOGROTATE_CONF_OPTS += --without-selinux
 endif
 
-ifeq ($(BR2_PACKAGE_ACL),y)
+ifeq ($(LINGMO_PACKAGE_ACL),y)
 LOGROTATE_DEPENDENCIES += acl
 LOGROTATE_CONF_OPTS += --with-acl
 else

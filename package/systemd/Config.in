@@ -1,46 +1,46 @@
-config BR2_PACKAGE_SYSTEMD_ARCH_SUPPORTS
+config LINGMO_PACKAGE_SYSTEMD_ARCH_SUPPORTS
 	bool
 	# see src/basic/architecture.h
-	default y if BR2_arc
-	default y if BR2_aarch64 || BR2_aarch64_be
-	default y if BR2_arm || BR2_armeb
-	default y if BR2_i386 || BR2_x86_64
-	default y if BR2_m68k
-	default y if BR2_mips || BR2_mipsel || BR2_mips64 || BR2_mips64el
-	default y if BR2_powerpc || BR2_powerpc64 || BR2_powerpc64le
-	default y if BR2_nios2
-	default y if BR2_riscv
-	default y if BR2_sh4 || BR2_sh4eb || BR2_sh4a || BR2_sh4aeb
-	default y if BR2_sparc || BR2_sparc64
-	default y if BR2_s390x
+	default y if LINGMO_arc
+	default y if LINGMO_aarch64 || LINGMO_aarch64_be
+	default y if LINGMO_arm || LINGMO_armeb
+	default y if LINGMO_i386 || LINGMO_x86_64
+	default y if LINGMO_m68k
+	default y if LINGMO_mips || LINGMO_mipsel || LINGMO_mips64 || LINGMO_mips64el
+	default y if LINGMO_powerpc || LINGMO_powerpc64 || LINGMO_powerpc64le
+	default y if LINGMO_nios2
+	default y if LINGMO_riscv
+	default y if LINGMO_sh4 || LINGMO_sh4eb || LINGMO_sh4a || LINGMO_sh4aeb
+	default y if LINGMO_sparc || LINGMO_sparc64
+	default y if LINGMO_s390x
 
-menuconfig BR2_PACKAGE_SYSTEMD
+menuconfig LINGMO_PACKAGE_SYSTEMD
 	bool "systemd"
-	depends on BR2_INIT_SYSTEMD
-	depends on BR2_PACKAGE_SYSTEMD_ARCH_SUPPORTS
-	depends on BR2_USE_MMU
-	depends on !BR2_STATIC_LIBS # kmod
-	depends on BR2_TOOLCHAIN_USES_GLIBC
-	depends on BR2_TOOLCHAIN_HAS_SSP
-	depends on BR2_TOOLCHAIN_HEADERS_AT_LEAST_4_14 # LOOP_SET_BLOCK_SIZE
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_5
-	depends on BR2_HOST_GCC_AT_LEAST_5 # host-systemd
-	select BR2_PACKAGE_HAS_UDEV
-	select BR2_PACKAGE_DBUS if !BR2_PACKAGE_DBUS_BROKER # runtime
-	select BR2_PACKAGE_LIBCAP
-	select BR2_PACKAGE_UTIL_LINUX
-	select BR2_PACKAGE_UTIL_LINUX_LIBS
-	select BR2_PACKAGE_UTIL_LINUX_LIBMOUNT
-	select BR2_PACKAGE_UTIL_LINUX_AGETTY
-	select BR2_PACKAGE_UTIL_LINUX_MOUNT
-	select BR2_PACKAGE_UTIL_LINUX_FSCK
-	select BR2_PACKAGE_UTIL_LINUX_SULOGIN
-	select BR2_PACKAGE_KMOD
-	select BR2_PACKAGE_BUSYBOX_SHOW_OTHERS # kmod-tools
-	select BR2_PACKAGE_KMOD_TOOLS
-	select BR2_TARGET_TZ_INFO
-	select BR2_NEEDS_HOST_UTF8_LOCALE
-	select BR2_PACKAGE_HOST_SYSTEMD # for systemctl preset-all, during target-finalize
+	depends on LINGMO_INIT_SYSTEMD
+	depends on LINGMO_PACKAGE_SYSTEMD_ARCH_SUPPORTS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_STATIC_LIBS # kmod
+	depends on LINGMO_TOOLCHAIN_USES_GLIBC
+	depends on LINGMO_TOOLCHAIN_HAS_SSP
+	depends on LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_4_14 # LOOP_SET_BLOCK_SIZE
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_5
+	depends on LINGMO_HOST_GCC_AT_LEAST_5 # host-systemd
+	select LINGMO_PACKAGE_HAS_UDEV
+	select LINGMO_PACKAGE_DBUS if !LINGMO_PACKAGE_DBUS_BROKER # runtime
+	select LINGMO_PACKAGE_LIBCAP
+	select LINGMO_PACKAGE_UTIL_LINUX
+	select LINGMO_PACKAGE_UTIL_LINUX_LIBS
+	select LINGMO_PACKAGE_UTIL_LINUX_LIBMOUNT
+	select LINGMO_PACKAGE_UTIL_LINUX_AGETTY
+	select LINGMO_PACKAGE_UTIL_LINUX_MOUNT
+	select LINGMO_PACKAGE_UTIL_LINUX_FSCK
+	select LINGMO_PACKAGE_UTIL_LINUX_SULOGIN
+	select LINGMO_PACKAGE_KMOD
+	select LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS # kmod-tools
+	select LINGMO_PACKAGE_KMOD_TOOLS
+	select LINGMO_TARGET_TZ_INFO
+	select LINGMO_NEEDS_HOST_UTF8_LOCALE
+	select LINGMO_PACKAGE_HOST_SYSTEMD # for systemctl preset-all, during target-finalize
 	help
 	  systemd is a system and service manager for Linux,
 	  compatible with SysV and LSB init scripts. systemd provides
@@ -103,15 +103,15 @@ menuconfig BR2_PACKAGE_SYSTEMD
 
 	  https://freedesktop.org/wiki/Software/systemd/
 
-if BR2_PACKAGE_SYSTEMD
+if LINGMO_PACKAGE_SYSTEMD
 
-config BR2_PACKAGE_PROVIDES_UDEV
+config LINGMO_PACKAGE_PROVIDES_UDEV
 	default "systemd"
 
-config BR2_PACKAGE_SYSTEMD_BOOT
+config LINGMO_PACKAGE_SYSTEMD_BOOT
 	bool "systemd-boot"
-	depends on BR2_i386 || BR2_x86_64
-	select BR2_PACKAGE_GNU_EFI
+	depends on LINGMO_i386 || LINGMO_x86_64
+	select LINGMO_PACKAGE_GNU_EFI
 	help
 	  systemd-boot is a simple UEFI boot manager which executes
 	  configured EFI images. The default entry is selected by a
@@ -130,13 +130,13 @@ config BR2_PACKAGE_SYSTEMD_BOOT
 
 	  https://www.freedesktop.org/wiki/Software/systemd/systemd-boot/
 
-config BR2_PACKAGE_SYSTEMD_INITRD
+config LINGMO_PACKAGE_SYSTEMD_INITRD
 	bool "Services for booting from initrd"
 	help
 	  Install various services that are only useful if systemd is
 	  run from an initrd.
 
-config BR2_PACKAGE_SYSTEMD_KERNELINSTALL
+config LINGMO_PACKAGE_SYSTEMD_KERNELINSTALL
 	bool "install kernel-install and related files"
 	help
 	  kernel-install is used to install and remove kernel and
@@ -144,7 +144,7 @@ config BR2_PACKAGE_SYSTEMD_KERNELINSTALL
 	  The boot loader partition will usually be one of
 	  /boot, /efi, or /boot/efi.
 
-config BR2_PACKAGE_SYSTEMD_ANALYZE
+config LINGMO_PACKAGE_SYSTEMD_ANALYZE
 	bool "systemd-analyze"
 	help
 	  systemd-analyze may be used to determine system boot-up
@@ -154,16 +154,16 @@ config BR2_PACKAGE_SYSTEMD_ANALYZE
 	  It is also used to access special functions useful for
 	  advanced system manager debugging.
 
-config BR2_PACKAGE_SYSTEMD_BOOT_EFI_ARCH
+config LINGMO_PACKAGE_SYSTEMD_BOOT_EFI_ARCH
 	string
-	default "ia32"  if BR2_i386
-	default "x64"   if BR2_x86_64
-	depends on BR2_PACKAGE_SYSTEMD_BOOT
+	default "ia32"  if LINGMO_i386
+	default "x64"   if LINGMO_x86_64
+	depends on LINGMO_PACKAGE_SYSTEMD_BOOT
 
-config BR2_PACKAGE_SYSTEMD_JOURNAL_REMOTE
+config LINGMO_PACKAGE_SYSTEMD_JOURNAL_REMOTE
 	bool "enable journal remote tools"
-	select BR2_PACKAGE_LIBCURL
-	select BR2_PACKAGE_LIBMICROHTTPD
+	select LINGMO_PACKAGE_LIBCURL
+	select LINGMO_PACKAGE_LIBMICROHTTPD
 	help
 	  journal remote functionality adds three tools:
 
@@ -180,7 +180,7 @@ config BR2_PACKAGE_SYSTEMD_JOURNAL_REMOTE
 	  https://www.freedesktop.org/software/systemd/man/systemd-journal-remote.service.html
 	  https://www.freedesktop.org/software/systemd/man/systemd-journal-upload.html
 
-config BR2_PACKAGE_SYSTEMD_BACKLIGHT
+config LINGMO_PACKAGE_SYSTEMD_BACKLIGHT
 	bool "enable backlight support"
 	help
 	  systemd-backlight is a service that restores the display
@@ -188,7 +188,7 @@ config BR2_PACKAGE_SYSTEMD_BACKLIGHT
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-backlight@.service.html
 
-config BR2_PACKAGE_SYSTEMD_BINFMT
+config LINGMO_PACKAGE_SYSTEMD_BINFMT
 	bool "enable binfmt tool"
 	help
 	  systemd-binfmt is an early boot service that registers
@@ -196,7 +196,7 @@ config BR2_PACKAGE_SYSTEMD_BINFMT
 
 	  http://www.freedesktop.org/software/systemd/man/systemd-binfmt.service.html
 
-config BR2_PACKAGE_SYSTEMD_COREDUMP
+config LINGMO_PACKAGE_SYSTEMD_COREDUMP
 	bool "enable coredump hook"
 	help
 	  systemd-coredump can be used as a helper binary by the
@@ -205,7 +205,7 @@ config BR2_PACKAGE_SYSTEMD_COREDUMP
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-coredump.html
 
-config BR2_PACKAGE_SYSTEMD_PSTORE
+config LINGMO_PACKAGE_SYSTEMD_PSTORE
 	bool "enable pstore support"
 	default y
 	help
@@ -215,7 +215,7 @@ config BR2_PACKAGE_SYSTEMD_PSTORE
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-pstore.html
 
-config BR2_PACKAGE_SYSTEMD_FIRSTBOOT
+config LINGMO_PACKAGE_SYSTEMD_FIRSTBOOT
 	bool "enable firstboot support"
 	help
 	  systemd-firstboot initializes the most basic system settings
@@ -223,25 +223,25 @@ config BR2_PACKAGE_SYSTEMD_FIRSTBOOT
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-firstboot.html
 
-config BR2_PACKAGE_SYSTEMD_HIBERNATE
+config LINGMO_PACKAGE_SYSTEMD_HIBERNATE
 	bool "enable hibernation support"
-	select BR2_PACKAGE_SYSTEMD_INITRD
+	select LINGMO_PACKAGE_SYSTEMD_INITRD
 	help
 	  When this features is enabled, additional tools and services
 	  are built to support suspending and resuming the system.
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-sleep.html
 
-config BR2_PACKAGE_SYSTEMD_HOMED
+config LINGMO_PACKAGE_SYSTEMD_HOMED
 	bool "enable home daemon"
-	depends on BR2_TOOLCHAIN_HAS_THREADS # cryptsetup -> lvm2
-	depends on BR2_USE_MMU # cryptsetup -> lvm2
-	depends on !BR2_STATIC_LIBS # cryptsetup -> lvm2
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4 # cryptsetup -> json-c
-	select BR2_PACKAGE_CRYPTSETUP
-	select BR2_PACKAGE_OPENSSL
-	select BR2_PACKAGE_OPENSSL_FORCE_LIBOPENSSL
-	select BR2_PACKAGE_UTIL_LINUX_LIBFDISK
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # cryptsetup -> lvm2
+	depends on LINGMO_USE_MMU # cryptsetup -> lvm2
+	depends on !LINGMO_STATIC_LIBS # cryptsetup -> lvm2
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4 # cryptsetup -> json-c
+	select LINGMO_PACKAGE_CRYPTSETUP
+	select LINGMO_PACKAGE_OPENSSL
+	select LINGMO_PACKAGE_OPENSSL_FORCE_LIBOPENSSL
+	select LINGMO_PACKAGE_UTIL_LINUX_LIBFDISK
 	help
 	  systemd-homed is a system service that may be used to create,
 	  remove, change or inspect home directories.
@@ -249,12 +249,12 @@ config BR2_PACKAGE_SYSTEMD_HOMED
 	  https://www.freedesktop.org/software/systemd/man/systemd-homed.service.html
 
 comment "homed support needs a toolchain w/ threads, dynamic library"
-	depends on BR2_USE_MMU
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || \
-		BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || \
+		LINGMO_STATIC_LIBS
 
-config BR2_PACKAGE_SYSTEMD_HOSTNAMED
+config LINGMO_PACKAGE_SYSTEMD_HOSTNAMED
 	bool "enable hostname daemon"
 	default y
 	help
@@ -263,7 +263,7 @@ config BR2_PACKAGE_SYSTEMD_HOSTNAMED
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-hostnamed.service.html
 
-config BR2_PACKAGE_SYSTEMD_HWDB
+config LINGMO_PACKAGE_SYSTEMD_HWDB
 	bool "enable hwdb installation"
 	default y
 	help
@@ -274,13 +274,13 @@ config BR2_PACKAGE_SYSTEMD_HWDB
 
 	  https://www.freedesktop.org/software/systemd/man/hwdb.html
 
-config BR2_PACKAGE_SYSTEMD_IMPORTD
+config LINGMO_PACKAGE_SYSTEMD_IMPORTD
 	bool "enable import daemon"
-	depends on BR2_PACKAGE_LIBGPG_ERROR_ARCH_SUPPORTS # libgcrypt
-	select BR2_PACKAGE_LIBCURL
-	select BR2_PACKAGE_LIBGCRYPT
-	select BR2_PACKAGE_XZ
-	select BR2_PACKAGE_ZLIB
+	depends on LINGMO_PACKAGE_LIBGPG_ERROR_ARCH_SUPPORTS # libgcrypt
+	select LINGMO_PACKAGE_LIBCURL
+	select LINGMO_PACKAGE_LIBGCRYPT
+	select LINGMO_PACKAGE_XZ
+	select LINGMO_PACKAGE_ZLIB
 	help
 	  systemd-importd is a system service that manages virtual
 	  machine and container images for systemd-machined and
@@ -288,9 +288,9 @@ config BR2_PACKAGE_SYSTEMD_IMPORTD
 
 	  https://www.freedesktop.org/software/systemd/man/machinectl.html#Image%20Transfer%20Commands
 
-config BR2_PACKAGE_SYSTEMD_CATALOGDB
+config LINGMO_PACKAGE_SYSTEMD_CATALOGDB
 	bool "enable journal catalog database installation"
-	depends on BR2_TARGET_GENERIC_REMOUNT_ROOTFS_RW # conflicting tmpfiles magic
+	depends on LINGMO_TARGET_GENERIC_REMOUNT_ROOTFS_RW # conflicting tmpfiles magic
 	help
 	  Build and install the journal catalog database.
 
@@ -302,7 +302,7 @@ config BR2_PACKAGE_SYSTEMD_CATALOGDB
 
 	  https://www.freedesktop.org/wiki/Software/systemd/catalog/
 
-config BR2_PACKAGE_SYSTEMD_LOCALED
+config LINGMO_PACKAGE_SYSTEMD_LOCALED
 	bool "enable locale daemon"
 	help
 	  systemd-localed is a system service that may be used as
@@ -311,14 +311,14 @@ config BR2_PACKAGE_SYSTEMD_LOCALED
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-localed.service.html
 
-config BR2_PACKAGE_SYSTEMD_LOGIND
+config LINGMO_PACKAGE_SYSTEMD_LOGIND
 	bool "enable login daemon"
 	help
 	  systemd-logind is a system service that manages user logins.
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-logind.service.html
 
-config BR2_PACKAGE_SYSTEMD_MACHINED
+config LINGMO_PACKAGE_SYSTEMD_MACHINED
 	bool "enable machine daemon"
 	help
 	  systemd-machined is a system service that keeps track of
@@ -327,7 +327,7 @@ config BR2_PACKAGE_SYSTEMD_MACHINED
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-machined.service.html
 
-config BR2_PACKAGE_SYSTEMD_MYHOSTNAME
+config LINGMO_PACKAGE_SYSTEMD_MYHOSTNAME
 	bool "enable myhostname NSS plugin"
 	default y
 	help
@@ -338,7 +338,7 @@ config BR2_PACKAGE_SYSTEMD_MYHOSTNAME
 
 	  https://www.freedesktop.org/software/systemd/man/nss-myhostname.html
 
-config BR2_PACKAGE_SYSTEMD_NETWORKD
+config LINGMO_PACKAGE_SYSTEMD_NETWORKD
 	bool "enable network manager"
 	default y
 	help
@@ -351,7 +351,7 @@ config BR2_PACKAGE_SYSTEMD_NETWORKD
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-networkd.html
 
-config BR2_PACKAGE_SYSTEMD_OOMD
+config LINGMO_PACKAGE_SYSTEMD_OOMD
 	bool "enable out-of-memory killer"
 	help
 	  systemd-oomd is a system service that uses cgroups-v2 and
@@ -360,13 +360,13 @@ config BR2_PACKAGE_SYSTEMD_OOMD
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-oomd.html
 
-config BR2_PACKAGE_SYSTEMD_POLKIT
+config LINGMO_PACKAGE_SYSTEMD_POLKIT
 	bool "enable polkit support"
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_7 # polkit -> c++17
-	depends on BR2_TOOLCHAIN_HAS_THREADS # polkit
-	depends on BR2_USE_WCHAR # libglib2
-	depends on !BR2_OPTIMIZE_FAST # polkit -> duktape
-	select BR2_PACKAGE_POLKIT
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_7 # polkit -> c++17
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # polkit
+	depends on LINGMO_USE_WCHAR # libglib2
+	depends on !LINGMO_OPTIMIZE_FAST # polkit -> duktape
+	select LINGMO_PACKAGE_POLKIT
 	help
 	  If enabled, systemd is built with polkit support and policy
 	  files for its services are generated and installed. It is
@@ -376,13 +376,13 @@ config BR2_PACKAGE_SYSTEMD_POLKIT
 	  https://wiki.freedesktop.org/www/Software/polkit/
 
 comment "polkit support needs a toolchain with threads, wchar, gcc >= 7"
-	depends on !BR2_USE_WCHAR || !BR2_TOOLCHAIN_GCC_AT_LEAST_7 || \
-		!BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_USE_WCHAR || !LINGMO_TOOLCHAIN_GCC_AT_LEAST_7 || \
+		!LINGMO_TOOLCHAIN_HAS_THREADS
 
 comment "polkit support can't be built with Optimize for fast"
-	depends on BR2_OPTIMIZE_FAST
+	depends on LINGMO_OPTIMIZE_FAST
 
-config BR2_PACKAGE_SYSTEMD_PORTABLED
+config LINGMO_PACKAGE_SYSTEMD_PORTABLED
 	bool "enable portable services"
 	help
 	  Portable services are systemd services that can be dynamically
@@ -400,7 +400,7 @@ config BR2_PACKAGE_SYSTEMD_PORTABLED
 
 	  https://systemd.io/PORTABLE_SERVICES/
 
-config BR2_PACKAGE_SYSTEMD_QUOTACHECK
+config LINGMO_PACKAGE_SYSTEMD_QUOTACHECK
 	bool "enable quotacheck tools"
 	help
 	  systemd-quotacheck is a service responsible for file system
@@ -410,7 +410,7 @@ config BR2_PACKAGE_SYSTEMD_QUOTACHECK
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-quotacheck.service.html
 
-config BR2_PACKAGE_SYSTEMD_RANDOMSEED
+config LINGMO_PACKAGE_SYSTEMD_RANDOMSEED
 	bool "enable random-seed support"
 	help
 	  systemd-random-seed is a service that restores the random
@@ -420,18 +420,18 @@ config BR2_PACKAGE_SYSTEMD_RANDOMSEED
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-random-seed.service.html
 
-config BR2_PACKAGE_SYSTEMD_REPART
+config LINGMO_PACKAGE_SYSTEMD_REPART
 	bool "enable repart support"
-	select BR2_PACKAGE_OPENSSL
-	select BR2_PACKAGE_OPENSSL_FORCE_LIBOPENSSL
-	select BR2_PACKAGE_UTIL_LINUX_LIBFDISK
+	select LINGMO_PACKAGE_OPENSSL
+	select LINGMO_PACKAGE_OPENSSL_FORCE_LIBOPENSSL
+	select LINGMO_PACKAGE_UTIL_LINUX_LIBFDISK
 	help
 	  systemd-repart grows and adds partitions to a partition table,
 	  based on the configuration files described in repart.d.
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-repart.html
 
-config BR2_PACKAGE_SYSTEMD_RESOLVED
+config LINGMO_PACKAGE_SYSTEMD_RESOLVED
 	bool "enable resolve daemon"
 	default y
 	help
@@ -442,7 +442,7 @@ config BR2_PACKAGE_SYSTEMD_RESOLVED
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-resolved.html
 
-config BR2_PACKAGE_SYSTEMD_RFKILL
+config LINGMO_PACKAGE_SYSTEMD_RFKILL
 	bool "enable rfkill tools"
 	help
 	  systemd-rfkill is a service that restores the RF kill switch
@@ -450,10 +450,10 @@ config BR2_PACKAGE_SYSTEMD_RFKILL
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-rfkill.service.html
 
-config BR2_PACKAGE_SYSTEMD_SMACK_SUPPORT
+config LINGMO_PACKAGE_SYSTEMD_SMACK_SUPPORT
 	bool "enable SMACK support"
-	select BR2_PACKAGE_ATTR
-	select BR2_PACKAGE_SMACK
+	select LINGMO_PACKAGE_ATTR
+	select LINGMO_PACKAGE_SMACK
 	help
 	  Enable support for SMACK, the Simple Mandatory Access
 	  Control Kernel, a minimal approach to Access Control
@@ -464,7 +464,7 @@ config BR2_PACKAGE_SYSTEMD_SMACK_SUPPORT
 	  When this feature is enabled, Systemd mounts smackfs and
 	  manages security labels for sockets.
 
-config BR2_PACKAGE_SYSTEMD_SYSEXT
+config LINGMO_PACKAGE_SYSTEMD_SYSEXT
 	bool "enable sysext support"
 	help
 	  systemd-sysext activates/deactivates system extension
@@ -481,11 +481,11 @@ config BR2_PACKAGE_SYSTEMD_SYSEXT
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-sysext.html
 
-config BR2_PACKAGE_SYSTEMD_SYSUPDATE
+config LINGMO_PACKAGE_SYSTEMD_SYSUPDATE
 	bool "enable sysupdate support"
-	select BR2_PACKAGE_OPENSSL
-	select BR2_PACKAGE_OPENSSL_FORCE_LIBOPENSSL
-	select BR2_PACKAGE_UTIL_LINUX_LIBFDISK
+	select LINGMO_PACKAGE_OPENSSL
+	select LINGMO_PACKAGE_OPENSSL_FORCE_LIBOPENSSL
+	select LINGMO_PACKAGE_UTIL_LINUX_LIBFDISK
 	help
 	  systemd-sysupdate atomically updates the host OS, container
 	  images, portable service images or other sources, based on
@@ -497,7 +497,7 @@ config BR2_PACKAGE_SYSTEMD_SYSUPDATE
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-sysupdate.html
 
-config BR2_PACKAGE_SYSTEMD_SYSUSERS
+config LINGMO_PACKAGE_SYSTEMD_SYSUSERS
 	bool "enable sysusers support"
 	help
 	  systemd-sysusers creates system users and groups, based on
@@ -505,7 +505,7 @@ config BR2_PACKAGE_SYSTEMD_SYSUSERS
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-sysusers.html
 
-config BR2_PACKAGE_SYSTEMD_TIMEDATED
+config LINGMO_PACKAGE_SYSTEMD_TIMEDATED
 	bool "enable timedate daemon"
 	default y
 	help
@@ -515,7 +515,7 @@ config BR2_PACKAGE_SYSTEMD_TIMEDATED
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-timedated.service.html
 
-config BR2_PACKAGE_SYSTEMD_TIMESYNCD
+config LINGMO_PACKAGE_SYSTEMD_TIMESYNCD
 	bool "enable timesync daemon"
 	default y
 	help
@@ -528,7 +528,7 @@ config BR2_PACKAGE_SYSTEMD_TIMESYNCD
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-timesyncd.html
 
-config BR2_PACKAGE_SYSTEMD_USERDB
+config LINGMO_PACKAGE_SYSTEMD_USERDB
 	bool "enable userdb daemon"
 	help
 	  systemd-userdbd is a system service that multiplexes
@@ -540,7 +540,7 @@ config BR2_PACKAGE_SYSTEMD_USERDB
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-userdbd.service.html
 
-config BR2_PACKAGE_SYSTEMD_UTMP
+config LINGMO_PACKAGE_SYSTEMD_UTMP
 	bool "enable utmp support"
 	help
 	  systemd-update-utmp-runlevel.service is a service that writes
@@ -560,20 +560,20 @@ config BR2_PACKAGE_SYSTEMD_UTMP
 
 	  https://man7.org/linux/man-pages/man5/utmp.5.html
 
-config BR2_PACKAGE_SYSTEMD_VCONSOLE
+config LINGMO_PACKAGE_SYSTEMD_VCONSOLE
 	bool "enable vconsole tool"
 	default y
-	select BR2_PACKAGE_KBD if BR2_PACKAGE_SYSTEMD_VCONSOLE_DEFAULT_KEYMAP != ""
+	select LINGMO_PACKAGE_KBD if LINGMO_PACKAGE_SYSTEMD_VCONSOLE_DEFAULT_KEYMAP != ""
 	help
 	  systemd-vconsole-setup is an early boot service that
 	  configures the virtual console font and console keymap.
 
 	  https://www.freedesktop.org/software/systemd/man/systemd-vconsole-setup.service.html
 
-config BR2_PACKAGE_SYSTEMD_VCONSOLE_DEFAULT_KEYMAP
+config LINGMO_PACKAGE_SYSTEMD_VCONSOLE_DEFAULT_KEYMAP
 	string "default keymap"
 	default "us"
-	depends on BR2_PACKAGE_SYSTEMD_VCONSOLE
+	depends on LINGMO_PACKAGE_SYSTEMD_VCONSOLE
 	help
 	  Default keymap for the system. Leave empty to not set a
 	  default keymap.

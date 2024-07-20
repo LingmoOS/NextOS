@@ -14,7 +14,7 @@ DOVECOT_CPE_ID_VENDOR = dovecot
 DOVECOT_SELINUX_MODULES = dovecot
 DOVECOT_DEPENDENCIES = \
 	host-pkgconf \
-	$(if $(BR2_PACKAGE_LIBICONV),libiconv) \
+	$(if $(LINGMO_PACKAGE_LIBICONV),libiconv) \
 	openssl
 
 # CVE-2016-4983 is an issue in a postinstall script in the dovecot rpm, which
@@ -41,46 +41,46 @@ DOVECOT_CONF_ENV = \
 
 DOVECOT_CONF_OPTS = --without-docs --with-ssl=openssl
 
-ifeq ($(BR2_PACKAGE_DOVECOT_MYSQL)$(BR2_PACKAGE_DOVECOT_SQLITE),)
+ifeq ($(LINGMO_PACKAGE_DOVECOT_MYSQL)$(LINGMO_PACKAGE_DOVECOT_SQLITE),)
 DOVECOT_CONF_OPTS += --without-sql
 endif
 
-ifeq ($(BR2_PACKAGE_BZIP2),y)
+ifeq ($(LINGMO_PACKAGE_BZIP2),y)
 DOVECOT_CONF_OPTS += --with-bzlib
 DOVECOT_DEPENDENCIES += bzip2
 else
 DOVECOT_CONF_OPTS += --without-bzlib
 endif
 
-ifeq ($(BR2_PACKAGE_ICU),y)
+ifeq ($(LINGMO_PACKAGE_ICU),y)
 DOVECOT_CONF_OPTS += --with-icu
 DOVECOT_DEPENDENCIES += icu
 else
 DOVECOT_CONF_OPTS += --without-icu
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBCAP),y)
 DOVECOT_CONF_OPTS += --with-libcap
 DOVECOT_DEPENDENCIES += libcap
 else
 DOVECOT_CONF_OPTS += --without-libcap
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSODIUM),y)
+ifeq ($(LINGMO_PACKAGE_LIBSODIUM),y)
 DOVECOT_CONF_OPTS += --with-sodium
 DOVECOT_DEPENDENCIES += libsodium
 else
 DOVECOT_CONF_OPTS += --without-sodium
 endif
 
-ifeq ($(BR2_PACKAGE_LINUX_PAM),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_PAM),y)
 DOVECOT_CONF_OPTS += --with-pam
 DOVECOT_DEPENDENCIES += linux-pam
 else
 DOVECOT_CONF_OPTS += --without-pam
 endif
 
-ifeq ($(BR2_PACKAGE_DOVECOT_MYSQL),y)
+ifeq ($(LINGMO_PACKAGE_DOVECOT_MYSQL),y)
 DOVECOT_CONF_ENV += MYSQL_CONFIG="$(STAGING_DIR)/usr/bin/mysql_config"
 DOVECOT_CONF_OPTS += --with-mysql
 DOVECOT_DEPENDENCIES += mariadb
@@ -88,28 +88,28 @@ else
 DOVECOT_CONF_OPTS += --without-mysql
 endif
 
-ifeq ($(BR2_PACKAGE_DOVECOT_SQLITE),y)
+ifeq ($(LINGMO_PACKAGE_DOVECOT_SQLITE),y)
 DOVECOT_CONF_OPTS += --with-sqlite
 DOVECOT_DEPENDENCIES += sqlite
 else
 DOVECOT_CONF_OPTS += --without-sqlite
 endif
 
-ifeq ($(BR2_PACKAGE_LZ4),y)
+ifeq ($(LINGMO_PACKAGE_LZ4),y)
 DOVECOT_CONF_OPTS += --with-lz4
 DOVECOT_DEPENDENCIES += lz4
 else
 DOVECOT_CONF_OPTS += --without-lz4
 endif
 
-ifeq ($(BR2_PACKAGE_XZ),y)
+ifeq ($(LINGMO_PACKAGE_XZ),y)
 DOVECOT_CONF_OPTS += --with-lzma
 DOVECOT_DEPENDENCIES += xz
 else
 DOVECOT_CONF_OPTS += --without-lzma
 endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 DOVECOT_CONF_OPTS += --with-zlib
 DOVECOT_DEPENDENCIES += zlib
 else

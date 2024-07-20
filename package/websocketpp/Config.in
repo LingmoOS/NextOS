@@ -1,7 +1,7 @@
-config BR2_PACKAGE_WEBSOCKETPP
+config LINGMO_PACKAGE_WEBSOCKETPP
 	bool "websocketpp"
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_8 # C++11
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_8 # C++11
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	help
 	  WebSocket++ is a header only C++ library that implements
 	  RFC6455 The WebSocket Protocol. It allows integrating
@@ -12,4 +12,4 @@ config BR2_PACKAGE_WEBSOCKETPP
 	  http://www.zaphoyd.com/websocketpp
 
 comment "websocketpp needs a toolchain w/ C++ and gcc >= 4.8"
-	depends on !BR2_INSTALL_LIBSTDCPP || !BR2_TOOLCHAIN_GCC_AT_LEAST_4_8
+	depends on !LINGMO_INSTALL_LIBSTDCPP || !LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_8

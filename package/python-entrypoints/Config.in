@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_ENTRYPOINTS
+config LINGMO_PACKAGE_PYTHON_ENTRYPOINTS
 	bool "python-entrypoints"
 	help
 	  Discover and load entry points from installed packages.

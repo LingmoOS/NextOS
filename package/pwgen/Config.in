@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PWGEN
+config LINGMO_PACKAGE_PWGEN
 	bool "pwgen"
 	help
 	  Pwgen is a small, GPL'ed password generator which creates

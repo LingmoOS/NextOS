@@ -1,7 +1,7 @@
-config BR2_PACKAGE_KODI_PVR_HDHOMERUN
+config LINGMO_PACKAGE_KODI_PVR_HDHOMERUN
 	bool "kodi-pvr-hdhomerun"
-	select BR2_PACKAGE_JSONCPP
-	select BR2_PACKAGE_LIBHDHOMERUN
+	select LINGMO_PACKAGE_JSONCPP
+	select LINGMO_PACKAGE_LIBHDHOMERUN
 	help
 	  Kodi's HDHomeRun client addon
 

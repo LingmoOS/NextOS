@@ -8,7 +8,7 @@ LINUX_TOOLS += perf
 
 PERF_DEPENDENCIES = host-flex host-bison
 
-ifeq ($(BR2_PACKAGE_LINUX_TOOLS_PERF_NEEDS_HOST_PYTHON3),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_TOOLS_PERF_NEEDS_HOST_PYTHON3),y)
 PERF_DEPENDENCIES += host-python3
 endif
 
@@ -33,18 +33,18 @@ PERF_MAKE_FLAGS = \
 # We need to pass an argument to ld for setting the emulation when
 # building for MIPS architecture, otherwise the default one will always
 # be used and the compilation for most variants will fail.
-ifeq ($(BR2_mips),y)
+ifeq ($(LINGMO_mips),y)
 PERF_MAKE_FLAGS += LD="$(TARGET_LD) -m elf32btsmip"
-else ifeq ($(BR2_mipsel),y)
+else ifeq ($(LINGMO_mipsel),y)
 PERF_MAKE_FLAGS += LD="$(TARGET_LD) -m elf32ltsmip"
-else ifeq ($(BR2_mips64),y)
-ifeq ($(BR2_MIPS_NABI32),y)
+else ifeq ($(LINGMO_mips64),y)
+ifeq ($(LINGMO_MIPS_NABI32),y)
 PERF_MAKE_FLAGS += LD="$(TARGET_LD) -m elf32btsmipn32"
 else
 PERF_MAKE_FLAGS += LD="$(TARGET_LD) -m elf64btsmip"
 endif
-else ifeq ($(BR2_mips64el),y)
-ifeq ($(BR2_MIPS_NABI32),y)
+else ifeq ($(LINGMO_mips64el),y)
+ifeq ($(LINGMO_MIPS_NABI32),y)
 PERF_MAKE_FLAGS += LD="$(TARGET_LD) -m elf32ltsmipn32"
 else
 PERF_MAKE_FLAGS += LD="$(TARGET_LD) -m elf64ltsmip"
@@ -57,70 +57,70 @@ endif
 # backtrace() appears to be available, but it fails at runtime: the
 # backtrace will contain only several functions from the top of stack,
 # instead of the complete backtrace.
-ifeq ($(BR2_arc),y)
+ifeq ($(LINGMO_arc),y)
 PERF_MAKE_FLAGS += NO_BACKTRACE=1
 endif
 
-ifeq ($(BR2_PACKAGE_LINUX_TOOLS_PERF_TUI),y)
+ifeq ($(LINGMO_PACKAGE_LINUX_TOOLS_PERF_TUI),y)
 PERF_DEPENDENCIES += slang
 else
 PERF_MAKE_FLAGS += NO_NEWT=1 NO_SLANG=1
 endif
 
-ifeq ($(BR2_PACKAGE_AUDIT),y)
+ifeq ($(LINGMO_PACKAGE_AUDIT),y)
 PERF_DEPENDENCIES += audit
 else
 PERF_MAKE_FLAGS += NO_LIBAUDIT=1
 endif
 
-ifeq ($(BR2_PACKAGE_ZSTD),y)
+ifeq ($(LINGMO_PACKAGE_ZSTD),y)
 PERF_DEPENDENCIES += zstd
 endif
 
-ifeq ($(BR2_PACKAGE_LIBUNWIND),y)
+ifeq ($(LINGMO_PACKAGE_LIBUNWIND),y)
 PERF_DEPENDENCIES += libunwind
 else
 PERF_MAKE_FLAGS += NO_LIBUNWIND=1
 endif
 
-ifeq ($(BR2_PACKAGE_NUMACTL),y)
+ifeq ($(LINGMO_PACKAGE_NUMACTL),y)
 PERF_DEPENDENCIES += numactl
 else
 PERF_MAKE_FLAGS += NO_LIBNUMA=1
 endif
 
-ifeq ($(BR2_PACKAGE_ELFUTILS),y)
+ifeq ($(LINGMO_PACKAGE_ELFUTILS),y)
 PERF_DEPENDENCIES += elfutils
 else
 PERF_MAKE_FLAGS += NO_LIBELF=1 NO_DWARF=1
 endif
 
-ifeq ($(BR2_PACKAGE_BINUTILS),y)
+ifeq ($(LINGMO_PACKAGE_BINUTILS),y)
 PERF_DEPENDENCIES += binutils
 else
 PERF_MAKE_FLAGS += NO_DEMANGLE=1
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 PERF_DEPENDENCIES += openssl
 else
 PERF_MAKE_FLAGS += NO_LIBCRYPTO=1
 endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 PERF_DEPENDENCIES += zlib
 else
 PERF_MAKE_FLAGS += NO_ZLIB=1
 endif
 
 # lzma is provided by xz
-ifeq ($(BR2_PACKAGE_XZ),y)
+ifeq ($(LINGMO_PACKAGE_XZ),y)
 PERF_DEPENDENCIES += xz
 else
 PERF_MAKE_FLAGS += NO_LZMA=1
 endif
 
-ifeq ($(BR2_PACKAGE_OPENCSD),y)
+ifeq ($(LINGMO_PACKAGE_OPENCSD),y)
 PERF_DEPENDENCIES += opencsd
 PERF_MAKE_FLAGS += CORESIGHT=1
 # There is no "else CORESIGHT=0" case, because "perf" Makefile uses
@@ -150,7 +150,7 @@ define PERF_BUILD_CMDS
 		echo "At least kernel 2.6.31 must be used." ; \
 		exit 1 ; \
 	fi
-	$(Q)if test "$(BR2_PACKAGE_ELFUTILS)" = "" ; then \
+	$(Q)if test "$(LINGMO_PACKAGE_ELFUTILS)" = "" ; then \
 		if ! grep -q NO_LIBELF $(LINUX_DIR)/tools/perf/Makefile* ; then \
 			if ! test -r $(LINUX_DIR)/tools/perf/config/Makefile ; then \
 				echo "The perf tool in your kernel cannot be built without libelf." ; \
@@ -159,7 +159,7 @@ define PERF_BUILD_CMDS
 			fi \
 		fi \
 	fi
-	$(Q)if test "$(BR2_PACKAGE_LINUX_TOOLS_PERF_TUI)" = "y" ; then \
+	$(Q)if test "$(LINGMO_PACKAGE_LINUX_TOOLS_PERF_TUI)" = "y" ; then \
 		if ! grep -q NO_SLANG $(LINUX_DIR)/tools/perf/Makefile* ; then \
 			echo "The perf tool in your kernel cannot be build with the TUI." ; \
 			echo "Either upgrade your kernel to >= 3.10, or disable the TUI." ; \
@@ -171,8 +171,8 @@ define PERF_BUILD_CMDS
 endef
 
 # After installation, we remove the Perl and Python scripts from the
-# target unless BR2_PACKAGE_LINUX_TOOLS_PERF_SCRIPTS is enabled
-ifeq ($(BR2_PACKAGE_LINUX_TOOLS_PERF_SCRIPTS),)
+# target unless LINGMO_PACKAGE_LINUX_TOOLS_PERF_SCRIPTS is enabled
+ifeq ($(LINGMO_PACKAGE_LINUX_TOOLS_PERF_SCRIPTS),)
 define PERF_INSTALL_REMOVE_SCRIPTS
 	$(RM) -r $(TARGET_DIR)/usr/libexec/perf-core/scripts/
 	$(RM) -r $(TARGET_DIR)/usr/libexec/perf-core/tests/

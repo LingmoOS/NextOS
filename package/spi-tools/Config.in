@@ -1,4 +1,4 @@
-config BR2_PACKAGE_SPI_TOOLS
+config LINGMO_PACKAGE_SPI_TOOLS
 	bool "spi-tools"
 	help
 	  This package contains some simple command line tools to help

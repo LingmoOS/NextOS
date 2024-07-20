@@ -24,7 +24,7 @@ endef
 # Otherwise bpf/bpf.h is broken due to out of date linux/bpf.h installed by the
 # toolchain.
 # https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=a5cbe05a6673b85bed2a63ffcfea6a96c6410cff
-ifeq ($(BR2_TOOLCHAIN_HEADERS_AT_LEAST_5_9),)
+ifeq ($(LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_5_9),)
 LIBBPF_UPDATE_UAPI_HEADERS = install_uapi_headers
 endif
 

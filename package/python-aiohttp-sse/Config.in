@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_AIOHTTP_SSE
+config LINGMO_PACKAGE_PYTHON_AIOHTTP_SSE
 	bool "python-aiohttp-sse"
-	select BR2_PACKAGE_PYTHON_AIOHTTP # runtime
+	select LINGMO_PACKAGE_PYTHON_AIOHTTP # runtime
 	help
 	  Server-sent events support for aiohttp.
 

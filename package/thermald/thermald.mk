@@ -39,7 +39,7 @@ define THERMALD_CREATE_M4
 endef
 THERMALD_POST_PATCH_HOOKS += THERMALD_CREATE_M4
 
-ifeq ($(BR2_INIT_SYSTEMD),y)
+ifeq ($(LINGMO_INIT_SYSTEMD),y)
 THERMALD_DEPENDENCIES += systemd
 THERMALD_CONF_OPTS += --with-systemdsystemunitdir=/usr/lib/systemd/system
 endif

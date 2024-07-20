@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_DOMINATE
+config LINGMO_PACKAGE_PYTHON_DOMINATE
 	bool "python-dominate"
 	help
 	  Dominate is a Python library for creating and manipulating

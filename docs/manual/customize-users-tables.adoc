@@ -7,7 +7,7 @@
 Sometimes it is needed to add specific users in the target system.
 To cover this requirement, Buildroot provides support for so-called
 _users tables_. To use this feature, set config option
-+BR2_ROOTFS_USERS_TABLES+ to a space-separated list of users tables,
++LINGMO_ROOTFS_USERS_TABLES+ to a space-separated list of users tables,
 regular text files following the xref:makeuser-syntax[makeusers syntax].
 
 As shown in xref:customize-dir-structure[], the recommended location for

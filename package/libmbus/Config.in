@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBMBUS
+config LINGMO_PACKAGE_LIBMBUS
 	bool "libmbus"
 	help
 	  libmbus is a library for communicating with energy metering

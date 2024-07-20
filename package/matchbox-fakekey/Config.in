@@ -1,7 +1,7 @@
-config BR2_PACKAGE_MATCHBOX_FAKEKEY
+config LINGMO_PACKAGE_MATCHBOX_FAKEKEY
 	bool "matchbox-fakekey"
-	select BR2_PACKAGE_MATCHBOX_LIB
-	select BR2_PACKAGE_XLIB_LIBXTST
+	select LINGMO_PACKAGE_MATCHBOX_LIB
+	select LINGMO_PACKAGE_XLIB_LIBXTST
 	help
 	  Library for simulating key press events under X11.
 

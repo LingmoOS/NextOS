@@ -1,74 +1,74 @@
-config BR2_PACKAGE_APCUPSD
+config LINGMO_PACKAGE_APCUPSD
 	bool "apcupsd"
-	depends on BR2_INSTALL_LIBSTDCPP
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_USE_MMU # fork()
+	depends on LINGMO_INSTALL_LIBSTDCPP
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU # fork()
 	help
 	  A daemon for controlling APC UPSes.
 
 	  http://www.apcupsd.org/
 
-if BR2_PACKAGE_APCUPSD
+if LINGMO_PACKAGE_APCUPSD
 
-config BR2_PACKAGE_APCUPSD_APCSMART
+config LINGMO_PACKAGE_APCUPSD_APCSMART
 	bool "apcsmart"
 	help
 	  Compile APC SmartUPS serial driver
 
-config BR2_PACKAGE_APCUPSD_DUMB
+config LINGMO_PACKAGE_APCUPSD_DUMB
 	bool "dumb"
 	help
 	  Compile dumb UPS driver
 
-config BR2_PACKAGE_APCUPSD_MODBUS
+config LINGMO_PACKAGE_APCUPSD_MODBUS
 	bool "modbus"
 	help
 	  Compile MODBUS driver code
 
-config BR2_PACKAGE_APCUPSD_MODBUS_USB
+config LINGMO_PACKAGE_APCUPSD_MODBUS_USB
 	bool "modbus usb"
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libusb
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_9 # libusb
-	select BR2_PACKAGE_LIBUSB
-	select BR2_PACKAGE_LIBUSB_COMPAT
-	select BR2_PACKAGE_APCUPSD_MODBUS
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libusb
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9 # libusb
+	select LINGMO_PACKAGE_LIBUSB
+	select LINGMO_PACKAGE_LIBUSB_COMPAT
+	select LINGMO_PACKAGE_APCUPSD_MODBUS
 	help
 	  Compile MODBUS/USB driver code
 
 comment "modbus usb support needs a toolchain w/ threads, gcc >= 4.9"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || \
-		!BR2_TOOLCHAIN_GCC_AT_LEAST_4_9
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || \
+		!LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9
 
-config BR2_PACKAGE_APCUPSD_NET
+config LINGMO_PACKAGE_APCUPSD_NET
 	bool "net"
 	help
 	  Compile networking driver for slaves
 
-config BR2_PACKAGE_APCUPSD_PCNET
+config LINGMO_PACKAGE_APCUPSD_PCNET
 	bool "pcnet"
 	help
 	  Compile PCNET driver code
 
-config BR2_PACKAGE_APCUPSD_SNMP
+config LINGMO_PACKAGE_APCUPSD_SNMP
 	bool "snmp"
 	help
 	  Compile SNMP driver
 
-config BR2_PACKAGE_APCUPSD_USB
+config LINGMO_PACKAGE_APCUPSD_USB
 	bool "usb"
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libusb
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_9 # libusb
-	select BR2_PACKAGE_LIBUSB
-	select BR2_PACKAGE_LIBUSB_COMPAT
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libusb
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9 # libusb
+	select LINGMO_PACKAGE_LIBUSB
+	select LINGMO_PACKAGE_LIBUSB_COMPAT
 	help
 	  Compile USB UPS code
 
 comment "usb support needs a toolchain w/ threads, gcc >= 4.9"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || \
-		!BR2_TOOLCHAIN_GCC_AT_LEAST_4_9
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || \
+		!LINGMO_TOOLCHAIN_GCC_AT_LEAST_4_9
 
 endif
 
 comment "apcupsd needs a toolchain w/ C++, threads"
-	depends on BR2_USE_MMU
-	depends on !BR2_INSTALL_LIBSTDCPP || !BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_INSTALL_LIBSTDCPP || !LINGMO_TOOLCHAIN_HAS_THREADS

@@ -1,15 +1,15 @@
-config BR2_PACKAGE_HOST_UBOOT_TOOLS
+config LINGMO_PACKAGE_HOST_UBOOT_TOOLS
 	bool "host u-boot tools"
 	help
 	  Companion tools for Das U-Boot bootloader.
 
 	  http://www.denx.de/wiki/U-Boot/WebHome
 
-if BR2_PACKAGE_HOST_UBOOT_TOOLS
+if LINGMO_PACKAGE_HOST_UBOOT_TOOLS
 
-config BR2_PACKAGE_HOST_UBOOT_TOOLS_FIT_SUPPORT
+config LINGMO_PACKAGE_HOST_UBOOT_TOOLS_FIT_SUPPORT
 	bool "Flattened Image Tree (FIT) support"
-	select BR2_PACKAGE_HOST_DTC
+	select LINGMO_PACKAGE_HOST_DTC
 	help
 	  Enables support for Flattened Image Tree (FIT).
 
@@ -19,9 +19,9 @@ config BR2_PACKAGE_HOST_UBOOT_TOOLS_FIT_SUPPORT
 	  in a single blob. To boot this new uImage structure,
 	  pass the address of the blob to the "bootm" command.
 
-if BR2_PACKAGE_HOST_UBOOT_TOOLS_FIT_SUPPORT
+if LINGMO_PACKAGE_HOST_UBOOT_TOOLS_FIT_SUPPORT
 
-config BR2_PACKAGE_HOST_UBOOT_TOOLS_FIT_SIGNATURE_SUPPORT
+config LINGMO_PACKAGE_HOST_UBOOT_TOOLS_FIT_SIGNATURE_SUPPORT
 	bool "FIT signature verification support"
 	help
 	  Enables support for FIT Signature Verification.
@@ -37,9 +37,9 @@ config BR2_PACKAGE_HOST_UBOOT_TOOLS_FIT_SIGNATURE_SUPPORT
 	  public key is stored in a non-volatile place, any image can
 	  be verified in this way.
 
-endif # BR2_PACKAGE_HOST_UBOOT_TOOLS_FIT_SUPPORT
+endif # LINGMO_PACKAGE_HOST_UBOOT_TOOLS_FIT_SUPPORT
 
-config BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE
+config LINGMO_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE
 	bool "Environment image"
 	help
 	  Generate a valid binary environment image from a text file
@@ -53,11 +53,11 @@ config BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE
 
 	  The environment image will be called uboot-env.bin.
 
-if BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE
+if LINGMO_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE
 
-config BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SOURCE
+config LINGMO_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SOURCE
 	string "Source files for environment"
-	default BR2_TARGET_UBOOT_ENVIMAGE_SOURCE if BR2_TARGET_UBOOT_ENVIMAGE_SOURCE != "" # legacy
+	default LINGMO_TARGET_UBOOT_ENVIMAGE_SOURCE if LINGMO_TARGET_UBOOT_ENVIMAGE_SOURCE != "" # legacy
 	help
 	  Text files describing the environment. Files should have
 	  lines of the form var=value, one per line. Blank lines and
@@ -66,16 +66,16 @@ config BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SOURCE
 	  Multiple source files are concatenated in the order listed.
 
 	  Leave empty to generate image from compiled-in env if a U-boot
-	  target build is configured (BR2_TARGET_UBOOT)
+	  target build is configured (LINGMO_TARGET_UBOOT)
 
-config BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SIZE
+config LINGMO_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SIZE
 	string "Size of environment"
-	default BR2_TARGET_UBOOT_ENVIMAGE_SIZE if BR2_TARGET_UBOOT_ENVIMAGE_SIZE != "" # legacy
+	default LINGMO_TARGET_UBOOT_ENVIMAGE_SIZE if LINGMO_TARGET_UBOOT_ENVIMAGE_SIZE != "" # legacy
 	help
 	  Size of envronment, can be prefixed with 0x for hexadecimal
 	  values.
 
-config BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_REDUNDANT
+config LINGMO_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_REDUNDANT
 	bool "Environment has two copies"
 	help
 	  Some platforms define in their U-Boot configuration that the
@@ -89,23 +89,23 @@ config BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_REDUNDANT
 	  Buildroot is compatible with the "redundant environment"
 	  mechanism of U-Boot.
 
-endif # BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE
+endif # LINGMO_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE
 
-config BR2_PACKAGE_HOST_UBOOT_TOOLS_BOOT_SCRIPT
+config LINGMO_PACKAGE_HOST_UBOOT_TOOLS_BOOT_SCRIPT
 	bool "Generate a U-Boot boot script"
 	help
 	  Generate a U-Boot boot script, given a file listing U-Boot
 	  commands to be executed at boot time. The generated boot
 	  script will be called 'boot.scr'.
 
-if BR2_PACKAGE_HOST_UBOOT_TOOLS_BOOT_SCRIPT
+if LINGMO_PACKAGE_HOST_UBOOT_TOOLS_BOOT_SCRIPT
 
-config BR2_PACKAGE_HOST_UBOOT_TOOLS_BOOT_SCRIPT_SOURCE
+config LINGMO_PACKAGE_HOST_UBOOT_TOOLS_BOOT_SCRIPT_SOURCE
 	string "U-Boot boot script source"
-	default BR2_TARGET_UBOOT_BOOT_SCRIPT_SOURCE if BR2_TARGET_UBOOT_BOOT_SCRIPT_SOURCE != "" # legacy
+	default LINGMO_TARGET_UBOOT_BOOT_SCRIPT_SOURCE if LINGMO_TARGET_UBOOT_BOOT_SCRIPT_SOURCE != "" # legacy
 	help
 	  Source file to generate the U-Boot boot script.
 
-endif # BR2_PACKAGE_HOST_UBOOT_TOOLS_BOOT_SCRIPT
+endif # LINGMO_PACKAGE_HOST_UBOOT_TOOLS_BOOT_SCRIPT
 
-endif # BR2_PACKAGE_HOST_UBOOT_TOOLS
+endif # LINGMO_PACKAGE_HOST_UBOOT_TOOLS

@@ -33,11 +33,11 @@ HOST_RUBY_CONF_OPTS = \
 	--with-out-ext=curses,readline \
 	--without-gmp
 
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 RUBY_CONF_ENV += LIBS=-latomic
 endif
 
-ifeq ($(BR2_TOOLCHAIN_USES_UCLIBC),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_UCLIBC),y)
 # On uClibc, finite, isinf and isnan are not directly implemented as
 # functions.  Instead math.h #define's these to __finite, __isinf and
 # __isnan, confusing the Ruby configure script. Tell it that they
@@ -48,39 +48,39 @@ RUBY_CONF_ENV += \
 	ac_cv_func_isnan=yes
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_SSP),)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_SSP),)
 RUBY_CONF_ENV += stack_protector=no
 endif
 
 # Force optionals to build before we do
-ifeq ($(BR2_PACKAGE_BERKELEYDB),y)
+ifeq ($(LINGMO_PACKAGE_BERKELEYDB),y)
 RUBY_DEPENDENCIES += berkeleydb
 endif
-ifeq ($(BR2_PACKAGE_LIBFFI),y)
+ifeq ($(LINGMO_PACKAGE_LIBFFI),y)
 RUBY_DEPENDENCIES += libffi
 else
 # Disable fiddle to avoid a build failure with bundled-libffi on MIPS
 RUBY_CONF_OPTS += --with-out-ext=fiddle
 endif
-ifeq ($(BR2_PACKAGE_GDBM),y)
+ifeq ($(LINGMO_PACKAGE_GDBM),y)
 RUBY_DEPENDENCIES += gdbm
 endif
-ifeq ($(BR2_PACKAGE_LIBYAML),y)
+ifeq ($(LINGMO_PACKAGE_LIBYAML),y)
 RUBY_DEPENDENCIES += libyaml
 endif
-ifeq ($(BR2_PACKAGE_NCURSES),y)
+ifeq ($(LINGMO_PACKAGE_NCURSES),y)
 RUBY_DEPENDENCIES += ncurses
 endif
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 RUBY_DEPENDENCIES += openssl
 endif
-ifeq ($(BR2_PACKAGE_READLINE),y)
+ifeq ($(LINGMO_PACKAGE_READLINE),y)
 RUBY_DEPENDENCIES += readline
 endif
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 RUBY_DEPENDENCIES += zlib
 endif
-ifeq ($(BR2_PACKAGE_GMP),y)
+ifeq ($(LINGMO_PACKAGE_GMP),y)
 RUBY_DEPENDENCIES += gmp
 RUBY_CONF_OPTS += --with-gmp
 else
@@ -89,7 +89,7 @@ endif
 
 RUBY_CFLAGS = $(TARGET_CFLAGS)
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_83143),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_83143),y)
 RUBY_CFLAGS += -freorder-blocks-algorithm=simple
 endif
 

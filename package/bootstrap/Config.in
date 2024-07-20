@@ -1,4 +1,4 @@
-config BR2_PACKAGE_BOOTSTRAP
+config LINGMO_PACKAGE_BOOTSTRAP
 	bool "bootstrap"
 	help
 	  Bootstrap is the most popular HTML, CSS, and JS framework

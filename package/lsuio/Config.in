@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LSUIO
+config LINGMO_PACKAGE_LSUIO
 	bool "lsuio"
 	help
 	  list available userspace I/O (UIO) devices

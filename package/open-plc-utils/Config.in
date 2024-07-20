@@ -1,6 +1,6 @@
-config BR2_PACKAGE_OPEN_PLC_UTILS
+config LINGMO_PACKAGE_OPEN_PLC_UTILS
 	bool "open-plc-utils"
-	depends on BR2_USE_MMU # fork()
+	depends on LINGMO_USE_MMU # fork()
 	help
 	  Open version of the Qualcomm Atheros Powerline Toolkit
 

@@ -38,13 +38,13 @@ endef
 
 MONO_POST_INSTALL_TARGET_HOOKS += MONO_INSTALL_LIBS
 
-ifeq ($(BR2_PACKAGE_LIBICONV),y)
+ifeq ($(LINGMO_PACKAGE_LIBICONV),y)
 MONO_DEPENDENCIES += libiconv
 endif
 
 MONO_DEPENDENCIES += \
 	host-mono \
-	$(if $(BR2_PACKAGE_LIBUNWIND),libunwind) \
+	$(if $(LINGMO_PACKAGE_LIBUNWIND),libunwind) \
 	libatomic_ops
 
 ## Mono managed

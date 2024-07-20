@@ -113,7 +113,7 @@ endif
 ifndef $(2)_BUILD_CMDS
 ifeq ($(4),target)
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 $(2)_LDFLAGS += -extldflags '-static'
 $(2)_TAGS += osusergo netgo
 endif

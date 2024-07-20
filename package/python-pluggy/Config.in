@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PLUGGY
+config LINGMO_PACKAGE_PYTHON_PLUGGY
 	bool "python-pluggy"
 	help
 	  plugin and hook calling mechanisms for python.

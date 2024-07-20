@@ -19,7 +19,7 @@ endef
 # because LDFLAGS is used before the list of object files. We need to
 # add -latomic to FINAL_LIBS to provide -latomic at the correct place
 # in the linking command.
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 define REDIS_FIX_MAKEFILE
 	$(SED) 's/FINAL_LIBS=-lm/FINAL_LIBS=-lm -latomic/' $(@D)/src/Makefile
 endef
@@ -32,14 +32,14 @@ endif
 REDIS_BUILDOPTS = $(TARGET_CONFIGURE_OPTS) \
 	PREFIX=$(TARGET_DIR)/usr MALLOC=libc WARNINGS=
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 REDIS_DEPENDENCIES += systemd
 REDIS_BUILDOPTS += USE_SYSTEMD=yes
 else
 REDIS_BUILDOPTS += USE_SYSTEMD=no
 endif
 
-ifeq ($(BR2_PACKAGE_LIBOPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_LIBOPENSSL),y)
 REDIS_DEPENDENCIES += libopenssl
 REDIS_BUILDOPTS += BUILD_TLS=yes
 else

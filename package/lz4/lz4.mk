@@ -11,9 +11,9 @@ LZ4_LICENSE = BSD-2-Clause (library), GPL-2.0+ (programs)
 LZ4_LICENSE_FILES = lib/LICENSE programs/COPYING
 LZ4_CPE_ID_VALID = YES
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 LZ4_MAKE_OPTS += BUILD_SHARED=no
-else ifeq ($(BR2_SHARED_LIBS),y)
+else ifeq ($(LINGMO_SHARED_LIBS),y)
 LZ4_MAKE_OPTS += BUILD_STATIC=no
 endif
 
@@ -29,7 +29,7 @@ endef
 
 LZ4_DIRS = lib
 
-ifeq ($(BR2_PACKAGE_LZ4_PROGS),y)
+ifeq ($(LINGMO_PACKAGE_LZ4_PROGS),y)
 LZ4_DIRS += programs
 endif
 

@@ -1,19 +1,19 @@
-config BR2_PACKAGE_GOOGLE_BREAKPAD_ARCH_SUPPORTS
+config LINGMO_PACKAGE_GOOGLE_BREAKPAD_ARCH_SUPPORTS
 	bool
-	default y if BR2_i386 || BR2_x86_64 || BR2_arm || BR2_aarch64 || \
-		BR2_mips || BR2_mipsel
+	default y if LINGMO_i386 || LINGMO_x86_64 || LINGMO_arm || LINGMO_aarch64 || \
+		LINGMO_mips || LINGMO_mipsel
 
-config BR2_PACKAGE_GOOGLE_BREAKPAD
+config LINGMO_PACKAGE_GOOGLE_BREAKPAD
 	bool "google-breakpad"
-	depends on BR2_INSTALL_LIBSTDCPP
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_7 # C++17
-	depends on BR2_USE_WCHAR
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_TOOLCHAIN_USES_GLIBC
-	depends on BR2_PACKAGE_GOOGLE_BREAKPAD_ARCH_SUPPORTS
-	depends on BR2_PACKAGE_HOST_GOOGLE_BREAKPAD_ARCH_SUPPORTS
-	select BR2_PACKAGE_LINUX_SYSCALL_SUPPORT
-	select BR2_PACKAGE_ZLIB
+	depends on LINGMO_INSTALL_LIBSTDCPP
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_7 # C++17
+	depends on LINGMO_USE_WCHAR
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_TOOLCHAIN_USES_GLIBC
+	depends on LINGMO_PACKAGE_GOOGLE_BREAKPAD_ARCH_SUPPORTS
+	depends on LINGMO_PACKAGE_HOST_GOOGLE_BREAKPAD_ARCH_SUPPORTS
+	select LINGMO_PACKAGE_LINUX_SYSCALL_SUPPORT
+	select LINGMO_PACKAGE_ZLIB
 	help
 	  Google-Breakpad is a library and tool suite that allows you
 	  to distribute an application to users with compiler-provided
@@ -23,7 +23,7 @@ config BR2_PACKAGE_GOOGLE_BREAKPAD
 	  also write minidumps on request for programs that have not
 	  crashed.
 
-	  You may want to set BR2_ENABLE_DEBUG, in order to get useful
+	  You may want to set LINGMO_ENABLE_DEBUG, in order to get useful
 	  results.
 
 	  This target package installs a static library named
@@ -35,9 +35,9 @@ config BR2_PACKAGE_GOOGLE_BREAKPAD
 
 	  https://chromium.googlesource.com/breakpad/breakpad
 
-if BR2_PACKAGE_GOOGLE_BREAKPAD
+if LINGMO_PACKAGE_GOOGLE_BREAKPAD
 
-config BR2_PACKAGE_GOOGLE_BREAKPAD_TOOLS
+config LINGMO_PACKAGE_GOOGLE_BREAKPAD_TOOLS
 	bool "Build target tools"
 	help
 	  Build processor and tools for target: dump_syms,
@@ -46,9 +46,9 @@ config BR2_PACKAGE_GOOGLE_BREAKPAD_TOOLS
 endif
 
 comment "google-breakpad requires a glibc toolchain w/ wchar, threads, C++, gcc >= 7"
-	depends on BR2_PACKAGE_GOOGLE_BREAKPAD_ARCH_SUPPORTS
-	depends on BR2_PACKAGE_HOST_GOOGLE_BREAKPAD_ARCH_SUPPORTS
-	depends on !BR2_INSTALL_LIBSTDCPP || !BR2_USE_WCHAR || \
-		!BR2_TOOLCHAIN_HAS_THREADS || \
-		!BR2_TOOLCHAIN_USES_GLIBC || \
-		!BR2_TOOLCHAIN_GCC_AT_LEAST_7
+	depends on LINGMO_PACKAGE_GOOGLE_BREAKPAD_ARCH_SUPPORTS
+	depends on LINGMO_PACKAGE_HOST_GOOGLE_BREAKPAD_ARCH_SUPPORTS
+	depends on !LINGMO_INSTALL_LIBSTDCPP || !LINGMO_USE_WCHAR || \
+		!LINGMO_TOOLCHAIN_HAS_THREADS || \
+		!LINGMO_TOOLCHAIN_USES_GLIBC || \
+		!LINGMO_TOOLCHAIN_GCC_AT_LEAST_7

@@ -17,7 +17,7 @@ MDEVD_CONF_OPTS = \
 	--with-include=$(STAGING_DIR)/include \
 	--with-dynlib=$(STAGING_DIR)/lib \
 	--with-lib=$(STAGING_DIR)/lib/skalibs \
-	$(if $(BR2_STATIC_LIBS),,--disable-allstatic) \
+	$(if $(LINGMO_STATIC_LIBS),,--disable-allstatic) \
 	$(SHARED_STATIC_LIBS_OPTS)
 
 define MDEVD_CONFIGURE_CMDS

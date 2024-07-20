@@ -1,6 +1,6 @@
-config BR2_PACKAGE_KODI_AUDIODECODER_MODPLUG
+config LINGMO_PACKAGE_KODI_AUDIODECODER_MODPLUG
 	bool "kodi-audiodecoder-modplug"
-	select BR2_PACKAGE_LIBMODPLUG
+	select LINGMO_PACKAGE_LIBMODPLUG
 	help
 	  Modplug decoder addon for Kodi
 

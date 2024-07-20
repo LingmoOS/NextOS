@@ -10,20 +10,20 @@ LJSYSCALL_LICENSE = MIT
 LJSYSCALL_LICENSE_FILES = COPYRIGHT
 
 # dispatch all architectures of LuaJIT
-ifeq ($(BR2_i386),y)
+ifeq ($(LINGMO_i386),y)
 LJSYSCALL_ARCH = x86
-else ifeq ($(BR2_x86_64),y)
+else ifeq ($(LINGMO_x86_64),y)
 LJSYSCALL_ARCH = x64
-else ifeq ($(BR2_powerpc),y)
+else ifeq ($(LINGMO_powerpc),y)
 LJSYSCALL_ARCH = ppc
-else ifeq ($(BR2_arm)$(BR2_armeb),y)
+else ifeq ($(LINGMO_arm)$(LINGMO_armeb),y)
 LJSYSCALL_ARCH = arm
-else ifeq ($(BR2_aarch64)$(BR2_aarch64_be),y)
+else ifeq ($(LINGMO_aarch64)$(LINGMO_aarch64_be),y)
 LJSYSCALL_ARCH = arm64
-else ifeq ($(BR2_mips)$(BR2_mipsel),y)
+else ifeq ($(LINGMO_mips)$(LINGMO_mipsel),y)
 LJSYSCALL_ARCH = mips
 else
-LJSYSCALL_ARCH = $(BR2_ARCH)
+LJSYSCALL_ARCH = $(LINGMO_ARCH)
 endif
 
 LJSYSCALL_TARGET_DIR = $(TARGET_DIR)/usr/share/lua/$(LUAINTERPRETER_ABIVER)

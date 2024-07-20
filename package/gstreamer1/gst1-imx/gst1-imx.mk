@@ -20,31 +20,31 @@ GST1_IMX_DEPENDENCIES += \
 
 GST1_IMX_CONF_OPTS = --prefix="/usr"
 
-ifeq ($(BR2_LINUX_KERNEL),y)
+ifeq ($(LINGMO_LINUX_KERNEL),y)
 # IPU and PXP need access to imx-specific kernel headers
 GST1_IMX_DEPENDENCIES += linux
 GST1_IMX_CONF_OPTS += --kernel-headers="$(LINUX_DIR)/include"
 endif
 
-ifeq ($(BR2_PACKAGE_IMX_CODEC),y)
+ifeq ($(LINGMO_PACKAGE_IMX_CODEC),y)
 GST1_IMX_DEPENDENCIES += imx-codec
 endif
 
-ifeq ($(BR2_PACKAGE_IMX_GPU_VIV),y)
+ifeq ($(LINGMO_PACKAGE_IMX_GPU_VIV),y)
 GST1_IMX_DEPENDENCIES += imx-gpu-viv
 endif
 
-ifeq ($(BR2_PACKAGE_IMX_GPU_G2D),y)
+ifeq ($(LINGMO_PACKAGE_IMX_GPU_G2D),y)
 GST1_IMX_DEPENDENCIES += imx-gpu-g2d
 endif
 
-ifeq ($(BR2_PACKAGE_GST1_IMX_EGLVISINK),y)
+ifeq ($(LINGMO_PACKAGE_GST1_IMX_EGLVISINK),y)
 # There's no --enable-eglvivsink option
-ifeq ($(BR2_PACKAGE_XLIB_LIBX11),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBX11),y)
 GST1_IMX_DEPENDENCIES += xlib_libX11
 GST1_IMX_CONF_OPTS += --egl-platform=x11
 else
-ifeq ($(BR2_PACKAGE_WAYLAND),y)
+ifeq ($(LINGMO_PACKAGE_WAYLAND),y)
 GST1_IMX_DEPENDENCIES += wayland
 GST1_IMX_CONF_OPTS += --egl-platform=wayland
 else
@@ -56,45 +56,45 @@ GST1_IMX_CONF_OPTS += --disable-eglvivsink
 endif
 
 # There's no --enable-g2d option
-ifeq ($(BR2_PACKAGE_GST1_IMX_G2D),)
+ifeq ($(LINGMO_PACKAGE_GST1_IMX_G2D),)
 GST1_IMX_CONF_OPTS += --disable-g2d
 endif
 
 # There's no --enable-ipu option
-ifeq ($(BR2_PACKAGE_GST1_IMX_IPU),)
+ifeq ($(LINGMO_PACKAGE_GST1_IMX_IPU),)
 GST1_IMX_CONF_OPTS += --disable-ipu
 endif
 
 # There's no --enable-mp3encoder option
-ifeq ($(BR2_PACKAGE_GST1_IMX_MP3ENCODER),)
+ifeq ($(LINGMO_PACKAGE_GST1_IMX_MP3ENCODER),)
 GST1_IMX_CONF_OPTS += --disable-mp3encoder
 endif
 
 # There's no --enable-pxp option
-ifeq ($(BR2_PACKAGE_GST1_IMX_PXP),)
+ifeq ($(LINGMO_PACKAGE_GST1_IMX_PXP),)
 GST1_IMX_CONF_OPTS += --disable-pxp
 endif
 
 # There's no --enable-uniaudiodec option
-ifeq ($(BR2_PACKAGE_GST1_IMX_UNIAUDIODEC),)
+ifeq ($(LINGMO_PACKAGE_GST1_IMX_UNIAUDIODEC),)
 GST1_IMX_CONF_OPTS += --disable-uniaudiodec
 endif
 
-ifeq ($(BR2_PACKAGE_GST1_IMX_VPU),y)
+ifeq ($(LINGMO_PACKAGE_GST1_IMX_VPU),y)
 # There's no --enable-vpu option
 GST1_IMX_DEPENDENCIES += libimxvpuapi
 else
 GST1_IMX_CONF_OPTS += --disable-vpu
 endif
 
-ifeq ($(BR2_PACKAGE_GST1_IMX_V4L2VIDEOSRC),y)
+ifeq ($(LINGMO_PACKAGE_GST1_IMX_V4L2VIDEOSRC),y)
 # There's no --enable-imxv4l2videosrc option
 GST1_IMX_DEPENDENCIES += gst1-plugins-bad
 else
 GST1_IMX_CONF_OPTS += --disable-imxv4l2videosrc
 endif
 
-ifeq ($(BR2_PACKAGE_GST1_IMX_V4L2VIDEOSINK),y)
+ifeq ($(LINGMO_PACKAGE_GST1_IMX_V4L2VIDEOSINK),y)
 # There's no --enable-imxv4l2videosink option
 GST1_IMX_DEPENDENCIES += gst1-plugins-bad
 else

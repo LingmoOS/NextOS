@@ -18,21 +18,21 @@ OPENBLAS_MAKE_OPTS = $(TARGET_CONFIGURE_OPTS)
 OPENBLAS_MAKE_OPTS += CROSS=1
 
 # Set OpenBLAS target
-OPENBLAS_MAKE_OPTS += TARGET=$(BR2_PACKAGE_OPENBLAS_TARGET)
+OPENBLAS_MAKE_OPTS += TARGET=$(LINGMO_PACKAGE_OPENBLAS_TARGET)
 
 # When Fortran is not available, only build the C version of BLAS
-ifeq ($(BR2_TOOLCHAIN_HAS_FORTRAN),)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_FORTRAN),)
 OPENBLAS_MAKE_OPTS += ONLY_CBLAS=1
 endif
 
 # Enable/Disable multi-threading (not for static-only since it uses dlfcn.h)
-ifeq ($(BR2_PACKAGE_OPENBLAS_USE_THREAD),y)
+ifeq ($(LINGMO_PACKAGE_OPENBLAS_USE_THREAD),y)
 OPENBLAS_MAKE_OPTS += USE_THREAD=1
 else
 OPENBLAS_MAKE_OPTS += USE_THREAD=0
 endif
 
-ifeq ($(BR2_PACKAGE_OPENBLAS_USE_LOCKING),y)
+ifeq ($(LINGMO_PACKAGE_OPENBLAS_USE_LOCKING),y)
 OPENBLAS_MAKE_OPTS += USE_LOCKING=1
 else
 # not passing USE_LOCKING=0 as this could be confusing: its effect is implicit
@@ -44,12 +44,12 @@ OPENBLAS_MAKE_OPTS += USE_OPENMP=0
 
 # Static-only/Shared-only toggle
 # Note: static library is always generated so that applications can link
-# statically for size reduction, even if BR2_STATIC_LIBS is not set.
-ifeq ($(BR2_STATIC_LIBS),y)
+# statically for size reduction, even if LINGMO_STATIC_LIBS is not set.
+ifeq ($(LINGMO_STATIC_LIBS),y)
 OPENBLAS_MAKE_OPTS += NO_SHARED=1
 endif
 
-ifeq ($(BR2_ARCH_IS_64),y)
+ifeq ($(LINGMO_ARCH_IS_64),y)
 OPENBLAS_MAKE_OPTS += BINARY=64
 else
 OPENBLAS_MAKE_OPTS += BINARY=32
@@ -83,7 +83,7 @@ define OPENBLAS_INSTALL_TARGET_CMDS
 		-C $(@D) install PREFIX=$(TARGET_DIR)/usr
 endef
 
-ifeq ($(BR2_PACKAGE_OPENBLAS_INSTALL_TESTS),y)
+ifeq ($(LINGMO_PACKAGE_OPENBLAS_INSTALL_TESTS),y)
 # Tests are always built, but are not installed, so we need to install
 # them manually. The set of available tests may fluctuate depending on
 # the architecture and other options, so only install whatever gets

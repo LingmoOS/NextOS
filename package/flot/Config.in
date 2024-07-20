@@ -1,6 +1,6 @@
-config BR2_PACKAGE_FLOT
+config LINGMO_PACKAGE_FLOT
 	bool "flot"
-	select BR2_PACKAGE_JQUERY
+	select LINGMO_PACKAGE_JQUERY
 	help
 	  Flot is a pure Javascript plotting library for jQuery. It
 	  produces graphical plots of arbitrary datasets on-the-fly
@@ -16,80 +16,80 @@ config BR2_PACKAGE_FLOT
 
 	  http://www.flotcharts.org/
 
-if BR2_PACKAGE_FLOT
+if LINGMO_PACKAGE_FLOT
 
 comment "flot plugins"
 
-config BR2_PACKAGE_FLOT_CANVAS
+config LINGMO_PACKAGE_FLOT_CANVAS
 	bool "canvas"
 	help
 	  Flot plugin to render axis tick labels directly to the canvas
 
-config BR2_PACKAGE_FLOT_CATEGORIES
+config LINGMO_PACKAGE_FLOT_CATEGORIES
 	bool "categories"
 	help
 	  Flot plugin for plotting textual data or categories
 
-config BR2_PACKAGE_FLOT_CROSSHAIR
+config LINGMO_PACKAGE_FLOT_CROSSHAIR
 	bool "crosshair"
 	help
 	  Flot plugin for showing crosshairs when the mouse hovers
 	  over the plot
 
-config BR2_PACKAGE_FLOT_ERRORBARS
+config LINGMO_PACKAGE_FLOT_ERRORBARS
 	bool "errorbars"
 	help
 	  Flot plugin for plotting error bars
 
-config BR2_PACKAGE_FLOT_FILLBETWEEN
+config LINGMO_PACKAGE_FLOT_FILLBETWEEN
 	bool "fillbetween"
 	help
 	  Flot plugin for computing bottoms for filled line and bar
 	  charts
 
-config BR2_PACKAGE_FLOT_IMAGE
+config LINGMO_PACKAGE_FLOT_IMAGE
 	bool "image"
 	help
 	  Flot plugin for plotting images
 
-config BR2_PACKAGE_FLOT_NAVIGATE
+config LINGMO_PACKAGE_FLOT_NAVIGATE
 	bool "navigate"
 	help
 	  Flot plugin for adding panning and zooming capabilities to a
 	  plot
 
-config BR2_PACKAGE_FLOT_PIE
+config LINGMO_PACKAGE_FLOT_PIE
 	bool "pie"
 	help
 	  Flot plugin for rendering pie charts
 
-config BR2_PACKAGE_FLOT_RESIZE
+config LINGMO_PACKAGE_FLOT_RESIZE
 	bool "resize"
 	help
 	  Flot plugin for automatically redrawing plots when the
 	  placeholder size changes.
 
-config BR2_PACKAGE_FLOT_SELECTION
+config LINGMO_PACKAGE_FLOT_SELECTION
 	bool "selection"
 	help
 	  Flot plugin for selecting regions
 
-config BR2_PACKAGE_FLOT_STACK
+config LINGMO_PACKAGE_FLOT_STACK
 	bool "stack"
 	help
 	  Flot plugin for stacking data sets
 
-config BR2_PACKAGE_FLOT_SYMBOL
+config LINGMO_PACKAGE_FLOT_SYMBOL
 	bool "symbol"
 	help
 	  Flot plugin that adds some extra symbols for plotting points
 
-config BR2_PACKAGE_FLOT_THRESHOLD
+config LINGMO_PACKAGE_FLOT_THRESHOLD
 	bool "threshold"
 	help
 	  Flot plugin for thresholding data
 
-config BR2_PACKAGE_FLOT_TIME
+config LINGMO_PACKAGE_FLOT_TIME
 	bool "time"
 	help
 	  Flot plugin for handling time axes

@@ -10,7 +10,7 @@ GSTD_LICENSE_FILES = COPYING
 GSTD_LICENSE = LGPL-2.1+
 
 GSTD_DEPENDENCIES = \
-	$(BR2_COREUTILS_HOST_DEPENDENCY) \
+	$(LINGMO_COREUTILS_HOST_DEPENDENCY) \
 	gstreamer1 \
 	jansson \
 	json-glib \
@@ -30,7 +30,7 @@ GSTD_CONF_OPTS = \
 
 GSTD_CFLAGS = $(TARGET_CFLAGS) -std=gnu99
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 GSTD_CONF_OPTS += -Denable-systemd=enabled -Denable-initd=disabled
 GSTD_DEPENDENCIES += systemd
 else

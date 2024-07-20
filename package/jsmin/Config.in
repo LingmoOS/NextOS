@@ -1,4 +1,4 @@
-config BR2_PACKAGE_JSMIN
+config LINGMO_PACKAGE_JSMIN
 	bool "jsmin"
 	help
 	  JSMin is a filter which removes comments and unnecessary

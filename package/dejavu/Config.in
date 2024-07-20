@@ -1,4 +1,4 @@
-config BR2_PACKAGE_DEJAVU
+config LINGMO_PACKAGE_DEJAVU
 	bool "DejaVu fonts"
 	help
 	  The DejaVu fonts are a font family based on the Vera Fonts.
@@ -8,25 +8,25 @@ config BR2_PACKAGE_DEJAVU
 
 	  http://dejavu-fonts.org
 
-if BR2_PACKAGE_DEJAVU
+if LINGMO_PACKAGE_DEJAVU
 
-config BR2_PACKAGE_DEJAVU_MONO
+config LINGMO_PACKAGE_DEJAVU_MONO
 	bool "mono fonts"
 	default y
 
-config BR2_PACKAGE_DEJAVU_SANS
+config LINGMO_PACKAGE_DEJAVU_SANS
 	bool "sans fonts"
 	default y
 
-config BR2_PACKAGE_DEJAVU_SERIF
+config LINGMO_PACKAGE_DEJAVU_SERIF
 	bool "serif fonts"
 	default y
 
-config BR2_PACKAGE_DEJAVU_SANS_CONDENSED
+config LINGMO_PACKAGE_DEJAVU_SANS_CONDENSED
 	bool "sans condensed fonts"
 	default y
 
-config BR2_PACKAGE_DEJAVU_SERIF_CONDENSED
+config LINGMO_PACKAGE_DEJAVU_SERIF_CONDENSED
 	bool "serif condensed fonts"
 	default y
 

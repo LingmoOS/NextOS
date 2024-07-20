@@ -1,4 +1,4 @@
-config BR2_PACKAGE_NCURSES
+config LINGMO_PACKAGE_NCURSES
 	bool "ncurses"
 	help
 	  The Ncurses (new curses) library is a free software
@@ -8,20 +8,20 @@ config BR2_PACKAGE_NCURSES
 
 	  https://invisible-island.net/ncurses/
 
-if BR2_PACKAGE_NCURSES
+if LINGMO_PACKAGE_NCURSES
 
-config BR2_PACKAGE_NCURSES_WCHAR
+config LINGMO_PACKAGE_NCURSES_WCHAR
 	bool "enable wide char support"
-	depends on BR2_USE_WCHAR
+	depends on LINGMO_USE_WCHAR
 	help
 	  Enable wide char & UTF-8 support in ncurses libraries
 
-config BR2_PACKAGE_NCURSES_TARGET_PROGS
+config LINGMO_PACKAGE_NCURSES_TARGET_PROGS
 	bool "ncurses programs"
 	help
 	  Include ncurses programs in target (clear, reset, tput, ...)
 
-config BR2_PACKAGE_NCURSES_ADDITIONAL_TERMINFO
+config LINGMO_PACKAGE_NCURSES_ADDITIONAL_TERMINFO
 	string "additional terminfo files to install"
 	help
 	  Whitespace separated list of terminfo files to install on the

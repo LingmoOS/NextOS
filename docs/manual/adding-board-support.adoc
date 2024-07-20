@@ -30,8 +30,8 @@ headers version), _Firmware_, _Bootloader_, _Kernel_, and _Filesystem_.
 
 Always use fixed versions or commit hashes for the different
 components, not the "latest" version. For example, set
-+BR2_LINUX_KERNEL_CUSTOM_VERSION=y+ and
-+BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE+ to the kernel version you tested
++LINGMO_LINUX_KERNEL_CUSTOM_VERSION=y+ and
++LINGMO_LINUX_KERNEL_CUSTOM_VERSION_VALUE+ to the kernel version you tested
 with.
 
 It is recommended to use as much as possible upstream versions of the

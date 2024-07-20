@@ -24,21 +24,21 @@ ZBAR_CONF_OPTS = \
 	--without-x \
 	--without-java
 
-ifeq ($(BR2_PACKAGE_DBUS),y)
+ifeq ($(LINGMO_PACKAGE_DBUS),y)
 ZBAR_DEPENDENCIES += dbus
 ZBAR_CONF_OPTS += --with-dbus
 else
 ZBAR_CONF_OPTS += --without-dbus
 endif
 
-ifeq ($(BR2_PACKAGE_IMAGEMAGICK),y)
+ifeq ($(LINGMO_PACKAGE_IMAGEMAGICK),y)
 ZBAR_DEPENDENCIES += imagemagick
 ZBAR_CONF_OPTS += --with-imagemagick
 else
 ZBAR_CONF_OPTS += --without-imagemagick
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON3),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3),y)
 ZBAR_DEPENDENCIES += host-python3 python3
 ZBAR_CONF_OPTS += --with-python=python3
 ZBAR_CONF_ENV += PYTHON_CONFIG="$(STAGING_DIR)/usr/bin/python3-config"

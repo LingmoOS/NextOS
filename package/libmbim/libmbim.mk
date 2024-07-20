@@ -15,14 +15,14 @@ LIBMBIM_INSTALL_STAGING = YES
 LIBMBIM_DEPENDENCIES = libglib2
 LIBMBIM_CONF_OPTS = -Dman=false
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 LIBMBIM_DEPENDENCIES += gobject-introspection
 LIBMBIM_CONF_OPTS += -Dintrospection=true
 else
 LIBMBIM_CONF_OPTS += -Dintrospection=false
 endif
 
-ifeq ($(BR2_PACKAGE_BASH_COMPLETION),y)
+ifeq ($(LINGMO_PACKAGE_BASH_COMPLETION),y)
 LIBMBIM_DEPENDENCIES += bash-completion
 LIBMBIM_CONF_OPTS += -Dbash_completion=true
 else

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_ERLANG_P1_PKIX
+config LINGMO_PACKAGE_ERLANG_P1_PKIX
 	bool "erlang-p1-pkix"
 	help
 	  PKIX certificates management library for Erlang.

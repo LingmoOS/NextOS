@@ -1,18 +1,18 @@
-config BR2_PACKAGE_PYTHON_MAGIC_WORMHOLE
+config LINGMO_PACKAGE_PYTHON_MAGIC_WORMHOLE
 	bool "python-magic-wormhole"
-	depends on BR2_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS # python-cryptography
-	select BR2_PACKAGE_PYTHON_ATTRS # runtime
-	select BR2_PACKAGE_PYTHON_AUTOBAHN # runtime
-	select BR2_PACKAGE_PYTHON_AUTOMAT # runtime
-	select BR2_PACKAGE_PYTHON_CLICK # runtime
-	select BR2_PACKAGE_PYTHON_CRYPTOGRAPHY # runtime
-	select BR2_PACKAGE_PYTHON_HUMANIZE # runtime
-	select BR2_PACKAGE_PYTHON_PYNACL # runtime
-	select BR2_PACKAGE_PYTHON_SIX # runtime
-	select BR2_PACKAGE_PYTHON_SPAKE2 # runtime
-	select BR2_PACKAGE_PYTHON_TQDM # runtime
-	select BR2_PACKAGE_PYTHON_TWISTED # runtime
-	select BR2_PACKAGE_PYTHON_TXTORCON # runtime
+	depends on LINGMO_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS # python-cryptography
+	select LINGMO_PACKAGE_PYTHON_ATTRS # runtime
+	select LINGMO_PACKAGE_PYTHON_AUTOBAHN # runtime
+	select LINGMO_PACKAGE_PYTHON_AUTOMAT # runtime
+	select LINGMO_PACKAGE_PYTHON_CLICK # runtime
+	select LINGMO_PACKAGE_PYTHON_CRYPTOGRAPHY # runtime
+	select LINGMO_PACKAGE_PYTHON_HUMANIZE # runtime
+	select LINGMO_PACKAGE_PYTHON_PYNACL # runtime
+	select LINGMO_PACKAGE_PYTHON_SIX # runtime
+	select LINGMO_PACKAGE_PYTHON_SPAKE2 # runtime
+	select LINGMO_PACKAGE_PYTHON_TQDM # runtime
+	select LINGMO_PACKAGE_PYTHON_TWISTED # runtime
+	select LINGMO_PACKAGE_PYTHON_TXTORCON # runtime
 	help
 	  Securely transfer data between computers.
 

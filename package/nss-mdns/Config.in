@@ -1,9 +1,9 @@
-config BR2_PACKAGE_NSS_MDNS
+config LINGMO_PACKAGE_NSS_MDNS
 	bool "nss-mdns"
 	# libdaemon->avahi uses fork()
-	depends on BR2_USE_MMU
-	depends on BR2_TOOLCHAIN_USES_GLIBC
-	depends on BR2_PACKAGE_AVAHI_DAEMON
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_TOOLCHAIN_USES_GLIBC
+	depends on LINGMO_PACKAGE_AVAHI_DAEMON
 	help
 	  nss-mdns is a plugin for the GNU Name Service Switch (NSS)
 	  functionality of the GNU C Library (glibc) providing host
@@ -15,5 +15,5 @@ config BR2_PACKAGE_NSS_MDNS
 	  https://github.com/lathiat/nss-mdns
 
 comment "nss-mdns needs a glibc toolchain"
-	depends on BR2_USE_MMU && BR2_PACKAGE_AVAHI_DAEMON
-	depends on !BR2_TOOLCHAIN_USES_GLIBC
+	depends on LINGMO_USE_MMU && LINGMO_PACKAGE_AVAHI_DAEMON
+	depends on !LINGMO_TOOLCHAIN_USES_GLIBC

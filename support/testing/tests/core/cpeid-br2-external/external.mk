@@ -1,1 +1,1 @@
-include $(sort $(wildcard $(BR2_EXTERNAL_CPE_ID_PATH)/package/*/*.mk))
+include $(sort $(wildcard $(LINGMO_EXTERNAL_CPE_ID_PATH)/package/*/*.mk))

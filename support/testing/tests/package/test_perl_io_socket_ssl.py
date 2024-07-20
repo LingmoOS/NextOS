@@ -12,8 +12,8 @@ class TestPerlIOSocketSSL(TestPerlBase):
 
     config = TestPerlBase.config + \
         """
-        BR2_PACKAGE_PERL=y
-        BR2_PACKAGE_PERL_IO_SOCKET_SSL=y
+        LINGMO_PACKAGE_PERL=y
+        LINGMO_PACKAGE_PERL_IO_SOCKET_SSL=y
         """
 
     def test_run(self):

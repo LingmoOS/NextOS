@@ -12,10 +12,10 @@ class TestPerlDBDmysql(TestPerlBase):
 
     config = TestPerlBase.config + \
         """
-        BR2_PACKAGE_PERL=y
-        BR2_PACKAGE_PERL_DBD_MYSQL=y
-        BR2_TARGET_ROOTFS_EXT2=y
-        BR2_TARGET_ROOTFS_EXT2_SIZE="120M"
+        LINGMO_PACKAGE_PERL=y
+        LINGMO_PACKAGE_PERL_DBD_MYSQL=y
+        LINGMO_TARGET_ROOTFS_EXT2=y
+        LINGMO_TARGET_ROOTFS_EXT2_SIZE="120M"
         """
 
     def login(self):

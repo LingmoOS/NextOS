@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBJSON
+config LINGMO_PACKAGE_LIBJSON
 	bool "libjson"
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	help
 	  A JSON reader and writer which is super-efficient and usually
 	  runs circles around other JSON libraries.
@@ -8,4 +8,4 @@ config BR2_PACKAGE_LIBJSON
 	  http://sourceforge.net/projects/libjson/
 
 comment "libjson needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP

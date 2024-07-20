@@ -1,4 +1,4 @@
-config BR2_PACKAGE_BUSYBOX
+config LINGMO_PACKAGE_BUSYBOX
 	bool "BusyBox"
 	default y
 	help
@@ -9,11 +9,11 @@ config BR2_PACKAGE_BUSYBOX
 
 	  Most people will answer Y.
 
-if BR2_PACKAGE_BUSYBOX
+if LINGMO_PACKAGE_BUSYBOX
 
-config BR2_PACKAGE_BUSYBOX_CONFIG
+config LINGMO_PACKAGE_BUSYBOX_CONFIG
 	string "BusyBox configuration file to use?"
-	default "package/busybox/busybox-minimal.config" if !BR2_USE_MMU
+	default "package/busybox/busybox-minimal.config" if !LINGMO_USE_MMU
 	default "package/busybox/busybox.config"
 	help
 	  Some people may wish to use their own modified BusyBox
@@ -23,7 +23,7 @@ config BR2_PACKAGE_BUSYBOX_CONFIG
 	  Most people will just use the default BusyBox configuration
 	  file.
 
-config BR2_PACKAGE_BUSYBOX_CONFIG_FRAGMENT_FILES
+config LINGMO_PACKAGE_BUSYBOX_CONFIG_FRAGMENT_FILES
 	string "Additional BusyBox configuration fragment files"
 	help
 	  A space-separated list of configuration fragment files,
@@ -31,22 +31,22 @@ config BR2_PACKAGE_BUSYBOX_CONFIG_FRAGMENT_FILES
 
 # This option is not an option of Busybox, it can be selected even
 # if Busybox is not enabled.
-config BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
+config LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS
 	bool "Show packages that are also provided by busybox"
 	help
 	  Show packages in menuconfig that are potentially also provided
 	  by busybox.
 
-config BR2_PACKAGE_BUSYBOX_SELINUX
+config LINGMO_PACKAGE_BUSYBOX_SELINUX
 	bool "Enable SELinux support"
 	default y
-	depends on BR2_PACKAGE_LIBSELINUX
-	select BR2_PACKAGE_BUSYBOX_INDIVIDUAL_BINARIES
+	depends on LINGMO_PACKAGE_LIBSELINUX
+	select LINGMO_PACKAGE_BUSYBOX_INDIVIDUAL_BINARIES
 	help
 	  Enable SELinux support in BusyBox. Please note that
 	  depending on your BusyBox configuration and the SELinux
 	  policy implementation, you may want to also enable
-	  BR2_PACKAGE_BUSYBOX_INDIVIDUAL_BINARIES.
+	  LINGMO_PACKAGE_BUSYBOX_INDIVIDUAL_BINARIES.
 
 	  For instance, if your BusyBox configuration only uses a
 	  couple of minor BusyBox features, such as simple command
@@ -55,9 +55,9 @@ config BR2_PACKAGE_BUSYBOX_SELINUX
 	  crond, then individual binaries have to be enabled for the
 	  SELinux type transitions to occur properly.
 
-config BR2_PACKAGE_BUSYBOX_INDIVIDUAL_BINARIES
+config LINGMO_PACKAGE_BUSYBOX_INDIVIDUAL_BINARIES
 	bool "Individual binaries"
-	depends on !BR2_STATIC_LIBS
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  By default (i.e with this option disabled), Busybox is
 	  installed as a single binary in /bin/busybox and all applets
@@ -67,17 +67,17 @@ config BR2_PACKAGE_BUSYBOX_INDIVIDUAL_BINARIES
 	  which is needed for proper operation with SELinux.
 
 comment "Busybox individual binaries need a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_STATIC_LIBS
 
-config BR2_PACKAGE_BUSYBOX_WATCHDOG
+config LINGMO_PACKAGE_BUSYBOX_WATCHDOG
 	bool "Install the watchdog daemon startup script"
 	help
 	  Install the watchdog daemon startup script,
 	  that just start at the boot the busybox watchdog daemon.
 
-if BR2_PACKAGE_BUSYBOX_WATCHDOG
+if LINGMO_PACKAGE_BUSYBOX_WATCHDOG
 
-config BR2_PACKAGE_BUSYBOX_WATCHDOG_PERIOD
+config LINGMO_PACKAGE_BUSYBOX_WATCHDOG_PERIOD
 	string "Delay between reset"
 	default "5"
 	help
@@ -90,15 +90,15 @@ endif
 
 endif
 
-if !BR2_PACKAGE_BUSYBOX # kconfig doesn't support else
+if !LINGMO_PACKAGE_BUSYBOX # kconfig doesn't support else
 
 comment "You may need to enable other packages to get a working system"
 comment "You better know what you're doing!"
 
 # This option is not an option of Busybox, it can be selected even if
 # Busybox is not enabled. This dummy option ensures that packages that
-# depend on BR2_PACKAGE_BUSYBOX_SHOW_OTHERS are visible when Busybox
+# depend on LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS are visible when Busybox
 # is disabled.
-config BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
+config LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS
 	default y
 endif

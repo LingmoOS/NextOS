@@ -13,30 +13,30 @@ ZLIB_NG_PROVIDES = zlib
 
 # Build with zlib compatible API, gzFile support and optimizations on
 ZLIB_NG_CONF_OPTS += \
-	-DCMAKE_C_COMPILER_TARGET=$(BR2_ARCH) \
+	-DCMAKE_C_COMPILER_TARGET=$(LINGMO_ARCH) \
 	-DWITH_GZFILEOP=1 \
 	-DWITH_OPTIM=1 \
 	-DZLIB_COMPAT=1 \
 	-DZLIB_ENABLE_TESTS=OFF
 
 # Enable ACLE on ARM
-ifeq ($(BR2_arm),y)
+ifeq ($(LINGMO_arm),y)
 ZLIB_NG_CONF_OPTS += -DWITH_ACLE=1
 endif
 
-ifeq ($(BR2_ARM_CPU_HAS_NEON)$(BR2_aarch64),y)
+ifeq ($(LINGMO_ARM_CPU_HAS_NEON)$(LINGMO_aarch64),y)
 ZLIB_NG_CONF_OPTS += -DWITH_NEON=ON
 else
 ZLIB_NG_CONF_OPTS += -DWITH_NEON=OFF
 endif
 
-ifeq ($(BR2_powerpc_power8),y)
+ifeq ($(LINGMO_powerpc_power8),y)
 ZLIB_NG_CONF_OPTS += -DWITH_POWER8=ON
 else
 ZLIB_NG_CONF_OPTS += -DWITH_POWER8=OFF
 endif
 
-ifeq ($(BR2_powerpc_power9),y)
+ifeq ($(LINGMO_powerpc_power9),y)
 ZLIB_NG_CONF_OPTS += -DWITH_POWER9=ON
 else
 ZLIB_NG_CONF_OPTS += -DWITH_POWER9=OFF

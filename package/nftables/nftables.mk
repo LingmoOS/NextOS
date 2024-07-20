@@ -20,29 +20,29 @@ NFTABLES_CONF_OPTS = \
 	--disable-pdf-doc \
 	--disable-python
 
-ifeq ($(BR2_PACKAGE_GMP),y)
+ifeq ($(LINGMO_PACKAGE_GMP),y)
 NFTABLES_DEPENDENCIES += gmp
 NFTABLES_CONF_OPTS += --without-mini-gmp
 else
 NFTABLES_CONF_OPTS += --with-mini-gmp
 endif
 
-ifeq ($(BR2_PACKAGE_LIBEDIT),y)
+ifeq ($(LINGMO_PACKAGE_LIBEDIT),y)
 NFTABLES_CONF_OPTS += --with-cli=editline
 NFTABLES_DEPENDENCIES += libedit
 NFTABLES_LIBS += -lncurses
-else ifeq ($(BR2_PACKAGE_READLINE),y)
+else ifeq ($(LINGMO_PACKAGE_READLINE),y)
 NFTABLES_CONF_OPTS += --with-cli=readline
 NFTABLES_DEPENDENCIES += readline
 NFTABLES_LIBS += -lncurses
-else ifeq ($(BR2_PACKAGE_LINENOISE),y)
+else ifeq ($(LINGMO_PACKAGE_LINENOISE),y)
 NFTABLES_CONF_OPTS += --with-cli=linenoise
 NFTABLES_DEPENDENCIES += linenoise
 else
 NFTABLES_CONF_OPTS += --without-cli
 endif
 
-ifeq ($(BR2_PACKAGE_JANSSON),y)
+ifeq ($(LINGMO_PACKAGE_JANSSON),y)
 NFTABLES_DEPENDENCIES += jansson
 NFTABLES_CONF_OPTS += --with-json
 else

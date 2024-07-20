@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LUA_GD
+config LINGMO_PACKAGE_LUA_GD
 	bool "lua-gd"
-	select BR2_PACKAGE_GD
+	select LINGMO_PACKAGE_GD
 	help
 	  GD (graphics library) bindings for Lua.
 

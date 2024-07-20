@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_S3TRANSFER
+config LINGMO_PACKAGE_PYTHON_S3TRANSFER
 	bool "python-s3transfer"
-	select BR2_PACKAGE_PYTHON_BOTOCORE # runtime
+	select LINGMO_PACKAGE_PYTHON_BOTOCORE # runtime
 	help
 	  An Amazon S3 Transfer Manager.
 

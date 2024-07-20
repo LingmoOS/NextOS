@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LIBRTAS
+config LINGMO_PACKAGE_LIBRTAS
 	bool "librtas"
-	depends on BR2_powerpc || BR2_powerpc64 || BR2_powerpc64le
+	depends on LINGMO_powerpc || LINGMO_powerpc64 || LINGMO_powerpc64le
 	help
 	  The librtas package provides an interface for Run-Time
 	  Abstraction Services (RTAS) calls on PAPR platforms.

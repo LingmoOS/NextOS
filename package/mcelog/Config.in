@@ -1,7 +1,7 @@
-config BR2_PACKAGE_MCELOG
+config LINGMO_PACKAGE_MCELOG
 	bool "mcelog"
-	depends on BR2_i386 || BR2_x86_64
-	depends on BR2_USE_MMU # fork()
+	depends on LINGMO_i386 || LINGMO_x86_64
+	depends on LINGMO_USE_MMU # fork()
 	help
 	  mcelog processes machine checks (in particular memory and
 	  CPU hardware errors) on modern x86 Linux systems.

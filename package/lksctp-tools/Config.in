@@ -1,8 +1,8 @@
-config BR2_PACKAGE_LKSCTP_TOOLS
+config LINGMO_PACKAGE_LKSCTP_TOOLS
 	bool "lksctp-tools"
-	depends on BR2_USE_MMU # fork()
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on !BR2_STATIC_LIBS # dlopen()
+	depends on LINGMO_USE_MMU # fork()
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_STATIC_LIBS # dlopen()
 	help
 	  The lksctp-tools project provides a Linux user space library
 	  for SCTP (libsctp) including C language header files
@@ -13,5 +13,5 @@ config BR2_PACKAGE_LKSCTP_TOOLS
 	  http://lksctp.sourceforge.net/
 
 comment "lksctp-tools needs a toolchain w/ threads, dynamic library"
-	depends on BR2_USE_MMU
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS

@@ -13,23 +13,23 @@ FBV_LICENSE_FILES = COPYING
 ### image format dependencies and configure options
 FBV_DEPENDENCIES = # empty
 FBV_CONFIGURE_OPTS = # empty
-ifeq ($(BR2_PACKAGE_FBV_PNG),y)
+ifeq ($(LINGMO_PACKAGE_FBV_PNG),y)
 FBV_DEPENDENCIES += libpng
 
 # libpng in turn depends on other libraries
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 FBV_CONFIGURE_OPTS += "--libs=`$(PKG_CONFIG_HOST_BINARY) --libs libpng`"
 endif
 
 else
 FBV_CONFIGURE_OPTS += --without-libpng
 endif
-ifeq ($(BR2_PACKAGE_FBV_JPEG),y)
+ifeq ($(LINGMO_PACKAGE_FBV_JPEG),y)
 FBV_DEPENDENCIES += jpeg
 else
 FBV_CONFIGURE_OPTS += --without-libjpeg
 endif
-ifeq ($(BR2_PACKAGE_FBV_GIF),y)
+ifeq ($(LINGMO_PACKAGE_FBV_GIF),y)
 FBV_DEPENDENCIES += giflib
 else
 FBV_CONFIGURE_OPTS += --without-libungif

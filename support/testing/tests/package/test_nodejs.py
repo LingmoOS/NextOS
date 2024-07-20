@@ -6,16 +6,16 @@ import infra.basetest
 class TestNodeJSBasic(infra.basetest.BRTest):
     config = \
         """
-        BR2_arm=y
-        BR2_cortex_a9=y
-        BR2_ARM_ENABLE_VFP=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_PACKAGE_NODEJS=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
-        BR2_ROOTFS_POST_BUILD_SCRIPT="{}"
-        BR2_ROOTFS_POST_SCRIPT_ARGS="{}"
+        LINGMO_arm=y
+        LINGMO_cortex_a9=y
+        LINGMO_ARM_ENABLE_VFP=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_PACKAGE_NODEJS=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
+        LINGMO_ROOTFS_POST_BUILD_SCRIPT="{}"
+        LINGMO_ROOTFS_POST_SCRIPT_ARGS="{}"
         """.format(infra.filepath("tests/package/copy-sample-script-to-target.sh"),
                    infra.filepath("tests/package/sample_nodejs_basic.js"))
 
@@ -31,18 +31,18 @@ class TestNodeJSBasic(infra.basetest.BRTest):
 class TestNodeJSModuleHostBin(infra.basetest.BRTest):
     config = \
         """
-        BR2_arm=y
-        BR2_cortex_a9=y
-        BR2_ARM_ENABLE_VFP=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_PACKAGE_NODEJS=y
-        BR2_PACKAGE_NODEJS_MODULES_ADDITIONAL="lodash"
-        BR2_PACKAGE_HOST_NODEJS_BIN=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
-        BR2_ROOTFS_POST_BUILD_SCRIPT="{}"
-        BR2_ROOTFS_POST_SCRIPT_ARGS="{}"
+        LINGMO_arm=y
+        LINGMO_cortex_a9=y
+        LINGMO_ARM_ENABLE_VFP=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_PACKAGE_NODEJS=y
+        LINGMO_PACKAGE_NODEJS_MODULES_ADDITIONAL="lodash"
+        LINGMO_PACKAGE_HOST_NODEJS_BIN=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
+        LINGMO_ROOTFS_POST_BUILD_SCRIPT="{}"
+        LINGMO_ROOTFS_POST_SCRIPT_ARGS="{}"
         """.format(infra.filepath("tests/package/copy-sample-script-to-target.sh"),
                    infra.filepath("tests/package/sample_nodejs_module.js"))
 
@@ -58,18 +58,18 @@ class TestNodeJSModuleHostBin(infra.basetest.BRTest):
 class TestNodeJSModuleHostSrc(infra.basetest.BRTest):
     config = \
         """
-        BR2_arm=y
-        BR2_cortex_a9=y
-        BR2_ARM_ENABLE_VFP=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_PACKAGE_NODEJS=y
-        BR2_PACKAGE_NODEJS_MODULES_ADDITIONAL="lodash"
-        BR2_PACKAGE_HOST_NODEJS_SRC=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
-        BR2_ROOTFS_POST_BUILD_SCRIPT="{}"
-        BR2_ROOTFS_POST_SCRIPT_ARGS="{}"
+        LINGMO_arm=y
+        LINGMO_cortex_a9=y
+        LINGMO_ARM_ENABLE_VFP=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_PACKAGE_NODEJS=y
+        LINGMO_PACKAGE_NODEJS_MODULES_ADDITIONAL="lodash"
+        LINGMO_PACKAGE_HOST_NODEJS_SRC=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
+        LINGMO_ROOTFS_POST_BUILD_SCRIPT="{}"
+        LINGMO_ROOTFS_POST_SCRIPT_ARGS="{}"
         """.format(infra.filepath("tests/package/copy-sample-script-to-target.sh"),
                    infra.filepath("tests/package/sample_nodejs_module.js"))
 

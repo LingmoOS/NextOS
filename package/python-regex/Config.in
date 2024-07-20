@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_REGEX
+config LINGMO_PACKAGE_PYTHON_REGEX
 	bool "python-regex"
 	help
 	  Alternative regular expression module, to replace re.

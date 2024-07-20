@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_GENPART
+config LINGMO_PACKAGE_HOST_GENPART
 	bool "host genpart"
 	help
 	  Generate a 16 byte partition table entry defined by command

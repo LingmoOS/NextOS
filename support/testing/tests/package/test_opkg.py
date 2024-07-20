@@ -11,14 +11,14 @@ class TestOpkg(infra.basetest.BRTest):
     # package.
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_PACKAGE_NETSNMP=y
-        # BR2_PACKAGE_NETSNMP_CLIENTS is not set
-        # BR2_PACKAGE_NETSNMP_ENABLE_MIBS is not set
-        BR2_PACKAGE_OPKG=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
-        BR2_PACKAGE_HOST_OPKG_UTILS=y
-        BR2_ROOTFS_POST_BUILD_SCRIPT="{}"
+        LINGMO_PACKAGE_NETSNMP=y
+        # LINGMO_PACKAGE_NETSNMP_CLIENTS is not set
+        # LINGMO_PACKAGE_NETSNMP_ENABLE_MIBS is not set
+        LINGMO_PACKAGE_OPKG=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_HOST_OPKG_UTILS=y
+        LINGMO_ROOTFS_POST_BUILD_SCRIPT="{}"
         """.format(infra.filepath("tests/package/test_opkg/post-build.sh"))
 
     def test_run(self):

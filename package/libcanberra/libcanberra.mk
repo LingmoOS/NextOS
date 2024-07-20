@@ -14,42 +14,42 @@ LIBCANBERRA_INSTALL_STAGING = YES
 LIBCANBERRA_DEPENDENCIES = host-pkgconf libtool libvorbis
 LIBCANBERRA_CONF_OPTS = --disable-oss --disable-null --disable-tdb --disable-lynx
 
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 LIBCANBERRA_CONF_OPTS += --enable-udev
 LIBCANBERRA_DEPENDENCIES += udev
 else
 LIBCANBERRA_CONF_OPTS += --disable-udev
 endif
 
-ifeq ($(BR2_PACKAGE_ALSA_LIB),y)
+ifeq ($(LINGMO_PACKAGE_ALSA_LIB),y)
 LIBCANBERRA_CONF_OPTS += --enable-alsa
 LIBCANBERRA_DEPENDENCIES += alsa-lib
 else
 LIBCANBERRA_CONF_OPTS += --disable-alsa
 endif
 
-ifeq ($(BR2_PACKAGE_PULSEAUDIO),y)
+ifeq ($(LINGMO_PACKAGE_PULSEAUDIO),y)
 LIBCANBERRA_CONF_OPTS += --enable-pulse
 LIBCANBERRA_DEPENDENCIES += pulseaudio
 else
 LIBCANBERRA_CONF_OPTS += --disable-pulse
 endif
 
-ifeq ($(BR2_PACKAGE_GSTREAMER1),y)
+ifeq ($(LINGMO_PACKAGE_GSTREAMER1),y)
 LIBCANBERRA_CONF_OPTS += --enable-gstreamer
 LIBCANBERRA_DEPENDENCIES += gstreamer1
 else
 LIBCANBERRA_CONF_OPTS += --disable-gstreamer
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGTK2),y)
+ifeq ($(LINGMO_PACKAGE_LIBGTK2),y)
 LIBCANBERRA_CONF_OPTS += --enable-gtk
 LIBCANBERRA_DEPENDENCIES += libgtk2
 else
 LIBCANBERRA_CONF_OPTS += --disable-gtk
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGTK3_X11),y)
+ifeq ($(LINGMO_PACKAGE_LIBGTK3_X11),y)
 LIBCANBERRA_CONF_OPTS += --enable-gtk3
 LIBCANBERRA_DEPENDENCIES += libgtk3
 else

@@ -6,12 +6,12 @@ import infra.basetest
 class TestZ3(infra.basetest.BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_Z3=y
-        BR2_PACKAGE_Z3_PYTHON=y
-        BR2_ROOTFS_OVERLAY="{}"
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_Z3=y
+        LINGMO_PACKAGE_Z3_PYTHON=y
+        LINGMO_ROOTFS_OVERLAY="{}"
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """.format(
            # overlay to add a z3 smt and python test scripts
            infra.filepath("tests/package/test_z3/rootfs-overlay"))

@@ -13,7 +13,7 @@ DIEHARDER_DEPENDENCIES = gsl
 DIEHARDER_AUTORECONF = YES
 
 # fix endianness detection
-ifeq ($(BR2_ENDIAN),"BIG")
+ifeq ($(LINGMO_ENDIAN),"BIG")
 DIEHARDER_CONF_ENV = ac_cv_c_endian=big
 else
 DIEHARDER_CONF_ENV = ac_cv_c_endian=little

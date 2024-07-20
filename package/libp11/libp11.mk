@@ -16,7 +16,7 @@ LIBP11_LICENSE_FILES = COPYING
 LIBP11_CONF_OPTS = \
 	--with-enginesdir=`$(PKG_CONFIG_HOST_BINARY) --variable enginesdir libcrypto | xargs readlink -f | sed 's%^$(STAGING_DIR)%%'`
 
-ifeq ($(BR2_PACKAGE_P11_KIT),y)
+ifeq ($(LINGMO_PACKAGE_P11_KIT),y)
 LIBP11_CONF_OPTS += --with-pkcs11-module=/usr/lib/p11-kit-proxy.so
 endif
 

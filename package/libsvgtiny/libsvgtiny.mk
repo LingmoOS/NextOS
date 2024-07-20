@@ -16,7 +16,7 @@ LIBSVGTINY_LICENSE_FILES = README
 # The libsvgtiny build system cannot build both the shared and static
 # libraries. So when the Buildroot configuration requests to build
 # both the shared and static variants, we build only the shared one.
-ifeq ($(BR2_SHARED_LIBS)$(BR2_SHARED_STATIC_LIBS),y)
+ifeq ($(LINGMO_SHARED_LIBS)$(LINGMO_SHARED_STATIC_LIBS),y)
 LIBSVGTINY_COMPONENT_TYPE = lib-shared
 else
 LIBSVGTINY_COMPONENT_TYPE = lib-static

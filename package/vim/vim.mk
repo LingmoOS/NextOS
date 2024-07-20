@@ -25,21 +25,21 @@ VIM_LICENSE = Charityware
 VIM_LICENSE_FILES = LICENSE README.txt
 VIM_CPE_ID_VENDOR = vim
 
-ifeq ($(BR2_PACKAGE_ACL),y)
+ifeq ($(LINGMO_PACKAGE_ACL),y)
 VIM_CONF_OPTS += --enable-acl
 VIM_DEPENDENCIES += acl
 else
 VIM_CONF_OPTS += --disable-acl
 endif
 
-ifeq ($(BR2_PACKAGE_GPM),y)
+ifeq ($(LINGMO_PACKAGE_GPM),y)
 VIM_CONF_OPTS += --enable-gpm
 VIM_DEPENDENCIES += gpm
 else
 VIM_CONF_OPTS += --disable-gpm
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSELINUX),y)
+ifeq ($(LINGMO_PACKAGE_LIBSELINUX),y)
 VIM_CONF_OPTS += --enable-selinux
 VIM_DEPENDENCIES += libselinux
 else
@@ -64,7 +64,7 @@ define VIM_REMOVE_DOCS
 endef
 
 # Avoid oopses with vipw/vigr, lack of $EDITOR and 'vi' command expectation
-ifeq ($(BR2_ROOTFS_MERGED_USR),y)
+ifeq ($(LINGMO_ROOTFS_MERGED_USR),y)
 define VIM_INSTALL_VI_SYMLINK
 	ln -sf vim $(TARGET_DIR)/usr/bin/vi
 endef
@@ -75,7 +75,7 @@ endef
 endif
 VIM_POST_INSTALL_TARGET_HOOKS += VIM_INSTALL_VI_SYMLINK
 
-ifeq ($(BR2_PACKAGE_VIM_RUNTIME),y)
+ifeq ($(LINGMO_PACKAGE_VIM_RUNTIME),y)
 VIM_POST_INSTALL_TARGET_HOOKS += VIM_INSTALL_RUNTIME_CMDS
 VIM_POST_INSTALL_TARGET_HOOKS += VIM_REMOVE_DOCS
 endif

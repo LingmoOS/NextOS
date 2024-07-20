@@ -15,23 +15,23 @@ LIBINPUT_CPE_ID_VENDOR = freedesktop
 # Tests need fork, so just disable them everywhere.
 LIBINPUT_CONF_OPTS = -Dtests=false -Dlibwacom=false -Ddocumentation=false
 
-ifeq ($(BR2_PACKAGE_LIBGTK3),y)
+ifeq ($(LINGMO_PACKAGE_LIBGTK3),y)
 LIBINPUT_CONF_OPTS += -Ddebug-gui=true
 LIBINPUT_DEPENDENCIES += libgtk3
-ifeq ($(BR2_PACKAGE_WAYLAND),y)
+ifeq ($(LINGMO_PACKAGE_WAYLAND),y)
 LIBINPUT_DEPENDENCIES += wayland
 endif
-ifeq ($(BR2_PACKAGE_WAYLAND_PROTOCOLS),y)
+ifeq ($(LINGMO_PACKAGE_WAYLAND_PROTOCOLS),y)
 LIBINPUT_DEPENDENCIES += wayland-protocols
 endif
-ifeq ($(BR2_PACKAGE_XLIB_LIBX11),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBX11),y)
 LIBINPUT_DEPENDENCIES += xlib_libX11
 endif
 else
 LIBINPUT_CONF_OPTS += -Ddebug-gui=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIBINPUT_PYTHON_TOOLS),)
+ifeq ($(LINGMO_PACKAGE_LIBINPUT_PYTHON_TOOLS),)
 LIBINPUT_PYTHON_TOOLS = libinput-analyze-per-slot-delta \
 	libinput-analyze-recording \
 	libinput-analyze-touch-down-state \

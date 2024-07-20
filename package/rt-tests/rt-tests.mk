@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-RT_TESTS_SITE = $(BR2_KERNEL_MIRROR)/linux/utils/rt-tests
+RT_TESTS_SITE = $(LINGMO_KERNEL_MIRROR)/linux/utils/rt-tests
 RT_TESTS_SOURCE = rt-tests-$(RT_TESTS_VERSION).tar.xz
 RT_TESTS_VERSION = 2.5
 RT_TESTS_LICENSE = GPL-2.0+
@@ -24,7 +24,7 @@ define RT_TESTS_INSTALL_TARGET_CMDS
 	$(TARGET_MAKE_ENV) $(MAKE) -C $(@D) \
 		DESTDIR="$(TARGET_DIR)" \
 		prefix=/usr \
-		PYLIB="$(if $(BR2_PACKAGE_PYTHON3),/usr/lib/python$(PYTHON3_VERSION_MAJOR)/site-packages/)" \
+		PYLIB="$(if $(LINGMO_PACKAGE_PYTHON3),/usr/lib/python$(PYTHON3_VERSION_MAJOR)/site-packages/)" \
 		install
 endef
 

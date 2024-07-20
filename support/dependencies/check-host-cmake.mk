@@ -5,12 +5,12 @@
 # cmake version than the one provided by the host, our
 # cmake infra will catch it and build its own.
 #
-BR2_CMAKE_VERSION_MIN = $(BR2_HOST_CMAKE_AT_LEAST)
+LINGMO_CMAKE_VERSION_MIN = $(LINGMO_HOST_CMAKE_AT_LEAST)
 
-BR2_CMAKE_CANDIDATES ?= cmake cmake3
-BR2_CMAKE ?= $(call suitable-host-package,cmake,\
-	$(BR2_CMAKE_VERSION_MIN) $(BR2_CMAKE_CANDIDATES))
-ifeq ($(BR2_CMAKE),)
-BR2_CMAKE = $(HOST_DIR)/bin/cmake
-BR2_CMAKE_HOST_DEPENDENCY = host-cmake
+LINGMO_CMAKE_CANDIDATES ?= cmake cmake3
+LINGMO_CMAKE ?= $(call suitable-host-package,cmake,\
+	$(LINGMO_CMAKE_VERSION_MIN) $(LINGMO_CMAKE_CANDIDATES))
+ifeq ($(LINGMO_CMAKE),)
+LINGMO_CMAKE = $(HOST_DIR)/bin/cmake
+LINGMO_CMAKE_HOST_DEPENDENCY = host-cmake
 endif

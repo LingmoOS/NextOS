@@ -1,18 +1,18 @@
-config BR2_PACKAGE_NANO
+config LINGMO_PACKAGE_NANO
 	bool "nano"
-	depends on BR2_USE_WCHAR
+	depends on LINGMO_USE_WCHAR
 	# full version uses fork()
-	select BR2_PACKAGE_NANO_TINY if !BR2_USE_MMU
-	select BR2_PACKAGE_NCURSES
+	select LINGMO_PACKAGE_NANO_TINY if !LINGMO_USE_MMU
+	select LINGMO_PACKAGE_NCURSES
 	help
 	  A nice ncurses-based editor. Started out as a clone of pico.
 	  Great editor for new users.
 
 	  https://www.nano-editor.org/
 
-if BR2_PACKAGE_NANO
+if LINGMO_PACKAGE_NANO
 
-config BR2_PACKAGE_NANO_TINY
+config LINGMO_PACKAGE_NANO_TINY
 	bool "optimize for size"
 	default y
 	help
@@ -21,4 +21,4 @@ config BR2_PACKAGE_NANO_TINY
 endif
 
 comment "nano needs a toolchain w/ wchar"
-	depends on !BR2_USE_WCHAR
+	depends on !LINGMO_USE_WCHAR

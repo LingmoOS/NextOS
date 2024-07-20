@@ -1,4 +1,4 @@
-config BR2_PACKAGE_FXDIV
+config LINGMO_PACKAGE_FXDIV
 	bool "fxdiv"
 	help
 	  Header-only library for division via fixed-point

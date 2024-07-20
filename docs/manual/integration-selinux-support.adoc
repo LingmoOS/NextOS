@@ -20,14 +20,14 @@ _SELinux_ has three modes of operation:
   denied
 
 In Buildroot the mode of operation is controlled by the
-+BR2_PACKAGE_REFPOLICY_POLICY_STATE_*+ configuration options. The
++LINGMO_PACKAGE_REFPOLICY_POLICY_STATE_*+ configuration options. The
 Linux kernel also has various configuration options that affect how
 +SELinux+ is enabled (see +security/selinux/Kconfig+ in the Linux
 kernel sources).
 
 By default in Buildroot the +SELinux+ policy is provided by the
 upstream https://github.com/SELinuxProject/refpolicy[refpolicy]
-project, enabled with +BR2_PACKAGE_REFPOLICY+.
+project, enabled with +LINGMO_PACKAGE_REFPOLICY+.
 
 [[enabling-selinux]]
 ==== Enabling SELinux support
@@ -35,8 +35,8 @@ project, enabled with +BR2_PACKAGE_REFPOLICY+.
 To have proper support for +SELinux+ in a Buildroot generated system,
 the following configuration options must be enabled:
 
-* +BR2_PACKAGE_LIBSELINUX+
-* +BR2_PACKAGE_REFPOLICY+
+* +LINGMO_PACKAGE_LIBSELINUX+
+* +LINGMO_PACKAGE_REFPOLICY+
 
 In addition, your filesystem image format must support extended
 attributes.
@@ -54,9 +54,9 @@ several ways to enable such modules are provided:
 - Packages can provide additional +SELinux+ modules by putting them (.fc, .if
   and .te files) in +package/<packagename>/selinux/+.
 - Extra +SELinux+ modules can be added in directories pointed by the
-  +BR2_REFPOLICY_EXTRA_MODULES_DIRS+ configuration option.
+  +LINGMO_REFPOLICY_EXTRA_MODULES_DIRS+ configuration option.
 - Additional modules in the +refpolicy+ can be enabled if listed in the
-  +BR2_REFPOLICY_EXTRA_MODULES_DEPENDENCIES+ configuration option.
+  +LINGMO_REFPOLICY_EXTRA_MODULES_DEPENDENCIES+ configuration option.
 
 Buildroot also allows to completely override the +refpolicy+. This
 allows to provide a full custom policy designed specifically for a
@@ -69,6 +69,6 @@ official https://github.com/SELinuxProject/refpolicy[refpolicy].
 In order to fully override the +refpolicy+ the following configuration
 variables have to be set:
 
-- +BR2_PACKAGE_REFPOLICY_CUSTOM_GIT+
-- +BR2_PACKAGE_REFPOLICY_CUSTOM_REPO_URL+
-- +BR2_PACKAGE_REFPOLICY_CUSTOM_REPO_VERSION+
+- +LINGMO_PACKAGE_REFPOLICY_CUSTOM_GIT+
+- +LINGMO_PACKAGE_REFPOLICY_CUSTOM_REPO_URL+
+- +LINGMO_PACKAGE_REFPOLICY_CUSTOM_REPO_VERSION+

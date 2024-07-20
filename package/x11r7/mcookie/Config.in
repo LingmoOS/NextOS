@@ -1,4 +1,4 @@
-config BR2_PACKAGE_MCOOKIE
+config LINGMO_PACKAGE_MCOOKIE
 	bool "mcookie"
 	help
 	  cookie generator for X server

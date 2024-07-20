@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBMD
+config LINGMO_PACKAGE_LIBMD
 	bool "libmd"
 	help
 	  This library provides message digest functions found on BSD

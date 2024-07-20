@@ -1,4 +1,4 @@
-config BR2_PACKAGE_CRACKLIB
+config LINGMO_PACKAGE_CRACKLIB
 	bool "cracklib"
 	help
 	  CrackLib tests passwords to determine whether they match
@@ -12,14 +12,14 @@ config BR2_PACKAGE_CRACKLIB
 
 	  https://github.com/cracklib/cracklib
 
-if BR2_PACKAGE_CRACKLIB
+if LINGMO_PACKAGE_CRACKLIB
 
-config BR2_PACKAGE_CRACKLIB_TOOLS
+config LINGMO_PACKAGE_CRACKLIB_TOOLS
 	bool "install tools"
 	help
 	  Install cracklib command line tools for creating dicts.
 
-config BR2_PACKAGE_CRACKLIB_FULL_DICT
+config LINGMO_PACKAGE_CRACKLIB_FULL_DICT
 	bool "full dict"
 	help
 	  Install the full cracklib dict (requires about 8Mb extra

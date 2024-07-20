@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_FLUP
+config LINGMO_PACKAGE_PYTHON_FLUP
 	bool "python-flup"
 	help
 	  flup provides of a collection of WSGI modules for Python.

@@ -1,6 +1,6 @@
-config BR2_PACKAGE_HOST_DRACUT
+config LINGMO_PACKAGE_HOST_DRACUT
 	bool
-	select BR2_PACKAGE_HOST_KMOD
+	select LINGMO_PACKAGE_HOST_KMOD
 	help
 	  dracut is used to create an initramfs image by
 	  copying tools and files from an installed system

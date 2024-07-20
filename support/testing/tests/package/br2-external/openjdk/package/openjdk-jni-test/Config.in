@@ -1,5 +1,5 @@
-config BR2_PACKAGE_OPENJDK_JNI_TEST
+config LINGMO_PACKAGE_OPENJDK_JNI_TEST
 	bool "openjdk JNI test"
-	depends on BR2_PACKAGE_OPENJDK
+	depends on LINGMO_PACKAGE_OPENJDK
 	help
 	  Tests openjdk JNI support

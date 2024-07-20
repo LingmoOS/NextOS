@@ -25,14 +25,14 @@ LIBMANETTE_CONF_OPTS = \
 	-Ddoc=false \
 	-Dvapi=false
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 LIBMANETTE_CONF_OPTS += -Dintrospection=true
 LIBMANETTE_DEPENDENCIES += gobject-introspection
 else
 LIBMANETTE_CONF_OPTS += -Dintrospection=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGUDEV),y)
+ifeq ($(LINGMO_PACKAGE_LIBGUDEV),y)
 LIBMANETTE_CONF_OPTS += -Dgudev=enabled
 LIBMANETTE_DEPENDENCIES += libgudev
 else

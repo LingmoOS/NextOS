@@ -1,4 +1,4 @@
-config BR2_PACKAGE_WILINK_BT_FIRMWARE
+config LINGMO_PACKAGE_WILINK_BT_FIRMWARE
 	bool "wilink-bt-firmware"
 	help
 	  Texas Instruments Wilink7 and Wilink8 (wl12xx/wl18xx) UART

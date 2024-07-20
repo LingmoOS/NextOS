@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBSAMPLERATE
+config LINGMO_PACKAGE_LIBSAMPLERATE
 	bool "libsamplerate"
 	help
 	  Secret Rabbit Code (aka libsamplerate) is a Sample Rate

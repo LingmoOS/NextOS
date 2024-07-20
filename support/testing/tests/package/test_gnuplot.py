@@ -8,10 +8,10 @@ class TestGnuplot(infra.basetest.BRTest):
         infra.filepath("tests/package/test_gnuplot/rootfs-overlay")
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         f"""
-        BR2_PACKAGE_GNUPLOT=y
-        BR2_ROOTFS_OVERLAY="{rootfs_overlay}"
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_GNUPLOT=y
+        LINGMO_ROOTFS_OVERLAY="{rootfs_overlay}"
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
 
     def gen_gnuplot_cmd(self, gpcmd):

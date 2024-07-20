@@ -13,65 +13,65 @@ FLUXBOX_LICENSE_FILES = COPYING
 FLUXBOX_CONF_OPTS = \
 	--x-includes=$(STAGING_DIR)/usr/include/X11 \
 	--x-libraries=$(STAGING_DIR)/usr/lib
-FLUXBOX_DEPENDENCIES = xlib_libX11 $(if $(BR2_PACKAGE_LIBICONV),libiconv)
+FLUXBOX_DEPENDENCIES = xlib_libX11 $(if $(LINGMO_PACKAGE_LIBICONV),libiconv)
 
-ifeq ($(BR2_PACKAGE_FREETYPE),y)
+ifeq ($(LINGMO_PACKAGE_FREETYPE),y)
 FLUXBOX_CONF_OPTS += --enable-freetype2
 FLUXBOX_DEPENDENCIES += freetype
 else
 FLUXBOX_CONF_OPTS += --disable-freetype2
 endif
 
-ifeq ($(BR2_PACKAGE_IMLIB2_X),y)
+ifeq ($(LINGMO_PACKAGE_IMLIB2_X),y)
 FLUXBOX_CONF_OPTS += --enable-imlib2
 FLUXBOX_DEPENDENCIES += imlib2
 else
 FLUXBOX_CONF_OPTS += --disable-imlib2
 endif
 
-ifeq ($(BR2_PACKAGE_LIBFRIBIDI),y)
+ifeq ($(LINGMO_PACKAGE_LIBFRIBIDI),y)
 FLUXBOX_CONF_OPTS += --enable-fribidi
 FLUXBOX_DEPENDENCIES += libfribidi
 else
 FLUXBOX_CONF_OPTS += --disable-fribidi
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXFT),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXFT),y)
 FLUXBOX_CONF_OPTS += --enable-xft
 FLUXBOX_DEPENDENCIES += xlib_libXft
 else
 FLUXBOX_CONF_OPTS += --disable-xft
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXRENDER),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXRENDER),y)
 FLUXBOX_CONF_OPTS += --enable-xrender
 FLUXBOX_DEPENDENCIES += xlib_libXrender
 else
 FLUXBOX_CONF_OPTS += --disable-xrender
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXPM),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXPM),y)
 FLUXBOX_CONF_OPTS += --enable-xpm
 FLUXBOX_DEPENDENCIES += xlib_libXpm
 else
 FLUXBOX_CONF_OPTS += --disable-xpm
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXINERAMA),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXINERAMA),y)
 FLUXBOX_CONF_OPTS += --enable-xinerama
 FLUXBOX_DEPENDENCIES += xlib_libXinerama
 else
 FLUXBOX_CONF_OPTS += --disable-xinerama
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXEXT),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXEXT),y)
 FLUXBOX_CONF_OPTS += --enable-xext
 FLUXBOX_DEPENDENCIES += xlib_libXext
 else
 FLUXBOX_CONF_OPTS += --disable-xext
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXRANDR),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXRANDR),y)
 FLUXBOX_CONF_OPTS += --enable-xrandr
 FLUXBOX_DEPENDENCIES += xlib_libXrandr
 else

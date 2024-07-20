@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_IPDB
+config LINGMO_PACKAGE_PYTHON_IPDB
 	bool "python-ipdb"
-	select BR2_PACKAGE_PYTHON_IPYTHON # runtime
+	select LINGMO_PACKAGE_PYTHON_IPYTHON # runtime
 	help
 	  IPython-enabled pdb.
 

@@ -1,10 +1,10 @@
-config BR2_PACKAGE_CHOCOLATE_DOOM
+config LINGMO_PACKAGE_CHOCOLATE_DOOM
 	bool "chocolate-doom"
-	depends on BR2_USE_MMU # fork()
-	depends on !BR2_STATIC_LIBS # sdl2
-	select BR2_PACKAGE_SDL2
-	select BR2_PACKAGE_SDL2_MIXER
-	select BR2_PACKAGE_SDL2_NET
+	depends on LINGMO_USE_MMU # fork()
+	depends on !LINGMO_STATIC_LIBS # sdl2
+	select LINGMO_PACKAGE_SDL2
+	select LINGMO_PACKAGE_SDL2_MIXER
+	select LINGMO_PACKAGE_SDL2_NET
 	help
 	  Chocolate Doom is a set of conservative source ports for Doom,
 	  Heretic, Hexen and Strife, with a philosophy of preserving the
@@ -13,5 +13,5 @@ config BR2_PACKAGE_CHOCOLATE_DOOM
 	  http://www.chocolate-doom.org
 
 comment "chocolate-doom needs a toolchain w/ dynamic library"
-	depends on BR2_USE_MMU
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_STATIC_LIBS

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_SNIFFIO
+config LINGMO_PACKAGE_PYTHON_SNIFFIO
 	bool "python-sniffio"
 	help
 	  Sniff out which async library your code is running under.

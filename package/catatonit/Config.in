@@ -1,6 +1,6 @@
-config BR2_PACKAGE_CATATONIT
+config LINGMO_PACKAGE_CATATONIT
 	bool "catatonit"
-	depends on BR2_USE_MMU
+	depends on LINGMO_USE_MMU
 	help
 	  catatonit is a simple but valid init binary to act as
 	  PID 1 for containers.

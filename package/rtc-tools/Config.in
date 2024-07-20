@@ -1,4 +1,4 @@
-config BR2_PACKAGE_RTC_TOOLS
+config LINGMO_PACKAGE_RTC_TOOLS
 	bool "rtc-tools"
 	help
 	  This package provide a set of user-space tools that can be

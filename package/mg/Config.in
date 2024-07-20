@@ -1,6 +1,6 @@
-config BR2_PACKAGE_MG
+config LINGMO_PACKAGE_MG
 	bool "mg"
-	depends on BR2_USE_MMU # fork()
+	depends on LINGMO_USE_MMU # fork()
 	help
 	  Emacs-like text editor (130 kiB)
 

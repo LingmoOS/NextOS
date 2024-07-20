@@ -1,6 +1,6 @@
-config BR2_PACKAGE_GTKPERF
+config LINGMO_PACKAGE_GTKPERF
 	bool "gtkperf (performance test for GTK2)"
-	depends on BR2_PACKAGE_LIBGTK2
+	depends on LINGMO_PACKAGE_LIBGTK2
 	help
 	  GtkPerf is an application designed to test GTK+ performance.
 	  The point is to create common testing platform to run

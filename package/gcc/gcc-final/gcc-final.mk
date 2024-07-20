@@ -63,9 +63,9 @@ endef
 
 # Languages supported by the cross-compiler
 GCC_FINAL_CROSS_LANGUAGES-y = c
-GCC_FINAL_CROSS_LANGUAGES-$(BR2_INSTALL_LIBSTDCPP) += c++
-GCC_FINAL_CROSS_LANGUAGES-$(BR2_TOOLCHAIN_BUILDROOT_DLANG) += d
-GCC_FINAL_CROSS_LANGUAGES-$(BR2_TOOLCHAIN_BUILDROOT_FORTRAN) += fortran
+GCC_FINAL_CROSS_LANGUAGES-$(LINGMO_INSTALL_LIBSTDCPP) += c++
+GCC_FINAL_CROSS_LANGUAGES-$(LINGMO_TOOLCHAIN_BUILDROOT_DLANG) += d
+GCC_FINAL_CROSS_LANGUAGES-$(LINGMO_TOOLCHAIN_BUILDROOT_FORTRAN) += fortran
 GCC_FINAL_CROSS_LANGUAGES = $(subst $(space),$(comma),$(GCC_FINAL_CROSS_LANGUAGES-y))
 
 HOST_GCC_FINAL_CONF_OPTS = \
@@ -75,43 +75,43 @@ HOST_GCC_FINAL_CONF_OPTS = \
 
 # The kernel wants to use the -m4-nofpu option to make sure that it
 # doesn't use floating point operations.
-ifeq ($(BR2_sh4)$(BR2_sh4eb),y)
+ifeq ($(LINGMO_sh4)$(LINGMO_sh4eb),y)
 HOST_GCC_FINAL_CONF_OPTS += "--with-multilib-list=m4,m4-nofpu"
 HOST_GCC_FINAL_GCC_LIB_DIR = $(HOST_DIR)/$(GNU_TARGET_NAME)/lib/!m4*
-else ifeq ($(BR2_sh4a)$(BR2_sh4aeb),y)
+else ifeq ($(LINGMO_sh4a)$(LINGMO_sh4aeb),y)
 HOST_GCC_FINAL_CONF_OPTS += "--with-multilib-list=m4a,m4a-nofpu"
 HOST_GCC_FINAL_GCC_LIB_DIR = $(HOST_DIR)/$(GNU_TARGET_NAME)/lib/!m4*
 else
 HOST_GCC_FINAL_GCC_LIB_DIR = $(HOST_DIR)/$(GNU_TARGET_NAME)/lib*
 endif
 
-ifeq ($(BR2_GCC_SUPPORTS_LIBCILKRTS),y)
+ifeq ($(LINGMO_GCC_SUPPORTS_LIBCILKRTS),y)
 
 # libcilkrts does not support v8
-ifeq ($(BR2_sparc),y)
+ifeq ($(LINGMO_sparc),y)
 HOST_GCC_FINAL_CONF_OPTS += --disable-libcilkrts
 endif
 
 # Pthreads are required to build libcilkrts
-ifeq ($(BR2_PTHREADS_NONE),y)
+ifeq ($(LINGMO_PTHREADS_NONE),y)
 HOST_GCC_FINAL_CONF_OPTS += --disable-libcilkrts
 endif
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 # disable libcilkrts as there is no static version
 HOST_GCC_FINAL_CONF_OPTS += --disable-libcilkrts
 endif
 
-endif # BR2_GCC_SUPPORTS_LIBCILKRTS
+endif # LINGMO_GCC_SUPPORTS_LIBCILKRTS
 
 # Disable shared libs like libstdc++ if we do static since it confuses linking
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 HOST_GCC_FINAL_CONF_OPTS += --disable-shared
 else
 HOST_GCC_FINAL_CONF_OPTS += --enable-shared
 endif
 
-ifeq ($(BR2_GCC_ENABLE_OPENMP),y)
+ifeq ($(LINGMO_GCC_ENABLE_OPENMP),y)
 HOST_GCC_FINAL_CONF_OPTS += --enable-libgomp
 else
 HOST_GCC_FINAL_CONF_OPTS += --disable-libgomp
@@ -120,7 +120,7 @@ endif
 # End with user-provided options, so that they can override previously
 # defined options.
 HOST_GCC_FINAL_CONF_OPTS += \
-	$(call qstrip,$(BR2_EXTRA_GCC_CONFIG_OPTIONS))
+	$(call qstrip,$(LINGMO_EXTRA_GCC_CONFIG_OPTIONS))
 
 HOST_GCC_FINAL_CONF_ENV = \
 	$(HOST_GCC_COMMON_CONF_ENV)
@@ -146,35 +146,35 @@ HOST_GCC_FINAL_POST_INSTALL_HOOKS += HOST_GCC_INSTALL_WRAPPER_AND_SIMPLE_SYMLINK
 
 GCC_FINAL_LIBS =
 
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 GCC_FINAL_LIBS += libatomic
 endif
 
-ifeq ($(BR2_STATIC_LIBS),)
+ifeq ($(LINGMO_STATIC_LIBS),)
 GCC_FINAL_LIBS += libgcc_s
 endif
 
-ifeq ($(BR2_INSTALL_LIBSTDCPP),y)
+ifeq ($(LINGMO_INSTALL_LIBSTDCPP),y)
 GCC_FINAL_USR_LIBS += libstdc++
 endif
 
-ifeq ($(BR2_TOOLCHAIN_BUILDROOT_DLANG),y)
+ifeq ($(LINGMO_TOOLCHAIN_BUILDROOT_DLANG),y)
 GCC_FINAL_USR_LIBS += libgdruntime libgphobos
 endif
 
-ifeq ($(BR2_TOOLCHAIN_BUILDROOT_FORTRAN),y)
+ifeq ($(LINGMO_TOOLCHAIN_BUILDROOT_FORTRAN),y)
 GCC_FINAL_USR_LIBS += libgfortran
 # fortran needs quadmath on x86 and x86_64
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBQUADMATH),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBQUADMATH),y)
 GCC_FINAL_USR_LIBS += libquadmath
 endif
 endif
 
-ifeq ($(BR2_GCC_ENABLE_OPENMP),y)
+ifeq ($(LINGMO_GCC_ENABLE_OPENMP),y)
 GCC_FINAL_USR_LIBS += libgomp
 endif
 
-GCC_FINAL_USR_LIBS += $(call qstrip,$(BR2_TOOLCHAIN_EXTRA_LIBS))
+GCC_FINAL_USR_LIBS += $(call qstrip,$(LINGMO_TOOLCHAIN_EXTRA_LIBS))
 
 define GCC_FINAL_INSTALL_STAGING_CMDS
 	$(foreach lib,$(GCC_FINAL_LIBS), \
@@ -187,7 +187,7 @@ define GCC_FINAL_INSTALL_STAGING_CMDS
 	)
 endef
 
-ifeq ($(BR2_STATIC_LIBS),)
+ifeq ($(LINGMO_STATIC_LIBS),)
 define GCC_FINAL_INSTALL_TARGET_CMDS
 	mkdir -p $(TARGET_DIR)/lib $(TARGET_DIR)/usr/lib
 	$(foreach lib,$(GCC_FINAL_LIBS), \
@@ -202,7 +202,7 @@ endef
 endif
 
 # coldfire is not working without removing these object files from libgcc.a
-ifeq ($(BR2_m68k_cf),y)
+ifeq ($(LINGMO_m68k_cf),y)
 define GCC_FINAL_M68K_LIBGCC_FIXUP
 	find $(STAGING_DIR) -name libgcc.a -print | \
 		while read t; do $(GNU_TARGET_NAME)-ar dv "$t" _ctors.o; done

@@ -30,21 +30,21 @@ LIBSOUP3_CONF_OPTS = \
 	-Dtests=false \
 	-Dtls_check=false
 
-ifeq ($(BR2_PACKAGE_BROTLI),y)
+ifeq ($(LINGMO_PACKAGE_BROTLI),y)
 LIBSOUP3_CONF_OPTS += -Dbrotli=enabled
 LIBSOUP3_DEPENDENCIES += brotli
 else
 LIBSOUP3_CONF_OPTS += -Dbrotli=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 LIBSOUP3_CONF_OPTS += -Dintrospection=enabled -Dvapi=enabled
 LIBSOUP3_DEPENDENCIES += host-vala gobject-introspection
 else
 LIBSOUP3_CONF_OPTS += -Dintrospection=disabled -Dvapi=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBKRB5),y)
+ifeq ($(LINGMO_PACKAGE_LIBKRB5),y)
 LIBSOUP3_CONF_OPTS += \
 	-Dgssapi=enabled \
 	-Dkrb5_config=$(STAGING_DIR)/usr/bin/krb5-config

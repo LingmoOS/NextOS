@@ -24,7 +24,7 @@ GPM_CONF_ENV = \
 # configure script uses to determine whether the architecture uses ELF
 # binaries and therefore can build shared libraries. We fix this by
 # telling GPM that ELF is used on Microblaze.
-ifeq ($(BR2_microblaze),y)
+ifeq ($(LINGMO_microblaze),y)
 GPM_CONF_ENV += itz_cv_sys_elf=yes
 endif
 
@@ -53,7 +53,7 @@ define GPM_DISABLE_DOC_INSTALL
 endef
 GPM_POST_PATCH_HOOKS += GPM_DISABLE_DOC_INSTALL
 
-ifeq ($(BR2_PACKAGE_GPM_INSTALL_TEST_TOOLS),)
+ifeq ($(LINGMO_PACKAGE_GPM_INSTALL_TEST_TOOLS),)
 define GPM_REMOVE_TEST_TOOLS_FROM_TARGET
 	for tools in mev hltest mouse-test display-buttons \
 		get-versions display-coords; do \

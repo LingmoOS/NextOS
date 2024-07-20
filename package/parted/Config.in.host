@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_PARTED
+config LINGMO_PACKAGE_HOST_PARTED
 	bool "host parted"
 	help
 	  parted, the GNU partition resizing program

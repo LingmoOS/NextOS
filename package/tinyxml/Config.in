@@ -1,6 +1,6 @@
-config BR2_PACKAGE_TINYXML
+config LINGMO_PACKAGE_TINYXML
 	bool "tinyxml"
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	help
 	  TinyXML is a simple, small, C++ XML parser that can be
 	  easily integrating into other programs.
@@ -8,4 +8,4 @@ config BR2_PACKAGE_TINYXML
 	  https://github.com/leethomason/tinyxml2
 
 comment "tinyxml needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP

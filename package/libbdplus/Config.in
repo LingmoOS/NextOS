@@ -1,9 +1,9 @@
-config BR2_PACKAGE_LIBBDPLUS
+config LINGMO_PACKAGE_LIBBDPLUS
 	bool "libbdplus"
-	depends on BR2_PACKAGE_LIBGPG_ERROR_ARCH_SUPPORTS # libgcrypt
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on !BR2_STATIC_LIBS
-	select BR2_PACKAGE_LIBGCRYPT
+	depends on LINGMO_PACKAGE_LIBGPG_ERROR_ARCH_SUPPORTS # libgcrypt
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_STATIC_LIBS
+	select LINGMO_PACKAGE_LIBGCRYPT
 	help
 	  libbdplus is a research project to implement the BD+ System
 	  Specifications.
@@ -16,5 +16,5 @@ config BR2_PACKAGE_LIBBDPLUS
 	  http://www.videolan.org/developers/libbdplus.html
 
 comment "libbdplus needs a toolchain w/ threads, dynamic library"
-	depends on BR2_PACKAGE_LIBGPG_ERROR_ARCH_SUPPORTS
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on LINGMO_PACKAGE_LIBGPG_ERROR_ARCH_SUPPORTS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS

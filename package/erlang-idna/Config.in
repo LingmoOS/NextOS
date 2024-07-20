@@ -1,4 +1,4 @@
-config BR2_PACKAGE_ERLANG_IDNA
+config LINGMO_PACKAGE_ERLANG_IDNA
 	bool "erlang-idna"
 	help
 	  A pure Erlang IDNA implementation that follows RFC5891.

@@ -32,7 +32,7 @@
 #  the Buildroot configuration system knows whether the toolchain
 #  supports RPC, IPv6, locales, large files, etc. Unfortunately, these
 #  things cannot be detected automatically, since the value of these
-#  options (such as BR2_TOOLCHAIN_HAS_NATIVE_RPC) are needed at
+#  options (such as LINGMO_TOOLCHAIN_HAS_NATIVE_RPC) are needed at
 #  configuration time because these options are used as dependencies
 #  for other options. And at configuration time, we are not able to
 #  retrieve the external toolchain configuration.
@@ -62,13 +62,13 @@
 # Definitions of where the toolchain can be found
 #
 
-TOOLCHAIN_EXTERNAL_PREFIX = $(call qstrip,$(BR2_TOOLCHAIN_EXTERNAL_PREFIX))
+TOOLCHAIN_EXTERNAL_PREFIX = $(call qstrip,$(LINGMO_TOOLCHAIN_EXTERNAL_PREFIX))
 TOOLCHAIN_EXTERNAL_DOWNLOAD_INSTALL_DIR = $(HOST_DIR)/opt/ext-toolchain
 
-ifeq ($(BR2_TOOLCHAIN_EXTERNAL_DOWNLOAD),y)
+ifeq ($(LINGMO_TOOLCHAIN_EXTERNAL_DOWNLOAD),y)
 TOOLCHAIN_EXTERNAL_INSTALL_DIR = $(TOOLCHAIN_EXTERNAL_DOWNLOAD_INSTALL_DIR)
 else
-TOOLCHAIN_EXTERNAL_INSTALL_DIR = $(abspath $(call qstrip,$(BR2_TOOLCHAIN_EXTERNAL_PATH)))
+TOOLCHAIN_EXTERNAL_INSTALL_DIR = $(abspath $(call qstrip,$(LINGMO_TOOLCHAIN_EXTERNAL_PATH)))
 endif
 
 ifeq ($(TOOLCHAIN_EXTERNAL_INSTALL_DIR),)
@@ -77,7 +77,7 @@ ifneq ($(TOOLCHAIN_EXTERNAL_PREFIX),)
 TOOLCHAIN_EXTERNAL_BIN := $(dir $(shell which $(TOOLCHAIN_EXTERNAL_PREFIX)-gcc))
 endif
 else
-TOOLCHAIN_EXTERNAL_REL_BIN_PATH = $(call qstrip,$(BR2_TOOLCHAIN_EXTERNAL_REL_BIN_PATH))
+TOOLCHAIN_EXTERNAL_REL_BIN_PATH = $(call qstrip,$(LINGMO_TOOLCHAIN_EXTERNAL_REL_BIN_PATH))
 ifeq ($(TOOLCHAIN_EXTERNAL_REL_BIN_PATH),)
 TOOLCHAIN_EXTERNAL_REL_BIN_PATH = bin
 endif
@@ -98,7 +98,7 @@ TOOLCHAIN_EXTERNAL_FC = $(TOOLCHAIN_EXTERNAL_CROSS)gfortran$(TOOLCHAIN_EXTERNAL_
 TOOLCHAIN_EXTERNAL_READELF = $(TOOLCHAIN_EXTERNAL_CROSS)readelf
 
 # Normal handling of downloaded toolchain tarball extraction.
-ifeq ($(BR2_TOOLCHAIN_EXTERNAL_DOWNLOAD),y)
+ifeq ($(LINGMO_TOOLCHAIN_EXTERNAL_DOWNLOAD),y)
 # As a regular package, the toolchain gets extracted in $(@D), but
 # since it's actually a fairly special package, we need it to be moved
 # into TOOLCHAIN_EXTERNAL_DOWNLOAD_INSTALL_DIR.
@@ -115,49 +115,49 @@ endif
 
 TOOLCHAIN_EXTERNAL_LIBS += ld*.so.* libgcc_s.so.* libatomic.so.*
 
-ifneq ($(BR2_SSP_NONE),y)
+ifneq ($(LINGMO_SSP_NONE),y)
 TOOLCHAIN_EXTERNAL_LIBS += libssp.so.*
 endif
 
-ifeq ($(BR2_TOOLCHAIN_EXTERNAL_GLIBC)$(BR2_TOOLCHAIN_EXTERNAL_UCLIBC),y)
+ifeq ($(LINGMO_TOOLCHAIN_EXTERNAL_GLIBC)$(LINGMO_TOOLCHAIN_EXTERNAL_UCLIBC),y)
 TOOLCHAIN_EXTERNAL_LIBS += libc.so.* libcrypt.so.* libdl.so.* libm.so.* libnsl.so.* libresolv.so.* librt.so.* libutil.so.*
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS),y)
 TOOLCHAIN_EXTERNAL_LIBS += libpthread.so.*
-ifneq ($(BR2_PACKAGE_GDB)$(BR2_TOOLCHAIN_EXTERNAL_GDB_SERVER_COPY),)
+ifneq ($(LINGMO_PACKAGE_GDB)$(LINGMO_TOOLCHAIN_EXTERNAL_GDB_SERVER_COPY),)
 TOOLCHAIN_EXTERNAL_LIBS += libthread_db.so.*
 endif # gdbserver
 endif # ! no threads
 endif
 
-ifeq ($(BR2_TOOLCHAIN_EXTERNAL_GLIBC),y)
+ifeq ($(LINGMO_TOOLCHAIN_EXTERNAL_GLIBC),y)
 TOOLCHAIN_EXTERNAL_LIBS += libnss_files.so.* libnss_dns.so.* libmvec.so.* libanl.so.*
 endif
 
-ifeq ($(BR2_TOOLCHAIN_EXTERNAL_MUSL),y)
+ifeq ($(LINGMO_TOOLCHAIN_EXTERNAL_MUSL),y)
 TOOLCHAIN_EXTERNAL_LIBS += libc.so
 endif
 
-ifeq ($(BR2_INSTALL_LIBSTDCPP),y)
+ifeq ($(LINGMO_INSTALL_LIBSTDCPP),y)
 TOOLCHAIN_EXTERNAL_LIBS += libstdc++.so.*
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_FORTRAN),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_FORTRAN),y)
 TOOLCHAIN_EXTERNAL_LIBS += libgfortran.so.*
 # fortran needs quadmath on x86 and x86_64
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBQUADMATH),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBQUADMATH),y)
 TOOLCHAIN_EXTERNAL_LIBS += libquadmath.so*
 endif
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_OPENMP),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_OPENMP),y)
 TOOLCHAIN_EXTERNAL_LIBS += libgomp.so.*
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_DLANG),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_DLANG),y)
 TOOLCHAIN_EXTERNAL_LIBS += libgdruntime.so* libgphobos.so*
 endif
 
-TOOLCHAIN_EXTERNAL_LIBS += $(addsuffix .so*,$(call qstrip,$(BR2_TOOLCHAIN_EXTRA_LIBS)))
+TOOLCHAIN_EXTERNAL_LIBS += $(addsuffix .so*,$(call qstrip,$(LINGMO_TOOLCHAIN_EXTRA_LIBS)))
 
 
 #
@@ -167,7 +167,7 @@ TOOLCHAIN_EXTERNAL_LIBS += $(addsuffix .so*,$(call qstrip,$(BR2_TOOLCHAIN_EXTRA_
 
 # march/mtune/floating point mode needs to be passed to the external toolchain
 # to select the right multilib variant
-ifeq ($(BR2_x86_64),y)
+ifeq ($(LINGMO_x86_64),y)
 TOOLCHAIN_EXTERNAL_CFLAGS += -m64
 TOOLCHAIN_EXTERNAL_TOOLCHAIN_WRAPPER_ARGS += -DBR_64
 endif
@@ -183,7 +183,7 @@ ifneq ($(GCC_TARGET_ABI),)
 TOOLCHAIN_EXTERNAL_CFLAGS += -mabi=$(GCC_TARGET_ABI)
 TOOLCHAIN_EXTERNAL_TOOLCHAIN_WRAPPER_ARGS += -DBR_ABI='"$(GCC_TARGET_ABI)"'
 endif
-ifeq ($(BR2_TOOLCHAIN_HAS_MNAN_OPTION),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_MNAN_OPTION),y)
 ifneq ($(GCC_TARGET_NAN),)
 TOOLCHAIN_EXTERNAL_CFLAGS += -mnan=$(GCC_TARGET_NAN)
 TOOLCHAIN_EXTERNAL_TOOLCHAIN_WRAPPER_ARGS += -DBR_NAN='"$(GCC_TARGET_NAN)"'
@@ -205,26 +205,26 @@ ifneq ($(GCC_TARGET_MODE),)
 TOOLCHAIN_EXTERNAL_CFLAGS += -m$(GCC_TARGET_MODE)
 TOOLCHAIN_EXTERNAL_TOOLCHAIN_WRAPPER_ARGS += -DBR_MODE='"$(GCC_TARGET_MODE)"'
 endif
-ifeq ($(BR2_BINFMT_FLAT),y)
+ifeq ($(LINGMO_BINFMT_FLAT),y)
 TOOLCHAIN_EXTERNAL_CFLAGS += -Wl,-elf2flt
 TOOLCHAIN_EXTERNAL_TOOLCHAIN_WRAPPER_ARGS += -DBR_BINFMT_FLAT
 endif
-ifeq ($(BR2_mipsel)$(BR2_mips64el),y)
+ifeq ($(LINGMO_mipsel)$(LINGMO_mips64el),y)
 TOOLCHAIN_EXTERNAL_TOOLCHAIN_WRAPPER_ARGS += -DBR_MIPS_TARGET_LITTLE_ENDIAN
 TOOLCHAIN_EXTERNAL_CFLAGS += -EL
 endif
-ifeq ($(BR2_mips)$(BR2_mips64),y)
+ifeq ($(LINGMO_mips)$(LINGMO_mips64),y)
 TOOLCHAIN_EXTERNAL_TOOLCHAIN_WRAPPER_ARGS += -DBR_MIPS_TARGET_BIG_ENDIAN
 TOOLCHAIN_EXTERNAL_CFLAGS += -EB
 endif
-ifeq ($(BR2_arceb),y)
+ifeq ($(LINGMO_arceb),y)
 TOOLCHAIN_EXTERNAL_TOOLCHAIN_WRAPPER_ARGS += -DBR_ARC_TARGET_BIG_ENDIAN
 TOOLCHAIN_EXTERNAL_CFLAGS += -EB
 endif
 
-TOOLCHAIN_EXTERNAL_CFLAGS += $(call qstrip,$(BR2_TARGET_OPTIMIZATION))
+TOOLCHAIN_EXTERNAL_CFLAGS += $(call qstrip,$(LINGMO_TARGET_OPTIMIZATION))
 
-ifeq ($(BR2_SOFT_FLOAT),y)
+ifeq ($(LINGMO_SOFT_FLOAT),y)
 TOOLCHAIN_EXTERNAL_CFLAGS += -msoft-float
 TOOLCHAIN_EXTERNAL_TOOLCHAIN_WRAPPER_ARGS += -DBR_SOFTFLOAT=1
 endif
@@ -271,7 +271,7 @@ define TOOLCHAIN_EXTERNAL_INSTALL_WRAPPER
 			ln -sf toolchain-wrapper $$base; \
 			;; \
 		*gdb|*gdbtui) \
-			if test "$(BR2_PACKAGE_HOST_GDB)" != "y"; then \
+			if test "$(LINGMO_PACKAGE_HOST_GDB)" != "y"; then \
 				ln -sf $$(echo $$i | sed 's%^$(HOST_DIR)%..%') .; \
 			fi \
 			;; \
@@ -398,7 +398,7 @@ endef
 # Buildroot, Crosstool-NG, CodeSourcery and Linaro
 # before doing any modification on the below logic.
 
-ifeq ($(BR2_STATIC_LIBS),)
+ifeq ($(LINGMO_STATIC_LIBS),)
 define TOOLCHAIN_EXTERNAL_INSTALL_TARGET_LIBS
 	$(Q)$(call MESSAGE,"Copying external toolchain libraries to target...")
 	$(Q)for libpattern in $(TOOLCHAIN_EXTERNAL_LIBS); do \
@@ -407,7 +407,7 @@ define TOOLCHAIN_EXTERNAL_INSTALL_TARGET_LIBS
 endef
 endif
 
-ifeq ($(BR2_TOOLCHAIN_EXTERNAL_GDB_SERVER_COPY),y)
+ifeq ($(LINGMO_TOOLCHAIN_EXTERNAL_GDB_SERVER_COPY),y)
 define TOOLCHAIN_EXTERNAL_INSTALL_TARGET_GDBSERVER
 	$(Q)$(call MESSAGE,"Copying gdbserver")
 	$(Q)ARCH_SYSROOT_DIR="$(call toolchain_find_sysroot,$(TOOLCHAIN_EXTERNAL_CC) $(TOOLCHAIN_EXTERNAL_CFLAGS))" ; \
@@ -545,12 +545,12 @@ $(2)_ADD_TOOLCHAIN_DEPENDENCY = NO
 # In fact, we don't need to download the toolchain, since it is already
 # available on the system, so force the site and source to be empty so
 # that nothing will be downloaded/extracted.
-ifeq ($$(BR2_TOOLCHAIN_EXTERNAL_PREINSTALLED),y)
+ifeq ($$(LINGMO_TOOLCHAIN_EXTERNAL_PREINSTALLED),y)
 $(2)_SITE =
 $(2)_SOURCE =
 endif
 
-ifeq ($$(BR2_TOOLCHAIN_EXTERNAL_DOWNLOAD),y)
+ifeq ($$(LINGMO_TOOLCHAIN_EXTERNAL_DOWNLOAD),y)
 $(2)_EXCLUDES = usr/lib/locale/*
 
 $(2)_POST_EXTRACT_HOOKS += \
@@ -568,11 +568,11 @@ define $(2)_CONFIGURE_CMDS
 	$$(call check_kernel_headers_version,\
 		$$(BUILD_DIR),\
 		$$(call toolchain_find_sysroot,$$(TOOLCHAIN_EXTERNAL_CC)),\
-		$$(call qstrip,$$(BR2_TOOLCHAIN_HEADERS_AT_LEAST)),\
-		$$(if $$(BR2_TOOLCHAIN_EXTERNAL_CUSTOM),loose,strict)); \
+		$$(call qstrip,$$(LINGMO_TOOLCHAIN_HEADERS_AT_LEAST)),\
+		$$(if $$(LINGMO_TOOLCHAIN_EXTERNAL_CUSTOM),loose,strict)); \
 	$$(call check_gcc_version,$$(TOOLCHAIN_EXTERNAL_CC),\
-		$$(call qstrip,$$(BR2_TOOLCHAIN_GCC_AT_LEAST))); \
-	if test "$$(BR2_arm)" = "y" ; then \
+		$$(call qstrip,$$(LINGMO_TOOLCHAIN_GCC_AT_LEAST))); \
+	if test "$$(LINGMO_arm)" = "y" ; then \
 		$$(call check_arm_abi,\
 			"$$(TOOLCHAIN_EXTERNAL_CC) $$(TOOLCHAIN_EXTERNAL_CFLAGS)") ; \
 	fi ; \
@@ -580,15 +580,15 @@ define $(2)_CONFIGURE_CMDS
 	$$(call check_dlang,$$(TOOLCHAIN_EXTERNAL_GDC)) ; \
 	$$(call check_fortran,$$(TOOLCHAIN_EXTERNAL_FC)) ; \
 	$$(call check_openmp,$$(TOOLCHAIN_EXTERNAL_CC)) ; \
-	if test "$$(BR2_TOOLCHAIN_EXTERNAL_UCLIBC)" = "y" ; then \
+	if test "$$(LINGMO_TOOLCHAIN_EXTERNAL_UCLIBC)" = "y" ; then \
 		$$(call check_uclibc,$$$${SYSROOT_DIR}) ; \
-	elif test "$$(BR2_TOOLCHAIN_EXTERNAL_MUSL)" = "y" ; then \
+	elif test "$$(LINGMO_TOOLCHAIN_EXTERNAL_MUSL)" = "y" ; then \
 		$$(call check_musl,\
 			"$$(TOOLCHAIN_EXTERNAL_CC) $$(TOOLCHAIN_EXTERNAL_CFLAGS)") ; \
 	else \
 		$$(call check_glibc,$$$${SYSROOT_DIR}) ; \
 	fi
-	$$(Q)$$(call check_toolchain_ssp,$$(TOOLCHAIN_EXTERNAL_CC),$(BR2_SSP_OPTION))
+	$$(Q)$$(call check_toolchain_ssp,$$(TOOLCHAIN_EXTERNAL_CC),$(LINGMO_SSP_OPTION))
 endef
 
 $(2)_TOOLCHAIN_WRAPPER_ARGS += $$(TOOLCHAIN_EXTERNAL_TOOLCHAIN_WRAPPER_ARGS)

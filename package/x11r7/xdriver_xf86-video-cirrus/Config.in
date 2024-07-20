@@ -1,5 +1,5 @@
-config BR2_PACKAGE_XDRIVER_XF86_VIDEO_CIRRUS
+config LINGMO_PACKAGE_XDRIVER_XF86_VIDEO_CIRRUS
 	bool "xf86-video-cirrus"
-	select BR2_PACKAGE_XORGPROTO
+	select LINGMO_PACKAGE_XORGPROTO
 	help
 	  Cirrus Logic video driver

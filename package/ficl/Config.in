@@ -1,4 +1,4 @@
-config BR2_PACKAGE_FICL
+config LINGMO_PACKAGE_FICL
 	bool "ficl"
 	help
 	  Ficl is a programming language interpreter designed to be

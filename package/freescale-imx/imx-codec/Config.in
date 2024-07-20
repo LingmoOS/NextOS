@@ -1,7 +1,7 @@
-config BR2_PACKAGE_IMX_CODEC
+config LINGMO_PACKAGE_IMX_CODEC
 	bool "imx-codec"
-	depends on BR2_arm || BR2_aarch64 # Only relevant for i.MX
-	depends on BR2_TOOLCHAIN_USES_GLIBC # prebuilt binaries
+	depends on LINGMO_arm || LINGMO_aarch64 # Only relevant for i.MX
+	depends on LINGMO_TOOLCHAIN_USES_GLIBC # prebuilt binaries
 	help
 	  Binary codec libraries for the NXP i.MX SoCs.
 
@@ -9,5 +9,5 @@ config BR2_PACKAGE_IMX_CODEC
 	  an upstream.
 
 comment "imx-codec needs a glibc toolchain"
-	depends on BR2_arm || BR2_aarch64
-	depends on !BR2_TOOLCHAIN_USES_GLIBC
+	depends on LINGMO_arm || LINGMO_aarch64
+	depends on !LINGMO_TOOLCHAIN_USES_GLIBC

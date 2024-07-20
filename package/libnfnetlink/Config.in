@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBNFNETLINK
+config LINGMO_PACKAGE_LIBNFNETLINK
 	bool "libnfnetlink"
 	help
 	  libnfnetlink is the low-level library for netfilter related

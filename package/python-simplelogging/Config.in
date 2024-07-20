@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_SIMPLELOGGING
+config LINGMO_PACKAGE_PYTHON_SIMPLELOGGING
 	bool "python-simplelogging"
-	select BR2_PACKAGE_PYTHON_COLORLOG # runtime
+	select LINGMO_PACKAGE_PYTHON_COLORLOG # runtime
 	help
 	  Logging made simple, no excuse for any debug print call.
 

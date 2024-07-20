@@ -16,35 +16,35 @@ MOTION_AUTOPOINT = YES
 
 MOTION_CONF_OPTS += --without-optimizecpu
 
-ifeq ($(BR2_PACKAGE_FFMPEG_SWSCALE),y)
+ifeq ($(LINGMO_PACKAGE_FFMPEG_SWSCALE),y)
 MOTION_DEPENDENCIES += ffmpeg
 MOTION_CONF_OPTS += --with-ffmpeg
 else
 MOTION_CONF_OPTS += --without-ffmpeg
 endif
 
-ifeq ($(BR2_PACKAGE_MARIADB),y)
+ifeq ($(LINGMO_PACKAGE_MARIADB),y)
 MOTION_DEPENDENCIES += mariadb
 MOTION_CONF_OPTS += --with-mysql
 else
 MOTION_CONF_OPTS += --without-mysql
 endif
 
-ifeq ($(BR2_PACKAGE_POSTGRESQL),y)
+ifeq ($(LINGMO_PACKAGE_POSTGRESQL),y)
 MOTION_DEPENDENCIES += postgresql
 MOTION_CONF_OPTS += --with-pgsql
 else
 MOTION_CONF_OPTS += --without-pgsql
 endif
 
-ifeq ($(BR2_PACKAGE_SQLITE),y)
+ifeq ($(LINGMO_PACKAGE_SQLITE),y)
 MOTION_DEPENDENCIES += sqlite
 MOTION_CONF_OPTS += --with-sqlite3
 else
 MOTION_CONF_OPTS += --without-sqlite3
 endif
 
-ifeq ($(BR2_PACKAGE_WEBP_MUX),y)
+ifeq ($(LINGMO_PACKAGE_WEBP_MUX),y)
 MOTION_DEPENDENCIES += webp
 MOTION_CONF_OPTS += --with-webp
 else

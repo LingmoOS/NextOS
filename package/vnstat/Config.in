@@ -1,8 +1,8 @@
-config BR2_PACKAGE_VNSTAT
+config LINGMO_PACKAGE_VNSTAT
 	bool "vnstat"
-	depends on BR2_USE_MMU # fork()
-	depends on BR2_USE_WCHAR # mbstowcs()
-	select BR2_PACKAGE_SQLITE
+	depends on LINGMO_USE_MMU # fork()
+	depends on LINGMO_USE_WCHAR # mbstowcs()
+	select LINGMO_PACKAGE_SQLITE
 	help
 	  vnStat is a console-based network traffic monitor that keeps a
 	  log of network traffic for the selected interface(s). It uses
@@ -14,5 +14,5 @@ config BR2_PACKAGE_VNSTAT
 	  http://humdi.net/vnstat
 
 comment "vnstat needs a toolchain w/ wchar"
-	depends on BR2_USE_MMU
-	depends on !BR2_USE_WCHAR
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_USE_WCHAR

@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_AIOZIPKIN
+config LINGMO_PACKAGE_PYTHON_AIOZIPKIN
 	bool "python-aiozipkin"
-	select BR2_PACKAGE_PYTHON_AIOHTTP # runtime
+	select LINGMO_PACKAGE_PYTHON_AIOHTTP # runtime
 	help
 	  Distributed tracing instrumentation for asyncio application
 	  with zipkin.

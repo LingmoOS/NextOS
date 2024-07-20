@@ -12,7 +12,7 @@ XAPP_OCLOCK_LICENSE_FILES = COPYING
 XAPP_OCLOCK_DEPENDENCIES = xlib_libX11 xlib_libXext xlib_libXmu
 XAPP_OCLOCK_CONF_OPTS = --with-appdefaultdir=/usr/share/X11/app-defaults
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXKBFILE),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXKBFILE),y)
 XAPP_OCLOCK_CONF_OPTS += --with-xkb
 XAPP_OCLOCK_DEPENDENCIES += xlib_libxkbfile
 else

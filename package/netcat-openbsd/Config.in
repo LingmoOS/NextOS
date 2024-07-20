@@ -1,12 +1,12 @@
-config BR2_PACKAGE_NETCAT_OPENBSD
+config LINGMO_PACKAGE_NETCAT_OPENBSD
 	bool "netcat-openbsd"
-	depends on BR2_PACKAGE_LIBBSD_ARCH_SUPPORTS
-	depends on !BR2_STATIC_LIBS # libbsd
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_TOOLCHAIN_USES_GLIBC
-	depends on BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
-	depends on BR2_TOOLCHAIN_HEADERS_AT_LEAST_3_12
-	select BR2_PACKAGE_LIBBSD
+	depends on LINGMO_PACKAGE_LIBBSD_ARCH_SUPPORTS
+	depends on !LINGMO_STATIC_LIBS # libbsd
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_TOOLCHAIN_USES_GLIBC
+	depends on LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS
+	depends on LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_3_12
+	select LINGMO_PACKAGE_LIBBSD
 	help
 	  A simple Unix utility which reads and writes data across
 	  network connections using TCP or UDP protocol. It is
@@ -23,8 +23,8 @@ config BR2_PACKAGE_NETCAT_OPENBSD
 	  https://packages.debian.org/sid/netcat-openbsd
 
 comment "netcat-openbsd needs a glibc toolchain w/ dynamic library, threads, headers >= 3.12"
-	depends on BR2_PACKAGE_LIBBSD_ARCH_SUPPORTS
-	depends on BR2_STATIC_LIBS || !BR2_TOOLCHAIN_HAS_THREADS || \
-		!BR2_TOOLCHAIN_USES_GLIBC || \
-		!BR2_TOOLCHAIN_HEADERS_AT_LEAST_3_12
-	depends on BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
+	depends on LINGMO_PACKAGE_LIBBSD_ARCH_SUPPORTS
+	depends on LINGMO_STATIC_LIBS || !LINGMO_TOOLCHAIN_HAS_THREADS || \
+		!LINGMO_TOOLCHAIN_USES_GLIBC || \
+		!LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_3_12
+	depends on LINGMO_PACKAGE_BUSYBOX_SHOW_OTHERS

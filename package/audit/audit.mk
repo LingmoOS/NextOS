@@ -18,11 +18,11 @@ AUDIT_CONF_OPTS = --without-python --without-python3 --disable-zos-remote
 # src/libev has some assembly function that is not present in Thumb mode:
 # Error: selected processor does not support `mcr p15,0,r3,c7,c10,5' in Thumb mode
 # so, we desactivate Thumb mode
-ifeq ($(BR2_ARM_INSTRUCTIONS_THUMB),y)
+ifeq ($(LINGMO_ARM_INSTRUCTIONS_THUMB),y)
 AUDIT_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) -marm"
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCAP_NG),y)
+ifeq ($(LINGMO_PACKAGE_LIBCAP_NG),y)
 AUDIT_DEPENDENCIES += libcap-ng
 AUDIT_CONF_OPTS += --with-libcap-ng=yes
 else
@@ -33,14 +33,14 @@ endif
 # unconditionally included. However, for ARM(eb) and AArch64, then
 # need to be explicitly enabled.
 
-ifeq ($(BR2_arm)$(BR2_armeb),y)
+ifeq ($(LINGMO_arm)$(LINGMO_armeb),y)
 AUDIT_CONF_OPTS += --with-arm
 endif
-ifeq ($(BR2_aarch64),y)
+ifeq ($(LINGMO_aarch64),y)
 AUDIT_CONF_OPTS += --with-aarch64
 endif
 
-ifeq ($(BR2_INIT_SYSTEMD),y)
+ifeq ($(LINGMO_INIT_SYSTEMD),y)
 AUDIT_CONF_OPTS += --enable-systemd
 else
 AUDIT_CONF_OPTS += --disable-systemd

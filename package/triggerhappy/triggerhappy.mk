@@ -11,7 +11,7 @@ TRIGGERHAPPY_LICENSE = GPL-3.0+
 TRIGGERHAPPY_LICENSE_FILES = COPYING
 TRIGGERHAPPY_DEPENDENCIES = host-pkgconf
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 TRIGGERHAPPY_DEPENDENCIES += systemd
 endif
 
@@ -20,7 +20,7 @@ define TRIGGERHAPPY_BUILD_CMDS
 		-C $(@D) thd th-cmd
 endef
 
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 define TRIGGERHAPPY_INSTALL_UDEV_RULE
 	$(INSTALL) -D -m 0644 $(@D)/udev/triggerhappy-udev.rules \
 		$(TARGET_DIR)/lib/udev/rules.d/triggerhappy.rules

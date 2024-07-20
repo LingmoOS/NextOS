@@ -1,6 +1,6 @@
-config BR2_PACKAGE_PYTHON_JARACO_FUNCTOOLS
+config LINGMO_PACKAGE_PYTHON_JARACO_FUNCTOOLS
 	bool "python-jaraco-functools"
-	select BR2_PACKAGE_PYTHON_MORE_ITERTOOLS # runtime
+	select LINGMO_PACKAGE_PYTHON_MORE_ITERTOOLS # runtime
 	help
 	  Additional functools in the spirit of stdlib’s
 	  functools.

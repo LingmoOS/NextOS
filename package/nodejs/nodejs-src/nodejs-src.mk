@@ -25,7 +25,7 @@ NODEJS_SRC_DEPENDENCIES = \
 	libuv \
 	nghttp2 \
 	zlib \
-	$(call qstrip,$(BR2_PACKAGE_NODEJS_MODULES_ADDITIONAL_DEPS))
+	$(call qstrip,$(LINGMO_PACKAGE_NODEJS_MODULES_ADDITIONAL_DEPS))
 HOST_NODEJS_SRC_DEPENDENCIES = \
 	host-icu \
 	host-libopenssl \
@@ -70,21 +70,21 @@ endef
 HOST_NODEJS_SRC_PRE_CONFIGURE_HOOKS += NODEJS_SRC_PYTHON3_SYMLINK
 NODEJS_SRC_PRE_CONFIGURE_HOOKS += NODEJS_SRC_PYTHON3_SYMLINK
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 NODEJS_SRC_DEPENDENCIES += openssl
 NODEJS_SRC_CONF_OPTS += --shared-openssl
 else
 NODEJS_SRC_CONF_OPTS += --without-ssl
 endif
 
-ifeq ($(BR2_PACKAGE_ICU),y)
+ifeq ($(LINGMO_PACKAGE_ICU),y)
 NODEJS_SRC_DEPENDENCIES += icu
 NODEJS_SRC_CONF_OPTS += --with-intl=system-icu
 else
 NODEJS_SRC_CONF_OPTS += --with-intl=none
 endif
 
-ifneq ($(BR2_PACKAGE_NODEJS_NPM),y)
+ifneq ($(LINGMO_PACKAGE_NODEJS_NPM),y)
 NODEJS_SRC_CONF_OPTS += --without-npm
 endif
 
@@ -112,7 +112,7 @@ define HOST_NODEJS_SRC_BUILD_CMDS
 		$(HOST_NODEJS_SRC_MAKE_OPTS)
 endef
 
-ifeq ($(BR2_PACKAGE_HOST_NODEJS_COREPACK),y)
+ifeq ($(LINGMO_PACKAGE_HOST_NODEJS_COREPACK),y)
 define HOST_NODEJS_SRC_ENABLE_COREPACK
 	$(COREPACK) enable
 endef
@@ -125,50 +125,50 @@ define HOST_NODEJS_SRC_INSTALL_CMDS
 	$(HOST_NODEJS_SRC_ENABLE_COREPACK)
 endef
 
-ifeq ($(BR2_i386),y)
+ifeq ($(LINGMO_i386),y)
 NODEJS_SRC_CPU = ia32
-else ifeq ($(BR2_x86_64),y)
+else ifeq ($(LINGMO_x86_64),y)
 NODEJS_SRC_CPU = x64
-else ifeq ($(BR2_mips),y)
+else ifeq ($(LINGMO_mips),y)
 NODEJS_SRC_CPU = mips
-else ifeq ($(BR2_mipsel),y)
+else ifeq ($(LINGMO_mipsel),y)
 NODEJS_SRC_CPU = mipsel
-else ifeq ($(BR2_arm),y)
+else ifeq ($(LINGMO_arm),y)
 NODEJS_SRC_CPU = arm
 # V8 needs to know what floating point ABI the target is using.
 NODEJS_SRC_ARM_FP = $(GCC_TARGET_FLOAT_ABI)
 # it also wants to know which FPU to use, but only has support for
 # vfp, vfpv3, vfpv3-d16 and neon.
-ifeq ($(BR2_ARM_FPU_VFPV2),y)
+ifeq ($(LINGMO_ARM_FPU_VFPV2),y)
 NODEJS_SRC_ARM_FPU = vfp
 # vfpv4 is a superset of vfpv3
-else ifeq ($(BR2_ARM_FPU_VFPV3)$(BR2_ARM_FPU_VFPV4),y)
+else ifeq ($(LINGMO_ARM_FPU_VFPV3)$(LINGMO_ARM_FPU_VFPV4),y)
 NODEJS_SRC_ARM_FPU = vfpv3
 # vfpv4-d16 is a superset of vfpv3-d16
-else ifeq ($(BR2_ARM_FPU_VFPV3D16)$(BR2_ARM_FPU_VFPV4D16),y)
+else ifeq ($(LINGMO_ARM_FPU_VFPV3D16)$(LINGMO_ARM_FPU_VFPV4D16),y)
 NODEJS_SRC_ARM_FPU = vfpv3-d16
-else ifeq ($(BR2_ARM_FPU_NEON),y)
+else ifeq ($(LINGMO_ARM_FPU_NEON),y)
 NODEJS_SRC_ARM_FPU = neon
 endif
-else ifeq ($(BR2_aarch64),y)
+else ifeq ($(LINGMO_aarch64),y)
 NODEJS_SRC_CPU = arm64
 endif
 
 # MIPS architecture specific options
-ifeq ($(BR2_mips)$(BR2_mipsel),y)
-ifeq ($(BR2_MIPS_CPU_MIPS32R6),y)
+ifeq ($(LINGMO_mips)$(LINGMO_mipsel),y)
+ifeq ($(LINGMO_MIPS_CPU_MIPS32R6),y)
 NODEJS_SRC_MIPS_ARCH_VARIANT = r6
 NODEJS_SRC_MIPS_FPU_MODE = fp64
-else ifeq ($(BR2_MIPS_CPU_MIPS32R2),y)
+else ifeq ($(LINGMO_MIPS_CPU_MIPS32R2),y)
 NODEJS_SRC_MIPS_ARCH_VARIANT = r2
-else ifeq ($(BR2_MIPS_CPU_MIPS32),y)
+else ifeq ($(LINGMO_MIPS_CPU_MIPS32),y)
 NODEJS_SRC_MIPS_ARCH_VARIANT = r1
 endif
 endif
 
 NODEJS_SRC_LDFLAGS = $(TARGET_LDFLAGS)
 
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 NODEJS_SRC_LDFLAGS += -latomic
 endif
 
@@ -183,9 +183,9 @@ define NODEJS_SRC_INSTALL_V8_QEMU_WRAPPER
 		$(@D)/out/Release/v8-qemu-wrapper
 	$(SED) "s%@QEMU_USER@%$(QEMU_USER)%g" \
 		$(@D)/out/Release/v8-qemu-wrapper
-	$(SED) "s%@TOOLCHAIN_HEADERS_VERSION@%$(BR2_TOOLCHAIN_HEADERS_AT_LEAST)%g" \
+	$(SED) "s%@TOOLCHAIN_HEADERS_VERSION@%$(LINGMO_TOOLCHAIN_HEADERS_AT_LEAST)%g" \
 		$(@D)/out/Release/v8-qemu-wrapper
-	$(SED) "s%@QEMU_USERMODE_ARGS@%$(call qstrip,$(BR2_PACKAGE_HOST_QEMU_USER_MODE_ARGS))%g" \
+	$(SED) "s%@QEMU_USERMODE_ARGS@%$(call qstrip,$(LINGMO_PACKAGE_HOST_QEMU_USER_MODE_ARGS))%g" \
 		$(@D)/out/Release/v8-qemu-wrapper
 endef
 NODEJS_SRC_PRE_CONFIGURE_HOOKS += NODEJS_SRC_INSTALL_V8_QEMU_WRAPPER
@@ -231,7 +231,7 @@ endef
 # Build the list of modules to install.
 #
 NODEJS_SRC_MODULES_LIST= $(call qstrip,\
-	$(BR2_PACKAGE_NODEJS_MODULES_ADDITIONAL))
+	$(LINGMO_PACKAGE_NODEJS_MODULES_ADDITIONAL))
 
 #
 # We can only call NPM if there's something to install.

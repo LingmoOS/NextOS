@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBMPDCLIENT
+config LINGMO_PACKAGE_LIBMPDCLIENT
 	bool "libmpdclient"
 	help
 	  A stable, documented, asynchronous API library for interfacing

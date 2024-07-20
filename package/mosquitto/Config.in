@@ -1,4 +1,4 @@
-config BR2_PACKAGE_MOSQUITTO
+config LINGMO_PACKAGE_MOSQUITTO
 	bool "mosquitto"
 	help
 	  Eclipse Mosquitto is an open source (EPL/EDL licensed) message
@@ -19,17 +19,17 @@ config BR2_PACKAGE_MOSQUITTO
 
 	  https://mosquitto.org/
 
-config BR2_PACKAGE_MOSQUITTO_BROKER
+config LINGMO_PACKAGE_MOSQUITTO_BROKER
 	bool "install the mosquitto broker"
 	default y
-	depends on BR2_USE_MMU # fork()
-	depends on !BR2_STATIC_LIBS # include <dlfcn.h>
-	depends on BR2_PACKAGE_MOSQUITTO
-	select BR2_PACKAGE_LIBWEBSOCKETS_EXT_POLL if BR2_PACKAGE_LIBWEBSOCKETS
+	depends on LINGMO_USE_MMU # fork()
+	depends on !LINGMO_STATIC_LIBS # include <dlfcn.h>
+	depends on LINGMO_PACKAGE_MOSQUITTO
+	select LINGMO_PACKAGE_LIBWEBSOCKETS_EXT_POLL if LINGMO_PACKAGE_LIBWEBSOCKETS
 	help
 	  Build and install the mosquitto broker onto target.
 
 comment "mosquitto broker needs a toolchain w/ dynamic library"
-	depends on BR2_USE_MMU
-	depends on BR2_STATIC_LIBS
-	depends on BR2_PACKAGE_MOSQUITTO
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_STATIC_LIBS
+	depends on LINGMO_PACKAGE_MOSQUITTO

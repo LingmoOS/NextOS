@@ -4,17 +4,17 @@
 #
 ################################################################################
 
-BTRFS_SIZE = $(call qstrip,$(BR2_TARGET_ROOTFS_BTRFS_SIZE))
-ifeq ($(BR2_TARGET_ROOTFS_BTRFS)-$(BTRFS_SIZE),y-)
-$(error BR2_TARGET_ROOTFS_BTRFS_SIZE cannot be empty)
+BTRFS_SIZE = $(call qstrip,$(LINGMO_TARGET_ROOTFS_BTRFS_SIZE))
+ifeq ($(LINGMO_TARGET_ROOTFS_BTRFS)-$(BTRFS_SIZE),y-)
+$(error LINGMO_TARGET_ROOTFS_BTRFS_SIZE cannot be empty)
 endif
 
-BTRFS_SIZE_NODE = $(call qstrip,$(BR2_TARGET_ROOTFS_BTRFS_SIZE_NODE))
-BTRFS_SIZE_SECTOR = $(call qstrip,$(BR2_TARGET_ROOTFS_BTRFS_SIZE_SECTOR))
-BTRFS_FEATURES = $(call qstrip,$(BR2_TARGET_ROOTFS_BTRFS_FEATURES))
+BTRFS_SIZE_NODE = $(call qstrip,$(LINGMO_TARGET_ROOTFS_BTRFS_SIZE_NODE))
+BTRFS_SIZE_SECTOR = $(call qstrip,$(LINGMO_TARGET_ROOTFS_BTRFS_SIZE_SECTOR))
+BTRFS_FEATURES = $(call qstrip,$(LINGMO_TARGET_ROOTFS_BTRFS_FEATURES))
 # qstrip results in stripping consecutive spaces into a single one. So the
 # variable is not qstrip-ed to preserve the integrity of the string value.
-BTRFS_LABEL = $(subst ",,$(BR2_TARGET_ROOTFS_BTRFS_LABEL))
+BTRFS_LABEL = $(subst ",,$(LINGMO_TARGET_ROOTFS_BTRFS_LABEL))
 # ")
 
 BTRFS_OPTS = \

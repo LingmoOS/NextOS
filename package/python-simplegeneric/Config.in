@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_SIMPLEGENERIC
+config LINGMO_PACKAGE_PYTHON_SIMPLEGENERIC
 	bool "python-simplegeneric"
 	help
 	  Simple generic functions (similar to Python's own len(),

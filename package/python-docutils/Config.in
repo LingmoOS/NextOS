@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_DOCUTILS
+config LINGMO_PACKAGE_PYTHON_DOCUTILS
 	bool "python-docutils"
 	help
 	  Docutils is a modular system for processing documentation

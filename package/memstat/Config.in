@@ -1,4 +1,4 @@
-config BR2_PACKAGE_MEMSTAT
+config LINGMO_PACKAGE_MEMSTAT
 	bool "memstat"
 	help
 	  Memstat lists all the processes, executables, and shared

@@ -6,7 +6,7 @@
 
 LIBIBERTY_VERSION = 2.41
 LIBIBERTY_SOURCE = binutils-$(LIBIBERTY_VERSION).tar.xz
-LIBIBERTY_SITE = $(BR2_GNU_MIRROR)/binutils
+LIBIBERTY_SITE = $(LINGMO_GNU_MIRROR)/binutils
 HOST_LIBIBERTY_DL_SUBDIR = binutils
 
 # We're only building libiberty here, not the full binutils suite

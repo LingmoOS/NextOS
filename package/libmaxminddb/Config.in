@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBMAXMINDDB
+config LINGMO_PACKAGE_LIBMAXMINDDB
 	bool "libmaxminddb"
 	help
 	  C library for the MaxMind DB file format

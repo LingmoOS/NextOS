@@ -1,9 +1,9 @@
 comment "kernel-module-imx-gpu-viv needs a Linux kernel to be built"
-	depends on !BR2_LINUX_KERNEL
+	depends on !LINGMO_LINUX_KERNEL
 
-config BR2_PACKAGE_KERNEL_MODULE_IMX_GPU_VIV
+config LINGMO_PACKAGE_KERNEL_MODULE_IMX_GPU_VIV
 	bool "kernel-module-imx-gpu-viv"
-	depends on BR2_LINUX_KERNEL
+	depends on LINGMO_LINUX_KERNEL
 	help
 	  Kernel loadable module for Vivante GPU.
 

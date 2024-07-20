@@ -1,8 +1,8 @@
-config BR2_PACKAGE_LINUXCONSOLETOOLS
+config LINGMO_PACKAGE_LINUXCONSOLETOOLS
 	bool "linuxconsoletools"
-	select BR2_PACKAGE_LINUXCONSOLETOOLS_INPUTATTACH if \
-	       !BR2_PACKAGE_LINUXCONSOLETOOLS_JOYSTICK && \
-	       !BR2_PACKAGE_LINUXCONSOLETOOLS_FORCEFEEDBACK
+	select LINGMO_PACKAGE_LINUXCONSOLETOOLS_INPUTATTACH if \
+	       !LINGMO_PACKAGE_LINUXCONSOLETOOLS_JOYSTICK && \
+	       !LINGMO_PACKAGE_LINUXCONSOLETOOLS_FORCEFEEDBACK
 	help
 	  Linuxconsoletools contains the inputattach utility
 	  to attach legacy serial devices to the Linux kernel
@@ -11,30 +11,30 @@ config BR2_PACKAGE_LINUXCONSOLETOOLS
 
 	  http://sf.net/projects/linuxconsole/
 
-if BR2_PACKAGE_LINUXCONSOLETOOLS
+if LINGMO_PACKAGE_LINUXCONSOLETOOLS
 
-config BR2_PACKAGE_LINUXCONSOLETOOLS_INPUTATTACH
+config LINGMO_PACKAGE_LINUXCONSOLETOOLS_INPUTATTACH
 	bool "inputattach"
 	default y
 	help
 	  The inputattach utility attaches legacy serial devices
 	  to the Linux kernel input layer.
 
-config BR2_PACKAGE_LINUXCONSOLETOOLS_JOYSTICK
+config LINGMO_PACKAGE_LINUXCONSOLETOOLS_JOYSTICK
 	bool "joystick utilities"
 	help
 	  Joystick utilities (jstest, jscal, jscal-store,
 	  jscal-restore, evdev-joystick).
 
-config BR2_PACKAGE_LINUXCONSOLETOOLS_FORCEFEEDBACK
+config LINGMO_PACKAGE_LINUXCONSOLETOOLS_FORCEFEEDBACK
 	bool "force-feedback utilities"
-	depends on !BR2_STATIC_LIBS
-	select BR2_PACKAGE_SDL2
+	depends on !LINGMO_STATIC_LIBS
+	select LINGMO_PACKAGE_SDL2
 	help
 	  Build force-feedback driver utilities (fftest,
 	  ffmvforce, ffset, ffcfstress).
 
 comment "force-feedback utilities need a toolchain w/ dynamic library"
-	depends on BR2_STATIC_LIBS
+	depends on LINGMO_STATIC_LIBS
 
 endif

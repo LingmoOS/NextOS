@@ -1,8 +1,8 @@
-config BR2_PACKAGE_LIBINPUT
+config LINGMO_PACKAGE_LIBINPUT
 	bool "libinput"
-	depends on BR2_PACKAGE_HAS_UDEV
-	select BR2_PACKAGE_LIBEVDEV
-	select BR2_PACKAGE_MTDEV
+	depends on LINGMO_PACKAGE_HAS_UDEV
+	select LINGMO_PACKAGE_LIBEVDEV
+	select LINGMO_PACKAGE_MTDEV
 	help
 	  libinput is a library to handle input devices in Wayland
 	  compositors and to provide a generic X.Org input driver.
@@ -13,14 +13,14 @@ config BR2_PACKAGE_LIBINPUT
 
 	  http://freedesktop.org/wiki/Software/libinput/
 
-if BR2_PACKAGE_LIBINPUT
+if LINGMO_PACKAGE_LIBINPUT
 
-config BR2_PACKAGE_LIBINPUT_PYTHON_TOOLS
+config LINGMO_PACKAGE_LIBINPUT_PYTHON_TOOLS
 	bool "install python tools "
-	depends on BR2_PACKAGE_PYTHON3
-	select BR2_PACKAGE_PYTHON_LIBEVDEV # runtime
-	select BR2_PACKAGE_PYTHON_PYUDEV # runtime
-	select BR2_PACKAGE_PYTHON_PYYAML # runtime
+	depends on LINGMO_PACKAGE_PYTHON3
+	select LINGMO_PACKAGE_PYTHON_LIBEVDEV # runtime
+	select LINGMO_PACKAGE_PYTHON_PYUDEV # runtime
+	select LINGMO_PACKAGE_PYTHON_PYYAML # runtime
 	help
 	  Install python tools:
 	  libinput-analyze-per-slot-delta,
@@ -36,4 +36,4 @@ config BR2_PACKAGE_LIBINPUT_PYTHON_TOOLS
 endif
 
 comment "libinput needs udev /dev management"
-	depends on !BR2_PACKAGE_HAS_UDEV
+	depends on !LINGMO_PACKAGE_HAS_UDEV

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PPS_TOOLS
+config LINGMO_PACKAGE_PPS_TOOLS
 	bool "pps-tools"
 	help
 	  Pulse per second tools. Provides timepps.h and other PPS

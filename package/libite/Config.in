@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBITE
+config LINGMO_PACKAGE_LIBITE
 	bool "libite"
 	help
 	  Libite is a lightweight library of frog DNA. It can be used

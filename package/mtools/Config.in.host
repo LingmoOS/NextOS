@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_MTOOLS
+config LINGMO_PACKAGE_HOST_MTOOLS
 	bool "host mtools"
 	help
 	  Mtools is a collection of utilities to access MS-DOS disks

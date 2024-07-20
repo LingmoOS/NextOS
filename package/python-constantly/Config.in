@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_CONSTANTLY
+config LINGMO_PACKAGE_PYTHON_CONSTANTLY
 	bool "python-constantly"
 	help
 	  A library that provides symbolic constant support. It

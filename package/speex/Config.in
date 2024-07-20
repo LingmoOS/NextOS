@@ -1,6 +1,6 @@
-config BR2_PACKAGE_SPEEX
+config LINGMO_PACKAGE_SPEEX
 	bool "speex"
-	select BR2_PACKAGE_LIBOGG
+	select LINGMO_PACKAGE_LIBOGG
 	help
 	  Speex is an Open Source/Free Software patent-free
 	  audio compression format designed for speech.
@@ -8,16 +8,16 @@ config BR2_PACKAGE_SPEEX
 
 	  http://www.speex.org/
 
-if BR2_PACKAGE_SPEEX
+if LINGMO_PACKAGE_SPEEX
 
-config BR2_PACKAGE_SPEEX_ARM4
+config LINGMO_PACKAGE_SPEEX_ARM4
 	bool
 	default y
-	depends on BR2_ARM_CPU_ARMV4
+	depends on LINGMO_ARM_CPU_ARMV4
 
-config BR2_PACKAGE_SPEEX_ARM5E
+config LINGMO_PACKAGE_SPEEX_ARM5E
 	bool
 	default y
-	depends on BR2_arm && !BR2_PACKAGE_SPEEX_ARM4
+	depends on LINGMO_arm && !LINGMO_PACKAGE_SPEEX_ARM4
 
 endif

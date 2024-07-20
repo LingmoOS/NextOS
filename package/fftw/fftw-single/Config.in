@@ -1,4 +1,4 @@
-config BR2_PACKAGE_FFTW_SINGLE
+config LINGMO_PACKAGE_FFTW_SINGLE
 	bool "fftw-single"
 	help
 	  Compile fftw in single precision, i.e. use 'float'

@@ -1,8 +1,8 @@
-config BR2_PACKAGE_SSLH
+config LINGMO_PACKAGE_SSLH
 	bool "sslh"
-	depends on BR2_USE_MMU # fork()
-	select BR2_PACKAGE_LIBCONFIG if BR2_PACKAGE_SYSTEMD
-	select BR2_PACKAGE_PCRE2
+	depends on LINGMO_USE_MMU # fork()
+	select LINGMO_PACKAGE_LIBCONFIG if LINGMO_PACKAGE_SYSTEMD
+	select LINGMO_PACKAGE_PCRE2
 	help
 	  Applicative protocol multiplexer
 

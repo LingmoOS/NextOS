@@ -1,12 +1,12 @@
-config BR2_PACKAGE_LIBBPF
+config LINGMO_PACKAGE_LIBBPF
 	bool "libbpf"
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4
-	depends on BR2_USE_WCHAR # elfutils
-	depends on !BR2_STATIC_LIBS # elfutils
-	depends on BR2_TOOLCHAIN_HAS_THREADS # elfutils
-	depends on BR2_TOOLCHAIN_HEADERS_AT_LEAST_4_13
-	select BR2_PACKAGE_ELFUTILS
-	select BR2_PACKAGE_ZLIB
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4
+	depends on LINGMO_USE_WCHAR # elfutils
+	depends on !LINGMO_STATIC_LIBS # elfutils
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # elfutils
+	depends on LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_4_13
+	select LINGMO_PACKAGE_ELFUTILS
+	select LINGMO_PACKAGE_ZLIB
 	help
 	  libbpf library.
 	  A mirror of bpf-next linux tree bpf-next/tools/lib/bpf
@@ -16,7 +16,7 @@ config BR2_PACKAGE_LIBBPF
 	  https://github.com/libbpf/libbpf
 
 comment "libbpf needs a toolchain w/ wchar, dynamic library, threads, headers >= 4.13"
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4
-	depends on !BR2_USE_WCHAR || BR2_STATIC_LIBS \
-		|| !BR2_TOOLCHAIN_HAS_THREADS \
-		|| !BR2_TOOLCHAIN_HEADERS_AT_LEAST_4_13
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4
+	depends on !LINGMO_USE_WCHAR || LINGMO_STATIC_LIBS \
+		|| !LINGMO_TOOLCHAIN_HAS_THREADS \
+		|| !LINGMO_TOOLCHAIN_HEADERS_AT_LEAST_4_13

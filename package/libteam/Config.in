@@ -1,12 +1,12 @@
-config BR2_PACKAGE_LIBTEAM
+config LINGMO_PACKAGE_LIBTEAM
 	bool "libteam"
-	depends on BR2_USE_MMU # fork()
-	depends on !BR2_STATIC_LIBS # libnl-tools
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libnl
-	select BR2_PACKAGE_JANSSON
-	select BR2_PACKAGE_LIBDAEMON
-	select BR2_PACKAGE_LIBNL
-	select BR2_PACKAGE_LIBNL_TOOLS
+	depends on LINGMO_USE_MMU # fork()
+	depends on !LINGMO_STATIC_LIBS # libnl-tools
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libnl
+	select LINGMO_PACKAGE_JANSSON
+	select LINGMO_PACKAGE_LIBDAEMON
+	select LINGMO_PACKAGE_LIBNL
+	select LINGMO_PACKAGE_LIBNL_TOOLS
 	help
 	  The purpose of the Team driver is to provide a mechanism to
 	  team multiple NICs (ports) into one logical one (teamdev) at
@@ -27,5 +27,5 @@ config BR2_PACKAGE_LIBTEAM
 	  https://github.com/jpirko/libteam
 
 comment "libteam needs MMU and a toolchain w/ dynamic library and threads"
-	depends on BR2_USE_MMU
-	depends on BR2_STATIC_LIBS || !BR2_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_USE_MMU
+	depends on LINGMO_STATIC_LIBS || !LINGMO_TOOLCHAIN_HAS_THREADS

@@ -23,11 +23,11 @@ define NEARD_CREATE_M4
 endef
 NEARD_POST_PATCH_HOOKS += NEARD_CREATE_M4
 
-ifeq ($(BR2_PACKAGE_NEARD_TOOLS),y)
+ifeq ($(LINGMO_PACKAGE_NEARD_TOOLS),y)
 NEARD_CONF_OPTS += --enable-tools
 endif
 
-ifeq ($(BR2_INIT_SYSTEMD),y)
+ifeq ($(LINGMO_INIT_SYSTEMD),y)
 NEARD_CONF_OPTS += --enable-systemd
 NEARD_DEPENDENCIES += systemd
 else

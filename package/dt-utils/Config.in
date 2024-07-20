@@ -1,6 +1,6 @@
-config BR2_PACKAGE_DT_UTILS
+config LINGMO_PACKAGE_DT_UTILS
 	bool "dt-utils"
-	depends on BR2_PACKAGE_HAS_UDEV
+	depends on LINGMO_PACKAGE_HAS_UDEV
 	help
 	  Tools for flattened device-tree dumping and barebox state
 	  manipulation.
@@ -8,4 +8,4 @@ config BR2_PACKAGE_DT_UTILS
 	  https://git.pengutronix.de/cgit/tools/dt-utils/
 
 comment "dt-utils needs udev /dev management"
-	depends on !BR2_PACKAGE_HAS_UDEV
+	depends on !LINGMO_PACKAGE_HAS_UDEV

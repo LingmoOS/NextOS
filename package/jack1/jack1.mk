@@ -13,7 +13,7 @@ JACK1_INSTALL_STAGING = YES
 
 JACK1_DEPENDENCIES = host-pkgconf alsa-lib berkeleydb
 
-ifeq ($(BR2_PACKAGE_LIBSAMPLERATE),y)
+ifeq ($(LINGMO_PACKAGE_LIBSAMPLERATE),y)
 JACK1_DEPENDENCIES += libsamplerate
 endif
 

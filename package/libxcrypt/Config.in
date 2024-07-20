@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBXCRYPT
+config LINGMO_PACKAGE_LIBXCRYPT
 	bool "libxcrypt"
 	help
 	  libxcrypt is a modern library for one-way hashing

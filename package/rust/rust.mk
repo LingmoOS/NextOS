@@ -21,7 +21,7 @@ HOST_RUST_DEPENDENCIES = \
 	host-rust-bin \
 	host-openssl \
 	host-zlib \
-	$(BR2_CMAKE_HOST_DEPENDENCY)
+	$(LINGMO_CMAKE_HOST_DEPENDENCY)
 
 HOST_RUST_VERBOSITY = $(if $(VERBOSE),2,0)
 
@@ -83,7 +83,7 @@ define HOST_RUST_INSTALL_RUSTC
 		./install.sh $(HOST_RUST_INSTALL_OPTS) --components=rustc,cargo,rust-std-$(RUSTC_HOST_NAME)
 endef
 
-ifeq ($(BR2_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS),y)
+ifeq ($(LINGMO_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS),y)
 define HOST_RUST_INSTALL_LIBSTD_TARGET
 	cd $(@D)/build/tmp/tarball/rust-std/$(RUSTC_TARGET_NAME)/rust-std-$(RUST_VERSION)-$(RUSTC_TARGET_NAME); \
 		./install.sh $(HOST_RUST_INSTALL_OPTS)

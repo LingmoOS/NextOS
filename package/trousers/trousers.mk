@@ -14,11 +14,11 @@ TROUSERS_INSTALL_STAGING = YES
 TROUSERS_AUTORECONF = YES
 TROUSERS_DEPENDENCIES = host-pkgconf openssl
 
-ifeq ($(BR2_PACKAGE_LIBICONV),y)
+ifeq ($(LINGMO_PACKAGE_LIBICONV),y)
 TROUSERS_DEPENDENCIES += libiconv
 endif
 
-ifeq ($(BR2_arc770d)$(BR2_arc750d),y)
+ifeq ($(LINGMO_arc770d)$(LINGMO_arc750d),y)
 TROUSERS_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) -mno-compact-casesi"
 endif
 
@@ -27,7 +27,7 @@ endif
 # workaround.
 TROUSERS_CONF_OPTS += --disable-usercheck
 
-ifeq ($(BR2_TOOLCHAIN_SUPPORTS_PIE),)
+ifeq ($(LINGMO_TOOLCHAIN_SUPPORTS_PIE),)
 TROUSERS_CONF_ENV += \
 	ax_cv_check_cflags___fPIE__DPIE=no \
 	ax_cv_check_ldflags___pie=no

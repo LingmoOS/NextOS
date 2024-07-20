@@ -16,28 +16,28 @@ F2FS_TOOLS_LICENSE = GPL-2.0
 F2FS_TOOLS_LICENSE_FILES = COPYING
 F2FS_TOOLS_CPE_ID_VALID = YES
 
-ifeq ($(BR2_PACKAGE_LIBSELINUX),y)
+ifeq ($(LINGMO_PACKAGE_LIBSELINUX),y)
 F2FS_TOOLS_CONF_OPTS += --with-selinux
 F2FS_TOOLS_DEPENDENCIES += libselinux
 else
 F2FS_TOOLS_CONF_OPTS += --without-selinux
 endif
 
-ifeq ($(BR2_PACKAGE_LZ4),y)
+ifeq ($(LINGMO_PACKAGE_LZ4),y)
 F2FS_TOOLS_CONF_OPTS += --with-lz4
 F2FS_TOOLS_DEPENDENCIES += lz4
 else
 F2FS_TOOLS_CONF_OPTS += --without-lz4
 endif
 
-ifeq ($(BR2_PACKAGE_LZO),y)
+ifeq ($(LINGMO_PACKAGE_LZO),y)
 F2FS_TOOLS_CONF_OPTS += --with-lzo2
 F2FS_TOOLS_DEPENDENCIES += lzo
 else
 F2FS_TOOLS_CONF_OPTS += --without-lzo2
 endif
 
-ifeq ($(BR2_PACKAGE_UTIL_LINUX_LIBBLKID),y)
+ifeq ($(LINGMO_PACKAGE_UTIL_LINUX_LIBBLKID),y)
 # util-linux is a dependency already, no need to list it again
 F2FS_TOOLS_CONF_OPTS += --with-blkid
 else

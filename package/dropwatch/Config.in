@@ -1,9 +1,9 @@
-config BR2_PACKAGE_DROPWATCH
+config LINGMO_PACKAGE_DROPWATCH
 	bool "dropwatch"
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libnl
-	select BR2_PACKAGE_READLINE
-	select BR2_PACKAGE_LIBNL
-	select BR2_PACKAGE_LIBPCAP
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libnl
+	select LINGMO_PACKAGE_READLINE
+	select LINGMO_PACKAGE_LIBNL
+	select LINGMO_PACKAGE_LIBPCAP
 	help
 	  Dropwatch is an interactive utility for monitoring and
 	  recording packets that are dropped by the kernel
@@ -11,4 +11,4 @@ config BR2_PACKAGE_DROPWATCH
 	  https://github.com/nhorman/dropwatch
 
 comment "dropwatch needs a toolchain w/ threads"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS

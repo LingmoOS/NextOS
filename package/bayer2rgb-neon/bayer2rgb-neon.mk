@@ -15,7 +15,7 @@ BAYER2RGB_NEON_AUTORECONF = YES
 
 BAYER2RGB_NEON_CFLAGS = $(TARGET_CFLAGS)
 
-ifeq ($(BR2_arm),y)
+ifeq ($(LINGMO_arm),y)
 BAYER2RGB_NEON_CFLAGS += -mfpu=neon
 endif
 
@@ -23,7 +23,7 @@ endif
 # bayer2rgb-neon uses a variable, derived from a constant, so some
 # optimization is needed to allow the compiler to turn it into a
 # constant, otherwise the build fails
-ifeq ($(BR2_OPTIMIZE_0),y)
+ifeq ($(LINGMO_OPTIMIZE_0),y)
 BAYER2RGB_NEON_CFLAGS += -O1
 endif
 

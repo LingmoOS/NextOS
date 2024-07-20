@@ -63,9 +63,9 @@ INFLATE.tar  = cat
 # suitable-extractor(filename): returns extractor based on suffix
 suitable-extractor = $(INFLATE$(suffix $(1)))
 
-EXTRACTOR_PKG_DEPENDENCY.lzma = $(BR2_XZCAT_HOST_DEPENDENCY)
-EXTRACTOR_PKG_DEPENDENCY.xz   = $(BR2_XZCAT_HOST_DEPENDENCY)
-EXTRACTOR_PKG_DEPENDENCY.lz   = $(BR2_LZIP_HOST_DEPENDENCY)
+EXTRACTOR_PKG_DEPENDENCY.lzma = $(LINGMO_XZCAT_HOST_DEPENDENCY)
+EXTRACTOR_PKG_DEPENDENCY.xz   = $(LINGMO_XZCAT_HOST_DEPENDENCY)
+EXTRACTOR_PKG_DEPENDENCY.lz   = $(LINGMO_LZIP_HOST_DEPENDENCY)
 
 # extractor-pkg-dependency(filename): returns a Buildroot package
 # dependency needed to extract file based on suffix
@@ -213,7 +213,7 @@ clean-json = $(strip \
 mk-json-str = "$(subst $(space),\u0020,$(subst $(escape),\u001b,$(subst $(tab),\t,$(subst $(sep),\n,$(subst ",\",$(subst \,\\,$(1)))))))"
 # )))))" # Syntax colouring
 
-ifeq ($(BR2_PER_PACKAGE_DIRECTORIES),y)
+ifeq ($(LINGMO_PER_PACKAGE_DIRECTORIES),y)
 # rsync the contents of per-package directories
 # $1: space-separated list of packages to rsync from
 # $2: 'host' or 'target'

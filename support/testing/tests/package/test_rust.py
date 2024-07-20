@@ -17,17 +17,17 @@ class TestRustBase(infra.basetest.BRTest):
 class TestRustBin(TestRustBase):
     config = \
         """
-        BR2_arm=y
-        BR2_cortex_a9=y
-        BR2_ARM_ENABLE_NEON=y
-        BR2_ARM_ENABLE_VFP=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
-        BR2_SYSTEM_DHCP="eth0"
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
-        BR2_PACKAGE_HOST_RUSTC=y
-        BR2_PACKAGE_RIPGREP=y
+        LINGMO_arm=y
+        LINGMO_cortex_a9=y
+        LINGMO_ARM_ENABLE_NEON=y
+        LINGMO_ARM_ENABLE_VFP=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
+        LINGMO_SYSTEM_DHCP="eth0"
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_HOST_RUSTC=y
+        LINGMO_PACKAGE_RIPGREP=y
         """
 
     def test_run(self):
@@ -38,18 +38,18 @@ class TestRustBin(TestRustBase):
 class TestRust(TestRustBase):
     config = \
         """
-        BR2_arm=y
-        BR2_cortex_a9=y
-        BR2_ARM_ENABLE_NEON=y
-        BR2_ARM_ENABLE_VFP=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
-        BR2_SYSTEM_DHCP="eth0"
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
-        BR2_PACKAGE_HOST_RUSTC=y
-        BR2_PACKAGE_HOST_RUST=y
-        BR2_PACKAGE_RIPGREP=y
+        LINGMO_arm=y
+        LINGMO_cortex_a9=y
+        LINGMO_ARM_ENABLE_NEON=y
+        LINGMO_ARM_ENABLE_VFP=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TARGET_GENERIC_GETTY_PORT="ttyAMA0"
+        LINGMO_SYSTEM_DHCP="eth0"
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_HOST_RUSTC=y
+        LINGMO_PACKAGE_HOST_RUST=y
+        LINGMO_PACKAGE_RIPGREP=y
         """
 
     def test_run(self):
@@ -60,17 +60,17 @@ class TestRust(TestRustBase):
 class TestRustVendoring(infra.basetest.BRConfigTest):
     config = \
         """
-        BR2_arm=y
-        BR2_cortex_a9=y
-        BR2_ARM_ENABLE_NEON=y
-        BR2_ARM_ENABLE_VFP=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        # BR2_TARGET_ROOTFS_TAR is not set
-        BR2_PACKAGE_HOST_RUSTC=y
-        BR2_PACKAGE_RIPGREP=y
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_PYTHON_CRYPTOGRAPHY=y
-        BR2_BACKUP_SITE=""
+        LINGMO_arm=y
+        LINGMO_cortex_a9=y
+        LINGMO_ARM_ENABLE_NEON=y
+        LINGMO_ARM_ENABLE_VFP=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_HOST_RUSTC=y
+        LINGMO_PACKAGE_RIPGREP=y
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON_CRYPTOGRAPHY=y
+        LINGMO_BACKUP_SITE=""
         """
 
     def setUp(self):
@@ -88,7 +88,7 @@ class TestRustVendoring(infra.basetest.BRConfigTest):
         # enforce we test the download
         if os.path.exists(dl_dir):
             shutil.rmtree(dl_dir)
-        env = {"BR2_DL_DIR": dl_dir}
+        env = {"LINGMO_DL_DIR": dl_dir}
         self.b.build(["{}-dirclean".format(package),
                       "{}-legal-info".format(package)],
                      env)

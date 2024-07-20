@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUA_CJSON
+config LINGMO_PACKAGE_LUA_CJSON
 	bool "lua-cjson"
 	help
 	  The Lua CJSON module provides JSON support for Lua.

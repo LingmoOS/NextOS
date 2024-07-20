@@ -4,10 +4,10 @@
 #
 ################################################################################
 
-RUSTC_ARCH = $(call qstrip,$(BR2_PACKAGE_HOST_RUSTC_ARCH))
-RUSTC_ABI = $(call qstrip,$(BR2_PACKAGE_HOST_RUSTC_ABI))
+RUSTC_ARCH = $(call qstrip,$(LINGMO_PACKAGE_HOST_RUSTC_ARCH))
+RUSTC_ABI = $(call qstrip,$(LINGMO_PACKAGE_HOST_RUSTC_ABI))
 
-ifeq ($(BR2_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS),y)
+ifeq ($(LINGMO_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS),y)
 RUSTC_TARGET_NAME = $(RUSTC_ARCH)-unknown-linux-$(LIBC)$(RUSTC_ABI)
 endif
 

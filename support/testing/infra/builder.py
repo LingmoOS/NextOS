@@ -35,11 +35,11 @@ class Builder(object):
 
         make_extra_opts: a list of arguments to be passed to the make
         command.
-        e.g. make_extra_opts=["BR2_EXTERNAL=/path"]
+        e.g. make_extra_opts=["LINGMO_EXTERNAL=/path"]
 
         make_extra_env: a dict of variables to be appended (or replaced)
         in the environment that calls make.
-        e.g. make_extra_env={"BR2_DL_DIR": "/path"}
+        e.g. make_extra_env={"LINGMO_DL_DIR": "/path"}
         """
         if not os.path.isdir(self.builddir):
             os.makedirs(self.builddir)
@@ -80,7 +80,7 @@ class Builder(object):
 
         make_extra_env: a dict of variables to be appended (or replaced)
         in the environment that calls make.
-        e.g. make_extra_env={"BR2_DL_DIR": "/path"}
+        e.g. make_extra_env={"LINGMO_DL_DIR": "/path"}
         """
         env = {
             "PATH": os.environ["PATH"],
@@ -95,7 +95,7 @@ class Builder(object):
         env.update(make_extra_env)
 
         cmd = ["make", "-C", self.builddir]
-        if "BR2_PER_PACKAGE_DIRECTORIES=y" in self.config.splitlines() and self.jlevel:
+        if "LINGMO_PER_PACKAGE_DIRECTORIES=y" in self.config.splitlines() and self.jlevel:
             cmd.append(f"-j{self.jlevel}")
         cmd += make_extra_opts
 

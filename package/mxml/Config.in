@@ -1,4 +1,4 @@
-config BR2_PACKAGE_MXML
+config LINGMO_PACKAGE_MXML
 	bool "Mini-XML"
 	help
 	  Lightweight XML Library

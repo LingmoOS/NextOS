@@ -13,23 +13,23 @@ X265_CPE_ID_VENDOR = multicorewareinc
 X265_SUBDIR = source
 X265_INSTALL_STAGING = YES
 
-ifeq ($(BR2_i386)$(BR2_x86_64),y)
+ifeq ($(LINGMO_i386)$(LINGMO_x86_64),y)
 X265_DEPENDENCIES += host-nasm
 endif
 
 # disable altivec, it has build issues
 # https://bitbucket.org/multicoreware/x265/issues/320/
-ifeq ($(BR2_powerpc64)$(BR2_powerpc64le),y)
+ifeq ($(LINGMO_powerpc64)$(LINGMO_powerpc64le),y)
 X265_CONF_OPTS += -DENABLE_ALTIVEC=OFF
 endif
 
-ifeq ($(BR2_SHARED_LIBS)$(BR2_SHARED_STATIC_LIBS),y)
+ifeq ($(LINGMO_SHARED_LIBS)$(LINGMO_SHARED_STATIC_LIBS),y)
 X265_CONF_OPTS += -DENABLE_SHARED=ON -DENABLE_PIC=ON
 else
 X265_CONF_OPTS += -DENABLE_SHARED=OFF
 endif
 
-ifeq ($(BR2_PACKAGE_X265_CLI),y)
+ifeq ($(LINGMO_PACKAGE_X265_CLI),y)
 X265_CONF_OPTS += -DENABLE_CLI=ON
 else
 X265_CONF_OPTS += -DENABLE_CLI=OFF

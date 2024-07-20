@@ -11,13 +11,13 @@ MJPEGTOOLS_INSTALL_STAGING = YES
 MJPEGTOOLS_LICENSE = GPL-2.0+
 MJPEGTOOLS_LICENSE_FILES = COPYING
 
-ifeq ($(BR2_PACKAGE_MJPEGTOOLS_SIMD_SUPPORT),y)
+ifeq ($(LINGMO_PACKAGE_MJPEGTOOLS_SIMD_SUPPORT),y)
 MJPEGTOOLS_CONF_OPTS += --enable-simd-accel
 else
 MJPEGTOOLS_CONF_OPTS += --disable-simd-accel
 endif
 
-ifeq ($(BR2_PACKAGE_LIBPNG),y)
+ifeq ($(LINGMO_PACKAGE_LIBPNG),y)
 MJPEGTOOLS_CONF_OPTS += --with-libpng
 MJPEGTOOLS_DEPENDENCIES += libpng
 else
@@ -25,35 +25,35 @@ MJPEGTOOLS_CONF_OPTS += --without-libpng
 endif
 
 # expects X11 backend in sdl
-ifeq ($(BR2_PACKAGE_SDL_X11),y)
+ifeq ($(LINGMO_PACKAGE_SDL_X11),y)
 MJPEGTOOLS_CONF_OPTS += --with-libsdl
 MJPEGTOOLS_DEPENDENCIES += sdl
 else
 MJPEGTOOLS_CONF_OPTS += --without-libsdl
 endif
 
-ifeq ($(BR2_PACKAGE_SDL_GFX),y)
+ifeq ($(LINGMO_PACKAGE_SDL_GFX),y)
 MJPEGTOOLS_CONF_OPTS += --with-sdlgfx
 MJPEGTOOLS_DEPENDENCIES += sdl_gfx
 else
 MJPEGTOOLS_CONF_OPTS += --without-sdlgfx
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBX11),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBX11),y)
 MJPEGTOOLS_CONF_OPTS += --with-x
 MJPEGTOOLS_DEPENDENCIES += xlib_libX11
 else
 MJPEGTOOLS_CONF_OPTS += --without-x
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXXF86DGA),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXXF86DGA),y)
 MJPEGTOOLS_CONF_OPTS += --with-dga
 MJPEGTOOLS_DEPENDENCIES += xlib_libXxf86dga
 else
 MJPEGTOOLS_CONF_OPTS += --without-dga
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGTK2),y)
+ifeq ($(LINGMO_PACKAGE_LIBGTK2),y)
 MJPEGTOOLS_CONF_OPTS += --with-gtk
 MJPEGTOOLS_DEPENDENCIES += libgtk2
 else

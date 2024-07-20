@@ -1,4 +1,4 @@
-config BR2_PACKAGE_SOX
+config LINGMO_PACKAGE_SOX
 	bool "sox"
 	help
 	  SoX is a cross-platform (Windows, Linux, MacOS X, etc.)

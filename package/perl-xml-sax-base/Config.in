@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_XML_SAX_BASE
+config LINGMO_PACKAGE_PERL_XML_SAX_BASE
 	bool "perl-xml-sax-base"
 	help
 	  Base class for SAX Drivers and Filters.

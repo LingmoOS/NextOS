@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUA_ROTAS
+config LINGMO_PACKAGE_LUA_ROTAS
 	bool "lua-rotas"
 	help
 	  a web server router.

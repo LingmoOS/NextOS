@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBSRTP
+config LINGMO_PACKAGE_LIBSRTP
 	bool "libsrtp"
 	help
 	  This package provides an implementation of the Secure

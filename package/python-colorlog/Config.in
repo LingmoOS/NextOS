@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_COLORLOG
+config LINGMO_PACKAGE_PYTHON_COLORLOG
 	bool "python-colorlog"
 	help
 	  Log formatting with colors.

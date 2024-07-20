@@ -31,8 +31,8 @@ class TestPerlLWPProtocolhttps(TestPerlBase):
 
     config = TestPerlBase.config + \
         """
-        BR2_PACKAGE_PERL=y
-        BR2_PACKAGE_PERL_LWP_PROTOCOL_HTTPS=y
+        LINGMO_PACKAGE_PERL=y
+        LINGMO_PACKAGE_PERL_LWP_PROTOCOL_HTTPS=y
         """
 
     def test_run(self):

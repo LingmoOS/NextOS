@@ -5,7 +5,7 @@
 ################################################################################
 
 POKE_VERSION = 3.0
-POKE_SITE = $(BR2_GNU_MIRROR)/poke
+POKE_SITE = $(LINGMO_GNU_MIRROR)/poke
 # gnulib license is a mix/mess of public-domain and various GPL and LGPL versions.
 POKE_LICENSE = GPL-3.0+, GPL-3.0+ (jitter), gnulib license (gnulib)
 POKE_LICENSE_FILES = COPYING jitter/COPYING
@@ -21,7 +21,7 @@ POKE_DEPENDENCIES = host-flex host-bison host-pkgconf bdwgc readline
 # answers are mostly wrong and gnulib will try to replace
 # snprintf with rpl_snprintf. This lead to "undefined reference
 # to `rpl_snprintf'" errors.
-ifeq ($(BR2_TOOLCHAIN_USES_UCLIBC),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_UCLIBC),y)
 POKE_CONF_ENV = gl_cv_func_printf_positions=yes \
 	gl_cv_func_snprintf_retval_c99=yes \
 	gl_cv_func_printf_sizes_c99=yes \
@@ -46,7 +46,7 @@ POKE_CONF_OPTS = \
 	--disable-libnbd \
 	--with-libreadline-prefix=$(STAGING_DIR)
 
-ifeq ($(BR2_PACKAGE_JSON_C),y)
+ifeq ($(LINGMO_PACKAGE_JSON_C),y)
 POKE_DEPENDENCIES += json-c
 POKE_CONF_OPTS += --enable-mi
 else

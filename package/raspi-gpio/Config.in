@@ -1,4 +1,4 @@
-config BR2_PACKAGE_RASPI_GPIO
+config LINGMO_PACKAGE_RASPI_GPIO
 	bool "raspi-gpio"
 	help
 	  Tool to help debug / hack at the BCM283x GPIO. You can dump

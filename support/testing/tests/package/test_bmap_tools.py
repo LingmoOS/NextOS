@@ -11,21 +11,21 @@ class TestBmapTools(BRTest):
     copy_script = 'tests/package/copy-sample-script-to-target.sh'
     config = \
         """
-        BR2_arm=y
-        BR2_cortex_a8=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_PACKAGE_BMAP_TOOLS=y
-        BR2_ROOTFS_POST_BUILD_SCRIPT="{}"
-        BR2_ROOTFS_POST_SCRIPT_ARGS="{}"
-        BR2_TARGET_ROOTFS_EXT2=y
-        BR2_TARGET_ROOTFS_EXT2_4=y
-        BR2_TARGET_ROOTFS_EXT2_SIZE="65536"
-        # BR2_TARGET_ROOTFS_TAR is not set
-        BR2_PACKAGE_UTIL_LINUX=y
-        BR2_PACKAGE_UTIL_LINUX_FALLOCATE=y
-        BR2_PACKAGE_E2FSPROGS=y
-        BR2_PACKAGE_UTIL_LINUX_LIBUUID=y
+        LINGMO_arm=y
+        LINGMO_cortex_a8=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_PACKAGE_BMAP_TOOLS=y
+        LINGMO_ROOTFS_POST_BUILD_SCRIPT="{}"
+        LINGMO_ROOTFS_POST_SCRIPT_ARGS="{}"
+        LINGMO_TARGET_ROOTFS_EXT2=y
+        LINGMO_TARGET_ROOTFS_EXT2_4=y
+        LINGMO_TARGET_ROOTFS_EXT2_SIZE="65536"
+        # LINGMO_TARGET_ROOTFS_TAR is not set
+        LINGMO_PACKAGE_UTIL_LINUX=y
+        LINGMO_PACKAGE_UTIL_LINUX_FALLOCATE=y
+        LINGMO_PACKAGE_E2FSPROGS=y
+        LINGMO_PACKAGE_UTIL_LINUX_LIBUUID=y
         """.format(infra.filepath(copy_script),
                    infra.filepath(sample_script))
     timeout = 60
@@ -49,16 +49,16 @@ class TestPy3BmapTools(TestBmapTools):
     __test__ = True
     config = TestBmapTools.config + \
         """
-        BR2_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON3=y
         """
 
 
 class TestHostBmapTools(BRTest):
     config = infra.basetest.BASIC_TOOLCHAIN_CONFIG + \
         """
-        BR2_PACKAGE_HOST_BMAP_TOOLS=y
-        # BR2_TARGET_ROOTFS_TAR is not set
-        BR2_TARGET_ROOTFS_EXT2=y
+        LINGMO_PACKAGE_HOST_BMAP_TOOLS=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
+        LINGMO_TARGET_ROOTFS_EXT2=y
         """
 
     def test_run(self):

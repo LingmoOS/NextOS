@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PV
+config LINGMO_PACKAGE_PV
 	bool "pv"
 	help
 	  Pipe Viewer - is a terminal-based tool for

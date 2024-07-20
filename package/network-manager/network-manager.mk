@@ -35,25 +35,25 @@ NETWORK_MANAGER_CONF_OPTS = \
 	-Dnm_cloud_setup=false \
 	-Dsession_tracking_consolekit=false
 
-ifeq ($(BR2_PACKAGE_AUDIT),y)
+ifeq ($(LINGMO_PACKAGE_AUDIT),y)
 NETWORK_MANAGER_DEPENDENCIES += audit
 NETWORK_MANAGER_CONF_OPTS += -Dlibaudit=yes
 else
 NETWORK_MANAGER_CONF_OPTS += -Dlibaudit=no
 endif
 
-ifeq ($(BR2_PACKAGE_DHCP_CLIENT),y)
+ifeq ($(LINGMO_PACKAGE_DHCP_CLIENT),y)
 NETWORK_MANAGER_CONF_OPTS += -Ddhclient=/sbin/dhclient
 endif
 
-ifeq ($(BR2_PACKAGE_DHCPCD),y)
+ifeq ($(LINGMO_PACKAGE_DHCPCD),y)
 NETWORK_MANAGER_CONF_OPTS += -Ddhcpcd=/sbin/dhcpcd
 endif
 
-ifeq ($(BR2_PACKAGE_IWD),y)
+ifeq ($(LINGMO_PACKAGE_IWD),y)
 NETWORK_MANAGER_DEPENDENCIES += iwd
 NETWORK_MANAGER_CONF_OPTS += -Diwd=true
-ifeq ($(BR2_PACKAGE_WPA_SUPPLICANT),y)
+ifeq ($(LINGMO_PACKAGE_WPA_SUPPLICANT),y)
 NETWORK_MANAGER_CONF_OPTS += -Dconfig_wifi_backend_default=wpa_supplicant
 else
 NETWORK_MANAGER_CONF_OPTS += -Dconfig_wifi_backend_default=iwd
@@ -64,14 +64,14 @@ NETWORK_MANAGER_CONF_OPTS += \
 	-Dconfig_wifi_backend_default=wpa_supplicant
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCURL),y)
+ifeq ($(LINGMO_PACKAGE_LIBCURL),y)
 NETWORK_MANAGER_DEPENDENCIES += libcurl
 NETWORK_MANAGER_CONF_OPTS += -Dconcheck=true
 else
 NETWORK_MANAGER_CONF_OPTS += -Dconcheck=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIBNSS),y)
+ifeq ($(LINGMO_PACKAGE_LIBNSS),y)
 NETWORK_MANAGER_DEPENDENCIES += libnss
 NETWORK_MANAGER_CONF_OPTS += -Dcrypto=nss
 else
@@ -79,21 +79,21 @@ NETWORK_MANAGER_DEPENDENCIES += gnutls
 NETWORK_MANAGER_CONF_OPTS += -Dcrypto=gnutls
 endif
 
-ifeq ($(BR2_PACKAGE_LIBPSL),y)
+ifeq ($(LINGMO_PACKAGE_LIBPSL),y)
 NETWORK_MANAGER_DEPENDENCIES += libpsl
 NETWORK_MANAGER_CONF_OPTS += -Dlibpsl=true
 else
 NETWORK_MANAGER_CONF_OPTS += -Dlibpsl=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSELINUX),y)
+ifeq ($(LINGMO_PACKAGE_LIBSELINUX),y)
 NETWORK_MANAGER_DEPENDENCIES += libselinux
 NETWORK_MANAGER_CONF_OPTS += -Dselinux=true
 else
 NETWORK_MANAGER_CONF_OPTS += -Dselinux=false
 endif
 
-ifeq ($(BR2_PACKAGE_NETWORK_MANAGER_MODEM_MANAGER),y)
+ifeq ($(LINGMO_PACKAGE_NETWORK_MANAGER_MODEM_MANAGER),y)
 NETWORK_MANAGER_DEPENDENCIES += modem-manager mobile-broadband-provider-info
 NETWORK_MANAGER_CONF_OPTS += -Dmodem_manager=true
 NETWORK_MANAGER_CONF_OPTS += -Dmobile_broadband_provider_info_database=/usr/share/mobile-broadband-provider-info/serviceproviders.xml
@@ -101,14 +101,14 @@ else
 NETWORK_MANAGER_CONF_OPTS += -Dmodem_manager=false
 endif
 
-ifeq ($(BR2_PACKAGE_NETWORK_MANAGER_OVS),y)
+ifeq ($(LINGMO_PACKAGE_NETWORK_MANAGER_OVS),y)
 NETWORK_MANAGER_CONF_OPTS += -Dovs=true
 NETWORK_MANAGER_DEPENDENCIES += jansson
 else
 NETWORK_MANAGER_CONF_OPTS += -Dovs=false
 endif
 
-ifeq ($(BR2_PACKAGE_NETWORK_MANAGER_PPPD),y)
+ifeq ($(LINGMO_PACKAGE_NETWORK_MANAGER_PPPD),y)
 NETWORK_MANAGER_DEPENDENCIES += pppd
 NETWORK_MANAGER_CONF_OPTS += \
 	-Dppp=true \
@@ -118,21 +118,21 @@ else
 NETWORK_MANAGER_CONF_OPTS += -Dppp=false
 endif
 
-ifeq ($(BR2_PACKAGE_NETWORK_MANAGER_TUI),y)
+ifeq ($(LINGMO_PACKAGE_NETWORK_MANAGER_TUI),y)
 NETWORK_MANAGER_DEPENDENCIES += newt
 NETWORK_MANAGER_CONF_OPTS += -Dnmtui=true
 else
 NETWORK_MANAGER_CONF_OPTS += -Dnmtui=false
 endif
 
-ifeq ($(BR2_PACKAGE_OFONO),y)
+ifeq ($(LINGMO_PACKAGE_OFONO),y)
 NETWORK_MANAGER_DEPENDENCIES += ofono
 NETWORK_MANAGER_CONF_OPTS += -Dofono=true
 else
 NETWORK_MANAGER_CONF_OPTS += -Dofono=false
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 NETWORK_MANAGER_DEPENDENCIES += systemd
 NETWORK_MANAGER_CONF_OPTS += \
 	-Dsystemd_journal=true \
@@ -148,14 +148,14 @@ NETWORK_MANAGER_CONF_OPTS += \
 	-Dsystemdsystemunitdir=no
 endif
 
-ifeq ($(BR2_PACKAGE_POLKIT),y)
+ifeq ($(LINGMO_PACKAGE_POLKIT),y)
 NETWORK_MANAGER_DEPENDENCIES += polkit
 NETWORK_MANAGER_CONF_OPTS += -Dpolkit=true
 else
 NETWORK_MANAGER_CONF_OPTS += -Dpolkit=false
 endif
 
-ifeq ($(BR2_PACKAGE_NETWORK_MANAGER_CLI),y)
+ifeq ($(LINGMO_PACKAGE_NETWORK_MANAGER_CLI),y)
 NETWORK_MANAGER_DEPENDENCIES += readline
 NETWORK_MANAGER_CONF_OPTS += -Dnmcli=true
 else

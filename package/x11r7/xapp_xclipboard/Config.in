@@ -1,5 +1,5 @@
-config BR2_PACKAGE_XAPP_XCLIPBOARD
+config LINGMO_PACKAGE_XAPP_XCLIPBOARD
 	bool "xclipboard"
-	select BR2_PACKAGE_XLIB_LIBXAW
+	select LINGMO_PACKAGE_XLIB_LIBXAW
 	help
 	  interchange between cut buffer and selection

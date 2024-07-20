@@ -4,9 +4,9 @@
 #
 ################################################################################
 
-LINUX_VERSION = $(call qstrip,$(BR2_LINUX_KERNEL_VERSION))
+LINUX_VERSION = $(call qstrip,$(LINGMO_LINUX_KERNEL_VERSION))
 LINUX_LICENSE = GPL-2.0
-ifeq ($(BR2_LINUX_KERNEL_LATEST_VERSION),y)
+ifeq ($(LINGMO_LINUX_KERNEL_LATEST_VERSION),y)
 LINUX_LICENSE_FILES = \
 	COPYING \
 	LICENSES/preferred/GPL-2.0 \
@@ -17,20 +17,20 @@ LINUX_CPE_ID_PRODUCT = linux_kernel
 LINUX_CPE_ID_PREFIX = cpe:2.3:o
 
 # Compute LINUX_SOURCE and LINUX_SITE from the configuration
-ifeq ($(BR2_LINUX_KERNEL_CUSTOM_TARBALL),y)
-LINUX_TARBALL = $(call qstrip,$(BR2_LINUX_KERNEL_CUSTOM_TARBALL_LOCATION))
+ifeq ($(LINGMO_LINUX_KERNEL_CUSTOM_TARBALL),y)
+LINUX_TARBALL = $(call qstrip,$(LINGMO_LINUX_KERNEL_CUSTOM_TARBALL_LOCATION))
 LINUX_SITE = $(patsubst %/,%,$(dir $(LINUX_TARBALL)))
 LINUX_SOURCE = $(notdir $(LINUX_TARBALL))
-else ifeq ($(BR2_LINUX_KERNEL_CUSTOM_GIT),y)
-LINUX_SITE = $(call qstrip,$(BR2_LINUX_KERNEL_CUSTOM_REPO_URL))
+else ifeq ($(LINGMO_LINUX_KERNEL_CUSTOM_GIT),y)
+LINUX_SITE = $(call qstrip,$(LINGMO_LINUX_KERNEL_CUSTOM_REPO_URL))
 LINUX_SITE_METHOD = git
-else ifeq ($(BR2_LINUX_KERNEL_CUSTOM_HG),y)
-LINUX_SITE = $(call qstrip,$(BR2_LINUX_KERNEL_CUSTOM_REPO_URL))
+else ifeq ($(LINGMO_LINUX_KERNEL_CUSTOM_HG),y)
+LINUX_SITE = $(call qstrip,$(LINGMO_LINUX_KERNEL_CUSTOM_REPO_URL))
 LINUX_SITE_METHOD = hg
-else ifeq ($(BR2_LINUX_KERNEL_CUSTOM_SVN),y)
-LINUX_SITE = $(call qstrip,$(BR2_LINUX_KERNEL_CUSTOM_REPO_URL))
+else ifeq ($(LINGMO_LINUX_KERNEL_CUSTOM_SVN),y)
+LINUX_SITE = $(call qstrip,$(LINGMO_LINUX_KERNEL_CUSTOM_REPO_URL))
 LINUX_SITE_METHOD = svn
-else ifeq ($(BR2_LINUX_KERNEL_LATEST_CIP_VERSION)$(BR2_LINUX_KERNEL_LATEST_CIP_RT_VERSION),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_LATEST_CIP_VERSION)$(LINGMO_LINUX_KERNEL_LATEST_CIP_RT_VERSION),y)
 LINUX_SOURCE = linux-cip-$(LINUX_VERSION).tar.gz
 LINUX_SITE = https://git.kernel.org/pub/scm/linux/kernel/git/cip/linux-cip.git/snapshot
 else ifneq ($(findstring -rc,$(LINUX_VERSION)),)
@@ -40,17 +40,17 @@ LINUX_SITE = https://git.kernel.org/torvalds/t
 else
 LINUX_SOURCE = linux-$(LINUX_VERSION).tar.xz
 ifeq ($(findstring x2.6.,x$(LINUX_VERSION)),x2.6.)
-LINUX_SITE = $(BR2_KERNEL_MIRROR)/linux/kernel/v2.6
+LINUX_SITE = $(LINGMO_KERNEL_MIRROR)/linux/kernel/v2.6
 else
-LINUX_SITE = $(BR2_KERNEL_MIRROR)/linux/kernel/v$(firstword $(subst ., ,$(LINUX_VERSION))).x
+LINUX_SITE = $(LINGMO_KERNEL_MIRROR)/linux/kernel/v$(firstword $(subst ., ,$(LINUX_VERSION))).x
 endif
 endif
 
-ifeq ($(BR2_LINUX_KERNEL)$(BR2_LINUX_KERNEL_LATEST_VERSION),y)
+ifeq ($(LINGMO_LINUX_KERNEL)$(LINGMO_LINUX_KERNEL_LATEST_VERSION),y)
 BR_NO_CHECK_HASH_FOR += $(LINUX_SOURCE)
 endif
 
-LINUX_PATCHES = $(call qstrip,$(BR2_LINUX_KERNEL_PATCH))
+LINUX_PATCHES = $(call qstrip,$(LINGMO_LINUX_KERNEL_PATCH))
 
 # We have no way to know the hashes for user-supplied patches.
 BR_NO_CHECK_HASH_FOR += $(notdir $(LINUX_PATCHES))
@@ -72,24 +72,24 @@ LINUX_MAKE_ENV = \
 LINUX_INSTALL_IMAGES = YES
 LINUX_DEPENDENCIES = \
 	host-kmod \
-	$(BR2_MAKE_HOST_DEPENDENCY)
-LINUX_MAKE = $(BR2_MAKE)
+	$(LINGMO_MAKE_HOST_DEPENDENCY)
+LINUX_MAKE = $(LINGMO_MAKE)
 
 # The kernel CONFIG_EXTRA_FIRMWARE feature requires firmware files at build
 # time. Make sure they are available before the kernel builds.
 LINUX_DEPENDENCIES += \
-	$(if $(BR2_PACKAGE_INTEL_MICROCODE),intel-microcode) \
-	$(if $(BR2_PACKAGE_LINUX_FIRMWARE),linux-firmware) \
-	$(if $(BR2_PACKAGE_FIRMWARE_IMX),firmware-imx) \
-	$(if $(BR2_PACKAGE_WIRELESS_REGDB),wireless-regdb)
+	$(if $(LINGMO_PACKAGE_INTEL_MICROCODE),intel-microcode) \
+	$(if $(LINGMO_PACKAGE_LINUX_FIRMWARE),linux-firmware) \
+	$(if $(LINGMO_PACKAGE_FIRMWARE_IMX),firmware-imx) \
+	$(if $(LINGMO_PACKAGE_WIRELESS_REGDB),wireless-regdb)
 
 # Starting with 4.16, the generated kconfig paser code is no longer
 # shipped with the kernel sources, so we need flex and bison, but
 # only if the host does not have them.
 LINUX_KCONFIG_DEPENDENCIES = \
-	$(BR2_BISON_HOST_DEPENDENCY) \
-	$(BR2_FLEX_HOST_DEPENDENCY) \
-	$(BR2_MAKE_HOST_DEPENDENCY)
+	$(LINGMO_BISON_HOST_DEPENDENCY) \
+	$(LINGMO_FLEX_HOST_DEPENDENCY) \
+	$(LINGMO_MAKE_HOST_DEPENDENCY)
 
 # Starting with 4.18, the kconfig in the kernel calls the
 # cross-compiler to check its capabilities. So we need the
@@ -97,39 +97,39 @@ LINUX_KCONFIG_DEPENDENCIES = \
 LINUX_KCONFIG_DEPENDENCIES += toolchain
 
 # host tools needed for kernel compression
-ifeq ($(BR2_LINUX_KERNEL_LZ4),y)
+ifeq ($(LINGMO_LINUX_KERNEL_LZ4),y)
 LINUX_DEPENDENCIES += host-lz4
-else ifeq ($(BR2_LINUX_KERNEL_LZMA),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_LZMA),y)
 LINUX_DEPENDENCIES += host-lzma
-else ifeq ($(BR2_LINUX_KERNEL_LZO),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_LZO),y)
 LINUX_DEPENDENCIES += host-lzop
-else ifeq ($(BR2_LINUX_KERNEL_XZ),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_XZ),y)
 LINUX_DEPENDENCIES += host-xz
-else ifeq ($(BR2_LINUX_KERNEL_ZSTD),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_ZSTD),y)
 LINUX_DEPENDENCIES += host-zstd
 endif
-LINUX_COMPRESSION_OPT_$(BR2_LINUX_KERNEL_GZIP) += CONFIG_KERNEL_GZIP
-LINUX_COMPRESSION_OPT_$(BR2_LINUX_KERNEL_LZ4) += CONFIG_KERNEL_LZ4
-LINUX_COMPRESSION_OPT_$(BR2_LINUX_KERNEL_LZMA) += CONFIG_KERNEL_LZMA
-LINUX_COMPRESSION_OPT_$(BR2_LINUX_KERNEL_LZO) += CONFIG_KERNEL_LZO
-LINUX_COMPRESSION_OPT_$(BR2_LINUX_KERNEL_XZ) += CONFIG_KERNEL_XZ
-LINUX_COMPRESSION_OPT_$(BR2_LINUX_KERNEL_ZSTD) += CONFIG_KERNEL_ZSTD
-LINUX_COMPRESSION_OPT_$(BR2_LINUX_KERNEL_UNCOMPRESSED) += CONFIG_KERNEL_UNCOMPRESSED
+LINUX_COMPRESSION_OPT_$(LINGMO_LINUX_KERNEL_GZIP) += CONFIG_KERNEL_GZIP
+LINUX_COMPRESSION_OPT_$(LINGMO_LINUX_KERNEL_LZ4) += CONFIG_KERNEL_LZ4
+LINUX_COMPRESSION_OPT_$(LINGMO_LINUX_KERNEL_LZMA) += CONFIG_KERNEL_LZMA
+LINUX_COMPRESSION_OPT_$(LINGMO_LINUX_KERNEL_LZO) += CONFIG_KERNEL_LZO
+LINUX_COMPRESSION_OPT_$(LINGMO_LINUX_KERNEL_XZ) += CONFIG_KERNEL_XZ
+LINUX_COMPRESSION_OPT_$(LINGMO_LINUX_KERNEL_ZSTD) += CONFIG_KERNEL_ZSTD
+LINUX_COMPRESSION_OPT_$(LINGMO_LINUX_KERNEL_UNCOMPRESSED) += CONFIG_KERNEL_UNCOMPRESSED
 
-ifeq ($(BR2_LINUX_KERNEL_NEEDS_HOST_OPENSSL),y)
+ifeq ($(LINGMO_LINUX_KERNEL_NEEDS_HOST_OPENSSL),y)
 LINUX_DEPENDENCIES += host-openssl
 endif
 
-ifeq ($(BR2_LINUX_KERNEL_NEEDS_HOST_LIBELF),y)
+ifeq ($(LINGMO_LINUX_KERNEL_NEEDS_HOST_LIBELF),y)
 LINUX_DEPENDENCIES += host-elfutils host-pkgconf
 endif
 
-ifeq ($(BR2_LINUX_KERNEL_NEEDS_HOST_PAHOLE),y)
+ifeq ($(LINGMO_LINUX_KERNEL_NEEDS_HOST_PAHOLE),y)
 LINUX_DEPENDENCIES += host-pahole
 else
 define LINUX_FIXUP_CONFIG_PAHOLE_CHECK
 	$(Q)if grep -q "^CONFIG_DEBUG_INFO_BTF=y" $(KCONFIG_DOT_CONFIG); then \
-		echo "To use CONFIG_DEBUG_INFO_BTF, enable host-pahole (BR2_LINUX_KERNEL_NEEDS_HOST_PAHOLE)" 1>&2; \
+		echo "To use CONFIG_DEBUG_INFO_BTF, enable host-pahole (LINGMO_LINUX_KERNEL_NEEDS_HOST_PAHOLE)" 1>&2; \
 		exit 1; \
 	fi
 endef
@@ -137,7 +137,7 @@ endif
 
 # If host-uboot-tools is selected by the user, assume it is needed to
 # create a custom image
-ifeq ($(BR2_PACKAGE_HOST_UBOOT_TOOLS),y)
+ifeq ($(LINGMO_PACKAGE_HOST_UBOOT_TOOLS),y)
 LINUX_DEPENDENCIES += host-uboot-tools
 endif
 
@@ -162,7 +162,7 @@ LINUX_MAKE_FLAGS = \
 	REGENERATE_PARSERS=1 \
 	DEPMOD=$(HOST_DIR)/sbin/depmod
 
-ifeq ($(BR2_REPRODUCIBLE),y)
+ifeq ($(LINGMO_REPRODUCIBLE),y)
 LINUX_MAKE_ENV += \
 	KBUILD_BUILD_VERSION=1 \
 	KBUILD_BUILD_USER=buildroot \
@@ -176,65 +176,65 @@ endif
 # abusing those aliases for system call entry points, in order to
 # sanitize the arguments passed from user space in registers.
 # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=82435
-ifeq ($(BR2_TOOLCHAIN_GCC_AT_LEAST_8),y)
+ifeq ($(LINGMO_TOOLCHAIN_GCC_AT_LEAST_8),y)
 LINUX_MAKE_ENV += KCFLAGS=-Wno-attribute-alias
 endif
 
-ifeq ($(BR2_LINUX_KERNEL_DTB_OVERLAY_SUPPORT),y)
+ifeq ($(LINGMO_LINUX_KERNEL_DTB_OVERLAY_SUPPORT),y)
 LINUX_MAKE_ENV += DTC_FLAGS=-@
 endif
 
 # Get the real Linux version, which tells us where kernel modules are
 # going to be installed in the target filesystem.
 # Filter out 'w' from MAKEFLAGS, to workaround a bug in make 4.1 (#13141)
-LINUX_VERSION_PROBED = `MAKEFLAGS='$(filter-out w,$(MAKEFLAGS))' $(BR2_MAKE) $(LINUX_MAKE_FLAGS) -C $(LINUX_DIR) --no-print-directory -s kernelrelease 2>/dev/null`
+LINUX_VERSION_PROBED = `MAKEFLAGS='$(filter-out w,$(MAKEFLAGS))' $(LINGMO_MAKE) $(LINUX_MAKE_FLAGS) -C $(LINUX_DIR) --no-print-directory -s kernelrelease 2>/dev/null`
 
-LINUX_DTS_NAME += $(call qstrip,$(BR2_LINUX_KERNEL_INTREE_DTS_NAME))
+LINUX_DTS_NAME += $(call qstrip,$(LINGMO_LINUX_KERNEL_INTREE_DTS_NAME))
 
 # We keep only the .dts files, so that the user can specify both .dts
-# and .dtsi files in BR2_LINUX_KERNEL_CUSTOM_DTS_PATH. Both will be
+# and .dtsi files in LINGMO_LINUX_KERNEL_CUSTOM_DTS_PATH. Both will be
 # copied to arch/<arch>/boot/dts, but only the .dts files will
 # actually be generated as .dtb.
-LINUX_DTS_NAME += $(basename $(filter %.dts,$(notdir $(call qstrip,$(BR2_LINUX_KERNEL_CUSTOM_DTS_PATH)))))
+LINUX_DTS_NAME += $(basename $(filter %.dts,$(notdir $(call qstrip,$(LINGMO_LINUX_KERNEL_CUSTOM_DTS_PATH)))))
 
 LINUX_DTBS = $(addsuffix .dtb,$(LINUX_DTS_NAME))
 
-ifeq ($(BR2_LINUX_KERNEL_IMAGE_TARGET_CUSTOM),y)
-LINUX_IMAGE_NAME = $(call qstrip,$(BR2_LINUX_KERNEL_IMAGE_NAME))
-LINUX_TARGET_NAME = $(call qstrip,$(BR2_LINUX_KERNEL_IMAGE_TARGET_NAME))
+ifeq ($(LINGMO_LINUX_KERNEL_IMAGE_TARGET_CUSTOM),y)
+LINUX_IMAGE_NAME = $(call qstrip,$(LINGMO_LINUX_KERNEL_IMAGE_NAME))
+LINUX_TARGET_NAME = $(call qstrip,$(LINGMO_LINUX_KERNEL_IMAGE_TARGET_NAME))
 ifeq ($(LINUX_IMAGE_NAME),)
 LINUX_IMAGE_NAME = $(LINUX_TARGET_NAME)
 endif
 else
-ifeq ($(BR2_LINUX_KERNEL_UIMAGE),y)
+ifeq ($(LINGMO_LINUX_KERNEL_UIMAGE),y)
 LINUX_IMAGE_NAME = uImage
-else ifeq ($(BR2_LINUX_KERNEL_APPENDED_UIMAGE),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_APPENDED_UIMAGE),y)
 LINUX_IMAGE_NAME = uImage
-else ifeq ($(BR2_LINUX_KERNEL_BZIMAGE),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_BZIMAGE),y)
 LINUX_IMAGE_NAME = bzImage
-else ifeq ($(BR2_LINUX_KERNEL_ZIMAGE),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_ZIMAGE),y)
 LINUX_IMAGE_NAME = zImage
-else ifeq ($(BR2_LINUX_KERNEL_ZIMAGE_EPAPR),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_ZIMAGE_EPAPR),y)
 LINUX_IMAGE_NAME = zImage.epapr
-else ifeq ($(BR2_LINUX_KERNEL_APPENDED_ZIMAGE),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_APPENDED_ZIMAGE),y)
 LINUX_IMAGE_NAME = zImage
-else ifeq ($(BR2_LINUX_KERNEL_CUIMAGE),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_CUIMAGE),y)
 LINUX_IMAGE_NAME = cuImage.$(firstword $(LINUX_DTS_NAME))
-else ifeq ($(BR2_LINUX_KERNEL_SIMPLEIMAGE),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_SIMPLEIMAGE),y)
 LINUX_IMAGE_NAME = simpleImage.$(firstword $(LINUX_DTS_NAME))
-else ifeq ($(BR2_LINUX_KERNEL_IMAGE),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_IMAGE),y)
 LINUX_IMAGE_NAME = Image
-else ifeq ($(BR2_LINUX_KERNEL_IMAGEGZ),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_IMAGEGZ),y)
 LINUX_IMAGE_NAME = Image.gz
-else ifeq ($(BR2_LINUX_KERNEL_LINUX_BIN),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_LINUX_BIN),y)
 LINUX_IMAGE_NAME = linux.bin
-else ifeq ($(BR2_LINUX_KERNEL_VMLINUX_BIN),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_VMLINUX_BIN),y)
 LINUX_IMAGE_NAME = vmlinux.bin
-else ifeq ($(BR2_LINUX_KERNEL_VMLINUX),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_VMLINUX),y)
 LINUX_IMAGE_NAME = vmlinux
-else ifeq ($(BR2_LINUX_KERNEL_VMLINUZ),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_VMLINUZ),y)
 LINUX_IMAGE_NAME = vmlinuz
-else ifeq ($(BR2_LINUX_KERNEL_VMLINUZ_BIN),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_VMLINUZ_BIN),y)
 LINUX_IMAGE_NAME = vmlinuz.bin
 endif
 # The if-else blocks above are all the image types we know of, and all
@@ -243,7 +243,7 @@ endif
 LINUX_TARGET_NAME = $(LINUX_IMAGE_NAME)
 endif
 
-LINUX_KERNEL_UIMAGE_LOADADDR = $(call qstrip,$(BR2_LINUX_KERNEL_UIMAGE_LOADADDR))
+LINUX_KERNEL_UIMAGE_LOADADDR = $(call qstrip,$(LINGMO_LINUX_KERNEL_UIMAGE_LOADADDR))
 ifneq ($(LINUX_KERNEL_UIMAGE_LOADADDR),)
 LINUX_MAKE_FLAGS += LOADADDR="$(LINUX_KERNEL_UIMAGE_LOADADDR)"
 endif
@@ -262,15 +262,15 @@ else
 LINUX_ARCH_PATH = $(LINUX_DIR)/arch/$(KERNEL_ARCH)
 endif
 
-ifeq ($(BR2_LINUX_KERNEL_VMLINUX),y)
+ifeq ($(LINGMO_LINUX_KERNEL_VMLINUX),y)
 LINUX_IMAGE_PATH = $(LINUX_DIR)/$(LINUX_IMAGE_NAME)
-else ifeq ($(BR2_LINUX_KERNEL_VMLINUZ),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_VMLINUZ),y)
 LINUX_IMAGE_PATH = $(LINUX_DIR)/$(LINUX_IMAGE_NAME)
-else ifeq ($(BR2_LINUX_KERNEL_VMLINUZ_BIN),y)
+else ifeq ($(LINGMO_LINUX_KERNEL_VMLINUZ_BIN),y)
 LINUX_IMAGE_PATH = $(LINUX_DIR)/$(LINUX_IMAGE_NAME)
 else
 LINUX_IMAGE_PATH = $(LINUX_ARCH_PATH)/boot/$(LINUX_IMAGE_NAME)
-endif # BR2_LINUX_KERNEL_VMLINUX
+endif # LINGMO_LINUX_KERNEL_VMLINUX
 
 define LINUX_APPLY_LOCAL_PATCHES
 	for p in $(filter-out ftp://% http://% https://%,$(LINUX_PATCHES)) ; do \
@@ -314,7 +314,7 @@ define LINUX_TRY_PATCH_TIMECONST
 endef
 LINUX_POST_PATCH_HOOKS += LINUX_TRY_PATCH_TIMECONST
 
-LINUX_KERNEL_CUSTOM_LOGO_PATH = $(call qstrip,$(BR2_LINUX_KERNEL_CUSTOM_LOGO_PATH))
+LINUX_KERNEL_CUSTOM_LOGO_PATH = $(call qstrip,$(LINGMO_LINUX_KERNEL_CUSTOM_LOGO_PATH))
 ifneq ($(LINUX_KERNEL_CUSTOM_LOGO_PATH),)
 LINUX_DEPENDENCIES += host-imagemagick
 define LINUX_KERNEL_CUSTOM_LOGO_CONVERT
@@ -325,18 +325,18 @@ endef
 LINUX_PRE_BUILD_HOOKS += LINUX_KERNEL_CUSTOM_LOGO_CONVERT
 endif
 
-ifeq ($(BR2_LINUX_KERNEL_USE_DEFCONFIG),y)
-LINUX_KCONFIG_DEFCONFIG = $(call qstrip,$(BR2_LINUX_KERNEL_DEFCONFIG))_defconfig
-else ifeq ($(BR2_LINUX_KERNEL_USE_ARCH_DEFAULT_CONFIG),y)
-ifeq ($(BR2_powerpc64le),y)
+ifeq ($(LINGMO_LINUX_KERNEL_USE_DEFCONFIG),y)
+LINUX_KCONFIG_DEFCONFIG = $(call qstrip,$(LINGMO_LINUX_KERNEL_DEFCONFIG))_defconfig
+else ifeq ($(LINGMO_LINUX_KERNEL_USE_ARCH_DEFAULT_CONFIG),y)
+ifeq ($(LINGMO_powerpc64le),y)
 LINUX_KCONFIG_DEFCONFIG = ppc64le_defconfig
 else
 LINUX_KCONFIG_DEFCONFIG = defconfig
 endif
-else ifeq ($(BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG),y)
-LINUX_KCONFIG_FILE = $(call qstrip,$(BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE))
+else ifeq ($(LINGMO_LINUX_KERNEL_USE_CUSTOM_CONFIG),y)
+LINUX_KCONFIG_FILE = $(call qstrip,$(LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE))
 endif
-LINUX_KCONFIG_FRAGMENT_FILES = $(call qstrip,$(BR2_LINUX_KERNEL_CONFIG_FRAGMENT_FILES))
+LINUX_KCONFIG_FRAGMENT_FILES = $(call qstrip,$(LINGMO_LINUX_KERNEL_CONFIG_FRAGMENT_FILES))
 LINUX_KCONFIG_EDITORS = menuconfig xconfig gconfig nconfig
 
 # LINUX_MAKE_FLAGS overrides HOSTCC to allow the kernel build to find
@@ -351,13 +351,13 @@ LINUX_KCONFIG_EDITORS = menuconfig xconfig gconfig nconfig
 LINUX_KCONFIG_OPTS = $(LINUX_MAKE_FLAGS) HOSTCC="$(HOSTCC_NOCCACHE)"
 
 # If no package has yet set it, set it from the Kconfig option
-LINUX_NEEDS_MODULES ?= $(BR2_LINUX_NEEDS_MODULES)
+LINUX_NEEDS_MODULES ?= $(LINGMO_LINUX_NEEDS_MODULES)
 
 # Make sure the Linux kernel is built with the right endianness. Not
 # all architectures support
 # CONFIG_CPU_BIG_ENDIAN/CONFIG_CPU_LITTLE_ENDIAN in Linux, but the
 # option will be thrown away and ignored if it doesn't exist.
-ifeq ($(BR2_ENDIAN),"BIG")
+ifeq ($(LINGMO_ENDIAN),"BIG")
 define LINUX_FIXUP_CONFIG_ENDIANNESS
 	$(call KCONFIG_ENABLE_OPT,CONFIG_CPU_BIG_ENDIAN)
 endef
@@ -371,7 +371,7 @@ endif
 # built, we create a fake cpio file. It'll be
 # replaced later by the real cpio archive, and the kernel will be
 # rebuilt using the linux-rebuild-with-initramfs target.
-ifeq ($(BR2_TARGET_ROOTFS_INITRAMFS),y)
+ifeq ($(LINGMO_TARGET_ROOTFS_INITRAMFS),y)
 define LINUX_KCONFIG_FIXUP_CMDS_ROOTFS_CPIO
 	@mkdir -p $(BINARIES_DIR)
 	$(Q)touch $(BINARIES_DIR)/rootfs.cpio
@@ -391,45 +391,45 @@ define LINUX_KCONFIG_FIXUP_CMDS
 	)
 	$(LINUX_FIXUP_CONFIG_ENDIANNESS)
 	$(LINUX_FIXUP_CONFIG_PAHOLE_CHECK)
-	$(if $(BR2_arm)$(BR2_armeb),
+	$(if $(LINGMO_arm)$(LINGMO_armeb),
 		$(call KCONFIG_ENABLE_OPT,CONFIG_AEABI))
-	$(if $(BR2_powerpc)$(BR2_powerpc64)$(BR2_powerpc64le),
+	$(if $(LINGMO_powerpc)$(LINGMO_powerpc64)$(LINGMO_powerpc64le),
 		$(call KCONFIG_ENABLE_OPT,CONFIG_PPC_DISABLE_WERROR))
-	$(if $(BR2_ARC_PAGE_SIZE_4K),
+	$(if $(LINGMO_ARC_PAGE_SIZE_4K),
 		$(call KCONFIG_ENABLE_OPT,CONFIG_ARC_PAGE_SIZE_4K)
 		$(call KCONFIG_DISABLE_OPT,CONFIG_ARC_PAGE_SIZE_8K)
 		$(call KCONFIG_DISABLE_OPT,CONFIG_ARC_PAGE_SIZE_16K))
-	$(if $(BR2_ARC_PAGE_SIZE_8K),
+	$(if $(LINGMO_ARC_PAGE_SIZE_8K),
 		$(call KCONFIG_DISABLE_OPT,CONFIG_ARC_PAGE_SIZE_4K)
 		$(call KCONFIG_ENABLE_OPT,CONFIG_ARC_PAGE_SIZE_8K)
 		$(call KCONFIG_DISABLE_OPT,CONFIG_ARC_PAGE_SIZE_16K))
-	$(if $(BR2_ARC_PAGE_SIZE_16K),
+	$(if $(LINGMO_ARC_PAGE_SIZE_16K),
 		$(call KCONFIG_DISABLE_OPT,CONFIG_ARC_PAGE_SIZE_4K)
 		$(call KCONFIG_DISABLE_OPT,CONFIG_ARC_PAGE_SIZE_8K)
 		$(call KCONFIG_ENABLE_OPT,CONFIG_ARC_PAGE_SIZE_16K))
-	$(if $(BR2_ARM64_PAGE_SIZE_4K),
+	$(if $(LINGMO_ARM64_PAGE_SIZE_4K),
 		$(call KCONFIG_ENABLE_OPT,CONFIG_ARM64_4K_PAGES)
 		$(call KCONFIG_DISABLE_OPT,CONFIG_ARM64_16K_PAGES)
 		$(call KCONFIG_DISABLE_OPT,CONFIG_ARM64_64K_PAGES))
-	$(if $(BR2_ARM64_PAGE_SIZE_16K),
+	$(if $(LINGMO_ARM64_PAGE_SIZE_16K),
 		$(call KCONFIG_DISABLE_OPT,CONFIG_ARM64_4K_PAGES)
 		$(call KCONFIG_ENABLE_OPT,CONFIG_ARM64_16K_PAGES)
 		$(call KCONFIG_DISABLE_OPT,CONFIG_ARM64_64K_PAGES))
-	$(if $(BR2_ARM64_PAGE_SIZE_64K),
+	$(if $(LINGMO_ARM64_PAGE_SIZE_64K),
 		$(call KCONFIG_DISABLE_OPT,CONFIG_ARM64_4K_PAGES)
 		$(call KCONFIG_DISABLE_OPT,CONFIG_ARM64_16K_PAGES)
 		$(call KCONFIG_ENABLE_OPT,CONFIG_ARM64_64K_PAGES))
-	$(if $(BR2_TARGET_ROOTFS_CPIO),
+	$(if $(LINGMO_TARGET_ROOTFS_CPIO),
 		$(call KCONFIG_ENABLE_OPT,CONFIG_BLK_DEV_INITRD))
 	$(LINUX_KCONFIG_FIXUP_CMDS_ROOTFS_CPIO)
-	$(if $(BR2_ROOTFS_DEVICE_CREATION_STATIC),,
+	$(if $(LINGMO_ROOTFS_DEVICE_CREATION_STATIC),,
 		$(call KCONFIG_ENABLE_OPT,CONFIG_DEVTMPFS)
 		$(call KCONFIG_ENABLE_OPT,CONFIG_DEVTMPFS_MOUNT))
-	$(if $(BR2_ROOTFS_DEVICE_CREATION_DYNAMIC_EUDEV),
+	$(if $(LINGMO_ROOTFS_DEVICE_CREATION_DYNAMIC_EUDEV),
 		$(call KCONFIG_ENABLE_OPT,CONFIG_INOTIFY_USER))
-	$(if $(BR2_ROOTFS_DEVICE_CREATION_DYNAMIC_MDEV),
+	$(if $(LINGMO_ROOTFS_DEVICE_CREATION_DYNAMIC_MDEV),
 		$(call KCONFIG_ENABLE_OPT,CONFIG_NET))
-	$(if $(BR2_LINUX_KERNEL_APPENDED_DTB),
+	$(if $(LINGMO_LINUX_KERNEL_APPENDED_DTB),
 		$(call KCONFIG_ENABLE_OPT,CONFIG_ARM_APPENDED_DTB))
 	$(if $(LINUX_KERNEL_CUSTOM_LOGO_PATH),
 		$(call KCONFIG_ENABLE_OPT,CONFIG_FB)
@@ -440,30 +440,30 @@ define LINUX_KCONFIG_FIXUP_CMDS
 	$(PACKAGES_LINUX_CONFIG_FIXUPS)
 endef
 
-ifeq ($(BR2_LINUX_KERNEL_DTS_SUPPORT),y)
+ifeq ($(LINGMO_LINUX_KERNEL_DTS_SUPPORT),y)
 # Starting with 4.17, the generated dtc parser code is no longer
 # shipped with the kernel sources, so we need flex and bison. For
 # reproducibility, we use our owns rather than the host ones.
 LINUX_DEPENDENCIES += host-bison host-flex
 
-ifeq ($(BR2_LINUX_KERNEL_DTB_IS_SELF_BUILT),)
+ifeq ($(LINGMO_LINUX_KERNEL_DTB_IS_SELF_BUILT),)
 define LINUX_BUILD_DTB
-	$(LINUX_MAKE_ENV) $(BR2_MAKE) $(LINUX_MAKE_FLAGS) -C $(@D) $(LINUX_DTBS)
+	$(LINUX_MAKE_ENV) $(LINGMO_MAKE) $(LINUX_MAKE_FLAGS) -C $(@D) $(LINUX_DTBS)
 endef
-ifeq ($(BR2_LINUX_KERNEL_APPENDED_DTB),)
+ifeq ($(LINGMO_LINUX_KERNEL_APPENDED_DTB),)
 define LINUX_INSTALL_DTB
 	# dtbs moved from arch/<ARCH>/boot to arch/<ARCH>/boot/dts since 3.8-rc1
 	$(foreach dtb,$(LINUX_DTBS), \
 		install -D \
 			$(or $(wildcard $(LINUX_ARCH_PATH)/boot/dts/$(dtb)),$(LINUX_ARCH_PATH)/boot/$(dtb)) \
-			$(1)/$(if $(BR2_LINUX_KERNEL_DTB_KEEP_DIRNAME),$(dtb),$(notdir $(dtb)))
+			$(1)/$(if $(LINGMO_LINUX_KERNEL_DTB_KEEP_DIRNAME),$(dtb),$(notdir $(dtb)))
 	)
 endef
-endif # BR2_LINUX_KERNEL_APPENDED_DTB
-endif # BR2_LINUX_KERNEL_DTB_IS_SELF_BUILT
-endif # BR2_LINUX_KERNEL_DTS_SUPPORT
+endif # LINGMO_LINUX_KERNEL_APPENDED_DTB
+endif # LINGMO_LINUX_KERNEL_DTB_IS_SELF_BUILT
+endif # LINGMO_LINUX_KERNEL_DTS_SUPPORT
 
-ifeq ($(BR2_LINUX_KERNEL_APPENDED_DTB),y)
+ifeq ($(LINGMO_LINUX_KERNEL_APPENDED_DTB),y)
 # dtbs moved from arch/$ARCH/boot to arch/$ARCH/boot/dts since 3.8-rc1
 define LINUX_APPEND_DTB
 	(cd $(LINUX_ARCH_PATH)/boot; \
@@ -476,7 +476,7 @@ define LINUX_APPEND_DTB
 			cat zImage $${dtbpath} > zImage.$$(basename $${dtb}) || exit 1; \
 		done)
 endef
-ifeq ($(BR2_LINUX_KERNEL_APPENDED_UIMAGE),y)
+ifeq ($(LINGMO_LINUX_KERNEL_APPENDED_UIMAGE),y)
 # We need to generate a new u-boot image that takes into
 # account the extra-size added by the device tree at the end
 # of the image. To do so, we first need to retrieve both load
@@ -496,22 +496,22 @@ endif
 # Compilation. We make sure the kernel gets rebuilt when the
 # configuration has changed. We call the 'all' and
 # '$(LINUX_TARGET_NAME)' targets separately because calling them in
-# the same $(BR2_MAKE) invocation has shown to cause parallel build
+# the same $(LINGMO_MAKE) invocation has shown to cause parallel build
 # issues.
 # The call to disable gcc-plugins is a stop-gap measure:
 #   http://lists.busybox.net/pipermail/buildroot/2020-May/282727.html
 define LINUX_BUILD_CMDS
 	$(call KCONFIG_DISABLE_OPT,CONFIG_GCC_PLUGINS)
-	$(foreach dts,$(call qstrip,$(BR2_LINUX_KERNEL_CUSTOM_DTS_PATH)), \
+	$(foreach dts,$(call qstrip,$(LINGMO_LINUX_KERNEL_CUSTOM_DTS_PATH)), \
 		cp -f $(dts) $(LINUX_ARCH_PATH)/boot/dts/
 	)
-	$(LINUX_MAKE_ENV) $(BR2_MAKE) $(LINUX_MAKE_FLAGS) -C $(@D) all
-	$(LINUX_MAKE_ENV) $(BR2_MAKE) $(LINUX_MAKE_FLAGS) -C $(@D) $(LINUX_TARGET_NAME)
+	$(LINUX_MAKE_ENV) $(LINGMO_MAKE) $(LINUX_MAKE_FLAGS) -C $(@D) all
+	$(LINUX_MAKE_ENV) $(LINGMO_MAKE) $(LINUX_MAKE_FLAGS) -C $(@D) $(LINUX_TARGET_NAME)
 	$(LINUX_BUILD_DTB)
 	$(LINUX_APPEND_DTB)
 endef
 
-ifeq ($(BR2_LINUX_KERNEL_APPENDED_DTB),y)
+ifeq ($(LINGMO_LINUX_KERNEL_APPENDED_DTB),y)
 # When a DTB was appended, install the potential several images with
 # appended DTBs.
 define LINUX_INSTALL_IMAGE
@@ -526,7 +526,7 @@ define LINUX_INSTALL_IMAGE
 endef
 endif
 
-ifeq ($(BR2_LINUX_KERNEL_INSTALL_TARGET),y)
+ifeq ($(LINGMO_LINUX_KERNEL_INSTALL_TARGET),y)
 define LINUX_INSTALL_KERNEL_IMAGE_TO_TARGET
 	$(call LINUX_INSTALL_IMAGE,$(TARGET_DIR)/boot)
 	$(call LINUX_INSTALL_DTB,$(TARGET_DIR)/boot)
@@ -537,7 +537,7 @@ define LINUX_INSTALL_HOST_TOOLS
 	# Installing dtc (device tree compiler) as host tool, if selected
 	if grep -q "CONFIG_DTC=y" $(@D)/.config; then \
 		$(INSTALL) -D -m 0755 $(@D)/scripts/dtc/dtc $(HOST_DIR)/bin/linux-dtc ; \
-		$(if $(BR2_PACKAGE_HOST_DTC),,ln -sf linux-dtc $(HOST_DIR)/bin/dtc;) \
+		$(if $(LINGMO_PACKAGE_HOST_DTC),,ln -sf linux-dtc $(HOST_DIR)/bin/dtc;) \
 	fi
 endef
 
@@ -546,7 +546,7 @@ define LINUX_INSTALL_IMAGES_CMDS
 	$(call LINUX_INSTALL_DTB,$(BINARIES_DIR))
 endef
 
-ifeq ($(BR2_STRIP_strip),y)
+ifeq ($(LINGMO_STRIP_strip),y)
 LINUX_MAKE_FLAGS += INSTALL_MOD_STRIP=1
 endif
 
@@ -555,7 +555,7 @@ define LINUX_INSTALL_TARGET_CMDS
 	# Install modules and remove symbolic links pointing to build
 	# directories, not relevant on the target
 	@if grep -q "CONFIG_MODULES=y" $(@D)/.config; then \
-		$(LINUX_MAKE_ENV) $(BR2_MAKE1) $(LINUX_MAKE_FLAGS) -C $(@D) modules_install; \
+		$(LINUX_MAKE_ENV) $(LINGMO_MAKE1) $(LINUX_MAKE_FLAGS) -C $(@D) modules_install; \
 		rm -f $(TARGET_DIR)/lib/modules/$(LINUX_VERSION_PROBED)/build ; \
 		rm -f $(TARGET_DIR)/lib/modules/$(LINUX_VERSION_PROBED)/source ; \
 	fi
@@ -590,55 +590,55 @@ LINUX_TARGET_FINALIZE_HOOKS += LINUX_RUN_DEPMOD
 # we always end up with an in-tree included file. That's mostly OK, because
 # we do have in-tree linux-extensions.
 #
-include $(sort $(wildcard $(foreach ext,$(BR2_EXTERNAL_DIRS), \
+include $(sort $(wildcard $(foreach ext,$(LINGMO_EXTERNAL_DIRS), \
 	$(ext)/linux/linux-ext-*.mk)))
 include $(sort $(wildcard linux/linux-ext-*.mk))
 
 LINUX_PATCH_DEPENDENCIES += $(foreach ext,$(LINUX_EXTENSIONS),\
-	$(if $(BR2_LINUX_KERNEL_EXT_$(call UPPERCASE,$(ext))),$(ext)))
+	$(if $(LINGMO_LINUX_KERNEL_EXT_$(call UPPERCASE,$(ext))),$(ext)))
 
 LINUX_PRE_PATCH_HOOKS += $(foreach ext,$(LINUX_EXTENSIONS),\
-	$(if $(BR2_LINUX_KERNEL_EXT_$(call UPPERCASE,$(ext))),\
+	$(if $(LINGMO_LINUX_KERNEL_EXT_$(call UPPERCASE,$(ext))),\
 		$(call UPPERCASE,$(ext))_PREPARE_KERNEL))
 
 # Checks to give errors that the user can understand
 
 # When a custom repository has been set, check for the repository version
-ifeq ($(BR2_LINUX_KERNEL_CUSTOM_SVN)$(BR2_LINUX_KERNEL_CUSTOM_GIT)$(BR2_LINUX_KERNEL_CUSTOM_HG),y)
-ifeq ($(call qstrip,$(BR2_LINUX_KERNEL_CUSTOM_REPO_VERSION)),)
-$(error No custom repository version set. Check your BR2_LINUX_KERNEL_CUSTOM_REPO_VERSION setting)
+ifeq ($(LINGMO_LINUX_KERNEL_CUSTOM_SVN)$(LINGMO_LINUX_KERNEL_CUSTOM_GIT)$(LINGMO_LINUX_KERNEL_CUSTOM_HG),y)
+ifeq ($(call qstrip,$(LINGMO_LINUX_KERNEL_CUSTOM_REPO_VERSION)),)
+$(error No custom repository version set. Check your LINGMO_LINUX_KERNEL_CUSTOM_REPO_VERSION setting)
 endif
-ifeq ($(call qstrip,$(BR2_LINUX_KERNEL_CUSTOM_REPO_URL)),)
-$(error No custom repo URL set. Check your BR2_LINUX_KERNEL_CUSTOM_REPO_URL setting)
+ifeq ($(call qstrip,$(LINGMO_LINUX_KERNEL_CUSTOM_REPO_URL)),)
+$(error No custom repo URL set. Check your LINGMO_LINUX_KERNEL_CUSTOM_REPO_URL setting)
 endif
 endif
 
 ifeq ($(BR_BUILDING),y)
 
-ifeq ($(BR2_LINUX_KERNEL_CUSTOM_VERSION),y)
+ifeq ($(LINGMO_LINUX_KERNEL_CUSTOM_VERSION),y)
 ifeq ($(LINUX_VERSION),)
-$(error No custom kernel version set. Check your BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE setting)
+$(error No custom kernel version set. Check your LINGMO_LINUX_KERNEL_CUSTOM_VERSION_VALUE setting)
 endif
 endif
 
-ifeq ($(BR2_LINUX_KERNEL_USE_DEFCONFIG),y)
+ifeq ($(LINGMO_LINUX_KERNEL_USE_DEFCONFIG),y)
 # We must use the user-supplied kconfig value, because
 # LINUX_KCONFIG_DEFCONFIG will at least contain the
 # trailing _defconfig
-ifeq ($(call qstrip,$(BR2_LINUX_KERNEL_DEFCONFIG)),)
-$(error No kernel defconfig name specified, check your BR2_LINUX_KERNEL_DEFCONFIG setting)
+ifeq ($(call qstrip,$(LINGMO_LINUX_KERNEL_DEFCONFIG)),)
+$(error No kernel defconfig name specified, check your LINGMO_LINUX_KERNEL_DEFCONFIG setting)
 endif
 endif
 
-ifeq ($(BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG),y)
+ifeq ($(LINGMO_LINUX_KERNEL_USE_CUSTOM_CONFIG),y)
 ifeq ($(LINUX_KCONFIG_FILE),)
-$(error No kernel configuration file specified, check your BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE setting)
+$(error No kernel configuration file specified, check your LINGMO_LINUX_KERNEL_CUSTOM_CONFIG_FILE setting)
 endif
 endif
 
-ifeq ($(BR2_LINUX_KERNEL_DTS_SUPPORT):$(strip $(LINUX_DTS_NAME)),y:)
+ifeq ($(LINGMO_LINUX_KERNEL_DTS_SUPPORT):$(strip $(LINUX_DTS_NAME)),y:)
 $(error No kernel device tree source specified, check your \
-	BR2_LINUX_KERNEL_INTREE_DTS_NAME / BR2_LINUX_KERNEL_CUSTOM_DTS_PATH settings)
+	LINGMO_LINUX_KERNEL_INTREE_DTS_NAME / LINGMO_LINUX_KERNEL_CUSTOM_DTS_PATH settings)
 endif
 
 endif # BR_BUILDING
@@ -654,7 +654,7 @@ linux-rebuild-with-initramfs: rootfs-cpio
 linux-rebuild-with-initramfs:
 	@$(call MESSAGE,"Rebuilding kernel with initramfs")
 	# Build the kernel.
-	$(LINUX_MAKE_ENV) $(BR2_MAKE) $(LINUX_MAKE_FLAGS) -C $(LINUX_DIR) $(LINUX_TARGET_NAME)
+	$(LINUX_MAKE_ENV) $(LINGMO_MAKE) $(LINUX_MAKE_FLAGS) -C $(LINUX_DIR) $(LINUX_TARGET_NAME)
 	$(LINUX_APPEND_DTB)
 	# Copy the kernel image(s) to its(their) final destination
 	$(call LINUX_INSTALL_IMAGE,$(BINARIES_DIR))

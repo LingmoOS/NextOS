@@ -35,35 +35,35 @@ XSCREENSAVER_CONF_OPTS = \
 	--libdir=$(STAGING_DIR)/usr/lib \
 	--with-gl=yes
 
-ifeq ($(BR2_PACKAGE_LIBPNG),y)
+ifeq ($(LINGMO_PACKAGE_LIBPNG),y)
 XSCREENSAVER_CONF_OPTS += --with-png=yes
 XSCREENSAVER_DEPENDENCIES += libpng
 else
 XSCREENSAVER_CONF_OPTS += --with-png=no
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 XSCREENSAVER_CONF_OPTS += --with-systemd=yes
 XSCREENSAVER_DEPENDENCIES += systemd
 else
 XSCREENSAVER_CONF_OPTS += --with-systemd=no
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXINERAMA),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXINERAMA),y)
 XSCREENSAVER_CONF_OPTS += --with-xinerama-ext=yes
 XSCREENSAVER_DEPENDENCIES += xlib_libXinerama
 else
 XSCREENSAVER_CONF_OPTS += --with-xinerama-ext=no
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXRANDR),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXRANDR),y)
 XSCREENSAVER_CONF_OPTS += --with-randr-ext=yes
 XSCREENSAVER_DEPENDENCIES += xlib_libXrandr
 else
 XSCREENSAVER_CONF_OPTS += --with-randr-ext=no
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXXF86VM),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXXF86VM),y)
 XSCREENSAVER_CONF_OPTS += --with-xf86vmode-ext=yes
 XSCREENSAVER_DEPENDENCIES += xlib_libXxf86vm
 else

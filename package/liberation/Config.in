@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBERATION
+config LINGMO_PACKAGE_LIBERATION
 	bool "Liberation (Free fonts)"
 	help
 	  The Liberation Fonts are intended to be replacements for the
@@ -7,17 +7,17 @@ config BR2_PACKAGE_LIBERATION
 
 	  https://github.com/liberationfonts/liberation-fonts
 
-if BR2_PACKAGE_LIBERATION
+if LINGMO_PACKAGE_LIBERATION
 
-config BR2_PACKAGE_LIBERATION_MONO
+config LINGMO_PACKAGE_LIBERATION_MONO
 	bool "mono fonts"
 	default y
 
-config BR2_PACKAGE_LIBERATION_SANS
+config LINGMO_PACKAGE_LIBERATION_SANS
 	bool "sans fonts"
 	default y
 
-config BR2_PACKAGE_LIBERATION_SERIF
+config LINGMO_PACKAGE_LIBERATION_SERIF
 	bool "serif fonts"
 	default y
 

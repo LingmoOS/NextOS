@@ -12,7 +12,7 @@ ARGUS_CONF_ENV = arg_cv_sys_errlist=yes
 ARGUS_LICENSE = GPL-2.0+
 ARGUS_LICENSE_FILES = README
 
-ifeq ($(BR2_PACKAGE_LIBTIRPC),y)
+ifeq ($(LINGMO_PACKAGE_LIBTIRPC),y)
 ARGUS_DEPENDENCIES += libtirpc host-pkgconf
 ARGUS_CONF_ENV += \
 	CFLAGS="$(TARGET_CFLAGS) `$(PKG_CONFIG_HOST_BINARY) --cflags libtirpc`" \

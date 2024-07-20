@@ -18,7 +18,7 @@ GSSDP_CONF_OPTS = \
 	-Dmanpages=false \
 	-Dsniffer=false
 
-ifeq ($(BR2_PACKAGE_GOBJECT_INTROSPECTION),y)
+ifeq ($(LINGMO_PACKAGE_GOBJECT_INTROSPECTION),y)
 GSSDP_CONF_OPTS += -Dintrospection=true -Dvapi=true
 GSSDP_DEPENDENCIES += host-vala gobject-introspection
 else

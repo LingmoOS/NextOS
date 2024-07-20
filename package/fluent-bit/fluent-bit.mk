@@ -20,8 +20,8 @@ FLUENT_BIT_CONF_OPTS += \
 	-DFLB_PREFER_SYSTEM_LIBS=Yes \
 	-DFLB_BACKTRACE=No
 
-ifeq ($(BR2_PACKAGE_FLUENT_BIT_WASM),y)
-FLUENT_BIT_WAMR_ARCH = $(call qstrip,$(BR2_PACKAGE_FLUENT_BIT_WASM_ARCH))
+ifeq ($(LINGMO_PACKAGE_FLUENT_BIT_WASM),y)
+FLUENT_BIT_WAMR_ARCH = $(call qstrip,$(LINGMO_PACKAGE_FLUENT_BIT_WASM_ARCH))
 
 # https://github.com/bytecodealliance/wasm-micro-runtime/issues/625
 # Fix unknown opcode 'ldc1', seen on mips32r2 and mips64r2.
@@ -36,7 +36,7 @@ else
 FLUENT_BIT_CONF_OPTS += -DFLB_WASM=No
 endif
 
-ifeq ($(BR2_PACKAGE_LUAJIT),y)
+ifeq ($(LINGMO_PACKAGE_LUAJIT),y)
 FLUENT_BIT_CONF_OPTS += -DFLB_LUAJIT=Yes
 FLUENT_BIT_DEPENDENCIES += luajit
 else
@@ -53,18 +53,18 @@ FLUENT_BIT_CONF_OPTS += \
 FLUENT_BIT_CONF_OPTS += \
 	-DCMAKE_INSTALL_SYSCONFDIR="/etc/"
 
-ifeq ($(BR2_PACKAGE_LIBEXECINFO),y)
+ifeq ($(LINGMO_PACKAGE_LIBEXECINFO),y)
 FLUENT_BIT_DEPENDENCIES += libexecinfo
 FLUENT_BIT_LDFLAGS += -lexecinfo
 endif
 
-ifeq ($(BR2_TOOLCHAIN_USES_GLIBC),)
+ifeq ($(LINGMO_TOOLCHAIN_USES_GLIBC),)
 FLUENT_BIT_DEPENDENCIES += musl-fts
 FLUENT_BIT_LDFLAGS += -lfts
 endif
 
 # Uses __atomic_compare_exchange_8
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 FLUENT_BIT_LDFLAGS += -latomic
 endif
 

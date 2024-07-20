@@ -5,11 +5,11 @@ from tests.toolchain.test_external import TestExternalToolchain
 
 class TestExternalToolchainBootlinAarch64GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_aarch64=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_aarch64=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "aarch64-linux"
 
@@ -19,11 +19,11 @@ class TestExternalToolchainBootlinAarch64GlibcBleedingEdge(TestExternalToolchain
 
 class TestExternalToolchainBootlinAarch64GlibcStable(TestExternalToolchain):
     config = """
-        BR2_aarch64=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_aarch64=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "aarch64-linux"
 
@@ -33,11 +33,11 @@ class TestExternalToolchainBootlinAarch64GlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinAarch64MuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_aarch64=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_aarch64=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "aarch64-linux"
 
@@ -47,11 +47,11 @@ class TestExternalToolchainBootlinAarch64MuslBleedingEdge(TestExternalToolchain)
 
 class TestExternalToolchainBootlinAarch64MuslStable(TestExternalToolchain):
     config = """
-        BR2_aarch64=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_aarch64=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "aarch64-linux"
 
@@ -61,11 +61,11 @@ class TestExternalToolchainBootlinAarch64MuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinAarch64UclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_aarch64=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_aarch64=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "aarch64-linux"
 
@@ -75,11 +75,11 @@ class TestExternalToolchainBootlinAarch64UclibcBleedingEdge(TestExternalToolchai
 
 class TestExternalToolchainBootlinAarch64UclibcStable(TestExternalToolchain):
     config = """
-        BR2_aarch64=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_aarch64=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "aarch64-linux"
 
@@ -89,11 +89,11 @@ class TestExternalToolchainBootlinAarch64UclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinAarch64beGlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_aarch64_be=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64BE_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_aarch64_be=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64BE_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "aarch64_be-linux"
 
@@ -103,11 +103,11 @@ class TestExternalToolchainBootlinAarch64beGlibcBleedingEdge(TestExternalToolcha
 
 class TestExternalToolchainBootlinAarch64beGlibcStable(TestExternalToolchain):
     config = """
-        BR2_aarch64_be=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64BE_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_aarch64_be=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64BE_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "aarch64_be-linux"
 
@@ -117,11 +117,11 @@ class TestExternalToolchainBootlinAarch64beGlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinAarch64beMuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_aarch64_be=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64BE_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_aarch64_be=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64BE_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "aarch64_be-linux"
 
@@ -131,11 +131,11 @@ class TestExternalToolchainBootlinAarch64beMuslBleedingEdge(TestExternalToolchai
 
 class TestExternalToolchainBootlinAarch64beMuslStable(TestExternalToolchain):
     config = """
-        BR2_aarch64_be=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64BE_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_aarch64_be=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64BE_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "aarch64_be-linux"
 
@@ -145,11 +145,11 @@ class TestExternalToolchainBootlinAarch64beMuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinAarch64beUclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_aarch64_be=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64BE_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_aarch64_be=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64BE_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "aarch64_be-linux"
 
@@ -159,11 +159,11 @@ class TestExternalToolchainBootlinAarch64beUclibcBleedingEdge(TestExternalToolch
 
 class TestExternalToolchainBootlinAarch64beUclibcStable(TestExternalToolchain):
     config = """
-        BR2_aarch64_be=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64BE_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_aarch64_be=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_AARCH64BE_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "aarch64_be-linux"
 
@@ -173,12 +173,12 @@ class TestExternalToolchainBootlinAarch64beUclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinArcle750dUclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_arcle=y
-        BR2_arc750d=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARCLE_750D_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arcle=y
+        LINGMO_arc750d=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARCLE_750D_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arc-linux"
 
@@ -188,12 +188,12 @@ class TestExternalToolchainBootlinArcle750dUclibcBleedingEdge(TestExternalToolch
 
 class TestExternalToolchainBootlinArcle750dUclibcStable(TestExternalToolchain):
     config = """
-        BR2_arcle=y
-        BR2_arc750d=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARCLE_750D_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arcle=y
+        LINGMO_arc750d=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARCLE_750D_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arc-linux"
 
@@ -203,12 +203,12 @@ class TestExternalToolchainBootlinArcle750dUclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinArclehs38GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_arcle=y
-        BR2_archs38=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARCLE_HS38_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arcle=y
+        LINGMO_archs38=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARCLE_HS38_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arc-linux"
 
@@ -218,12 +218,12 @@ class TestExternalToolchainBootlinArclehs38GlibcBleedingEdge(TestExternalToolcha
 
 class TestExternalToolchainBootlinArclehs38GlibcStable(TestExternalToolchain):
     config = """
-        BR2_arcle=y
-        BR2_archs38=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARCLE_HS38_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arcle=y
+        LINGMO_archs38=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARCLE_HS38_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arc-linux"
 
@@ -233,12 +233,12 @@ class TestExternalToolchainBootlinArclehs38GlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinArclehs38UclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_arcle=y
-        BR2_archs38=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARCLE_HS38_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arcle=y
+        LINGMO_archs38=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARCLE_HS38_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arc-linux"
 
@@ -248,12 +248,12 @@ class TestExternalToolchainBootlinArclehs38UclibcBleedingEdge(TestExternalToolch
 
 class TestExternalToolchainBootlinArclehs38UclibcStable(TestExternalToolchain):
     config = """
-        BR2_arcle=y
-        BR2_archs38=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARCLE_HS38_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arcle=y
+        LINGMO_archs38=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARCLE_HS38_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arc-linux"
 
@@ -263,13 +263,13 @@ class TestExternalToolchainBootlinArclehs38UclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinArmv5eabiGlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_arm=y
-        BR2_arm926t=y
-        BR2_ARM_EABI=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV5_EABI_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_arm926t=y
+        LINGMO_ARM_EABI=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV5_EABI_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arm-linux"
 
@@ -279,13 +279,13 @@ class TestExternalToolchainBootlinArmv5eabiGlibcBleedingEdge(TestExternalToolcha
 
 class TestExternalToolchainBootlinArmv5eabiGlibcStable(TestExternalToolchain):
     config = """
-        BR2_arm=y
-        BR2_arm926t=y
-        BR2_ARM_EABI=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV5_EABI_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_arm926t=y
+        LINGMO_ARM_EABI=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV5_EABI_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arm-linux"
 
@@ -295,13 +295,13 @@ class TestExternalToolchainBootlinArmv5eabiGlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinArmv5eabiMuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_arm=y
-        BR2_arm926t=y
-        BR2_ARM_EABI=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV5_EABI_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_arm926t=y
+        LINGMO_ARM_EABI=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV5_EABI_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arm-linux"
 
@@ -311,13 +311,13 @@ class TestExternalToolchainBootlinArmv5eabiMuslBleedingEdge(TestExternalToolchai
 
 class TestExternalToolchainBootlinArmv5eabiMuslStable(TestExternalToolchain):
     config = """
-        BR2_arm=y
-        BR2_arm926t=y
-        BR2_ARM_EABI=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV5_EABI_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_arm926t=y
+        LINGMO_ARM_EABI=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV5_EABI_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arm-linux"
 
@@ -327,13 +327,13 @@ class TestExternalToolchainBootlinArmv5eabiMuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinArmv5eabiUclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_arm=y
-        BR2_arm926t=y
-        BR2_ARM_EABI=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV5_EABI_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_arm926t=y
+        LINGMO_ARM_EABI=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV5_EABI_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arm-linux"
 
@@ -343,13 +343,13 @@ class TestExternalToolchainBootlinArmv5eabiUclibcBleedingEdge(TestExternalToolch
 
 class TestExternalToolchainBootlinArmv5eabiUclibcStable(TestExternalToolchain):
     config = """
-        BR2_arm=y
-        BR2_arm926t=y
-        BR2_ARM_EABI=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV5_EABI_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_arm926t=y
+        LINGMO_ARM_EABI=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV5_EABI_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arm-linux"
 
@@ -359,13 +359,13 @@ class TestExternalToolchainBootlinArmv5eabiUclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinArmv6eabihfGlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_arm=y
-        BR2_arm1176jzf_s=y
-        BR2_ARM_EABIHF=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV6_EABIHF_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_arm1176jzf_s=y
+        LINGMO_ARM_EABIHF=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV6_EABIHF_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arm-linux"
 
@@ -375,13 +375,13 @@ class TestExternalToolchainBootlinArmv6eabihfGlibcBleedingEdge(TestExternalToolc
 
 class TestExternalToolchainBootlinArmv6eabihfGlibcStable(TestExternalToolchain):
     config = """
-        BR2_arm=y
-        BR2_arm1176jzf_s=y
-        BR2_ARM_EABIHF=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV6_EABIHF_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_arm1176jzf_s=y
+        LINGMO_ARM_EABIHF=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV6_EABIHF_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arm-linux"
 
@@ -391,13 +391,13 @@ class TestExternalToolchainBootlinArmv6eabihfGlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinArmv6eabihfMuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_arm=y
-        BR2_arm1176jzf_s=y
-        BR2_ARM_EABIHF=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV6_EABIHF_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_arm1176jzf_s=y
+        LINGMO_ARM_EABIHF=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV6_EABIHF_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arm-linux"
 
@@ -407,13 +407,13 @@ class TestExternalToolchainBootlinArmv6eabihfMuslBleedingEdge(TestExternalToolch
 
 class TestExternalToolchainBootlinArmv6eabihfMuslStable(TestExternalToolchain):
     config = """
-        BR2_arm=y
-        BR2_arm1176jzf_s=y
-        BR2_ARM_EABIHF=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV6_EABIHF_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_arm1176jzf_s=y
+        LINGMO_ARM_EABIHF=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV6_EABIHF_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arm-linux"
 
@@ -423,13 +423,13 @@ class TestExternalToolchainBootlinArmv6eabihfMuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinArmv6eabihfUclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_arm=y
-        BR2_arm1176jzf_s=y
-        BR2_ARM_EABIHF=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV6_EABIHF_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_arm1176jzf_s=y
+        LINGMO_ARM_EABIHF=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV6_EABIHF_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arm-linux"
 
@@ -439,13 +439,13 @@ class TestExternalToolchainBootlinArmv6eabihfUclibcBleedingEdge(TestExternalTool
 
 class TestExternalToolchainBootlinArmv6eabihfUclibcStable(TestExternalToolchain):
     config = """
-        BR2_arm=y
-        BR2_arm1176jzf_s=y
-        BR2_ARM_EABIHF=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV6_EABIHF_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_arm1176jzf_s=y
+        LINGMO_ARM_EABIHF=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV6_EABIHF_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arm-linux"
 
@@ -455,13 +455,13 @@ class TestExternalToolchainBootlinArmv6eabihfUclibcStable(TestExternalToolchain)
 
 class TestExternalToolchainBootlinArmv7eabihfGlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_arm=y
-        BR2_cortex_a8=y
-        BR2_ARM_EABIHF=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV7_EABIHF_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_cortex_a8=y
+        LINGMO_ARM_EABIHF=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV7_EABIHF_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arm-linux"
 
@@ -471,13 +471,13 @@ class TestExternalToolchainBootlinArmv7eabihfGlibcBleedingEdge(TestExternalToolc
 
 class TestExternalToolchainBootlinArmv7eabihfGlibcStable(TestExternalToolchain):
     config = """
-        BR2_arm=y
-        BR2_cortex_a8=y
-        BR2_ARM_EABIHF=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV7_EABIHF_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_cortex_a8=y
+        LINGMO_ARM_EABIHF=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV7_EABIHF_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arm-linux"
 
@@ -487,13 +487,13 @@ class TestExternalToolchainBootlinArmv7eabihfGlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinArmv7eabihfMuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_arm=y
-        BR2_cortex_a8=y
-        BR2_ARM_EABIHF=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV7_EABIHF_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_cortex_a8=y
+        LINGMO_ARM_EABIHF=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV7_EABIHF_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arm-linux"
 
@@ -503,13 +503,13 @@ class TestExternalToolchainBootlinArmv7eabihfMuslBleedingEdge(TestExternalToolch
 
 class TestExternalToolchainBootlinArmv7eabihfMuslStable(TestExternalToolchain):
     config = """
-        BR2_arm=y
-        BR2_cortex_a8=y
-        BR2_ARM_EABIHF=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV7_EABIHF_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_cortex_a8=y
+        LINGMO_ARM_EABIHF=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV7_EABIHF_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arm-linux"
 
@@ -519,13 +519,13 @@ class TestExternalToolchainBootlinArmv7eabihfMuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinArmv7eabihfUclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_arm=y
-        BR2_cortex_a8=y
-        BR2_ARM_EABIHF=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV7_EABIHF_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_cortex_a8=y
+        LINGMO_ARM_EABIHF=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV7_EABIHF_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arm-linux"
 
@@ -535,13 +535,13 @@ class TestExternalToolchainBootlinArmv7eabihfUclibcBleedingEdge(TestExternalTool
 
 class TestExternalToolchainBootlinArmv7eabihfUclibcStable(TestExternalToolchain):
     config = """
-        BR2_arm=y
-        BR2_cortex_a8=y
-        BR2_ARM_EABIHF=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV7_EABIHF_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_cortex_a8=y
+        LINGMO_ARM_EABIHF=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV7_EABIHF_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arm-linux"
 
@@ -551,13 +551,13 @@ class TestExternalToolchainBootlinArmv7eabihfUclibcStable(TestExternalToolchain)
 
 class TestExternalToolchainBootlinArmebv7eabihfGlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_armeb=y
-        BR2_cortex_a8=y
-        BR2_ARM_EABIHF=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMEBV7_EABIHF_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_armeb=y
+        LINGMO_cortex_a8=y
+        LINGMO_ARM_EABIHF=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMEBV7_EABIHF_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "armeb-linux"
 
@@ -567,13 +567,13 @@ class TestExternalToolchainBootlinArmebv7eabihfGlibcBleedingEdge(TestExternalToo
 
 class TestExternalToolchainBootlinArmebv7eabihfGlibcStable(TestExternalToolchain):
     config = """
-        BR2_armeb=y
-        BR2_cortex_a8=y
-        BR2_ARM_EABIHF=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMEBV7_EABIHF_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_armeb=y
+        LINGMO_cortex_a8=y
+        LINGMO_ARM_EABIHF=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMEBV7_EABIHF_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "armeb-linux"
 
@@ -583,13 +583,13 @@ class TestExternalToolchainBootlinArmebv7eabihfGlibcStable(TestExternalToolchain
 
 class TestExternalToolchainBootlinArmebv7eabihfMuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_armeb=y
-        BR2_cortex_a8=y
-        BR2_ARM_EABIHF=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMEBV7_EABIHF_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_armeb=y
+        LINGMO_cortex_a8=y
+        LINGMO_ARM_EABIHF=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMEBV7_EABIHF_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "armeb-linux"
 
@@ -599,13 +599,13 @@ class TestExternalToolchainBootlinArmebv7eabihfMuslBleedingEdge(TestExternalTool
 
 class TestExternalToolchainBootlinArmebv7eabihfMuslStable(TestExternalToolchain):
     config = """
-        BR2_armeb=y
-        BR2_cortex_a8=y
-        BR2_ARM_EABIHF=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMEBV7_EABIHF_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_armeb=y
+        LINGMO_cortex_a8=y
+        LINGMO_ARM_EABIHF=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMEBV7_EABIHF_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "armeb-linux"
 
@@ -615,13 +615,13 @@ class TestExternalToolchainBootlinArmebv7eabihfMuslStable(TestExternalToolchain)
 
 class TestExternalToolchainBootlinArmebv7eabihfUclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_armeb=y
-        BR2_cortex_a8=y
-        BR2_ARM_EABIHF=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMEBV7_EABIHF_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_armeb=y
+        LINGMO_cortex_a8=y
+        LINGMO_ARM_EABIHF=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMEBV7_EABIHF_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "armeb-linux"
 
@@ -631,13 +631,13 @@ class TestExternalToolchainBootlinArmebv7eabihfUclibcBleedingEdge(TestExternalTo
 
 class TestExternalToolchainBootlinArmebv7eabihfUclibcStable(TestExternalToolchain):
     config = """
-        BR2_armeb=y
-        BR2_cortex_a8=y
-        BR2_ARM_EABIHF=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMEBV7_EABIHF_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_armeb=y
+        LINGMO_cortex_a8=y
+        LINGMO_ARM_EABIHF=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMEBV7_EABIHF_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "armeb-linux"
 
@@ -647,12 +647,12 @@ class TestExternalToolchainBootlinArmebv7eabihfUclibcStable(TestExternalToolchai
 
 class TestExternalToolchainBootlinArmv7mUclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_arm=y
-        BR2_cortex_m4=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV7M_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_cortex_m4=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV7M_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arm-linux"
 
@@ -662,12 +662,12 @@ class TestExternalToolchainBootlinArmv7mUclibcBleedingEdge(TestExternalToolchain
 
 class TestExternalToolchainBootlinArmv7mUclibcStable(TestExternalToolchain):
     config = """
-        BR2_arm=y
-        BR2_cortex_m4=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV7M_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_cortex_m4=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV7M_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "arm-linux"
 
@@ -677,12 +677,12 @@ class TestExternalToolchainBootlinArmv7mUclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinM68k68xxxGlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_m68k=y
-        BR2_m68k_68040=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_M68K_68XXX_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_m68k=y
+        LINGMO_m68k_68040=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_M68K_68XXX_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "m68k-linux"
 
@@ -692,12 +692,12 @@ class TestExternalToolchainBootlinM68k68xxxGlibcBleedingEdge(TestExternalToolcha
 
 class TestExternalToolchainBootlinM68k68xxxGlibcStable(TestExternalToolchain):
     config = """
-        BR2_m68k=y
-        BR2_m68k_68040=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_M68K_68XXX_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_m68k=y
+        LINGMO_m68k_68040=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_M68K_68XXX_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "m68k-linux"
 
@@ -707,12 +707,12 @@ class TestExternalToolchainBootlinM68k68xxxGlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinM68k68xxxMuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_m68k=y
-        BR2_m68k_68040=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_M68K_68XXX_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_m68k=y
+        LINGMO_m68k_68040=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_M68K_68XXX_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "m68k-linux"
 
@@ -722,12 +722,12 @@ class TestExternalToolchainBootlinM68k68xxxMuslBleedingEdge(TestExternalToolchai
 
 class TestExternalToolchainBootlinM68k68xxxMuslStable(TestExternalToolchain):
     config = """
-        BR2_m68k=y
-        BR2_m68k_68040=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_M68K_68XXX_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_m68k=y
+        LINGMO_m68k_68040=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_M68K_68XXX_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "m68k-linux"
 
@@ -737,12 +737,12 @@ class TestExternalToolchainBootlinM68k68xxxMuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinM68k68xxxUclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_m68k=y
-        BR2_m68k_68040=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_M68K_68XXX_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_m68k=y
+        LINGMO_m68k_68040=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_M68K_68XXX_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "m68k-linux"
 
@@ -752,12 +752,12 @@ class TestExternalToolchainBootlinM68k68xxxUclibcBleedingEdge(TestExternalToolch
 
 class TestExternalToolchainBootlinM68k68xxxUclibcStable(TestExternalToolchain):
     config = """
-        BR2_m68k=y
-        BR2_m68k_68040=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_M68K_68XXX_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_m68k=y
+        LINGMO_m68k_68040=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_M68K_68XXX_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "m68k-linux"
 
@@ -767,12 +767,12 @@ class TestExternalToolchainBootlinM68k68xxxUclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinM68kcoldfireUclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_m68k=y
-        BR2_m68k_cf5208=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_M68K_COLDFIRE_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_m68k=y
+        LINGMO_m68k_cf5208=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_M68K_COLDFIRE_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "m68k-linux"
 
@@ -782,12 +782,12 @@ class TestExternalToolchainBootlinM68kcoldfireUclibcBleedingEdge(TestExternalToo
 
 class TestExternalToolchainBootlinM68kcoldfireUclibcStable(TestExternalToolchain):
     config = """
-        BR2_m68k=y
-        BR2_m68k_cf5208=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_M68K_COLDFIRE_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_m68k=y
+        LINGMO_m68k_cf5208=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_M68K_COLDFIRE_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "m68k-linux"
 
@@ -797,11 +797,11 @@ class TestExternalToolchainBootlinM68kcoldfireUclibcStable(TestExternalToolchain
 
 class TestExternalToolchainBootlinMicroblazebeGlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_microblazebe=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEBE_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_microblazebe=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEBE_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "microblaze-linux"
 
@@ -811,11 +811,11 @@ class TestExternalToolchainBootlinMicroblazebeGlibcBleedingEdge(TestExternalTool
 
 class TestExternalToolchainBootlinMicroblazebeGlibcStable(TestExternalToolchain):
     config = """
-        BR2_microblazebe=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEBE_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_microblazebe=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEBE_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "microblaze-linux"
 
@@ -825,11 +825,11 @@ class TestExternalToolchainBootlinMicroblazebeGlibcStable(TestExternalToolchain)
 
 class TestExternalToolchainBootlinMicroblazebeMuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_microblazebe=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEBE_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_microblazebe=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEBE_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "microblaze-linux"
 
@@ -839,11 +839,11 @@ class TestExternalToolchainBootlinMicroblazebeMuslBleedingEdge(TestExternalToolc
 
 class TestExternalToolchainBootlinMicroblazebeMuslStable(TestExternalToolchain):
     config = """
-        BR2_microblazebe=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEBE_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_microblazebe=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEBE_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "microblaze-linux"
 
@@ -853,11 +853,11 @@ class TestExternalToolchainBootlinMicroblazebeMuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinMicroblazebeUclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_microblazebe=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEBE_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_microblazebe=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEBE_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "microblaze-linux"
 
@@ -867,11 +867,11 @@ class TestExternalToolchainBootlinMicroblazebeUclibcBleedingEdge(TestExternalToo
 
 class TestExternalToolchainBootlinMicroblazebeUclibcStable(TestExternalToolchain):
     config = """
-        BR2_microblazebe=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEBE_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_microblazebe=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEBE_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "microblaze-linux"
 
@@ -881,11 +881,11 @@ class TestExternalToolchainBootlinMicroblazebeUclibcStable(TestExternalToolchain
 
 class TestExternalToolchainBootlinMicroblazeelGlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_microblazeel=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEEL_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_microblazeel=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEEL_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "microblazeel-linux"
 
@@ -895,11 +895,11 @@ class TestExternalToolchainBootlinMicroblazeelGlibcBleedingEdge(TestExternalTool
 
 class TestExternalToolchainBootlinMicroblazeelGlibcStable(TestExternalToolchain):
     config = """
-        BR2_microblazeel=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEEL_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_microblazeel=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEEL_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "microblazeel-linux"
 
@@ -909,11 +909,11 @@ class TestExternalToolchainBootlinMicroblazeelGlibcStable(TestExternalToolchain)
 
 class TestExternalToolchainBootlinMicroblazeelMuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_microblazeel=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEEL_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_microblazeel=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEEL_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "microblazeel-linux"
 
@@ -923,11 +923,11 @@ class TestExternalToolchainBootlinMicroblazeelMuslBleedingEdge(TestExternalToolc
 
 class TestExternalToolchainBootlinMicroblazeelMuslStable(TestExternalToolchain):
     config = """
-        BR2_microblazeel=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEEL_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_microblazeel=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEEL_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "microblazeel-linux"
 
@@ -937,11 +937,11 @@ class TestExternalToolchainBootlinMicroblazeelMuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinMicroblazeelUclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_microblazeel=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEEL_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_microblazeel=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEEL_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "microblazeel-linux"
 
@@ -951,11 +951,11 @@ class TestExternalToolchainBootlinMicroblazeelUclibcBleedingEdge(TestExternalToo
 
 class TestExternalToolchainBootlinMicroblazeelUclibcStable(TestExternalToolchain):
     config = """
-        BR2_microblazeel=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEEL_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_microblazeel=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MICROBLAZEEL_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "microblazeel-linux"
 
@@ -965,13 +965,13 @@ class TestExternalToolchainBootlinMicroblazeelUclibcStable(TestExternalToolchain
 
 class TestExternalToolchainBootlinMips32GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mips=y
-        BR2_mips_32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips=y
+        LINGMO_mips_32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips-linux"
 
@@ -981,13 +981,13 @@ class TestExternalToolchainBootlinMips32GlibcBleedingEdge(TestExternalToolchain)
 
 class TestExternalToolchainBootlinMips32GlibcStable(TestExternalToolchain):
     config = """
-        BR2_mips=y
-        BR2_mips_32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips=y
+        LINGMO_mips_32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips-linux"
 
@@ -997,13 +997,13 @@ class TestExternalToolchainBootlinMips32GlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinMips32MuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mips=y
-        BR2_mips_32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips=y
+        LINGMO_mips_32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips-linux"
 
@@ -1013,13 +1013,13 @@ class TestExternalToolchainBootlinMips32MuslBleedingEdge(TestExternalToolchain):
 
 class TestExternalToolchainBootlinMips32MuslStable(TestExternalToolchain):
     config = """
-        BR2_mips=y
-        BR2_mips_32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips=y
+        LINGMO_mips_32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips-linux"
 
@@ -1029,13 +1029,13 @@ class TestExternalToolchainBootlinMips32MuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinMips32UclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mips=y
-        BR2_mips_32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips=y
+        LINGMO_mips_32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips-linux"
 
@@ -1045,13 +1045,13 @@ class TestExternalToolchainBootlinMips32UclibcBleedingEdge(TestExternalToolchain
 
 class TestExternalToolchainBootlinMips32UclibcStable(TestExternalToolchain):
     config = """
-        BR2_mips=y
-        BR2_mips_32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips=y
+        LINGMO_mips_32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips-linux"
 
@@ -1061,13 +1061,13 @@ class TestExternalToolchainBootlinMips32UclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinMips32elGlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mipsel=y
-        BR2_mips_32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32EL_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mipsel=y
+        LINGMO_mips_32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32EL_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mipsel-linux"
 
@@ -1077,13 +1077,13 @@ class TestExternalToolchainBootlinMips32elGlibcBleedingEdge(TestExternalToolchai
 
 class TestExternalToolchainBootlinMips32elGlibcStable(TestExternalToolchain):
     config = """
-        BR2_mipsel=y
-        BR2_mips_32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32EL_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mipsel=y
+        LINGMO_mips_32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32EL_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mipsel-linux"
 
@@ -1093,13 +1093,13 @@ class TestExternalToolchainBootlinMips32elGlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinMips32elMuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mipsel=y
-        BR2_mips_32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32EL_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mipsel=y
+        LINGMO_mips_32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32EL_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mipsel-linux"
 
@@ -1109,13 +1109,13 @@ class TestExternalToolchainBootlinMips32elMuslBleedingEdge(TestExternalToolchain
 
 class TestExternalToolchainBootlinMips32elMuslStable(TestExternalToolchain):
     config = """
-        BR2_mipsel=y
-        BR2_mips_32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32EL_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mipsel=y
+        LINGMO_mips_32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32EL_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mipsel-linux"
 
@@ -1125,13 +1125,13 @@ class TestExternalToolchainBootlinMips32elMuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinMips32elUclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mipsel=y
-        BR2_mips_32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32EL_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mipsel=y
+        LINGMO_mips_32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32EL_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mipsel-linux"
 
@@ -1141,13 +1141,13 @@ class TestExternalToolchainBootlinMips32elUclibcBleedingEdge(TestExternalToolcha
 
 class TestExternalToolchainBootlinMips32elUclibcStable(TestExternalToolchain):
     config = """
-        BR2_mipsel=y
-        BR2_mips_32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32EL_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mipsel=y
+        LINGMO_mips_32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32EL_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mipsel-linux"
 
@@ -1157,13 +1157,13 @@ class TestExternalToolchainBootlinMips32elUclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinMips32r5elGlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mipsel=y
-        BR2_mips_32r5=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R5EL_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mipsel=y
+        LINGMO_mips_32r5=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R5EL_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mipsel-linux"
 
@@ -1173,13 +1173,13 @@ class TestExternalToolchainBootlinMips32r5elGlibcBleedingEdge(TestExternalToolch
 
 class TestExternalToolchainBootlinMips32r5elGlibcStable(TestExternalToolchain):
     config = """
-        BR2_mipsel=y
-        BR2_mips_32r5=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R5EL_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mipsel=y
+        LINGMO_mips_32r5=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R5EL_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mipsel-linux"
 
@@ -1189,13 +1189,13 @@ class TestExternalToolchainBootlinMips32r5elGlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinMips32r5elMuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mipsel=y
-        BR2_mips_32r5=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R5EL_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mipsel=y
+        LINGMO_mips_32r5=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R5EL_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mipsel-linux"
 
@@ -1205,13 +1205,13 @@ class TestExternalToolchainBootlinMips32r5elMuslBleedingEdge(TestExternalToolcha
 
 class TestExternalToolchainBootlinMips32r5elMuslStable(TestExternalToolchain):
     config = """
-        BR2_mipsel=y
-        BR2_mips_32r5=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R5EL_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mipsel=y
+        LINGMO_mips_32r5=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R5EL_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mipsel-linux"
 
@@ -1221,13 +1221,13 @@ class TestExternalToolchainBootlinMips32r5elMuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinMips32r5elUclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mipsel=y
-        BR2_mips_32r5=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R5EL_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mipsel=y
+        LINGMO_mips_32r5=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R5EL_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mipsel-linux"
 
@@ -1237,13 +1237,13 @@ class TestExternalToolchainBootlinMips32r5elUclibcBleedingEdge(TestExternalToolc
 
 class TestExternalToolchainBootlinMips32r5elUclibcStable(TestExternalToolchain):
     config = """
-        BR2_mipsel=y
-        BR2_mips_32r5=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R5EL_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mipsel=y
+        LINGMO_mips_32r5=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R5EL_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mipsel-linux"
 
@@ -1253,13 +1253,13 @@ class TestExternalToolchainBootlinMips32r5elUclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinMips32r6elGlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mipsel=y
-        BR2_mips_32r6=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R6EL_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mipsel=y
+        LINGMO_mips_32r6=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R6EL_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mipsel-linux"
 
@@ -1269,13 +1269,13 @@ class TestExternalToolchainBootlinMips32r6elGlibcBleedingEdge(TestExternalToolch
 
 class TestExternalToolchainBootlinMips32r6elGlibcStable(TestExternalToolchain):
     config = """
-        BR2_mipsel=y
-        BR2_mips_32r6=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R6EL_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mipsel=y
+        LINGMO_mips_32r6=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R6EL_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mipsel-linux"
 
@@ -1285,13 +1285,13 @@ class TestExternalToolchainBootlinMips32r6elGlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinMips32r6elMuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mipsel=y
-        BR2_mips_32r6=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R6EL_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mipsel=y
+        LINGMO_mips_32r6=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R6EL_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mipsel-linux"
 
@@ -1301,13 +1301,13 @@ class TestExternalToolchainBootlinMips32r6elMuslBleedingEdge(TestExternalToolcha
 
 class TestExternalToolchainBootlinMips32r6elMuslStable(TestExternalToolchain):
     config = """
-        BR2_mipsel=y
-        BR2_mips_32r6=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R6EL_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mipsel=y
+        LINGMO_mips_32r6=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R6EL_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mipsel-linux"
 
@@ -1317,13 +1317,13 @@ class TestExternalToolchainBootlinMips32r6elMuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinMips32r6elUclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mipsel=y
-        BR2_mips_32r6=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R6EL_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mipsel=y
+        LINGMO_mips_32r6=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R6EL_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mipsel-linux"
 
@@ -1333,13 +1333,13 @@ class TestExternalToolchainBootlinMips32r6elUclibcBleedingEdge(TestExternalToolc
 
 class TestExternalToolchainBootlinMips32r6elUclibcStable(TestExternalToolchain):
     config = """
-        BR2_mipsel=y
-        BR2_mips_32r6=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R6EL_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mipsel=y
+        LINGMO_mips_32r6=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS32R6EL_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mipsel-linux"
 
@@ -1349,14 +1349,14 @@ class TestExternalToolchainBootlinMips32r6elUclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinMips64n32GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mips64=y
-        BR2_mips_64=y
-        BR2_MIPS_NABI32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64_N32_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips64=y
+        LINGMO_mips_64=y
+        LINGMO_MIPS_NABI32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64_N32_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips64-linux"
 
@@ -1366,14 +1366,14 @@ class TestExternalToolchainBootlinMips64n32GlibcBleedingEdge(TestExternalToolcha
 
 class TestExternalToolchainBootlinMips64n32GlibcStable(TestExternalToolchain):
     config = """
-        BR2_mips64=y
-        BR2_mips_64=y
-        BR2_MIPS_NABI32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64_N32_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips64=y
+        LINGMO_mips_64=y
+        LINGMO_MIPS_NABI32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64_N32_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips64-linux"
 
@@ -1383,14 +1383,14 @@ class TestExternalToolchainBootlinMips64n32GlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinMips64n32MuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mips64=y
-        BR2_mips_64=y
-        BR2_MIPS_NABI32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64_N32_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips64=y
+        LINGMO_mips_64=y
+        LINGMO_MIPS_NABI32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64_N32_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips64-linux"
 
@@ -1400,14 +1400,14 @@ class TestExternalToolchainBootlinMips64n32MuslBleedingEdge(TestExternalToolchai
 
 class TestExternalToolchainBootlinMips64n32MuslStable(TestExternalToolchain):
     config = """
-        BR2_mips64=y
-        BR2_mips_64=y
-        BR2_MIPS_NABI32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64_N32_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips64=y
+        LINGMO_mips_64=y
+        LINGMO_MIPS_NABI32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64_N32_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips64-linux"
 
@@ -1417,14 +1417,14 @@ class TestExternalToolchainBootlinMips64n32MuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinMips64n32UclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mips64=y
-        BR2_mips_64=y
-        BR2_MIPS_NABI32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64_N32_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips64=y
+        LINGMO_mips_64=y
+        LINGMO_MIPS_NABI32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64_N32_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips64-linux"
 
@@ -1434,14 +1434,14 @@ class TestExternalToolchainBootlinMips64n32UclibcBleedingEdge(TestExternalToolch
 
 class TestExternalToolchainBootlinMips64n32UclibcStable(TestExternalToolchain):
     config = """
-        BR2_mips64=y
-        BR2_mips_64=y
-        BR2_MIPS_NABI32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64_N32_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips64=y
+        LINGMO_mips_64=y
+        LINGMO_MIPS_NABI32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64_N32_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips64-linux"
 
@@ -1451,14 +1451,14 @@ class TestExternalToolchainBootlinMips64n32UclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinMips64eln32GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mips64el=y
-        BR2_mips_64=y
-        BR2_MIPS_NABI32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64EL_N32_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips64el=y
+        LINGMO_mips_64=y
+        LINGMO_MIPS_NABI32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64EL_N32_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips64el-linux"
 
@@ -1468,14 +1468,14 @@ class TestExternalToolchainBootlinMips64eln32GlibcBleedingEdge(TestExternalToolc
 
 class TestExternalToolchainBootlinMips64eln32GlibcStable(TestExternalToolchain):
     config = """
-        BR2_mips64el=y
-        BR2_mips_64=y
-        BR2_MIPS_NABI32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64EL_N32_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips64el=y
+        LINGMO_mips_64=y
+        LINGMO_MIPS_NABI32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64EL_N32_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips64el-linux"
 
@@ -1485,14 +1485,14 @@ class TestExternalToolchainBootlinMips64eln32GlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinMips64eln32MuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mips64el=y
-        BR2_mips_64=y
-        BR2_MIPS_NABI32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64EL_N32_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips64el=y
+        LINGMO_mips_64=y
+        LINGMO_MIPS_NABI32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64EL_N32_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips64el-linux"
 
@@ -1502,14 +1502,14 @@ class TestExternalToolchainBootlinMips64eln32MuslBleedingEdge(TestExternalToolch
 
 class TestExternalToolchainBootlinMips64eln32MuslStable(TestExternalToolchain):
     config = """
-        BR2_mips64el=y
-        BR2_mips_64=y
-        BR2_MIPS_NABI32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64EL_N32_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips64el=y
+        LINGMO_mips_64=y
+        LINGMO_MIPS_NABI32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64EL_N32_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips64el-linux"
 
@@ -1519,14 +1519,14 @@ class TestExternalToolchainBootlinMips64eln32MuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinMips64eln32UclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mips64el=y
-        BR2_mips_64=y
-        BR2_MIPS_NABI32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64EL_N32_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips64el=y
+        LINGMO_mips_64=y
+        LINGMO_MIPS_NABI32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64EL_N32_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips64el-linux"
 
@@ -1536,14 +1536,14 @@ class TestExternalToolchainBootlinMips64eln32UclibcBleedingEdge(TestExternalTool
 
 class TestExternalToolchainBootlinMips64eln32UclibcStable(TestExternalToolchain):
     config = """
-        BR2_mips64el=y
-        BR2_mips_64=y
-        BR2_MIPS_NABI32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64EL_N32_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips64el=y
+        LINGMO_mips_64=y
+        LINGMO_MIPS_NABI32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64EL_N32_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips64el-linux"
 
@@ -1553,14 +1553,14 @@ class TestExternalToolchainBootlinMips64eln32UclibcStable(TestExternalToolchain)
 
 class TestExternalToolchainBootlinMips64r6eln32GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mips64el=y
-        BR2_mips_64r6=y
-        BR2_MIPS_NABI32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64R6EL_N32_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips64el=y
+        LINGMO_mips_64r6=y
+        LINGMO_MIPS_NABI32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64R6EL_N32_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips64el-linux"
 
@@ -1570,14 +1570,14 @@ class TestExternalToolchainBootlinMips64r6eln32GlibcBleedingEdge(TestExternalToo
 
 class TestExternalToolchainBootlinMips64r6eln32GlibcStable(TestExternalToolchain):
     config = """
-        BR2_mips64el=y
-        BR2_mips_64r6=y
-        BR2_MIPS_NABI32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64R6EL_N32_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips64el=y
+        LINGMO_mips_64r6=y
+        LINGMO_MIPS_NABI32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64R6EL_N32_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips64el-linux"
 
@@ -1587,14 +1587,14 @@ class TestExternalToolchainBootlinMips64r6eln32GlibcStable(TestExternalToolchain
 
 class TestExternalToolchainBootlinMips64r6eln32MuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mips64el=y
-        BR2_mips_64r6=y
-        BR2_MIPS_NABI32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64R6EL_N32_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips64el=y
+        LINGMO_mips_64r6=y
+        LINGMO_MIPS_NABI32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64R6EL_N32_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips64el-linux"
 
@@ -1604,14 +1604,14 @@ class TestExternalToolchainBootlinMips64r6eln32MuslBleedingEdge(TestExternalTool
 
 class TestExternalToolchainBootlinMips64r6eln32MuslStable(TestExternalToolchain):
     config = """
-        BR2_mips64el=y
-        BR2_mips_64r6=y
-        BR2_MIPS_NABI32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64R6EL_N32_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips64el=y
+        LINGMO_mips_64r6=y
+        LINGMO_MIPS_NABI32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64R6EL_N32_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips64el-linux"
 
@@ -1621,14 +1621,14 @@ class TestExternalToolchainBootlinMips64r6eln32MuslStable(TestExternalToolchain)
 
 class TestExternalToolchainBootlinMips64r6eln32UclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_mips64el=y
-        BR2_mips_64r6=y
-        BR2_MIPS_NABI32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64R6EL_N32_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips64el=y
+        LINGMO_mips_64r6=y
+        LINGMO_MIPS_NABI32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64R6EL_N32_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips64el-linux"
 
@@ -1638,14 +1638,14 @@ class TestExternalToolchainBootlinMips64r6eln32UclibcBleedingEdge(TestExternalTo
 
 class TestExternalToolchainBootlinMips64r6eln32UclibcStable(TestExternalToolchain):
     config = """
-        BR2_mips64el=y
-        BR2_mips_64r6=y
-        BR2_MIPS_NABI32=y
-        # BR2_MIPS_SOFT_FLOAT is not set
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64R6EL_N32_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_mips64el=y
+        LINGMO_mips_64r6=y
+        LINGMO_MIPS_NABI32=y
+        # LINGMO_MIPS_SOFT_FLOAT is not set
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_MIPS64R6EL_N32_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "mips64el-linux"
 
@@ -1655,11 +1655,11 @@ class TestExternalToolchainBootlinMips64r6eln32UclibcStable(TestExternalToolchai
 
 class TestExternalToolchainBootlinNios2GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_nios2=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_NIOS2_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_nios2=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_NIOS2_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "nios2-linux"
 
@@ -1669,11 +1669,11 @@ class TestExternalToolchainBootlinNios2GlibcBleedingEdge(TestExternalToolchain):
 
 class TestExternalToolchainBootlinNios2GlibcStable(TestExternalToolchain):
     config = """
-        BR2_nios2=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_NIOS2_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_nios2=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_NIOS2_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "nios2-linux"
 
@@ -1683,11 +1683,11 @@ class TestExternalToolchainBootlinNios2GlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinOpenriscGlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_or1k=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_OPENRISC_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_or1k=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_OPENRISC_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "or1k-linux"
 
@@ -1697,11 +1697,11 @@ class TestExternalToolchainBootlinOpenriscGlibcBleedingEdge(TestExternalToolchai
 
 class TestExternalToolchainBootlinOpenriscGlibcStable(TestExternalToolchain):
     config = """
-        BR2_or1k=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_OPENRISC_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_or1k=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_OPENRISC_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "or1k-linux"
 
@@ -1711,11 +1711,11 @@ class TestExternalToolchainBootlinOpenriscGlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinOpenriscMuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_or1k=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_OPENRISC_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_or1k=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_OPENRISC_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "or1k-linux"
 
@@ -1725,11 +1725,11 @@ class TestExternalToolchainBootlinOpenriscMuslBleedingEdge(TestExternalToolchain
 
 class TestExternalToolchainBootlinOpenriscMuslStable(TestExternalToolchain):
     config = """
-        BR2_or1k=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_OPENRISC_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_or1k=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_OPENRISC_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "or1k-linux"
 
@@ -1739,11 +1739,11 @@ class TestExternalToolchainBootlinOpenriscMuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinOpenriscUclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_or1k=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_OPENRISC_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_or1k=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_OPENRISC_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "or1k-linux"
 
@@ -1753,11 +1753,11 @@ class TestExternalToolchainBootlinOpenriscUclibcBleedingEdge(TestExternalToolcha
 
 class TestExternalToolchainBootlinOpenriscUclibcStable(TestExternalToolchain):
     config = """
-        BR2_or1k=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_OPENRISC_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_or1k=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_OPENRISC_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "or1k-linux"
 
@@ -1767,12 +1767,12 @@ class TestExternalToolchainBootlinOpenriscUclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinPowerpc440fpGlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_powerpc=y
-        BR2_powerpc_440fp=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_440FP_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc=y
+        LINGMO_powerpc_440fp=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_440FP_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc-linux"
 
@@ -1782,12 +1782,12 @@ class TestExternalToolchainBootlinPowerpc440fpGlibcBleedingEdge(TestExternalTool
 
 class TestExternalToolchainBootlinPowerpc440fpGlibcStable(TestExternalToolchain):
     config = """
-        BR2_powerpc=y
-        BR2_powerpc_440fp=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_440FP_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc=y
+        LINGMO_powerpc_440fp=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_440FP_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc-linux"
 
@@ -1797,12 +1797,12 @@ class TestExternalToolchainBootlinPowerpc440fpGlibcStable(TestExternalToolchain)
 
 class TestExternalToolchainBootlinPowerpc440fpMuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_powerpc=y
-        BR2_powerpc_440fp=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_440FP_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc=y
+        LINGMO_powerpc_440fp=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_440FP_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc-linux"
 
@@ -1812,12 +1812,12 @@ class TestExternalToolchainBootlinPowerpc440fpMuslBleedingEdge(TestExternalToolc
 
 class TestExternalToolchainBootlinPowerpc440fpMuslStable(TestExternalToolchain):
     config = """
-        BR2_powerpc=y
-        BR2_powerpc_440fp=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_440FP_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc=y
+        LINGMO_powerpc_440fp=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_440FP_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc-linux"
 
@@ -1827,12 +1827,12 @@ class TestExternalToolchainBootlinPowerpc440fpMuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinPowerpc440fpUclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_powerpc=y
-        BR2_powerpc_440fp=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_440FP_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc=y
+        LINGMO_powerpc_440fp=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_440FP_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc-linux"
 
@@ -1842,12 +1842,12 @@ class TestExternalToolchainBootlinPowerpc440fpUclibcBleedingEdge(TestExternalToo
 
 class TestExternalToolchainBootlinPowerpc440fpUclibcStable(TestExternalToolchain):
     config = """
-        BR2_powerpc=y
-        BR2_powerpc_440fp=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_440FP_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc=y
+        LINGMO_powerpc_440fp=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_440FP_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc-linux"
 
@@ -1857,12 +1857,12 @@ class TestExternalToolchainBootlinPowerpc440fpUclibcStable(TestExternalToolchain
 
 class TestExternalToolchainBootlinPowerpce300c3GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_powerpc=y
-        BR2_powerpc_e300c3=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E300C3_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc=y
+        LINGMO_powerpc_e300c3=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E300C3_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc-linux"
 
@@ -1872,12 +1872,12 @@ class TestExternalToolchainBootlinPowerpce300c3GlibcBleedingEdge(TestExternalToo
 
 class TestExternalToolchainBootlinPowerpce300c3GlibcStable(TestExternalToolchain):
     config = """
-        BR2_powerpc=y
-        BR2_powerpc_e300c3=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E300C3_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc=y
+        LINGMO_powerpc_e300c3=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E300C3_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc-linux"
 
@@ -1887,12 +1887,12 @@ class TestExternalToolchainBootlinPowerpce300c3GlibcStable(TestExternalToolchain
 
 class TestExternalToolchainBootlinPowerpce300c3MuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_powerpc=y
-        BR2_powerpc_e300c3=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E300C3_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc=y
+        LINGMO_powerpc_e300c3=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E300C3_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc-linux"
 
@@ -1902,12 +1902,12 @@ class TestExternalToolchainBootlinPowerpce300c3MuslBleedingEdge(TestExternalTool
 
 class TestExternalToolchainBootlinPowerpce300c3MuslStable(TestExternalToolchain):
     config = """
-        BR2_powerpc=y
-        BR2_powerpc_e300c3=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E300C3_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc=y
+        LINGMO_powerpc_e300c3=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E300C3_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc-linux"
 
@@ -1917,12 +1917,12 @@ class TestExternalToolchainBootlinPowerpce300c3MuslStable(TestExternalToolchain)
 
 class TestExternalToolchainBootlinPowerpce300c3UclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_powerpc=y
-        BR2_powerpc_e300c3=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E300C3_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc=y
+        LINGMO_powerpc_e300c3=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E300C3_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc-linux"
 
@@ -1932,12 +1932,12 @@ class TestExternalToolchainBootlinPowerpce300c3UclibcBleedingEdge(TestExternalTo
 
 class TestExternalToolchainBootlinPowerpce300c3UclibcStable(TestExternalToolchain):
     config = """
-        BR2_powerpc=y
-        BR2_powerpc_e300c3=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E300C3_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc=y
+        LINGMO_powerpc_e300c3=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E300C3_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc-linux"
 
@@ -1947,12 +1947,12 @@ class TestExternalToolchainBootlinPowerpce300c3UclibcStable(TestExternalToolchai
 
 class TestExternalToolchainBootlinPowerpce500mcGlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_powerpc=y
-        BR2_powerpc_e500mc=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E500MC_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc=y
+        LINGMO_powerpc_e500mc=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E500MC_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc-linux"
 
@@ -1962,12 +1962,12 @@ class TestExternalToolchainBootlinPowerpce500mcGlibcBleedingEdge(TestExternalToo
 
 class TestExternalToolchainBootlinPowerpce500mcGlibcStable(TestExternalToolchain):
     config = """
-        BR2_powerpc=y
-        BR2_powerpc_e500mc=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E500MC_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc=y
+        LINGMO_powerpc_e500mc=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E500MC_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc-linux"
 
@@ -1977,12 +1977,12 @@ class TestExternalToolchainBootlinPowerpce500mcGlibcStable(TestExternalToolchain
 
 class TestExternalToolchainBootlinPowerpce500mcMuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_powerpc=y
-        BR2_powerpc_e500mc=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E500MC_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc=y
+        LINGMO_powerpc_e500mc=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E500MC_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc-linux"
 
@@ -1992,12 +1992,12 @@ class TestExternalToolchainBootlinPowerpce500mcMuslBleedingEdge(TestExternalTool
 
 class TestExternalToolchainBootlinPowerpce500mcMuslStable(TestExternalToolchain):
     config = """
-        BR2_powerpc=y
-        BR2_powerpc_e500mc=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E500MC_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc=y
+        LINGMO_powerpc_e500mc=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E500MC_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc-linux"
 
@@ -2007,12 +2007,12 @@ class TestExternalToolchainBootlinPowerpce500mcMuslStable(TestExternalToolchain)
 
 class TestExternalToolchainBootlinPowerpce500mcUclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_powerpc=y
-        BR2_powerpc_e500mc=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E500MC_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc=y
+        LINGMO_powerpc_e500mc=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E500MC_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc-linux"
 
@@ -2022,12 +2022,12 @@ class TestExternalToolchainBootlinPowerpce500mcUclibcBleedingEdge(TestExternalTo
 
 class TestExternalToolchainBootlinPowerpce500mcUclibcStable(TestExternalToolchain):
     config = """
-        BR2_powerpc=y
-        BR2_powerpc_e500mc=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E500MC_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc=y
+        LINGMO_powerpc_e500mc=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC_E500MC_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc-linux"
 
@@ -2037,12 +2037,12 @@ class TestExternalToolchainBootlinPowerpce500mcUclibcStable(TestExternalToolchai
 
 class TestExternalToolchainBootlinPowerpc64e5500GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_powerpc64=y
-        BR2_powerpc_e5500=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64_E5500_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc64=y
+        LINGMO_powerpc_e5500=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64_E5500_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc64-linux"
 
@@ -2052,12 +2052,12 @@ class TestExternalToolchainBootlinPowerpc64e5500GlibcBleedingEdge(TestExternalTo
 
 class TestExternalToolchainBootlinPowerpc64e5500GlibcStable(TestExternalToolchain):
     config = """
-        BR2_powerpc64=y
-        BR2_powerpc_e5500=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64_E5500_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc64=y
+        LINGMO_powerpc_e5500=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64_E5500_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc64-linux"
 
@@ -2067,12 +2067,12 @@ class TestExternalToolchainBootlinPowerpc64e5500GlibcStable(TestExternalToolchai
 
 class TestExternalToolchainBootlinPowerpc64e6500GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_powerpc64=y
-        BR2_powerpc_e6500=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64_E6500_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc64=y
+        LINGMO_powerpc_e6500=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64_E6500_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc64-linux"
 
@@ -2082,12 +2082,12 @@ class TestExternalToolchainBootlinPowerpc64e6500GlibcBleedingEdge(TestExternalTo
 
 class TestExternalToolchainBootlinPowerpc64e6500GlibcStable(TestExternalToolchain):
     config = """
-        BR2_powerpc64=y
-        BR2_powerpc_e6500=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64_E6500_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc64=y
+        LINGMO_powerpc_e6500=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64_E6500_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc64-linux"
 
@@ -2097,12 +2097,12 @@ class TestExternalToolchainBootlinPowerpc64e6500GlibcStable(TestExternalToolchai
 
 class TestExternalToolchainBootlinPowerpc64e6500MuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_powerpc64=y
-        BR2_powerpc_e6500=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64_E6500_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc64=y
+        LINGMO_powerpc_e6500=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64_E6500_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc64-linux"
 
@@ -2112,12 +2112,12 @@ class TestExternalToolchainBootlinPowerpc64e6500MuslBleedingEdge(TestExternalToo
 
 class TestExternalToolchainBootlinPowerpc64e6500MuslStable(TestExternalToolchain):
     config = """
-        BR2_powerpc64=y
-        BR2_powerpc_e6500=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64_E6500_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc64=y
+        LINGMO_powerpc_e6500=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64_E6500_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc64-linux"
 
@@ -2127,12 +2127,12 @@ class TestExternalToolchainBootlinPowerpc64e6500MuslStable(TestExternalToolchain
 
 class TestExternalToolchainBootlinPowerpc64power8GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_powerpc64=y
-        BR2_powerpc_power8=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64_POWER8_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc64=y
+        LINGMO_powerpc_power8=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64_POWER8_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc64-linux"
 
@@ -2142,12 +2142,12 @@ class TestExternalToolchainBootlinPowerpc64power8GlibcBleedingEdge(TestExternalT
 
 class TestExternalToolchainBootlinPowerpc64power8GlibcStable(TestExternalToolchain):
     config = """
-        BR2_powerpc64=y
-        BR2_powerpc_power8=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64_POWER8_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc64=y
+        LINGMO_powerpc_power8=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64_POWER8_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc64-linux"
 
@@ -2157,12 +2157,12 @@ class TestExternalToolchainBootlinPowerpc64power8GlibcStable(TestExternalToolcha
 
 class TestExternalToolchainBootlinPowerpc64power8MuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_powerpc64=y
-        BR2_powerpc_power8=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64_POWER8_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc64=y
+        LINGMO_powerpc_power8=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64_POWER8_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc64-linux"
 
@@ -2172,12 +2172,12 @@ class TestExternalToolchainBootlinPowerpc64power8MuslBleedingEdge(TestExternalTo
 
 class TestExternalToolchainBootlinPowerpc64power8MuslStable(TestExternalToolchain):
     config = """
-        BR2_powerpc64=y
-        BR2_powerpc_power8=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64_POWER8_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc64=y
+        LINGMO_powerpc_power8=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64_POWER8_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc64-linux"
 
@@ -2187,12 +2187,12 @@ class TestExternalToolchainBootlinPowerpc64power8MuslStable(TestExternalToolchai
 
 class TestExternalToolchainBootlinPowerpc64lepower8GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_powerpc64le=y
-        BR2_powerpc_power8=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64LE_POWER8_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc64le=y
+        LINGMO_powerpc_power8=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64LE_POWER8_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc64le-linux"
 
@@ -2202,12 +2202,12 @@ class TestExternalToolchainBootlinPowerpc64lepower8GlibcBleedingEdge(TestExterna
 
 class TestExternalToolchainBootlinPowerpc64lepower8GlibcStable(TestExternalToolchain):
     config = """
-        BR2_powerpc64le=y
-        BR2_powerpc_power8=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64LE_POWER8_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc64le=y
+        LINGMO_powerpc_power8=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64LE_POWER8_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc64le-linux"
 
@@ -2217,12 +2217,12 @@ class TestExternalToolchainBootlinPowerpc64lepower8GlibcStable(TestExternalToolc
 
 class TestExternalToolchainBootlinPowerpc64lepower8MuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_powerpc64le=y
-        BR2_powerpc_power8=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64LE_POWER8_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc64le=y
+        LINGMO_powerpc_power8=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64LE_POWER8_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc64le-linux"
 
@@ -2232,12 +2232,12 @@ class TestExternalToolchainBootlinPowerpc64lepower8MuslBleedingEdge(TestExternal
 
 class TestExternalToolchainBootlinPowerpc64lepower8MuslStable(TestExternalToolchain):
     config = """
-        BR2_powerpc64le=y
-        BR2_powerpc_power8=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64LE_POWER8_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_powerpc64le=y
+        LINGMO_powerpc_power8=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_POWERPC64LE_POWER8_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "powerpc64le-linux"
 
@@ -2247,14 +2247,14 @@ class TestExternalToolchainBootlinPowerpc64lepower8MuslStable(TestExternalToolch
 
 class TestExternalToolchainBootlinRiscv32ilp32dGlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_riscv=y
-        BR2_riscv_g=y
-        BR2_RISCV_32=y
-        BR2_RISCV_ABI_ILP32D=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_RISCV32_ILP32D_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_riscv=y
+        LINGMO_riscv_g=y
+        LINGMO_RISCV_32=y
+        LINGMO_RISCV_ABI_ILP32D=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_RISCV32_ILP32D_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "riscv32-linux"
 
@@ -2264,15 +2264,15 @@ class TestExternalToolchainBootlinRiscv32ilp32dGlibcBleedingEdge(TestExternalToo
 
 class TestExternalToolchainBootlinRiscv64lp64dGlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_riscv=y
-        BR2_riscv_g=y
-        BR2_RISCV_64=y
-        BR2_RISCV_ABI_LP64D=y
-        BR2_USE_MMU=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_RISCV64_LP64D_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_riscv=y
+        LINGMO_riscv_g=y
+        LINGMO_RISCV_64=y
+        LINGMO_RISCV_ABI_LP64D=y
+        LINGMO_USE_MMU=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_RISCV64_LP64D_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "riscv64-linux"
 
@@ -2282,15 +2282,15 @@ class TestExternalToolchainBootlinRiscv64lp64dGlibcBleedingEdge(TestExternalTool
 
 class TestExternalToolchainBootlinRiscv64lp64dGlibcStable(TestExternalToolchain):
     config = """
-        BR2_riscv=y
-        BR2_riscv_g=y
-        BR2_RISCV_64=y
-        BR2_RISCV_ABI_LP64D=y
-        BR2_USE_MMU=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_RISCV64_LP64D_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_riscv=y
+        LINGMO_riscv_g=y
+        LINGMO_RISCV_64=y
+        LINGMO_RISCV_ABI_LP64D=y
+        LINGMO_USE_MMU=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_RISCV64_LP64D_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "riscv64-linux"
 
@@ -2300,15 +2300,15 @@ class TestExternalToolchainBootlinRiscv64lp64dGlibcStable(TestExternalToolchain)
 
 class TestExternalToolchainBootlinRiscv64lp64dMuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_riscv=y
-        BR2_riscv_g=y
-        BR2_RISCV_64=y
-        BR2_RISCV_ABI_LP64D=y
-        BR2_USE_MMU=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_RISCV64_LP64D_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_riscv=y
+        LINGMO_riscv_g=y
+        LINGMO_RISCV_64=y
+        LINGMO_RISCV_ABI_LP64D=y
+        LINGMO_USE_MMU=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_RISCV64_LP64D_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "riscv64-linux"
 
@@ -2318,15 +2318,15 @@ class TestExternalToolchainBootlinRiscv64lp64dMuslBleedingEdge(TestExternalToolc
 
 class TestExternalToolchainBootlinRiscv64lp64dMuslStable(TestExternalToolchain):
     config = """
-        BR2_riscv=y
-        BR2_riscv_g=y
-        BR2_RISCV_64=y
-        BR2_RISCV_ABI_LP64D=y
-        BR2_USE_MMU=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_RISCV64_LP64D_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_riscv=y
+        LINGMO_riscv_g=y
+        LINGMO_RISCV_64=y
+        LINGMO_RISCV_ABI_LP64D=y
+        LINGMO_USE_MMU=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_RISCV64_LP64D_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "riscv64-linux"
 
@@ -2336,15 +2336,15 @@ class TestExternalToolchainBootlinRiscv64lp64dMuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinRiscv64lp64dUclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_riscv=y
-        BR2_riscv_g=y
-        BR2_RISCV_64=y
-        BR2_RISCV_ABI_LP64D=y
-        BR2_USE_MMU=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_RISCV64_LP64D_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_riscv=y
+        LINGMO_riscv_g=y
+        LINGMO_RISCV_64=y
+        LINGMO_RISCV_ABI_LP64D=y
+        LINGMO_USE_MMU=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_RISCV64_LP64D_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "riscv64-linux"
 
@@ -2354,15 +2354,15 @@ class TestExternalToolchainBootlinRiscv64lp64dUclibcBleedingEdge(TestExternalToo
 
 class TestExternalToolchainBootlinRiscv64lp64dUclibcStable(TestExternalToolchain):
     config = """
-        BR2_riscv=y
-        BR2_riscv_g=y
-        BR2_RISCV_64=y
-        BR2_RISCV_ABI_LP64D=y
-        BR2_USE_MMU=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_RISCV64_LP64D_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_riscv=y
+        LINGMO_riscv_g=y
+        LINGMO_RISCV_64=y
+        LINGMO_RISCV_ABI_LP64D=y
+        LINGMO_USE_MMU=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_RISCV64_LP64D_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "riscv64-linux"
 
@@ -2372,12 +2372,12 @@ class TestExternalToolchainBootlinRiscv64lp64dUclibcStable(TestExternalToolchain
 
 class TestExternalToolchainBootlinS390xz13GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_s390x=y
-        BR2_s390x_z13=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_S390X_Z13_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_s390x=y
+        LINGMO_s390x_z13=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_S390X_Z13_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "s390x-linux"
 
@@ -2387,12 +2387,12 @@ class TestExternalToolchainBootlinS390xz13GlibcBleedingEdge(TestExternalToolchai
 
 class TestExternalToolchainBootlinS390xz13GlibcStable(TestExternalToolchain):
     config = """
-        BR2_s390x=y
-        BR2_s390x_z13=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_S390X_Z13_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_s390x=y
+        LINGMO_s390x_z13=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_S390X_Z13_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "s390x-linux"
 
@@ -2402,12 +2402,12 @@ class TestExternalToolchainBootlinS390xz13GlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinShsh4GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_sh=y
-        BR2_sh4=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_SH_SH4_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_sh=y
+        LINGMO_sh4=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_SH_SH4_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "sh4-linux"
 
@@ -2417,12 +2417,12 @@ class TestExternalToolchainBootlinShsh4GlibcBleedingEdge(TestExternalToolchain):
 
 class TestExternalToolchainBootlinShsh4GlibcStable(TestExternalToolchain):
     config = """
-        BR2_sh=y
-        BR2_sh4=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_SH_SH4_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_sh=y
+        LINGMO_sh4=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_SH_SH4_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "sh4-linux"
 
@@ -2432,12 +2432,12 @@ class TestExternalToolchainBootlinShsh4GlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinShsh4MuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_sh=y
-        BR2_sh4=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_SH_SH4_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_sh=y
+        LINGMO_sh4=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_SH_SH4_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "sh4-linux"
 
@@ -2447,12 +2447,12 @@ class TestExternalToolchainBootlinShsh4MuslBleedingEdge(TestExternalToolchain):
 
 class TestExternalToolchainBootlinShsh4MuslStable(TestExternalToolchain):
     config = """
-        BR2_sh=y
-        BR2_sh4=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_SH_SH4_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_sh=y
+        LINGMO_sh4=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_SH_SH4_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "sh4-linux"
 
@@ -2462,12 +2462,12 @@ class TestExternalToolchainBootlinShsh4MuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinShsh4UclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_sh=y
-        BR2_sh4=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_SH_SH4_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_sh=y
+        LINGMO_sh4=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_SH_SH4_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "sh4-linux"
 
@@ -2477,12 +2477,12 @@ class TestExternalToolchainBootlinShsh4UclibcBleedingEdge(TestExternalToolchain)
 
 class TestExternalToolchainBootlinShsh4UclibcStable(TestExternalToolchain):
     config = """
-        BR2_sh=y
-        BR2_sh4=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_SH_SH4_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_sh=y
+        LINGMO_sh4=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_SH_SH4_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "sh4-linux"
 
@@ -2492,12 +2492,12 @@ class TestExternalToolchainBootlinShsh4UclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinShsh4aebGlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_sh=y
-        BR2_sh4aeb=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_SH_SH4AEB_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_sh=y
+        LINGMO_sh4aeb=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_SH_SH4AEB_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "sh4aeb-linux"
 
@@ -2507,12 +2507,12 @@ class TestExternalToolchainBootlinShsh4aebGlibcBleedingEdge(TestExternalToolchai
 
 class TestExternalToolchainBootlinShsh4aebGlibcStable(TestExternalToolchain):
     config = """
-        BR2_sh=y
-        BR2_sh4aeb=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_SH_SH4AEB_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_sh=y
+        LINGMO_sh4aeb=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_SH_SH4AEB_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "sh4aeb-linux"
 
@@ -2522,12 +2522,12 @@ class TestExternalToolchainBootlinShsh4aebGlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinShsh4aebMuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_sh=y
-        BR2_sh4aeb=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_SH_SH4AEB_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_sh=y
+        LINGMO_sh4aeb=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_SH_SH4AEB_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "sh4aeb-linux"
 
@@ -2537,12 +2537,12 @@ class TestExternalToolchainBootlinShsh4aebMuslBleedingEdge(TestExternalToolchain
 
 class TestExternalToolchainBootlinShsh4aebMuslStable(TestExternalToolchain):
     config = """
-        BR2_sh=y
-        BR2_sh4aeb=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_SH_SH4AEB_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_sh=y
+        LINGMO_sh4aeb=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_SH_SH4AEB_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "sh4aeb-linux"
 
@@ -2552,12 +2552,12 @@ class TestExternalToolchainBootlinShsh4aebMuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinSparc64GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_sparc64=y
-        BR2_sparc_v9=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_SPARC64_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_sparc64=y
+        LINGMO_sparc_v9=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_SPARC64_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "sparc64-linux"
 
@@ -2567,12 +2567,12 @@ class TestExternalToolchainBootlinSparc64GlibcBleedingEdge(TestExternalToolchain
 
 class TestExternalToolchainBootlinSparc64GlibcStable(TestExternalToolchain):
     config = """
-        BR2_sparc64=y
-        BR2_sparc_v9=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_SPARC64_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_sparc64=y
+        LINGMO_sparc_v9=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_SPARC64_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "sparc64-linux"
 
@@ -2582,12 +2582,12 @@ class TestExternalToolchainBootlinSparc64GlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinSparcv8UclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_sparc=y
-        BR2_sparc_v8=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_SPARCV8_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_sparc=y
+        LINGMO_sparc_v8=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_SPARCV8_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "sparc-linux"
 
@@ -2597,12 +2597,12 @@ class TestExternalToolchainBootlinSparcv8UclibcBleedingEdge(TestExternalToolchai
 
 class TestExternalToolchainBootlinSparcv8UclibcStable(TestExternalToolchain):
     config = """
-        BR2_sparc=y
-        BR2_sparc_v8=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_SPARCV8_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_sparc=y
+        LINGMO_sparc_v8=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_SPARCV8_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "sparc-linux"
 
@@ -2612,12 +2612,12 @@ class TestExternalToolchainBootlinSparcv8UclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX8664GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2627,12 +2627,12 @@ class TestExternalToolchainBootlinX8664GlibcBleedingEdge(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX8664GlibcStable(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2642,12 +2642,12 @@ class TestExternalToolchainBootlinX8664GlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX8664MuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2657,12 +2657,12 @@ class TestExternalToolchainBootlinX8664MuslBleedingEdge(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX8664MuslStable(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2672,12 +2672,12 @@ class TestExternalToolchainBootlinX8664MuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX8664UclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2687,12 +2687,12 @@ class TestExternalToolchainBootlinX8664UclibcBleedingEdge(TestExternalToolchain)
 
 class TestExternalToolchainBootlinX8664UclibcStable(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2702,12 +2702,12 @@ class TestExternalToolchainBootlinX8664UclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX8664v2GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64_v2=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V2_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64_v2=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V2_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2717,12 +2717,12 @@ class TestExternalToolchainBootlinX8664v2GlibcBleedingEdge(TestExternalToolchain
 
 class TestExternalToolchainBootlinX8664v2GlibcStable(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64_v2=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V2_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64_v2=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V2_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2732,12 +2732,12 @@ class TestExternalToolchainBootlinX8664v2GlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX8664v2MuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64_v2=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V2_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64_v2=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V2_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2747,12 +2747,12 @@ class TestExternalToolchainBootlinX8664v2MuslBleedingEdge(TestExternalToolchain)
 
 class TestExternalToolchainBootlinX8664v2MuslStable(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64_v2=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V2_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64_v2=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V2_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2762,12 +2762,12 @@ class TestExternalToolchainBootlinX8664v2MuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX8664v2UclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64_v2=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V2_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64_v2=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V2_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2777,12 +2777,12 @@ class TestExternalToolchainBootlinX8664v2UclibcBleedingEdge(TestExternalToolchai
 
 class TestExternalToolchainBootlinX8664v2UclibcStable(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64_v2=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V2_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64_v2=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V2_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2792,12 +2792,12 @@ class TestExternalToolchainBootlinX8664v2UclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX8664v3GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64_v3=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V3_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64_v3=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V3_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2807,12 +2807,12 @@ class TestExternalToolchainBootlinX8664v3GlibcBleedingEdge(TestExternalToolchain
 
 class TestExternalToolchainBootlinX8664v3GlibcStable(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64_v3=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V3_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64_v3=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V3_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2822,12 +2822,12 @@ class TestExternalToolchainBootlinX8664v3GlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX8664v3MuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64_v3=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V3_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64_v3=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V3_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2837,12 +2837,12 @@ class TestExternalToolchainBootlinX8664v3MuslBleedingEdge(TestExternalToolchain)
 
 class TestExternalToolchainBootlinX8664v3MuslStable(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64_v3=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V3_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64_v3=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V3_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2852,12 +2852,12 @@ class TestExternalToolchainBootlinX8664v3MuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX8664v3UclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64_v3=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V3_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64_v3=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V3_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2867,12 +2867,12 @@ class TestExternalToolchainBootlinX8664v3UclibcBleedingEdge(TestExternalToolchai
 
 class TestExternalToolchainBootlinX8664v3UclibcStable(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64_v3=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V3_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64_v3=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V3_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2882,12 +2882,12 @@ class TestExternalToolchainBootlinX8664v3UclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX8664v4GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64_v4=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V4_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64_v4=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V4_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2897,12 +2897,12 @@ class TestExternalToolchainBootlinX8664v4GlibcBleedingEdge(TestExternalToolchain
 
 class TestExternalToolchainBootlinX8664v4GlibcStable(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64_v4=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V4_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64_v4=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V4_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2912,12 +2912,12 @@ class TestExternalToolchainBootlinX8664v4GlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX8664v4MuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64_v4=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V4_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64_v4=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V4_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2927,12 +2927,12 @@ class TestExternalToolchainBootlinX8664v4MuslBleedingEdge(TestExternalToolchain)
 
 class TestExternalToolchainBootlinX8664v4MuslStable(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64_v4=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V4_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64_v4=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V4_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2942,12 +2942,12 @@ class TestExternalToolchainBootlinX8664v4MuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX8664v4UclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64_v4=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V4_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64_v4=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V4_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2957,12 +2957,12 @@ class TestExternalToolchainBootlinX8664v4UclibcBleedingEdge(TestExternalToolchai
 
 class TestExternalToolchainBootlinX8664v4UclibcStable(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_x86_64_v4=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V4_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_x86_64_v4=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_V4_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2972,12 +2972,12 @@ class TestExternalToolchainBootlinX8664v4UclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX8664corei7GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_corei7=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_CORE_I7_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_corei7=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_CORE_I7_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -2987,12 +2987,12 @@ class TestExternalToolchainBootlinX8664corei7GlibcBleedingEdge(TestExternalToolc
 
 class TestExternalToolchainBootlinX8664corei7GlibcStable(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_corei7=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_CORE_I7_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_corei7=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_CORE_I7_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -3002,12 +3002,12 @@ class TestExternalToolchainBootlinX8664corei7GlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX8664corei7MuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_corei7=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_CORE_I7_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_corei7=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_CORE_I7_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -3017,12 +3017,12 @@ class TestExternalToolchainBootlinX8664corei7MuslBleedingEdge(TestExternalToolch
 
 class TestExternalToolchainBootlinX8664corei7MuslStable(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_corei7=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_CORE_I7_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_corei7=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_CORE_I7_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -3032,12 +3032,12 @@ class TestExternalToolchainBootlinX8664corei7MuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX8664corei7UclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_corei7=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_CORE_I7_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_corei7=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_CORE_I7_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -3047,12 +3047,12 @@ class TestExternalToolchainBootlinX8664corei7UclibcBleedingEdge(TestExternalTool
 
 class TestExternalToolchainBootlinX8664corei7UclibcStable(TestExternalToolchain):
     config = """
-        BR2_x86_64=y
-        BR2_x86_corei7=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_CORE_I7_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_x86_64=y
+        LINGMO_x86_corei7=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_64_CORE_I7_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "x86_64-linux"
 
@@ -3062,12 +3062,12 @@ class TestExternalToolchainBootlinX8664corei7UclibcStable(TestExternalToolchain)
 
 class TestExternalToolchainBootlinX86core2GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_i386=y
-        BR2_x86_core2=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_CORE2_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_i386=y
+        LINGMO_x86_core2=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_CORE2_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "i686-linux"
 
@@ -3077,12 +3077,12 @@ class TestExternalToolchainBootlinX86core2GlibcBleedingEdge(TestExternalToolchai
 
 class TestExternalToolchainBootlinX86core2GlibcStable(TestExternalToolchain):
     config = """
-        BR2_i386=y
-        BR2_x86_core2=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_CORE2_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_i386=y
+        LINGMO_x86_core2=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_CORE2_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "i686-linux"
 
@@ -3092,12 +3092,12 @@ class TestExternalToolchainBootlinX86core2GlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX86core2MuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_i386=y
-        BR2_x86_core2=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_CORE2_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_i386=y
+        LINGMO_x86_core2=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_CORE2_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "i686-linux"
 
@@ -3107,12 +3107,12 @@ class TestExternalToolchainBootlinX86core2MuslBleedingEdge(TestExternalToolchain
 
 class TestExternalToolchainBootlinX86core2MuslStable(TestExternalToolchain):
     config = """
-        BR2_i386=y
-        BR2_x86_core2=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_CORE2_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_i386=y
+        LINGMO_x86_core2=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_CORE2_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "i686-linux"
 
@@ -3122,12 +3122,12 @@ class TestExternalToolchainBootlinX86core2MuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX86core2UclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_i386=y
-        BR2_x86_core2=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_CORE2_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_i386=y
+        LINGMO_x86_core2=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_CORE2_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "i686-linux"
 
@@ -3137,12 +3137,12 @@ class TestExternalToolchainBootlinX86core2UclibcBleedingEdge(TestExternalToolcha
 
 class TestExternalToolchainBootlinX86core2UclibcStable(TestExternalToolchain):
     config = """
-        BR2_i386=y
-        BR2_x86_core2=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_CORE2_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_i386=y
+        LINGMO_x86_core2=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_CORE2_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "i686-linux"
 
@@ -3152,12 +3152,12 @@ class TestExternalToolchainBootlinX86core2UclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX86i686GlibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_i386=y
-        BR2_x86_i686=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_I686_GLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_i386=y
+        LINGMO_x86_i686=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_I686_GLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "i686-linux"
 
@@ -3167,12 +3167,12 @@ class TestExternalToolchainBootlinX86i686GlibcBleedingEdge(TestExternalToolchain
 
 class TestExternalToolchainBootlinX86i686GlibcStable(TestExternalToolchain):
     config = """
-        BR2_i386=y
-        BR2_x86_i686=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_I686_GLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_i386=y
+        LINGMO_x86_i686=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_I686_GLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "i686-linux"
 
@@ -3182,12 +3182,12 @@ class TestExternalToolchainBootlinX86i686GlibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX86i686MuslBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_i386=y
-        BR2_x86_i686=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_I686_MUSL_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_i386=y
+        LINGMO_x86_i686=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_I686_MUSL_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "i686-linux"
 
@@ -3197,12 +3197,12 @@ class TestExternalToolchainBootlinX86i686MuslBleedingEdge(TestExternalToolchain)
 
 class TestExternalToolchainBootlinX86i686MuslStable(TestExternalToolchain):
     config = """
-        BR2_i386=y
-        BR2_x86_i686=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_I686_MUSL_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_i386=y
+        LINGMO_x86_i686=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_I686_MUSL_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "i686-linux"
 
@@ -3212,12 +3212,12 @@ class TestExternalToolchainBootlinX86i686MuslStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinX86i686UclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_i386=y
-        BR2_x86_i686=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_I686_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_i386=y
+        LINGMO_x86_i686=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_I686_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "i686-linux"
 
@@ -3227,12 +3227,12 @@ class TestExternalToolchainBootlinX86i686UclibcBleedingEdge(TestExternalToolchai
 
 class TestExternalToolchainBootlinX86i686UclibcStable(TestExternalToolchain):
     config = """
-        BR2_i386=y
-        BR2_x86_i686=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_I686_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_i386=y
+        LINGMO_x86_i686=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_X86_I686_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "i686-linux"
 
@@ -3242,13 +3242,13 @@ class TestExternalToolchainBootlinX86i686UclibcStable(TestExternalToolchain):
 
 class TestExternalToolchainBootlinXtensalx60UclibcBleedingEdge(TestExternalToolchain):
     config = """
-        BR2_xtensa=y
-        BR2_XTENSA_CUSTOM=y
-        BR2_XTENSA_LITTLE_ENDIAN=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_XTENSA_LX60_UCLIBC_BLEEDING_EDGE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_xtensa=y
+        LINGMO_XTENSA_CUSTOM=y
+        LINGMO_XTENSA_LITTLE_ENDIAN=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_XTENSA_LX60_UCLIBC_BLEEDING_EDGE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "xtensa-linux"
 
@@ -3258,13 +3258,13 @@ class TestExternalToolchainBootlinXtensalx60UclibcBleedingEdge(TestExternalToolc
 
 class TestExternalToolchainBootlinXtensalx60UclibcStable(TestExternalToolchain):
     config = """
-        BR2_xtensa=y
-        BR2_XTENSA_CUSTOM=y
-        BR2_XTENSA_LITTLE_ENDIAN=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
-        BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_XTENSA_LX60_UCLIBC_STABLE=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_xtensa=y
+        LINGMO_XTENSA_CUSTOM=y
+        LINGMO_XTENSA_LITTLE_ENDIAN=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+        LINGMO_TOOLCHAIN_EXTERNAL_BOOTLIN_XTENSA_LX60_UCLIBC_STABLE=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     toolchain_prefix = "xtensa-linux"
 

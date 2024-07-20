@@ -2,11 +2,11 @@
 
 linux_image()
 {
-	if grep -Eq "^BR2_LINUX_KERNEL_UIMAGE=y$" ${BR2_CONFIG}; then
+	if grep -Eq "^LINGMO_LINUX_KERNEL_UIMAGE=y$" ${LINGMO_CONFIG}; then
 		echo "uImage"
-	elif grep -Eq "^BR2_LINUX_KERNEL_IMAGE=y$" ${BR2_CONFIG}; then
+	elif grep -Eq "^LINGMO_LINUX_KERNEL_IMAGE=y$" ${LINGMO_CONFIG}; then
 		echo "Image"
-	elif grep -Eq "^BR2_LINUX_KERNEL_IMAGEGZ=y$" ${BR2_CONFIG}; then
+	elif grep -Eq "^LINGMO_LINUX_KERNEL_IMAGEGZ=y$" ${LINGMO_CONFIG}; then
 		echo "Image.gz"
 	else
 		echo "zImage"
@@ -15,7 +15,7 @@ linux_image()
 
 generic_getty()
 {
-	if grep -Eq "^BR2_TARGET_GENERIC_GETTY=y$" ${BR2_CONFIG}; then
+	if grep -Eq "^LINGMO_TARGET_GENERIC_GETTY=y$" ${LINGMO_CONFIG}; then
 		echo ""
 	else
 		echo "s/\s*console=\S*//"

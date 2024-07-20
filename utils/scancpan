@@ -736,19 +736,19 @@ while (my ($distname, $dist) = each %dist) {
         my $homepage = $dist->{resources}->{homepage} || qq{https://metacpan.org/release/${distname}};
         say qq{write ${cfgname}} unless $quiet;
         open my $fh, q{>}, $cfgname;
-        say {$fh} qq{config BR2_PACKAGE_${brname}};
+        say {$fh} qq{config LINGMO_PACKAGE_${brname}};
         say {$fh} qq{\tbool "${fsname}"};
-        say {$fh} qq{\tdepends on !BR2_STATIC_LIBS} if $need_dlopen{$distname};
+        say {$fh} qq{\tdepends on !LINGMO_STATIC_LIBS} if $need_dlopen{$distname};
         foreach my $dep (sort @{$deps_runtime{$distname}}) {
             my $brdep = brname( fsname( $dep ) );
-            say {$fh} qq{\tselect BR2_PACKAGE_${brdep} # runtime};
+            say {$fh} qq{\tselect LINGMO_PACKAGE_${brdep} # runtime};
         }
         say {$fh} qq{\thelp};
         say {$fh} qq{\t  ${abstract}\n} if $abstract;
         say {$fh} qq{\t  ${homepage}};
         if ($need_dlopen{$distname}) {
             say {$fh} qq{\ncomment "${fsname} needs a toolchain w/ dynamic library"};
-            say {$fh} qq{\tdepends on BR2_STATIC_LIBS};
+            say {$fh} qq{\tdepends on LINGMO_STATIC_LIBS};
         }
         close $fh;
     }
@@ -757,7 +757,7 @@ while (my ($distname, $dist) = each %dist) {
         my ($path) = $dist->{download_url} =~ m|^[^:/?#]+://[^/?#]*([^?#]*)|;
         # this URL contains only the scheme, auth and path parts (but no query and fragment parts)
         # the scheme is not used, because the job is done by the BR download infrastructure
-        # the auth part is not used, because we use $(BR2_CPAN_MIRROR)
+        # the auth part is not used, because we use $(LINGMO_CPAN_MIRROR)
         my ($filename, $directories, $suffix) = fileparse( $path, q{tar.gz}, q{tgz} );
         $directories =~ s|/$||;
         my @dependencies = map( { q{host-} . fsname( $_ ); } sort @{$deps_build{$distname}} );
@@ -785,7 +785,7 @@ while (my ($distname, $dist) = each %dist) {
         say {$fh} qq{};
         say {$fh} qq{${brname}_VERSION = ${version}};
         say {$fh} qq{${brname}_SOURCE = ${distname}-\$(${brname}_VERSION).${suffix}};
-        say {$fh} qq{${brname}_SITE = \$(BR2_CPAN_MIRROR)${directories}};
+        say {$fh} qq{${brname}_SITE = \$(LINGMO_CPAN_MIRROR)${directories}};
         say {$fh} qq{${brname}_DEPENDENCIES = ${dependencies}} if $need_target{$distname} && $dependencies;
         say {$fh} qq{HOST_${brname}_DEPENDENCIES = ${host_dependencies}} if $need_host{$distname} && $host_dependencies;
         say {$fh} qq{${brname}_LICENSE = ${license}} if $license;
@@ -849,8 +849,8 @@ while (my ($distname, $dist) = each %dist) {
         say {$fh} qq{};
         say {$fh} qq{    config = TestPerlBase.config + \\};
         say {$fh} qq{        """};
-        say {$fh} qq{        BR2_PACKAGE_PERL=y};
-        say {$fh} qq{        BR2_PACKAGE_${brname}=y};
+        say {$fh} qq{        LINGMO_PACKAGE_PERL=y};
+        say {$fh} qq{        LINGMO_PACKAGE_${brname}=y};
         say {$fh} qq{        """};
         say {$fh} qq{};
         say {$fh} qq{    def test_run(self):};

@@ -11,15 +11,15 @@ RPI_FIRMWARE_LICENSE_FILES = boot/LICENCE.broadcom
 RPI_FIRMWARE_INSTALL_IMAGES = YES
 
 RPI_FIRMWARE_FILES = \
-	$(if $(BR2_PACKAGE_RPI_FIRMWARE_BOOTCODE_BIN), bootcode.bin) \
-	$(if $(BR2_PACKAGE_RPI_FIRMWARE_VARIANT_PI), start.elf fixup.dat) \
-	$(if $(BR2_PACKAGE_RPI_FIRMWARE_VARIANT_PI_X), start_x.elf fixup_x.dat) \
-	$(if $(BR2_PACKAGE_RPI_FIRMWARE_VARIANT_PI_CD), start_cd.elf fixup_cd.dat) \
-	$(if $(BR2_PACKAGE_RPI_FIRMWARE_VARIANT_PI_DB), start_db.elf fixup_db.dat) \
-	$(if $(BR2_PACKAGE_RPI_FIRMWARE_VARIANT_PI4), start4.elf fixup4.dat) \
-	$(if $(BR2_PACKAGE_RPI_FIRMWARE_VARIANT_PI4_X), start4x.elf fixup4x.dat) \
-	$(if $(BR2_PACKAGE_RPI_FIRMWARE_VARIANT_PI4_CD), start4cd.elf fixup4cd.dat) \
-	$(if $(BR2_PACKAGE_RPI_FIRMWARE_VARIANT_PI4_DB), start4db.elf fixup4db.dat)
+	$(if $(LINGMO_PACKAGE_RPI_FIRMWARE_BOOTCODE_BIN), bootcode.bin) \
+	$(if $(LINGMO_PACKAGE_RPI_FIRMWARE_VARIANT_PI), start.elf fixup.dat) \
+	$(if $(LINGMO_PACKAGE_RPI_FIRMWARE_VARIANT_PI_X), start_x.elf fixup_x.dat) \
+	$(if $(LINGMO_PACKAGE_RPI_FIRMWARE_VARIANT_PI_CD), start_cd.elf fixup_cd.dat) \
+	$(if $(LINGMO_PACKAGE_RPI_FIRMWARE_VARIANT_PI_DB), start_db.elf fixup_db.dat) \
+	$(if $(LINGMO_PACKAGE_RPI_FIRMWARE_VARIANT_PI4), start4.elf fixup4.dat) \
+	$(if $(LINGMO_PACKAGE_RPI_FIRMWARE_VARIANT_PI4_X), start4x.elf fixup4x.dat) \
+	$(if $(LINGMO_PACKAGE_RPI_FIRMWARE_VARIANT_PI4_CD), start4cd.elf fixup4cd.dat) \
+	$(if $(LINGMO_PACKAGE_RPI_FIRMWARE_VARIANT_PI4_DB), start4db.elf fixup4db.dat)
 
 define RPI_FIRMWARE_INSTALL_BIN
 	$(foreach f,$(RPI_FIRMWARE_FILES), \
@@ -27,7 +27,7 @@ define RPI_FIRMWARE_INSTALL_BIN
 	)
 endef
 
-RPI_FIRMWARE_CONFIG_FILE = $(call qstrip,$(BR2_PACKAGE_RPI_FIRMWARE_CONFIG_FILE))
+RPI_FIRMWARE_CONFIG_FILE = $(call qstrip,$(LINGMO_PACKAGE_RPI_FIRMWARE_CONFIG_FILE))
 ifneq ($(RPI_FIRMWARE_CONFIG_FILE),)
 define RPI_FIRMWARE_INSTALL_CONFIG
 	$(INSTALL) -D -m 0644 $(RPI_FIRMWARE_CONFIG_FILE) \
@@ -35,7 +35,7 @@ define RPI_FIRMWARE_INSTALL_CONFIG
 endef
 endif
 
-RPI_FIRMWARE_CMDLINE_FILE = $(call qstrip,$(BR2_PACKAGE_RPI_FIRMWARE_CMDLINE_FILE))
+RPI_FIRMWARE_CMDLINE_FILE = $(call qstrip,$(LINGMO_PACKAGE_RPI_FIRMWARE_CMDLINE_FILE))
 ifneq ($(RPI_FIRMWARE_CMDLINE_FILE),)
 define RPI_FIRMWARE_INSTALL_CMDLINE
 	$(INSTALL) -D -m 0644 $(RPI_FIRMWARE_CMDLINE_FILE) \
@@ -43,7 +43,7 @@ define RPI_FIRMWARE_INSTALL_CMDLINE
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_RPI_FIRMWARE_INSTALL_DTBS),y)
+ifeq ($(LINGMO_PACKAGE_RPI_FIRMWARE_INSTALL_DTBS),y)
 define RPI_FIRMWARE_INSTALL_DTB
 	$(foreach dtb,$(wildcard $(@D)/boot/*.dtb), \
 		$(INSTALL) -D -m 0644 $(dtb) $(BINARIES_DIR)/rpi-firmware/$(notdir $(dtb))
@@ -51,7 +51,7 @@ define RPI_FIRMWARE_INSTALL_DTB
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_RPI_FIRMWARE_INSTALL_DTB_OVERLAYS),y)
+ifeq ($(LINGMO_PACKAGE_RPI_FIRMWARE_INSTALL_DTB_OVERLAYS),y)
 define RPI_FIRMWARE_INSTALL_DTB_OVERLAYS
 	$(foreach ovldtb,$(wildcard $(@D)/boot/overlays/*.dtbo), \
 		$(INSTALL) -D -m 0644 $(ovldtb) $(BINARIES_DIR)/rpi-firmware/overlays/$(notdir $(ovldtb))
@@ -62,20 +62,20 @@ endef
 endif
 
 # Install prebuilt libraries if RPI_USERLAND not enabled
-ifneq ($(BR2_PACKAGE_RPI_USERLAND),y)
+ifneq ($(LINGMO_PACKAGE_RPI_USERLAND),y)
 define RPI_FIRMWARE_INSTALL_TARGET_LIB
-	$(INSTALL) -D -m 0644 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/lib/libvcos.so \
+	$(INSTALL) -D -m 0644 $(@D)/$(if LINGMO_ARM_EABIHF,hardfp/)opt/vc/lib/libvcos.so \
 		$(TARGET_DIR)/usr/lib/libvcos.so
-	$(INSTALL) -D -m 0644 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/lib/libdebug_sym.so \
+	$(INSTALL) -D -m 0644 $(@D)/$(if LINGMO_ARM_EABIHF,hardfp/)opt/vc/lib/libdebug_sym.so \
 		$(TARGET_DIR)/usr/lib/libdebug_sym.so
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_RPI_FIRMWARE_INSTALL_VCDBG),y)
+ifeq ($(LINGMO_PACKAGE_RPI_FIRMWARE_INSTALL_VCDBG),y)
 define RPI_FIRMWARE_INSTALL_TARGET_CMDS
-	$(INSTALL) -D -m 0700 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/bin/vcdbg \
+	$(INSTALL) -D -m 0700 $(@D)/$(if LINGMO_ARM_EABIHF,hardfp/)opt/vc/bin/vcdbg \
 		$(TARGET_DIR)/usr/sbin/vcdbg
-	$(INSTALL) -D -m 0644 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/lib/libelftoolchain.so \
+	$(INSTALL) -D -m 0644 $(@D)/$(if LINGMO_ARM_EABIHF,hardfp/)opt/vc/lib/libelftoolchain.so \
 		$(TARGET_DIR)/usr/lib/libelftoolchain.so
 	$(RPI_FIRMWARE_INSTALL_TARGET_LIB)
 endef

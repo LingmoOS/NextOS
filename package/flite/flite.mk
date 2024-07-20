@@ -19,7 +19,7 @@ FLITE_DEPENDENCIES = host-pkgconf
 # shared libraries.
 FLITE_MAKE = $(MAKE1)
 
-ifeq ($(BR2_PACKAGE_ALSA_LIB),y)
+ifeq ($(LINGMO_PACKAGE_ALSA_LIB),y)
 FLITE_DEPENDENCIES += alsa-lib
 FLITE_CONF_OPTS += --with-audio=alsa
 else

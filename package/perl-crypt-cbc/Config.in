@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PERL_CRYPT_CBC
+config LINGMO_PACKAGE_PERL_CRYPT_CBC
 	bool "perl-crypt-cbc"
 	help
 	  Encrypt Data with Cipher Block Chaining Mode.

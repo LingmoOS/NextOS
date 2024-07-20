@@ -13,14 +13,14 @@ LIBSTROPHE_LICENSE_FILES = MIT-LICENSE.txt GPL-LICENSE.txt
 LIBSTROPHE_INSTALL_STAGING = YES
 LIBSTROPHE_CONF_OPTS = --disable-examples
 
-ifeq ($(BR2_PACKAGE_C_ARES),y)
+ifeq ($(LINGMO_PACKAGE_C_ARES),y)
 LIBSTROPHE_CONF_OPTS += --enable-cares
 LIBSTROPHE_DEPENDENCIES += c-ares
 else
 LIBSTROPHE_CONF_OPTS += --disable-cares
 endif
 
-ifeq ($(BR2_PACKAGE_EXPAT),y)
+ifeq ($(LINGMO_PACKAGE_EXPAT),y)
 LIBSTROPHE_CONF_OPTS += --without-libxml2
 LIBSTROPHE_DEPENDENCIES += expat
 else
@@ -28,7 +28,7 @@ LIBSTROPHE_CONF_OPTS += --with-libxml2
 LIBSTROPHE_DEPENDENCIES += libxml2
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 LIBSTROPHE_CONF_OPTS += --with-tls --without-gnutls
 LIBSTROPHE_DEPENDENCIES += openssl
 else

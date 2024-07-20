@@ -20,7 +20,7 @@ LTTNG_LIBUST_AUTORECONF = YES
 # https://www.mail-archive.com/lttng-dev@lists.lttng.org/msg12950.html
 LTTNG_LIBUST_CONF_ENV = CFLAGS="$(TARGET_CFLAGS) -DUATOMIC_NO_LINK_ERROR"
 
-ifeq ($(BR2_PACKAGE_PYTHON3),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON3),y)
 LTTNG_LIBUST_DEPENDENCIES += python3
 LTTNG_LIBUST_CONF_OPTS += --enable-python-agent
 else
@@ -28,7 +28,7 @@ LTTNG_LIBUST_CONF_ENV += am_cv_pathless_PYTHON="none"
 LTTNG_LIBUST_CONF_OPTS += --disable-python-agent
 endif
 
-ifeq ($(BR2_PACKAGE_NUMACTL),y)
+ifeq ($(LINGMO_PACKAGE_NUMACTL),y)
 LTTNG_LIBUST_DEPENDENCIES += numactl
 LTTNG_LIBUST_CONF_OPTS += --enable-numa
 else

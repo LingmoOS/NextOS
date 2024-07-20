@@ -52,10 +52,10 @@ XSERVER_XORG_SERVER_CONF_OPTS = \
 	--with-builder-addr=buildroot@buildroot.org \
 	CFLAGS="$(TARGET_CFLAGS) -I$(STAGING_DIR)/usr/include/pixman-1 -O2" \
 	--with-fontrootdir=/usr/share/fonts/X11/ \
-	--$(if $(BR2_PACKAGE_XSERVER_XORG_SERVER_XEPHYR),en,dis)able-xephyr \
-	--$(if $(BR2_PACKAGE_XSERVER_XORG_SERVER_XVFB),en,dis)able-xvfb
+	--$(if $(LINGMO_PACKAGE_XSERVER_XORG_SERVER_XEPHYR),en,dis)able-xephyr \
+	--$(if $(LINGMO_PACKAGE_XSERVER_XORG_SERVER_XVFB),en,dis)able-xvfb
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 XSERVER_XORG_SERVER_CONF_OPTS += \
 	--with-systemd-daemon \
 	--enable-systemd-logind
@@ -67,10 +67,10 @@ XSERVER_XORG_SERVER_CONF_OPTS += \
 	--disable-systemd-logind
 endif
 
-ifeq ($(BR2_PACKAGE_XSERVER_XORG_SERVER_MODULAR),y)
+ifeq ($(LINGMO_PACKAGE_XSERVER_XORG_SERVER_MODULAR),y)
 XSERVER_XORG_SERVER_CONF_OPTS += --enable-xorg
 XSERVER_XORG_SERVER_DEPENDENCIES += libpciaccess
-ifeq ($(BR2_PACKAGE_LIBDRM),y)
+ifeq ($(LINGMO_PACKAGE_LIBDRM),y)
 XSERVER_XORG_SERVER_DEPENDENCIES += libdrm
 XSERVER_XORG_SERVER_CONF_OPTS += --enable-libdrm
 else
@@ -80,13 +80,13 @@ else
 XSERVER_XORG_SERVER_CONF_OPTS += --disable-xorg
 endif
 
-ifeq ($(BR2_PACKAGE_XSERVER_XORG_SERVER_KDRIVE),y)
+ifeq ($(LINGMO_PACKAGE_XSERVER_XORG_SERVER_KDRIVE),y)
 XSERVER_XORG_SERVER_CONF_OPTS += \
 	--enable-kdrive \
 	--disable-glx \
 	--disable-dri
 
-ifeq ($(BR2_PACKAGE_XSERVER_XORG_SERVER_XEPHYR),y)
+ifeq ($(LINGMO_PACKAGE_XSERVER_XORG_SERVER_XEPHYR),y)
 XSERVER_XORG_SERVER_DEPENDENCIES += \
 	xcb-util-image \
 	xcb-util-keysyms \
@@ -97,7 +97,7 @@ else # modular
 XSERVER_XORG_SERVER_CONF_OPTS += --disable-kdrive
 endif
 
-ifeq ($(BR2_PACKAGE_HAS_LIBGL),y)
+ifeq ($(LINGMO_PACKAGE_HAS_LIBGL),y)
 XSERVER_XORG_SERVER_CONF_OPTS += --enable-dri --enable-glx
 XSERVER_XORG_SERVER_DEPENDENCIES += libgl
 else
@@ -105,49 +105,49 @@ XSERVER_XORG_SERVER_CONF_OPTS += --disable-dri --disable-glx
 endif
 
 # Optional packages
-ifeq ($(BR2_PACKAGE_HAS_UDEV),y)
+ifeq ($(LINGMO_PACKAGE_HAS_UDEV),y)
 XSERVER_XORG_SERVER_DEPENDENCIES += udev
 XSERVER_XORG_SERVER_CONF_OPTS += --enable-config-udev
 # udev kms support depends on libdrm and dri2
-ifeq ($(BR2_PACKAGE_LIBDRM),y)
+ifeq ($(LINGMO_PACKAGE_LIBDRM),y)
 XSERVER_XORG_SERVER_CONF_OPTS += --enable-config-udev-kms
 else
 XSERVER_XORG_SERVER_CONF_OPTS += --disable-config-udev-kms
 endif
 endif
 
-ifeq ($(BR2_PACKAGE_DBUS),y)
+ifeq ($(LINGMO_PACKAGE_DBUS),y)
 XSERVER_XORG_SERVER_DEPENDENCIES += dbus
 XSERVER_XORG_SERVER_CONF_OPTS += --enable-config-dbus
 endif
 
-ifeq ($(BR2_PACKAGE_FREETYPE),y)
+ifeq ($(LINGMO_PACKAGE_FREETYPE),y)
 XSERVER_XORG_SERVER_DEPENDENCIES += freetype
 endif
 
-ifeq ($(BR2_PACKAGE_LIBUNWIND),y)
+ifeq ($(LINGMO_PACKAGE_LIBUNWIND),y)
 XSERVER_XORG_SERVER_DEPENDENCIES += libunwind
 XSERVER_XORG_SERVER_CONF_OPTS += --enable-libunwind
 else
 XSERVER_XORG_SERVER_CONF_OPTS += --disable-libunwind
 endif
 
-ifneq ($(BR2_PACKAGE_XLIB_LIBXVMC),y)
+ifneq ($(LINGMO_PACKAGE_XLIB_LIBXVMC),y)
 XSERVER_XORG_SERVER_CONF_OPTS += --disable-xvmc
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXCOMPOSITE),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXCOMPOSITE),y)
 XSERVER_XORG_SERVER_DEPENDENCIES += xlib_libXcomposite
 else
 XSERVER_XORG_SERVER_CONF_OPTS += --disable-composite
 endif
 
-ifeq ($(BR2_PACKAGE_XSERVER_XORG_SERVER_MODULAR),y)
+ifeq ($(LINGMO_PACKAGE_XSERVER_XORG_SERVER_MODULAR),y)
 XSERVER_XORG_SERVER_CONF_OPTS += --enable-dri2
-ifeq ($(BR2_PACKAGE_XLIB_LIBXSHMFENCE),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXSHMFENCE),y)
 XSERVER_XORG_SERVER_DEPENDENCIES += xlib_libxshmfence
 XSERVER_XORG_SERVER_CONF_OPTS += --enable-dri3
-ifeq ($(BR2_PACKAGE_HAS_LIBEGL)$(BR2_PACKAGE_HAS_LIBGL)$(BR2_PACKAGE_LIBEPOXY),yyy)
+ifeq ($(LINGMO_PACKAGE_HAS_LIBEGL)$(LINGMO_PACKAGE_HAS_LIBGL)$(LINGMO_PACKAGE_LIBEPOXY),yyy)
 XSERVER_XORG_SERVER_DEPENDENCIES += libepoxy
 XSERVER_XORG_SERVER_CONF_OPTS += --enable-glamor
 else
@@ -160,17 +160,17 @@ else
 XSERVER_XORG_SERVER_CONF_OPTS += --disable-dri2 --disable-dri3 --disable-glamor
 endif
 
-ifeq ($(BR2_PACKAGE_XLIB_LIBXSCRNSAVER),y)
+ifeq ($(LINGMO_PACKAGE_XLIB_LIBXSCRNSAVER),y)
 XSERVER_XORG_SERVER_DEPENDENCIES += xlib_libXScrnSaver
 XSERVER_XORG_SERVER_CONF_OPTS += --enable-screensaver
 else
 XSERVER_XORG_SERVER_CONF_OPTS += --disable-screensaver
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 XSERVER_XORG_SERVER_CONF_OPTS += --with-sha1=libcrypto
 XSERVER_XORG_SERVER_DEPENDENCIES += openssl
-else ifeq ($(BR2_PACKAGE_LIBGCRYPT),y)
+else ifeq ($(LINGMO_PACKAGE_LIBGCRYPT),y)
 XSERVER_XORG_SERVER_CONF_OPTS += --with-sha1=libgcrypt
 XSERVER_XORG_SERVER_DEPENDENCIES += libgcrypt
 else
@@ -180,7 +180,7 @@ endif
 
 # Install the systemd unit only when nodm nor xdm aren't enabled, as
 # they would be responsible for starting the server.
-ifeq ($(BR2_PACKAGE_NODM)$(BR2_PACKAGE_XAPP_XDM),)
+ifeq ($(LINGMO_PACKAGE_NODM)$(LINGMO_PACKAGE_XAPP_XDM),)
 define XSERVER_XORG_SERVER_INSTALL_INIT_SYSTEMD
 	$(INSTALL) -D -m 0644 package/x11r7/xserver_xorg-server/xorg.service \
 		$(TARGET_DIR)/usr/lib/systemd/system/xorg.service
@@ -189,7 +189,7 @@ endif
 
 # Install the init script only when neither nodm nor xdm are enabled, as
 # they would be responsible for starting the server.
-ifeq ($(BR2_PACKAGE_NODM)$(BR2_PACKAGE_XAPP_XDM),)
+ifeq ($(LINGMO_PACKAGE_NODM)$(LINGMO_PACKAGE_XAPP_XDM),)
 define XSERVER_XORG_SERVER_INSTALL_INIT_SYSV
 	$(INSTALL) -D -m 755 package/x11r7/xserver_xorg-server/S40xorg \
 		$(TARGET_DIR)/etc/init.d/S40xorg

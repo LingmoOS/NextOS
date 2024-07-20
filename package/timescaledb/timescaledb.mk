@@ -30,7 +30,7 @@ TIMESCALEDB_CONF_OPTS = \
 
 # There's no dependency on the OpenSSL package, because USE_OPENSSL
 # only tells if postgresql was built with OpenSSL support or not.
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 TIMESCALEDB_CONF_OPTS += -DUSE_OPENSSL=1
 else
 TIMESCALEDB_CONF_OPTS += -DUSE_OPENSSL=0

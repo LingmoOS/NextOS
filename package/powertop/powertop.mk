@@ -14,7 +14,7 @@ POWERTOP_DEPENDENCIES = \
 	host-pkgconf \
 	libnl \
 	ncurses \
-	$(if $(BR2_PACKAGE_PCIUTILS),pciutils) \
+	$(if $(LINGMO_PACKAGE_PCIUTILS),pciutils) \
 	$(TARGET_NLS_DEPENDENCIES)
 
 # 0001-add-disable-stack-protector-option.patch
@@ -33,7 +33,7 @@ POWERTOP_PRE_CONFIGURE_HOOKS += POWERTOP_TOUCH_CONFIG_RPATH
 
 # Help powertop at finding the right ncurses library depending on
 # which one is available.
-ifeq ($(BR2_PACKAGE_NCURSES_WCHAR),y)
+ifeq ($(LINGMO_PACKAGE_NCURSES_WCHAR),y)
 POWERTOP_CONF_ENV += ac_cv_search_delwin="-lncursesw"
 else
 POWERTOP_CONF_ENV += ac_cv_search_delwin="-lncurses"

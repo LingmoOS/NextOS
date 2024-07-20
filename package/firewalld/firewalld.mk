@@ -42,7 +42,7 @@ FIREWALLD_CONF_OPTS += \
 	--without-ipset \
 	--without-xml-catalog
 
-ifeq ($(BR2_PACKAGE_IPTABLES),y)
+ifeq ($(LINGMO_PACKAGE_IPTABLES),y)
 FIREWALLD_DEPENDENCIES += iptables
 FIREWALLD_CONF_OPTS += \
 	--with-ip6tables-restore=/usr/sbin/ip6tables-restore \
@@ -53,7 +53,7 @@ else
 FIREWALLD_CONF_OPTS += -without-iptables
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 FIREWALLD_DEPENDENCIES += systemd
 FIREWALLD_CONF_OPTS += --with-systemd-unitdir=/usr/lib/systemd/system
 else

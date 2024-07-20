@@ -1,6 +1,6 @@
-config BR2_PACKAGE_SUNWAIT
+config LINGMO_PACKAGE_SUNWAIT
 	bool "sunwait"
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	help
 	  Sunwait calculates sunrise or sunset times with civil,
 	  nautical, astronomical and custom twilights.
@@ -8,4 +8,4 @@ config BR2_PACKAGE_SUNWAIT
 	  https://github.com/risacher/sunwait
 
 comment "sunwait needs a toolchain w/ C++"
-	depends on !BR2_INSTALL_LIBSTDCPP
+	depends on !LINGMO_INSTALL_LIBSTDCPP

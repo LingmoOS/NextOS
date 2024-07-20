@@ -24,9 +24,9 @@ understanding of how Mender works:
 
 In Buildroot the following packages are provided:
 
-- BR2_PACKAGE_MENDER
+- LINGMO_PACKAGE_MENDER
     - This will install the client on target rootfs
-- BR2_PACKAGE_HOST_MENDER_ARTIFACT
+- LINGMO_PACKAGE_HOST_MENDER_ARTIFACT
     - This will install the 'mender-artifact' tool in host rootfs.
 
 To fully utilize atomic image-based deployments using the A/B update
@@ -108,9 +108,9 @@ Creating Mender Artifacts
 -------------------------
 
 To create Mender Artifacts based on Buildroot build output you must
-include BR2_PACKAGE_HOST_MENDER_ARTIFACT in your configuration, and
+include LINGMO_PACKAGE_HOST_MENDER_ARTIFACT in your configuration, and
 then you would typically create the Mender Artifact in a post image
-script (BR2_ROOTFS_POST_IMAGE_SCRIPT). Below is an example of such a
+script (LINGMO_ROOTFS_POST_IMAGE_SCRIPT). Below is an example of such a
 script:
 
     #!/bin/sh
@@ -150,5 +150,5 @@ Configuring Mender with certificates
 
 Mender uses TLS to communicate with the management server, and if you
 use a CA-signed certificate on the server, you must include
-BR2_PACKAGE_CA_CERTIFICATES in your configuration to authenticate TLS
+LINGMO_PACKAGE_CA_CERTIFICATES in your configuration to authenticate TLS
 connections.

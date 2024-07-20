@@ -1,4 +1,4 @@
-config BR2_PACKAGE_SOUND_THEME_FREEDESKTOP
+config LINGMO_PACKAGE_SOUND_THEME_FREEDESKTOP
 	bool "sound-theme-freedesktop"
 	help
 	  Default theme for the XDG Sound Theme Specification.

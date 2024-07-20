@@ -1,4 +1,4 @@
-config BR2_PACKAGE_KNOCK
+config LINGMO_PACKAGE_KNOCK
 	bool "knock"
 	help
 	  A port knocking implementation.
@@ -10,13 +10,13 @@ config BR2_PACKAGE_KNOCK
 
 	  http://www.zeroflux.org/projects/knock
 
-if BR2_PACKAGE_KNOCK
+if LINGMO_PACKAGE_KNOCK
 
-config BR2_PACKAGE_KNOCK_KNOCKD
+config LINGMO_PACKAGE_KNOCK_KNOCKD
 	bool "knockd"
 	default y
-	depends on BR2_USE_MMU # fork()
-	select BR2_PACKAGE_LIBPCAP
+	depends on LINGMO_USE_MMU # fork()
+	select LINGMO_PACKAGE_LIBPCAP
 	help
 	  Enable knockd
 

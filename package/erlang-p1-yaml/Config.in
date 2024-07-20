@@ -1,7 +1,7 @@
-config BR2_PACKAGE_ERLANG_P1_YAML
+config LINGMO_PACKAGE_ERLANG_P1_YAML
 	bool "erlang-p1-yaml"
-	select BR2_PACKAGE_ERLANG_P1_UTILS
-	select BR2_PACKAGE_LIBYAML
+	select LINGMO_PACKAGE_ERLANG_P1_UTILS
+	select LINGMO_PACKAGE_LIBYAML
 	help
 	  Erlang wrapper for libyaml C library
 

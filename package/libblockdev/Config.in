@@ -1,15 +1,15 @@
-config BR2_PACKAGE_LIBBLOCKDEV
+config LINGMO_PACKAGE_LIBBLOCKDEV
 	bool "libblockdev"
-	depends on !BR2_STATIC_LIBS # kmod
-	depends on BR2_USE_WCHAR # libglib2
-	depends on BR2_TOOLCHAIN_HAS_THREADS # libglib2
-	depends on BR2_USE_MMU # libglib2
-	depends on BR2_PACKAGE_HAS_UDEV
-	depends on BR2_ENABLE_LOCALE
-	select BR2_PACKAGE_KMOD
-	select BR2_PACKAGE_LIBGLIB2
-	select BR2_PACKAGE_UTIL_LINUX
-	select BR2_PACKAGE_UTIL_LINUX_LIBUUID
+	depends on !LINGMO_STATIC_LIBS # kmod
+	depends on LINGMO_USE_WCHAR # libglib2
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS # libglib2
+	depends on LINGMO_USE_MMU # libglib2
+	depends on LINGMO_PACKAGE_HAS_UDEV
+	depends on LINGMO_ENABLE_LOCALE
+	select LINGMO_PACKAGE_KMOD
+	select LINGMO_PACKAGE_LIBGLIB2
+	select LINGMO_PACKAGE_UTIL_LINUX
+	select LINGMO_PACKAGE_UTIL_LINUX_LIBUUID
 	help
 	  libblockdev is a C library supporting GObject introspection
 	  for manipulation of block devices. It has a plugin-based
@@ -19,66 +19,66 @@ config BR2_PACKAGE_LIBBLOCKDEV
 
 	  https://github.com/storaged-project/libblockdev/
 
-if BR2_PACKAGE_LIBBLOCKDEV
+if LINGMO_PACKAGE_LIBBLOCKDEV
 
 comment "plugins"
 
-config BR2_PACKAGE_LIBBLOCKDEV_CRYPTO
+config LINGMO_PACKAGE_LIBBLOCKDEV_CRYPTO
 	bool "crypto"
-	depends on BR2_TOOLCHAIN_HAS_SYNC_4 # cryptsetup -> json-c
-	select BR2_PACKAGE_CRYPTSETUP
-	select BR2_PACKAGE_KEYUTILS
+	depends on LINGMO_TOOLCHAIN_HAS_SYNC_4 # cryptsetup -> json-c
+	select LINGMO_PACKAGE_CRYPTSETUP
+	select LINGMO_PACKAGE_KEYUTILS
 
-config BR2_PACKAGE_LIBBLOCKDEV_FS
+config LINGMO_PACKAGE_LIBBLOCKDEV_FS
 	bool "filesystem"
-	depends on BR2_ENABLE_LOCALE # parted
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_5 # parted
-	select BR2_PACKAGE_UTIL_LINUX_LIBMOUNT
-	select BR2_PACKAGE_PARTED
-	select BR2_PACKAGE_E2FSPROGS
+	depends on LINGMO_ENABLE_LOCALE # parted
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_5 # parted
+	select LINGMO_PACKAGE_UTIL_LINUX_LIBMOUNT
+	select LINGMO_PACKAGE_PARTED
+	select LINGMO_PACKAGE_E2FSPROGS
 
 comment "filesystem plugin needs a toolchain w/ locale, gcc >= 5"
-	depends on !BR2_ENABLE_LOCALE || !BR2_TOOLCHAIN_GCC_AT_LEAST_5
+	depends on !LINGMO_ENABLE_LOCALE || !LINGMO_TOOLCHAIN_GCC_AT_LEAST_5
 
-config BR2_PACKAGE_LIBBLOCKDEV_LOOP
+config LINGMO_PACKAGE_LIBBLOCKDEV_LOOP
 	bool "loop"
 
-config BR2_PACKAGE_LIBBLOCKDEV_LVM2
+config LINGMO_PACKAGE_LIBBLOCKDEV_LVM2
 	bool "lvm2"
-	depends on BR2_ENABLE_LOCALE # parted
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_5 # parted
-	select BR2_PACKAGE_PARTED
-	select BR2_PACKAGE_LVM2
+	depends on LINGMO_ENABLE_LOCALE # parted
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_5 # parted
+	select LINGMO_PACKAGE_PARTED
+	select LINGMO_PACKAGE_LVM2
 
 comment "lvm2 support needs a toolchain w/ locale, gcc >= 5"
-	depends on !BR2_ENABLE_LOCALE || !BR2_TOOLCHAIN_GCC_AT_LEAST_5
+	depends on !LINGMO_ENABLE_LOCALE || !LINGMO_TOOLCHAIN_GCC_AT_LEAST_5
 
-config BR2_PACKAGE_LIBBLOCKDEV_MDRAID
+config LINGMO_PACKAGE_LIBBLOCKDEV_MDRAID
 	bool "mdraid"
-	select BR2_PACKAGE_LIBBYTESIZE
+	select LINGMO_PACKAGE_LIBBYTESIZE
 
-config BR2_PACKAGE_LIBBLOCKDEV_NVME
+config LINGMO_PACKAGE_LIBBLOCKDEV_NVME
 	bool "nvme"
-	select BR2_PACKAGE_LIBNVME
+	select LINGMO_PACKAGE_LIBNVME
 
-config BR2_PACKAGE_LIBBLOCKDEV_PART
+config LINGMO_PACKAGE_LIBBLOCKDEV_PART
 	bool "part"
-	depends on BR2_ENABLE_LOCALE # parted
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_5 # parted
-	select BR2_PACKAGE_PARTED
-	select BR2_PACKAGE_UTIL_LINUX_LIBFDISK
+	depends on LINGMO_ENABLE_LOCALE # parted
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_5 # parted
+	select LINGMO_PACKAGE_PARTED
+	select LINGMO_PACKAGE_UTIL_LINUX_LIBFDISK
 
 comment "part plugin needs a toolchain w/ locale, gcc >= 5"
-	depends on !BR2_ENABLE_LOCALE || !BR2_TOOLCHAIN_GCC_AT_LEAST_5
+	depends on !LINGMO_ENABLE_LOCALE || !LINGMO_TOOLCHAIN_GCC_AT_LEAST_5
 
-config BR2_PACKAGE_LIBBLOCKDEV_SWAP
+config LINGMO_PACKAGE_LIBBLOCKDEV_SWAP
 	bool "swap"
-	select BR2_PACKAGE_UTIL_LINUX_LIBBLKID
+	select LINGMO_PACKAGE_UTIL_LINUX_LIBBLKID
 
 endif
 
 comment "libblockdev needs udev /dev management and a toolchain w/ wchar, threads, dynamic library, locale"
-	depends on BR2_USE_MMU
-	depends on !BR2_PACKAGE_HAS_UDEV || BR2_STATIC_LIBS || \
-		!BR2_USE_WCHAR || !BR2_TOOLCHAIN_HAS_THREADS || \
-		!BR2_ENABLE_LOCALE
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_PACKAGE_HAS_UDEV || LINGMO_STATIC_LIBS || \
+		!LINGMO_USE_WCHAR || !LINGMO_TOOLCHAIN_HAS_THREADS || \
+		!LINGMO_ENABLE_LOCALE

@@ -38,55 +38,55 @@ BIND_DEPENDENCIES = host-pkgconf libuv openssl
 
 BIND_CFLAGS = $(TARGET_CFLAGS)
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_101737),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_101737),y)
 BIND_CFLAGS += -O0
 endif
 
 BIND_CONF_OPTS += CFLAGS="$(BIND_CFLAGS)"
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 BIND_CONF_OPTS += --with-zlib
 BIND_DEPENDENCIES += zlib
 else
 BIND_CONF_OPTS += --without-zlib
 endif
 
-ifeq ($(BR2_PACKAGE_JSON_C),y)
+ifeq ($(LINGMO_PACKAGE_JSON_C),y)
 BIND_CONF_OPTS += --with-json-c
 BIND_DEPENDENCIES += json-c
 else
 BIND_CONF_OPTS += --without-json-c
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBCAP),y)
 BIND_CONF_OPTS += --enable-linux-caps
 BIND_DEPENDENCIES += libcap
 else
 BIND_CONF_OPTS += --disable-linux-caps
 endif
 
-ifeq ($(BR2_PACKAGE_LIBIDN2),y)
+ifeq ($(LINGMO_PACKAGE_LIBIDN2),y)
 BIND_CONF_OPTS += --with-libidn2
 BIND_DEPENDENCIES += libidn2
 else
 BIND_CONF_OPTS += --without-libidn2
 endif
 
-ifeq ($(BR2_PACKAGE_LIBKRB5),y)
+ifeq ($(LINGMO_PACKAGE_LIBKRB5),y)
 BIND_CONF_OPTS += --with-gssapi=$(STAGING_DIR)/usr/bin/krb5-config
 BIND_DEPENDENCIES += libkrb5
 else
 BIND_CONF_OPTS += --with-gssapi=no
 endif
 
-ifeq ($(BR2_PACKAGE_LIBMAXMINDDB),y)
+ifeq ($(LINGMO_PACKAGE_LIBMAXMINDDB),y)
 BIND_CONF_OPTS += --enable-geoip --with-maxminddb
 BIND_DEPENDENCIES += libmaxminddb
 else
 BIND_CONF_OPTS += --disable-geoip
 endif
 
-ifeq ($(BR2_PACKAGE_LIBXML2),y)
+ifeq ($(LINGMO_PACKAGE_LIBXML2),y)
 BIND_CONF_OPTS += --with-libxml2
 BIND_DEPENDENCIES += libxml2
 else
@@ -94,20 +94,20 @@ BIND_CONF_OPTS += --with-libxml2=no
 endif
 
 # Used by dnssec-keymgr
-ifeq ($(BR2_PACKAGE_PYTHON_PLY),y)
+ifeq ($(LINGMO_PACKAGE_PYTHON_PLY),y)
 BIND_DEPENDENCIES += host-python-ply
 BIND_CONF_OPTS += --with-python=$(HOST_DIR)/bin/python
 else
 BIND_CONF_OPTS += --with-python=no
 endif
 
-ifeq ($(BR2_PACKAGE_READLINE),y)
+ifeq ($(LINGMO_PACKAGE_READLINE),y)
 BIND_DEPENDENCIES += readline
 else
 BIND_CONF_OPTS += --with-readline=no
 endif
 
-ifeq ($(BR2_STATIC_LIBS),y)
+ifeq ($(LINGMO_STATIC_LIBS),y)
 BIND_CONF_OPTS += \
 	--without-dlopen \
 	--without-libtool
@@ -125,7 +125,7 @@ define BIND_TARGET_REMOVE_TOOLS
 	rm -rf $(addprefix $(TARGET_DIR)/usr/bin/, $(BIND_TARGET_TOOLS_BIN))
 endef
 
-ifeq ($(BR2_PACKAGE_BIND_SERVER),y)
+ifeq ($(LINGMO_PACKAGE_BIND_SERVER),y)
 define BIND_INSTALL_INIT_SYSV
 	$(INSTALL) -m 0755 -D $(BIND_PKGDIR)/S81named \
 		$(TARGET_DIR)/etc/init.d/S81named
@@ -138,7 +138,7 @@ else
 BIND_POST_INSTALL_TARGET_HOOKS += BIND_TARGET_REMOVE_SERVER
 endif
 
-ifeq ($(BR2_PACKAGE_BIND_TOOLS),)
+ifeq ($(LINGMO_PACKAGE_BIND_TOOLS),)
 BIND_POST_INSTALL_TARGET_HOOKS += BIND_TARGET_REMOVE_TOOLS
 endif
 

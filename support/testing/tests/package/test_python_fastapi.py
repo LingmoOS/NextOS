@@ -16,16 +16,16 @@ class TestPythonPy3Fastapi(TestPythonPackageBase):
     __test__ = True
     config = \
         """
-        BR2_arm=y
-        BR2_cortex_a9=y
-        BR2_ARM_ENABLE_NEON=y
-        BR2_ARM_ENABLE_VFP=y
-        BR2_TOOLCHAIN_EXTERNAL=y
-        BR2_PACKAGE_PYTHON3=y
-        BR2_PACKAGE_PYTHON_FASTAPI=y
-        BR2_PACKAGE_PYTHON_UVICORN=y
-        BR2_TARGET_ROOTFS_CPIO=y
-        # BR2_TARGET_ROOTFS_TAR is not set
+        LINGMO_arm=y
+        LINGMO_cortex_a9=y
+        LINGMO_ARM_ENABLE_NEON=y
+        LINGMO_ARM_ENABLE_VFP=y
+        LINGMO_TOOLCHAIN_EXTERNAL=y
+        LINGMO_PACKAGE_PYTHON3=y
+        LINGMO_PACKAGE_PYTHON_FASTAPI=y
+        LINGMO_PACKAGE_PYTHON_UVICORN=y
+        LINGMO_TARGET_ROOTFS_CPIO=y
+        # LINGMO_TARGET_ROOTFS_TAR is not set
         """
     sample_scripts = ["tests/package/sample_python_fastapi.py"]
     timeout = 60

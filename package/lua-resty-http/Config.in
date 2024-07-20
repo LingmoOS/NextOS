@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LUA_RESTY_HTTP
+config LINGMO_PACKAGE_LUA_RESTY_HTTP
 	bool "lua-resty-http"
 	help
 	  Lua HTTP client cosocket driver for OpenResty / ngx_lua.

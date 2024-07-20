@@ -18,7 +18,7 @@ LIBRAW_DEPENDENCIES = host-pkgconf
 LIBRAW_CXXFLAGS = $(TARGET_CXXFLAGS)
 LIBRAW_CONF_ENV = CXXFLAGS="$(LIBRAW_CXXFLAGS)"
 
-ifeq ($(BR2_PACKAGE_JASPER),y)
+ifeq ($(LINGMO_PACKAGE_JASPER),y)
 LIBRAW_CONF_OPTS += --enable-jasper
 LIBRAW_DEPENDENCIES += jasper
 # glibc prior to 2.18 only defines constants such as SIZE_MAX or
@@ -28,21 +28,21 @@ else
 LIBRAW_CONF_OPTS += --disable-jasper
 endif
 
-ifeq ($(BR2_PACKAGE_JPEG),y)
+ifeq ($(LINGMO_PACKAGE_JPEG),y)
 LIBRAW_CONF_OPTS += --enable-jpeg
 LIBRAW_DEPENDENCIES += jpeg
 else
 LIBRAW_CONF_OPTS += --disable-jpeg
 endif
 
-ifeq ($(BR2_PACKAGE_LCMS2),y)
+ifeq ($(LINGMO_PACKAGE_LCMS2),y)
 LIBRAW_CONF_OPTS += --enable-lcms
 LIBRAW_DEPENDENCIES += lcms2 host-pkgconf
 else
 LIBRAW_CONF_OPTS += --disable-lcms
 endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 LIBRAW_CONF_OPTS += --enable-zlib
 LIBRAW_DEPENDENCIES += zlib
 else

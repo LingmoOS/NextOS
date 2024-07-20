@@ -25,7 +25,7 @@ LIBGIT2_CONF_OPTS = \
 	-DUSE_HTTP_PARSER=system \
 	-DUSE_NTLMCLIENT=OFF \
 	-DUSE_XDIFF=builtin \
-	-DUSE_THREADS=$(if $(BR2_TOOLCHAIN_HAS_THREADS),ON,OFF)
+	-DUSE_THREADS=$(if $(LINGMO_TOOLCHAIN_HAS_THREADS),ON,OFF)
 
 LIBGIT2_SUPPORTS_IN_SOURCE_BUILD = NO
 
@@ -36,31 +36,31 @@ LIBGIT2_DEPENDENCIES = zlib libhttpparser
 # without libiconv because (1) most toolchain have iconv support
 # without libiconv and (2) even if USE_ICONV=ON but iconv support is
 # not available, libgit2 simply avoids using iconv.
-ifeq ($(BR2_PACKAGE_LIBICONV),y)
+ifeq ($(LINGMO_PACKAGE_LIBICONV),y)
 LIBGIT2_DEPENDENCIES += libiconv
 endif
 
-ifeq ($(BR2_PACKAGE_LIBSSH2),y)
+ifeq ($(LINGMO_PACKAGE_LIBSSH2),y)
 LIBGIT2_DEPENDENCIES += libssh2
 LIBGIT2_CONF_OPTS += -DUSE_SSH=ON
 else
 LIBGIT2_CONF_OPTS += -DUSE_SSH=OFF
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 LIBGIT2_DEPENDENCIES += openssl
 LIBGIT2_CONF_OPTS += -DUSE_HTTPS=OpenSSL
 else
 LIBGIT2_CONF_OPTS += -DUSE_HTTPS=OFF
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGIT2_CLI),y)
+ifeq ($(LINGMO_PACKAGE_LIBGIT2_CLI),y)
 LIBGIT2_CONF_OPTS += -DBUILD_CLI=ON
 else
 LIBGIT2_CONF_OPTS += -DBUILD_CLI=OFF
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 LIBGIT2_CONF_OPTS += \
 	-DCMAKE_EXE_LINKER_FLAGS=-latomic \
 	-DCMAKE_SHARED_LINKER_FLAGS=-latomic

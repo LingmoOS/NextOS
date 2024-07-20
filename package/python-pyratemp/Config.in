@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PYRATEMP
+config LINGMO_PACKAGE_PYTHON_PYRATEMP
 	bool "python-pyratemp"
 	help
 	  python-pyratemp is a Python library for doing html

@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HOST_DTC
+config LINGMO_PACKAGE_HOST_DTC
 	bool "host dtc"
 	help
 	  The Device Tree Compiler, dtc, takes as input a device-tree in

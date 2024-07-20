@@ -12,7 +12,7 @@ COREMARK_PRO_DEPENDENCIES = perl
 
 COREMARK_PRO_LDFLAGS = $(TARGET_LDFLAGS) -lm
 
-ifeq ($(BR2_ENDIAN),"BIG")
+ifeq ($(LINGMO_ENDIAN),"BIG")
 COREMARK_PRO_DEFINES += \
 	EE_BIG_ENDIAN=1 \
 	EE_LITTLE_ENDIAN=0
@@ -22,7 +22,7 @@ COREMARK_PRO_DEFINES += \
 	EE_LITTLE_ENDIAN=1
 endif
 
-ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_THREADS),y)
 COREMARK_PRO_DEFINES += \
 	USE_NATIVE_PTHREAD=1 \
 	USE_SINGLE_CONTEXT=0
@@ -36,7 +36,7 @@ endif
 COREMARK_PRO_MAKE_OPTS += \
 	LINKER_LAST="$(COREMARK_PRO_LDFLAGS)" \
 	PLATFORM_DEFINES="$(COREMARK_PRO_DEFINES)" \
-	TARGET=linux$(if $(BR2_ARCH_IS_64),64) \
+	TARGET=linux$(if $(LINGMO_ARCH_IS_64),64) \
 	EXE=
 
 define COREMARK_PRO_BUILD_CMDS
@@ -50,9 +50,9 @@ COREMARK_PRO_SCRIPTS = results_parser.pl cert_median.pl cert_mark.pl headings.tx
 define COREMARK_PRO_INSTALL_TARGET_CMDS
 	mkdir -p $(TARGET_DIR)/usr/share/coremark-pro/logs
 	$(foreach m,$(COREMARK_PRO_MARKS),\
-		$(INSTALL) -D $(@D)/builds/linux$(if $(BR2_ARCH_IS_64),64)/gcc$(if $(BR2_ARCH_IS_64),64)/bin/$(m) $(TARGET_DIR)/usr/bin/$(m)$(sep) \
+		$(INSTALL) -D $(@D)/builds/linux$(if $(LINGMO_ARCH_IS_64),64)/gcc$(if $(LINGMO_ARCH_IS_64),64)/bin/$(m) $(TARGET_DIR)/usr/bin/$(m)$(sep) \
 		size $(TARGET_DIR)/usr/bin/$(m) > $(TARGET_DIR)/usr/share/coremark-pro/logs/$(m).size.log$(sep))
-	$(INSTALL) -D $(@D)/builds/linux$(if $(BR2_ARCH_IS_64),64)/gcc$(if $(BR2_ARCH_IS_64),64)/data/libbmp/Rose256.bmp $(TARGET_DIR)/usr/share/coremark-pro/Rose256.bmp
+	$(INSTALL) -D $(@D)/builds/linux$(if $(LINGMO_ARCH_IS_64),64)/gcc$(if $(LINGMO_ARCH_IS_64),64)/data/libbmp/Rose256.bmp $(TARGET_DIR)/usr/share/coremark-pro/Rose256.bmp
 	$(foreach s,$(COREMARK_PRO_SCRIPTS),\
 		$(INSTALL) -D $(@D)/util/perl/$(s) $(TARGET_DIR)/usr/share/coremark-pro/util/perl/$(s)$(sep))
 	$(Q)sed "s/@COREMARK_PRO_MARKS@/$(COREMARK_PRO_MARKS)/" \

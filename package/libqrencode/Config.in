@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LIBQRENCODE
+config LINGMO_PACKAGE_LIBQRENCODE
 	bool "libqrencode"
 	help
 	  libqrencode is a C library for encoding data in a QR Code
@@ -9,12 +9,12 @@ config BR2_PACKAGE_LIBQRENCODE
 
 	  http://fukuchi.org/works/qrencode/index.html
 
-if BR2_PACKAGE_LIBQRENCODE
+if LINGMO_PACKAGE_LIBQRENCODE
 
-config BR2_PACKAGE_LIBQRENCODE_TOOLS
+config LINGMO_PACKAGE_LIBQRENCODE_TOOLS
 	bool "libqrencode tools"
-	select BR2_PACKAGE_LIBPNG
+	select LINGMO_PACKAGE_LIBPNG
 	help
 	  Build command-line tools
 
-endif #BR2_PACKAGE_LIBQRENCODE
+endif #LINGMO_PACKAGE_LIBQRENCODE

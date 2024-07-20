@@ -1,12 +1,12 @@
-config BR2_PACKAGE_LIBNSPR_ARCH_SUPPORT
+config LINGMO_PACKAGE_LIBNSPR_ARCH_SUPPORT
 	def_bool y
 
-if BR2_PACKAGE_LIBNSPR_ARCH_SUPPORT
+if LINGMO_PACKAGE_LIBNSPR_ARCH_SUPPORT
 
-config BR2_PACKAGE_LIBNSPR
+config LINGMO_PACKAGE_LIBNSPR
 	bool "libnspr"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on !BR2_STATIC_LIBS
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  NSPR is the Netscape Portable Runtime library which provides
 	  a platform-neutral API for system level and libc like
@@ -16,6 +16,6 @@ config BR2_PACKAGE_LIBNSPR
 	  http://www.mozilla.org/projects/nspr/
 
 comment "libnspr needs a toolchain w/ threads, dynamic library"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS
 
 endif

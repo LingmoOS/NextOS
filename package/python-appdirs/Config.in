@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_APPDIRS
+config LINGMO_PACKAGE_PYTHON_APPDIRS
 	bool "python-appdirs"
 	help
 	  A small Python module for determining appropriate platform-

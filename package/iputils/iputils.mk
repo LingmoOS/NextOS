@@ -13,20 +13,20 @@ IPUTILS_DEPENDENCIES = $(TARGET_NLS_DEPENDENCIES)
 
 # Selectively build binaries
 IPUTILS_CONF_OPTS += \
-	-DBUILD_CLOCKDIFF=$(if $(BR2_PACKAGE_IPUTILS_CLOCKDIFF),true,false) \
-	-DBUILD_TRACEPATH=$(if $(BR2_PACKAGE_IPUTILS_TRACEPATH),true,false) \
+	-DBUILD_CLOCKDIFF=$(if $(LINGMO_PACKAGE_IPUTILS_CLOCKDIFF),true,false) \
+	-DBUILD_TRACEPATH=$(if $(LINGMO_PACKAGE_IPUTILS_TRACEPATH),true,false) \
 	-DSKIP_TESTS=true
 
 # Selectively select the appropriate SELinux refpolicy modules
 IPUTILS_SELINUX_MODULES = \
-	$(if $(BR2_PACKAGE_IPUTILS_ARPING),netutils) \
-	$(if $(BR2_PACKAGE_IPUTILS_PING),netutils) \
-	$(if $(BR2_PACKAGE_IPUTILS_TRACEPATH),netutils)
+	$(if $(LINGMO_PACKAGE_IPUTILS_ARPING),netutils) \
+	$(if $(LINGMO_PACKAGE_IPUTILS_PING),netutils) \
+	$(if $(LINGMO_PACKAGE_IPUTILS_TRACEPATH),netutils)
 
 #
 # arping
 #
-ifeq ($(BR2_PACKAGE_IPUTILS_ARPING),y)
+ifeq ($(LINGMO_PACKAGE_IPUTILS_ARPING),y)
 IPUTILS_CONF_OPTS += -DBUILD_ARPING=true
 
 # move some binaries to the same location as where Busybox installs
@@ -44,11 +44,11 @@ endif
 #
 # ping
 #
-ifeq ($(BR2_PACKAGE_IPUTILS_PING),y)
+ifeq ($(LINGMO_PACKAGE_IPUTILS_PING),y)
 IPUTILS_CONF_OPTS += -DBUILD_PING=true
 
 # same reason to move the ping binary as for arping
-ifeq ($(BR2_ROOTFS_MERGED_USR),)
+ifeq ($(LINGMO_ROOTFS_MERGED_USR),)
 define IPUTILS_MOVE_PING_BINARY
 	mv $(TARGET_DIR)/usr/bin/ping $(TARGET_DIR)/bin/ping
 endef
@@ -66,25 +66,25 @@ IPUTILS_CONF_OPTS += -DBUILD_PING=false
 endif
 
 # Handle libraries
-ifeq ($(BR2_PACKAGE_LIBCAP),y)
+ifeq ($(LINGMO_PACKAGE_LIBCAP),y)
 IPUTILS_CONF_OPTS += -DUSE_CAP=true
 IPUTILS_DEPENDENCIES += libcap
 else
 IPUTILS_CONF_OPTS += -DUSE_CAP=false
 endif
 
-ifeq ($(BR2_PACKAGE_LIBIDN2),y)
+ifeq ($(LINGMO_PACKAGE_LIBIDN2),y)
 IPUTILS_CONF_OPTS += -DUSE_IDN=true
 IPUTILS_DEPENDENCIES += libidn2
 else
 IPUTILS_CONF_OPTS += -DUSE_IDN=false
 endif
 
-ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+ifeq ($(LINGMO_PACKAGE_SYSTEMD),y)
 IPUTILS_DEPENDENCIES += systemd
 endif
 
-ifeq ($(BR2_SYSTEM_ENABLE_NLS),y)
+ifeq ($(LINGMO_SYSTEM_ENABLE_NLS),y)
 IPUTILS_CONF_OPTS += -DUSE_GETTEXT=true
 else
 IPUTILS_CONF_OPTS += -DUSE_GETTEXT=false
@@ -95,24 +95,24 @@ IPUTILS_CONF_OPTS += -DBUILD_MANS=false -DBUILD_HTML_MANS=false
 
 # handle permissions ourselves
 IPUTILS_CONF_OPTS += -DNO_SETCAP_OR_SUID=true
-ifeq ($(BR2_ROOTFS_DEVICE_TABLE_SUPPORTS_EXTENDED_ATTRIBUTES),y)
+ifeq ($(LINGMO_ROOTFS_DEVICE_TABLE_SUPPORTS_EXTENDED_ATTRIBUTES),y)
 define IPUTILS_PERMISSIONS
-	$(if $(BR2_PACKAGE_IPUTILS_ARPING),\
+	$(if $(LINGMO_PACKAGE_IPUTILS_ARPING),\
 		/usr/sbin/arping      f 755 0 0 - - - - -,)
-	$(if $(BR2_PACKAGE_IPUTILS_CLOCKDIFF),\
+	$(if $(LINGMO_PACKAGE_IPUTILS_CLOCKDIFF),\
 		/usr/bin/clockdiff    f 755 0 0 - - - - -
 		|xattr cap_net_raw+p,)
-	$(if $(BR2_PACKAGE_IPUTILS_PING),\
+	$(if $(LINGMO_PACKAGE_IPUTILS_PING),\
 		/bin/ping             f 755 0 0 - - - - -
 		|xattr cap_net_raw+p,)
 endef
 else
 define IPUTILS_PERMISSIONS
-	$(if $(BR2_PACKAGE_IPUTILS_ARPING),\
+	$(if $(LINGMO_PACKAGE_IPUTILS_ARPING),\
 		/usr/sbin/arping      f  755 0 0 - - - - -,)
-	$(if $(BR2_PACKAGE_IPUTILS_CLOCKDIFF),\
+	$(if $(LINGMO_PACKAGE_IPUTILS_CLOCKDIFF),\
 		/usr/bin/clockdiff    f 4755 0 0 - - - - -,)
-	$(if $(BR2_PACKAGE_IPUTILS_PING),\
+	$(if $(LINGMO_PACKAGE_IPUTILS_PING),\
 		/bin/ping             f 4755 0 0 - - - - -,)
 endef
 endif

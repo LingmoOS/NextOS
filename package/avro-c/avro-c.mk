@@ -12,15 +12,15 @@ AVRO_C_LICENSE_FILES = LICENSE
 AVRO_C_INSTALL_STAGING = YES
 AVRO_C_DEPENDENCIES = host-pkgconf jansson
 
-ifeq ($(BR2_PACKAGE_SNAPPY),y)
+ifeq ($(LINGMO_PACKAGE_SNAPPY),y)
 AVRO_C_DEPENDENCIES += snappy
 endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 AVRO_C_DEPENDENCIES += zlib
 endif
 
-ifeq ($(BR2_PACKAGE_XZ),y)
+ifeq ($(LINGMO_PACKAGE_XZ),y)
 AVRO_C_DEPENDENCIES += xz
 endif
 

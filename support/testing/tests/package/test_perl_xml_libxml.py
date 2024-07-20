@@ -13,8 +13,8 @@ class TestPerlXMLLibXML(TestPerlBase):
 
     config = TestPerlBase.config + \
         """
-        BR2_PACKAGE_PERL=y
-        BR2_PACKAGE_PERL_XML_LIBXML=y
+        LINGMO_PACKAGE_PERL=y
+        LINGMO_PACKAGE_PERL_XML_LIBXML=y
         """
 
     def test_run(self):

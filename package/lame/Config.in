@@ -1,4 +1,4 @@
-config BR2_PACKAGE_LAME
+config LINGMO_PACKAGE_LAME
 	bool "lame"
 	help
 	  LAME is a high quality MPEG Audio Layer III (MP3) encoder.

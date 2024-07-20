@@ -1,12 +1,12 @@
-config BR2_PACKAGE_LIBSELINUX
+config LINGMO_PACKAGE_LIBSELINUX
 	bool "libselinux"
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on !BR2_STATIC_LIBS
-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_5 # libsepol
-	select BR2_PACKAGE_LIBSEPOL
-	select BR2_PACKAGE_PCRE2
-	select BR2_PACKAGE_MUSL_FTS if !BR2_TOOLCHAIN_USES_GLIBC
-	select BR2_PACKAGE_PYTHON_SETUPTOOLS if BR2_PACKAGE_PYTHON3
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on !LINGMO_STATIC_LIBS
+	depends on LINGMO_TOOLCHAIN_GCC_AT_LEAST_5 # libsepol
+	select LINGMO_PACKAGE_LIBSEPOL
+	select LINGMO_PACKAGE_PCRE2
+	select LINGMO_PACKAGE_MUSL_FTS if !LINGMO_TOOLCHAIN_USES_GLIBC
+	select LINGMO_PACKAGE_PYTHON_SETUPTOOLS if LINGMO_PACKAGE_PYTHON3
 	help
 	  libselinux is the runtime SELinux library that provides
 	  interfaces (e.g. library functions for the SELinux kernel
@@ -19,5 +19,5 @@ config BR2_PACKAGE_LIBSELINUX
 	  http://selinuxproject.org/page/Main_Page
 
 comment "libselinux needs a toolchain w/ threads, dynamic library, gcc >= 5"
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS || \
-		!BR2_TOOLCHAIN_GCC_AT_LEAST_5
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS || \
+		!LINGMO_TOOLCHAIN_GCC_AT_LEAST_5

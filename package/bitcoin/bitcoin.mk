@@ -23,7 +23,7 @@ BITCOIN_CONF_OPTS = \
 	--without-bdb \
 	--without-gui
 
-ifeq ($(BR2_PACKAGE_BITCOIN_WALLET),y)
+ifeq ($(LINGMO_PACKAGE_BITCOIN_WALLET),y)
 BITCOIN_DEPENDENCIES += sqlite
 BITCOIN_CONF_OPTS += \
 	--enable-wallet \
@@ -34,14 +34,14 @@ BITCOIN_CONF_OPTS += \
 	--without-sqlite
 endif
 
-ifeq ($(BR2_PACKAGE_LIBMINIUPNPC),y)
+ifeq ($(LINGMO_PACKAGE_LIBMINIUPNPC),y)
 BITCOIN_DEPENDENCIES += libminiupnpc
 BITCOIN_CONF_OPTS += --with-miniupnpc
 else
 BITCOIN_CONF_OPTS += --without-miniupnpc
 endif
 
-ifeq ($(BR2_PACKAGE_ZEROMQ),y)
+ifeq ($(LINGMO_PACKAGE_ZEROMQ),y)
 BITCOIN_DEPENDENCIES += zeromq
 BITCOIN_CONF_OPTS += --with-zmq
 else

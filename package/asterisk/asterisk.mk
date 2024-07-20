@@ -109,52 +109,52 @@ ASTERISK_CONF_ENV = \
 	ac_cv_file_bridges_bridge_softmix_include_hrirs_h=true
 
 # Uses __atomic_fetch_add_4
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 ASTERISK_CONF_ENV += LIBS="-latomic"
 endif
 
-ifeq ($(BR2_TOOLCHAIN_USES_GLIBC),y)
+ifeq ($(LINGMO_TOOLCHAIN_USES_GLIBC),y)
 ASTERISK_CONF_OPTS += --with-execinfo
 else
 ASTERISK_CONF_OPTS += --without-execinfo
 endif
 
-ifeq ($(BR2_PACKAGE_LIBGSM),y)
+ifeq ($(LINGMO_PACKAGE_LIBGSM),y)
 ASTERISK_DEPENDENCIES += libgsm
 ASTERISK_CONF_OPTS += --with-gsm
 else
 ASTERISK_CONF_OPTS += --without-gsm
 endif
 
-ifeq ($(BR2_PACKAGE_ALSA_LIB),y)
+ifeq ($(LINGMO_PACKAGE_ALSA_LIB),y)
 ASTERISK_DEPENDENCIES += alsa-lib
 ASTERISK_CONF_OPTS += --with-asound
 else
 ASTERISK_CONF_OPTS += --without-asound
 endif
 
-ifeq ($(BR2_PACKAGE_BLUEZ5_UTILS),y)
+ifeq ($(LINGMO_PACKAGE_BLUEZ5_UTILS),y)
 ASTERISK_DEPENDENCIES += bluez5_utils
 ASTERISK_CONF_OPTS += --with-bluetooth
 else
 ASTERISK_CONF_OPTS += --without-bluetooth
 endif
 
-ifeq ($(BR2_PACKAGE_LIBICAL),y)
+ifeq ($(LINGMO_PACKAGE_LIBICAL),y)
 ASTERISK_DEPENDENCIES += libical
 ASTERISK_CONF_OPTS += --with-ical
 else
 ASTERISK_CONF_OPTS += --without-ical
 endif
 
-ifeq ($(BR2_PACKAGE_OPENLDAP),y)
+ifeq ($(LINGMO_PACKAGE_OPENLDAP),y)
 ASTERISK_DEPENDENCIES += openldap
 ASTERISK_CONF_OPTS += --with-ldap
 else
 ASTERISK_CONF_OPTS += --without-ldap
 endif
 
-ifeq ($(BR2_PACKAGE_NEON),y)
+ifeq ($(LINGMO_PACKAGE_NEON),y)
 ASTERISK_DEPENDENCIES += neon
 ASTERISK_CONF_OPTS += --with-neon
 ASTERISK_CONF_ENV += \
@@ -163,53 +163,53 @@ else
 ASTERISK_CONF_OPTS += --without-neon
 endif
 
-ifeq ($(BR2_PACKAGE_NETSNMP),y)
+ifeq ($(LINGMO_PACKAGE_NETSNMP),y)
 ASTERISK_DEPENDENCIES += netsnmp
 ASTERISK_CONF_OPTS += --with-netsnmp=$(STAGING_DIR)/usr
 else
 ASTERISK_CONF_OPTS += --without-netsnmp
 endif
 
-ifeq ($(BR2_PACKAGE_LIBOGG),y)
+ifeq ($(LINGMO_PACKAGE_LIBOGG),y)
 ASTERISK_DEPENDENCIES += libogg
 ASTERISK_CONF_OPTS += --with-ogg
 else
 ASTERISK_CONF_OPTS += --without-ogg
 endif
 
-ifeq ($(BR2_PACKAGE_OPUS),y)
+ifeq ($(LINGMO_PACKAGE_OPUS),y)
 ASTERISK_DEPENDENCIES += opus
 ASTERISK_CONF_OPTS += --with-opus
 else
 ASTERISK_CONF_OPTS += --without-opus
 endif
 
-ifeq ($(BR2_PACKAGE_PORTAUDIO),y)
+ifeq ($(LINGMO_PACKAGE_PORTAUDIO),y)
 ASTERISK_DEPENDENCIES += portaudio
 ASTERISK_CONF_OPTS += --with-portaudio
 else
 ASTERISK_CONF_OPTS += --without-portaudio
 endif
 
-ifeq ($(BR2_PACKAGE_FREERADIUS_CLIENT),y)
+ifeq ($(LINGMO_PACKAGE_FREERADIUS_CLIENT),y)
 ASTERISK_DEPENDENCIES += freeradius-client
 ASTERISK_CONF_OPTS += --with-radius
 else
 ASTERISK_CONF_OPTS += --without-radius
 endif
 
-ifeq ($(BR2_PACKAGE_DAHDI_LINUX)$(BR2_PACKAGE_DAHDI_TOOLS),yy)
+ifeq ($(LINGMO_PACKAGE_DAHDI_LINUX)$(LINGMO_PACKAGE_DAHDI_TOOLS),yy)
 ASTERISK_DEPENDENCIES += dahdi-linux dahdi-tools
 ASTERISK_CONF_OPTS += --with-dahdi --with-tonezone
 
-ifeq ($(BR2_PACKAGE_LIBPRI),y)
+ifeq ($(LINGMO_PACKAGE_LIBPRI),y)
 ASTERISK_DEPENDENCIES += libpri
 ASTERISK_CONF_OPTS += --with-pri
 else
 ASTERISK_CONF_OPTS += --without-pri
 endif # PRI
 
-ifeq ($(BR2_PACKAGE_LIBSS7),y)
+ifeq ($(LINGMO_PACKAGE_LIBSS7),y)
 ASTERISK_DEPENDENCIES += libss7
 ASTERISK_CONF_OPTS += --with-ss7
 else
@@ -222,14 +222,14 @@ ASTERISK_CONF_OPTS += \
 	--without-pri --without-ss7
 endif # DAHDI
 
-ifeq ($(BR2_PACKAGE_OPENSSL),y)
+ifeq ($(LINGMO_PACKAGE_OPENSSL),y)
 ASTERISK_DEPENDENCIES += openssl
 ASTERISK_CONF_OPTS += --with-ssl
 else
 ASTERISK_CONF_OPTS += --without-ssl
 endif
 
-ifeq ($(BR2_PACKAGE_SPEEX)$(BR2_PACKAGE_SPEEXDSP),yy)
+ifeq ($(LINGMO_PACKAGE_SPEEX)$(LINGMO_PACKAGE_SPEEXDSP),yy)
 ASTERISK_DEPENDENCIES += speex
 ASTERISK_CONF_OPTS += --with-speex --with-speexdsp
 else
@@ -237,21 +237,21 @@ ASTERISK_CONF_OPTS += --without-speex --without-speexdsp
 endif
 
 # asterisk needs an openssl-enabled libsrtp
-ifeq ($(BR2_PACKAGE_LIBSRTP)$(BR2_PACKAGE_OPENSSL),yy)
+ifeq ($(LINGMO_PACKAGE_LIBSRTP)$(LINGMO_PACKAGE_OPENSSL),yy)
 ASTERISK_DEPENDENCIES += libsrtp
 ASTERISK_CONF_OPTS += --with-srtp
 else
 ASTERISK_CONF_OPTS += --without-srtp
 endif
 
-ifeq ($(BR2_PACKAGE_LIBVORBIS),y)
+ifeq ($(LINGMO_PACKAGE_LIBVORBIS),y)
 ASTERISK_DEPENDENCIES += libvorbis
 ASTERISK_CONF_OPTS += --with-vorbis
 else
 ASTERISK_CONF_OPTS += --without-vorbis
 endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
+ifeq ($(LINGMO_PACKAGE_ZLIB),y)
 ASTERISK_DEPENDENCIES += zlib
 ASTERISK_CONF_OPTS += --with-z
 else
@@ -267,7 +267,7 @@ ASTERISK_DIRS = \
 ASTERISK_MAKE_OPTS = $(ASTERISK_DIRS)
 
 # Uses __atomic_fetch_add_4
-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_LIBATOMIC),y)
 ASTERISK_MAKE_OPTS += ASTLDFLAGS="-latomic"
 endif
 
@@ -276,7 +276,7 @@ ASTERISK_MAKE_OPTS += OPTIMIZE=""
 
 ASTERISK_CFLAGS = $(TARGET_CFLAGS)
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_93847),y)
+ifeq ($(LINGMO_TOOLCHAIN_HAS_GCC_BUG_93847),y)
 ASTERISK_CFLAGS += -O0
 endif
 

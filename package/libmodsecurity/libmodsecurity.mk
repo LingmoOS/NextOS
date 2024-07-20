@@ -25,28 +25,28 @@ LIBMODSECURITY_CONF_OPTS = \
 	--without-lua \
 	--without-yajl
 
-ifeq ($(BR2_PACKAGE_LIBXML2),y)
+ifeq ($(LINGMO_PACKAGE_LIBXML2),y)
 LIBMODSECURITY_DEPENDENCIES += libxml2
 LIBMODSECURITY_CONF_OPTS += --with-libxml="$(STAGING_DIR)/usr/bin/xml2-config"
 else
 LIBMODSECURITY_CONF_OPTS += --without-libxml
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCURL),y)
+ifeq ($(LINGMO_PACKAGE_LIBCURL),y)
 LIBMODSECURITY_DEPENDENCIES += libcurl
 LIBMODSECURITY_CONF_OPTS += --with-curl="$(STAGING_DIR)/usr/bin/curl-config"
 else
 LIBMODSECURITY_CONF_OPTS += --without-curl
 endif
 
-ifeq ($(BR2_PACKAGE_GEOIP),y)
+ifeq ($(LINGMO_PACKAGE_GEOIP),y)
 LIBMODSECURITY_DEPENDENCIES += geoip
 LIBMODSECURITY_CONF_OPTS += --with-geoip
 else
 LIBMODSECURITY_CONF_OPTS += --without-geoip
 endif
 
-ifeq ($(BR2_PACKAGE_LIBMAXMINDDB),y)
+ifeq ($(LINGMO_PACKAGE_LIBMAXMINDDB),y)
 LIBMODSECURITY_DEPENDENCIES += libmaxminddb
 LIBMODSECURITY_CONF_OPTS += --with-maxmind
 else
@@ -57,7 +57,7 @@ LIBMODSECURITY_CXXFLAGS = $(TARGET_CXXFLAGS)
 
 # m68k_cf can't use -fPIC that libmodsecurity forces to use, so we need
 # to disable it to avoid a build failure.
-ifeq ($(BR2_m68k_cf),y)
+ifeq ($(LINGMO_m68k_cf),y)
 LIBMODSECURITY_CXXFLAGS += -fno-PIC
 endif
 

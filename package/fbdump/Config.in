@@ -1,4 +1,4 @@
-config BR2_PACKAGE_FBDUMP
+config LINGMO_PACKAGE_FBDUMP
 	bool "fbdump (Framebuffer Capture Tool)"
 	help
 	  fbdump is a simple tool to capture snapshots from the Linux

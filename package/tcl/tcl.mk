@@ -35,21 +35,21 @@ HOST_TCL_PRE_CONFIGURE_HOOKS += HOST_TCL_REMOVE_PACKAGES
 # We remove the bundled sqlite as we prefer to not use bundled stuff at all.
 define TCL_REMOVE_PACKAGES
 	rm -fr $(@D)/pkgs/sqlite3* \
-		$(if $(BR2_PACKAGE_MARIADB),,$(@D)/pkgs/tdbcmysql*) \
+		$(if $(LINGMO_PACKAGE_MARIADB),,$(@D)/pkgs/tdbcmysql*) \
 		$(@D)/pkgs/tdbcodbc* \
-		$(if $(BR2_PACKAGE_POSTGRESQL),,$(@D)/pkgs/tdbcpostgres*) \
-		$(if $(BR2_PACKAGE_SQLITE),,$(@D)/pkgs/tdbcsqlite3*)
+		$(if $(LINGMO_PACKAGE_POSTGRESQL),,$(@D)/pkgs/tdbcpostgres*) \
+		$(if $(LINGMO_PACKAGE_SQLITE),,$(@D)/pkgs/tdbcsqlite3*)
 endef
 TCL_PRE_CONFIGURE_HOOKS += TCL_REMOVE_PACKAGES
 
-ifeq ($(BR2_PACKAGE_TCL_DEL_ENCODINGS),y)
+ifeq ($(LINGMO_PACKAGE_TCL_DEL_ENCODINGS),y)
 define TCL_REMOVE_ENCODINGS
 	rm -rf $(TARGET_DIR)/usr/lib/tcl$(TCL_VERSION_MAJOR)/encoding/*
 endef
 TCL_POST_INSTALL_TARGET_HOOKS += TCL_REMOVE_ENCODINGS
 endif
 
-ifeq ($(BR2_PACKAGE_TCL_SHLIB_ONLY),y)
+ifeq ($(LINGMO_PACKAGE_TCL_SHLIB_ONLY),y)
 define TCL_REMOVE_TCLSH
 	rm -f $(TARGET_DIR)/usr/bin/tclsh$(TCL_VERSION_MAJOR)
 endef
@@ -73,9 +73,9 @@ define TCL_REMOVE_EXTRA
 endef
 TCL_POST_INSTALL_TARGET_HOOKS += TCL_REMOVE_EXTRA
 
-TCL_DEPENDENCIES = $(if $(BR2_PACKAGE_SQLITE),sqlite) \
-	$(if $(BR2_PACKAGE_MARIADB),mariadb) \
-	$(if $(BR2_PACKAGE_POSTGRESQL),postgresql) \
+TCL_DEPENDENCIES = $(if $(LINGMO_PACKAGE_SQLITE),sqlite) \
+	$(if $(LINGMO_PACKAGE_MARIADB),mariadb) \
+	$(if $(LINGMO_PACKAGE_POSTGRESQL),postgresql) \
 	zlib
 
 $(eval $(autotools-package))

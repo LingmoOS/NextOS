@@ -1,10 +1,10 @@
-config BR2_PACKAGE_LIRC_TOOLS
+config LINGMO_PACKAGE_LIRC_TOOLS
 	bool "lirc-tools"
-	depends on BR2_USE_MMU # fork()
-	depends on BR2_TOOLCHAIN_HAS_THREADS
-	depends on BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_USE_MMU # fork()
+	depends on LINGMO_TOOLCHAIN_HAS_THREADS
+	depends on LINGMO_INSTALL_LIBSTDCPP
 	# dlopen()
-	depends on !BR2_STATIC_LIBS
+	depends on !LINGMO_STATIC_LIBS
 	help
 	  LIRC is a package that supports receiving and sending IR
 	  signals of the most common IR remote controls. It contains a
@@ -19,6 +19,6 @@ config BR2_PACKAGE_LIRC_TOOLS
 	  http://www.lirc.org/
 
 comment "lirc-tools needs a toolchain w/ threads, dynamic library, C++"
-	depends on BR2_USE_MMU
-	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS \
-		|| !BR2_INSTALL_LIBSTDCPP
+	depends on LINGMO_USE_MMU
+	depends on !LINGMO_TOOLCHAIN_HAS_THREADS || LINGMO_STATIC_LIBS \
+		|| !LINGMO_INSTALL_LIBSTDCPP

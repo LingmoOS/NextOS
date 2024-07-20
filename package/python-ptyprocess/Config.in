@@ -1,4 +1,4 @@
-config BR2_PACKAGE_PYTHON_PTYPROCESS
+config LINGMO_PACKAGE_PYTHON_PTYPROCESS
 	bool "python-ptyprocess"
 	help
 	  Launch a subprocess in a pseudo terminal (pty), and interact

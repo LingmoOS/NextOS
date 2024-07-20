@@ -13,15 +13,15 @@ IMX_CODEC_LICENSE = NXP Semiconductor Software License Agreement, BSD-3-Clause (
 IMX_CODEC_LICENSE_FILES = EULA COPYING
 IMX_CODEC_REDISTRIBUTE = NO
 
-ifeq ($(BR2_aarch64),y)
+ifeq ($(LINGMO_aarch64),y)
 IMX_CODEC_CONF_OPTS += --enable-armv8
 endif
 
-ifeq ($(BR2_ARM_EABIHF),y)
+ifeq ($(LINGMO_ARM_EABIHF),y)
 IMX_CODEC_CONF_OPTS += --enable-fhw
 endif
 
-ifeq ($(BR2_PACKAGE_IMX_VPU),y)
+ifeq ($(LINGMO_PACKAGE_IMX_VPU),y)
 IMX_CODEC_CONF_OPTS += --enable-vpu
 endif
 

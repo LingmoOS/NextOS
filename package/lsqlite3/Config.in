@@ -1,6 +1,6 @@
-config BR2_PACKAGE_LSQLITE3
+config LINGMO_PACKAGE_LSQLITE3
 	bool "lsqlite3"
-	select BR2_PACKAGE_SQLITE
+	select LINGMO_PACKAGE_SQLITE
 	help
 	  A binding for Lua to the SQLite3 database library.
 
