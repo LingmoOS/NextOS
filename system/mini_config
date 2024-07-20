@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# NextOS -gd808c471-dirty Configuration
+# NextOS -gdc9d7136 Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -222,9 +222,7 @@ BR2_TOOLCHAIN_HAS_LIBQUADMATH=y
 #
 # Bare metal toolchain
 #
-BR2_TOOLCHAIN_BARE_METAL_BUILDROOT=y
-BR2_TOOLCHAIN_BARE_METAL_BUILDROOT_ARCH=""
-BR2_PACKAGE_NEWLIB_BARE_METAL=y
+# BR2_TOOLCHAIN_BARE_METAL_BUILDROOT is not set
 
 #
 # Build options
