@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         psabi: [default]
@@ -23,7 +23,7 @@ jobs:
         remove-android: 'true'
 
     - uses: actions/checkout@v3
-    
+
   ubuntu:
     name: Build base sysytem
     runs-on: ubuntu-latest
