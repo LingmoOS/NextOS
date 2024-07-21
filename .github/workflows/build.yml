@@ -39,7 +39,7 @@ jobs:
     - name: Initializing the kernel
       run: |
         cd kernel/
-        tar -xvf kernel.tar.xz ./
+        tar -zcvf kernel.tar.xz ./
         cd ..
     - name: Build System
       run: make
