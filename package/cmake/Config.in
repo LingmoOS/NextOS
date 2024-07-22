@@ -9,7 +9,7 @@ config LINGMO_PACKAGE_CMAKE_ARCH_SUPPORTS
 		LINGMO_s390x     || LINGMO_riscv
 
 config LINGMO_PACKAGE_CMAKE
-	bool
+	bool "cmake"
 
 config LINGMO_PACKAGE_CMAKE_CTEST
 	bool "ctest"

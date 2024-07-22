@@ -2637,7 +2637,6 @@ comment "-------------------------------------------------------"
 	source "package/opkg-utils/Config.in"
 	source "package/rpm/Config.in"
 	source "package/dnf/Config.in"
-	source "package/yum/Config.in"
 endmenu
 
 menu "Real-Time"
