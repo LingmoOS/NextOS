@@ -8,6 +8,14 @@
 
 The next generation of Lingmo OS, not based on any existing distribution, The development code is next (Helium).
 
+# Build Premise
+Your computer meets at least the following criteria：
+
+ - At least 30 GB of disk space
+ - Multi-core CPU
+ - Memory greater than 4GB
+ - Debian GNU/Linix 12 Bookworm version or later
+
 # LICENSE
 
 GNU General Public License v2.0 or later
