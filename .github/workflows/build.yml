@@ -39,7 +39,7 @@ jobs:
     - name: Initializing the kernel
       run: |
         cd kernel/
-        tar -zcvf kernel.tar.xz ./
+        wget https://packages.lingmo.org/lingmo/kernel/kernel.tar.xz
         cd ..
     - name: Build System
       run: make
