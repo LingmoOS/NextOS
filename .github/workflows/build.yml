@@ -41,6 +41,11 @@ jobs:
         cd kernel/
         wget https://packages.lingmo.org/lingmo/kernel/kernel.tar.xz
         cd ..
+    - name: Initializing the package manager
+      run: |
+        cd core/
+        tar -cvJf pacman.tar.xz pacman/
+        cd ..
     - name: Build System
       run: make
     - name: Done Build
