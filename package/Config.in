@@ -2636,7 +2636,7 @@ comment "-------------------------------------------------------"
 	source "package/opkg/Config.in"
 	source "package/opkg-utils/Config.in"
 	source "package/rpm/Config.in"
-	source "package/pacman/Config.in"
+	source "package/lpm/Config.in"
 endmenu
 
 menu "Real-Time"
