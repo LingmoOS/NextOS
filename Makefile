@@ -760,7 +760,7 @@ endif
 		{ echo "ERROR: we shouldn't have a /etc/ld.so.conf.d directory"; exit 1; } || true
 	mkdir -p $(TARGET_DIR)/etc
 	( \
-		echo "PRETTY_NAME=Lingmo NextOS (non-release)"; \
+		echo "PRETTY_NAME="Lingmo Next OS""; \
 		echo "NAME=Lingmo OS"; \
 		echo "RELEASE=NON-RELEASE"; \
 		echo "VERSION_ID=3.x"; \
@@ -774,6 +774,11 @@ endif
 		echo "COMMUNITY_URL=https://bbs.lingmo.org/"; \
 	) >  $(TARGET_DIR)/usr/lib/os-release
 	ln -sf ../usr/lib/os-release $(TARGET_DIR)/etc
+# mkdir -v $(TARGET_DIR)/var/lib/pacman/
+# mkdir -v $(TARGET_DIR)/var/lib/pacman/local/
+# mkdir -v $(TARGET_DIR)/var/lib/lpm/local/
+	cp -rv $(TOPDIR)/init/data_base/* $(TARGET_DIR)/var/lib/pacman/local/
+	cp -rv $(TOPDIR)/init/data_base/* $(TARGET_DIR)/var/lib/lpm/local/
 
 	@$(call MESSAGE,"Sanitizing RPATH in target tree")
 	PARALLEL_JOBS=$(PARALLEL_JOBS) \

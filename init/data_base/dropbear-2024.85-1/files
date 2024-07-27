@@ -1,6 +1,8 @@
 %FILES%
 etc/
-etc/dropbear/
+var/lib/
+var/
+var/lib/lpm/
 usr/
 usr/bin/
 usr/bin/dbclient

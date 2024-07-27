@@ -35,14 +35,17 @@ etc/libvirt/nwfilter/qemu-announce-self-rarp.xml
 etc/libvirt/nwfilter/qemu-announce-self.xml
 etc/libvirt/qemu-lockd.conf
 etc/libvirt/qemu.conf
-etc/libvirt/qemu/
-etc/libvirt/qemu/autostart/
-etc/libvirt/qemu/networks/
-etc/libvirt/qemu/networks/autostart/
-etc/libvirt/qemu/networks/default.xml
-etc/libvirt/secrets/
-etc/libvirt/storage/
-etc/libvirt/storage/autostart/
+var/lib/libvirt/
+var/lib/
+var/
+var/lib/libvirt/qemu/
+var/lib/libvirt/qemu/autostart/
+var/lib/libvirt/qemu/networks/
+var/lib/libvirt/qemu/networks/autostart/
+var/lib/libvirt/qemu/networks/default.xml
+var/lib/libvirt/secrets/
+var/lib/libvirt/storage/
+var/lib/libvirt/storage/autostart/
 etc/libvirt/virt-login-shell.conf
 etc/libvirt/virtchd.conf
 etc/libvirt/virtinterfaced.conf
@@ -910,11 +913,8 @@ usr/share/polkit-1/actions/org.libvirt.api.policy
 usr/share/polkit-1/actions/org.libvirt.unix.policy
 usr/share/polkit-1/rules.d/
 usr/share/polkit-1/rules.d/50-libvirt.rules
-var/
 var/cache/
 var/cache/libvirt/
-var/lib/
-var/lib/libvirt/
 var/lib/libvirt/boot/
 var/lib/libvirt/ch/
 var/lib/libvirt/dnsmasq/
@@ -966,7 +966,7 @@ etc/libvirt/nwfilter/qemu-announce-self.xml	23ee6fd207d0c242b29b10b81ee77fbf
 etc/libvirt/network.conf	3bb3f3f37ae31ca135aa8a6645670eb5
 etc/libvirt/qemu.conf	d9276981d378af4dca602f2b6474b8c8
 etc/libvirt/qemu-lockd.conf	1f8c81f893744cb62272e77d039af02e
-etc/libvirt/qemu/networks/default.xml	193f2627a5d87eb07216a81d42ec5c00
+var/lib/libvirt/qemu/networks/default.xml	193f2627a5d87eb07216a81d42ec5c00
 etc/libvirt/virtchd.conf	5952e4537f42e5f9f44c4ba9a9080bd9
 etc/libvirt/virtinterfaced.conf	d9a53705aaae0da2d0c5b1d16d787f03
 etc/libvirt/virtlockd.conf	3a52ee1f0c4736bc37ebc7004ce8265b

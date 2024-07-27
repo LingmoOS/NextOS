@@ -1,5 +1,5 @@
 deps_config := \
-	/home/lingmo/project/NextOS/output/.br2-external.in.menus \
+	/home/lingmo/build/NextOS/output/.br2-external.in.menus \
 	Config.in.legacy \
 	package/zstd/Config.in.host \
 	package/zip/Config.in.host \
@@ -349,7 +349,7 @@ deps_config := \
 	package/apparmor/Config.in \
 	package/xenomai/Config.in \
 	package/rtai/Config.in \
-	package/dnf/Config.in \
+	package/lpm/Config.in \
 	package/rpm/Config.in \
 	package/opkg-utils/Config.in \
 	package/opkg/Config.in \
@@ -1272,7 +1272,7 @@ deps_config := \
 	package/lcms2/Config.in \
 	package/kmsxx/Config.in \
 	package/jpeg-turbo/Config.in.options \
-	/home/lingmo/project/NextOS/output/.br2-external.in.jpeg \
+	/home/lingmo/build/NextOS/output/.br2-external.in.jpeg \
 	package/jpeg/Config.in \
 	package/jbig2dec/Config.in \
 	package/jasper/Config.in \
@@ -1355,7 +1355,7 @@ deps_config := \
 	package/tinydtls/Config.in \
 	package/rhash/Config.in \
 	package/pkcs11-helper/Config.in \
-	/home/lingmo/project/NextOS/output/.br2-external.in.openssl \
+	/home/lingmo/build/NextOS/output/.br2-external.in.openssl \
 	package/libressl/Config.in \
 	package/libopenssl/Config.in \
 	package/openssl/Config.in \
@@ -3173,11 +3173,11 @@ deps_config := \
 	package/busybox/Config.in \
 	package/Config.in \
 	package/linux-tools/Config.in \
-	/home/lingmo/project/NextOS/output/.br2-external.in.linux \
+	/home/lingmo/build/NextOS/output/.br2-external.in.linux \
 	linux/Config.ext.in \
 	linux/Config.in \
-	/home/lingmo/project/NextOS/output/.br2-external.in.init \
-	/home/lingmo/project/NextOS/output/.br2-external.in.skeleton \
+	/home/lingmo/build/NextOS/output/.br2-external.in.init \
+	/home/lingmo/build/NextOS/output/.br2-external.in.skeleton \
 	system/Config.in \
 	package/newlib-bare-metal/Config.in \
 	toolchain/toolchain-bare-metal-buildroot/Config.in \
@@ -3194,7 +3194,7 @@ deps_config := \
 	toolchain/toolchain-external/toolchain-external-arm-aarch64-be/Config.in.options \
 	toolchain/toolchain-external/toolchain-external-linaro-aarch64/Config.in.options \
 	toolchain/toolchain-external/toolchain-external-arm-aarch64/Config.in.options \
-	/home/lingmo/project/NextOS/output/.br2-external.in.toolchains \
+	/home/lingmo/build/NextOS/output/.br2-external.in.toolchains \
 	toolchain/toolchain-external/toolchain-external-custom/Config.in \
 	toolchain/toolchain-external/toolchain-external-bootlin/Config.in \
 	toolchain/toolchain-external/toolchain-external-codesourcery-niosII/Config.in \
@@ -3233,29 +3233,29 @@ deps_config := \
 	arch/Config.in.arm \
 	arch/Config.in.arc \
 	arch/Config.in \
-	/home/lingmo/project/NextOS/output/.br2-external.in.paths \
+	/home/lingmo/build/NextOS/output/.br2-external.in.paths \
 	Config.in
 
-/home/lingmo/project/NextOS/output/build/buildroot-config/auto.conf: \
+/home/lingmo/build/NextOS/output/build/buildroot-config/auto.conf: \
 	$(deps_config)
 
 ifneq "$(SKIP_LEGACY)" ""
-/home/lingmo/project/NextOS/output/build/buildroot-config/auto.conf: FORCE
+/home/lingmo/build/NextOS/output/build/buildroot-config/auto.conf: FORCE
 endif
 ifneq "$(LINGMO_DEFCONFIG)" ""
-/home/lingmo/project/NextOS/output/build/buildroot-config/auto.conf: FORCE
+/home/lingmo/build/NextOS/output/build/buildroot-config/auto.conf: FORCE
 endif
 ifneq "$(HOST_GCC_VERSION)" "11"
-/home/lingmo/project/NextOS/output/build/buildroot-config/auto.conf: FORCE
+/home/lingmo/build/NextOS/output/build/buildroot-config/auto.conf: FORCE
 endif
-ifneq "$(BASE_DIR)" "/home/lingmo/project/NextOS/output"
-/home/lingmo/project/NextOS/output/build/buildroot-config/auto.conf: FORCE
+ifneq "$(BASE_DIR)" "/home/lingmo/build/NextOS/output"
+/home/lingmo/build/NextOS/output/build/buildroot-config/auto.conf: FORCE
 endif
 ifneq "$(HOSTARCH)" "x86_64"
-/home/lingmo/project/NextOS/output/build/buildroot-config/auto.conf: FORCE
+/home/lingmo/build/NextOS/output/build/buildroot-config/auto.conf: FORCE
 endif
-ifneq "$(LINGMO_VERSION_FULL)" "-gf7bffb9cf"
-/home/lingmo/project/NextOS/output/build/buildroot-config/auto.conf: FORCE
+ifneq "$(LINGMO_VERSION_FULL)" "-g118ef4e11-dirty"
+/home/lingmo/build/NextOS/output/build/buildroot-config/auto.conf: FORCE
 endif
 
 $(deps_config): ;
